@@ -56,10 +56,13 @@
 ├── 🟢 Memory Engine
 ├── 🟢 Learning Foundation
 ├── 🟢 Next Best Action Engine
-├── 🟡 Combat Intelligence Report
-├── 🔵 Advisor Performance Engine
+├── 🟢 Combat Intelligence Report
+├── 🟢 Advisor Performance Engine
+├── 🟢 Coaching Insight Bridge
+├── 🟢 Manager Alert Engine
+├── 🟢 Team Intelligence Foundation
+├── 🟢 Master Intelligence Orchestrator
 ├── 🔵 Learning Engine v2
-├── 🔵 Coaching Engine
 └── 🔵 Conversation Analytics Engine
 
 
@@ -85,14 +88,19 @@
 
 🟡 05 RELATIONSHIP INTELLIGENCE ENGINE
 │
+├── 🟢 Relationship Timeline Engine
+├── 🟢 Next Relationship Action Engine
+├── 🟢 Relationship Opportunity Engine
+├── 🟢 Life Event Engine
+├── 🟢 Referral Opportunity Engine
+├── 🟢 Relationship Health Engine
+├── 🟢 Client Engagement Engine
+├── 🟢 Relationship Review Engine
+├── 🟢 Relationship Master Orchestrator
 ├── 🔵 Birthday Engine
 ├── 🔵 Renewal Engine
 ├── 🔵 Payment Reminder Engine
-├── 🔵 Policy Review Engine
-├── 🔵 Life Event Engine
-├── 🔵 Referral Opportunity Engine
-├── 🔵 Relationship Score Engine
-└── 🔵 Relationship Timeline Engine
+└── 🔵 Relationship Intelligence Bridge
 
 
 🔵 06 LEARNING INTELLIGENCE ENGINE
