@@ -1,0 +1,39 @@
+{
+  "prospectId": "MARIA_ACCEPTANCE_001",
+  "personality": "UNKNOWN",
+  "knownMotivators": [],
+  "conversationHistory": [
+    {
+      "date": "2026-06-02T18:38:14.715Z",
+      "channel": "whatsapp",
+      "direction": "OUTBOUND",
+      "message": "Hola María, quería abrir una conversación breve."
+    },
+    {
+      "date": "2026-06-02T18:38:14.744Z",
+      "channel": "whatsapp",
+      "direction": "INBOUND",
+      "message": "No tengo dinero ahorita y además ya tengo seguro."
+    }
+  ],
+  "objectionHistory": [
+    {
+      "date": "2026-06-02T18:38:14.749Z",
+      "objection": "No tengo dinero ahorita y además ya tengo seguro.",
+      "type": "FINANCIAL",
+      "intent": "REAL_BUDGET_CONSTRAINT"
+    }
+  ],
+  "actionHistory": [
+    {
+      "date": "2026-06-02T18:38:14.753Z",
+      "action": "OBJECTION_RECORDED",
+      "outcome": "NEEDS_RESPONSE"
+    }
+  ],
+  "lastContactDate": "2026-06-02T18:38:14.753Z",
+  "lastAction": "OBJECTION_RECORDED",
+  "lastOutcome": "NEEDS_RESPONSE",
+  "createdAt": "2026-06-02T18:38:14.734Z",
+  "updatedAt": "2026-06-02T18:38:14.755Z"
+}
