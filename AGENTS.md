@@ -96,6 +96,80 @@ Actionable Output
 
 ---
 
+### Universal Core / Rule Pack Boundary
+
+Forge Core is universal.
+
+Rule Packs interpret facts.
+
+Production Events are facts.
+
+Forge Core must never hardcode carrier-specific, channel-specific, contest-specific, compensation-specific, career-specific, promotion-specific, KPI-specific, activity-specific or recognition-specific logic.
+
+Canonical hierarchy:
+
+Carrier
+↓
+Distribution Channel
+↓
+Rule Pack
+↓
+Rules
+
+SMNYL Agency 2026 is the first validated Rule Pack.
+
+SMNYL Agency 2026 is not Forge Core.
+
+---
+
+### Capture Once
+
+Forge should be the primary operational source.
+
+Do not ask a user to capture the same data twice.
+
+If Forge can infer, import, extract or derive a reliable data point, do not request duplicate manual capture.
+
+Excel, PDFs, institutional formats and reports are derived views or evidence, not competing systems of record.
+
+---
+
+### Forecast Truth Boundary
+
+Forecasts are not facts.
+
+Predicted income is not paid income.
+
+Projected qualification is not confirmed qualification.
+
+Expected production is not production.
+
+Forecasts must remain clearly labeled as suggestions, estimates or scenarios.
+
+---
+
+### Economic Evidence Rule
+
+Economic outputs require evidence, rules and confidence.
+
+Do not show income potential, expected income or income at risk unless Forge can identify the supporting facts, Rule Pack context, RuleSnapshot, period context and confidence level.
+
+Unknown values must remain unknown.
+
+---
+
+### Metric Ownership Rule
+
+No metric without an owner.
+
+One metric has one conceptual owner.
+
+Other domains consume official metric outputs.
+
+They do not recalculate or create duplicate truth.
+
+---
+
 ## Orchestrator Rule
 
 Orchestrators consume engines.

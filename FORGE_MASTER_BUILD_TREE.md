@@ -23,6 +23,28 @@
 └── 🔵 Mick / Behavior Intelligence
 ```
 
+## Architecture Phase Status
+
+```text
+🟢 Foundation Phase
+├── 🟢 Shared Commercial Model - FOUNDATION LOCK CLOSED
+├── 🟢 Identity & Attribution - FOUNDATION LOCK CLOSED
+├── 🟢 Evidence & Provenance - FOUNDATION LOCK CLOSED
+├── 🟢 Periods & Operational Clocks - FOUNDATION LOCK CLOSED
+├── 🟢 Metrics Ownership - FOUNDATION LOCK CLOSED
+├── 🟢 Rule Snapshot - FOUNDATION LOCK CLOSED
+├── 🟢 Commercial Events Taxonomy - FOUNDATION LOCK CLOSED
+└── 🟢 Foundation Lock Review - CLOSED
+
+🟢 Constitution v1.1 - RATIFIED
+
+🔵 Intelligence Domains Phase - OPEN
+├── 🔵 Advisor Experience - APPROVED / PLANNED / NOT IMPLEMENTED
+├── 🔵 Forecast Intelligence - APPROVED / PLANNED / NOT IMPLEMENTED
+├── 🔵 Business Planning Intelligence - APPROVED / PLANNED / NOT IMPLEMENTED
+└── 🔵 Rule Packs - LOCKED BOUNDARY / SMNYL Agency 2026 first validated Rule Pack
+```
+
 ```text
 🟢 01 REVENUE GENERATION ENGINE
 │
@@ -152,7 +174,7 @@
 ├── 🔵 Precontract Lifecycle Engine
 ├── 🔵 Mick / Behavior Intelligence
 ├── 🟢 Compensation Intelligence Architecture
-│   ├── 🔵 Shared Commercial Model
+│   ├── 🟢 Shared Commercial Model - FOUNDATION LOCK CLOSED
 │   ├── 🔵 Career Intelligence Foundation
 │   ├── 🔵 Production Events Foundation
 │   ├── 🔵 Contest Intelligence Foundation
@@ -160,6 +182,8 @@
 │   ├── 🔵 Conservation Intelligence Discovery
 │   ├── 🔵 Economic Motivation Foundation
 │   └── 🔵 Manager Compensation Intelligence Foundation
+├── 🔵 Forecast Intelligence - APPROVED / PLANNED / NOT IMPLEMENTED
+├── 🔵 Business Planning Intelligence - APPROVED / PLANNED / NOT IMPLEMENTED
 ├── 🔵 Coaching Suggestions
 ├── 🔵 Activity Alerts
 └── 🔵 Manager Notifications
