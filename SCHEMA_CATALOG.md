@@ -219,6 +219,236 @@ Notes:
 
 - This is decision support, not an automatic hiring decision.
 - Assessment factors are based on AGENTS hard factors and vital factors.
+- `COACH` means the candidate has potential but needs manager intervention before advancing.
+- Current Candidate Assessment scores are foundation heuristics.
+- Assessment weights should move to Organization Profile or Office Rules Config in a future configurable version.
+
+### `schemas/recruit-identity.schema.json`
+
+Durable person identity across recruitment attempts.
+
+Required:
+
+- `recruitIdentityId`
+- `displayName`
+- `identityStatus`
+
+Used by:
+
+- Recruitment Lifecycle Domain
+- Candidate duplicate detection
+- Reentry review
+- Cross-office and cross-manager history
+
+Notes:
+
+- `RecruitIdentity` is the permanent person-level identity.
+- `candidateId` is not permanent identity.
+
+### `schemas/recruitment-application.schema.json`
+
+One attempt for a recruit identity to enter the advisor career path.
+
+Required:
+
+- `applicationId`
+- `recruitIdentityId`
+- `candidateId`
+- `applicationStatus`
+- `createdAt`
+
+Used by:
+
+- Candidate Intelligence
+- Interview Intelligence
+- Precontract Intelligence
+- Advisor conversion tracking
+
+Notes:
+
+- Reentries should usually create a new `applicationId`.
+- Current state should be preserved with critical event history.
+
+### `schemas/interview.schema.json`
+
+Interview contract for Recruitment Lifecycle.
+
+Required:
+
+- `interviewId`
+- `applicationId`
+- `phase`
+- `scheduledAt`
+- `recommendation`
+
+Used by:
+
+- Interview Intelligence
+- Candidate assessment support
+- Recruitment application lifecycle
+
+Notes:
+
+- Interviews belong to applications.
+- No-shows, reschedules, scores, risks and recommendations should persist.
+- Interview recommendation is decision support, not automatic approval.
+
+### `schemas/manager-assignment.schema.json`
+
+Manager ownership assignment for a recruitment application.
+
+Required:
+
+- `managerAssignmentId`
+- `applicationId`
+- `candidateId`
+- `managerId`
+- `assignmentStatus`
+- `startedAt`
+
+Used by:
+
+- Manager Intelligence
+- Recruitment ownership audit
+- Progress attribution
+
+Notes:
+
+- Manager changes are assignments, not overwrites.
+- Historical production and coaching attribution should reference the active assignment at event time.
+
+### `schemas/office-assignment.schema.json`
+
+Office ownership assignment for a recruitment application.
+
+Required:
+
+- `officeAssignmentId`
+- `applicationId`
+- `candidateId`
+- `officeId`
+- `assignmentStatus`
+- `startedAt`
+
+Used by:
+
+- Office transfer audit
+- Office rules config selection
+- Multi-office recruitment lifecycle
+
+Notes:
+
+- Office changes are assignments, not overwrites.
+- Office assignment controls which Office Rules Config applies.
+
+### `schemas/organization-profile.schema.json`
+
+Organization and office context used to select active recruitment rules.
+
+Required:
+
+- `organizationId`
+- `officeId`
+- `managerId`
+- `channel`
+- `country`
+- `currency`
+- `activeRulesConfigId`
+
+Used by:
+
+- Recruitment Lifecycle Domain
+- Office rules selection
+- Manager and office reporting
+
+Notes:
+
+- This profile stores organizational context, not universal thresholds.
+- `activeRulesConfigId` points to the current `office-rules-config` for this office context.
+
+### `schemas/office-rules-config.schema.json`
+
+Configurable office recruitment and precontract rules.
+
+Required:
+
+- `officeRulesConfigId`
+- `organizationId`
+- `officeId`
+- `currency`
+- `effectiveFrom`
+- `precontractRules`
+- `reactivationRules`
+- `contractingCriteria`
+- `scoringWeights`
+
+Used by:
+
+- Precontract lifecycle rule snapshots
+- Recruitment scoring
+- Reactivation governance
+- Advisor conversion readiness
+
+Notes:
+
+- Official window duration, policy minimum, commission minimum, currency, reactivation rules, contracting criteria and scoring weights are configurable.
+- These values must not be treated as global Forge constants.
+- Historical cycles store snapshots of these rules and should not be recalculated under new rules except as separate analysis.
+- `precontractRules.officialWindowDays` is the configurable source for official-window clock calculations.
+
+### `schemas/precontract-cycle.schema.json`
+
+One precontract lifecycle cycle with rule snapshot and progress.
+
+Required:
+
+- `cycleId`
+- `applicationId`
+- `candidateId`
+- `managerId`
+- `officeId`
+- `cycleStatus`
+- `ruleSnapshot`
+
+Used by:
+
+- Precontract Lifecycle Engine
+- Manager development workflows
+- Advisor conversion readiness
+
+Notes:
+
+- `cycleId` represents one precontract cycle.
+- A candidate can have multiple cycles.
+- Each cycle stores the Organization Profile / Office Rules Config snapshot used at the time.
+- Historical cycles should not be recalculated under newer rules except as separate analysis.
+- Key-clock support includes `keyStatus`, `keyActivatedAt`, `officialWindowStartedAt` and `officialWindowEndsAt`.
+- `daysWithActiveKey`, `daysRemainingInOfficialWindow` and `officialWindowProgressPercent` belong under `derivedMetrics`; they are calculated metrics, not manual required fields.
+
+### `schemas/advisor-conversion.schema.json`
+
+Conversion event from recruitment application or precontract cycle into advisor.
+
+Required:
+
+- `advisorConversionId`
+- `applicationId`
+- `recruitIdentityId`
+- `candidateId`
+- `advisorId`
+- `conversionStatus`
+- `convertedAt`
+
+Used by:
+
+- Candidate-to-advisor transition
+- Manager conversion reporting
+- Advisor creation audit
+
+Notes:
+
+- Advisor conversion links recruitment history to the new advisor identity.
+- Conversion must not erase candidate or precontract history.
 
 ### `schemas/precontract.schema.json`
 
@@ -229,8 +459,7 @@ Required:
 - `precontractId`
 - `candidateId`
 - `managerId`
-- `startDate`
-- `deadlineDate`
+- `lifecycle`
 - `progress`
 - `contractReadiness`
 
@@ -242,11 +471,12 @@ Used by:
 
 Notes:
 
-- Business rules from AGENTS are encoded as documented thresholds:
-  - 90 day window
-  - 8 policies minimum
-  - 24000 MXN commissions minimum
+- Precontract is not a fixed 90-day rule.
+- The contract must support informal activity before key activation, key activation date, configurable official window, key expiration, key reactivation, multiple cycles and accumulated history.
+- Days, minimum policy count and minimum commission amount must not be hardcoded in Forge.
+- Those values belong to Organization Profile / Office Rules Config and may be represented as `officeRulesSnapshot` for auditability.
 - Progress values must come from explicit production and commission data.
+- `schemas/precontract-cycle.schema.json` is the more precise lifecycle contract for multiple cycles and rule snapshots.
 
 ## Inconsistencies Detected
 

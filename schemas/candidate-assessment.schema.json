@@ -31,7 +31,7 @@
     },
     "recommendation": {
       "type": "string",
-      "enum": ["ADVANCE", "WATCH", "REJECT", "NEEDS_MORE_DATA"],
+      "enum": ["ADVANCE", "WATCH", "COACH", "REJECT", "NEEDS_MORE_DATA"],
       "description": "Assessment recommendation. This is decision support, not automatic hiring.",
       "examples": ["ADVANCE"]
     },
