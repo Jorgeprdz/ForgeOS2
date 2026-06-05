@@ -42,8 +42,13 @@
 ├── 🔵 Advisor Experience Intelligence - ARCHITECTURE CANDIDATE / NOT IMPLEMENTED
 │   ├── 🔵 PAQ-12 Advisor Experience Intelligence & Productivity - PLANNED / ARCHITECTURE DISCOVERY
 │   ├── 🔵 PAQ-12.1 Advisor Experience Intelligence Architecture - ARCHITECTURE CANDIDATE
+│   ├── 🔵 PAQ-12.x Benvenù Experience Lock - LOCKED / ARCHITECTURE CANDIDATE / NOT IMPLEMENTED
 │   ├── 🔵 Advisor Setup - ARCHITECTURE CANDIDATE
-│   ├── 🔵 Benvenù Experience - ARCHITECTURE CANDIDATE
+│   ├── 🔵 Benvenù Experience - LOCKED / ARCHITECTURE CANDIDATE / NOT IMPLEMENTED
+│   │   ├── 🔵 The Future You Conversation
+│   │   ├── 🔵 Purpose Discovery Experience
+│   │   ├── 🔵 Purpose Snapshot
+│   │   └── ⛔ Implementation - NOT APPROVED
 │   ├── 🔵 Advisor Baseline Snapshot - ARCHITECTURE CANDIDATE
 │   ├── 🔵 Progressive Discovery - ARCHITECTURE CANDIDATE
 │   ├── 🔵 Clippy Engine - ARCHITECTURE CANDIDATE
@@ -432,8 +437,13 @@
 │
 ├── 🔵 PAQ-12 Advisor Experience Intelligence & Productivity - PLANNED / ARCHITECTURE DISCOVERY
 ├── 🔵 PAQ-12.1 Advisor Experience Intelligence Architecture - ARCHITECTURE CANDIDATE
+├── 🔵 PAQ-12.x Benvenù Experience Lock - LOCKED / ARCHITECTURE CANDIDATE / NOT IMPLEMENTED
 ├── 🔵 Advisor Setup - ARCHITECTURE CANDIDATE
-├── 🔵 Benvenù Experience - ARCHITECTURE CANDIDATE
+├── 🔵 Benvenù Experience - LOCKED / ARCHITECTURE CANDIDATE / NOT IMPLEMENTED
+│   ├── 🔵 The Future You Conversation
+│   ├── 🔵 Purpose Discovery Experience
+│   ├── 🔵 Purpose Snapshot
+│   └── ⛔ Implementation - NOT APPROVED
 ├── 🔵 Advisor Baseline Snapshot - ARCHITECTURE CANDIDATE
 ├── 🔵 Progressive Discovery - ARCHITECTURE CANDIDATE
 ├── 🔵 Clippy Engine - ARCHITECTURE CANDIDATE
