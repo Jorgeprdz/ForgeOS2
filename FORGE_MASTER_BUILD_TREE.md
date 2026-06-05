@@ -45,9 +45,13 @@
 │   ├── 🔵 PAQ-12.x Benvenù Experience Lock - LOCKED / ARCHITECTURE CANDIDATE / NOT IMPLEMENTED
 │   ├── 🔵 Advisor Setup - ARCHITECTURE CANDIDATE
 │   ├── 🔵 Benvenù Experience - LOCKED / ARCHITECTURE CANDIDATE / NOT IMPLEMENTED
-│   │   ├── 🔵 The Future You Conversation
-│   │   ├── 🔵 Purpose Discovery Experience
-│   │   ├── 🔵 Purpose Snapshot
+│   │   ├── 🔵 Act 1: Leopard Experience - LOCKED CONCEPT / NOT IMPLEMENTED
+│   │   ├── 🔵 Act 2: First Wow Moment - ARCHITECTURE DISCOVERY
+│   │   ├── 🔵 Act 3: First Value Opportunity - ARCHITECTURE DISCOVERY
+│   │   ├── 🔵 Act 4: The Future You Conversation - LOCKED CONCEPT / NOT IMPLEMENTED
+│   │   ├── 🔵 Act 5: Purpose Snapshot - ARCHITECTURE CANDIDATE / NOT IMPLEMENTED
+│   │   ├── 🔵 Act 6: Alfred / Universal Command Bar Introduction - ARCHITECTURE CANDIDATE / NOT IMPLEMENTED
+│   │   ├── 🔵 Act 7: Progressive Discovery - ARCHITECTURE DISCOVERY
 │   │   └── ⛔ Implementation - NOT APPROVED
 │   ├── 🔵 Advisor Baseline Snapshot - ARCHITECTURE CANDIDATE
 │   ├── 🔵 Progressive Discovery - ARCHITECTURE CANDIDATE
@@ -440,9 +444,13 @@
 ├── 🔵 PAQ-12.x Benvenù Experience Lock - LOCKED / ARCHITECTURE CANDIDATE / NOT IMPLEMENTED
 ├── 🔵 Advisor Setup - ARCHITECTURE CANDIDATE
 ├── 🔵 Benvenù Experience - LOCKED / ARCHITECTURE CANDIDATE / NOT IMPLEMENTED
-│   ├── 🔵 The Future You Conversation
-│   ├── 🔵 Purpose Discovery Experience
-│   ├── 🔵 Purpose Snapshot
+│   ├── 🔵 Act 1: Leopard Experience - LOCKED CONCEPT / NOT IMPLEMENTED
+│   ├── 🔵 Act 2: First Wow Moment - ARCHITECTURE DISCOVERY
+│   ├── 🔵 Act 3: First Value Opportunity - ARCHITECTURE DISCOVERY
+│   ├── 🔵 Act 4: The Future You Conversation - LOCKED CONCEPT / NOT IMPLEMENTED
+│   ├── 🔵 Act 5: Purpose Snapshot - ARCHITECTURE CANDIDATE / NOT IMPLEMENTED
+│   ├── 🔵 Act 6: Alfred / Universal Command Bar Introduction - ARCHITECTURE CANDIDATE / NOT IMPLEMENTED
+│   ├── 🔵 Act 7: Progressive Discovery - ARCHITECTURE DISCOVERY
 │   └── ⛔ Implementation - NOT APPROVED
 ├── 🔵 Advisor Baseline Snapshot - ARCHITECTURE CANDIDATE
 ├── 🔵 Progressive Discovery - ARCHITECTURE CANDIDATE
