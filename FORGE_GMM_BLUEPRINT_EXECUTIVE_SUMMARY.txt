@@ -1,0 +1,158 @@
+FORGE GMM COVERAGE INTELLIGENCE BLUEPRINT
+
+Status:
+BLUEPRINT / PRE-IMPLEMENTATION
+
+No code.
+No engines.
+No schemas.
+No UI.
+No Build Tree changes.
+
+1. EXECUTIVE SUMMARY
+
+The completed Alfa Medical discoveries have been transformed into a GMM
+Coverage Intelligence Blueprint.
+
+The blueprint defines how Forge should think before any future Coverage
+Intelligence Engine is approved.
+
+Core conclusion:
+
+Forge should not answer "covered or not covered" first.
+
+Forge should determine:
+
+- exact product
+- policy/caratula context
+- insured eligibility
+- event family
+- evidence sufficiency
+- applicable rule families
+- human review gates
+- financial boundary
+- safe assessment language
+- next most valuable question
+
+2. FILES CREATED
+
+- FORGE_GMM_COVERAGE_INTELLIGENCE_BLUEPRINT.md
+- FORGE_GMM_COMPONENT_CATALOG.md
+- FORGE_GMM_COMPONENT_RESPONSIBILITIES.md
+- FORGE_GMM_PRODUCT_ROUTING_ARCHITECTURE.md
+- FORGE_GMM_EVENT_ROUTING_ARCHITECTURE.md
+- FORGE_GMM_EVIDENCE_ARCHITECTURE.md
+- FORGE_GMM_RULE_EVALUATION_ARCHITECTURE.md
+- FORGE_GMM_HUMAN_REVIEW_ARCHITECTURE.md
+- FORGE_GMM_ASSESSMENT_LANGUAGE_ARCHITECTURE.md
+- FORGE_GMM_QUESTION_STRATEGY_ARCHITECTURE.md
+- FORGE_GMM_SHARED_INTELLIGENCE_REVIEW.md
+- FORGE_GMM_IMPLEMENTATION_READINESS_REPORT.md
+- FORGE_GMM_BLUEPRINT_EXECUTIVE_SUMMARY.txt
+
+3. REQUIRED COMPONENTS
+
+- Intake Framing
+- Product Router
+- Policy Context Checker
+- Insured Context Checker
+- Event Family Router
+- Evidence Sufficiency Evaluator
+- Rule Family Selector
+- Coverage Candidate Selector
+- Exclusion Evaluator
+- Waiting Period Evaluator
+- Preexistence Evaluator
+- Territory / Optional Coverage Evaluator
+- Authorization / Documentation Evaluator
+- Human Review Gatekeeper
+- Financial Boundary Evaluator
+- Assessment Language Selector
+- Question Strategy Coordinator
+- Source Provenance Recorder
+
+4. SHARED VS PRODUCT-SPECIFIC
+
+Shared GMM Layer should own:
+
+- evaluation structure
+- event routing
+- evidence sufficiency
+- source provenance
+- human review gates
+- assessment language
+- question strategy
+
+Alfa Medical Layer should own:
+
+- coverage map
+- exclusions
+- waiting-period details
+- maternity rules
+- assisted reproduction rules
+- deductible/coaseguro/tope model
+- Practico/Integro/Pleno hospital levels
+- optional foreign coverage terms
+- high-specialty benefit rules
+
+5. EXAMPLE QUESTION
+
+User:
+
+"My wife has had Alfa Medical for 4 years.
+She is 33.
+She is pregnant.
+Would childbirth be covered?"
+
+Blueprint response path:
+
+- Intake Framing detects case-specific coverage question.
+- Product Router routes to Alfa Medical, pending caratula confirmation.
+- Event Family Router classifies as Maternity.
+- Insured Context sees age 33 as consistent with basic maternity age range.
+- Waiting/continuity path notes 4 years appears to exceed 10-month continuity
+  requirement if continuous through birth.
+- Human Review Gate remains open because expected birth date, caratula,
+  active policy, territory, deductible type, assisted reproduction status and
+  documentation are missing.
+- Assessment Language Selector chooses Conditional Assessment.
+
+Proper answer:
+
+Conditionally, this routes to Alfa Medical maternity year 4+ rules and may be
+eligible if coverage is continuous, the policy is active, the birth occurs in
+the covered territory, deductible type and caratula values support the benefit,
+assisted reproduction rules do not change the path, and required documentation
+is provided. Forge must not say simply "yes, covered."
+
+6. IMPLEMENTATION READINESS
+
+Blueprint:
+Partially Ready
+
+Engine:
+Blocked
+
+Blocked by:
+
+- source registry
+- real caratulas
+- real quotes
+- optional coverage examples
+- hospital directory
+- honorarium/usual-reasonable catalogs
+- pharmacy lists
+- human review workflow
+- compliance review
+- scenario fixtures
+
+7. FINAL VERDICT
+
+GMM Coverage Intelligence can now be reviewed as a blueprint.
+
+No implementation is approved.
+
+Next recommended step:
+
+Create a versioned GMM source registry and evidence packet standard before any
+engine, schema or UI work.

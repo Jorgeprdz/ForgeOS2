@@ -1,0 +1,193 @@
+ALFA MEDICAL COVERAGE EVALUATION ARCHITECTURE REVIEW
+
+Status:
+ARCHITECTURE DISCOVERY
+
+No implementation.
+No code.
+No engines.
+No schemas.
+No UI.
+No Build Tree changes.
+
+1. EXECUTIVE SUMMARY
+
+The completed Alfa Medical Rule Inventory can support a Coverage Evaluation
+Architecture, but it is not ready for engine implementation.
+
+Forge must first learn how to think:
+
+- confirm exact product
+- confirm policy/caratula context
+- identify insured
+- classify event family
+- check minimum evidence
+- evaluate coverage candidate
+- screen exclusions
+- screen waiting periods
+- screen preexistence
+- check territory and optional coverage
+- check authorization and documentation
+- trigger human review when needed
+- separate coverage eligibility from financial participation
+- choose cautious assessment language
+
+The key architecture finding:
+
+Forge should not answer "covered or not covered" first.
+
+Forge should first answer:
+
+"Do we have enough evidence to evaluate the correct rule path?"
+
+2. FILES CREATED
+
+- ALFA_MEDICAL_INPUT_INVENTORY.md
+- ALFA_MEDICAL_INPUT_FREQUENCY_ANALYSIS.md
+- ALFA_MEDICAL_EVENT_FAMILY_ARCHITECTURE.md
+- ALFA_MEDICAL_MINIMUM_DATASETS.md
+- ALFA_MEDICAL_RULE_DEPENDENCY_MAP.md
+- ALFA_MEDICAL_HUMAN_REVIEW_GATE_ARCHITECTURE.md
+- ALFA_MEDICAL_EVIDENCE_REQUIREMENTS.md
+- ALFA_MEDICAL_CONFIDENCE_BOUNDARIES.md
+- ALFA_MEDICAL_DECISION_FLOW_ARCHITECTURE.md
+- ALFA_MEDICAL_QUESTION_STRATEGY.md
+- ALFA_MEDICAL_SHARED_RULE_LIBRARY_CANDIDATES.md
+- ALFA_MEDICAL_ARCHITECTURE_EXECUTIVE_SUMMARY.txt
+
+3. MINIMUM UNIVERSAL DATASET
+
+Before case-specific assessment, Forge needs:
+
+- exact product
+- policy/caratula availability
+- policy active status
+- insured identity
+- event family
+- diagnosis or medically clear event description
+- key date sequence
+- territory/location
+- optional coverage relevance
+- preexistence known/unknown
+
+If these are missing, Forge should provide educational explanation or ask the
+next smallest question.
+
+4. EVENT FAMILY MODEL
+
+Forge should classify Alfa Medical situations into event families:
+
+- Accident
+- Illness
+- Maternity
+- Pregnancy Complication
+- Newborn
+- Assisted Reproduction Maternity
+- Foreign Care
+- Catastrophic Disease Abroad
+- Dental
+- Medication
+- High-Specialty Treatment
+- Hospitalization / Surgery
+- Assistance Service
+
+5. HUMAN REVIEW GATES
+
+Mandatory review gates include:
+
+- product uncertainty
+- missing caratula for case-specific result
+- preexistence ambiguity
+- conflicting symptom/diagnosis/expense dates
+- foreign coverage without optional proof
+- programmed vs non-programmed foreign care ambiguity
+- high-specialty treatment
+- alcohol/drug/intentional conduct facts
+- professional sport/racing/dangerous activity ambiguity
+- hospital/provider classification unknown
+- current catalogs unavailable
+- maternity dates or assisted reproduction status unclear
+- missing claim documents
+- source conflicts
+
+6. CONFIDENCE BOUNDARIES
+
+Forge may say:
+
+- Educational Explanation Only
+- Insufficient Information
+- Human Review Required
+- Conditional Assessment
+- Likely Covered
+- Likely Not Covered
+
+Forge must not say:
+
+- Approved
+- Denied
+- Guaranteed
+- The insurer will pay
+- The insurer will not pay
+
+7. EXAMPLE RESULT
+
+Question:
+
+"My wife has had Alfa Medical for 4 years. She is pregnant. She is 33 years
+old. Would childbirth be covered?"
+
+Forge reasoning:
+
+- Product routes to Alfa Medical.
+- Event family is Maternity.
+- Age 33 fits basic maternity age range.
+- Four years suggests year 4+ maternity path if continuous coverage is
+  confirmed.
+- Maternity requires at least 10 months continuous coverage at birth.
+- Still missing: caratula, active policy status, expected birth date, territory,
+  maternity benefit, deductible type, assisted reproduction status and
+  documentation.
+
+Proper answer:
+
+Conditional assessment only. It may be eligible under year 4+ maternity rules
+if continuity, caratula, territory, deductible type, assisted reproduction status
+and documentation check out. Forge must not say simply "yes, covered."
+
+8. PRODUCT BOUNDARY
+
+Alfa Medical-specific:
+
+- deductible/coinsurance/cap model
+- Practico/Integro/Pleno hospital levels
+- hospital-level adjustment table
+- maternity behavior
+- high-specialty benefit rules
+- optional foreign structures
+- specific waiting period lists
+
+Potential shared GMM candidate:
+
+- evaluation stages
+- evidence hierarchy
+- caratula dependency
+- waiting-period screen
+- preexistence screen
+- territory screen
+- authorization screen
+- human review gates
+- coverage vs financial responsibility separation
+
+9. FINAL VERDICT
+
+Coverage Evaluation Architecture:
+CANDIDATE FOR FUTURE ENGINE DESIGN
+
+Coverage Intelligence Engine:
+NOT APPROVED
+
+Reason:
+The documentary rule structure is strong enough to define how Forge should
+think, but not enough to calculate or adjudicate. Future work requires source
+registry, real caratulas, real quotes, catalogs, hospital directory, optional
+coverage examples and human/compliance review.

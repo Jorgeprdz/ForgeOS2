@@ -1,0 +1,126 @@
+ALFA MEDICAL UNKNOWN RULE GAPS
+
+Status:
+DISCOVERY ONLY
+
+Purpose:
+Identify gaps that prevent these extracted rules from becoming implementation
+rules.
+
+1. SOURCE VERSION GAPS
+
+- Confirm official effective date/version of Alfa Medical Nuevos conditions.
+- Confirm whether the June 1, 2026 PDF metadata corresponds to the March 2026
+  source context previously reviewed.
+- Confirm if "Nuevos" applies only to new business or also renewal situations.
+
+2. CARATULA GAPS
+
+- Need real caratula examples with:
+  - Sum insured.
+  - Deductible amount and type.
+  - Coinsurance percentage and type.
+  - Coinsurance cap.
+  - Hospital level.
+  - Plan.
+  - Zone.
+  - Tabulator.
+  - Optional coverages.
+  - Recognized antiquity.
+
+3. CATALOG GAPS
+
+- Need current Catalogo de Honorarios Medicos y Quirurgicos.
+- Need current Gasto Usual, Razonable y Acostumbrado catalog.
+- Need current hospital directory with Practico, Integro and Pleno levels.
+- Need current pharmacy list for medication coinsurance rule.
+- Need dental provider network.
+
+4. CLAIM TIMING GAPS
+
+- Need operational rule for conflicts between:
+  - First symptom date.
+  - Diagnosis date.
+  - First expense date.
+  - First hospital attention date.
+- Need examples for accident first expense after 30 days.
+- Need examples for illness manifesting during 30-day waiting period but
+  diagnosed later.
+
+5. PREEXISTENCE GAPS
+
+- Need human-reviewed interpretation of "desapercibida."
+- Need operational examples of declared preexistence accepted after fourth
+  year.
+- Need examples of excluded chronic-degenerative categories.
+- Need evidence standards for arbitration.
+
+6. MATERNITY GAPS
+
+- Need eligible deductible list for maternity benefit from public portal.
+- Need real examples of year 1-3 vs year 4+ maternity behavior.
+- Need documentation process for advance maternity payment.
+- Need current assisted reproduction notice forms.
+- Need interpretation of age rule when pregnancy crosses birthdays.
+
+7. FOREIGN COVERAGE GAPS
+
+- Need caratula examples for Extension Abroad, Catastrophic Diseases Abroad,
+  Students/Temporary Workers Abroad and Assistance Abroad.
+- Need operational definition of programmed foreign care.
+- Need foreign reimbursement currency/exchange-rate handling.
+- Need documents required to prove residence and continuous stay abroad.
+- Need examples where foreign benefit ceases due to stay duration.
+
+8. FINANCIAL GAPS
+
+- Need real claim examples for:
+  - Deductible Unico.
+  - Deductible Anual.
+  - Deductible Reinstalable.
+  - Coaseguro Unico.
+  - Coaseguro Reinstalable.
+  - Hospital-level mismatch.
+  - Medication outside listed pharmacy.
+- Need clear source hierarchy when caratula and portal classification conflict.
+
+9. AUTHORIZATION GAPS
+
+- Need authorization workflow for:
+  - ECMO.
+  - Fetal surgery.
+  - Genomic studies.
+  - Gene therapies.
+  - Orphan drugs.
+  - Knee/shoulder/spine surgery.
+  - Breast cancer reconstructive surgery.
+- Need examples of denied authorization for missing documentation.
+- Need second valuation process and turnaround time.
+
+10. HUMAN REVIEW GAPS
+
+- Need approved wording for Forge outputs:
+  - likely covered
+  - conditional
+  - likely excluded
+  - unknown
+  - human review required
+- Need source hierarchy:
+  - caratula
+  - endorsement
+  - condiciones generales
+  - public portal catalog
+  - quote
+  - human review
+- Need compliance boundary: Forge should not become claims authority.
+
+11. IMPLEMENTATION GATE GAPS
+
+- Need versioned rule pack approval.
+- Need documentary source registry.
+- Need real positive and negative case fixtures.
+- Need human-review process.
+- Need approval to create schemas or engines.
+
+Implementation status:
+NOT APPROVED.

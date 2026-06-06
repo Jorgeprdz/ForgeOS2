@@ -1,0 +1,118 @@
+ALFA MEDICAL UNKNOWN QUESTIONS QUEUE
+
+Status:
+DISCOVERY ONLY
+
+Purpose:
+Preserve missing information, ambiguities and future validation questions for
+Alfa Medical Product Intelligence.
+
+1. SOURCE INVENTORY GAPS
+
+- Need current Alfa Medical product manual for advisors.
+- Need official sales material specific to Alfa Medical.
+- Need product guide or training document specific to Alfa Medical.
+- Need real caratula samples across plan levels.
+- Need real Alfa Medical quote examples.
+- Need current hospital directory and hospital-level classification.
+- Need current Catalogo de Honorarios Medicos y Quirurgicos.
+- Need current Gasto Usual, Razonable y Acostumbrado catalog.
+- Need optional coverage endorsement examples.
+- Need human compliance review of ambiguous high-risk clauses.
+
+2. VERSIONING QUESTIONS
+
+- The PDF metadata says creation date June 1, 2026 and title Alfa Medical
+  Nuevos. User context previously referenced March 2026 Condiciones Generales.
+  Confirm whether this is the same operative version or a later generated PDF.
+- Confirm official product version identifier and effective date.
+- Confirm whether "Nuevos" applies only new business or also certain renewal
+  contexts.
+
+3. CARATULA DEPENDENCIES
+
+- What exact caratula fields are always present for Alfa Medical?
+- How are deductible type, coinsurance type and cap represented?
+- How are optional coverages represented?
+- How is recognized antiquity represented?
+- How are plan, zone, tabulator and hospital level represented?
+
+4. HOSPITAL LEVEL QUESTIONS
+
+- Need current mapping of hospitals to Practico, Integro and Pleno.
+- Need rule for hospitals outside agreement in real claims workflow.
+- Need examples where hospital classification changed after policy issuance.
+- Need clarification of plans Pleno Novo, Pleno Monterrey, Origina, Origina 1
+  and Practico Total because the PDF routes some penalty detail to the public
+  portal.
+
+5. DEDUCTIBLE AND COINSURANCE QUESTIONS
+
+- Need real caratula examples for Deducible Unico, Anual and Reinstalable.
+- Need real caratula examples for Coaseguro Unico and Reinstalable.
+- Need examples where cap is removed due to hospital-level adjustment.
+- Need examples where foreign coinsurance is independent from national
+  coinsurance.
+- Need claim examples for medication coinsurance at listed vs non-listed
+  pharmacies.
+
+6. WAITING PERIOD QUESTIONS
+
+- Need operational evidence for determining first symptoms vs first expense.
+- Need how recognition of antiquity is validated and documented.
+- Need examples where recognition of antiquity eliminates some waiting periods
+  but not excluded ones.
+
+7. PREEXISTENCE QUESTIONS
+
+- Need operational examples of declared preexistence approval or denial.
+- Need how arbitration procedure is handled in real-world claims.
+- Need interpretation of conditions that are chronic-degenerative or
+  osteomuscular for declared-preexistence exclusions.
+
+8. MATERNITY QUESTIONS
+
+- Need caratula examples for maternity benefit sum insured.
+- Need real handling of year 1-3 vs year 4 onward election.
+- Need details for deducibles eligible for maternity benefit as referenced on
+  public portal.
+- Need examples for assisted reproduction notice timing.
+
+9. FOREIGN COVERAGE QUESTIONS
+
+- Need examples distinguishing Extension Abroad, Catastrophic Diseases Abroad,
+  Students/Temporary Workers Abroad and Assistance Abroad.
+- Need operational definition of programmed vs non-programmed foreign care.
+- Need documents required to prove residence and time abroad.
+- Need how foreign reimbursement exchange rates and currency handling operate.
+
+10. HIGH-SPECIALTY TREATMENT QUESTIONS
+
+- Need authorization workflow for fetal surgery, gene therapies, orphan drugs,
+  ECMO, genomic studies and knee/shoulder/spine surgery.
+- Need examples of second valuation acceptance or rejection.
+- Need how COFEPRIS approval age is verified for gene therapies.
+- Need how alternative treatment with equal or superior efficacy is determined.
+
+11. CLAIMS PRACTICE QUESTIONS
+
+- Need real claim examples for appendicitis, heart attack, cancer, accident,
+  maternity, foreign hospitalization and medication reimbursement.
+- Need examples where a claim was procedent but provider charges exceeded
+  tabulator or usual/reasonable limits.
+- Need claim examples where missing documentation delayed or prevented payment.
+
+12. FORGE COVERAGE INTELLIGENCE QUESTIONS
+
+- What confidence labels are acceptable for coverage discovery without creating
+  a claims decision?
+- What human-review workflow should exist for ambiguous clauses?
+- What source hierarchy should resolve conflicts between caratula, endorsement,
+  general conditions and public portal catalogs?
+- How should Forge phrase "likely covered" without implying authorization?
+
+13. ETHICAL QUESTIONS
+
+- How should advisors explain exclusions without fear-based persuasion?
+- How should Forge show coverage gaps without pressuring clients?
+- How should Forge preserve uncertainty when evidence is incomplete?

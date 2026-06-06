@@ -1,0 +1,165 @@
+FORGE GMM NEXT EVOLUTION RECOMMENDATIONS
+
+STATUS
+
+DISCOVERY ONLY
+
+NO REDESIGN
+NO CANVA
+NO POWERPOINT
+NO NEW SLIDES
+NO VISUAL CHANGES
+NO SALES COPY REWRITE
+
+PURPOSE
+
+Document conceptual recommendations for the next narrative evolution of the
+current GMM sales presentation.
+
+These are not implementation instructions.
+These are not slide rewrite instructions.
+These are not visual design instructions.
+
+RECOMMENDATION 1: MOVE THE PROSPECT'S QUESTION EARLIER
+
+Current story begins with:
+
+"What is GMM?"
+
+The prospect's real question is closer to:
+
+"What happens financially if something serious happens?"
+
+Future narrative exploration should test whether the presentation becomes
+stronger when the financial consequence is established before the technical
+definitions.
+
+RECOMMENDATION 2: TREAT PARTICIPATION EXAMPLES AS CORE STORY, NOT LATE SUPPORT
+
+Slides 12 and 13 appear to be the strongest narrative assets.
+
+They should be considered the conceptual center of the story because they show:
+
+- total medical expense
+- client responsibility
+- insurer responsibility
+- illness vs accident difference
+- why deductible and coinsurance matter
+
+This does not mean redesign them now.
+
+It means future narrative architecture should not treat them as afterthoughts.
+
+RECOMMENDATION 3: USE DEFINITIONS TO EXPLAIN CONSEQUENCE
+
+Current flow:
+
+Definition first, consequence later.
+
+Possible future narrative principle:
+
+Consequence first, definition as explanation.
+
+This would help the prospect understand why terms like sum insured, deductible,
+coinsurance and hospital level matter.
+
+RECOMMENDATION 4: PRESERVE TRUST-BUILDING TRANSPARENCY
+
+The waiting-period and exclusion slides are trust-building assets because they
+show boundaries.
+
+The narrative question is not whether to remove them.
+
+The narrative question is where they belong so they do not interrupt the first
+emotional understanding of the problem.
+
+RECOMMENDATION 5: MAKE "WITHOUT GMM" AND "WITH GMM" CONCEPTUALLY CLEAR
+
+The deck currently implies this contrast through examples.
+
+Future story evolution should make the contrast easier to perceive:
+
+Without GMM:
+
+- medical event can become financial shock
+- hospital choice may become constrained by liquidity
+- savings and family stability may be exposed
+
+With GMM:
+
+- covered expenses can transfer substantially to insurer
+- client responsibility becomes more understandable
+- plan design becomes a choice about access, risk and liquidity
+
+This is conceptual analysis, not copy.
+
+RECOMMENDATION 6: REDUCE PRICE SHOCK BY BUILDING VALUE BEFORE QUOTE
+
+Slide 14 introduces the quote.
+
+The quote is stronger when the prospect has already internalized:
+
+- what risk is being transferred
+- what the client would otherwise absorb
+- why deductible changes price
+- why hospital level matters
+- why accident and illness examples differ
+
+Future versions should make sure value is fully felt before price appears.
+
+RECOMMENDATION 7: KEEP EDUCATION, BUT ANCHOR IT IN STORY
+
+GMM requires education.
+
+The issue is not that there are definitions.
+
+The issue is that definitions are currently the early spine of the narrative.
+
+Future narrative architecture should preserve education but make it serve the
+story:
+
+Problem -> Consequence -> Mechanism -> Decision
+
+RECOMMENDATION 8: AVOID TURNING THE DECK INTO A PRODUCT MANUAL
+
+The presentation should not become:
+
+- a conditions-general summary
+- a compliance manual
+- a full product encyclopedia
+- a list of all benefits
+- a technical training deck
+
+It should remain a client decision narrative.
+
+RECOMMENDATION 9: DO NOT OVERCORRECT INTO FEAR
+
+A stronger story does not mean fear-based selling.
+
+The ideal tone should be:
+
+- clear
+- serious
+- human
+- financially concrete
+- protective
+- calm
+
+The goal is understanding, not panic.
+
+RECOMMENDATION 10: FUTURE TESTING QUESTION
+
+Future advisor testing should ask:
+
+"At what point did the client say, 'Now I understand why this matters'?"
+
+If that moment happens only at the example slides, the narrative is probably
+starting too technically.
+
+FINAL RECOMMENDED NEXT STEP
+
+Run a future PAQ for GMM Sales Story Architecture using the existing deck as
+source material.
+
+That future PAQ may explore structure, but should still avoid visual redesign
+until the narrative spine is approved.

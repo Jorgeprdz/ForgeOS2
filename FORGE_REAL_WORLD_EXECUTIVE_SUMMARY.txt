@@ -1,0 +1,117 @@
+FORGE REAL WORLD CASE REVIEW
+
+1. EXECUTIVE SUMMARY
+
+Forge reviewed:
+
+- Alfa Medical Quote: cotizacion gmm.PDF
+- Alfa Medical Policy Caratula: caratula poliza gmm.pdf
+
+The most important finding:
+
+The quote and policy caratula do not appear to belong to the same insured.
+
+Quote insured:
+Lariza Saenz, female, age 23.
+
+Policy insured:
+Franco Villanueva Najera, male, age 0.
+
+This should be clarified before treating the quote as the proposal that became
+the policy.
+
+2. WHAT THE QUOTE PROPOSED
+
+The quote proposed:
+
+- Alfa Medical Integro
+- National territoriality
+- Gamma tabulator
+- $170,000,000 sum insured
+- $25,000 deductible
+- 10% coinsurance
+- $97,000 coinsurance cap
+- Annual premium: $47,388.27
+- Optional accident deductible elimination
+
+3. WHAT THE POLICY ISSUED
+
+The caratula issued:
+
+- Alfa Medical Integro
+- Policy GM0000737905(N)
+- National territoriality
+- Zone CDMX 1
+- Gamma tabulator
+- $160,000,000 sum insured
+- $40,000 deductible
+- 10% coinsurance
+- $85,000 coinsurance cap
+- Monthly payment form
+- CEDA active: accident deductible elimination
+- VIH not covered
+- Protection Patrimonial not covered
+
+4. WHAT STAYED THE SAME
+
+- Product: Alfa Medical
+- Plan: Integro
+- Territoriality: National
+- Tabulator: Gamma
+- Coinsurance: 10%
+- Deductible scheme: Unico
+- Coinsurance scheme: Unico
+- Accident deductible elimination appears selected/issued
+
+5. WHAT CHANGED
+
+- Insured
+- Age
+- Start date
+- Zone
+- Sum insured
+- Deductible
+- Coinsurance cap
+- Premium/payment structure
+- Protection Patrimonial expectation
+
+6. CLIENT CLARITY
+
+The client truly purchased national medical-expense protection for Franco with:
+
+- a large coverage limit
+- a $40,000 deductible
+- 10% cost participation after deductible
+- an $85,000 coinsurance cap
+- accident deductible elimination under policy conditions
+
+The client should not assume:
+
+- the quote is the policy
+- every listed quote benefit is active
+- national coverage works abroad
+- accident deductible elimination means zero cost
+- the insurer pays every provider charge without limits
+
+7. ADVISOR NEXT STEP
+
+The advisor should verify:
+
+- Was the Lariza quote attached by mistake?
+- Is there a matching quote for Franco?
+- Did the client understand and accept the $40,000 deductible?
+- Did the client expect Protection Patrimonial or foreign benefits?
+- Should the advisor create a one-page issued-policy summary?
+
+8. FORGE VALUE CREATED
+
+Forge identifies the expectation gap before it becomes a claim problem.
+
+The real value is not only reading the documents.
+
+The real value is showing the advisor and client:
+
+- what was proposed
+- what was issued
+- what changed
+- what should be clarified now

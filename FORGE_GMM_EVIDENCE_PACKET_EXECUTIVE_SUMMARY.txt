@@ -1,0 +1,131 @@
+FORGE GMM EVIDENCE PACKET STANDARD
+
+Status:
+PRE-IMPLEMENTATION / FINAL PRE-ENGINE DISCOVERY
+
+No code.
+No engines.
+No schemas.
+No UI.
+No Build Tree changes.
+
+1. EXECUTIVE SUMMARY
+
+The GMM Evidence Packet Standard defines the minimum documentary evidence
+required before Forge is allowed to reason about GMM coverage.
+
+Core principle:
+
+Coverage Intelligence must reason from evidence, not assumptions.
+
+2. FILES CREATED
+
+- FORGE_GMM_EVIDENCE_PACKET_STANDARD.md
+- FORGE_GMM_UNIVERSAL_EVIDENCE_PACKET.md
+- FORGE_GMM_EVENT_EVIDENCE_PACKETS.md
+- FORGE_GMM_EVIDENCE_COMPLETENESS_MODEL.md
+- FORGE_GMM_EVIDENCE_GAP_DETECTION.md
+- FORGE_GMM_NEXT_EVIDENCE_STRATEGY.md
+- FORGE_GMM_DOCUMENT_PRIORITY_MODEL.md
+- FORGE_GMM_HUMAN_REVIEW_EVIDENCE.md
+- FORGE_GMM_EVIDENCE_PACKET_VALIDATION.md
+- FORGE_GMM_POST_PACKET_IMPLEMENTATION_READINESS.md
+- FORGE_GMM_EVIDENCE_PACKET_EXECUTIVE_SUMMARY.txt
+
+3. UNIVERSAL PACKET
+
+Every GMM case requires:
+
+- exact product or product uncertainty
+- policy/caratula status
+- policy active status or unknown
+- insured identity
+- event description
+- event family or uncertainty
+- approximate date context
+- territory/location
+- optional coverage relevance
+- preexistence known/unknown
+
+4. COMPLETENESS LEVELS
+
+Level 0:
+No Evidence
+
+Level 1:
+Routing Evidence
+
+Level 2:
+Conditional Assessment Evidence
+
+Level 3:
+Likely Covered / Likely Not Covered Evidence
+
+Level 4:
+Financial Responsibility Evidence
+
+Level 4 is not stronger coverage certainty. It is separate financial context.
+
+5. FINAL QUESTION EXAMPLE
+
+User:
+
+"My wife has had Alfa Medical for 4 years.
+She is pregnant.
+Would childbirth be covered?"
+
+Level 0:
+If only "would pregnancy be covered?" is known, Forge can only explain
+maternity rules generally.
+
+Level 1:
+With "Alfa Medical, wife, pregnant, 4 years," Forge can route to Maternity but
+cannot assess responsibly.
+
+Level 2:
+Add mother age, expected birth date, active policy/caratula context, territory,
+coverage continuity statement and assisted reproduction status. Forge may give
+conditional assessment.
+
+Level 3:
+Add authoritative caratula, active policy proof, confirmed continuity through
+birth, deductible type, maternity benefit, documentation, no assisted
+reproduction complications or assisted-reproduction documents if applicable, and
+no human review gate. Forge may say likely covered or likely not covered,
+subject to insurer review.
+
+Level 4:
+Add deductible, coinsurance, maternity benefit amount, plan/zone, territory,
+hospital/provider and applicable catalogs. Forge may discuss financial
+responsibility boundary but still must not calculate unless a future approved
+engine exists.
+
+6. IMPLEMENTATION READINESS
+
+Evidence Packet Standard:
+READY AS PRE-ENGINE DISCOVERY
+
+Coverage Intelligence Engine:
+NOT READY
+
+Remaining blockers:
+
+- source registry implementation/design approval
+- real caratula collection
+- Alfa Medical Flex equivalent discovery
+- optional coverage documents
+- hospital/pharmacy/catalog sources
+- compliance language review
+- human review protocol
+- real scenario fixtures
+
+7. FINAL VERDICT
+
+This standard completes the pre-engine evidence architecture.
+
+No implementation is approved.
+
+Next recommended step:
+
+Create a documentation-only Human Review Protocol and collect real Alfa Medical
+evidence packets for scenario validation.
