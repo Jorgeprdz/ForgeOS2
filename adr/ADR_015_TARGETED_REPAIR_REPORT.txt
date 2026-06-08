@@ -1,0 +1,127 @@
+FORGE ADR-015 TARGETED REPAIR REPORT
+
+A) WHAT WAS WRONG WITH ADR-015
+
+Target file:
+adr/ADR-015 — Manager Intelligence Authority Boundary.txt
+
+Problem found:
+ADR-015 had STATUS: Final and FINAL VERDICT, but it was too short under the same constitutional standard applied to ADR-016.
+
+The prior targeted validation found only FINAL VERDICT among the critical anchors.
+
+It did not expose standalone sections for:
+- NON-GOALS
+- DRIFT
+- STALENESS
+- AUTHORITY BOUNDARY
+- CLIENT FIRST
+- CONSEQUENCES
+
+This made the canonical ADR self-contained only at a high level, but not constitutionally complete.
+
+B) SECTIONS RESTORED
+
+ADR-015 was rewritten as a full, self-contained Final ADR with these sections:
+
+1. TITLE
+2. STATUS
+3. CONTEXT
+4. DECISION
+5. DEFINITIONS
+6. MANAGER INTELLIGENCE OWNERSHIP RULES
+7. VALID MANAGER INTELLIGENCE INPUTS
+8. INPUT BOUNDARIES
+9. OUTPUTS PERMITIDOS
+10. OUTPUTS PROHIBIDOS
+11. MANAGER INTELLIGENCE STATES
+12. MANAGER INTELLIGENCE CONFIDENCE
+13. MANAGER INTELLIGENCE VS MICK
+14. MANAGER INTELLIGENCE VS PRODUCTIVITY
+15. MANAGER INTELLIGENCE VS BUSINESS PLANNING
+16. MANAGER INTELLIGENCE VS FORECAST
+17. MANAGER INTELLIGENCE VS ADVISOR EXPERIENCE
+18. MANAGER INTELLIGENCE VS COMPENSATION / ECONOMIC MOTIVATION
+19. MANAGER INTELLIGENCE VS RELATIONSHIP INTELLIGENCE
+20. COACHING VS ENFORCEMENT
+21. OBSERVABILITY VS SURVEILLANCE
+22. PARTIAL EVIDENCE HANDLING
+23. MANAGER INTELLIGENCE STALENESS
+24. MANAGER INTELLIGENCE DRIFT HANDLING
+25. AUTHORITY BOUNDARY
+26. CLIENT FIRST
+27. ADVISOR CAPABILITY GROWTH
+28. SURVIVAL TEST
+29. ABSORPTION TEST
+30. ALLOWED BEHAVIOR
+31. DISALLOWED BEHAVIOR
+32. CONSEQUENCES
+33. DEPENDENCIES
+34. DEPENDENT ADRs
+35. NON-GOALS
+36. FINAL VERDICT
+
+Core doctrine restored:
+- Manager Intelligence supports coaching.
+- Manager Intelligence does not automate consequences.
+- Manager Intelligence helps managers see better.
+- It does not help them punish faster.
+
+C) VALIDATION RESULT
+
+Line count command:
+wc -l "adr/ADR-015 — Manager Intelligence Authority Boundary.txt"
+
+Result:
+872 lines.
+
+Anchor validation command:
+grep -n "COACHING VS ENFORCEMENT\|OBSERVABILITY VS SURVEILLANCE\|PARTIAL EVIDENCE\|STALENESS\|DRIFT\|AUTHORITY BOUNDARY\|CLIENT FIRST\|SURVIVAL TEST\|ABSORPTION TEST\|NON-GOALS\|FINAL VERDICT" "adr/ADR-015 — Manager Intelligence Authority Boundary.txt"
+
+Result:
+All critical anchors were found.
+
+Observed anchor lines:
+- COACHING VS ENFORCEMENT
+- OBSERVABILITY VS SURVEILLANCE
+- PARTIAL EVIDENCE HANDLING
+- MANAGER INTELLIGENCE STALENESS
+- MANAGER INTELLIGENCE DRIFT HANDLING
+- AUTHORITY BOUNDARY
+- CLIENT FIRST
+- SURVIVAL TEST
+- ABSORPTION TEST
+- NON-GOALS
+- FINAL VERDICT
+
+Forbidden reference check:
+No "Draft", "same as Draft", "see Draft", "follows Draft", "resumen" or "versión condensada" references were found in ADR-015.
+
+Final validation result:
+PASS for ADR-015 targeted repair.
+
+D) FILES MODIFIED
+
+Modified:
+adr/ADR-015 — Manager Intelligence Authority Boundary.txt
+
+Created:
+adr/ADR_015_TARGETED_REPAIR_REPORT.txt
+
+Files intentionally not modified:
+adr/ADR-005 through adr/ADR-014 canonical files
+adr/ADR-016 — Advisor Experience + Benvenù Anti-Dependence Boundary.txt
+engines
+schemas
+UI
+Build Tree
+database files
+automation files
+
+E) SUGGESTED GIT COMMANDS
+
+git status
+git diff --stat -- adr/ADR-015\ —\ Manager\ Intelligence\ Authority\ Boundary.txt adr/ADR_015_TARGETED_REPAIR_REPORT.txt
+git diff -- adr/ADR-015\ —\ Manager\ Intelligence\ Authority\ Boundary.txt adr/ADR_015_TARGETED_REPAIR_REPORT.txt
+git add adr/ADR-015\ —\ Manager\ Intelligence\ Authority\ Boundary.txt adr/ADR_015_TARGETED_REPAIR_REPORT.txt
+git commit -m "docs: repair ADR-015 manager intelligence boundary"
