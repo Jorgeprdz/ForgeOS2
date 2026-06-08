@@ -6,7 +6,7 @@ ADR-006 — Policy Truth Boundary
 
 2. STATUS
 
-Proposed / Draft
+Final
 
 3. CONTEXT
 

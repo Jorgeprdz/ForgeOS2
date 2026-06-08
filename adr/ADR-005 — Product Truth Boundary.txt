@@ -6,7 +6,7 @@ ADR-005 — Product Truth Boundary
 
 2. STATUS
 
-Proposed / Draft
+Final
 
 3. CONTEXT
 

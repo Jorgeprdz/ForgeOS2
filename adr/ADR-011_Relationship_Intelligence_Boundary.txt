@@ -1,0 +1,129 @@
+ADR-011 — Relationship Intelligence Non-Manipulation Boundary
+
+1. TITLE
+ADR-011 — Relationship Intelligence Non-Manipulation Boundary
+
+2. STATUS
+Proposed / Draft
+
+3. CONTEXT
+Forge opera sobre señales relacionales: timing, engagement, confianza, historial, oportunidades de referral, eventos de vida. Sin boundary explícito, puede:
+- manipular cliente o asesor
+- convertir señales relacionales en presión comercial
+- usar eventos de vida como trigger de venta
+- confundir oportunidad relacional con recomendación o permiso
+- mezclar inputs de NASH, NBA, Advisor Experience, Forecast y Economic Evidence
+
+4. DECISION
+Relationship Intelligence es el owner conceptual de señales relacionales.
+Puede identificar oportunidades relacionales, engagement, riesgo de manipulación y posibles referrals.
+No puede generar mensajes finales, presionar al cliente ni redefinir Product Truth o Policy Truth.
+Las decisiones finales corresponden al asesor humano y deben respetar Authority Boundary y Client First.
+
+5. DEFINITIONS
+Relationship Intelligence: dominio que analiza señales relacionales sin ejecutar contacto.
+Relationship Signal: indicador de oportunidad relacional.
+Relationship Opportunity: oportunidad de acción sobre la relación.
+Trust Boundary: límite de uso de confianza como palanca.
+Life Event Boundary: límite de uso de eventos de vida como trigger.
+Referral Ethics: reglas sobre uso ético de referencias.
+Non-Manipulation: principio de no presionar ni explotar vulnerabilidad.
+Relationship Drift: riesgo de mal uso de señales relacionales.
+Relationship Unknown: indicador de oportunidad no confirmada.
+Advisor Consent: autorización final del asesor para actuar.
+
+6. VALID RELATIONAL INPUTS
+- engagement histórico
+- interacción reciente
+- historial de referidos
+- alertas de oportunidad
+- contexto relacional
+- eventos confirmados relevantes
+- señales de comportamiento observadas
+
+7. INVALID OR WEAK RELATIONAL INPUTS
+- eventos inferidos sin evidencia
+- opinión de asesor sin documentación
+- presión de manager como input
+- evento de vida usado como trigger de venta
+- contacto sin consentimiento del asesor
+- señales mezcladas de distintos dominios
+
+8. RELATIONSHIP TRUTH HIERARCHY
+Level 1: eventos confirmados y engagement observado
+Level 2: alertas de oportunidad revisadas
+Level 3: señales inferidas con validación pendiente
+Level 4: hipótesis relacional sin confirmación
+
+9. CROSS-DOMAIN CONSUMPTION
+NASH: consume oportunidad relacional, no puede presionar ni inventar mensajes
+NBA: prioriza oportunidades válidas, no convierte en mandato
+Business Planning: puede usar oportunidad como input, no obligación
+Advisor Experience: enseña manejo relacional, no dependencia
+Manager Intelligence: observa oportunidades, no presiona explotación
+Forecast: puede usar engagement como input, no como certeza
+Economic Motivation: no puede usar relación para presión de ingresos
+Product/Policy Intelligence: no puede asumir contratación o suitability
+
+10. ALLOWED BEHAVIOR
+- identificar oportunidad relacional
+- detectar engagement bajo/alto
+- señalar riesgo de manipulación
+- sugerir revisión antes de contacto
+- marcar confianza o vulnerabilidad como limitada
+- contextualizar histórico de relación
+
+11. DISALLOWED BEHAVIOR
+- inventar intención del cliente
+- inferir consentimiento
+- usar confianza como palanca
+- transformar evento de vida en trigger de venta
+- generar mensaje final
+- ejecutar contacto
+- redefinir Product Truth o Policy Truth
+- priorizar globalmente como NBA
+- reemplazar autoridad humana
+
+12. CONSEQUENCES
+Positive Consequences:
+- relaciones protegidas
+- oportunidades éticas detectadas
+- mayor seguridad en NASH y Advisor Experience
+- menor riesgo de manipulación
+- confianza preservada
+Tradeoffs:
+- más validación de inputs
+- mayor necesidad de revisión por asesor
+- menor velocidad de automatización de alertas
+- más límites en uso de señales relacionales
+
+13. DEPENDENCIES
+- ADR-001 a ADR-010
+
+14. DEPENDENT ADRs
+- ADR-012 — Business Planning Plan-to-Action Boundary
+- ADR-010 — NASH Conversation Intelligence Boundary
+- ADR-009 — NBA Philosophy
+- ADR-015 — Manager Intelligence Authority Boundary
+- ADR-016 — Advisor Experience + Benvenù Anti-Dependence Boundary
+
+15. NON-GOALS
+- workflows
+- engines
+- schemas
+- UI
+- implementation
+- contacto automático
+- feature behavior
+- database design
+
+16. FINAL VERDICT
+Relationship Intelligence puede detectar oportunidad, engagement y riesgo relacional, pero relación no es permiso, confianza no es palanca y un evento de vida no es trigger de venta.
+Relationship Intelligence no puede generar mensajes, presionar al cliente ni redefinir truths.
+Las decisiones finales siempre dependen del asesor humano.
+Este ADR protege la integridad relacional y previene manipulación algorítmica.
+
+Reglas de redacción:
+- Español, tono formal y arquitectónico.
+- No filosofar, no implementar, no usar código.
+- Redactar el ADR completo.

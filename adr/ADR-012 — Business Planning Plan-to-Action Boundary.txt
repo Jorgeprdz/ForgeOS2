@@ -1,0 +1,925 @@
+ADR-012 — BUSINESS PLANNING PLAN-TO-ACTION BOUNDARY
+
+1. TITLE
+
+ADR-012 — Business Planning Plan-to-Action Boundary
+
+2. STATUS
+
+Final
+
+3. CONTEXT
+
+Forge ya cuenta con ADR-001 a ADR-011.
+
+ADR-012 define cómo Business Planning puede convertir objetivos, gaps, forecast, productividad, relación, evidencia, contexto económico y constraints en rutas de acción responsables.
+
+Business Planning existe para conectar:
+
+Goal → Evidence → Gap → Constraints → Action Path → Review Loop
+
+Sin un Plan-to-Action Boundary, Forge puede:
+
+- inventar metas
+- inventar gaps
+- inventar pipeline
+- inventar capacidad del asesor
+- convertir forecast en verdad
+- convertir NBA en plan completo
+- convertir plan en mandato
+- convertir actividad en avance
+- usar relaciones como inventario comercial
+- usar economía o compensación como presión
+- generar planes imposibles
+- generar checklists rígidos
+- producir presión gerencial algorítmica
+- crear dependencia del asesor
+- violar Client First
+- violar Authority Boundary
+
+ADR-012 define cómo Forge puede planear sin mandar, proyectar sin garantizar y organizar acción sin inventar progreso.
+
+4. DECISION
+
+Business Planning es el owner conceptual de action paths y plan-to-action interpretation.
+
+Business Planning no es owner de:
+
+- source truth
+- metric truth
+- forecast truth
+- product truth
+- policy truth
+- economic truth
+- compensation truth
+- relationship truth
+- behavior truth
+- execution truth
+
+Business Planning puede consumir inputs oficiales o validados para construir rutas de acción, pero no puede redefinirlos.
+
+Business Planning owns action paths, not source truth.
+
+Un plan debe ser:
+
+- evidence-backed
+- goal-aware
+- gap-aware
+- constraint-aware
+- forecast-aware
+- client-safe
+- authority-bounded
+- reviewable
+- adaptable
+- provisional when evidence is incomplete
+
+Un plan debe aclarar qué decisión intenta resolver, no solo listar acciones.
+
+Un plan que cumple metas del asesor dañando idoneidad, autonomía o confianza del cliente es inválido.
+
+Un plan no debe ser:
+
+- mandato
+- obligación
+- promesa de resultado
+- forecast confirmado
+- evaluación laboral automática
+- evidencia de ejecución
+- prueba de progreso real
+- presión comercial
+- sustituto del criterio del asesor
+- sustituto de autoridad del manager
+
+Business Planning puede sugerir rutas.
+
+Humanos deciden.
+
+5. DEFINITIONS
+
+Business Planning
+
+Dominio responsable de traducir objetivos, gaps, evidencia, constraints y contexto en rutas de acción razonables.
+
+Plan-to-Action Boundary
+
+Límite que define cómo Forge puede convertir información en rutas de acción sin inventar acciones, imponer mandatos o confundir actividad con progreso.
+
+Goal
+
+Objetivo declarado, asignado, oficial, personal, económico, comercial o de campaña que puede usarse como dirección de planeación.
+
+Confirmed Goal
+
+Objetivo confirmado por fuente válida, regla, campaña, manager, asesor o contexto explícito.
+
+Stated Goal
+
+Objetivo expresado por el asesor o usuario, útil para planeación, pero no necesariamente oficial.
+
+Planning Gap
+
+Diferencia entre estado actual, objetivo, forecast, capacidad, producción, actividad o ruta esperada.
+
+Action Path
+
+Secuencia razonable de acciones, validaciones o revisiones conectadas a un objetivo y gap.
+
+Planning Constraint
+
+Límite que afecta la ruta posible: tiempo, capacidad, evidencia, cliente, producto, póliza, relación, economía, canal, campaña, manager o regulación.
+
+Plan State
+
+Estado conceptual de un plan según evidencia, validez, actualización y límites.
+
+Review Loop
+
+Ciclo de revisión de plan cuando cambian evidencia, métricas, forecast, contexto, constraints o resultados.
+
+Plan Drift
+
+Deterioro del plan cuando se desactualiza, pierde contexto, se vuelve mandato, confunde actividad con progreso o ignora nueva evidencia.
+
+Plan Staleness
+
+Condición donde un plan ya no debe usarse como base fuerte porque cambió o envejeció la evidencia.
+
+Execution Evidence
+
+Evidencia de que una acción fue realizada. No pertenece automáticamente a Business Planning.
+
+Progress
+
+Avance real hacia un objetivo. No equivale automáticamente a actividad completada.
+
+Outcome
+
+Resultado observado posterior a una acción. No equivale automáticamente a ejecución.
+
+6. GOAL RULES
+
+Business Planning no puede inventar metas.
+
+Todo goal usado por Forge debe preservar:
+
+- fuente
+- owner
+- periodo
+- contexto
+- tipo de objetivo
+- autoridad
+- incertidumbre
+
+Tipos de goal:
+
+- advisor-stated goal
+- manager-assigned goal
+- official campaign goal
+- production goal
+- activity goal
+- economic goal
+- development goal
+- personal business goal
+- forecast-informed target
+- provisional goal
+
+Business Planning puede planear sobre un stated goal, pero debe etiquetarlo correctamente.
+
+Ejemplo:
+
+“Quiero ganar el iPhone Pro Max” puede ser un advisor-stated campaign-related goal.
+
+No debe convertirse automáticamente en official production truth sin reglas de campaña confirmadas.
+
+Business Planning no debe tratar goals aspiracionales como metas oficiales.
+
+7. GAP RULES
+
+Business Planning no puede inventar gaps.
+
+Todo gap debe identificar:
+
+- baseline
+- target
+- source
+- metric owner cuando aplique
+- periodo
+- contexto
+- incertidumbre
+- si es real, proyectado o provisional
+
+Tipos de gap:
+
+- production gap
+- activity gap
+- productivity gap
+- pipeline gap
+- relationship gap
+- policy review gap
+- conservation gap
+- economic gap
+- behavior gap
+- capability gap
+- evidence gap
+
+Un gap proyectado no es gap confirmado.
+
+Un gap económico no justifica presión comercial.
+
+Un gap de actividad no prueba falta de capacidad.
+
+Un gap relacional no convierte relaciones en inventario.
+
+Capability gap debe referirse a brecha observable de habilidad o aplicación, no a valor humano ni capacidad fija del asesor.
+
+8. INPUTS PERMITIDOS
+
+Business Planning puede consumir:
+
+- official metrics
+- confirmed goals
+- stated goals
+- forecast scenarios
+- productivity metrics
+- Mick behavior patterns
+- relationship opportunities
+- policy truth
+- product truth
+- economic evidence
+- compensation context
+- NBA outputs
+- advisor context
+- manager context
+- constraints
+- historical performance
+- CRM records
+- system-observed activity
+- client-confirmed context cuando aplique
+
+Restricciones:
+
+Business Planning puede consumir estos inputs, pero no puede redefinir su verdad original.
+
+Business Planning owns action paths, not source truth.
+
+9. INPUT BOUNDARIES
+
+Forecast
+
+Puede alimentar escenarios, riesgos y gaps proyectados.
+
+No puede ser tratado como hecho.
+
+NBA
+
+Puede aportar acciones válidas priorizadas.
+
+No reemplaza un plan completo.
+
+Productivity
+
+Puede aportar actividad, conversión, throughput y output.
+
+No convierte más actividad en solución universal.
+
+Mick
+
+Puede aportar conducta observable, consistencia, cadence y ejecución observable.
+
+No puede inferir motivación, personalidad, carácter o valor humano.
+
+Relationship Intelligence
+
+Puede aportar oportunidades relacionales, timing y contexto.
+
+No convierte relaciones en inventario comercial.
+
+Economic Evidence
+
+Puede aportar valores económicos, escenarios y constraints.
+
+No convierte ingreso estimado en ingreso real.
+
+Compensation Context
+
+Puede aportar reglas o escenarios de compensación cuando existan.
+
+No debe convertir plan en payout-first.
+
+El contexto de compensación puede informar factibilidad o motivación, pero no puede definir por sí solo la prioridad del plan.
+
+Policy Truth
+
+Puede aportar estados, eventos, renovaciones y vigencias.
+
+No debe inventar eventos de póliza.
+
+Product Truth
+
+Puede aportar reglas, beneficios, condiciones y restricciones.
+
+No debe inventar suitability.
+
+Manager Context
+
+Puede aportar objetivos, prioridades y coaching context.
+
+No puede convertir plan en enforcement.
+
+La presión del manager no es evidencia de planeación por sí misma.
+
+Advisor Context
+
+Puede aportar capacidad, etapa, preferencias, restricciones y disponibilidad.
+
+No debe inventar capacidad o disposición.
+
+10. OUTPUTS PERMITIDOS
+
+Business Planning puede generar:
+
+- plan de acción
+- ruta semanal
+- ruta mensual
+- ruta trimestral
+- annual planning route
+- gap analysis
+- action path
+- validation plan
+- planning scenario
+- priority sequence
+- constraint analysis
+- review checkpoint
+- plan provisional
+- plan update required
+- human review required
+- no plan possible
+- blocked planning
+- next planning step
+
+Business Planning puede decir:
+
+- “ruta sugerida”
+- “plan provisional”
+- “requiere validación”
+- “no hay evidencia suficiente para planear”
+- “este plan depende de estos supuestos”
+- “este plan debe actualizarse si cambia X”
+
+11. OUTPUTS PROHIBIDOS
+
+Business Planning no debe presentar un plan como:
+
+- obligación
+- mandato
+- producción garantizada
+- ingreso real
+- forecast confirmado
+- promesa de resultado
+- evaluación laboral automática
+- sanción
+- prueba de valor humano
+- prueba de ejecución
+- prueba de progreso
+- decisión final
+- orden gerencial
+
+Business Planning no debe decir:
+
+- “debes cerrar X”
+- “este plan garantiza Y”
+- “si ejecutas esto, lograrás Z”
+- “el asesor falló porque no siguió el plan”
+- “este cliente debe contactarse por presión de meta”
+- “más actividad siempre resuelve el gap”
+
+12. PLAN STATES
+
+Business Planning puede clasificar conceptualmente un plan como:
+
+Valid Plan
+
+Plan con evidencia suficiente, objetivo claro, gap definido, constraints conocidos y límites declarados.
+
+Provisional Plan
+
+Plan útil con evidencia parcial o incertidumbre explícita.
+
+Validation Needed
+
+Cuando el siguiente paso correcto es validar información antes de planear fuerte.
+
+Human Review Required
+
+Cuando el plan involucra criterio humano sensible, manager context, cliente sensible o tradeoffs importantes.
+
+Blocked Plan
+
+Cuando faltan evidencias críticas o el plan violaría Client First, Authority Boundary o truth boundaries.
+
+Stale Plan
+
+Plan que pudo haber perdido vigencia por cambios de evidencia, forecast, métricas, contexto o constraints.
+
+Conflicting Plan
+
+Plan basado en inputs contradictorios o owners en conflicto.
+
+No Plan Possible
+
+Cuando no existe evidencia suficiente para crear una ruta responsable.
+
+13. PLAN CONFIDENCE
+
+Business Planning puede expresar confianza de forma cualitativa, pero este ADR no crea scores de plan.
+
+Permitido:
+
+- alta confianza
+- confianza moderada
+- confianza baja
+- provisional
+- requiere validación
+- human review required
+
+Prohibido:
+
+- Plan Score
+- Advisor Plan Quality Score
+- Execution Quality Score
+- ranking humano de calidad del asesor
+
+La confianza del plan debe reflejar evidencia, freshness, constraints, incertidumbre y conflictos conocidos.
+
+La confianza del plan describe la solidez de la ruta propuesta, no la calidad humana, disciplina o valor del asesor.
+
+14. PLAN VS FORECAST
+
+Forecast responde:
+
+¿Qué podría pasar?
+
+Business Planning responde:
+
+¿Qué ruta de acción razonable puede responder a ese escenario?
+
+Forecast informa el plan.
+
+Forecast no manda el plan.
+
+Business Planning no debe tratar forecast como hecho.
+
+Ejemplo permitido:
+
+“Bajo este escenario de brecha proyectada, la ruta sugerida es validar pipeline y revisar oportunidades activas.”
+
+Ejemplo prohibido:
+
+“Como no llegarás a la meta, debes contactar a todos hoy.”
+
+15. PLAN VS NBA
+
+NBA responde:
+
+¿Cuál parece ser la siguiente mejor acción?
+
+Business Planning responde:
+
+¿Qué secuencia de acciones conecta objetivo, brecha, constraints y revisión?
+
+NBA puede alimentar Business Planning.
+
+Business Planning puede organizar NBA outputs dentro de una ruta.
+
+NBA no reemplaza plan.
+
+Plan no reemplaza criterio humano.
+
+16. PLAN VS PRODUCTIVITY
+
+Productivity responde:
+
+¿Qué relación existe entre actividad, conversión, throughput y output?
+
+Business Planning responde:
+
+¿Cómo usar esa información dentro de una ruta responsable?
+
+Actividad puede ser input.
+
+Actividad no es avance automático.
+
+Más actividad no siempre es mejor plan.
+
+Business Planning debe distinguir:
+
+- activity
+- progress
+- execution
+- outcome
+- learning
+
+17. PLAN VS MICK
+
+Mick responde:
+
+¿Qué patrones observables de conducta, consistencia, cadence o ejecución existen?
+
+Business Planning puede usar esos patrones como constraints o señales.
+
+Business Planning no debe inferir:
+
+- motivación interna
+- personalidad
+- carácter
+- valor humano
+- intención
+- disciplina moral
+
+Un patrón de baja ejecución puede requerir revisión, no juicio humano.
+
+18. PLAN VS RELATIONSHIP INTELLIGENCE
+
+Relationship Intelligence responde:
+
+¿Qué oportunidad relacional, timing o contexto existe?
+
+Business Planning puede usar esa oportunidad como input.
+
+Business Planning no debe convertir relaciones en inventario comercial.
+
+Relación no es permiso.
+
+Confianza no es palanca.
+
+Evento de vida no es trigger de venta.
+
+19. PLAN VS ECONOMIC EVIDENCE / COMPENSATION
+
+Economic Evidence responde:
+
+¿Qué valor económico tiene fuente, moneda, periodo, regla y estado?
+
+Compensation Intelligence responde:
+
+¿Qué reglas de compensación aplican?
+
+Business Planning puede usar economía como contexto.
+
+Business Planning no debe usar economía como presión.
+
+Un plan no debe priorizar payout sobre Client First.
+
+Un ingreso proyectado no justifica presión comercial.
+
+20. PLAN VS MANAGER INTELLIGENCE
+
+Manager Intelligence puede consumir planes como input de coaching.
+
+Manager Intelligence no debe convertir planes en enforcement automático.
+
+Un plan es coaching input.
+
+Un plan no es evidencia suficiente de desempeño, incumplimiento o consecuencia laboral.
+
+Business Planning no debe convertirse en manager algorítmico.
+
+21. PLAN VS EXECUTION
+
+Un plan no es ejecución.
+
+Una acción agendada no es acción realizada.
+
+Una acción realizada no es necesariamente progreso.
+
+Una acción completada no es necesariamente resultado positivo.
+
+Un checklist completo no prueba valor real.
+
+Business Planning puede sugerir rutas.
+
+Execution evidence debe venir de dominios o sistemas que observen ejecución real.
+
+22. CONSTRAINT HANDLING
+
+Business Planning debe declarar constraints relevantes cuando afecten la ruta.
+
+Tipos de constraints:
+
+- time constraints
+- capacity constraints
+- pipeline constraints
+- evidence constraints
+- client constraints
+- relationship constraints
+- policy constraints
+- product constraints
+- economic constraints
+- manager constraints
+- advisor stage constraints
+- campaign constraints
+- channel constraints
+- rule constraints
+
+Si constraints son unknown, el plan debe ser provisional.
+
+Si constraints bloquean acción, Business Planning debe decirlo.
+
+Si constraints cambian, el plan debe actualizarse.
+
+23. PARTIAL EVIDENCE HANDLING
+
+Con evidencia parcial, Business Planning puede:
+
+- generar plan provisional
+- proponer validation plan
+- pedir información
+- sugerir human review
+- marcar unknown
+- limitar la fuerza del plan
+- bloquear action path fuerte
+
+Con evidencia parcial, Business Planning no puede:
+
+- presentar plan como fuerte
+- ocultar incertidumbre
+- inventar gaps
+- inventar capacidad
+- inventar pipeline
+- inventar producción futura
+- inventar acciones
+- convertir hipótesis en ruta obligatoria
+
+24. PLAN STALENESS
+
+Un plan puede volverse stale cuando cambia:
+
+- goal
+- gap
+- forecast
+- metric
+- productivity
+- relationship context
+- policy status
+- product rule
+- economic evidence
+- compensation rule
+- advisor capacity
+- manager context
+- constraint
+- evidence freshness
+- client response
+- business priority
+
+Stale Plan no debe usarse como base fuerte sin advertencia.
+
+25. PLAN DRIFT HANDLING
+
+Plan Drift ocurre cuando:
+
+- el plan se basa en forecast viejo
+- el plan usa métricas stale
+- el plan se vuelve checklist rígido
+- el plan ignora Client First
+- el plan trata relación como explotación
+- el plan confunde actividad con avance
+- el plan sigue vigente aunque cambió el contexto
+- el plan se usa como enforcement por manager
+- el plan prioriza payout
+- el plan oculta uncertainty
+- el plan deja de transferir capacidad al asesor
+
+Cuando exista Plan Drift, Forge debe:
+
+- marcar plan stale
+- pedir actualización
+- separar inputs
+- mostrar conflictos
+- declarar uncertainty
+- recomendar revisión humana
+- evitar acción fuerte
+- conservar unknown
+
+26. REVIEW LOOP
+
+Todo plan relevante debe tener posibilidad de revisión.
+
+Review Loop puede activarse cuando:
+
+- se ejecuta una acción
+- falla una acción
+- aparece nueva evidencia
+- cambia forecast
+- cambia goal
+- cambia constraint
+- cambia relación
+- cambia productividad
+- cambia policy status
+- cambia economía
+- cambia manager context
+
+El Review Loop no debe castigar automáticamente.
+
+Debe aprender, ajustar y clarificar.
+
+27. ADVISOR CAPABILITY GROWTH
+
+Business Planning debe fortalecer capacidad del asesor.
+
+Un buen plan debe ayudar al asesor a entender:
+
+- qué objetivo persigue
+- qué gap existe
+- qué evidencia lo sostiene
+- qué constraint limita la ruta
+- qué acción es razonable
+- qué tradeoff aplica
+- cómo revisar avance
+- cuándo cambiar el plan
+
+Business Planning no debe crear dependencia innecesaria.
+
+Un plan que solo ordena tareas sin enseñar lógica debilita Advisor Capability Growth.
+
+28. ALLOWED BEHAVIOR
+
+Business Planning puede:
+
+- traducir metas en rutas
+- detectar gaps con evidencia
+- usar forecast como input limitado
+- usar productivity como input
+- usar relationship opportunities como input
+- usar economic evidence como contexto
+- usar policy/product context como input
+- proponer acciones por periodo
+- proponer validaciones
+- sugerir revisión humana
+- producir plan provisional
+- explicar tradeoffs
+- generar next planning step
+- ajustar plan con evidencia nueva
+- declarar no plan possible
+- bloquear plan por falta de evidencia
+- expresar confianza cualitativa sin score
+
+29. DISALLOWED BEHAVIOR
+
+Business Planning no debe:
+
+- inventar metas
+- inventar gaps
+- inventar pipeline
+- inventar producción futura
+- inventar capacidad del asesor
+- inventar ingresos
+- inventar clientes
+- inventar acciones
+- convertir forecast en fact
+- convertir plan en mandato
+- convertir actividad en avance
+- reemplazar criterio del asesor
+- reemplazar autoridad del manager
+- presionar clientes por meta
+- optimizar solo por revenue
+- usar Economic Motivation contra Client First
+- usar Relationship Intelligence como explotación de red
+- usar Productivity como valor humano
+- usar Manager Context como enforcement
+- usar manager pressure como evidencia suficiente
+- presentar plan como promesa de resultado
+- crear Plan Score
+- crear Advisor Plan Quality Score
+- crear Execution Quality Score
+
+30. CONSEQUENCES
+
+Positive Consequences
+
+Este ADR habilita:
+
+- planes más responsables
+- mejor separación forecast vs plan
+- mejor separación NBA vs plan
+- mejor uso de productividad
+- mejor uso de relationship opportunities
+- mejor uso de economic evidence
+- menor presión comercial indebida
+- mayor trazabilidad de rutas
+- mejor manejo de constraints
+- mejor Review Loop
+- menor riesgo de confundir planeación con ejecución
+- mayor protección de Client First
+- mayor protección de Authority Boundary
+- mejor Advisor Capability Growth
+
+Tradeoffs
+
+Este ADR introduce:
+
+- más planes provisionales
+- más validation needed
+- más human review
+- menos planes mágicos
+- menos automatización agresiva
+- mayor necesidad de evidence freshness
+- más límites para manager enforcement
+- más fricción cuando el usuario quiere “solo dime el plan”
+- menor velocidad cuando faltan inputs
+
+Estos tradeoffs son aceptables porque Forge debe producir rutas responsables, no planes autoritarios.
+
+31. DEPENDENCIES
+
+Este ADR depende de:
+
+- ADR-001 — Evidence Ownership / Source Validity
+- ADR-002 — One Metric One Owner
+- ADR-003 — Recommendation vs Decision / Authority Boundary
+- ADR-004 — No Invented Recommendations
+- ADR-005 — Product Truth Boundary
+- ADR-006 — Policy Truth Boundary
+- ADR-007 — Forecast Truth Boundary
+- ADR-008 — Economic Evidence Boundary
+- ADR-009 — NBA Philosophy
+- ADR-010 — NASH Conversation Intelligence Boundary
+- ADR-011 — Relationship Intelligence Non-Manipulation Boundary
+
+32. DEPENDENT ADRs
+
+Dependen de este ADR:
+
+- ADR-015 — Manager Intelligence Authority Boundary
+- ADR-016 — Advisor Experience + Benvenù Anti-Dependence Boundary
+- ADR-017 — Compensation Intelligence Evidence Boundary
+- ADR-018 — Economic Motivation Client First Boundary
+
+33. NON-GOALS
+
+Este ADR no define:
+
+- planning engine
+- task engine
+- follow-up engine
+- productivity formula
+- forecast formula
+- scoring model
+- schemas
+- database
+- UI
+- dashboards
+- notifications
+- automation logic
+- manager workflows
+- implementation plan
+- feature behavior
+- execution tracking
+- task assignment
+- calendar logic
+- Plan Score
+- Advisor Plan Quality Score
+- Execution Quality Score
+
+Este ADR no aprueba implementación.
+
+34. FINAL VERDICT
+
+ADR-012 establece que Business Planning puede traducir objetivos, evidencia, gaps y constraints en rutas de acción revisables.
+
+Business Planning connects goals to action paths.
+
+Business Planning does not invent goals.
+
+Business Planning does not guarantee outcomes.
+
+Business Planning does not command execution.
+
+Business Planning does not turn activity into progress.
+
+Un plan no es mandato.
+
+Un forecast no es hecho.
+
+Una meta no confirmada no es meta oficial.
+
+Un gap no puede inventarse.
+
+Actividad no es avance.
+
+Una ruta no es ejecución.
+
+Ejecución no es resultado.
+
+Economic pressure no es estrategia.
+
+Relationship opportunity no es inventario comercial.
+
+Manager context no es enforcement.
+
+Manager pressure no es evidencia.
+
+Un plan que cumple metas del asesor dañando idoneidad, autonomía o confianza del cliente es inválido.
+
+Un plan sin evidencia, constraints, uncertainty y Review Loop no es Business Planning.
+
+Es checklist con traje.
