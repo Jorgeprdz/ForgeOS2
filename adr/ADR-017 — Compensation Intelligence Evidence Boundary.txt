@@ -1,0 +1,1102 @@
+ADR-017 — COMPENSATION INTELLIGENCE EVIDENCE BOUNDARY
+
+1. TITLE
+
+ADR-017 — Compensation Intelligence Evidence Boundary
+
+2. STATUS
+
+Final
+
+3. CONTEXT
+
+Forge ya cuenta con ADR-001 a ADR-016.
+
+ADR-017 define cómo Forge puede interpretar reglas de compensación, comisiones, bonos, concursos, anticipos, retroactivos, qualification status, periodos económicos de carrera y escenarios de ingreso sin inventar ingresos, sin confundir escenarios con pagos reales, sin usar compensación como presión comercial y sin redefinir Metric Truth, Economic Evidence, Forecast Truth o Authority Boundary.
+
+Compensation Intelligence existe para responder:
+
+¿Qué reglas, condiciones, snapshots, periodos, producción y eventos deben existir para afirmar algo sobre compensación, comisión, bono, anticipo, retroactivo o calificación económica?
+
+Compensation Intelligence no responde:
+
+- cuánto se pagó sin evidencia de pago
+- cuánto se pagará con certeza
+- qué ingreso está garantizado
+- qué producto debe venderse por comisión
+- qué cliente debe ser presionado por payout
+- qué asesor vale más por ingreso
+- qué manager puede castigar por brecha económica
+- qué qualification status es final sin snapshot
+- qué concurso aplica sin rule pack
+- qué retroactivo existe sin reglas y evidencia suficiente
+
+Sin Compensation Intelligence Evidence Boundary, Forge puede:
+
+- inventar comisiones
+- inventar bonos
+- inventar ingresos
+- inventar anticipos
+- inventar retroactivos
+- inventar qualification status
+- inventar contest group
+- confundir prima emitida con prima pagada
+- confundir producción meta con producción real
+- confundir comisión estimada con comisión pagada
+- confundir bono posible con bono confirmado
+- mezclar Life y GMM
+- mezclar quarter, semester y month windows
+- mezclar snapshots de periodos distintos
+- tratar forecast como compensation truth
+- usar compensation gap como presión comercial
+- recomendar producto por payout contra Client First
+- activar manager enforcement económico
+- reducir advisor worth a ingreso
+
+ADR-017 protege la frontera entre compensación evidenciada, compensación estimada, compensación proyectada, compensación devengada y compensación pagada.
+
+4. DECISION
+
+Compensation Intelligence es el owner conceptual de interpretación rule-based de compensación, comisiones, bonos, concursos, anticipos, retroactivos, eligibility económica y qualification status económico.
+
+Compensation Intelligence puede interpretar rule packs oficiales, commission schedules, contest rules, production records, paid premium records, issued premium records, snapshots, periodos y evidence states para explicar estados de compensación.
+
+Compensation Intelligence no puede inventar montos, porcentajes, reglas, bonos, concursos, calificaciones, grupos, pagos, anticipos o retroactivos.
+
+Compensation Intelligence debe diferenciar:
+
+- paid
+- earned
+- estimated
+- projected
+- provisional
+- stale
+- conflicting
+- unknown
+
+Compensation Intelligence puede calcular o explicar escenarios solo cuando existen reglas, periodos, snapshots, producción y evidencia económica suficiente.
+
+Compensation scenario is not real payment.
+
+Paid income requires payment evidence.
+
+Earned compensation requires rule, production, period and eligibility evidence.
+
+Projected compensation remains forecast-bound.
+
+Unknown compensation remains unknown.
+
+5. DEFINITIONS
+
+Compensation Intelligence
+
+Dominio responsable de interpretar reglas de compensación, eligibility, comisiones, bonos, concursos, anticipos, retroactivos, snapshots y estados económicos de carrera.
+
+Compensation Evidence
+
+Evidencia que permite sostener una afirmación sobre compensación. Debe conservar source, rule, period, snapshot, production basis, payment state, confidence y limits.
+
+Commission Schedule
+
+Documento o regla oficial que define condiciones de comisión para un producto, periodo, canal, carrera o rule pack.
+
+Contest Rule Pack
+
+Conjunto de reglas oficiales que define eligibility, grupos, periodos, producción reconocida, premios o bonos de concurso.
+
+Compensation Rule Pack
+
+Paquete de reglas aplicable a compensación, comisiones, bonos, anticipos, retroactivos o qualification económica.
+
+RuleSnapshot
+
+Versión preservada de una regla en un periodo específico. No debe recalcularse históricamente con reglas nuevas salvo análisis separado.
+
+Compensation Period
+
+Ventana temporal aplicable a cálculo o interpretación de compensación: month, quarter, semester, campaign, contest, career month u otro periodo explícito.
+
+Production Event
+
+Hecho comercial o económico registrado, como producción emitida, producción pagada, prima emitida, prima pagada, renovación, conservación, persistencia o evento de póliza.
+
+Issued Premium
+
+Prima emitida. No equivale automáticamente a prima pagada.
+
+Paid Premium
+
+Prima pagada con evidencia de pago.
+
+Initial Premium
+
+Prima asociada a emisión inicial o primer pago según regla aplicable.
+
+Renewal Premium
+
+Prima asociada a renovación según regla aplicable.
+
+Commission Possible
+
+Estado donde una comisión podría aplicar si reglas y evidencia se validan.
+
+Estimated Commission
+
+Comisión estimada bajo reglas y evidencia parcial o supuestos explícitos.
+
+Earned Compensation
+
+Compensación devengada bajo regla, producción, periodo y eligibility suficientes, pero no necesariamente pagada.
+
+Paid Compensation
+
+Compensación pagada con evidencia de pago.
+
+Projected Compensation
+
+Escenario futuro de compensación bajo supuestos. No es pago real ni devengado confirmado.
+
+Bonus Possible
+
+Estado donde un bono podría aplicar si se cumplen condiciones y evidence requirements.
+
+Bonus Confirmed
+
+Bono confirmado con rule pack, periodo, snapshot, eligibility y evidencia oficial suficiente.
+
+Advance
+
+Anticipo económico sujeto a reglas, condiciones, recuperación o ajuste, si aplica. No es ingreso final sin reglas.
+
+Retroactive Difference
+
+Diferencia potencial o confirmada por recalculation retroactivo con reglas y evidencia suficiente.
+
+Qualification Status
+
+Estado económico o de concurso/carrera calculado o confirmado bajo reglas, periodo y snapshot.
+
+Contest Group
+
+Grupo de concurso o eligibility. No debe inferirse sin rule pack y evidencia.
+
+No Compensation Conclusion Possible
+
+Estado donde falta regla, snapshot, producción, pago, periodo o evidencia suficiente para conclusión responsable.
+
+6. COMPENSATION INTELLIGENCE OWNERSHIP RULES
+
+Compensation Intelligence may own:
+
+- compensation context
+- commission interpretation
+- bonus interpretation
+- compensation eligibility explanation
+- rule-based qualification status explanation
+- paid vs earned vs estimated vs projected classification
+- compensation evidence gap
+- stale rule warning
+- stale compensation warning
+- conflicting compensation evidence
+- human review required
+- no compensation conclusion possible
+- retroactive difference scenario
+- compensation scenario under assumptions
+- rule pack applicability warning
+- period/snapshot mismatch warning
+
+Compensation Intelligence does not own:
+
+- Economic Evidence source validity
+- currency conversion truth
+- Forecast Truth
+- Metric Truth
+- Product Truth
+- Policy Truth
+- Business Planning truth
+- Manager Intelligence conclusions
+- Advisor Experience wording ownership
+- Economic Motivation posture
+- Client suitability
+- product recommendation
+- manager enforcement
+- advisor worth
+- human ranking
+- official payment ledger unless provided as evidence
+- final carrier accounting authority
+
+Compensation Intelligence consumes official evidence and rules.
+
+It does not create rules.
+
+It does not create payments.
+
+It does not create production facts.
+
+7. VALID COMPENSATION INPUTS
+
+Compensation Intelligence may consume:
+
+- compensation rule pack
+- commission schedule
+- contest rule pack
+- official production record
+- paid premium record
+- issued premium record
+- Policy Truth
+- Product Truth
+- Economic Evidence
+- Metric Truth
+- Forecast scenarios
+- Business Planning outputs
+- Productivity Metrics
+- manager-confirmed context
+- advisor-confirmed context
+- CRM records
+- system-observed economic events
+- conservation records
+- persistence records
+- LIMRA records when applicable
+- IGC records when applicable
+- official qualification snapshot
+- campaign period
+- contest period
+- advisor career stage
+- contract date
+- career month
+- semester context
+- quarter context
+- month context
+- rule version
+- RuleSnapshot
+- payment confirmation
+- retroactive adjustment notice
+- recalculation notice
+
+Each input must preserve:
+
+- source
+- owner
+- rule context
+- period
+- snapshot
+- currency when economic value exists
+- production basis
+- payment state
+- freshness
+- uncertainty
+- evidence state
+- limits
+
+8. INPUT BOUNDARIES
+
+Compensation rule pack
+
+Can define applicable rules.
+
+Must not be treated as current if stale, superseded or period-mismatched.
+
+Commission schedule
+
+Can define commission conditions.
+
+Must not become product recommendation or guaranteed payout.
+
+Contest rule pack
+
+Can define contest eligibility and groups.
+
+Must not infer contest group without evidence.
+
+Official production record
+
+Can support compensation interpretation.
+
+Must not be redefined by Compensation Intelligence.
+
+Paid premium record
+
+Can support paid-based compensation.
+
+Must preserve payment evidence and period.
+
+Issued premium record
+
+Can support issued-production context.
+
+Must not be treated as paid premium unless the rule explicitly allows it.
+
+Policy Truth
+
+Can provide policy states or events.
+
+Must not be redefined by compensation desire.
+
+Product Truth
+
+Can provide product category, type or rules.
+
+Must not become payout-first sales logic.
+
+Economic Evidence
+
+Can provide source-bound economic values.
+
+Must not be duplicated or overwritten.
+
+Metric Truth
+
+Can provide official production, paid premium, issued premium or qualification metrics.
+
+Must not be recalculated locally if an official metric owner exists.
+
+Forecast scenarios
+
+Can provide projected context.
+
+Must remain projected and cannot become compensation truth.
+
+Business Planning outputs
+
+Can provide goals, gaps and constraints.
+
+Must not become production evidence or payout mandate.
+
+Productivity Metrics
+
+Can provide activity or output context.
+
+Must not prove compensation eligibility unless the rule explicitly depends on that metric.
+
+Manager-confirmed context
+
+Can clarify team, campaign or human context.
+
+Must not become rule, payment or production truth.
+
+Advisor-confirmed context
+
+Can clarify advisor situation.
+
+Must not become payment evidence or official qualification.
+
+CRM records
+
+Can provide candidate evidence.
+
+Must preserve source and may require validation.
+
+Conservation / persistence records
+
+Can support rules that require conservation or persistence.
+
+Must not be inferred from old policy status.
+
+LIMRA / IGC records
+
+Can be consumed when applicable.
+
+Must not be treated as interchangeable unless a rule explicitly maps them.
+
+Official qualification snapshot
+
+Can support confirmed qualification status.
+
+Must preserve period, version and source.
+
+Campaign / semester / quarter / month context
+
+Can define windows.
+
+Must not be mixed.
+
+9. OUTPUTS PERMITIDOS
+
+Compensation Intelligence may generate:
+
+- compensation context
+- estimated commission scenario
+- projected bonus scenario
+- confirmed paid income
+- earned but unpaid compensation
+- provisional qualification status
+- confirmed qualification status
+- rule-based eligibility explanation
+- retroactive difference scenario
+- compensation evidence gap
+- stale rule warning
+- stale compensation warning
+- conflicting compensation evidence
+- human review required
+- no compensation conclusion possible
+- compensation scenario under assumptions
+- rule pack applicability warning
+- period mismatch warning
+- snapshot mismatch warning
+- paid vs issued warning
+- Life vs GMM boundary warning
+- bonus recalculation context
+
+Allowed examples:
+
+- La comisión estimada depende de regla, periodo y pago confirmado; falta evidencia de pago.
+- Este escenario usa producción emitida, no producción pagada.
+- El bono aparece como posible bajo supuestos; no está confirmado.
+- El qualification status es provisional porque falta snapshot oficial.
+- Human review required por conflicto entre periodo y RuleSnapshot.
+- No compensation conclusion possible sin rule pack aplicable.
+
+10. OUTPUTS PROHIBIDOS
+
+Compensation Intelligence must not produce:
+
+- guaranteed income
+- paid income without payment evidence
+- final qualification without official snapshot
+- promised bonus
+- invented commission
+- invented bonus
+- invented advance
+- invented retroactive amount
+- invented contest group
+- invented production officiality
+- product recommendation
+- client pressure
+- sales mandate
+- manager enforcement
+- advisor ranking
+- human worth score
+- payout-first recommendation
+- suitability claim
+- compensation promise
+- hidden uncertainty
+
+Prohibited examples:
+
+- Este ingreso está garantizado.
+- Este bono será pagado.
+- Esta comisión ya está pagada sin comprobante.
+- Vende este producto porque paga más.
+- Presiona al cliente para cerrar por la comisión.
+- El asesor vale menos por su ingreso.
+- El manager debe sancionar por brecha de compensación.
+- La prima emitida cuenta como pagada sin regla explícita.
+
+11. COMPENSATION STATES
+
+Compensation Intelligence may produce these states:
+
+- compensation context available
+- commission possible
+- estimated commission scenario
+- projected commission scenario
+- earned but unpaid
+- paid compensation confirmed
+- bonus possible
+- bonus confirmed
+- advance context available
+- retroactive difference scenario
+- retroactive difference confirmed
+- provisional qualification status
+- confirmed qualification status
+- compensation evidence gap
+- rule missing
+- snapshot missing
+- payment evidence missing
+- production evidence missing
+- qualification unknown
+- human review required
+- no compensation conclusion possible
+- conflicting compensation evidence
+- stale compensation evidence
+
+These states describe evidence and rule posture.
+
+They do not create payout, promise, product recommendation or manager consequence.
+
+12. COMPENSATION CONFIDENCE
+
+Compensation Intelligence may express qualitative confidence only:
+
+- alta confianza contextual
+- confianza moderada
+- confianza baja
+- provisional
+- validation needed
+- stale
+- conflicting
+- unknown
+
+Forbidden:
+
+- Advisor Value Score
+- Human Worth Score
+- Payout Pressure Score
+- Promotion Score
+- Manager Enforcement Score
+- Product Priority by Commission Score
+- Guaranteed Income Score
+
+Confidence describes rule/evidence strength.
+
+It does not describe human quality, product suitability or future guarantee.
+
+13. COMPENSATION VS ECONOMIC EVIDENCE
+
+Economic Evidence answers:
+
+What economic values have source, currency, period, rule, state and limits?
+
+Compensation Intelligence answers:
+
+What rules, eligibility, snapshots, production, payments, bonuses, commissions and qualification states apply?
+
+Economic Evidence owns source-bound economic value validity.
+
+Compensation Intelligence consumes Economic Evidence when economic values matter.
+
+Compensation Intelligence must not duplicate currency conversion truth.
+
+Compensation Intelligence must not invent economic values.
+
+Economic Evidence can say a paid value exists.
+
+Compensation Intelligence can say how that value interacts with a compensation rule.
+
+14. COMPENSATION VS FORECAST
+
+Forecast answers:
+
+What could happen?
+
+Compensation Intelligence answers:
+
+What compensation is confirmed, estimated, projected, earned, paid or not proven under rules and evidence?
+
+Forecast can generate scenarios.
+
+Compensation Intelligence can calculate compensation scenarios under explicit rules and assumptions.
+
+Forecast does not create compensation truth.
+
+Compensation scenario is not real payment.
+
+Projected compensation remains forecast-bound until evidence changes its state.
+
+15. COMPENSATION VS METRIC TRUTH
+
+Metric Truth defines official metric owner.
+
+Compensation Intelligence consumes official metrics.
+
+Compensation Intelligence must not redefine:
+
+- official production
+- paid premium
+- issued premium
+- qualification metric
+- conservation metric
+- persistence metric
+- activity metric
+
+If official metric output is missing, Compensation Intelligence must mark evidence gap.
+
+It must not create duplicate metric truth.
+
+16. COMPENSATION VS POLICY / PRODUCT TRUTH
+
+Policy Truth owns specific policy facts.
+
+Product Truth owns product facts.
+
+Compensation Intelligence may consume policy/product context where compensation rules depend on it.
+
+Compensation Intelligence must not redefine:
+
+- policy status
+- premium status
+- coverage
+- product benefits
+- product category
+- product suitability
+- policy events
+
+Product payout difference is not product recommendation.
+
+Policy event must be evidence, not compensation desire.
+
+17. COMPENSATION VS BUSINESS PLANNING
+
+Business Planning may use compensation context as constraint, scenario or review input.
+
+Business Planning must not use income gap as pressure.
+
+Business Planning must not invent payout-first routes.
+
+Compensation Intelligence may explain economic implications under rules.
+
+It must not create business plan mandates.
+
+A compensation gap is planning context.
+
+It is not a command.
+
+18. COMPENSATION VS MANAGER INTELLIGENCE
+
+Manager Intelligence may use compensation context for coaching.
+
+Manager Intelligence must not convert compensation scenario into pressure, castigo, enforcement or labor judgment.
+
+Compensation Intelligence may provide evidence gaps, stale warnings and context.
+
+It must not produce manager enforcement.
+
+Income difference is not advisor worth.
+
+Economic gap is not punishment trigger.
+
+19. COMPENSATION VS ADVISOR EXPERIENCE
+
+Advisor Experience may explain compensation in clear language.
+
+Advisor Experience must preserve evidence, uncertainty, rule context and limits.
+
+Advisor Experience must not convert scenarios into promises.
+
+Advisor Experience must not hide partial evidence.
+
+Advisor Experience can teach what paid, earned, estimated and projected mean.
+
+It cannot change compensation state.
+
+20. COMPENSATION VS ECONOMIC MOTIVATION
+
+Compensation Intelligence answers what rule, scenario or payment exists.
+
+Economic Motivation answers how to present economic implications without violating Client First.
+
+ADR-018 should govern motivation, anxiety, pressure and Client First.
+
+ADR-017 governs compensation evidence.
+
+Compensation Intelligence must not become motivation layer.
+
+Compensation Intelligence must not use compensation to pressure advisor or client.
+
+21. LIFE VS GMM / PERIOD BOUNDARY
+
+Life and GMM compensation rules may differ.
+
+Compensation Intelligence must preserve product line, rule pack, period and calendar.
+
+Life and GMM must not be mixed unless a rule explicitly allows combined treatment.
+
+Semester, quarter, month, campaign and contest windows must not be mixed.
+
+Initial premium and renewal premium must not be mixed.
+
+Issued premium and paid premium must not be mixed.
+
+Prima meta, prima pago, commission and renewal must remain distinct.
+
+LIMRA and IGC must not be treated as interchangeable unless an explicit rule maps them.
+
+22. PAID VS EARNED VS ESTIMATED VS PROJECTED
+
+Paid compensation requires payment evidence.
+
+Earned compensation requires rule, eligibility, production, period and evidence that compensation has been earned but not necessarily paid.
+
+Estimated compensation requires rule and evidence, but may include explicit assumptions or partial evidence.
+
+Projected compensation is a future scenario and remains forecast-bound.
+
+Possible compensation indicates potential eligibility, not confirmation.
+
+Confirmed qualification requires official snapshot or sufficient official evidence.
+
+Provisional qualification must be labeled provisional.
+
+Unknown compensation remains unknown.
+
+23. RULE PACK / SNAPSHOT HANDLING
+
+Compensation Intelligence must preserve:
+
+- rule pack
+- rule version
+- RuleSnapshot
+- compensation period
+- campaign period
+- contest period
+- advisor career stage
+- contract date
+- career month
+- product line
+- channel context
+- production basis
+- payment basis
+
+Historical compensation periods must preserve historical RuleSnapshots.
+
+Historical periods must not be recalculated with new rules except as separate analysis.
+
+Do not mix 2025 commission schedules with 2026 contest rules.
+
+Do not apply stale rule pack as current.
+
+Do not infer rule version from desired outcome.
+
+24. PARTIAL EVIDENCE HANDLING
+
+With partial evidence, Compensation Intelligence may:
+
+- show provisional scenario
+- mark compensation evidence gap
+- request rule pack
+- request snapshot
+- request payment evidence
+- request production evidence
+- request qualification snapshot
+- request human review
+- mark unknown
+- mark stale evidence
+- mark conflicting evidence
+- block strong conclusion
+- produce no compensation conclusion possible
+
+With partial evidence, Compensation Intelligence must not:
+
+- affirm payment
+- affirm bonus
+- affirm final qualification
+- affirm retroactive amount
+- invent income
+- invent rule
+- invent contest group
+- convert unknown into zero unless explicit rule allows it
+- hide uncertainty
+- promise compensation
+- pressure advisor or client
+
+25. COMPENSATION STALENESS
+
+Compensation evidence becomes stale when:
+
+- rule pack changed
+- period changed
+- snapshot changed
+- official production changed
+- payment changed
+- policy status changed
+- conservation changed
+- persistence changed
+- advisor career stage changed
+- campaign rule changed
+- contest group changed
+- paid premium changed
+- issued premium changed
+- new economic evidence appeared
+- recalculation occurred
+- retroactive adjustment occurred
+- product line context changed
+- channel context changed
+- official qualification snapshot changed
+
+Stale compensation evidence must be marked stale.
+
+Stale compensation evidence must not support paid, confirmed or final language.
+
+26. COMPENSATION DRIFT HANDLING
+
+Compensation Drift occurs when:
+
+- estimated commission is treated as paid
+- possible bonus is treated as confirmed
+- forecast is treated as compensation truth
+- issued premium is treated as paid premium
+- production goal is treated as real production
+- old rule pack is treated as current
+- snapshot is mixed with another period
+- Life and GMM are mixed
+- quarter and semester are mixed
+- contest group is inferred without evidence
+- manager pressure is treated as rule
+- compensation is used to recommend product
+- income gap is used to pressure client
+- advisor worth is inferred from income
+- economic motivation is treated as compensation truth
+
+When drift exists, Forge must:
+
+- mark compensation drift risk
+- restore state labels
+- restore rule context
+- restore snapshot
+- restore period
+- restore evidence source
+- preserve uncertainty
+- block paid/confirmed language
+- require human review where needed
+- preserve Client First
+- preserve Authority Boundary
+
+27. CLIENT FIRST
+
+Compensation Intelligence must preserve Client First.
+
+Compensation cannot justify unsuitable recommendation.
+
+Commission cannot justify product pressure.
+
+Bonus cannot justify client manipulation.
+
+Contest eligibility cannot justify violating client trust.
+
+Income gap cannot justify pressuring a client.
+
+Advisor compensation context must not override product suitability, policy truth, client need or client autonomy.
+
+28. AUTHORITY BOUNDARY
+
+Compensation Intelligence may inform.
+
+Compensation Intelligence may explain.
+
+Compensation Intelligence may estimate under rules.
+
+Compensation Intelligence may mark evidence gaps.
+
+Compensation Intelligence may recommend human review.
+
+Compensation Intelligence may not decide for advisor.
+
+Compensation Intelligence may not decide for manager.
+
+Compensation Intelligence may not decide for client.
+
+Compensation Intelligence may not guarantee payment.
+
+Compensation Intelligence may not create enforcement.
+
+Human authority remains governed by ADR-003.
+
+29. SURVIVAL TEST
+
+If ADR-017 disappears:
+
+- Compensation Intelligence can invent income
+- Economic Evidence can be overextended into rule interpretation
+- Forecast can become compensation truth
+- Metric Truth can be recalculated locally
+- Business Planning can use fantasy income
+- Manager Intelligence can enforce economic gaps
+- Advisor Experience can explain scenarios as promises
+- Economic Motivation can use false numbers
+- Client First can be harmed by payout pressure
+- Authority Boundary can be weakened by promised compensation
+- paid, earned, estimated and projected can collapse into one unsafe state
+
+ADR-017 survives because no previous ADR fully governs compensation rules, snapshots, qualification states, paid/earned/projected distinctions, retroactive differences or contest eligibility evidence.
+
+30. ABSORPTION TEST
+
+ADR-017 cannot be absorbed into ADR-008.
+
+ADR-008 governs economic value evidence, but not compensation rule interpretation, eligibility, snapshots or paid/earned/projected state.
+
+ADR-017 cannot be absorbed into ADR-007.
+
+ADR-007 governs future scenarios, but not compensation truth or rule-based eligibility.
+
+ADR-017 cannot be absorbed into ADR-002.
+
+ADR-002 governs metric ownership, but not compensation interpretation.
+
+ADR-017 cannot be absorbed into ADR-012.
+
+ADR-012 governs planning, but not compensation evidence.
+
+ADR-017 cannot be absorbed into ADR-015.
+
+ADR-015 governs manager-facing coaching context, not compensation rule truth.
+
+ADR-017 cannot be absorbed into future ADR-018.
+
+ADR-018 should govern economic motivation and Client First presentation, not compensation evidence.
+
+ADR-017 must survive as independent constitutional boundary.
+
+31. ALLOWED BEHAVIOR
+
+Compensation Intelligence may:
+
+- interpret official rule packs
+- preserve compensation period
+- preserve snapshot
+- identify rule version
+- differentiate paid vs earned vs estimated vs projected
+- differentiate issued premium vs paid premium
+- differentiate initial premium vs renewal premium
+- differentiate Life vs GMM compensation calendars
+- differentiate semester vs quarter vs month windows
+- estimate scenarios under explicit assumptions
+- calculate retroactive difference only with rules and sufficient data
+- explain qualification status with evidence
+- mark compensation evidence gap
+- mark stale rule pack
+- request human review
+- block calculation when rule, period, snapshot, production or payment evidence is missing
+- produce no compensation conclusion possible
+
+32. DISALLOWED BEHAVIOR
+
+Compensation Intelligence must not:
+
+- invent commissions
+- invent bonuses
+- invent income
+- invent advances
+- invent retroactive amounts
+- invent qualification status
+- invent contest group
+- invent paid premium
+- invent official production
+- use issued premium as paid premium unless explicit rule allows it
+- use forecast as real income
+- use economic motivation as compensation truth
+- use compensation to pressure client
+- use compensation to recommend product against Client First
+- convert compensation gap into commercial mandate
+- create manager enforcement
+- promise payments
+- hide economic uncertainty
+- reduce advisor worth to income
+
+33. CONSEQUENCES
+
+Positive consequences:
+
+- fewer invented incomes
+- fewer invented commissions
+- clearer paid vs earned vs estimated vs projected states
+- better separation from Forecast Truth
+- better separation from Economic Evidence
+- better preservation of Metric Truth
+- safer Business Planning
+- safer Manager Intelligence
+- safer Advisor Experience explanations
+- safer Economic Motivation handoff
+- stronger Client First
+- stronger Authority Boundary
+- better historical RuleSnapshot preservation
+
+Tradeoffs:
+
+- more unknown states
+- more human review
+- more blocked calculations
+- more visible uncertainty
+- more dependency on official rule packs
+- more dependency on snapshots
+- less magical compensation math
+- slower responses when evidence is missing
+
+These tradeoffs are acceptable because compensation without evidence becomes false income.
+
+34. DEPENDENCIES
+
+ADR-017 depends on:
+
+- ADR-001 — Evidence Ownership / Source Validity
+- ADR-002 — One Metric One Owner
+- ADR-003 — Recommendation vs Decision / Authority Boundary
+- ADR-004 — No Invented Recommendations
+- ADR-005 — Product Truth Boundary
+- ADR-006 — Policy Truth Boundary
+- ADR-007 — Forecast Truth Boundary
+- ADR-008 — Economic Evidence Boundary
+- ADR-009 — NBA Philosophy
+- ADR-012 — Business Planning Plan-to-Action Boundary
+- ADR-014 — Productivity Metric Ownership Boundary
+- ADR-015 — Manager Intelligence Authority Boundary
+- ADR-016 — Advisor Experience + Benvenù Anti-Dependence Boundary
+
+35. DEPENDENT ADRs
+
+Dependent ADRs include:
+
+- ADR-018 — Economic Motivation Client First Boundary
+
+Future ADRs involving contests, compensation operations, manager compensation, conservation economics, advisor career economics or economic motivation must respect ADR-017.
+
+ADR-017 does not create ADR-018.
+
+36. NON-GOALS
+
+This ADR does not define:
+
+- compensation formulas
+- commission formulas
+- bonus formulas
+- contest formulas
+- retroactive formulas
+- engines
+- scores
+- schemas
+- UI
+- Build Tree changes
+- feature design
+- domain expansion
+- database design
+- workflows
+- automation logic
+- payout processing
+- carrier accounting
+- payment reconciliation system
+- manager enforcement
+- product recommendation logic
+- economic motivation wording
+- implementation plan
+
+This ADR does not invent:
+
+- rules of compensation
+- percentages
+- amounts
+- bonuses
+- contests
+- qualification logic
+- snapshots
+- product rates
+- commission schedules
+
+37. FINAL VERDICT
+
+ADR-017 establishes that Forge may interpret compensation rules, scenarios, eligibility and payment states only with evidence, rule context, period and snapshot.
+
+Compensation Intelligence may explain paid, earned, estimated, projected, possible, provisional, stale, conflicting and unknown compensation states.
+
+Compensation Intelligence may not invent income.
+
+Compensation Intelligence may not promise payment.
+
+Compensation Intelligence may not convert forecast into compensation truth.
+
+Compensation Intelligence may not convert compensation into client pressure.
+
+Paid compensation requires payment evidence.
+
+Earned compensation requires rule, production, period and eligibility evidence.
+
+Estimated compensation requires explicit assumptions and limits.
+
+Projected compensation remains a scenario.
+
+Unknown compensation remains unknown.
+
+Compensation scenario is not real payment.
+
+A compensation claim without rule, evidence, period, snapshot, production basis and uncertainty is not Compensation Intelligence.
+
+It is invented income with a rule-shaped mask.
