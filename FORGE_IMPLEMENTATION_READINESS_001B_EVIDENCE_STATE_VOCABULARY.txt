@@ -1,0 +1,44 @@
+TITLE: FORGE IMPLEMENTATION READINESS — 001B Evidence State Vocabulary
+STATUS: Draft / Conceptual
+
+CONTEXT:
+Define todos los posibles estados de evidencia que pueden existir
+en registros, métricas, patrones y inputs antes de cualquier validación.
+Se alinea con ADR-001 a ADR-018 y con el principio Evidence → Metric → Pattern → Context.
+
+VOCABULARY:
+
+- confirmed                  # evidencia validada y verificada por fuente confiable
+- validated                  # evidencia evaluada y consistente
+- provisional                # evidencia incompleta, requiere revisión
+- partial                     # solo parte de la evidencia está presente
+- weak                        # evidencia con baja confiabilidad
+- inferred                     # inferida de registros relacionados, no directa
+- assumed                     # asumida sin confirmación directa
+- stale                        # evidencia vieja, posible pérdida de validez
+- conflicting                  # evidencia contradictoria entre fuentes
+- unknown                       # estado desconocido, requiere investigación
+- invalid                       # evidencia inválida, no debe usarse
+- blocked                       # evidencia bloqueada por restricciones o permisos
+- validation_needed             # evidencia requiere confirmación de fuente
+- human_review_required         # revisión humana necesaria antes de uso
+- no_conclusion_possible        # no hay base suficiente para sacar conclusión
+
+NOTES:
+- Todos los registros o métricas deben incluir:
+    - source
+    - owner
+    - period
+    - freshness
+    - evidence_state
+    - uncertainty
+    - limitations
+- Este documento es conceptual; no activa comportamiento, UI,
+  workflow, alertas o scoring.
+- No inventar valores ni porcentajes.
+- Se aplica a todos los dominios: Productivity, Mick, Manager Intelligence,
+  Advisor Experience, Benvenù, NASH, NBA, Economic Motivation.
+
+FINAL VERDICT:
+READY / NEEDS SOURCE VALIDATION
+
