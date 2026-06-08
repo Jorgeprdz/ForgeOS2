@@ -1,0 +1,828 @@
+FORGE IMPLEMENTATION READINESS 001
+EVIDENCE / SOURCE / TRUTH VALIDATION LAYER
+
+STATUS
+
+Implementation Readiness Blueprint
+
+NO IMPLEMENTATION.
+NO CODE.
+NO ENGINES BUILT.
+NO SCHEMAS.
+NO UI.
+NO AUTOMATION.
+NO FEATURE DESIGN.
+
+1. PURPOSE
+
+This blueprint defines the first implementation readiness layer for Forge:
+
+Evidence / Source / Truth Validation Layer.
+
+This layer exists to make every downstream Forge domain answer these questions before producing important output:
+
+- What evidence exists?
+- What source produced it?
+- Who owns the source conceptually?
+- Is the source valid for the claim being made?
+- Is the data confirmed, provisional, stale, conflicting or unknown?
+- Is the output allowed under the ADR constitutional boundaries?
+- Is any engine attempting to invent truth?
+
+This layer is the foundation for:
+
+- Product Truth
+- Policy Truth
+- Forecast Truth
+- Economic Evidence
+- NBA
+- NASH
+- Relationship Intelligence
+- Business Planning
+- Mick
+- Productivity
+- Manager Intelligence
+- Advisor Experience
+- Compensation Intelligence
+- Economic Motivation
+
+If this layer is weak, every later domain can become overconfident, manipulative, stale, contradictory or invented.
+
+2. CONSTITUTIONAL BASIS
+
+This layer must comply with ADR-001 through ADR-018.
+
+Primary controlling ADRs:
+
+- ADR-001 — Evidence Ownership / Source Validity
+- ADR-002 — One Metric One Owner
+- ADR-003 — Recommendation vs Decision / Authority Boundary
+- ADR-004 — No Invented Recommendations
+
+Secondary cross-domain ADRs:
+
+- ADR-005 — Product Truth Boundary
+- ADR-006 — Policy Truth Boundary
+- ADR-007 — Forecast Truth Boundary
+- ADR-008 — Economic Evidence Boundary
+- ADR-009 — NBA Philosophy
+- ADR-010 — NASH Conversation Intelligence Boundary
+- ADR-011 — Relationship Intelligence Non-Manipulation Boundary
+- ADR-012 — Business Planning Plan-to-Action Boundary
+- ADR-013 — Mick Behavior Intelligence Boundary
+- ADR-014 — Productivity Metric Ownership Boundary
+- ADR-015 — Manager Intelligence Authority Boundary
+- ADR-016 — Advisor Experience + Benvenù Anti-Dependence Boundary
+- ADR-017 — Compensation Intelligence Evidence Boundary
+- ADR-018 — Economic Motivation Client First Boundary
+
+Core constitutional rules:
+
+- Unknown remains unknown.
+- Forecast is not fact.
+- Recommendation is not decision.
+- Priority is not mandate.
+- Economic scenario is not real money.
+- Compensation scenario is not payment.
+- Relationship opportunity is not permission.
+- Manager signal is not enforcement.
+- Advisor help is not dependency.
+- Money is context, not pressure.
+- Client First remains above commercial, compensation or productivity pressure.
+
+3. IMPLEMENTATION READINESS GOALS
+
+1. Establish evidence-first gating for all important Forge outputs.
+
+2. Preserve source ownership before any domain interpretation.
+
+3. Prevent duplicate truth ownership across domains.
+
+4. Standardize evidence state language:
+
+- confirmed
+- provisional
+- stale
+- conflicting
+- partial
+- inferred
+- assumed
+- unknown
+- blocked
+
+5. Make uncertainty visible instead of hidden.
+
+6. Detect when an engine is attempting to invent truth.
+
+7. Prevent forecasts, estimates, scenarios or motivations from becoming facts.
+
+8. Prevent domain consumers from recalculating truth owned by another domain.
+
+9. Preserve Client First and Authority Boundary at the validation layer.
+
+10. Create QA checkpoints before implementing any engine, UI, schema or automation that consumes evidence.
+
+4. LAYER OUTPUT PHILOSOPHY
+
+This layer does not decide.
+
+This layer does not recommend.
+
+This layer does not generate business actions.
+
+This layer does not calculate compensation, forecasts, scores or product recommendations.
+
+This layer classifies whether a proposed claim or output is supportable.
+
+Allowed layer posture:
+
+- identify evidence
+- validate source
+- identify owner
+- identify state
+- identify conflict
+- identify stale condition
+- identify unknown
+- block invalid truth claims
+- request validation
+- preserve boundaries
+
+Disallowed layer posture:
+
+- invent missing facts
+- infer certainty from weak evidence
+- approve human decisions
+- replace advisor authority
+- replace manager authority
+- replace client authority
+- create feature behavior
+- create workflow automation
+- create scoring models
+- create domain-specific formulas
+
+5. SUB-COMPONENT OVERVIEW
+
+The layer should be prepared as four sub-components:
+
+1. Evidence Validation Engine
+2. Source Ownership Registry
+3. Truth Consistency Checker
+4. Unknown / Stale / Conflict Handler
+
+The word "Engine" in this document means conceptual implementation target.
+
+This blueprint does not implement engine logic.
+
+6. SUB-COMPONENT 1 — EVIDENCE VALIDATION ENGINE
+
+6.1 Purpose
+
+The Evidence Validation Engine validates whether a piece of evidence can support a specific claim, interpretation, recommendation, forecast, explanation or domain output.
+
+It answers:
+
+- Is there evidence?
+- Is the evidence identifiable?
+- Is the evidence valid for this claim?
+- Is the evidence strong, partial, weak, stale, conflicting or unknown?
+- What limits must be preserved?
+- Is the proposed output allowed?
+
+6.2 Inputs
+
+Potential inputs:
+
+- uploaded official documents
+- policy documents
+- product manuals
+- quotes / illustrations
+- rule packs
+- RuleSnapshots
+- CRM records
+- user-entered data
+- advisor-confirmed facts
+- manager-confirmed facts
+- system logs / observed behavior
+- conversation history
+- external official sources when explicitly validated
+- OCR extracts
+- official production records
+- paid premium records
+- issued premium records
+- compensation rule packs
+- forecast assumptions
+- business planning goals and constraints
+- relationship context
+- economic values
+- policy events
+- product facts
+
+Each input must preserve:
+
+- source
+- source type
+- owner candidate
+- domain context
+- period
+- version
+- freshness
+- evidence state
+- uncertainty
+- limitations
+
+6.3 Outputs
+
+Permitted outputs:
+
+- evidence valid
+- evidence invalid
+- evidence partial
+- evidence weak
+- evidence stale
+- evidence conflicting
+- evidence unknown
+- evidence owner required
+- source validation required
+- human review required
+- output blocked by missing evidence
+- output blocked by invalid source
+- output allowed with uncertainty
+- no evidence conclusion possible
+
+Output must include:
+
+- claim being evaluated
+- evidence used
+- evidence state
+- source
+- owner
+- period
+- limits
+- uncertainty
+- reason for block, warning or allowance
+
+6.4 ADR Constraints
+
+The Evidence Validation Engine must comply with:
+
+- ADR-001: no claim without identifiable evidence, source, owner, context, period, uncertainty and limits.
+- ADR-003: validation does not transfer human authority.
+- ADR-004: no important recommendation without sufficient evidence.
+- ADR-007: forecast evidence cannot become fact.
+- ADR-008: economic values require source, currency, period, rule, state and limits.
+- ADR-017: compensation claims require rules, snapshots, production, payment and period context.
+- ADR-018: economic evidence must not become pressure.
+
+It must not:
+
+- invent missing evidence
+- treat unknown as zero unless an explicit rule allows it
+- treat forecast as fact
+- treat quote as policy
+- treat issued premium as paid premium without rule
+- treat manager pressure as evidence
+- treat client silence as intent
+- treat relationship trust as permission
+- treat economic gap as mandate
+
+6.5 QA Checkpoints
+
+QA must confirm:
+
+1. Every accepted evidence item has source, owner, period and context.
+
+2. Every rejected evidence item has a reason.
+
+3. Every partial evidence case preserves uncertainty.
+
+4. Every unknown remains unknown.
+
+5. Every stale item is marked stale before downstream use.
+
+6. Every conflict is surfaced instead of resolved silently.
+
+7. No generated language implies stronger truth than the evidence supports.
+
+8. No validation output becomes human decision, approval or execution.
+
+9. No economic or compensation output becomes pressure.
+
+10. No Client First boundary is weakened.
+
+7. SUB-COMPONENT 2 — SOURCE OWNERSHIP REGISTRY
+
+7.1 Purpose
+
+The Source Ownership Registry defines the conceptual owner for sources, metrics, facts and interpretation domains.
+
+It answers:
+
+- Who owns this type of truth?
+- Which domain may interpret it?
+- Which domains may consume it?
+- Which domains must not recalculate it?
+- Which boundary applies?
+
+This component prevents truth duplication and local reinterpretation.
+
+7.2 Inputs
+
+Potential inputs:
+
+- source type
+- evidence type
+- metric type
+- domain claim
+- requested output type
+- ADR boundary
+- rule pack context
+- product context
+- policy context
+- economic context
+- compensation context
+- manager context
+- advisor context
+- relationship context
+
+7.3 Outputs
+
+Permitted outputs:
+
+- official owner identified
+- owner unknown
+- owner conflict detected
+- consumer domain allowed
+- consumer domain restricted
+- reinterpretation prohibited
+- source requires domain-specific validation
+- metric owner required
+- rule pack owner required
+- boundary warning
+
+Output must include:
+
+- source category
+- conceptual owner
+- permitted consumers
+- prohibited reinterpretations
+- applicable ADR
+- owner confidence
+- unresolved ownership gaps
+
+7.4 ADR Constraints
+
+The Source Ownership Registry must comply with:
+
+- ADR-001: every evidence item needs conceptual ownership.
+- ADR-002: one metric has one conceptual owner.
+- ADR-005: Product Truth owns product facts.
+- ADR-006: Policy Truth owns policy facts.
+- ADR-007: Forecast owns scenarios, not facts.
+- ADR-008: Economic Evidence owns economic value validity.
+- ADR-012: Business Planning owns action paths, not source truth.
+- ADR-013: Mick owns behavior signals, not human worth.
+- ADR-014: Productivity owns productivity metrics.
+- ADR-015: Manager Intelligence owns manager-facing coaching context, not enforcement.
+- ADR-016: Advisor Experience owns explanation/help experience, not truth.
+- ADR-017: Compensation Intelligence owns compensation interpretation, not metric truth or payments without evidence.
+- ADR-018: Economic Motivation owns economic presentation posture, not evidence or compensation truth.
+
+It must not:
+
+- allow multiple domains to own the same official metric
+- allow consumer domains to recalculate official truth
+- allow presentation layers to redefine source truth
+- allow manager or advisor context to become final evidence automatically
+- allow economic motivation to redefine compensation or economic evidence
+
+7.5 QA Checkpoints
+
+QA must confirm:
+
+1. Every source category has one conceptual owner or is explicitly unknown.
+
+2. Consumer domains cannot overwrite owner outputs.
+
+3. Metric ownership conflicts are detected.
+
+4. Domain-specific boundaries are preserved.
+
+5. Ownership output does not imply validity by itself.
+
+6. Owner unknown blocks strong conclusions.
+
+7. Ownership registry does not create schemas, calculations or workflows.
+
+8. SUB-COMPONENT 3 — TRUTH CONSISTENCY CHECKER
+
+8.1 Purpose
+
+The Truth Consistency Checker validates whether a proposed output is consistent with existing evidence, source ownership, ADR boundaries and truth states.
+
+It answers:
+
+- Does this output contradict known evidence?
+- Does this output exceed evidence strength?
+- Does this output use the wrong owner?
+- Does this output mix periods, snapshots or domains?
+- Does this output convert a scenario into fact?
+- Does this output violate Client First or Authority Boundary?
+
+8.2 Inputs
+
+Potential inputs:
+
+- proposed domain output
+- evidence validation result
+- source ownership result
+- existing official truth
+- current truth state
+- prior truth state
+- ADR boundary metadata
+- period
+- snapshot
+- rule pack context
+- confidence language
+- output language
+- consuming domain
+
+8.3 Outputs
+
+Permitted outputs:
+
+- truth consistent
+- truth inconsistent
+- truth partially consistent
+- truth exceeds evidence
+- owner mismatch
+- period mismatch
+- snapshot mismatch
+- stale source detected
+- forecast-as-fact violation
+- scenario-as-payment violation
+- recommendation-without-evidence violation
+- authority boundary risk
+- Client First risk
+- output blocked
+- output allowed with warning
+- human review required
+
+Output must include:
+
+- proposed claim
+- consistency result
+- conflicting evidence if any
+- violated boundary if any
+- required correction posture
+- allowed weaker wording if applicable
+- blocked reason if applicable
+
+8.4 ADR Constraints
+
+The Truth Consistency Checker must comply with:
+
+- ADR-003: output may inform, interpret, recommend or prioritize, but must not decide, approve or execute.
+- ADR-004: invalid recommendations must be blocked.
+- ADR-007: projected future cannot be treated as confirmed truth.
+- ADR-008: projected money cannot be treated as real money.
+- ADR-009: priority cannot become mandate.
+- ADR-010: conversational language cannot manipulate.
+- ADR-011: relationship opportunity cannot become permission.
+- ADR-012: plan cannot become mandate.
+- ADR-015: manager signal cannot become enforcement.
+- ADR-017: compensation scenario cannot become real payment.
+- ADR-018: money cannot become pressure.
+
+It must not:
+
+- silently resolve contradictions
+- choose a truth owner without registry support
+- strengthen output wording beyond evidence
+- allow hidden steering
+- allow payout-first recommendations
+- allow manager enforcement from evidence checks
+
+8.5 QA Checkpoints
+
+QA must confirm:
+
+1. Contradictions are surfaced.
+
+2. Period mismatches are detected.
+
+3. Snapshot mismatches are detected.
+
+4. Forecast/fact confusion is blocked.
+
+5. Economic scenario/payment confusion is blocked.
+
+6. Compensation paid/earned/estimated/projected confusion is blocked.
+
+7. Relationship permission errors are blocked.
+
+8. Manager enforcement language is blocked.
+
+9. Client First risks are flagged.
+
+10. Authority Boundary risks are flagged.
+
+9. SUB-COMPONENT 4 — UNKNOWN / STALE / CONFLICT HANDLER
+
+9.1 Purpose
+
+The Unknown / Stale / Conflict Handler standardizes how Forge handles missing, old or contradictory evidence.
+
+It answers:
+
+- What is unknown?
+- What is stale?
+- What conflicts?
+- What can still be said?
+- What must be blocked?
+- What requires validation or human review?
+
+9.2 Inputs
+
+Potential inputs:
+
+- evidence validation result
+- source ownership result
+- truth consistency result
+- current evidence state
+- previous evidence state
+- timestamp or period
+- rule snapshot
+- source version
+- conflicting source list
+- proposed claim
+- consuming domain
+- output sensitivity
+
+9.3 Outputs
+
+Permitted outputs:
+
+- unknown preserved
+- stale warning
+- conflict warning
+- evidence gap
+- validation needed
+- human review required
+- no conclusion possible
+- provisional output allowed
+- strong output blocked
+- weaker output allowed with uncertainty
+- source refresh required
+- rule snapshot required
+- owner clarification required
+
+Output must include:
+
+- state type
+- impacted claim
+- impacted domain
+- missing or stale evidence
+- conflicting evidence
+- recommended validation posture
+- allowed output strength
+- blocked output strength
+
+9.4 ADR Constraints
+
+This handler must comply with all ADR staleness, drift and partial evidence rules.
+
+Key constraints:
+
+- Unknown remains unknown.
+- Partial evidence cannot produce strong conclusion.
+- Stale evidence cannot support current truth without warning.
+- Conflicting evidence cannot be silently resolved.
+- Human confirmation is not always documentary truth.
+- Old rule pack cannot be treated as current.
+- Old forecast cannot be treated as current scenario.
+- Old compensation snapshot cannot be treated as current qualification.
+- Old relationship signal cannot be treated as current permission.
+- Old manager signal cannot be used as enforcement.
+
+9.5 QA Checkpoints
+
+QA must confirm:
+
+1. Unknown states are preserved explicitly.
+
+2. Stale states include reason and affected period.
+
+3. Conflict states identify at least the conflicting source categories.
+
+4. Partial evidence does not produce final output.
+
+5. Stale evidence can trigger review, not pressure.
+
+6. Conflicting evidence can trigger human review, not invented resolution.
+
+7. All downstream domains receive the state warning.
+
+8. No stale/conflict handler output becomes a decision.
+
+10. SHARED READINESS CONTRACTS
+
+Before implementation, the layer must define human-readable contracts for these concepts:
+
+1. Evidence item
+
+Must describe source, owner, context, period, version, state and limits.
+
+2. Source ownership result
+
+Must identify owner, consumers and prohibited reinterpretations.
+
+3. Truth validation result
+
+Must identify whether a claim is allowed, blocked, provisional or requires review.
+
+4. State warning
+
+Must identify unknown, stale, conflict, partial or provisional status.
+
+5. Boundary warning
+
+Must identify ADR risk such as Authority Boundary, Client First, forecast-as-fact or payout-first risk.
+
+No technical schema is approved by this blueprint.
+
+These contracts are conceptual readiness requirements only.
+
+11. RECOMMENDED BUILD ORDER
+
+Priority 1 — Source Ownership Registry
+
+Reason:
+No evidence validation can be trusted if ownership is unclear.
+
+Readiness outcome:
+Forge can identify who owns evidence and which domains may consume it.
+
+Priority 2 — Evidence Validation Engine
+
+Reason:
+Once ownership exists, evidence can be validated against claims and boundaries.
+
+Readiness outcome:
+Forge can classify evidence state before interpretation.
+
+Priority 3 — Unknown / Stale / Conflict Handler
+
+Reason:
+Partial, stale and conflicting evidence must be standardized before consistency checks can safely gate outputs.
+
+Readiness outcome:
+Forge can preserve unknown, stale and conflict states across domains.
+
+Priority 4 — Truth Consistency Checker
+
+Reason:
+Consistency checking requires owner, evidence state and state handling to be available first.
+
+Readiness outcome:
+Forge can evaluate whether proposed domain outputs exceed evidence, violate owner boundaries or invent truth.
+
+Priority 5 — Cross-Domain QA Harness
+
+Reason:
+All domains must prove they consume this layer safely before building feature behavior.
+
+Readiness outcome:
+Forge can test boundary violations before engines, UI or automation use the layer.
+
+12. CROSS-DOMAIN QA SCENARIOS
+
+The readiness phase should include test scenarios for:
+
+1. Missing evidence
+
+Expected:
+Unknown remains unknown.
+
+2. Weak evidence
+
+Expected:
+Strong claim blocked.
+
+3. Stale policy document
+
+Expected:
+Policy output marked stale or validation needed.
+
+4. Forecast presented as fact
+
+Expected:
+Blocked.
+
+5. Economic scenario presented as paid income
+
+Expected:
+Blocked.
+
+6. Issued premium presented as paid premium
+
+Expected:
+Blocked unless explicit rule allows it.
+
+7. Manager pressure presented as evidence
+
+Expected:
+Rejected as evidence.
+
+8. Relationship opportunity presented as permission
+
+Expected:
+Blocked.
+
+9. NBA priority presented as mandate
+
+Expected:
+Authority Boundary warning.
+
+10. Compensation scenario presented as payment
+
+Expected:
+Blocked.
+
+11. Money used as client pressure
+
+Expected:
+Client First and Economic Motivation warning.
+
+12. Conflicting sources
+
+Expected:
+Conflict warning and human review required.
+
+13. FINAL READINESS GATES
+
+This layer is implementation-ready only when the following are documented and approved:
+
+1. Evidence categories and allowed source types.
+
+2. Source ownership map by domain.
+
+3. Evidence state vocabulary.
+
+4. Staleness triggers by domain.
+
+5. Conflict handling posture.
+
+6. Output allowance categories.
+
+7. Boundary warning categories.
+
+8. QA scenarios for each constitutional ADR family.
+
+9. Human review triggers.
+
+10. Explicit non-goals for engines, schemas, UI, workflows and automation.
+
+14. NON-GOALS
+
+This blueprint does not define:
+
+- implementation code
+- engine logic
+- schemas
+- database design
+- UI
+- workflows
+- automations
+- scoring
+- formulas
+- compensation calculations
+- forecast calculations
+- product recommendation logic
+- policy operations logic
+- NASH prompts
+- NBA ranking logic
+- manager workflows
+- advisor experience UI
+- economic motivation sequences
+
+This blueprint does not approve implementation.
+
+15. FINAL VERDICT
+
+The Evidence / Source / Truth Validation Layer is the first required implementation readiness layer because every Forge domain depends on evidence clarity, source ownership and truth boundaries.
+
+This layer must make invented truth difficult, visible and blockable.
+
+It must preserve unknown.
+
+It must preserve source ownership.
+
+It must expose stale and conflicting evidence.
+
+It must prevent scenarios from becoming facts.
+
+It must prevent recommendations from becoming decisions.
+
+It must preserve Client First and Authority Boundary.
+
+Forge cannot safely build higher intelligence until this layer is ready.
