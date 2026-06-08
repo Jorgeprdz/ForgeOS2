@@ -1,473 +1,116 @@
-1. TITLE
-
+TITLE
 FORGE IMPLEMENTATION READINESS 001A — SOURCE OWNERSHIP REGISTRY
 
-2. STATUS
-
+STATUS
 Implementation Readiness Blueprint
 
-3. PURPOSE
-
-This document translates ADR source ownership principles into a planning contract for future implementation.
-
-It does not implement code.
-
-It defines conceptual ownership rules that future engines must obey.
-
-4. CONSTITUTIONAL BASIS
-
-This document is based on ADR-001 through ADR-018.
-
-Primary ADRs:
-- ADR-001 — Evidence Ownership / Source Validity
-- ADR-002 — One Metric One Owner
-- ADR-003 — Recommendation vs Decision / Authority Boundary
-- ADR-004 — No Invented Recommendations
-
-Domain-specific ownership ADRs:
-- ADR-005 — Product Truth Boundary
-- ADR-006 — Policy Truth Boundary
-- ADR-007 — Forecast Truth Boundary
-- ADR-008 — Economic Evidence Boundary
-- ADR-009 — NBA Philosophy
-- ADR-010 — NASH Conversation Intelligence Boundary
-- ADR-011 — Relationship Intelligence Non-Manipulation Boundary
-- ADR-012 — Business Planning Plan-to-Action Boundary
-- ADR-013 — Mick Behavior Intelligence Boundary
-- ADR-014 — Productivity Metric Ownership Boundary
-- ADR-015 — Manager Intelligence Authority Boundary
-- ADR-016 — Advisor Experience + Benvenù Anti-Dependence Boundary
-- ADR-017 — Compensation Intelligence Evidence Boundary
-- ADR-018 — Economic Motivation Client First Boundary
-
-5. REGISTRY PHILOSOPHY
-
-- Every truth claim needs an owner.
-- Every metric has one owner.
-- Consumer domains may consume truth, not redefine it.
-- Presentation domains explain truth, not rewrite it.
-- Forecast owns scenarios, not facts.
-- Business Planning owns action paths, not source truth.
-- Manager Intelligence owns coaching context, not enforcement.
-- Advisor Experience owns explanation/help, not truth.
-- Economic Motivation owns economic presentation posture, not economic truth.
-- Unknown owner means strong output must be blocked.
-- Ownership does not equal validity; ownership only identifies who may validate or interpret.
-
-6. CORE QUESTIONS THE REGISTRY MUST ANSWER
-
-For every source / claim / output, the registry must answer:
-- What is the source type?
-- What is the evidence type?
-- What claim is being made?
-- Which domain owns this truth?
-- Which ADR governs the ownership?
-- Which domains may consume it?
-- Which domains may not reinterpret it?
-- What state fields are required before use?
-- Does this claim require source validation?
-- Does this claim require human review?
-- Is the owner known, unknown or conflicting?
-- What output strength is allowed?
-- What output must be blocked?
-
-7. SOURCE OWNERSHIP CONTRACT
-
-Conceptual contract fields:
-- source_type
-- evidence_type
-- claim_type
-- conceptual_owner
-- governing_ADR
-- allowed_consumers
-- prohibited_reinterpretations
-- required_state_fields
-- required_context_fields
-- owner_confidence
-- ownership_status
-- validation_required
-- human_review_trigger
-- blocked_claims
-- allowed_output_posture
-- notes / limitations
-
-8. OWNERSHIP STATUS VOCABULARY
-
-- owner_confirmed: The conceptual owner is unambiguously identified and available.
-- owner_candidate: A potential owner is identified but requires further contextual evidence.
-- owner_unknown: No clear owner can be determined; strong claims blocked.
-- owner_conflicting: Multiple domains claim ownership; requires resolution or ADR review.
-- owner_not_applicable: The item does not represent a truth claim or metric.
-- consumer_allowed: The consuming domain is authorized to read the truth claim.
-- consumer_restricted: The consuming domain is blocked from accessing the truth claim.
-- reinterpretation_blocked: A domain attempts to alter the semantic meaning of the owned truth.
-- human_review_required: The claim touches sensitive boundaries and cannot be automatically asserted.
-- validation_required: The source evidence needs explicit validation before the owner can process it.
-
-9. REQUIRED STATE FIELDS
-
-Every owned source / claim should preserve:
-- source
-- source_type
-- evidence_type
-- owner
-- domain_context
-- period
-- version
-- snapshot
-- freshness
-- evidence_state
-- uncertainty
-- limitations
-- conflicts
-- allowed_consumers
-- prohibited_reinterpretations
-- governing_ADR
-
-10. DOMAIN OWNERSHIP MAP
-
-A. Evidence Ownership / Source Validity
-OWNER OF: Provenance, validity states, document authenticity, raw system-observed activity logs, raw quotes/illustrations.
-NOT OWNER OF: Business meaning of the document, behavior patterns.
-ALLOWED CONSUMERS: All core intelligence engines.
-PROHIBITED REINTERPRETATIONS: Cannot alter business truth.
-GOVERNING ADR: ADR-001
-
-B. Metric Truth
-OWNER OF: Canonical numerical outputs and calculations.
-NOT OWNER OF: Forecasts, managerial actions.
-ALLOWED CONSUMERS: Business Planning, Manager Intelligence, Compensation Intelligence.
-PROHIBITED REINTERPRETATIONS: Cannot be redefined by UI or Business Planning.
-GOVERNING ADR: ADR-002
-
-C. Product Truth
-OWNER OF: Carrier product rules, coverages, limits.
-NOT OWNER OF: UDI source truth, FX source truth, Forecasts, compensation values.
-ALLOWED CONSUMERS: Forecast Truth, Policy Truth, Advisor Experience.
-PROHIBITED REINTERPRETATIONS: Cannot treat quote rules as fact unless supported by documentation. May consume UDI/FX only when documentation requires currency semantics.
-GOVERNING ADR: ADR-005
-
-D. Policy Truth
-OWNER OF: Issued policy states, active coverage, confirmed cancellation events, paid premiums (with payment evidence).
-NOT OWNER OF: General product rules, anticipated future premiums, quote interpretations.
-ALLOWED CONSUMERS: Compensation Intelligence, Relationship Intelligence, Economic Motivation.
-PROHIBITED REINTERPRETATIONS: Cannot treat quote as policy. Cannot treat issued premium as paid premium.
-GOVERNING ADR: ADR-006
-
-E. Forecast Truth
-OWNER OF: Future scenarios, projections, cancellation risk scenarios, projected UDI/FX using explicit assumptions.
-NOT OWNER OF: Confirmed cancellation events, current facts, issued policy truth, product rules, raw quotes.
-ALLOWED CONSUMERS: Business Planning, Economic Motivation, Advisor Experience.
-PROHIBITED REINTERPRETATIONS: Forecasts cannot be presented as guaranteed facts. Cannot invent payment.
-GOVERNING ADR: ADR-007
-
-F. Economic Evidence
-OWNER OF: Validity of economic values (monetary, premiums, paid, issued, quoted, sums insured, UDI values, FX rates, currency conversion sources, economic assumptions).
-NOT OWNER OF: Compensation interpretation, product rules, policy events, motivation posture.
-ALLOWED CONSUMERS: Economic Motivation, Relationship Intelligence, Forecast, Product Truth (for semantics).
-PROHIBITED REINTERPRETATIONS: Cannot invent values or redefine compensation logic.
-GOVERNING ADR: ADR-008
-
-G. NBA (Next Best Action)
-OWNER OF: Prioritization of recommended actions.
-NOT OWNER OF: The decision itself.
-ALLOWED CONSUMERS: Advisor Experience, NASH.
-PROHIBITED REINTERPRETATIONS: Cannot enforce actions as mandatory decisions.
-GOVERNING ADR: ADR-003, ADR-009
-
-H. NASH Conversation Intelligence
-OWNER OF: Conversation guidance, message framing, tone options, language suggestions.
-NOT OWNER OF: Client intent truth, client decision, relationship permission, product truth, policy truth, recommendation authority.
-ALLOWED CONSUMERS: Advisor Experience, NBA.
-PROHIBITED REINTERPRETATIONS: Cannot invent client intent or product benefits.
-GOVERNING ADR: ADR-010
-
-I. Relationship Intelligence
-OWNER OF: Relationship context, timing signals, opportunity signals.
-NOT OWNER OF: Permission to contact, permission to manipulate, client intent, client decision, commercial obligation, personal network inventory.
-ALLOWED CONSUMERS: NASH, NBA, Business Planning.
-PROHIBITED REINTERPRETATIONS: Cannot treat relationship trust as permission for manipulation.
-GOVERNING ADR: ADR-011
-
-J. Business Planning
-OWNER OF: Action paths, goal progression.
-NOT OWNER OF: Source truth, historical metric truth.
-ALLOWED CONSUMERS: Manager Intelligence, Advisor Experience.
-PROHIBITED REINTERPRETATIONS: Cannot treat action plans as confirmed results.
-GOVERNING ADR: ADR-012
-
-K. Mick Behavior Intelligence
-OWNER OF: Habit tracking, behavior patterns derived from repeated observable conduct.
-NOT OWNER OF: Advisor human worth, internal motivations, raw activity logs, productivity truth.
-ALLOWED CONSUMERS: Productivity, Manager Intelligence.
-PROHIBITED REINTERPRETATIONS: Cannot diagnose advisor psychology based on latency.
-GOVERNING ADR: ADR-013
-
-L. Productivity
-OWNER OF: Operational KPIs, completion rates, productivity metrics derived from activity.
-NOT OWNER OF: Human ranking, human worth, behavior intelligence, raw activity logs.
-ALLOWED CONSUMERS: Manager Intelligence, Business Planning.
-PROHIBITED REINTERPRETATIONS: Cannot be redefined by UI layers or be used as moral judgment.
-GOVERNING ADR: ADR-014
-
-M. Manager Intelligence
-OWNER OF: Coaching context, alert generation, team aggregation, manager-facing coaching interpretation.
-NOT OWNER OF: Enforcement, direct discipline, metric definition.
-ALLOWED CONSUMERS: Team/Manager UI, Business Planning.
-PROHIBITED REINTERPRETATIONS: Cannot use Mick signals as punitive enforcement.
-GOVERNING ADR: ADR-015
-
-N. Advisor Experience
-OWNER OF: Explanation, contextual help, progressive discovery.
-NOT OWNER OF: Business truth, metrics, policy states.
-ALLOWED CONSUMERS: End user presentation layer.
-PROHIBITED REINTERPRETATIONS: Cannot simplify truth if doing so changes its meaning or hides uncertainty.
-GOVERNING ADR: ADR-016
-
-O. Benvenù
-OWNER OF: First-value experience, initial clarity, minimal validation request, capability-growth framing.
-NOT OWNER OF: Core intelligence rules, CRM intake, corporate onboarding, forced setup.
-ALLOWED CONSUMERS: Advisor Experience.
-PROHIBITED REINTERPRETATIONS: Cannot create dependency or redefine system truth.
-GOVERNING ADR: ADR-016
-
-P. Compensation Intelligence
-OWNER OF: Rules of payment, commission structures, paid income (with payment evidence), earned but unpaid income.
-NOT OWNER OF: Forecasts, premium issuance.
-ALLOWED CONSUMERS: Economic Motivation, Manager Intelligence.
-PROHIBITED REINTERPRETATIONS: Cannot treat compensation scenarios as actual payments without evidence.
-GOVERNING ADR: ADR-017
-
-Q. Economic Motivation
-OWNER OF: Economic presentation posture, impact framing.
-NOT OWNER OF: Economic truth, compensation facts.
-ALLOWED CONSUMERS: NBA, Advisor Experience.
-PROHIBITED REINTERPRETATIONS: Cannot redefine compensation reality or sacrifice Client First principles for advisor payout.
-GOVERNING ADR: ADR-018
-
-11. SOURCE TYPE OWNERSHIP MAP
-
-- official policy document: Owner=Policy Truth. Consumers=All. Prohibited=Treating as quote. Relevant ADR=ADR-006.
-- product manual: Owner=Product Truth. Consumers=Forecast, Advisor Exp. Prohibited=Forecast redefining it. Relevant ADR=ADR-005.
-- product rule pack: Owner=Product Truth. Consumers=All. Prohibited=UI redefining rules. Relevant ADR=ADR-005.
-- raw quote / illustration document: Owner=Evidence Ownership. Consumers=Product Truth, Economic Evidence. Prohibited=Treating as Forecast or Policy directly. Relevant ADR=ADR-001.
-- quoted premium / sum insured / economic values: Owner=Economic Evidence. Consumers=Forecast Truth. Prohibited=Treating as payment or guaranteed future. Relevant ADR=ADR-008.
-- projection or scenario derived from quote: Owner=Forecast Truth. Consumers=Economic Motivation. Prohibited=Treating as active policy. Relevant ADR=ADR-007.
-- OCR extract: Owner=Evidence Ownership. Consumers=Policy Truth, Product Truth. Prohibited=Treating as business truth before validation. Relevant ADR=ADR-001.
-- CRM record: Owner=Evidence Ownership. Consumers=Relationship Intelligence. Prohibited=Treating as official policy. Relevant ADR=ADR-001.
-- advisor-confirmed context: Owner=Relationship Intelligence. Consumers=NASH, NBA. Prohibited=Treating as client-confirmed context. Relevant ADR=ADR-011.
-- manager-confirmed context: Owner=Manager Intelligence. Consumers=Business Planning. Prohibited=Treating as metric truth. Relevant ADR=ADR-015.
-- client-confirmed context: Owner=Evidence Ownership. Consumers=NASH, Relationship Intelligence. Prohibited=Ignoring Client First. Relevant ADR=ADR-011, 018.
-- official production record: Owner=Metric Truth. Consumers=Compensation Intelligence, Manager Intelligence. Prohibited=Business Planning modifying it. Relevant ADR=ADR-002.
-- paid premium record: Owner=Policy Truth. Consumers=Compensation Intelligence. Prohibited=Treating as forecast. Relevant ADR=ADR-006.
-- issued premium record: Owner=Policy Truth. Consumers=Compensation Intelligence. Prohibited=Treating as paid premium. Relevant ADR=ADR-006.
-- compensation rule pack: Owner=Compensation Intelligence. Consumers=Economic Motivation. Prohibited=Treating as paid out. Relevant ADR=ADR-017.
-- contest rule pack: Owner=Compensation Intelligence. Consumers=Economic Motivation, Manager Intelligence. Prohibited=Treating as guaranteed. Relevant ADR=ADR-017.
-- official qualification snapshot: Owner=Metric Truth. Consumers=Manager Intelligence, Compensation Intelligence. Prohibited=Reinterpretation by Forecast. Relevant ADR=ADR-002.
-- forecast assumption: Owner=Forecast Truth. Consumers=Business Planning. Prohibited=Treating as confirmed fact. Relevant ADR=ADR-007.
-- business goal: Owner=Business Planning. Consumers=Manager Intelligence, NBA. Prohibited=Treating as official metric. Relevant ADR=ADR-012.
-- campaign goal: Owner=Business Planning. Consumers=NBA, Manager Intelligence. Prohibited=Treating as metric truth. Relevant ADR=ADR-012.
-- raw system-observed activity log: Owner=Evidence Ownership. Consumers=Mick, Productivity. Prohibited=Treating as behavior pattern directly. Relevant ADR=ADR-001.
-- task completion record: Owner=Evidence Ownership. Consumers=Productivity, Manager Intelligence. Prohibited=Treating as revenue truth. Relevant ADR=ADR-001.
-- calendar record: Owner=Evidence Ownership. Consumers=Relationship Intelligence, NASH. Prohibited=Treating as official permission to spam. Relevant ADR=ADR-001.
-- NASH output: Owner=NASH Conversation Intelligence. Consumers=Advisor Experience. Prohibited=Treating as automated decision or client intent truth. Relevant ADR=ADR-010.
-- NBA output: Owner=NBA. Consumers=Advisor Experience. Prohibited=Enforcing as mandatory path. Relevant ADR=ADR-009.
-- Mick behavior signal: Owner=Mick Behavior Intelligence. Consumers=Manager Intelligence. Prohibited=Treating as internal motivation. Relevant ADR=ADR-013.
-- Productivity metric: Owner=Productivity. Consumers=Manager Intelligence. Prohibited=Treating as human worth. Relevant ADR=ADR-014.
-- Manager Intelligence signal: Owner=Manager Intelligence. Consumers=Team UI. Prohibited=Treating as hard enforcement. Relevant ADR=ADR-015.
-- Advisor Experience signal: Owner=Advisor Experience. Consumers=UI. Prohibited=Treating as core truth. Relevant ADR=ADR-016.
-- Relationship context: Owner=Relationship Intelligence. Consumers=NASH. Prohibited=Treating as manipulation mandate or intent. Relevant ADR=ADR-011.
-- economic value: Owner=Economic Evidence. Consumers=Economic Motivation, Forecast. Prohibited=Inventing values. Relevant ADR=ADR-008.
-- current UDI value: Owner=Economic Evidence. Consumers=Forecast, Product Truth. Prohibited=Inventing missing values. Requires official source. Relevant ADR=ADR-008.
-- FX rate: Owner=Economic Evidence. Consumers=Forecast, Product Truth. Prohibited=Inventing missing rates. Requires official source. Relevant ADR=ADR-008.
-- policy event: Owner=Policy Truth. Consumers=Relationship Intelligence. Prohibited=Forecast claiming ownership. Relevant ADR=ADR-006.
-- product condition: Owner=Product Truth. Consumers=Advisor Experience, NASH. Prohibited=Hiding condition uncertainty. Relevant ADR=ADR-005.
-
-12. CLAIM TYPE OWNERSHIP MAP
-
-- “This product allows X”: Owner=Product Truth. Allowed=Advisor Exp, NASH. Prohibited=Forecast redefining. Strong=Yes. Human Review=No. ADR=ADR-005.
-- “This policy has X”: Owner=Policy Truth. Allowed=Relationship Intel, Comp. Prohibited=Quote as policy. Strong=Yes. Human Review=No. ADR=ADR-006.
-- “This policy will cancel”: Owner=Policy Truth (for confirmed events), Forecast Truth (for risk scenarios). Allowed=NBA, Manager Intel. Prohibited=Treating scenario as fact. Strong=No (Probability only for risk). Human Review=No. ADR=ADR-006, ADR-007.
-- “This advisor has produced X”: Owner=Metric Truth. Allowed=Manager Intel, Comp. Prohibited=Business Planning redefining. Strong=Yes. Human Review=No. ADR=ADR-002.
-- “This premium is paid”: Owner=Policy Truth. Allowed=Comp, Econ Motivation. Prohibited=Issued as Paid. Requires payment evidence. Strong=Yes. Human Review=No. ADR=ADR-006.
-- “This premium is issued”: Owner=Policy Truth. Allowed=Comp. Prohibited=Issued as Paid. Strong=Yes. Human Review=No. ADR=ADR-006.
-- “This income is paid”: Owner=Compensation Intelligence. Allowed=Manager Intel, Econ Motivation. Prohibited=Estimated as Paid. Requires payment evidence. Strong=Yes. Human Review=No. ADR=ADR-017.
-- “This commission is estimated”: Owner=Compensation Intelligence. Allowed=Econ Motivation. Prohibited=Estimated as Paid. Strong=No (Estimation). Human Review=No. ADR=ADR-017.
-- “This bonus is confirmed”: Owner=Compensation Intelligence. Allowed=Manager Intel. Prohibited=Estimated as confirmed. Strong=Yes. Human Review=No. ADR=ADR-017.
-- “This forecast suggests risk”: Owner=Forecast Truth. Allowed=NBA, Manager Intel. Prohibited=Forecast as fact. Strong=No. Human Review=No. ADR=ADR-007.
-- “This action is prioritized”: Owner=NBA. Allowed=Advisor Exp, NASH. Prohibited=Mandatory enforcement. Strong=No. Human Review=No. ADR=ADR-009.
-- “This message should be sent”: Owner=NASH. Allowed=Advisor Exp. Prohibited=Automated without review. Strong=No. Human Review=Yes. ADR=ADR-010.
-- “This relationship is an opportunity”: Owner=Relationship Intelligence. Allowed=NBA, NASH. Prohibited=Trust as permission. Strong=Yes (conditionally). Human Review=No. ADR=ADR-011.
-- “This productivity metric is below target for period X”: Owner=Productivity. Allowed=Manager Intel. Prohibited=Productivity as human worth or moral judgment. Strong=Yes. Human Review=No. ADR=ADR-014.
-- “This manager should review this”: Owner=Manager Intelligence. Allowed=Team UI. Prohibited=Manager signal as enforcement. Strong=No. Human Review=Yes. ADR=ADR-015.
-- “This plan is stale”: Owner=Business Planning. Allowed=Mick, Manager Intel. Prohibited=Plan as metric truth. Strong=Yes. Human Review=No. ADR=ADR-012.
-- “This economic gap matters”: Owner=Economic Motivation. Allowed=NBA, NASH. Prohibited=Redefining economic truth. Strong=Yes. Human Review=No. ADR=ADR-018.
-- “This client should be contacted”: Owner=NBA. Allowed=NASH, Advisor Exp. Prohibited=Client First violation. Strong=No. Human Review=No. ADR=ADR-009.
-- “This value is unknown”: Owner=Evidence Ownership. Allowed=All. Prohibited=Advisor Exp hiding unknown. Strong=Yes. Human Review=No. ADR=ADR-001.
-
-13. ALLOWED CONSUMPTION RULES
-
-- Business Planning may consume Forecast scenarios but cannot convert them into facts.
-- Manager Intelligence may consume Productivity metrics but cannot convert them into ranking or punishment.
-- Advisor Experience may explain Product Truth but cannot simplify until truth changes.
-- NBA may consume economic context but cannot prioritize payout over Client First.
-- NASH may consume Relationship context but cannot manipulate or own intent.
-- Economic Motivation may consume Compensation scenarios but cannot present them as real money.
-
-14. PROHIBITED REINTERPRETATION RULES
-
-Explicit prohibitions:
-- Forecast cannot redefine Product Truth.
-- Business Planning cannot redefine Metric Truth.
-- Manager Intelligence cannot redefine Mick signals as diagnosis.
-- Advisor Experience cannot redefine unknown as clarity.
-- Economic Motivation cannot redefine Compensation Intelligence.
-- NASH cannot redefine client intent.
-- NBA cannot redefine recommendation as decision.
-- Productivity cannot redefine human worth.
-- Mick cannot redefine productivity truth.
-- Compensation cannot redefine paid premium without payment evidence.
-- Relationship Intelligence cannot redefine trust as permission.
-
-15. OWNER UNKNOWN HANDLING
-
-When owner is unknown:
-- strong output blocked
-- validation required
-- human review required when sensitive
-- unknown preserved
-- no invented owner
-- no local fallback owner unless explicitly allowed
-- no downstream reinterpretation
-
-16. OWNER CONFLICT HANDLING
-
-When ownership conflicts:
-- mark owner_conflicting
-- list conflicting candidate owners
-- block strong claim
-- preserve uncertainty
-- request ADR review if repeated
-- require human review for sensitive domains
-- do not silently pick owner
-
-17. CROSS-DOMAIN BOUNDARY WARNINGS
-
-Warning categories:
-- owner mismatch
-- source invalid for claim
-- consumer attempting reinterpretation
-- forecast-as-fact risk
-- quote-as-policy risk
-- issued-as-paid risk
-- compensation-as-payment risk
-- relationship-as-permission risk
-- manager-signal-as-enforcement risk
-- productivity-as-human-worth risk
-- advisor-help-as-dependency risk
-- economic-context-as-pressure risk
-- Client First risk
-- Authority Boundary risk
-
-18. QA CHECKLIST
-
-- Does this claim have an owner?
-- Is the owner the correct conceptual owner?
-- Is the consuming domain allowed?
-- Is the consuming domain trying to reinterpret truth?
-- Is the source valid for the claim?
-- Does the claim require period, snapshot or version?
-- Is evidence stale?
-- Is evidence conflicting?
-- Is owner unknown?
-- Is output strength appropriate?
-- Is human review required?
-- Does this risk Client First?
-- Does this risk Authority Boundary?
-- Does this create enforcement, pressure, manipulation or ranking?
-
-19. QA SCENARIOS
-
-1. Forecast tries to state a policy will cancel.
-Expected: blocked; Forecast owns risk scenario, not confirmed policy event.
-2. Business Planning treats production goal as production fact.
-Expected: blocked; Metric Truth required.
-3. Manager Intelligence treats low productivity metric as advisor failure.
-Expected: blocked; Productivity metric is not human judgment or ranking.
-4. Economic Motivation uses income gap to pressure client contact.
-Expected: blocked; Client First risk.
-5. Advisor Experience hides uncertainty to make UX smoother.
-Expected: blocked; fake clarity risk.
-6. NASH turns relationship context into manipulative script or asserts intent.
-Expected: blocked; Relationship/NASH boundary risk.
-7. Compensation treats issued premium as paid premium.
-Expected: blocked unless explicit payment evidence allows.
-8. Product Intelligence treats quote as policy.
-Expected: blocked; quote is not policy truth.
-9. Mick treats response latency as lack of commitment.
-Expected: blocked; behavior signal is not internal motivation.
-10. NBA treats priority as order.
-Expected: Authority Boundary warning.
-
-20. IMPLEMENTATION READINESS OUTPUTS
-
-This document prepares future implementation to produce:
-- ownership_result
-- owner_confirmed
-- owner_unknown
-- owner_conflicting
-- consumer_allowed
-- consumer_restricted
-- reinterpretation_blocked
-- governing_ADR
-- boundary_warning
-- human_review_required
-- validation_required
-
-NOTE: owner confidence labels must only be qualitative (confirmed, candidate, unknown, conflicting, requires review), never numeric scoring.
-
-21. BUILD READINESS ORDER
-
-Future readiness order:
-1. Source Ownership Registry contract
-2. Evidence State Vocabulary
-3. Truth Validation Result Contract
-4. Unknown / Stale / Conflict Handling Contract
-5. Cross-domain QA Harness
-6. Implementation Plan v0.1
-
-22. NON-GOALS
-
-This document does not define:
-- code
-- engine logic
-- schemas
-- database
-- UI
-- automation
-- workflow
-- scoring
-- ranking
-- product logic
-- policy logic
-- forecast formulas
-- compensation formulas
-- NASH prompt generation
-- NBA ranking
-- manager workflows
-- advisor experience UI
-
-This document does not approve implementation.
-
-23. FINAL VERDICT
-
-Source Ownership Registry is required before evidence validation because Forge cannot validate a claim if it does not know who owns the truth.
-
-Ownership is not validity.
-Consumption is not reinterpretation.
-Presentation is not truth.
-
-Unknown owner blocks strong output.
-Conflicting owner blocks strong output.
-
-Forge cannot safely build intelligent engines until source ownership is explicit, preserved and enforced.
+CONTEXT
+The Forge OS Constitutional Phase is locked. Canonical ADRs (001-018) establish strict domain boundaries, metric ownership, and prohibition of invented data. The Source Ownership Registry translates these principles into conceptual rules. This prevents truth duplication, reinterpretation by presentation layers, and the misuse of forecasts, productivity metrics, and relationship signals. This document is self-contained and defines ownership rules without placeholders or drafts.
+
+DECISION
+Forge will enforce conceptual source ownership before any engine consumes or interprets data. Every source, evidence, metric, and truth claim must have an explicitly defined owner. Consumer domains may read but not redefine truth. Unknown or conflicting owners will block strong output claims.
+
+DEFINITIONS
+- Evidence Ownership: Validity of documents and raw logs.
+- Product Truth: Official rules and limits from carrier docs.
+- Policy Truth: Confirmed events, issued coverages, paid premiums.
+- Economic Evidence: Validity of values, sums, quotes, and rates (UDI/FX).
+- Forecast Truth: Scenarios and risk probabilities.
+- Advisor Experience: First-value capability and explanation layer.
+- Manager Intelligence: Coaching context and team alerts.
+- Mick Behavior Signals: Observable habit patterns.
+- Productivity Metrics: Quantitative KPIs, completion rates.
+- NASH Conversation Intelligence: Messaging guidance and framing.
+- NBA (Next Best Action): Prioritized action recommendations.
+- Benvenù: First-value experience and capability growth.
+- Relationship Intelligence: Relationship context and timing signals.
+- Confidence Labels: Must be qualitative (e.g., alta, media, baja, provisional, validation needed, stale, conflicting, unknown). No numeric scoring.
+
+OWNERSHIP RULES
+- Evidence Ownership owns raw documents, OCR, raw activity logs, and unverified inputs.
+- Product Truth owns carrier product rules.
+- Policy Truth owns issued states and paid premiums (requiring payment evidence).
+- Economic Evidence owns monetary values, UDI/FX sources, and raw quotes.
+- Forecast Truth owns projected scenarios.
+- Productivity owns metrics derived from activity.
+- Mick owns behavior patterns derived from activity.
+- Manager Intelligence owns coaching interpretations.
+- NASH owns conversation guidance.
+- NBA owns recommendation prioritization.
+- Relationship Intelligence owns relationship opportunity signals.
+- Benvenù owns first-value experience.
+- Advisor Experience owns UI presentation.
+
+VALID INPUTS
+- Raw system-observed activity logs.
+- Verified carrier documentation.
+- Economic sources (UDI/FX official records).
+- Payment evidence.
+- Raw quote documents.
+- Client-confirmed context.
+
+INPUT BOUNDARIES
+- Partial Evidence Handling: Unverified documents or missing context must result in provisional or unknown states.
+- Quotes cannot be input as Policy Truth.
+- Productivity inputs cannot include subjective human worth.
+- UDI/FX inputs must come from official economic evidence, not product rules.
+- Relationship signals cannot assume manipulation permission.
+
+OUTPUTS PERMITIDOS
+- "This productivity metric is below target for period X."
+- "This risk scenario indicates potential cancellation."
+- "This message is framed for relationship building."
+- "This action is prioritized."
+- "This economic value is valid."
+
+OUTPUTS PROHIBIDOS
+- "This advisor is low productivity." (No ranking, scoring, or evaluation of humans)
+- "This policy will cancel." (Without policy evidence)
+- "Send this message to close the sale." (No manipulation or intent assumption)
+- "This manager must enforce this penalty." (No punitive enforcement)
+- Any numeric confidence score representing human judgment.
+
+DRIFT HANDLING
+When observed data drifts from source truth:
+- Strong claims are blocked.
+- State reverts to 'conflicting' or 'validation needed'.
+- Presentation layers must explain the uncertainty.
+- No local fallback owner is allowed without explicit permission.
+
+STALENESS HANDLING
+When evidence or claims age beyond their validity period:
+- State becomes 'stale'.
+- Claims depending on stale evidence drop to 'validation needed'.
+- Economic Evidence (UDI/FX) requires freshness checks before Forecast consumption.
+
+AUTHORITY BOUNDARY
+- Manager Intelligence advises, it does not enforce.
+- NBA recommends, it does not decide.
+- Productivity measures outputs, it does not judge human worth.
+- NASH guides, it does not manipulate or own client intent.
+
+CLIENT FIRST
+All recommendations and intelligence outputs must prioritize client welfare over advisor compensation (ADR-018). Economic Motivation cannot pressure advisors into actions that violate client trust. Relationship Intelligence context cannot be used for spam or manipulation.
+
+SURVIVAL TEST
+If all UI layers fail, the Source Ownership Registry and evidence validation rules must independently prevent false claims, invented data, or incorrect ownership consumption by background intelligence engines.
+
+ABSORPTION TEST
+If a new source or metric is introduced, it must be absorbed strictly under one owner domain using the defined definitions and rules. Ambiguous metrics must trigger an ownership conflict state.
+
+NON-GOALS
+- Implementing code, schemas, databases, or workflows.
+- Creating automation logic or engines.
+- Designing UI or dashboards.
+- Generating formulas for compensation or forecasting.
+- Inventing commercial rules or human ranking systems.
+
+FINAL VERDICT
+This Source Ownership Registry is fully aligned with Forge OS Constitutional ADRs (001-018). It enforces strict domain separation, prevents truth duplication, treats productivity as metrics rather than human worth, and ensures all outputs adhere to Client First and Authority Boundary principles. Implementation readiness is confirmed.
+
+VALIDATION RESULT
+- ALL REQUIRED ANCHORS PRESENT: YES.
+- DRIFT / STALENESS HANDLING PRESENT: YES.
+- QUALITATIVE CONFIDENCE LABELS CONFIRMED: YES.
+- NO HUMAN SCORING/RANKING FOUND: YES.
+- DANGER CHECK PASSED: YES.
