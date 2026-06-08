@@ -1,0 +1,472 @@
+FORGE IMPLEMENTATION READINESS 001B
+
+PROPOSITION SUPPORT CONDITION VOCABULARY
+
+STATUS:
+LOCKED
+
+VERSION:
+v1.0
+
+PHASE:
+Constitutional Foundation
+
+LOCK DATE:
+Pending Repository Commit
+
+──────────────────────────────────────
+
+1. PURPOSE
+
+The purpose of 001B is to define the constitutional vocabulary Forge uses to describe uncertainty, limitations, deficiencies and support conditions affecting propositions.
+
+001B exists to preserve visibility of uncertainty before any proposition is evaluated, validated, consumed, escalated or used to derive recommendations.
+
+001B does not determine truth.
+
+001B does not determine validation outcomes.
+
+001B does not determine handling behavior.
+
+001B does not determine recommendations.
+
+001B does not determine automation.
+
+The objective of 001B is uncertainty visibility.
+
+──────────────────────────────────────
+
+2. CONSTITUTIONAL FOUNDATION
+
+Forge does not fundamentally govern:
+
+- PDFs
+- OCR outputs
+- CRM records
+- reports
+- spreadsheets
+- emails
+- notes
+- raw evidence artifacts
+
+Those artifacts may contain evidence.
+
+Forge ultimately evaluates propositions supported by evidence.
+
+Evidence supports propositions.
+
+Ownership governs propositions.
+
+Validation evaluates propositions.
+
+Recommendations may derive from propositions.
+
+──────────────────────────────────────
+
+3. DEFINITION OF PROPOSITION
+
+A proposition is any evaluable statement that may be supported, unsupported, partially supported, contradicted, unresolved or uncertain.
+
+Examples:
+
+"The policy contains AVE."
+
+"The policy is active."
+
+"The premium has been paid."
+
+"The current UDI value is X."
+
+"There is cancellation risk."
+
+"There is a follow-up opportunity."
+
+"There is coaching context."
+
+"Projected compensation may be X."
+
+A proposition is not:
+
+- a document
+- a PDF
+- an OCR extraction
+- a workflow
+- a task
+- a recommendation
+- a UI event
+- an implementation artifact
+
+──────────────────────────────────────
+
+4. RELATIONSHIP TO 001A
+
+001A answers:
+
+Who owns a proposition?
+
+001A determines ownership.
+
+001B assumes ownership has already been established.
+
+001B must not determine ownership.
+
+──────────────────────────────────────
+
+5. RELATIONSHIP TO 001C
+
+001B answers:
+
+What uncertainty affects support for a proposition?
+
+001C answers:
+
+What may legitimately be asserted regarding a proposition?
+
+001B describes support conditions.
+
+001C determines validation posture.
+
+This separation is mandatory.
+
+──────────────────────────────────────
+
+6. RELATIONSHIP TO 001D
+
+001B identifies support conditions.
+
+001D determines how Forge responds when support conditions exist.
+
+Examples:
+
+UNKNOWN
+
+PARTIAL
+
+STALE
+
+CONFLICTING
+
+INVALID
+
+001B describes them.
+
+001D governs handling behavior.
+
+This separation is mandatory.
+
+──────────────────────────────────────
+
+7. WHY 001B EXISTS
+
+001B exists to prevent hidden uncertainty.
+
+The constitutional risk is not uncertainty.
+
+The constitutional risk is invisible uncertainty.
+
+Examples:
+
+Forecast presented as fact.
+
+Quote presented as policy.
+
+Issued presented as paid.
+
+Compensation projection presented as payment.
+
+Relationship signal presented as permission.
+
+NBA presented as mandate.
+
+NASH presented as client intent.
+
+Manager context presented as enforcement.
+
+Economic motivation presented as pressure.
+
+Each constitutional failure above originates from uncertainty becoming invisible.
+
+001B exists to preserve visibility.
+
+──────────────────────────────────────
+
+8. SUPPORT PRINCIPLE
+
+Support is the body of evidence available to sustain, challenge, qualify or contradict a proposition.
+
+Support is not truth.
+
+Support is not validation.
+
+Support is not recommendation authority.
+
+Support is not decision authority.
+
+Truth cannot exceed available support.
+
+Validation cannot exceed available support.
+
+Recommendations cannot exceed available support.
+
+Outputs cannot exceed available support.
+
+──────────────────────────────────────
+
+9. CORE SUPPORT CONDITIONS
+
+UNKNOWN
+
+Definition:
+
+Available support is insufficient to determine proposition status.
+
+Constitutional Risk:
+
+Unknown support treated as known.
+
+──────────────────────────────────────
+
+PARTIAL
+
+Definition:
+
+Support exists but remains incomplete.
+
+Constitutional Risk:
+
+Incomplete support treated as complete.
+
+──────────────────────────────────────
+
+STALE
+
+Definition:
+
+Support exists but freshness cannot be assumed.
+
+Constitutional Risk:
+
+Outdated support treated as current.
+
+──────────────────────────────────────
+
+CONFLICTING
+
+Definition:
+
+Available support sources disagree.
+
+Constitutional Risk:
+
+Silent conflict resolution.
+
+──────────────────────────────────────
+
+INVALID
+
+Definition:
+
+Support exists but cannot be safely consumed.
+
+Examples:
+
+- unreadable
+- corrupted
+- structurally unusable
+- unverifiable
+
+Constitutional Risk:
+
+Invalid support treated as usable.
+
+──────────────────────────────────────
+
+10. CONDITIONS EXCLUDED FROM 001B
+
+The following concepts are not support conditions.
+
+VALIDATED
+
+Reason:
+
+Validation outcome.
+
+──────────────────────────────────────
+
+CONFIRMED
+
+Reason:
+
+Validation outcome.
+
+──────────────────────────────────────
+
+BLOCKED
+
+Reason:
+
+Validation posture.
+
+──────────────────────────────────────
+
+VALIDATION_NEEDED
+
+Reason:
+
+Review posture.
+
+──────────────────────────────────────
+
+HUMAN_REVIEW_REQUIRED
+
+Reason:
+
+Review posture.
+
+──────────────────────────────────────
+
+NO_CONCLUSION_POSSIBLE
+
+Reason:
+
+Handling or conclusion posture.
+
+──────────────────────────────────────
+
+WEAK
+
+Reason:
+
+Failed constitutional boundary review.
+
+Repeated analysis demonstrated that WEAK consistently drifted into validation-strength semantics rather than support-condition semantics.
+
+WEAK is excluded from 001B.
+
+──────────────────────────────────────
+
+11. CONSTITUTIONAL INVARIANTS
+
+The following invariants are mandatory.
+
+Unknown support must never appear as known support.
+
+Partial support must never appear as complete support.
+
+Stale support must never appear as current support.
+
+Conflicting support must never be silently resolved.
+
+Invalid support must never appear as usable support.
+
+Truth must never exceed support.
+
+Validation must never exceed support.
+
+Recommendations must never exceed support.
+
+Hidden uncertainty is a constitutional failure.
+
+──────────────────────────────────────
+
+12. NON-GOALS
+
+001B does not:
+
+- validate propositions
+- approve propositions
+- reject propositions
+- generate recommendations
+- generate tasks
+- generate workflows
+- generate automation
+- generate scoring
+- generate rankings
+- generate enforcement
+- determine ownership
+- determine handling behavior
+- determine decision authority
+
+──────────────────────────────────────
+
+13. CONSTITUTIONAL THESIS
+
+Forge does not manage certainty.
+
+Forge manages visibility of uncertainty affecting proposition support.
+
+Support limitations must remain visible.
+
+Support deficiencies must remain visible.
+
+Support conflicts must remain visible.
+
+Support freshness limitations must remain visible.
+
+Hidden uncertainty is a constitutional failure.
+
+──────────────────────────────────────
+
+14. FINAL THESIS
+
+Ownership governs propositions.
+
+Support conditions describe the state of support available to propositions.
+
+Validation evaluates propositions.
+
+Handling responds to support deficiencies.
+
+Recommendations may derive from evaluated propositions.
+
+Truth cannot exceed support.
+
+──────────────────────────────────────
+
+15. SURVIVAL TEST
+
+If a future implementation attempts to:
+
+- hide uncertainty
+- silently resolve conflicts
+- treat stale evidence as current
+- treat partial evidence as complete
+- treat unknown evidence as valid
+- exceed available support
+
+then the implementation violates 001B.
+
+──────────────────────────────────────
+
+16. ABSORPTION TEST
+
+If a future implementation causes 001B to absorb:
+
+- ownership responsibilities
+- validation responsibilities
+- handling responsibilities
+- recommendation responsibilities
+- enforcement responsibilities
+
+then the implementation violates 001B.
+
+──────────────────────────────────────
+
+17. FINAL VERDICT
+
+001B DISCOVERY:
+CLOSED
+
+001B CONSTITUTIONAL REVIEW:
+PASSED
+
+001B LOCK REVIEW:
+PASSED
+
+001B STATUS:
+LOCKED
+
+NEXT READINESS PACKAGE:
+
+001C
+TRUTH VALIDATION RESULT CONTRACT
