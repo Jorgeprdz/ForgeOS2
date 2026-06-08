@@ -1,0 +1,452 @@
+FORGE CODEX PROMPT 001
+SOURCE OWNERSHIP REGISTRY V0.1 — IMPLEMENTATION ONLY
+
+MODE:
+Implementation only.
+
+SCOPE:
+Create Source Ownership Registry v0.1.
+
+DO NOT IMPLEMENT ANY OTHER ENGINE.
+
+DO NOT REFACTOR THE REPO.
+
+DO NOT CREATE UI.
+
+DO NOT CREATE DATABASE SCHEMAS.
+
+DO NOT CREATE WORKFLOWS.
+
+DO NOT CREATE AUTOMATION LOGIC.
+
+DO NOT CREATE SCORING.
+
+DO NOT CREATE RANKING.
+
+DO NOT CREATE MANAGER ENFORCEMENT.
+
+DO NOT CREATE PRODUCT ENGINE.
+
+DO NOT CREATE POLICY ENGINE.
+
+DO NOT CREATE FORECAST ENGINE.
+
+DO NOT CREATE NBA ENGINE.
+
+DO NOT CREATE NASH ENGINE.
+
+DO NOT CREATE COMPENSATION ENGINE.
+
+DO NOT CREATE ADVISOR EXPERIENCE UI.
+
+CONTEXT:
+
+Forge Constitutional Phase is locked.
+
+ADR-001 through ADR-018 are canonical.
+
+Implementation Readiness Layer 001 is complete:
+
+- FORGE_IMPLEMENTATION_READINESS_001_EVIDENCE_SOURCE_TRUTH_LAYER.txt
+- FORGE_IMPLEMENTATION_READINESS_001A_SOURCE_OWNERSHIP_REGISTRY.txt
+- FORGE_IMPLEMENTATION_READINESS_001B_EVIDENCE_STATE_VOCABULARY.txt
+- FORGE_IMPLEMENTATION_READINESS_001C_TRUTH_VALIDATION_RESULT_CONTRACT.txt
+- FORGE_IMPLEMENTATION_READINESS_001D_UNKNOWN_STALE_CONFLICT_HANDLING_CONTRACT.txt
+- FORGE_IMPLEMENTATION_READINESS_001E_CROSS_DOMAIN_QA_HARNESS.txt
+- FORGE_IMPLEMENTATION_READINESS_001F_IMPLEMENTATION_PLAN_V0_1.txt
+
+This implementation must follow those documents.
+
+PRIMARY IMPLEMENTATION GOAL:
+
+Create a minimal, isolated Source Ownership Registry v0.1 that can answer:
+
+- Who owns this source type?
+- Who owns this claim type?
+- Which ADR governs the ownership?
+- Which domains may consume it?
+- Which reinterpretations are prohibited?
+- Is the owner known, unknown, conflicting or not applicable?
+- Should strong output be blocked because ownership is unknown or conflicting?
+
+EXPECTED BEHAVIOR:
+
+The registry must preserve the principle:
+
+Ownership is not validity.
+
+The registry does not validate evidence.
+
+The registry does not decide output strength.
+
+The registry does not recommend actions.
+
+The registry does not execute workflows.
+
+The registry does not infer business truth.
+
+The registry only identifies conceptual ownership and consumption boundaries.
+
+REQUIRED FUNCTIONS / EXPORTS:
+
+Implement the smallest possible API needed for v0.1.
+
+Suggested functions:
+
+1. getSourceOwnership(sourceType)
+
+Input:
+- sourceType: string
+
+Output:
+- ownership result object
+
+2. getClaimOwnership(claimType)
+
+Input:
+- claimType: string
+
+Output:
+- ownership result object
+
+3. canDomainConsume({ consumingDomain, sourceType, claimType })
+
+Input:
+- consumingDomain
+- sourceType optional
+- claimType optional
+
+Output:
+- consumer allowed / restricted result
+
+4. checkReinterpretationRisk({ consumingDomain, sourceType, claimType, attemptedInterpretation })
+
+Input:
+- consumingDomain
+- sourceType optional
+- claimType optional
+- attemptedInterpretation optional string
+
+Output:
+- reinterpretation risk result
+
+5. evaluateOwnership({ sourceType, claimType, consumingDomain, attemptedInterpretation })
+
+Input:
+- sourceType optional
+- claimType optional
+- consumingDomain optional
+- attemptedInterpretation optional
+
+Output:
+- consolidated ownership result
+
+OUTPUT RESULT SHAPE:
+
+Use plain JavaScript objects.
+
+Do not create database schema.
+
+Do not use TypeScript unless repo already uses TypeScript for this area.
+
+Suggested result fields:
+
+- status
+- conceptualOwner
+- governingADR
+- allowedConsumers
+- prohibitedReinterpretations
+- ownershipStatus
+- consumerStatus
+- reinterpretationStatus
+- warnings
+- blocked
+- blockedReason
+- notes
+
+Allowed statuses:
+
+- owner_confirmed
+- owner_candidate
+- owner_unknown
+- owner_conflicting
+- owner_not_applicable
+- consumer_allowed
+- consumer_restricted
+- reinterpretation_blocked
+- validation_required
+- human_review_required
+
+BLOCKING RULES:
+
+Strong output must be blocked when:
+
+- owner is unknown
+- owner is conflicting
+- consuming domain is restricted
+- attempted interpretation matches prohibited reinterpretation
+- source type is invalid for the implied claim
+- claim attempts to convert scenario into fact
+- claim attempts to convert quote into policy
+- claim attempts to convert issued premium into paid premium
+- claim attempts to convert compensation scenario into payment
+- claim attempts to convert relationship context into permission
+- claim attempts to convert productivity metric into human worth
+- claim attempts to convert manager signal into enforcement
+- claim attempts to convert NBA priority into mandate
+- claim attempts to convert NASH guidance into client intent
+
+REQUIRED SOURCE TYPES:
+
+Include at minimum:
+
+- official_policy_document
+- product_manual
+- product_rule_pack
+- raw_quote_illustration_document
+- quoted_premium
+- quoted_sum_insured
+- projection_derived_from_quote
+- ocr_extract
+- crm_record
+- advisor_confirmed_context
+- manager_confirmed_context
+- client_confirmed_context
+- official_production_record
+- paid_premium_record
+- issued_premium_record
+- compensation_rule_pack
+- contest_rule_pack
+- official_qualification_snapshot
+- forecast_assumption
+- business_goal
+- campaign_goal
+- raw_system_activity_log
+- task_completion_record
+- calendar_record
+- nash_output
+- nba_output
+- mick_behavior_signal
+- productivity_metric
+- manager_intelligence_signal
+- advisor_experience_signal
+- relationship_context
+- economic_value
+- current_udi_value
+- fx_rate
+- policy_event
+- product_condition
+
+REQUIRED CLAIM TYPES:
+
+Include at minimum:
+
+- product_allows_x
+- policy_has_x
+- policy_will_cancel
+- policy_cancellation_risk
+- advisor_has_produced_x
+- premium_is_paid
+- premium_is_issued
+- income_is_paid
+- commission_is_estimated
+- bonus_is_confirmed
+- forecast_suggests_risk
+- action_is_prioritized
+- message_should_be_sent
+- relationship_is_opportunity
+- productivity_metric_below_target
+- manager_should_review
+- plan_is_stale
+- economic_gap_matters
+- client_should_be_contacted
+- value_is_unknown
+
+CRITICAL OWNERSHIP REQUIREMENTS:
+
+UDI / FX:
+
+- current_udi_value owner must be Economic Evidence.
+- fx_rate owner must be Economic Evidence.
+- Product Truth may consume only for product currency semantics.
+- Forecast may consume only for projections with explicit assumptions.
+- Product Truth must not own UDI/FX source truth.
+
+Quote / illustration:
+
+- raw_quote_illustration_document owner must be Evidence Ownership.
+- quoted values owner must be Economic Evidence.
+- projection derived from quote owner must be Forecast Truth.
+- quote must not be treated as Policy Truth.
+- quote must not be treated as payment.
+
+NASH:
+
+- NASH owns conversation guidance, message framing, tone options and language suggestions.
+- NASH must not own client intent truth.
+- NASH must not own relationship permission.
+- NASH must not own product truth.
+- NASH must not own policy truth.
+
+Relationship Intelligence:
+
+- owns relationship context, timing signals and opportunity signals.
+- does not own permission to contact.
+- does not own permission to manipulate.
+- does not own client intent.
+- does not own commercial obligation.
+
+Mick / Productivity / raw activity:
+
+- raw_system_activity_log owner must be Evidence Ownership.
+- productivity_metric owner must be Productivity.
+- mick_behavior_signal owner must be Mick Behavior Intelligence.
+- Mick must not own raw logs.
+- Productivity must not own human worth.
+- Manager Intelligence must not convert either into enforcement.
+
+Policy / premium:
+
+- paid_premium_record owner must be Policy Truth.
+- issued_premium_record owner must be Policy Truth.
+- issued premium is not paid premium.
+- paid premium requires payment evidence.
+- compensation cannot redefine paid premium.
+
+Compensation:
+
+- compensation_rule_pack owner must be Compensation Intelligence.
+- estimated commission is not paid income.
+- bonus scenario is not confirmed bonus.
+- paid income requires payment evidence.
+
+Economic Motivation:
+
+- owns economic presentation posture / framing.
+- does not own economic truth.
+- does not own compensation truth.
+- must not create pressure against Client First.
+
+REQUIRED ADR OWNER MAPPING:
+
+Use these owner labels exactly or consistently:
+
+- Evidence Ownership
+- Metric Truth
+- Product Truth
+- Policy Truth
+- Forecast Truth
+- Economic Evidence
+- NBA
+- NASH Conversation Intelligence
+- Relationship Intelligence
+- Business Planning
+- Mick Behavior Intelligence
+- Productivity
+- Manager Intelligence
+- Advisor Experience
+- Benvenù
+- Compensation Intelligence
+- Economic Motivation
+
+REQUIRED ADR REFERENCES:
+
+- ADR-001
+- ADR-002
+- ADR-003
+- ADR-004
+- ADR-005
+- ADR-006
+- ADR-007
+- ADR-008
+- ADR-009
+- ADR-010
+- ADR-011
+- ADR-012
+- ADR-013
+- ADR-014
+- ADR-015
+- ADR-016
+- ADR-017
+- ADR-018
+
+TEST REQUIREMENTS:
+
+Create minimal tests or a validation script consistent with the repo’s existing test style.
+
+If the repo has no test framework for this area, create a simple Node validation script only if appropriate and non-invasive.
+
+Tests must verify:
+
+1. UDI owner is Economic Evidence.
+2. FX owner is Economic Evidence.
+3. raw quote owner is Evidence Ownership.
+4. quoted premium owner is Economic Evidence.
+5. projection from quote owner is Forecast Truth.
+6. NASH does not own client intent truth.
+7. Relationship opportunity is not permission.
+8. raw activity log owner is Evidence Ownership.
+9. productivity metric owner is Productivity.
+10. Mick behavior signal owner is Mick Behavior Intelligence.
+11. issued premium is not paid premium.
+12. compensation scenario is not payment.
+13. NBA priority is not mandate.
+14. Manager signal is not enforcement.
+15. Unknown source type returns owner_unknown and blocked true.
+16. Conflicting owner state blocks strong output if represented.
+17. Consumer restricted returns consumer_restricted.
+18. Prohibited reinterpretation returns reinterpretation_blocked.
+19. Productivity-as-human-worth risk is blocked.
+20. Forecast-as-fact risk is blocked.
+
+DANGER CHECK REQUIREMENTS:
+
+Search the implementation for prohibited semantic regressions.
+
+Danger phrases should not appear as allowed behavior:
+
+- UDI owner Product Truth
+- FX owner Product Truth
+- quote owner Forecast Truth
+- NASH owns client intent
+- productivity means human worth
+- manager enforcement allowed
+- relationship permission
+- compensation scenario paid
+- forecast fact
+
+REPORT REQUIREMENT:
+
+Create a plain text report:
+
+FORGE_SOURCE_OWNERSHIP_REGISTRY_V0_1_IMPLEMENTATION_REPORT.txt
+
+Report must include:
+
+A) Files created / modified
+B) Functions exported
+C) Ownership maps included
+D) Tests / validation run
+E) Danger checks run
+F) Known limitations
+G) Non-goals respected
+H) Final status
+
+FINAL STATUS must be one of:
+
+- PASS
+- NEEDS_REPAIR
+- BLOCKED
+
+EXPECTED FINAL RESPONSE:
+
+Return concise summary plus:
+
+- files created/modified
+- tests run
+- validation result
+- danger check result
+- final status
+
+Do not include huge code dumps in the final answer.
+Return patch summary in plain text.
