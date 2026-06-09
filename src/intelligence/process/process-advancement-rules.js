@@ -52,6 +52,10 @@ function isCommercialHumanActor(actor) {
   return COMMERCIAL_HUMAN_ACTORS.includes(actor);
 }
 
+function isCommitmentDueNow(commitment = {}) {
+  return commitment.isDueNow === true;
+}
+
 function hasMalformedCore(input = {}) {
   return (
     !input.evaluatedActor ||
@@ -87,9 +91,18 @@ function resolveProcessMove(input = {}) {
 
   if (
     governingCommitment.owner === EVALUATED_ACTORS.ADVISOR &&
-    governingCommitment.state === COMMITMENT_STATES.ACTIVE
+    governingCommitment.state === COMMITMENT_STATES.ACTIVE &&
+    isCommitmentDueNow(governingCommitment)
   ) {
     return PROCESS_MOVES.HONOR_COMMITMENT;
+  }
+
+  if (
+    governingCommitment.owner === EVALUATED_ACTORS.ADVISOR &&
+    governingCommitment.state === COMMITMENT_STATES.ACTIVE &&
+    !isCommitmentDueNow(governingCommitment)
+  ) {
+    return PROCESS_MOVES.WAIT_ON_DEPENDENCY;
   }
 
   if (governingCommitment.state === COMMITMENT_STATES.MISSED) {
@@ -170,6 +183,7 @@ module.exports = {
   isPermissionTemporarilyDenied,
   isInstitutionalOrExternalActor,
   isCommercialHumanActor,
+  isCommitmentDueNow,
   hasMalformedCore,
   resolveProcessMove
 };
