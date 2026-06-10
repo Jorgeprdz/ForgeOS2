@@ -10,7 +10,11 @@ LOCKED
 
 The Forge Constitution Map defines the organizational structure of Forge constitutional architecture.
 
-Its purpose is to provide a canonical navigation model for all approved constitutional and operational ADRs.
+Its purpose is to provide a canonical navigation model for all approved constitutional ADRs and operational readiness foundations.
+
+Canonical ADR files live in `adr/`.
+
+`docs/adr/` is used for ADR-related working documents, transition material, and ADR-stage documentation that has not been folded into the canonical ADR set.
 
 This document does not replace individual ADRs.
 
@@ -178,14 +182,20 @@ Money is never pressure.
 
 Provide shared operational language across Forge.
 
-### ADR-001A
-Ownership Vocabulary
+### READINESS CONTRACT — 001A
+Source Ownership Registry
 
-### ADR-001B
-Support Condition Vocabulary
+Operational foundation, not a canonical ADR.
 
-### ADR-001C
-Validation Result Standardization
+### READINESS CONTRACT — 001B
+Evidence State Vocabulary
+
+Operational foundation, not a canonical ADR.
+
+### READINESS CONTRACT — 001C
+Truth Validation Result Contract
+
+Operational foundation, not a canonical ADR.
 
 ### Core Principle
 
@@ -232,9 +242,9 @@ ADR-001 through ADR-018.
 
 # OPERATIONAL FOUNDATION
 
-ADR-001A
-ADR-001B
-ADR-001C
+001A Source Ownership Registry
+001B Evidence State Vocabulary
+001C Truth Validation Result Contract
 ADR-0019
 
 ---
