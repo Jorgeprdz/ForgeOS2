@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-06-11T20:29:54.435Z",
+  "generatedAt": "2026-06-11T20:47:01.142Z",
   "summary": {
     "totalJsFilesScanned": 671,
-    "totalImportsFound": 195,
-    "staticImportsFound": 194,
+    "totalImportsFound": 196,
+    "staticImportsFound": 195,
     "dynamicImportsFound": 1,
     "missingTargetsCount": 4,
     "missingExportsCount": 2,
-    "circularImportsCount": 1,
+    "circularImportsCount": 0,
     "bootBlockersCount": 0,
     "executabilityVerdict": "EXECUTABLE_WITH_WARNINGS",
     "confidenceScore": 0.88
@@ -58,17 +58,7 @@
       "classification": "DOMAIN_BLOCKER"
     }
   ],
-  "circularImports": [
-    {
-      "key": "app.js>comisiones.js>app.js",
-      "chain": [
-        "app.js",
-        "comisiones.js",
-        "app.js"
-      ],
-      "classification": "APP_SHELL_CYCLE"
-    }
-  ],
+  "circularImports": [],
   "bootBlockers": [],
   "appShellCouplings": [
     {
@@ -80,6 +70,12 @@
     {
       "path": "utils.js",
       "importedNames": "showToast",
+      "category": "Platform boot",
+      "shouldEventuallyBeDynamic": false
+    },
+    {
+      "path": "supabase-runtime.js",
+      "importedNames": "SupabaseRuntime, getSupabase",
       "category": "Platform boot",
       "shouldEventuallyBeDynamic": false
     },

@@ -5,7 +5,7 @@ Status: EXECUTABLE VALIDATION / NO FIXES
 
 ## Executive Summary
 
-Scanned 671 root JavaScript files and found 195 import edges.
+Scanned 671 root JavaScript files and found 196 import edges.
 
 Executability verdict: `EXECUTABLE_WITH_WARNINGS`
 
@@ -16,10 +16,10 @@ No runtime files were modified, no imports were rewritten, and no files were ren
 | Metric | Count |
 | --- | --- |
 | Total JS files scanned | 671 |
-| Total imports found | 195 |
+| Total imports found | 196 |
 | Missing targets | 4 |
 | Missing exports | 2 |
-| Circular imports | 1 |
+| Circular imports | 0 |
 | Boot blockers | 0 |
 
 ## Missing Import Targets
@@ -40,9 +40,7 @@ No runtime files were modified, no imports were rewritten, and no files were ren
 
 ## Circular Imports
 
-| Classification | Chain |
-| --- | --- |
-| APP_SHELL_CYCLE | app.js -> comisiones.js -> app.js |
+None detected.
 
 ## Specific RUNTIME-002 Findings
 
