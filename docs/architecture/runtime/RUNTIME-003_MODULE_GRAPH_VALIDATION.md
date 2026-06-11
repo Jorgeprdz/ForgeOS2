@@ -5,9 +5,9 @@ Status: EXECUTABLE VALIDATION / NO FIXES
 
 ## Executive Summary
 
-Scanned 670 root JavaScript files and found 194 import edges.
+Scanned 671 root JavaScript files and found 195 import edges.
 
-Executability verdict: `LIKELY_BOOT_FAILURE`
+Executability verdict: `EXECUTABLE_WITH_WARNINGS`
 
 No runtime files were modified, no imports were rewritten, and no files were renamed.
 
@@ -15,12 +15,12 @@ No runtime files were modified, no imports were rewritten, and no files were ren
 
 | Metric | Count |
 | --- | --- |
-| Total JS files scanned | 670 |
-| Total imports found | 194 |
-| Missing targets | 5 |
-| Missing exports | 4 |
-| Circular imports | 2 |
-| Boot blockers | 3 |
+| Total JS files scanned | 671 |
+| Total imports found | 195 |
+| Missing targets | 4 |
+| Missing exports | 2 |
+| Circular imports | 1 |
+| Boot blockers | 0 |
 
 ## Missing Import Targets
 
@@ -30,37 +30,33 @@ No runtime files were modified, no imports were rewritten, and no files were ren
 | cartera-view.js | ../utils/cartera-utils.js | ../utils/cartera-utils.js | static | ROUTE_BLOCKER |
 | smnyl-bonos-engine.js | ./smnyl-concursos-config.js | smnyl-concursos-config.js | static | DOMAIN_BLOCKER |
 | smnyl-training-allowance-engine.js | ./smnyl-concursos-config.js | smnyl-concursos-config.js | static | DOMAIN_BLOCKER |
-| utils.js | ./overlay-manager.js | overlay-manager.js | static | BOOT_BLOCKER |
 
 ## Missing Named Exports
 
 | Source | Target | Resolved | Imported Name | Classification |
 | --- | --- | --- | --- | --- |
 | cartera-import-engine.js | ./cartera-service.js | cartera-service.js | carteraService | ROUTE_BLOCKER |
-| comisiones.js | ./app.js | app.js | callGemini | BOOT_BLOCKER |
-| prospeccion.js | ./app.js | app.js | callGemini | BOOT_BLOCKER |
 | smnyl-produccion-engine.js | ./smnyl-prima-engine.js | smnyl-prima-engine.js | calcularPrimaPoliza | DOMAIN_BLOCKER |
 
 ## Circular Imports
 
 | Classification | Chain |
 | --- | --- |
-| APP_SHELL_CYCLE | app.js -> prospeccion.js -> app.js |
 | APP_SHELL_CYCLE | app.js -> comisiones.js -> app.js |
 
 ## Specific RUNTIME-002 Findings
 
 | Finding | Result |
 | --- | --- |
-| utils.js imports ./overlay-manager.js | CONFIRMED MISSING TARGET |
+| utils.js imports ./overlay-manager.js | Not detected |
 | ./ovelay-manager.js exists | YES |
-| callGemini imported from app.js | CONFIRMED MISSING EXPORT |
+| callGemini imported from app.js | Not detected |
 
 ## Executability Verdict
 
-`LIKELY_BOOT_FAILURE`
+`EXECUTABLE_WITH_WARNINGS`
 
-Static module evidence contains BOOT_BLOCKER issues in the app shell reachable graph. Runtime movement and shell refactor remain blocked until these contracts are repaired or proven false by executable browser validation.
+No boot blockers were detected by static module evidence.
 
 ## Recommended RUNTIME-004 Scope
 

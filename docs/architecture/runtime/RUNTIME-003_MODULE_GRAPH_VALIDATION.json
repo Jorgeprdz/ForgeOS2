@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-11T20:10:54.704Z",
+  "generatedAt": "2026-06-11T20:29:54.435Z",
   "summary": {
-    "totalJsFilesScanned": 670,
-    "totalImportsFound": 194,
-    "staticImportsFound": 193,
+    "totalJsFilesScanned": 671,
+    "totalImportsFound": 195,
+    "staticImportsFound": 194,
     "dynamicImportsFound": 1,
-    "missingTargetsCount": 5,
-    "missingExportsCount": 4,
-    "circularImportsCount": 2,
-    "bootBlockersCount": 3,
-    "executabilityVerdict": "LIKELY_BOOT_FAILURE",
+    "missingTargetsCount": 4,
+    "missingExportsCount": 2,
+    "circularImportsCount": 1,
+    "bootBlockersCount": 0,
+    "executabilityVerdict": "EXECUTABLE_WITH_WARNINGS",
     "confidenceScore": 0.88
   },
   "missingTargets": [
@@ -40,13 +40,6 @@
       "resolved": "smnyl-concursos-config.js",
       "type": "static",
       "classification": "DOMAIN_BLOCKER"
-    },
-    {
-      "source": "utils.js",
-      "target": "./overlay-manager.js",
-      "resolved": "overlay-manager.js",
-      "type": "static",
-      "classification": "BOOT_BLOCKER"
     }
   ],
   "missingExports": [
@@ -58,20 +51,6 @@
       "classification": "ROUTE_BLOCKER"
     },
     {
-      "source": "comisiones.js",
-      "target": "./app.js",
-      "resolved": "app.js",
-      "imported": "callGemini",
-      "classification": "BOOT_BLOCKER"
-    },
-    {
-      "source": "prospeccion.js",
-      "target": "./app.js",
-      "resolved": "app.js",
-      "imported": "callGemini",
-      "classification": "BOOT_BLOCKER"
-    },
-    {
       "source": "smnyl-produccion-engine.js",
       "target": "./smnyl-prima-engine.js",
       "resolved": "smnyl-prima-engine.js",
@@ -80,15 +59,6 @@
     }
   ],
   "circularImports": [
-    {
-      "key": "app.js>prospeccion.js>app.js",
-      "chain": [
-        "app.js",
-        "prospeccion.js",
-        "app.js"
-      ],
-      "classification": "APP_SHELL_CYCLE"
-    },
     {
       "key": "app.js>comisiones.js>app.js",
       "chain": [
@@ -99,29 +69,7 @@
       "classification": "APP_SHELL_CYCLE"
     }
   ],
-  "bootBlockers": [
-    {
-      "source": "utils.js",
-      "target": "./overlay-manager.js",
-      "resolved": "overlay-manager.js",
-      "type": "static",
-      "classification": "BOOT_BLOCKER"
-    },
-    {
-      "source": "comisiones.js",
-      "target": "./app.js",
-      "resolved": "app.js",
-      "imported": "callGemini",
-      "classification": "BOOT_BLOCKER"
-    },
-    {
-      "source": "prospeccion.js",
-      "target": "./app.js",
-      "resolved": "app.js",
-      "imported": "callGemini",
-      "classification": "BOOT_BLOCKER"
-    }
-  ],
+  "bootBlockers": [],
   "appShellCouplings": [
     {
       "path": "db.js",
