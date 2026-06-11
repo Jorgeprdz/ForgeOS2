@@ -8,14 +8,12 @@ This report compares planned destinations that already exist and marks missing d
 
 | Status | Count |
 | --- | ---: |
-| CONTENT_DIFFERS | 1 |
 | DESTINATION_MISSING | 22 |
 
 ## Destinations
 
 | Source | Destination | Status | Reason |
 | --- | --- | --- | --- |
-| `FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | `docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | CONTENT_DIFFERS | Destination exists with different content. |
 | `FORGE_DUAL_INTELLIGENCE_OPERATIONAL_BLUEPRINT.md` | `docs/archive/FORGE_DUAL_INTELLIGENCE_OPERATIONAL_BLUEPRINT.md` | DESTINATION_MISSING | Destination does not exist. |
 | `FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | `docs/archive/FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | DESTINATION_MISSING | Destination does not exist. |
 | `FORGE_GMM_EVIDENCE_PACKET_VALIDATION.md` | `docs/architecture/product-intelligence/FORGE_GMM_EVIDENCE_PACKET_VALIDATION.md` | DESTINATION_MISSING | Destination does not exist. |

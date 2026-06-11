@@ -2,20 +2,20 @@
 
 Status: REPORT ONLY / NO FILES MOVED
 
-Generated At: 2026-06-11T04:45:01.590Z
+Generated At: 2026-06-11T04:53:52.270Z
 
 ## Counts
 
 | Metric | Count |
 | --- | ---: |
-| allFiles | 1223 |
-| trackedFiles | 1178 |
-| untrackedFiles | 14 |
-| rootFiles | 721 |
-| rootDocs | 26 |
+| allFiles | 1225 |
+| trackedFiles | 1208 |
+| untrackedFiles | 15 |
+| rootFiles | 720 |
+| rootDocs | 25 |
 | protectedAssets | 8 |
 | codeFiles | 792 |
-| destinationCandidates | 23 |
+| destinationCandidates | 22 |
 
 ## Safety
 
@@ -31,7 +31,6 @@ Generated At: 2026-06-11T04:45:01.590Z
 | Action | Source | Destination | Reason |
 | --- | --- | --- | --- |
 | SKIP_PROTECTED | `AGENTS.md` | - | Protected root asset; harness must reject movement. |
-| SKIP_DEST_EXISTS | `FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | `docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | Destination already exists; harness refuses overwrite. |
 | SKIP_PROTECTED | `FORGE_CONSTITUTION_V3.md` | - | Protected root asset; harness must reject movement. |
 | BLOCKED_UNTRACKED | `FORGE_DUAL_INTELLIGENCE_OPERATIONAL_BLUEPRINT.md` | `docs/archive/FORGE_DUAL_INTELLIGENCE_OPERATIONAL_BLUEPRINT.md` | Untracked file; git mv cannot be used without explicit tracking decision. |
 | SKIP_TEST_DOC | `FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | `docs/archive/FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | Filename indicates test/validation artifact; requires separate evidence policy. |

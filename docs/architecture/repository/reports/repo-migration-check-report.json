@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-11T04:45:05.907Z",
-  "status": "FAIL",
+  "generatedAt": "2026-06-11T04:53:55.658Z",
+  "status": "PASS_WITH_WARNINGS_ALLOWED",
   "strictLinks": false,
-  "exitCode": 1,
+  "exitCode": 0,
   "hardGates": [
     {
       "gate": "protected_root_violation",
@@ -21,13 +21,13 @@
     },
     {
       "gate": "destination_overwrite_risk",
-      "status": "FAIL",
-      "count": 1
+      "status": "PASS",
+      "count": 0
     },
     {
       "gate": "broken_markdown_links",
       "status": "WARN",
-      "count": 121
+      "count": 124
     }
   ],
   "reports": {

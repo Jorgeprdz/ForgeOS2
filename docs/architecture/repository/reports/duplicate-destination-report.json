@@ -1,16 +1,9 @@
 {
-  "generatedAt": "2026-06-11T04:45:05.882Z",
+  "generatedAt": "2026-06-11T04:53:55.640Z",
   "counts": {
-    "CONTENT_DIFFERS": 1,
     "DESTINATION_MISSING": 22
   },
   "records": [
-    {
-      "source": "FORGE_CONSTITUTION_AMENDMENT_v1.1.md",
-      "destination": "docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md",
-      "status": "CONTENT_DIFFERS",
-      "reason": "Destination exists with different content."
-    },
     {
       "source": "FORGE_DUAL_INTELLIGENCE_OPERATIONAL_BLUEPRINT.md",
       "destination": "docs/archive/FORGE_DUAL_INTELLIGENCE_OPERATIONAL_BLUEPRINT.md",
@@ -144,5 +137,5 @@
       "reason": "Destination does not exist."
     }
   ],
-  "overwriteRiskCount": 1
+  "overwriteRiskCount": 0
 }

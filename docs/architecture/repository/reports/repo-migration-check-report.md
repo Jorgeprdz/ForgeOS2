@@ -1,6 +1,6 @@
 # Repository Migration Check Report
 
-Status: FAIL
+Status: PASS_WITH_WARNINGS_ALLOWED
 
 Strict Links: false
 
@@ -13,8 +13,8 @@ This aggregate command runs migration validation, link validation, duplicate des
 | protected_root_violation | PASS | 0 |
 | runtime_move_candidate | PASS | 0 |
 | inventory_schema | PASS | 0 |
-| destination_overwrite_risk | FAIL | 1 |
-| broken_markdown_links | WARN | 121 |
+| destination_overwrite_risk | PASS | 0 |
+| broken_markdown_links | WARN | 124 |
 
 ## Reports
 

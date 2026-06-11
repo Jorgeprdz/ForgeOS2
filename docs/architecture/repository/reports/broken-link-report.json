@@ -1,38 +1,10 @@
 {
-  "generatedAt": "2026-06-11T04:45:03.999Z",
+  "generatedAt": "2026-06-11T04:53:54.231Z",
   "counts": {
-    "OK": 45,
-    "TARGET_BROKEN": 121
+    "TARGET_BROKEN": 124,
+    "OK": 42
   },
   "records": [
-    {
-      "sourceFile": "FORGE_CONSTITUTION_AMENDMENT_v1.1.md",
-      "linkedPath": "FORGE_MASTER_BUILD_TREE.md",
-      "resolvedTarget": "FORGE_MASTER_BUILD_TREE.md",
-      "anchor": "",
-      "status": "OK"
-    },
-    {
-      "sourceFile": "FORGE_CONSTITUTION_AMENDMENT_v1.1.md",
-      "linkedPath": "AGENTS.md",
-      "resolvedTarget": "AGENTS.md",
-      "anchor": "",
-      "status": "OK"
-    },
-    {
-      "sourceFile": "FORGE_CONSTITUTION_AMENDMENT_v1.1.md",
-      "linkedPath": "FORGE_CONSTITUTION_V3.md",
-      "resolvedTarget": "FORGE_CONSTITUTION_V3.md",
-      "anchor": "",
-      "status": "OK"
-    },
-    {
-      "sourceFile": "FORGE_CONSTITUTION_AMENDMENT_v1.1.md",
-      "linkedPath": "FORGE_FOUNDATION_LOCK.md",
-      "resolvedTarget": "FORGE_FOUNDATION_LOCK.md",
-      "anchor": "",
-      "status": "TARGET_BROKEN"
-    },
     {
       "sourceFile": "docs/adr/PAQ-01-RECRUITMENT-INTELLIGENCE-DISCOVERY.md",
       "linkedPath": "FORGE_MASTER_BUILD_TREE.md",
@@ -1166,7 +1138,35 @@
       "resolvedTarget": "docs/archive/FORGE_FOUNDATION_LOCK.md",
       "anchor": "",
       "status": "OK"
+    },
+    {
+      "sourceFile": "docs/archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md",
+      "linkedPath": "FORGE_MASTER_BUILD_TREE.md",
+      "resolvedTarget": "docs/archive/superseded/FORGE_MASTER_BUILD_TREE.md",
+      "anchor": "",
+      "status": "TARGET_BROKEN"
+    },
+    {
+      "sourceFile": "docs/archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md",
+      "linkedPath": "AGENTS.md",
+      "resolvedTarget": "docs/archive/superseded/AGENTS.md",
+      "anchor": "",
+      "status": "TARGET_BROKEN"
+    },
+    {
+      "sourceFile": "docs/archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md",
+      "linkedPath": "FORGE_CONSTITUTION_V3.md",
+      "resolvedTarget": "docs/archive/superseded/FORGE_CONSTITUTION_V3.md",
+      "anchor": "",
+      "status": "TARGET_BROKEN"
+    },
+    {
+      "sourceFile": "docs/archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md",
+      "linkedPath": "FORGE_FOUNDATION_LOCK.md",
+      "resolvedTarget": "docs/archive/superseded/FORGE_FOUNDATION_LOCK.md",
+      "anchor": "",
+      "status": "TARGET_BROKEN"
     }
   ],
-  "hardFailCount": 121
+  "hardFailCount": 124
 }
