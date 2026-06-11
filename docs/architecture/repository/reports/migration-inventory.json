@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-11T20:19:09.402Z",
+  "generatedAt": "2026-06-11T20:23:31.565Z",
   "safety": {
     "writes": "reports_only",
     "movesFiles": false,
@@ -7,13 +7,13 @@
     "deletesFiles": false
   },
   "counts": {
-    "allFiles": 1263,
-    "trackedFiles": 1246,
+    "allFiles": 1265,
+    "trackedFiles": 1248,
     "untrackedFiles": 15,
-    "rootFiles": 717,
+    "rootFiles": 718,
     "rootDocs": 22,
     "protectedAssets": 8,
-    "codeFiles": 797,
+    "codeFiles": 798,
     "destinationCandidates": 19
   },
   "protectedRootAssets": [
@@ -546,6 +546,7 @@
     "docs/architecture/runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md",
     "docs/architecture/runtime/RUNTIME-004_BOOT_BLOCKER_REPAIR_PLAN.md",
     "docs/architecture/runtime/RUNTIME-004_REPAIR_OPTIONS_MATRIX.md",
+    "docs/architecture/runtime/RUNTIME-005_EXECUTION_REPORT.md",
     "docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md",
     "docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_IDENTITY_ATTRIBUTION_HARDENING.md",
     "docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_PERIODS_OPERATIONAL_CLOCKS_HARDENING.md",
@@ -917,6 +918,7 @@
     "outreach-prompt-builder.js",
     "ovelay-manager.js",
     "overdue-task-engine.js",
+    "overlay-manager.js",
     "payment-frequency-engine.js",
     "payment-mode-coaching-engine.js",
     "performance-monitor.js",
@@ -1795,6 +1797,8 @@
     "docs/architecture/runtime/RUNTIME-003_APP_SHELL_COUPLING_MAP.md",
     "docs/architecture/runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.json",
     "docs/architecture/runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md",
+    "docs/architecture/runtime/RUNTIME-004_BOOT_BLOCKER_REPAIR_PLAN.md",
+    "docs/architecture/runtime/RUNTIME-004_REPAIR_OPTIONS_MATRIX.md",
     "docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md",
     "docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_IDENTITY_ATTRIBUTION_HARDENING.md",
     "docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_PERIODS_OPERATIONAL_CLOCKS_HARDENING.md",
@@ -2563,8 +2567,8 @@
     "docs/architecture/runtime/RUNTIME-002_APP_SHELL_DEPENDENCY_MAP.md",
     "docs/architecture/runtime/RUNTIME-002_BOOT_CRITICAL_PATH.md",
     "docs/architecture/runtime/RUNTIME-002_PLATFORM_BOUNDARY_FINDINGS.md",
-    "docs/architecture/runtime/RUNTIME-004_BOOT_BLOCKER_REPAIR_PLAN.md",
-    "docs/architecture/runtime/RUNTIME-004_REPAIR_OPTIONS_MATRIX.md"
+    "docs/architecture/runtime/RUNTIME-005_EXECUTION_REPORT.md",
+    "overlay-manager.js"
   ],
   "rootFiles": [
     ".gitignore",
@@ -2951,6 +2955,7 @@
     "outreach-prompt-builder.js",
     "ovelay-manager.js",
     "overdue-task-engine.js",
+    "overlay-manager.js",
     "payment-frequency-engine.js",
     "payment-mode-coaching-engine.js",
     "performance-monitor.js",
@@ -3726,6 +3731,7 @@
     "outreach-prompt-builder.js",
     "ovelay-manager.js",
     "overdue-task-engine.js",
+    "overlay-manager.js",
     "payment-frequency-engine.js",
     "payment-mode-coaching-engine.js",
     "performance-monitor.js",

@@ -1,6 +1,7 @@
 // comisiones.js — FULL SAFE RECOVERY BUILD v16 (RLS Safe)
 import { DB } from './db.js';
-import { getSupabase, callGemini } from './app.js';
+import { getSupabase } from './app.js';
+import { callGemini } from './ai-service.js';
 import { showToast, showConfirm } from './utils.js';
 
 // ═══════════════════════════════════════════════════════════════════════════

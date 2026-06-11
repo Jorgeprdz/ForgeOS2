@@ -1,6 +1,6 @@
 // /modules/prospeccion.js - Embudo y Autogenerador IA
 import { DB } from './db.js';
-import { callGemini } from './app.js';
+import { callGemini } from './ai-service.js';
 import { showToast, showConfirm } from './utils.js';
 
 const State = {

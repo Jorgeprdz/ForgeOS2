@@ -236,3 +236,27 @@ class AIService {
 
 export const AI =
     new AIService();
+
+export async function callGemini(
+    prompt,
+    outputElementId
+) {
+
+    const result =
+        await AI.generate({
+            prompt
+        });
+
+    const outputElement =
+        document.getElementById(
+            outputElementId
+        );
+
+    if (outputElement) {
+
+        outputElement.textContent =
+            result.text || '';
+    }
+
+    return result;
+}
