@@ -2,16 +2,16 @@
 
 Status: REPORT ONLY / NO FILES MOVED
 
-Generated At: 2026-06-12T01:15:59.793Z
+Generated At: 2026-06-12T01:33:10.574Z
 
 ## Counts
 
 | Metric | Count |
 | --- | ---: |
-| allFiles | 1298 |
-| trackedFiles | 1269 |
-| untrackedFiles | 27 |
-| rootFiles | 702 |
+| allFiles | 1305 |
+| trackedFiles | 1273 |
+| untrackedFiles | 30 |
+| rootFiles | 645 |
 | rootDocs | 22 |
 | protectedAssets | 8 |
 | codeFiles | 799 |
