@@ -15,7 +15,7 @@ Status: DOCUMENTATION SNAPSHOT
 | MIGRATION-006 | ✅ | Rule Packs / SMNYL OS moved into domain structure. | `MIGRATION-006_RULE_PACKS_EXECUTION_REPORT.md` |
 | MIGRATION-007A | ✅ | Manager OS Batch A moved into domain structure. | `31543d4` |
 | MIGRATION-007B | ✅ | Candidate / Recruitment cluster moved into Manager OS. | `24862f9` |
-| MIGRATION-007C | ⏳ | Next Manager OS scope pending readiness review. | Not started |
+| MIGRATION-007C | ⛔ NO-GO | NASH-derived boundary; requires bridge/contract, not Manager OS move. | `MIGRATION-007C_NASH_BOUNDARY_NO_GO.md` |
 
 ## Current Runtime Metrics
 
@@ -83,25 +83,39 @@ Estimated readiness: `45-55%` for Manager OS physical organization.
 
 This is not a claim that Manager OS product capability is complete. It means the physical repository migration for the low-risk and candidate recruitment subsets is stable enough to support the next readiness pass.
 
+### MIGRATION-007C Boundary Closed
+
+MIGRATION-007C evaluated NASH-derived manager/team intelligence and closed as `NO-GO`.
+
+Reason:
+
+- Manager-facing output does not imply Manager OS ownership.
+- NASH-derived signals belong to NASH / shared intelligence.
+- Manager OS should consume these signals through a bridge or contract.
+- Moving NASH-derived engines into `manager-os/` would create confusing physical ownership from NASH master into Manager OS.
+
+Boundary rule:
+
+Manager OS may consume NASH-derived manager/team signals, but must not own NASH-derived engines.
+
 ### Next Candidates
 
-Potential MIGRATION-007C candidates:
+Potential next migration candidates:
 
-1. NASH-derived manager/team intelligence readiness review.
-2. Manager OS closeout report before additional runtime movement.
-3. Dedicated NO_MOVE confirmation for runtime managers misclassified by old filename heuristics.
-
-Do not move NASH-derived files until the NASH / Manager OS authority boundary is explicitly reviewed.
+1. Manager OS closeout report before additional runtime movement.
+2. Dedicated NO_MOVE confirmation for runtime managers misclassified by old filename heuristics.
+3. NASH-to-Manager Signal Contract discovery.
+4. Future NASH structure readiness review as its own migration, not as Manager OS MIGRATION-007.
 
 ### Open Risks
 
 - Runtime remains `EXECUTABLE_WITH_WARNINGS`.
 - Missing targets remain at 6.
 - Missing exports remain at 2.
-- NASH-derived manager/team intelligence still needs ownership review.
+- NASH-derived manager/team intelligence is closed as NO-GO for Manager OS movement and needs a bridge/contract before any future physical migration.
 - Runtime managers remain protected and must not be swept into Manager OS due to filename-only classification.
 - `setup.sh` remains untracked local state outside migration scope.
 
 ## Recommended Next Step
 
-Run MIGRATION-007C in read-only readiness mode first. The safest next action is not another move; it is a boundary review of NASH-derived manager/team intelligence and a confirmation that runtime managers remain NO_MOVE.
+Do not execute a MIGRATION-007C file movement. The safest next action is a Manager OS migration closeout or a NASH-to-Manager Signal Contract discovery pass.
