@@ -3,15 +3,15 @@ const { execSync } = require("child_process");
 
 const {
   calculateAvePortfolio
-} = require("./shared-ave-portfolio-engine");
+} = require("./product-intelligence/knowledge/ave/shared-ave-portfolio-engine");
 
 const {
   calculateAveDeathBenefit
-} = require("./shared-ave-death-benefit-engine");
+} = require("./product-intelligence/knowledge/ave/shared-ave-death-benefit-engine");
 
 const {
   evaluateAveEligibility
-} = require("./shared-ave-eligibility-engine");
+} = require("./product-intelligence/knowledge/ave/shared-ave-eligibility-engine");
 
 const pdfPath = process.argv[2];
 

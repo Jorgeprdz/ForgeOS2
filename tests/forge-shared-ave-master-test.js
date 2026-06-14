@@ -1,30 +1,30 @@
 const {
   calculateAveGrowth
-} = require("./shared-ave-growth-engine");
+} = require("../product-intelligence/knowledge/ave/shared-ave-growth-engine");
 
 const {
   calculateAveRescueValue
-} = require("./shared-ave-rescue-engine");
+} = require("../product-intelligence/knowledge/ave/shared-ave-rescue-engine");
 
 const {
   calculateAveDeathBenefit
-} = require("./shared-ave-death-benefit-engine");
+} = require("../product-intelligence/knowledge/ave/shared-ave-death-benefit-engine");
 
 const {
   inferAveType
-} = require("./shared-ave-type-inference-engine");
+} = require("../product-intelligence/knowledge/ave/shared-ave-type-inference-engine");
 
 const {
   calculateAvePortfolio
-} = require("./shared-ave-portfolio-engine");
+} = require("../product-intelligence/knowledge/ave/shared-ave-portfolio-engine");
 
 const {
   classifyInferenceConfidence
-} = require("./shared-ave-confidence-engine");
+} = require("../product-intelligence/knowledge/ave/shared-ave-confidence-engine");
 
 const {
   evaluateAveEligibility
-} = require("./shared-ave-eligibility-engine");
+} = require("../product-intelligence/knowledge/ave/shared-ave-eligibility-engine");
 
 console.log("\nFORGE SHARED AVE MASTER TEST v1.0\n");
 
