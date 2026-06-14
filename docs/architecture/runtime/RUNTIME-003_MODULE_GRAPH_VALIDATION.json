@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-06-14T06:01:07.285Z",
+  "generatedAt": "2026-06-14T06:09:31.295Z",
   "summary": {
     "totalJsFilesScanned": 653,
     "totalImportsFound": 185,
     "staticImportsFound": 183,
     "dynamicImportsFound": 2,
-    "missingTargetsCount": 6,
+    "missingTargetsCount": 5,
     "missingExportsCount": 2,
     "circularImportsCount": 0,
     "bootBlockersCount": 0,
@@ -26,13 +26,6 @@
       "resolved": "../utils/cartera-utils.js",
       "type": "static",
       "classification": "ROUTE_BLOCKER"
-    },
-    {
-      "source": "command-palette.js",
-      "target": "./smnyl-command-palette-engine.js",
-      "resolved": "smnyl-command-palette-engine.js",
-      "type": "static",
-      "classification": "DOMAIN_BLOCKER"
     },
     {
       "source": "rule-packs/smnyl/smnyl-bonos-engine.js",

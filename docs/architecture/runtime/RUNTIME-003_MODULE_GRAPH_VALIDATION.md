@@ -17,7 +17,7 @@ No runtime files were modified, no imports were rewritten, and no files were ren
 | --- | --- |
 | Total JS files scanned | 653 |
 | Total imports found | 185 |
-| Missing targets | 6 |
+| Missing targets | 5 |
 | Missing exports | 2 |
 | Circular imports | 0 |
 | Boot blockers | 0 |
@@ -28,7 +28,6 @@ No runtime files were modified, no imports were rewritten, and no files were ren
 | --- | --- | --- | --- | --- |
 | adaptive-question-engine.js | ./adaptive-question-bank | adaptive-question-bank.js | static | DOMAIN_BLOCKER |
 | cartera-view.js | ../utils/cartera-utils.js | ../utils/cartera-utils.js | static | ROUTE_BLOCKER |
-| command-palette.js | ./smnyl-command-palette-engine.js | smnyl-command-palette-engine.js | static | DOMAIN_BLOCKER |
 | rule-packs/smnyl/smnyl-bonos-engine.js | ./smnyl-concursos-config.js | rule-packs/smnyl/smnyl-concursos-config.js | static | DOMAIN_BLOCKER |
 | rule-packs/smnyl/smnyl-concursos-engine.js | ./db.js | rule-packs/smnyl/db.js | static | DOMAIN_BLOCKER |
 | rule-packs/smnyl/smnyl-training-allowance-engine.js | ./smnyl-concursos-config.js | rule-packs/smnyl/smnyl-concursos-config.js | static | DOMAIN_BLOCKER |

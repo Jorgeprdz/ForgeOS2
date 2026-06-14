@@ -6,7 +6,7 @@
 
 import {
     buscarComandos
-} from './smnyl-command-palette-engine.js';
+} from '../../rule-packs/smnyl/smnyl-command-palette-engine.js';
 
 export function initCommandPalette() {
 
