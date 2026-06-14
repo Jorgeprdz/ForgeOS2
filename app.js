@@ -49,6 +49,7 @@ import { Lifecycle }    from './module-lifecycle.js';
 import { Navigation }   from './platform/navigation-runtime.js';
 import { RenderEngine } from './ui-render-engine.js';
 import { SyncEngine }   from './platform/sync/sync-orchestrator.js';
+import { bootstrapApp } from './platform/app/bootstrap.js';
 import { Analytics }    from './analytics-engine.js';
 import { ErrorHandler } from './error-boundary.js';
 import { Logger }       from './logger.js';
@@ -731,6 +732,6 @@ export { getSupabase };
 
 const _appInstance = new AppManager();
 
-document.addEventListener('DOMContentLoaded', () => {
+bootstrapApp(() => {
     _appInstance.init();
 });
