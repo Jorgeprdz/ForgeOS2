@@ -12,7 +12,10 @@ import { AppShell } from '../../app-shell-manager.js';
 const ENV = Object.freeze({
     SUPABASE_URL: window.__ENV__?.SUPABASE_URL || '',
     SUPABASE_KEY: window.__ENV__?.SUPABASE_KEY || '',
+    DEMO_MODE:   window.__ENV__?.DEMO_MODE || '',
 });
+
+const isDemoMode = () => ENV.DEMO_MODE === 'true';
 
 export class AuthService {
     constructor() {
@@ -21,6 +24,14 @@ export class AuthService {
     }
 
     init() {
+
+        if (isDemoMode()) {
+            this.client = this._createDemoClient();
+            window.supabaseClient = this.client;
+            SupabaseRuntime.init(this.client);
+            Logger.warn('[AUTH] DEMO MODE READY');
+            return true;
+        }
 
         if (!window.supabase) {
             throw new Error('Supabase SDK missing');
@@ -57,6 +68,12 @@ export class AuthService {
 
         try {
 
+            if (isDemoMode()) {
+                this.user = this._createDemoUser();
+                AppState.set('user', this.user);
+                return this.user;
+            }
+
             const { data, error } = await this.client.auth.getUser();
 
             if (error) throw error;
@@ -76,6 +93,10 @@ export class AuthService {
 
     async login() {
 
+        if (isDemoMode()) {
+            return;
+        }
+
         try {
 
             Analytics.track('auth_login_attempt');
@@ -83,7 +104,7 @@ export class AuthService {
             await this.client.auth.signInWithOAuth({
                 provider: 'google',
                 options: {
-                    redirectTo:          window.location.origin,
+                    redirectTo:          new URL(window.location.pathname || '/', window.location.origin).href,
                     skipBrowserRedirect: false,
                 },
             });
@@ -118,5 +139,61 @@ export class AuthService {
             // Forzar recarga aunque falle signOut — no dejar UI en estado roto
             location.reload();
         }
+    }
+
+    _createDemoUser() {
+        return {
+            id: 'demo-user',
+            email: 'demo@forge.local',
+            app_metadata: {
+                provider: 'demo',
+                demo: true,
+            },
+            user_metadata: {
+                full_name: 'Demo Mode',
+                avatar_url: '',
+            },
+        };
+    }
+
+    _createDemoClient() {
+        const demoUser = this._createDemoUser();
+
+        const createQuery = () => {
+            const result = {
+                data: null,
+                error: null,
+                select: () => result,
+                eq: () => result,
+                order: () => result,
+                limit: () => result,
+                upsert: () => Promise.resolve({ data: null, error: null }),
+                delete: () => result,
+                maybeSingle: () => Promise.resolve({ data: null, error: null }),
+                single: () => Promise.resolve({ data: null, error: null }),
+                then: resolve => Promise.resolve({ data: null, error: null }).then(resolve),
+            };
+
+            return result;
+        };
+
+        return {
+            auth: {
+                getUser: async () => ({ data: { user: demoUser }, error: null }),
+                signOut: async () => ({ error: null }),
+                signInWithOAuth: async () => ({ data: null, error: null }),
+            },
+            from: () => createQuery(),
+            rpc: async () => ({ data: null, error: null }),
+            channel: () => ({
+                on() {
+                    return this;
+                },
+                subscribe() {
+                    return this;
+                },
+            }),
+            removeChannel: () => null,
+        };
     }
 }

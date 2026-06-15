@@ -17,7 +17,8 @@ Forge requires an `env.js` file before `app.js` boots:
 ```js
 window.__ENV__ = {
   SUPABASE_URL: "...",
-  SUPABASE_KEY: "..."
+  SUPABASE_KEY: "...",
+  DEMO_MODE: "false"
 };
 ```
 
@@ -31,6 +32,18 @@ The real `env.js` must be generated during deployment from GitHub Secrets:
 - `SUPABASE_KEY`
 
 The Supabase key used here must be the public anon key, with Row Level Security enforcing data access.
+
+For visual validation only, GitHub Actions may generate:
+
+```js
+window.__ENV__ = {
+  SUPABASE_URL: "",
+  SUPABASE_KEY: "",
+  DEMO_MODE: "true"
+};
+```
+
+`DEMO_MODE` is disabled unless it is exactly `"true"`. Production auth behavior remains unchanged when the value is missing, empty or `"false"`.
 
 ---
 

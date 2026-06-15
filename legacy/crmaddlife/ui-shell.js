@@ -39,6 +39,36 @@ const _hydrateHeader = (user) => {
     }
 };
 
+const _renderDemoModeBadge = (user) => {
+
+    const existing = document.getElementById('demo-mode-badge');
+    const isDemo = user?.app_metadata?.demo === true;
+
+    if (!isDemo) {
+        existing?.remove();
+        return;
+    }
+
+    if (existing) return;
+
+    const badge = document.createElement('div');
+    badge.id = 'demo-mode-badge';
+    badge.textContent = 'Demo Mode';
+    badge.style.position = 'fixed';
+    badge.style.top = '56px';
+    badge.style.right = '8px';
+    badge.style.zIndex = '9999';
+    badge.style.padding = '4px 8px';
+    badge.style.borderRadius = '999px';
+    badge.style.background = 'rgba(0, 122, 255, 0.12)';
+    badge.style.color = 'var(--color-primary)';
+    badge.style.fontSize = '11px';
+    badge.style.fontWeight = '700';
+    badge.style.pointerEvents = 'none';
+
+    document.body.appendChild(badge);
+};
+
 export function showCrmAddlifeApp(user) {
 
     const nav    = document.getElementById('main-sidebar');
@@ -48,6 +78,7 @@ export function showCrmAddlifeApp(user) {
     if (bubble) bubble.style.display = '';
 
     _hydrateHeader(user);
+    _renderDemoModeBadge(user);
 }
 
 export function renderCrmAddlifeLogin({ onLogin } = {}) {

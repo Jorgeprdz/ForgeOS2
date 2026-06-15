@@ -26,17 +26,30 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Validate GitHub Pages env secrets
+        env:
+          DEMO_MODE: ${{ vars.DEMO_MODE }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: |
-          test -n "${{ secrets.SUPABASE_URL }}"
-          test -n "${{ secrets.SUPABASE_KEY }}"
+          if [ "$DEMO_MODE" != "true" ]; then
+            test -n "$SUPABASE_URL"
+            test -n "$SUPABASE_KEY"
+          fi
 
       - name: Generate env.js
+        env:
+          DEMO_MODE: ${{ vars.DEMO_MODE }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: |
-          cat > env.js <<'EOF'
-          window.__ENV__ = {
-            SUPABASE_URL: "${{ secrets.SUPABASE_URL }}",
-            SUPABASE_KEY: "${{ secrets.SUPABASE_KEY }}"
+          node - <<'EOF'
+          const fs = require('fs');
+          const env = {
+            SUPABASE_URL: process.env.SUPABASE_URL || '',
+            SUPABASE_KEY: process.env.SUPABASE_KEY || '',
+            DEMO_MODE: process.env.DEMO_MODE || ''
           };
+          fs.writeFileSync('env.js', `window.__ENV__ = ${JSON.stringify(env, null, 2)};\n`);
           EOF
 
       - name: Setup Pages
