@@ -132,3 +132,40 @@ The conversation intelligence layer. While logically part of `advisor-os/convers
 *   **NASH Migration** [DEFERRED]: Physical relocation of conversation intelligence.
 *   **Comisiones Split** [HIGH-RISK]: Separating financial math from view logic in `comisiones.js`.
 *   **HTML Modernization** [PLANNED]: Converting `index.html` to a clean SPA host.
+
+---
+
+## 11. Architectural Invariants
+
+The following invariants define the current architectural boundaries of Forge OS and must remain true unless superseded by a formal ADR.
+
+### Runtime Invariants
+- **Runtime cleanliness is mandatory.**
+- Boot blockers must remain at zero.
+- Circular imports must remain at zero.
+- Missing targets and exports must remain at zero.
+- Forge Master Acceptance must pass before architectural changes are merged.
+
+### Compatibility Invariants
+- `app.js` remains the root compatibility facade until a formal `index.html` migration.
+- `index.html` remains the CRMAddlife document shell until replacement is explicitly approved.
+- `service-worker.js` remains a compatibility surface and must be migrated carefully.
+
+### Ownership Invariants
+- Platform modules own infrastructure.
+- Legacy modules preserve compatibility behavior.
+- Rule packs own carrier-specific business rules.
+- UI layers must not own business rules.
+- Rule packs must not render UI.
+
+### Migration Invariants
+- Move behavior before moving files.
+- Introduce adapters before replacing engines.
+- Compatibility before purity.
+- Discovery precedes intelligence implementation.
+- Physical organization may lag logical architecture.
+
+### Deferred Domains
+- NASH migration remains deferred until architecture stabilizes.
+- `nash-memory` is not part of runtime architecture.
+- `comisiones.js` remains a high-risk mixed module until parity is proven.
