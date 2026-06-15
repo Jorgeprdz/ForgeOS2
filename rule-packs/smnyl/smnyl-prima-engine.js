@@ -92,3 +92,21 @@ export function calcularConteo(poliza) {
 
     return producto.conteoBase || 1;
 }
+
+export function calcularPrimaPoliza(poliza) {
+
+    return {
+
+        primaAnualizada:
+            calcularPrimaAnualizada(poliza),
+
+        primaMeta:
+            calcularPrimaMeta(poliza),
+
+        primaPago:
+            calcularPrimaPago(poliza),
+
+        conteo:
+            calcularConteo(poliza)
+    };
+}
