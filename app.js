@@ -32,7 +32,6 @@ console.log(
 // IMPORTS
 // ═══════════════════════════════════════════════════════════════
 
-import { showToast }    from './utils.js';
 import { getSupabase } from './supabase-runtime.js';
 
 import { renderProspeccion, bindProspeccionEvents  } from './prospeccion.js';
@@ -41,16 +40,14 @@ import { renderActividad,   bindActividadEvents    } from './actividad.js';
 import { renderCartera,     bindCarteraEvents      } from './cartera.js';
 import { renderComisiones,  bindComisionesEvents   } from './comisiones.js';
 
-import { AppState }     from './state-manager.js';
 import { EventBus }     from './event-system.js';
-import { SyncEngine }   from './platform/sync/sync-orchestrator.js';
 import { bootstrapApp } from './platform/app/bootstrap.js';
 import { ForgeAppShell } from './platform/app/forge-app-shell.js';
 import { AuthService } from './platform/auth/auth-service.js';
 import { EnterpriseRouter } from './platform/routing/enterprise-router.js';
 import { createRouteRegistry } from './platform/routing/route-registry.js';
-import { ErrorHandler } from './error-boundary.js';
 import { Logger }       from './logger.js';
+import { bindPlatformRuntimeListeners } from './platform/app/runtime-listeners.js';
 import { bindCrmAddlifeChatShell } from './legacy/crmaddlife/chat-shell.js';
 import { bindCrmAddlifeThemeToggle } from './legacy/crmaddlife/ui-listeners.js';
 import {
@@ -163,36 +160,7 @@ class AppManager {
 
         bindCrmAddlifeChatShell();
 
-        // ── Online / Offline
-        window.addEventListener('online', () => {
-            AppState.set('online', true);
-            EventBus.emit('network:online');
-            Logger.info('[NETWORK] Online');
-            showToast('Conexión restaurada', 'success');
-            if (typeof SyncEngine?.sync === 'function') {
-                SyncEngine.sync().catch(err => {
-                    Logger.warn('[SYNC] Error al sincronizar tras reconexión:', err);
-                });
-            }
-        });
-
-        window.addEventListener('offline', () => {
-            AppState.set('online', false);
-            EventBus.emit('network:offline');
-            Logger.warn('[NETWORK] Offline');
-            showToast('Sin conexión — modo offline', 'warning');
-        });
-
-        // ── Errores globales no capturados
-        window.addEventListener('unhandledrejection', (e) => {
-            Logger.error('[UNHANDLED REJECTION]', e.reason);
-            ErrorHandler.capture(e.reason || new Error('Unhandled Promise rejection'));
-        });
-
-        window.addEventListener('error', (e) => {
-            Logger.error('[GLOBAL ERROR]', e.error);
-            ErrorHandler.capture(e.error || new Error(e.message));
-        });
+        bindPlatformRuntimeListeners();
 
         Logger.info('[APP] Global listeners registrados');
     }
