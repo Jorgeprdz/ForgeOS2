@@ -27,28 +27,32 @@ jobs:
 
       - name: Validate GitHub Pages env secrets
         env:
-          DEMO_MODE: ${{ vars.DEMO_MODE }}
+          DEMO_MODE: ${{ vars.DEMO_MODE || 'false' }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: |
           if [ "$DEMO_MODE" != "true" ]; then
-            test -n "$SUPABASE_URL"
-            test -n "$SUPABASE_KEY"
+            if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_KEY" ]; then
+              echo "Error: SUPABASE_URL and SUPABASE_KEY secrets are required when DEMO_MODE is not 'true'"
+              exit 1
+            fi
           fi
 
       - name: Generate env.js
         env:
-          DEMO_MODE: ${{ vars.DEMO_MODE }}
+          DEMO_MODE: ${{ vars.DEMO_MODE || 'false' }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: |
           node - <<'EOF'
           const fs = require('fs');
+          const isDemo = process.env.DEMO_MODE === 'true';
           const env = {
-            SUPABASE_URL: process.env.SUPABASE_URL || '',
-            SUPABASE_KEY: process.env.SUPABASE_KEY || '',
-            DEMO_MODE: process.env.DEMO_MODE || ''
+            SUPABASE_URL: isDemo ? "" : (process.env.SUPABASE_URL || ""),
+            SUPABASE_KEY: isDemo ? "" : (process.env.SUPABASE_KEY || ""),
+            DEMO_MODE: isDemo ? "true" : "false"
           };
+          console.log(`Generating env.js (DEMO_MODE: ${env.DEMO_MODE})`);
           fs.writeFileSync('env.js', `window.__ENV__ = ${JSON.stringify(env, null, 2)};\n`);
           EOF
 
