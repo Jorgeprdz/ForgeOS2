@@ -282,23 +282,23 @@ const DashboardCalculator = {
 
         return {
             decisionType: 'activity_gap',
-            title: 'Repair today\'s activity gap',
+            title: 'Corrige la brecha de actividad de hoy',
             status: kpi.faltantes > 0 ? 'Acción requerida' : 'En ritmo',
             why: kpi.faltantes > 0
-                ? 'Forge detectó que la productivity semanal todavía está por debajo de la meta.'
+                ? 'Forge detectó que la productividad semanal todavía está por debajo de la meta.'
                 : 'Forge detectó que la meta semanal ya está cubierta; conserva el ritmo.',
             evidence: [
                 `${kpi.puntos} de ${kpi.meta} puntos esta semana.`,
                 paceText,
             ],
             action,
-            ctaLabel: 'Open Activity',
+            ctaLabel: 'Abrir Actividad',
             ctaRoute: 'actividad',
             owner: 'Asesor',
             successMetric: 'La productividad semanal avanza hacia la meta de 125 puntos.',
             priorityScore: impactWeight * confidence,
             metadata: {
-                impact: 'High',
+                impact: 'Alto',
                 confidence: `${confidence}%`,
                 estimatedTime: '2 min'
             }
@@ -328,7 +328,7 @@ const DashboardCalculator = {
         if (!selected) {
             return {
                 decisionType: 'referral_activation',
-                title: 'Turn one referred person into an active prospect',
+                title: 'Convierte un referido en un prospecto activo',
                 status: 'Sin referido listo',
                 why: 'Forge no encontró referidos nuevos o en seguimiento con evidencia suficiente para activar hoy.',
                 evidence: [
@@ -336,13 +336,13 @@ const DashboardCalculator = {
                     'No hay candidato con estado Nuevo o Seguimiento.',
                 ],
                 action: 'Registra un referido nuevo o actualiza un referido en seguimiento con teléfono y contexto.',
-                ctaLabel: 'Open Referrals',
+                ctaLabel: 'Abrir Referidos',
                 ctaRoute: 'referidos',
                 owner: 'Asesor',
                 successMetric: 'Un referido queda listo para contacto o pasa al flujo de prospección.',
                 priorityScore: impactWeight * confidence,
                 metadata: {
-                    impact: 'Medium',
+                    impact: 'Medio',
                     confidence: `${confidence}%`,
                     estimatedTime: '5 min'
                 }
@@ -355,7 +355,7 @@ const DashboardCalculator = {
 
         return {
             decisionType: 'referral_activation',
-            title: 'Turn one referred person into an active prospect',
+            title: 'Convierte un referido en un prospecto activo',
             status: selected.estado || 'Nuevo',
             why: 'Forge encontró un referido accionable que puede convertirse en prospecto hoy.',
             evidence: [
@@ -364,13 +364,13 @@ const DashboardCalculator = {
                 `Disponibilidad de contacto: ${phone}.`,
             ],
             action: `Contacta a ${name} por WhatsApp y muévelo al flujo de prospección.`,
-            ctaLabel: 'Open Referrals',
+            ctaLabel: 'Abrir Referidos',
             ctaRoute: 'referidos',
             owner: 'Asesor',
             successMetric: 'El referido avanza de Nuevo o Seguimiento a Contactado, Cita o prospecto activo.',
             priorityScore: impactWeight * confidence,
             metadata: {
-                impact: 'Medium',
+                impact: 'Medio',
                 confidence: `${confidence}%`,
                 estimatedTime: '5 min'
             }
@@ -399,7 +399,7 @@ const DashboardCalculator = {
         if (!selected) {
             return {
                 decisionType: 'cartera_urgency',
-                title: 'Contact the highest-urgency client in cartera',
+                title: 'Contacta al cliente más urgente de cartera',
                 status: 'Sin alerta urgente',
                 why: 'Forge no encontró pagos, aniversarios, cumpleaños o hitos de edad actuarial próximos.',
                 evidence: [
@@ -407,13 +407,13 @@ const DashboardCalculator = {
                     'No hay señal de urgencia dentro de las ventanas actuales.',
                 ],
                 action: 'Mantén cartera actualizada para que Forge detecte el próximo evento accionable.',
-                ctaLabel: 'Open Cartera',
+                ctaLabel: 'Abrir Cartera',
                 ctaRoute: 'cartera',
                 owner: 'Asesor',
                 successMetric: 'La siguiente alerta de cartera queda lista para contacto.',
                 priorityScore: impactWeight * confidence,
                 metadata: {
-                    impact: 'High',
+                    impact: 'Alto',
                     confidence: `${confidence}%`,
                     estimatedTime: '3 min'
                 }
@@ -425,7 +425,7 @@ const DashboardCalculator = {
 
         return {
             decisionType: 'cartera_urgency',
-            title: 'Contact the highest-urgency client in cartera',
+            title: 'Contacta al cliente más urgente de cartera',
             status: selected.urgency.label,
             why: 'Forge detectó una señal de cartera que pierde valor si se atiende tarde.',
             evidence: [
@@ -434,13 +434,13 @@ const DashboardCalculator = {
                 selected.urgency.reason,
             ],
             action: `Contacta hoy a ${client} para atender: ${selected.urgency.actionReason}.`,
-            ctaLabel: 'Open Cartera',
+            ctaLabel: 'Abrir Cartera',
             ctaRoute: 'cartera',
             owner: 'Asesor',
             successMetric: 'La alerta de cartera se resuelve o el contacto queda registrado.',
             priorityScore: impactWeight * confidence,
             metadata: {
-                impact: 'High',
+                impact: 'Alto',
                 confidence: `${confidence}%`,
                 estimatedTime: '3 min'
             }
@@ -628,19 +628,35 @@ const DashboardView = {
 
         const meta = decision.metadata || {};
 
-        // Impact Visual Mapping
+        // Impact Visual Mapping (Localized)
         const impactMap = {
-            'High':   { color: '#FF3B30', icon: '🔴' }, // Red
-            'Medium': { color: '#FF9500', icon: '🟠' }, // Orange
-            'Low':    { color: '#34C759', icon: '🟢' }  // Green
+            'Alto':   { color: '#FF3B30', icon: '🔴' }, // Red
+            'Medio': { color: '#FF9500', icon: '🟠' }, // Orange
+            'Bajo':    { color: '#34C759', icon: '🟢' }  // Green
         };
-        const impact = impactMap[meta.impact] || impactMap['Low'];
+        const impact = impactMap[meta.impact] || impactMap['Bajo'];
+
+        // Status Badge Styling
+        let badgeStyle = 'background:rgba(0,122,255,0.1);color:var(--color-primary);'; // Default blue
+        let statusIcon = '';
+
+        const status = decision.status || '';
+        if (status.includes('Acción requerida')) {
+            badgeStyle = 'background:#FFE5E5;color:#D92D20;';
+            statusIcon = '🔴 ';
+        } else if (status.includes('Sin referido') || status.includes('Sin alerta')) {
+            badgeStyle = 'background:#FFF3E0;color:#E65100;';
+            statusIcon = '🟠 ';
+        } else if (status.includes('En ritmo') || status.includes('Meta cumplida') || status.includes('Al día')) {
+            badgeStyle = 'background:#E8F5E9;color:#2E7D32;';
+            statusIcon = '🟢 ';
+        }
 
         return `
             <div class="card" style="border-left:4px solid var(--color-primary) !important;">
                 <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:10px;">
                     <h3 style="font-size:15px;margin:0;font-weight:800;">${Sanitizer.escape(decision.title)}</h3>
-                    <span class="badge badge-blue">${Sanitizer.escape(decision.status)}</span>
+                    <span class="badge" style="${badgeStyle}">${statusIcon}${Sanitizer.escape(status)}</span>
                 </div>
                 <p style="font-size:13px;color:var(--text-secondary);line-height:1.45;margin:0 0 10px 0;">
                     ${Sanitizer.escape(decision.why)}
@@ -654,8 +670,8 @@ const DashboardView = {
 
                 <!-- Decision Metadata Bar -->
                 <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:12px;font-size:11px;color:var(--text-tertiary);border-top:1px solid rgba(150,150,150,0.1);padding-top:10px;">
-                    <span style="color:${impact.color};font-weight:700;">${impact.icon} ${Sanitizer.escape(meta.impact || 'Low')} Impact</span>
-                    <span style="background:rgba(0,122,255,0.05);padding:2px 6px;border-radius:4px;color:var(--color-primary);">Confidence: ${Sanitizer.escape(meta.confidence || '0%')}</span>
+                    <span style="color:${impact.color};font-weight:700;">${impact.icon} Impacto ${Sanitizer.escape(meta.impact || 'Bajo')}</span>
+                    <span style="background:rgba(0,122,255,0.05);padding:2px 6px;border-radius:4px;color:var(--color-primary);">Confianza: ${Sanitizer.escape(meta.confidence || '0%')}</span>
                     <span>⏱ ${Sanitizer.escape(meta.estimatedTime || '-')}</span>
                 </div>
 
@@ -670,7 +686,7 @@ const DashboardView = {
                     ${Sanitizer.escape(decision.ctaLabel)}
                 </button>
                 <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start;font-size:11px;color:var(--text-tertiary);">
-                    <span><strong>Owner:</strong> ${Sanitizer.escape(decision.owner)}</span>
+                    <span><strong>Responsable:</strong> ${Sanitizer.escape(decision.owner)}</span>
                     <span style="text-align:right;">${Sanitizer.escape(decision.successMetric)}</span>
                 </div>
             </div>
