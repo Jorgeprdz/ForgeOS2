@@ -279,7 +279,7 @@ const DashboardCalculator = {
             title: 'Repair today\'s activity gap',
             status: kpi.faltantes > 0 ? 'Acción requerida' : 'En ritmo',
             why: kpi.faltantes > 0
-                ? 'Forge detectó que la productividad semanal todavía está por debajo de la meta.'
+                ? 'Forge detectó que la productivity semanal todavía está por debajo de la meta.'
                 : 'Forge detectó que la meta semanal ya está cubierta; conserva el ritmo.',
             evidence: [
                 `${kpi.puntos} de ${kpi.meta} puntos esta semana.`,
@@ -290,6 +290,11 @@ const DashboardCalculator = {
             ctaRoute: 'actividad',
             owner: 'Asesor',
             successMetric: 'La productividad semanal avanza hacia la meta de 125 puntos.',
+            metadata: {
+                impact: 'High',
+                confidence: '85%',
+                estimatedTime: '2 min'
+            }
         };
     },
 
@@ -326,6 +331,11 @@ const DashboardCalculator = {
                 ctaRoute: 'referidos',
                 owner: 'Asesor',
                 successMetric: 'Un referido queda listo para contacto o pasa al flujo de prospección.',
+                metadata: {
+                    impact: 'Medium',
+                    confidence: '70%',
+                    estimatedTime: '5 min'
+                }
             };
         }
 
@@ -348,6 +358,11 @@ const DashboardCalculator = {
             ctaRoute: 'referidos',
             owner: 'Asesor',
             successMetric: 'El referido avanza de Nuevo o Seguimiento a Contactado, Cita o prospecto activo.',
+            metadata: {
+                impact: 'Medium',
+                confidence: '70%',
+                estimatedTime: '5 min'
+            }
         };
     },
 
@@ -383,6 +398,11 @@ const DashboardCalculator = {
                 ctaRoute: 'cartera',
                 owner: 'Asesor',
                 successMetric: 'La siguiente alerta de cartera queda lista para contacto.',
+                metadata: {
+                    impact: 'High',
+                    confidence: '90%',
+                    estimatedTime: '3 min'
+                }
             };
         }
 
@@ -404,6 +424,11 @@ const DashboardCalculator = {
             ctaRoute: 'cartera',
             owner: 'Asesor',
             successMetric: 'La alerta de cartera se resuelve o el contacto queda registrado.',
+            metadata: {
+                impact: 'High',
+                confidence: '90%',
+                estimatedTime: '3 min'
+            }
         };
     },
 
@@ -586,6 +611,8 @@ const DashboardView = {
             .map(item => `<li>${Sanitizer.escape(item)}</li>`)
             .join('');
 
+        const meta = decision.metadata || {};
+
         return `
             <div class="card" style="border-left:4px solid var(--color-primary) !important;">
                 <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:10px;">
@@ -598,9 +625,17 @@ const DashboardView = {
                 <ul style="font-size:12px;color:var(--text-secondary);line-height:1.45;margin:0 0 10px 18px;padding:0;">
                     ${evidenceHtml}
                 </ul>
-                <p style="font-size:13px;margin:0 0 8px 0;">
+                <p style="font-size:13px;margin:0 0 12px 0;">
                     <strong>Acción:</strong> ${Sanitizer.escape(decision.action)}
                 </p>
+
+                <!-- Decision Metadata Bar -->
+                <div style="display:flex;gap:12px;margin-bottom:12px;font-size:11px;color:var(--text-tertiary);border-top:1px solid rgba(150,150,150,0.1);padding-top:10px;">
+                    <span><strong>Impact:</strong> ${Sanitizer.escape(meta.impact || 'Low')}</span>
+                    <span><strong>Confidence:</strong> ${Sanitizer.escape(meta.confidence || '0%')}</span>
+                    <span><strong>Time:</strong> ${Sanitizer.escape(meta.estimatedTime || '-')}</span>
+                </div>
+
                 <button
                     class="btn-primary btn-sm"
                     data-action="decision-navigate"
