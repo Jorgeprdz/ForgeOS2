@@ -27,6 +27,7 @@ import { Logger }       from './logger.js';
 import { Memory }       from './memory-manager.js';
 import { RenderEngine } from './ui-render-engine.js';
 import { Navigation }   from './platform/navigation-runtime.js';
+import { generarWhatsappLink } from './whatsapp-link-engine.js';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // CONSTANTES DE NEGOCIO
@@ -304,6 +305,7 @@ const DashboardCalculator = {
             owner: 'Asesor',
             successMetric: 'Tu productividad semanal avanza hacia el objetivo.',
             priorityScore: impactWeight * confidence,
+            quickActionTargetKey: this._mapActivityToKey(kpi) || null,
             metadata: {
                 impact: 'Alto',
                 confidence: `${confidence}%`,
@@ -357,6 +359,7 @@ const DashboardCalculator = {
                 owner: 'Asesor',
                 successMetric: 'Un referido queda listo para iniciar su proceso.',
                 priorityScore: impactWeight * confidence,
+                quickActionPhone: null,
                 metadata: {
                     impact: 'Medio',
                     confidence: `${confidence}%`,
@@ -386,6 +389,7 @@ const DashboardCalculator = {
             owner: 'Asesor',
             successMetric: 'El referido avanza en su ciclo de prospección.',
             priorityScore: impactWeight * confidence,
+            quickActionPhone: selected.telefono || null,
             metadata: {
                 impact: 'Medio',
                 confidence: `${confidence}%`,
@@ -430,6 +434,7 @@ const DashboardCalculator = {
                 owner: 'Asesor',
                 successMetric: 'La atención a clientes se mantiene en niveles óptimos.',
                 priorityScore: impactWeight * confidence,
+                quickActionClient: null,
                 metadata: {
                     impact: 'Alto',
                     confidence: `${confidence}%`,
@@ -474,6 +479,7 @@ const DashboardCalculator = {
             owner: 'Asesor',
             successMetric: 'El cliente recibe atención personalizada a tiempo.',
             priorityScore: impactWeight * confidence,
+            quickActionClient: client,
             metadata: {
                 impact: 'Alto',
                 confidence: `${confidence}%`,
@@ -506,6 +512,19 @@ const DashboardCalculator = {
         }
 
         return 'Pide 2 referidos o realiza 5 llamadas.';
+    },
+
+    /**
+     * @param {{ faltantes:number }} kpi
+     * @returns {string|null}
+     */
+    _mapActivityToKey(kpi) {
+        const faltantes = Number(kpi?.faltantes || 0);
+        if (faltantes <= 0) return null;
+        if (faltantes >= 15) return 'citas_agendadas';
+        if (faltantes >= 10) return 'solicitudes';
+        if (faltantes >= 5) return 'citas_conectadas';
+        return 'referidos';
     },
 
     /**
@@ -711,16 +730,96 @@ const DashboardView = {
                     <span>⏱ ${Sanitizer.escape(meta.estimatedTime || '-')}</span>
                 </div>
 
-                <button
-                    class="btn-primary btn-sm"
-                    data-action="decision-navigate"
-                    data-decision-type="${Sanitizer.escape(decision.decisionType)}"
-                    data-decision-title="${Sanitizer.escape(decision.title)}"
-                    data-route="${Sanitizer.escape(decision.ctaRoute)}"
-                    style="width:100%;margin-bottom:10px;"
-                >
-                    ${Sanitizer.escape(decision.ctaLabel)}
-                </button>
+                ${(() => {
+                    if (decision.decisionType === 'activity_gap') {
+                        const targetKey = decision.quickActionTargetKey ? Sanitizer.escape(decision.quickActionTargetKey) : '';
+                        return `
+                            <div style="display:flex;gap:8px;margin-bottom:10px;width:100%;">
+                                <button
+                                    class="btn-primary btn-sm"
+                                    data-action="decision-navigate"
+                                    data-decision-type="${Sanitizer.escape(decision.decisionType)}"
+                                    data-decision-title="${Sanitizer.escape(decision.title)}"
+                                    data-route="${Sanitizer.escape(decision.ctaRoute)}"
+                                    style="flex:1;"
+                                >
+                                    ${Sanitizer.escape(decision.ctaLabel)}
+                                </button>
+                                <button
+                                    class="btn-secondary btn-sm"
+                                    data-action="quick-action-activity"
+                                    data-decision-type="${Sanitizer.escape(decision.decisionType)}"
+                                    data-target-key="${targetKey}"
+                                    style="flex:1;"
+                                >
+                                    Registrar actividad
+                                </button>
+                            </div>
+                        `;
+                    } else if (decision.decisionType === 'referral_activation') {
+                        const phone = decision.quickActionPhone ? Sanitizer.escape(decision.quickActionPhone) : '';
+                        return `
+                            <div style="display:flex;gap:8px;margin-bottom:10px;width:100%;">
+                                <button
+                                    class="btn-secondary btn-sm"
+                                    data-action="decision-navigate"
+                                    data-decision-type="${Sanitizer.escape(decision.decisionType)}"
+                                    data-decision-title="${Sanitizer.escape(decision.title)}"
+                                    data-route="${Sanitizer.escape(decision.ctaRoute)}"
+                                    style="flex:1;"
+                                >
+                                    ${Sanitizer.escape(decision.ctaLabel)}
+                                </button>
+                                <button
+                                    class="btn-primary btn-sm"
+                                    ${phone ? `data-action="quick-action-referral" data-phone="${phone}"` : `data-action="decision-navigate" data-route="referidos"`}
+                                    data-decision-type="${Sanitizer.escape(decision.decisionType)}"
+                                    style="flex:1;"
+                                >
+                                    Contactar ahora
+                                </button>
+                            </div>
+                        `;
+                    } else if (decision.decisionType === 'cartera_urgency') {
+                        const client = decision.quickActionClient ? Sanitizer.escape(decision.quickActionClient) : '';
+                        return `
+                            <div style="display:flex;gap:8px;margin-bottom:10px;width:100%;">
+                                <button
+                                    class="btn-secondary btn-sm"
+                                    data-action="decision-navigate"
+                                    data-decision-type="${Sanitizer.escape(decision.decisionType)}"
+                                    data-decision-title="${Sanitizer.escape(decision.title)}"
+                                    data-route="${Sanitizer.escape(decision.ctaRoute)}"
+                                    style="flex:1;"
+                                >
+                                    ${Sanitizer.escape(decision.ctaLabel)}
+                                </button>
+                                <button
+                                    class="btn-primary btn-sm"
+                                    data-action="quick-action-cartera"
+                                    data-client="${client}"
+                                    data-decision-type="${Sanitizer.escape(decision.decisionType)}"
+                                    style="flex:1;"
+                                >
+                                    Dar seguimiento
+                                </button>
+                            </div>
+                        `;
+                    } else {
+                        return `
+                            <button
+                                class="btn-primary btn-sm"
+                                data-action="decision-navigate"
+                                data-decision-type="${Sanitizer.escape(decision.decisionType)}"
+                                data-decision-title="${Sanitizer.escape(decision.title)}"
+                                data-route="${Sanitizer.escape(decision.ctaRoute)}"
+                                style="width:100%;margin-bottom:10px;"
+                            >
+                                ${Sanitizer.escape(decision.ctaLabel)}
+                            </button>
+                        `;
+                    }
+                })()}
                 <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start;font-size:11px;color:var(--text-tertiary);">
                     <span><strong>Siguiente acción:</strong> ${Sanitizer.escape(decision.owner)}</span>
                     <span style="text-align:right;">${Sanitizer.escape(decision.successMetric)}</span>
@@ -804,17 +903,93 @@ const DashboardController = {
         if (!root) return;
 
         const clickHandler = event => {
-            const btn = event.target.closest('[data-action="decision-navigate"]');
-            if (!btn) return;
+            const btnNav = event.target.closest('[data-action="decision-navigate"]');
+            if (btnNav) {
+                const route = btnNav.dataset.route;
+                this._recordDecisionTelemetry('clicked', {
+                    decisionType: btnNav.dataset.decisionType,
+                    title: btnNav.dataset.decisionTitle,
+                    ctaRoute: route,
+                });
 
-            const route = btn.dataset.route;
-            this._recordDecisionTelemetry('clicked', {
-                decisionType: btn.dataset.decisionType,
-                title: btn.dataset.decisionTitle,
-                ctaRoute: route,
-            });
+                if (route) Navigation.navigate(route);
+                return;
+            }
 
-            if (route) Navigation.navigate(route);
+            const btnActivity = event.target.closest('[data-action="quick-action-activity"]');
+            if (btnActivity) {
+                const targetKey = btnActivity.dataset.targetKey;
+                this._recordDecisionTelemetry('clicked', {
+                    decisionType: 'activity_gap',
+                    title: 'Registrar actividad',
+                    ctaRoute: 'actividad',
+                });
+
+                Navigation.navigate('actividad');
+
+                if (targetKey) {
+                    let attempts = 0;
+                    const interval = setInterval(() => {
+                        const btn = document.querySelector(`.activity-btn[data-key="${targetKey}"][data-action="inc"]`);
+                        if (btn) {
+                            const card = btn.closest('.glass-widget');
+                            if (card) {
+                                card.style.border = '2px solid var(--color-primary)';
+                                card.style.boxShadow = '0 0 15px rgba(0, 122, 255, 0.3)';
+                                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
+                            clearInterval(interval);
+                        }
+                        attempts++;
+                        if (attempts > 50) clearInterval(interval);
+                    }, 50);
+                }
+                return;
+            }
+
+            const btnReferral = event.target.closest('[data-action="quick-action-referral"]');
+            if (btnReferral) {
+                const phone = btnReferral.dataset.phone;
+                this._recordDecisionTelemetry('clicked', {
+                    decisionType: 'referral_activation',
+                    title: 'Contactar ahora',
+                    ctaRoute: 'whatsapp',
+                });
+
+                const link = generarWhatsappLink({
+                    phone,
+                    message: 'Hola, te contacto de parte de...'
+                });
+                window.open(link, '_blank');
+                return;
+            }
+
+            const btnCartera = event.target.closest('[data-action="quick-action-cartera"]');
+            if (btnCartera) {
+                const client = btnCartera.dataset.client;
+                this._recordDecisionTelemetry('clicked', {
+                    decisionType: 'cartera_urgency',
+                    title: 'Dar seguimiento',
+                    ctaRoute: 'cartera',
+                });
+
+                Navigation.navigate('cartera');
+
+                if (client) {
+                    let attempts = 0;
+                    const interval = setInterval(() => {
+                        const input = document.getElementById('cartera-search');
+                        if (input) {
+                            input.value = client;
+                            input.dispatchEvent(new Event('input', { bubbles: true }));
+                            clearInterval(interval);
+                        }
+                        attempts++;
+                        if (attempts > 50) clearInterval(interval);
+                    }, 50);
+                }
+                return;
+            }
         };
 
         root.addEventListener('click', clickHandler);
