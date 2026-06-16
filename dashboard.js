@@ -256,11 +256,14 @@ const DashboardCalculator = {
      * @returns {Array}
      */
     decisionCockpit({ historial, referidos, cartera } = {}) {
-        return [
+        const decisions = [
             this._buildActivityGapDecision(historial),
             this._buildReferralDecision(referidos),
             this._buildCarteraUrgencyDecision(cartera),
         ];
+
+        // Sort by priority score descending
+        return decisions.sort((a, b) => (b.priorityScore || 0) - (a.priorityScore || 0));
     },
 
     /**
@@ -273,6 +276,9 @@ const DashboardCalculator = {
         const paceText = kpi.faltantes > 0
             ? `Faltan ${kpi.faltantes} puntos para llegar a ${kpi.meta}.`
             : `La meta semanal de ${kpi.meta} puntos ya está cubierta.`;
+
+        const confidence = 85;
+        const impactWeight = 3; // High
 
         return {
             decisionType: 'activity_gap',
@@ -290,9 +296,10 @@ const DashboardCalculator = {
             ctaRoute: 'actividad',
             owner: 'Asesor',
             successMetric: 'La productividad semanal avanza hacia la meta de 125 puntos.',
+            priorityScore: impactWeight * confidence,
             metadata: {
                 impact: 'High',
-                confidence: '85%',
+                confidence: `${confidence}%`,
                 estimatedTime: '2 min'
             }
         };
@@ -315,6 +322,8 @@ const DashboardCalculator = {
         };
 
         const selected = [...candidates].sort((a, b) => score(b) - score(a))[0];
+        const confidence = 70;
+        const impactWeight = 2; // Medium
 
         if (!selected) {
             return {
@@ -331,9 +340,10 @@ const DashboardCalculator = {
                 ctaRoute: 'referidos',
                 owner: 'Asesor',
                 successMetric: 'Un referido queda listo para contacto o pasa al flujo de prospección.',
+                priorityScore: impactWeight * confidence,
                 metadata: {
                     impact: 'Medium',
-                    confidence: '70%',
+                    confidence: `${confidence}%`,
                     estimatedTime: '5 min'
                 }
             };
@@ -358,9 +368,10 @@ const DashboardCalculator = {
             ctaRoute: 'referidos',
             owner: 'Asesor',
             successMetric: 'El referido avanza de Nuevo o Seguimiento a Contactado, Cita o prospecto activo.',
+            priorityScore: impactWeight * confidence,
             metadata: {
                 impact: 'Medium',
-                confidence: '70%',
+                confidence: `${confidence}%`,
                 estimatedTime: '5 min'
             }
         };
@@ -382,6 +393,8 @@ const DashboardCalculator = {
             : [];
 
         const selected = scored[0];
+        const confidence = 90;
+        const impactWeight = 3; // High
 
         if (!selected) {
             return {
@@ -398,9 +411,10 @@ const DashboardCalculator = {
                 ctaRoute: 'cartera',
                 owner: 'Asesor',
                 successMetric: 'La siguiente alerta de cartera queda lista para contacto.',
+                priorityScore: impactWeight * confidence,
                 metadata: {
                     impact: 'High',
-                    confidence: '90%',
+                    confidence: `${confidence}%`,
                     estimatedTime: '3 min'
                 }
             };
@@ -424,9 +438,10 @@ const DashboardCalculator = {
             ctaRoute: 'cartera',
             owner: 'Asesor',
             successMetric: 'La alerta de cartera se resuelve o el contacto queda registrado.',
+            priorityScore: impactWeight * confidence,
             metadata: {
                 impact: 'High',
-                confidence: '90%',
+                confidence: `${confidence}%`,
                 estimatedTime: '3 min'
             }
         };
@@ -613,6 +628,14 @@ const DashboardView = {
 
         const meta = decision.metadata || {};
 
+        // Impact Visual Mapping
+        const impactMap = {
+            'High':   { color: '#FF3B30', icon: '🔴' }, // Red
+            'Medium': { color: '#FF9500', icon: '🟠' }, // Orange
+            'Low':    { color: '#34C759', icon: '🟢' }  // Green
+        };
+        const impact = impactMap[meta.impact] || impactMap['Low'];
+
         return `
             <div class="card" style="border-left:4px solid var(--color-primary) !important;">
                 <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:10px;">
@@ -630,10 +653,10 @@ const DashboardView = {
                 </p>
 
                 <!-- Decision Metadata Bar -->
-                <div style="display:flex;gap:12px;margin-bottom:12px;font-size:11px;color:var(--text-tertiary);border-top:1px solid rgba(150,150,150,0.1);padding-top:10px;">
-                    <span><strong>Impact:</strong> ${Sanitizer.escape(meta.impact || 'Low')}</span>
-                    <span><strong>Confidence:</strong> ${Sanitizer.escape(meta.confidence || '0%')}</span>
-                    <span><strong>Time:</strong> ${Sanitizer.escape(meta.estimatedTime || '-')}</span>
+                <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:12px;font-size:11px;color:var(--text-tertiary);border-top:1px solid rgba(150,150,150,0.1);padding-top:10px;">
+                    <span style="color:${impact.color};font-weight:700;">${impact.icon} ${Sanitizer.escape(meta.impact || 'Low')} Impact</span>
+                    <span style="background:rgba(0,122,255,0.05);padding:2px 6px;border-radius:4px;color:var(--color-primary);">Confidence: ${Sanitizer.escape(meta.confidence || '0%')}</span>
+                    <span>⏱ ${Sanitizer.escape(meta.estimatedTime || '-')}</span>
                 </div>
 
                 <button
