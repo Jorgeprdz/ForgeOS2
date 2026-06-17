@@ -30,6 +30,21 @@
         <pre id="rawJson"></pre>
       </details>
     </div>
+
+    <div class="timeline-container" id="timelineContainer">
+      <h2>Prospect Timeline (Beta)</h2>
+      <div id="timelineSummary" class="timeline-summary"></div>
+      <div class="timeline-filters">
+        <input type="text" id="timelineSearch" placeholder="Search...">
+        <button onclick="filterTimeline('All')">All</button>
+        <button onclick="filterTimeline('accepted')">Accepted</button>
+        <button onclick="filterTimeline('rejected')">Rejected</button>
+        <button onclick="filterTimeline('Waiting')">Waiting</button>
+        <button onclick="filterTimeline('Action Required')">Action Required</button>
+      </div>
+      <div id="timelineList"></div>
+      <p class="explanation-panel">"This timeline is a working memory view. Canonical truth remains outside the timeline."</p>
+    </div>
   </div>
   <script src="app.js"></script>
 </body>
