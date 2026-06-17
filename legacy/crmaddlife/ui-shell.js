@@ -92,7 +92,7 @@ export function renderCrmAddlifeLogin({ onLogin } = {}) {
                     `text-align:center;gap:20px;">` +
             `<div style="font-size:56px;">📊</div>` +
             `<h1 style="font-size:22px;font-weight:800;letter-spacing:-0.5px;">` +
-                `CRM Addlife` +
+                `Forge OS` +
             `</h1>` +
             `<p style="font-size:14px;color:var(--text-secondary);max-width:280px;">` +
                 `Tu plataforma comercial para agentes de seguros` +

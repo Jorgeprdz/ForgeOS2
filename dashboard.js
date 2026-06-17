@@ -1525,11 +1525,11 @@ export function renderDashboard() {
             <div class="card widget-accent" style="padding:24px !important;">
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;">
                     <div>
-                        <p style="font-size:12px;font-weight:600;opacity:0.75;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;">CRM Addlife</p>
+                        <p style="font-size:12px;font-weight:600;opacity:0.75;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;">Forge</p>
                         <h1 id="dash-saludo" style="font-size:24px;color:white;font-weight:800;letter-spacing:-0.5px;margin:0;">
                             <div class="skeleton-text skeleton-shimmer" style="width:200px;height:28px;background:rgba(255,255,255,0.20);"></div>
                         </h1>
-                        <p style="margin:6px 0 0 0;opacity:0.80;font-size:13px;color:white;font-weight:400;">Estatus de tu negocio hoy.</p>
+                        <p style="margin:6px 0 0 0;opacity:0.80;font-size:13px;color:white;font-weight:400;">Decisiones claras. Resultados medibles.</p>
                     </div>
                     <div style="width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">📊</div>
                 </div>

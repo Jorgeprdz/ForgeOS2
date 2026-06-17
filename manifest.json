@@ -1,6 +1,6 @@
 {
-  "name": "CRM Addlife",
-  "short_name": "Addlife",
+  "name": "Forge OS",
+  "short_name": "Forge",
   "description": "Ecosistema Privado de Asesoría de Alto Valor",
   "start_url": "./index.html",
   "scope": "./",
