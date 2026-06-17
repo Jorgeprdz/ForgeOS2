@@ -1074,26 +1074,26 @@ const DashboardController = {
 
     /**
      * Guarda evidencia local de uso del Decision Cockpit.
-     * @param {\'shown\'|\'clicked\'|\'feedback\'|\'outcome_detected\'} eventName
+     * @param {'shown'|'clicked'|'feedback'|'outcome_detected'} eventName
      * @param {Object} decision
      */
     _recordDecisionTelemetry(eventName, decision = {}) {
         const eventId = `decision_${eventName}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 
-        DB.guardar(\'logs\', {
+        DB.guardar('logs', {
             id: eventId,
-            type: \'decision_telemetry\',
+            type: 'decision_telemetry',
             event: eventName,
-            instanceId: decision.instanceId || \'unknown\',
-            decisionType: decision.decisionType || \'unknown\',
-            decisionTitle: decision.title || \'\',
-            ctaRoute: decision.ctaRoute || \'\',
+            instanceId: decision.instanceId || 'unknown',
+            decisionType: decision.decisionType || 'unknown',
+            decisionTitle: decision.title || '',
+            ctaRoute: decision.ctaRoute || '',
             feedback: decision.feedback || null,
             outcome: decision.outcome || null,
             confidence: decision.confidence || null,
             timestamp: new Date().toISOString(),
         }).catch(err => {
-            Logger.warn(\'[Dashboard] decision telemetry failed:\', err?.message || err);
+            Logger.warn('[Dashboard] decision telemetry failed:', err?.message || err);
         });
     },
 
@@ -1103,69 +1103,69 @@ const DashboardController = {
      */
     async _detectOutcomes({ historial, referidos, cartera }) {
         try {
-            const logs = await DB.obtenerTodos(\'logs\');
-            const telemetry = logs.filter(l => l.type === \'decision_telemetry\');
+            const logs = await DB.obtenerTodos('logs');
+            const telemetry = logs.filter(l => l.type === 'decision_telemetry');
 
             const shown = telemetry
-                .filter(t => t.event === \'shown\')
+                .filter(t => t.event === 'shown')
                 .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
                 .slice(0, 30); // Analizar las últimas 30 recomendaciones
 
             const alreadyDetected = new Set(
-                telemetry.filter(t => t.event === \'outcome_detected\').map(t => t.instanceId)
+                telemetry.filter(t => t.event === 'outcome_detected').map(t => t.instanceId)
             );
 
             const now = new Date();
 
             for (const dec of shown) {
-                if (alreadyDetected.has(dec.instanceId) || dec.instanceId === \'unknown\') continue;
+                if (alreadyDetected.has(dec.instanceId) || dec.instanceId === 'unknown') continue;
 
                 const ageMs = now - new Date(dec.timestamp);
                 let resolved = false;
-                let confidence = \'level_0\';
+                let confidence = 'level_0';
 
                 // 1. Activity Gap (24h)
-                if (dec.decisionType === \'activity_gap\' && ageMs <= 86400000) {
+                if (dec.decisionType === 'activity_gap' && ageMs <= 86400000) {
                     const kpi = DashboardCalculator.productividad(historial);
                     if (kpi.faltantes <= 0) {
                         resolved = true;
-                        confidence = \'level_3\'; // State transition: Gap closed
+                        confidence = 'level_3'; // State transition: Gap closed
                     }
                 }
                 // 2. Referrals (7 days)
-                else if (dec.decisionType === \'referral_activation\' && ageMs <= 604800000) {
+                else if (dec.decisionType === 'referral_activation' && ageMs <= 604800000) {
                     // Si el referido que disparó la recomendación ya no está en "Nuevo"
                     // o no es el candidato principal actual (inferencia ligera)
-                    const candidates = (referidos || []).filter(ref => [\'Nuevo\', \'Seguimiento\'].includes(ref?.estado));
-                    const stillNuevo = candidates.some(ref => dec.decisionTitle.includes(ref.nombre) && ref.estado === \'Nuevo\');
-                    if (!stillNuevo && dec.decisionTitle.includes(\'referido\')) {
+                    const candidates = (referidos || []).filter(ref => ['Nuevo', 'Seguimiento'].includes(ref?.estado));
+                    const stillNuevo = candidates.some(ref => dec.decisionTitle.includes(ref.nombre) && ref.estado === 'Nuevo');
+                    if (!stillNuevo && dec.decisionTitle.includes('referido')) {
                         resolved = true;
-                        confidence = \'level_2\'; // Behavioral: No longer in "new" state
+                        confidence = 'level_2'; // Behavioral: No longer in "new" state
                     }
                 }
                 // 3. Cartera (72h)
-                else if (dec.decisionType === \'cartera_urgency\' && ageMs <= 259200000) {
+                else if (dec.decisionType === 'cartera_urgency' && ageMs <= 259200000) {
                     // Si el cliente ya no tiene la alerta que disparó la decisión
                     const urgencies = (cartera || []).map(p => DashboardCalculator._scoreCarteraUrgency(p));
                     const stillUrgent = urgencies.some(u => dec.decisionTitle.includes(u.label));
                     if (!stillUrgent) {
                         resolved = true;
-                        confidence = \'level_2\'; // Behavioral: Risk signal cleared
+                        confidence = 'level_2'; // Behavioral: Risk signal cleared
                     }
                 }
 
                 if (resolved) {
-                    this._recordDecisionTelemetry(\'outcome_detected\', {
+                    this._recordDecisionTelemetry('outcome_detected', {
                         instanceId: dec.instanceId,
                         decisionType: dec.decisionType,
                         title: dec.decisionTitle,
-                        outcome: \'resolved\',
+                        outcome: 'resolved',
                         confidence: confidence
                     });
                 }
             }
         } catch (err) {
-            Logger.warn(\'[Dashboard] Outcome detection skipped:\', err?.message || err);
+            Logger.warn('[Dashboard] Outcome detection skipped:', err?.message || err);
         }
     },
 
