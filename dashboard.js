@@ -977,6 +977,78 @@ const DashboardView = {
     },
 
     /**
+     * Muestra una micro-celebración por un logro detectado.
+     * @param {Object} outcome
+     */
+    showCelebration(outcome) {
+        const container = document.getElementById('dashboard-container');
+        if (!container) return;
+
+        // Evitar múltiples celebraciones simultáneas
+        if (document.getElementById('forge-celebration-banner')) return;
+
+        let msg = '';
+        if (outcome.decisionType === 'activity_gap') {
+            msg = '🎉 ¡Buen trabajo! Recuperaste tu ritmo comercial.';
+        } else if (outcome.decisionType === 'referral_activation') {
+            msg = '🎯 Un referido avanzó gracias a tu seguimiento.';
+        } else if (outcome.decisionType === 'cartera_urgency') {
+            msg = '🛡️ Lograste una mejora en tu cartera.';
+        } else {
+            msg = '✨ ¡Felicidades! Se detectó un avance positivo.';
+        }
+
+        const banner = document.createElement('div');
+        banner.id = 'forge-celebration-banner';
+        banner.style = `
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 400px;
+            background: var(--color-success);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 10000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+            animation: slideIn 0.3s ease-out;
+        `;
+
+        banner.innerHTML = `
+            <span>${Sanitizer.escape(msg)}</span>
+            <span style="cursor:pointer;margin-left:10px;opacity:0.8;" onclick="this.parentElement.remove()">✕</span>
+        `;
+
+        // Agregar animación simple si no existe en styles.css
+        if (!document.getElementById('forge-anim-styles')) {
+            const style = document.createElement('style');
+            style.id = 'forge-anim-styles';
+            style.textContent = `
+                @keyframes slideIn { from { top: -60px; } to { top: 10px; } }
+                @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+            `;
+            document.head.appendChild(style);
+        }
+
+        document.body.appendChild(banner);
+
+        // Auto-hide después de 5 segundos
+        setTimeout(() => {
+            if (banner.parentElement) {
+                banner.style.animation = 'fadeOut 0.5s forwards';
+                setTimeout(() => banner.remove(), 500);
+            }
+        }, 5000);
+    },
+
+    /**
      * Renderiza estado de error en el dashboard.
      * @param {string} mensaje — texto plano, NO HTML
      */
@@ -1215,12 +1287,19 @@ const DashboardController = {
                 }
 
                 if (resolved) {
-                    this._recordDecisionTelemetry('outcome_detected', {
+                    const outcomeData = {
                         instanceId: dec.instanceId,
                         decisionType: dec.decisionType,
                         title: dec.decisionTitle,
                         outcome: 'resolved',
                         confidence: confidence
+                    };
+
+                    this._recordDecisionTelemetry('outcome_detected', outcomeData);
+
+                    // Trigger micro-celebration for newly detected outcome
+                    RenderEngine.schedule(() => {
+                        DashboardView.showCelebration(outcomeData);
                     });
                 }
             }
