@@ -34,6 +34,15 @@ async function runTests() {
     assert.strictEqual(a3.advancementState, 'advanced');
     console.log('Test 3 passed');
 
+    console.log('Running test 4: "Quedé de enviarle una propuesta el lunes."');
+    const e4 = extractor.extract("Quedé de enviarle una propuesta el lunes.");
+    const o4 = ownershipEngine.determineOwnership(e4);
+    const a4 = advancementEngine.determineAdvancement(e4);
+    assert.strictEqual(o4.owner, 'advisor');
+    assert.strictEqual(a4.advancementState, 'advanced');
+    assert.strictEqual(e4.find(e => e.type === 'commitment_established').data.owner, 'advisor');
+    console.log('Test 4 passed');
+
     // Quality Tests
     console.log('Running Quality Test 1: "Me llama el viernes." (STRONG)');
     const q1 = extractor.extract("Me llama el viernes.");

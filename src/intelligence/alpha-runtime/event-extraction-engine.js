@@ -4,11 +4,16 @@ class EventExtractionEngine {
     const events = [];
     const text = rawText.toLowerCase();
 
-    const conversationPatterns = ["hablé", "revisa", "look at it", "call you", "dijo"];
-    const actionPhrases = [
+    const conversationPatterns = ["hablé", "revisa", "look at it", "call you", "dijo", "platicamos"];
+    
+    const prospectActionPhrases = [
         "me llama", "me avisa", "me confirma", "lo revisa", "lo revisan", 
         "me busca", "me contacta", "me escribe", "me manda documentos", 
-        "me comparte información", "quedó de mandarme", "voy a enviar"
+        "me comparte información", "quedó de mandarme", "mandarme"
+    ];
+    const advisorActionPhrases = [
+        "quedé de enviar", "le enviaré", "voy a enviar", "le mando", 
+        "le compartiré", "prepararé propuesta", "cotizaré", "agendé llamada", "enviar propuesta"
     ];
     const temporalMarkers = [
         "el viernes", "mañana", "la próxima semana", "el lunes", 
@@ -20,8 +25,11 @@ class EventExtractionEngine {
         events.push({ type: 'conversation_occurred', data: { raw: rawText } });
     }
     
-    // Check for prospect commitments
-    const actionFound = actionPhrases.some(p => text.includes(p));
+    // Check for commitments
+    const prospectActionFound = prospectActionPhrases.some(p => text.includes(p));
+    const advisorActionFound = advisorActionPhrases.some(p => text.includes(p));
+    const actionFound = prospectActionFound || advisorActionFound;
+    
     const temporalFound = temporalMarkers.find(t => text.includes(t));
     const isWeak = weakPatterns.some(p => text.includes(p));
 
@@ -38,7 +46,7 @@ class EventExtractionEngine {
             recommendation = "Commitment detected without explicit timeframe.";
         }
 
-        const owner = text.includes("yo le voy a enviar") ? 'advisor' : 'prospect';
+        const owner = advisorActionFound ? 'advisor' : 'prospect';
         
         events.push({ 
             type: 'commitment_established', 
