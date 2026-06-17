@@ -9,6 +9,7 @@ const ownershipEngine = new ActionOwnershipEngine();
 const advancementEngine = new ProcessAdvancementEngine();
 
 async function runTests() {
+    // Original tests
     console.log('Running test 1: "Me dijo que lo revisa y me llama el viernes."');
     const e1 = extractor.extract("Me dijo que lo revisa y me llama el viernes.");
     const o1 = ownershipEngine.determineOwnership(e1);
@@ -23,7 +24,7 @@ async function runTests() {
     const a2 = advancementEngine.determineAdvancement(e2);
     assert.strictEqual(o2.owner, 'prospect');
     assert.strictEqual(a2.advancementState, 'advanced');
-    assert.strictEqual(e2[0].type, 'commitment_established');
+    assert.strictEqual(e2.find(e => e.type === 'commitment_established').type, 'commitment_established');
     console.log('Test 2 passed');
 
     console.log('Running test 3: "Yo le voy a enviar la propuesta el lunes."');
@@ -42,6 +43,34 @@ async function runTests() {
     assert.strictEqual(a4.advancementState, 'advanced');
     assert.strictEqual(e4.find(e => e.type === 'commitment_established').data.owner, 'advisor');
     console.log('Test 4 passed');
+
+    // New Semantic Tests
+    console.log('Running Semantic Test 1: "Después de platicar de retiro, acordamos que el lunes le paso una propuesta."');
+    const s1 = extractor.extract("Después de platicar de retiro, acordamos que el lunes le paso una propuesta.");
+    const os1 = ownershipEngine.determineOwnership(s1);
+    const as1 = advancementEngine.determineAdvancement(s1);
+    assert.strictEqual(os1.owner, 'advisor');
+    assert.strictEqual(as1.advancementState, 'advanced');
+    assert.strictEqual(s1.find(e => e.type === 'commitment_established').data.quality, 'strong');
+    console.log('Semantic Test 1 passed');
+
+    console.log('Running Semantic Test 2: "Vimos opciones de retiro y el lunes le comparto una alternativa."');
+    const s2 = extractor.extract("Vimos opciones de retiro y el lunes le comparto una alternativa.");
+    const os2 = ownershipEngine.determineOwnership(s2);
+    const as2 = advancementEngine.determineAdvancement(s2);
+    assert.strictEqual(os2.owner, 'advisor');
+    assert.strictEqual(as2.advancementState, 'advanced');
+    assert.strictEqual(s2.find(e => e.type === 'commitment_established').data.quality, 'strong');
+    console.log('Semantic Test 2 passed');
+
+    console.log('Running Semantic Test 3: "Mañana le mando opciones."');
+    const s3 = extractor.extract("Mañana le mando opciones.");
+    const os3 = ownershipEngine.determineOwnership(s3);
+    const as3 = advancementEngine.determineAdvancement(s3);
+    assert.strictEqual(os3.owner, 'advisor');
+    assert.strictEqual(as3.advancementState, 'advanced');
+    assert.strictEqual(s3.find(e => e.type === 'commitment_established').data.quality, 'strong');
+    console.log('Semantic Test 3 passed');
 
     // Quality Tests
     console.log('Running Quality Test 1: "Me llama el viernes." (STRONG)');

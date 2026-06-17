@@ -4,7 +4,10 @@ class EventExtractionEngine {
     const events = [];
     const text = rawText.toLowerCase();
 
-    const conversationPatterns = ["hablé", "revisa", "look at it", "call you", "dijo", "platicamos"];
+    const conversationPatterns = [
+        "hablé", "revisa", "look at it", "call you", "dijo", "platicamos",
+        "después de platicar", "vimos", "revisamos", "hablamos de", "comentamos sobre"
+    ];
     
     const prospectActionPhrases = [
         "me llama", "me avisa", "me confirma", "lo revisa", "lo revisan", 
@@ -13,7 +16,9 @@ class EventExtractionEngine {
     ];
     const advisorActionPhrases = [
         "quedé de enviar", "le enviaré", "voy a enviar", "le mando", 
-        "le compartiré", "prepararé propuesta", "cotizaré", "agendé llamada", "enviar propuesta"
+        "le compartiré", "prepararé propuesta", "cotizaré", "agendé llamada", "enviar propuesta",
+        "le paso una propuesta", "le paso opciones", "le comparto alternativas", "le envío información", "le comparto el comparativo",
+        "le paso", "le comparto"
     ];
     const temporalMarkers = [
         "el viernes", "mañana", "la próxima semana", "el lunes", 
