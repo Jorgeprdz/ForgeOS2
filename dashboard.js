@@ -626,6 +626,22 @@ const DashboardCalculator = {
             date.getFullYear() === today.getFullYear()
         );
     },
+
+    /**
+     * Calcula tiempo relativo (ej. "hace 2 días").
+     * @param {string} timestamp
+     * @returns {string}
+     */
+    relativeTime(timestamp) {
+        const now = new Date();
+        const past = new Date(timestamp);
+        const diffMs = now - past;
+        const diffDays = Math.floor(diffMs / 86400000);
+
+        if (diffDays === 0) return 'hoy';
+        if (diffDays === 1) return 'ayer';
+        return `hace ${diffDays} días`;
+    },
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -673,6 +689,50 @@ const DashboardView = {
         const safeDecisions = Array.isArray(decisions) ? decisions.slice(0, 3) : [];
         el.innerHTML = safeDecisions
             .map(decision => this.renderDecisionCard(decision))
+            .join('');
+    },
+
+    /**
+     * Renderiza la línea de tiempo de evidencia.
+     * @param {Array} outcomes
+     */
+    renderEvidenceTimeline(outcomes) {
+        const el = document.getElementById('dash-evidence-timeline');
+        if (!el) return;
+
+        if (!Array.isArray(outcomes) || outcomes.length === 0) {
+            el.innerHTML = `<p style="font-size:12px;color:var(--text-tertiary);font-style:italic;">Esperando resultados para generar evidencia...</p>`;
+            return;
+        }
+
+        el.innerHTML = outcomes
+            .slice(0, 3)
+            .map(out => {
+                let msg = '';
+                const time = DashboardCalculator.relativeTime(out.timestamp);
+                const confidenceMap = { 'level_3': '✅ Alta', 'level_2': '👀 Observada', 'level_1': 'Temporal' };
+                const conf = confidenceMap[out.confidence] || 'Observada';
+
+                if (out.decisionType === 'activity_gap') {
+                    msg = `✓ ${time.charAt(0).toUpperCase() + time.slice(1)} detectamos que recuperaste tu ritmo comercial.`;
+                } else if (out.decisionType === 'referral_activation') {
+                    msg = `✓ Un referido avanzó después de una recomendación ${time}.`;
+                } else if (out.decisionType === 'cartera_urgency') {
+                    msg = `✓ Un riesgo de cartera desapareció tras un seguimiento ${time}.`;
+                } else {
+                    msg = `✓ Forge detectó un resultado positivo ${time}.`;
+                }
+
+                return `
+                    <div style="margin-bottom:10px;padding:8px;background:rgba(0,122,255,0.03);border-radius:8px;border-left:3px solid var(--color-success);">
+                        <p style="font-size:13px;margin:0 0 4px 0;line-height:1.4;">${Sanitizer.escape(msg)}</p>
+                        <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text-tertiary);">
+                            <span>Confianza: ${Sanitizer.escape(conf)}</span>
+                            <span style="text-transform:uppercase;">${Sanitizer.escape(out.decisionType.replace('_', ' '))}</span>
+                        </div>
+                    </div>
+                `;
+            })
             .join('');
     },
 
@@ -1240,6 +1300,12 @@ const DashboardController = {
                 this._recordDecisionTelemetry('shown', decision);
             });
 
+            // — Obtener evidencia reciente para el timeline
+            const logs = await DB.obtenerTodos('logs');
+            const outcomes = logs
+                .filter(l => l.type === 'decision_telemetry' && l.event === 'outcome_detected')
+                .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
             // — Hidratar DOM via RenderEngine (batched, RAF-scheduled)
             RenderEngine.batch([
                 () => DashboardView.renderSaludo(nombre),
@@ -1249,6 +1315,7 @@ const DashboardController = {
                     DashboardView.renderProductividad(kpi);
                 },
                 () => DashboardView.renderDecisionCockpit(decisions),
+                () => DashboardView.renderEvidenceTimeline(outcomes),
                 () => {
                     const alertas = DashboardCalculator.fidelizacion(cartera);
                     DashboardView.renderFidelizacion(alertas);
@@ -1378,6 +1445,14 @@ export function renderDashboard() {
                     <div class="skeleton-text skeleton-shimmer" style="width:92%;"></div>
                     <div class="skeleton-text skeleton-shimmer" style="width:86%;"></div>
                     <div class="skeleton-text skeleton-shimmer" style="width:80%;"></div>
+                </div>
+            </div>
+
+            <!-- Evidencia Forge -->
+            <div class="card" style="background:rgba(52,199,89,0.03);border:1px dashed var(--color-success);">
+                <h2 style="font-size:15px;margin-bottom:10px;color:var(--color-success);">🛡️ Evidencia Forge</h2>
+                <div id="dash-evidence-timeline">
+                    <div class="skeleton-text skeleton-shimmer" style="width:70%;"></div>
                 </div>
             </div>
 
