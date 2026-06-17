@@ -1,4 +1,14 @@
 // scripts/process-note.js
+require('dotenv').config();
+const { createClient } = require('@supabase/supabase-js');
+const SupabaseRuntime = require('../supabase-runtime').default;
+
+// Initialize Supabase if not already initialized
+if (process.env.SUPABASE_URL && process.env.SUPABASE_ANON_KEY) {
+  const client = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
+  SupabaseRuntime.init(client);
+}
+
 const { processNote } = require('../src/services/forge-alpha-service');
 const repository = require('../src/services/forge-alpha-repository');
 
