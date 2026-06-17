@@ -974,50 +974,6 @@ const DashboardView = {
     },
 
     /**
-     * Renderiza la sección de productividad semanal.
-     * @param {{ puntos, meta, faltantes, badge }} kpi
-     */
-    renderProductividad(kpi) {
-        const el = document.getElementById('dash-productividad');
-        if (!el) return;
-        const pct = Math.min(100, Math.round((kpi.puntos / kpi.meta) * 100));
-        el.innerHTML =
-            `<p style="font-size:14px;margin-bottom:10px;">` +
-                `Esta semana llevas <strong>${kpi.puntos}</strong> de ${kpi.meta} puntos. ` +
-                `Faltan <strong style="color:var(--color-danger);">${kpi.faltantes}</strong>.` +
-            `</p>` +
-            `<div class="progress-bar-track">` +
-                `<div class="progress-bar-fill" style="width:${pct}%;"></div>` +
-            `</div>` +
-            `<div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">` +
-                `<span style="font-size:12px;color:var(--text-secondary);font-weight:600;">${pct}% completado</span>` +
-                `${kpi.badge}` +
-            `</div>`;
-    },
-
-    /**
-     * Renderiza el radar de fidelización.
-     * @param {string[]} alertas — HTML pre-sanitizado
-     */
-    renderFidelizacion(alertas) {
-        const el = document.getElementById('dash-fidelizacion');
-        if (!el) return;
-        el.innerHTML = alertas.length > 0
-            ? alertas.join('')
-            : `<p style="font-size:13px;color:var(--text-secondary);">Sin eventos próximos en los siguientes 30 días. ✅</p>`;
-    },
-
-    /**
-     * Renderiza la sección de control de cartera / cobranza.
-     * @param {string} html — HTML pre-sanitizado
-     */
-    renderCobranza(html) {
-        const el = document.getElementById('dash-cartera');
-        if (!el) return;
-        el.innerHTML = html;
-    },
-
-    /**
      * Muestra una micro-celebración por un logro detectado.
      * @param {Object} outcome
      */
@@ -1369,16 +1325,6 @@ const DashboardController = {
         Memory.add(() => this._abort());
         this._bindDecisionActions();
 
-        // — Suscripción reactiva: si AppState.cartera cambia (sync en background),
-        //   refrescar automáticamente la sección relevante sin recargar todo
-        const unsubscribe = AppState.subscribe((key, value) => {
-            if (key === 'cartera' && Array.isArray(value)) {
-                Logger.info('[Dashboard] cartera actualizada via AppState, refrescando secciones');
-                this._refreshCarteraSections(value);
-            }
-        });
-        Memory.add(unsubscribe);
-
         try {
 
             // — Leer usuario desde AppState (AuthService ya lo puso ahí)
@@ -1433,25 +1379,14 @@ const DashboardController = {
             RenderEngine.batch([
                 () => DashboardView.renderSaludo(nombre),
                 () => DashboardView.renderDailyBrief(brief),
-                () => {
-                    DashboardView.renderKpiPuntos(kpi.puntos);
-                    DashboardView.renderProductividad(kpi);
-                },
+                () => DashboardView.renderKpiPuntos(kpi.puntos),
                 () => DashboardView.renderDecisionCockpit(decisions),
                 () => DashboardView.renderEvidenceTimeline(outcomes),
-                () => {
-                    const alertas = DashboardCalculator.fidelizacion(cartera);
-                    DashboardView.renderFidelizacion(alertas);
-                },
-                () => {
-                    const cobranza = DashboardCalculator.cobranza(cartera);
-                    DashboardView.renderCobranza(cobranza);
-                },
             ]);
 
             // — Notificar al sistema que el dashboard cargó correctamente
             EventBus.emit('dashboard:loaded', {
-                puntosSemanales: DashboardCalculator.productividad(historial).puntos,
+                puntosSemanales: kpi.puntos,
                 totalCartera:    Array.isArray(cartera) ? cartera.length : 0,
             });
 
@@ -1473,24 +1408,6 @@ const DashboardController = {
 
             EventBus.emit('dashboard:error', { message: err?.message });
         }
-    },
-
-    /**
-     * Refresca solo las secciones de cartera cuando AppState.cartera cambia.
-     * Evita recargar historial innecesariamente.
-     * @param {Array} cartera
-     */
-    _refreshCarteraSections(cartera) {
-        RenderEngine.batch([
-            () => {
-                const alertas = DashboardCalculator.fidelizacion(cartera);
-                DashboardView.renderFidelizacion(alertas);
-            },
-            () => {
-                const cobranza = DashboardCalculator.cobranza(cartera);
-                DashboardView.renderCobranza(cobranza);
-            },
-        ]);
     },
 
     /**
@@ -1584,32 +1501,6 @@ export function renderDashboard() {
                 <h2 style="font-size:15px;margin-bottom:10px;color:var(--color-success);">🛡️ Evidencia Forge</h2>
                 <div id="dash-evidence-timeline">
                     <div class="skeleton-text skeleton-shimmer" style="width:70%;"></div>
-                </div>
-            </div>
-
-            <!-- Productividad -->
-            <div class="card" style="border-left:4px solid var(--color-primary) !important;">
-                <h2 style="font-size:16px;margin-bottom:14px;">📊 Productividad Semanal</h2>
-                <div id="dash-productividad">
-                    <div class="skeleton-text skeleton-shimmer" style="width:88%;"></div>
-                    <div class="skeleton-text skeleton-shimmer" style="width:55%;height:20px;border-radius:10px;margin-top:10px;"></div>
-                </div>
-            </div>
-
-            <!-- Radar de Fidelización -->
-            <div class="card" style="border-left:4px solid var(--color-warning) !important;">
-                <h2 style="font-size:16px;margin-bottom:14px;">🎯 Radar de Fidelización</h2>
-                <div id="dash-fidelizacion" style="display:flex;flex-direction:column;gap:0;">
-                    <div class="skeleton-text skeleton-shimmer" style="width:85%;"></div>
-                    <div class="skeleton-text skeleton-shimmer" style="width:70%;"></div>
-                </div>
-            </div>
-
-            <!-- Control de Cartera -->
-            <div class="card" style="border-left:4px solid var(--color-danger) !important;">
-                <h2 style="font-size:16px;margin-bottom:14px;">💼 Control de Cartera</h2>
-                <div id="dash-cartera">
-                    <div class="skeleton-text skeleton-shimmer" style="width:92%;"></div>
                 </div>
             </div>
 
