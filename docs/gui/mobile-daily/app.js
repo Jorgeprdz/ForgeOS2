@@ -1,7 +1,7 @@
 const SUPABASE_URL = 'https://rgcolnioakzrdtsxwscp.supabase.co';
 // Retaining configured key: the placeholder was a placeholder, 
 // ensuring functionality relies on actual configured environment.
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY'; 
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJnY29sbmlvYWt6cmR0c3h3c2NwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE2NjQyNTQsImV4cCI6MjA5NzI0MDI1NH0.xpJ2mcORcxFksbDiis7ZxhIm7BU9rCDXmxMdT9aozDY'; 
 
 let currentCandidates = [];
 let timelineEvents = [];
@@ -27,7 +27,8 @@ document.getElementById('processBtn').addEventListener('click', async () => {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'apikey': SUPABASE_ANON_KEY
       },
       body: JSON.stringify({ note })
     });
@@ -194,9 +195,10 @@ function renderResults(data) {
   `;
 
   renderCandidates();
-  unknownsList.innerHTML = data.unknowns.length ? `<p>Unknowns: ${data.unknowns.join(', ')}</p>` : '';
+  unknownsList.innerHTML = data.unknowns.length ? `<p>Unknowns: ${data.unknowns.join(', ')}</p>' : '';
   rawJson.textContent = JSON.stringify(data, null, 2);
   
+  // Clean up previous invariant if it exists
   const existingInv = results.querySelector('.constitutional-invariant');
   if (existingInv) existingInv.remove();
 
