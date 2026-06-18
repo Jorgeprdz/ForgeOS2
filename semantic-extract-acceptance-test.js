@@ -70,10 +70,12 @@ const testCases = [
     input: "Llamar el próximo año",
     expected: (res) => {
       const cand = res.candidates[0];
+      const frame = res.semantic_frame.interpretations[0];
       return res.summary.candidate_count === 1 &&
              cand.action === "llamar" &&
-             cand.due === "el próximo año" &&
+             cand.due === "próximo año" &&
              cand.quality === "medium" &&
+             frame.temporal_reference === "próximo año" &&
              checkConsistency(res);
     }
   },
@@ -82,10 +84,12 @@ const testCases = [
     input: "Seguimiento dentro de 2 meses",
     expected: (res) => {
       const cand = res.candidates[0];
+      const frame = res.semantic_frame.interpretations[0];
       return res.summary.candidate_count === 1 &&
              cand.action === "seguimiento" &&
              cand.due !== null &&
-             cand.quality === "medium" &&
+             cand.quality === "strong" &&
+             cand.due === frame.temporal_reference &&
              checkConsistency(res);
     }
   },
