@@ -1,5 +1,12 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { GoogleGenerativeAI } from "npm:@google/generative-ai";
+import {
+  buildSemanticExtractFrame,
+  getNormalizedAction,
+  getNormalizedDue,
+  isTrivialGreeting,
+  normalizeText,
+} from "../../../src/intelligence/hdl/semantic-frame-builder.js";
 
 const FUNCTION_VERSION = "semantic-extract-v0.8-hdl-semantic-frame-lite";
 const MODEL_VERSION = "gemini-3.1-flash-lite";
@@ -9,39 +16,6 @@ const corsHeaders = {
   "Access-Control-Allow-Methods": "POST, OPTIONS",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
-
-const SPANISH_MONTHS = [
-  "enero",
-  "febrero",
-  "marzo",
-  "abril",
-  "mayo",
-  "junio",
-  "julio",
-  "agosto",
-  "septiembre",
-  "octubre",
-  "noviembre",
-  "diciembre",
-];
-
-const TRIVIAL_GREETINGS = [
-  "hola",
-  "holi",
-  "hello",
-  "hi",
-  "buenos dias",
-  "buenas tardes",
-  "buenas noches",
-  "que tal",
-  "hola como estas",
-  "como estas",
-  "hola que tal",
-  "buenas",
-  "saludos",
-  "que onda",
-  "hey",
-];
 
 const FORBIDDEN_FIELDS = [
   "emotion",
@@ -56,31 +30,6 @@ const FORBIDDEN_FIELDS = [
   "religious_belief",
   "health_status",
 ];
-
-const DIRECT_ADVISOR_ACTIONS: Record<string, string> = {
-  escribeme: "escribir",
-  escribir: "escribir",
-  llamame: "llamar",
-  llamar: "llamar",
-  buscame: "buscar",
-  buscar: "buscar",
-  marcame: "marcar",
-  marcar: "marcar",
-  contactame: "contactar",
-  contactar: "contactar",
-};
-
-function normalizeText(value: unknown): string {
-  if (typeof value !== "string") return "";
-
-  return value
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[.,/#!$%^&*;:{}=\-_`~()¿?¡!]/g, "")
-    .replace(/\s+/g, " ")
-    .trim();
-}
 
 function jsonResponse(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), {
@@ -107,182 +56,6 @@ function emptyResponse(unknown = "no_actionable_event", frame: unknown = null) {
     model_version: MODEL_VERSION,
     semantic_frame: frame,
   });
-}
-
-function isTrivialGreeting(note: string): boolean {
-  return TRIVIAL_GREETINGS.includes(normalizeText(note));
-}
-
-function extractTemporalRange(text: string): string | null {
-  const normalized = normalizeText(text);
-  const match = normalized.match(/\b(?:en|dentro de)\s+(\d+)\s+o\s+(\d+)\s+(dias|semanas|meses)\b/);
-  if (!match) return null;
-
-  const unit = match[3] === "dias" ? "días" : match[3];
-  return `${match[1]} o ${match[2]} ${unit}`;
-}
-
-function extractRawTemporalReference(text: string): string | null {
-  const patterns = [
-    /\b(?:en|dentro de)\s+\d+\s+o\s+\d+\s+(?:días|dias|semanas|meses)\b/i,
-    /\b(lunes|martes|miércoles|miercoles|jueves|viernes|sábado|sabado|domingo)\b/i,
-    /\b(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\b/i,
-    /\b(hoy|mañana|manana)\b/i,
-    /\b(próxima semana|proxima semana|la próxima semana|la proxima semana|este mes|fin de mes|próximo mes|proximo mes|próximo año|proximo año|el próximo año|el proximo año|año que viene|ano que viene)\b/i,
-    /\b(en|dentro de)\s+(\d+)\s+(días|dias|semanas|meses|años|anos)\b/i
-  ];
-
-  for (const pattern of patterns) {
-    const match = text.match(pattern);
-    if (match) return match[0].toLowerCase().trim();
-  }
-
-  return null;
-}
-
-function normalizeTemporalReference(reference: string | null): string | null {
-  const normalized = normalizeText(reference);
-
-  if (
-    normalized === "proximo ano" ||
-    normalized === "el proximo ano" ||
-    normalized === "ano que viene"
-  ) {
-    return "próximo año";
-  }
-
-  return reference ? reference.toLowerCase().trim() : null;
-}
-
-function extractTemporalReference(text: string): string | null {
-  const temporalRange = extractTemporalRange(text);
-  if (temporalRange) return temporalRange;
-
-  return normalizeTemporalReference(extractRawTemporalReference(text));
-}
-
-function resolveRelativeMonthReference(text: string, now = new Date()): string | null {
-  if (extractTemporalRange(text)) return null;
-
-  const normalized = normalizeText(text);
-  const monthMatch = normalized.match(/\b(en|dentro de)\s+(\d+)\s+mes(es)?\b/);
-  if (monthMatch) {
-    const monthsToAdd = parseInt(monthMatch[2], 10);
-    const targetDate = new Date(now);
-    targetDate.setMonth(now.getMonth() + monthsToAdd);
-    return SPANISH_MONTHS[targetDate.getMonth()];
-  }
-  return null;
-}
-
-function getNormalizedDue(note: string, now = new Date()): string | null {
-  const resolvedMonth = resolveRelativeMonthReference(note, now);
-  return resolvedMonth || extractTemporalReference(note);
-}
-
-function removeTrailingTemporalConnectors(action: string): string {
-  return action
-    .replace(/\s+/g, " ")
-    .replace(/\s+(?:para(?:\s+(?:el|la|los|las))?|el|la)\s*$/i, "")
-    .trim();
-}
-
-function getDirectAdvisorAction(note: string): string | null {
-  const normalized = normalizeText(note);
-  const firstToken = normalized.split(" ")[0];
-  return DIRECT_ADVISOR_ACTIONS[firstToken] || null;
-}
-
-function getNormalizedAction(note: string): string | null {
-  const normalized = normalizeText(note);
-  const directAdvisorAction = getDirectAdvisorAction(note);
-  const hasRequestVerb =
-    normalized.startsWith("pidio ") ||
-    normalized.startsWith("me pidio ") ||
-    normalized.startsWith("solicito ") ||
-    normalized.startsWith("me solicito ") ||
-    normalized.startsWith("requiere ") ||
-    normalized.startsWith("me requiere ") ||
-    directAdvisorAction !== null ||
-    normalized.startsWith("llamar ") ||
-    normalized.startsWith("seguimiento ");
-
-  if (!hasRequestVerb) return null;
-
-  let action = note.trim();
-  if (directAdvisorAction) {
-    action = directAdvisorAction;
-  }
-  action = action.replace(/^me\s+/i, "");
-  action = action.replace(/^pid[ií]o\s+/i, "preparar/enviar ");
-  action = action.replace(/^solicit[oó]\s+/i, "preparar/enviar ");
-  action = action.replace(/^requiere\s+/i, "preparar/enviar ");
-  action = action.replace(/^seguimiento\b/i, "seguimiento");
-
-  const temporalInNote = extractRawTemporalReference(note);
-  if (temporalInNote) {
-    const escaped = temporalInNote.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    const cleanRegex = new RegExp(`\\s*${escaped}.*$`, "i");
-    action = action.replace(cleanRegex, "");
-  }
-
-  return removeTrailingTemporalConnectors(action).toLowerCase();
-}
-
-function buildSemanticFrame(note: string, now = new Date()) {
-  const normalized = normalizeText(note);
-  const temporal = getNormalizedDue(note, now);
-  
-  let scope = "unknown";
-  let intent_normalized = "unknown";
-  let action = null;
-  let claimable = false;
-  let claim_confidence = 0.0;
-  let semantic_confidence = 0.5;
-  let uncertainty_flags: string[] = [];
-
-  if (isTrivialGreeting(note)) {
-    scope = "greeting";
-    intent_normalized = "greeting_only";
-    semantic_confidence = 1.0;
-    claimable = false;
-  } else if (normalized.includes("pensara") || normalized.includes("va a pensar") || normalized.includes("lo pensara")) {
-    scope = "intent";
-    intent_normalized = "decision_delay";
-    semantic_confidence = 0.95;
-    claim_confidence = 0.35;
-    claimable = false;
-    uncertainty_flags.push("NON_ACTIONABLE_INTENT");
-  } else {
-    const normalizedAction = getNormalizedAction(note);
-    if (normalizedAction) {
-      scope = "commitment";
-      intent_normalized = "advisor_request";
-      claimable = true;
-      semantic_confidence = 0.95;
-      claim_confidence = 0.8;
-      action = normalizedAction;
-    }
-  }
-
-  return {
-    frame_type: "hdl_semantic_frame",
-    source: "hdl_semantic_normalizer",
-    original_text: note,
-    semantic_confidence,
-    interpretations: [
-      {
-        scope,
-        intent_normalized,
-        action,
-        temporal_reference: temporal,
-        semantic_confidence,
-        claim_confidence,
-        claimable,
-        uncertainty_flags,
-      },
-    ],
-  };
 }
 
 function deterministicProspectRequest(note: string, generatedAt: string) {
@@ -493,10 +266,10 @@ serve(async (req) => {
     }
 
     const generatedAt = new Date().toISOString();
-    const frame = buildSemanticFrame(note);
+    const frame = buildSemanticExtractFrame(note);
 
     // Flow: 
-    // 1. buildSemanticFrame
+    // 1. buildSemanticExtractFrame from HDL module
     // 2. deterministicProspectRequest
     // 3. If deterministic candidate exists: return candidate + semantic_frame
     // 4. Else if semantic frame is clearly non-claimable: return no candidates + semantic_frame + unknowns=["non_claimable_interpretation"]
