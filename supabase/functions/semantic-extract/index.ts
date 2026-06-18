@@ -1,8 +1,8 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { GoogleGenerativeAI } from "npm:@google/generative-ai";
 
-const FUNCTION_VERSION = "semantic-extract-v0.8-hdl-semantic-frame-flash";
-const MODEL_VERSION = "gemini-3.1-flash";
+const FUNCTION_VERSION = "semantic-extract-v0.8-hdl-semantic-frame-lite";
+const MODEL_VERSION = "gemini-3.1-flash-lite";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -147,6 +147,11 @@ function resolveRelativeMonthReference(text: string, now = new Date()): string |
   return null;
 }
 
+function getNormalizedDue(note: string, now = new Date()): string | null {
+  const resolvedMonth = resolveRelativeMonthReference(note, now);
+  return resolvedMonth || extractTemporalReference(note);
+}
+
 function removeTrailingTemporalConnectors(action: string): string {
   return action
     .replace(/\s+/g, " ")
@@ -187,7 +192,7 @@ function getNormalizedAction(note: string): string | null {
 
 function buildSemanticFrame(note: string, now = new Date()) {
   const normalized = normalizeText(note);
-  const temporal = extractTemporalReference(note);
+  const temporal = getNormalizedDue(note, now);
   
   let scope = "unknown";
   let intent_normalized = "unknown";
@@ -245,13 +250,7 @@ function deterministicProspectRequest(note: string, generatedAt: string) {
   const normalizedAction = getNormalizedAction(note);
   if (!normalizedAction) return null;
 
-  let due = extractTemporalReference(note);
-  const resolvedMonth = resolveRelativeMonthReference(note);
-  
-  // v0.7 compatibility: resolve months if it's a relative month
-  if (resolvedMonth) {
-    due = resolvedMonth;
-  }
+  const due = getNormalizedDue(note);
 
   // Quality Rule
   const isBroad = due && (due.includes("próximo") || due.includes("proximo") || due.includes("año") || due.includes("mes") || due.includes("semana") || due.match(/\b(dentro|en)\b/));
