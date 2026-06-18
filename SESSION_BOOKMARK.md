@@ -1,6 +1,6 @@
 # MIGRATION SESSION BOOKMARK
 **HEAD:** f62f7da
-**Date:** Saturday, June 13, 2026
+**Date:** Wednesday, June 17, 2026
 
 ## Repository Progress
 - **Initial Root JS:** 421
@@ -11,16 +11,24 @@
 - **Verdict:** EXECUTABLE_WITH_WARNINGS
 - **Boot Blockers:** 0
 - **Circular Imports:** 0
-- **Missing Targets:** 5 (Improved from 6)
+- **Missing Targets:** 5
 - **Missing Exports:** 2
 
-## Completed Clusters (MIGRATION-008B to 008F)
-- [x] **008B: Notifications Cluster** -> `platform/notifications/`
-- [x] **008C: Advisor OS Insights Cluster** -> `advisor-os/`
-- [x] **008D: Discovery Engines Cluster** -> `advisor-os/discovery/`
-- [x] **008E: Shared AVE Cluster** -> `product-intelligence/knowledge/ave/`
-- [x] **008F: Command Palette Cluster** -> `platform/commands/`
+## Completed Clusters
+- [x] **008B-008F:** (See previous history)
+- [x] **Forge Alpha Service Layer:** (Implemented with Supabase persistence)
+- [x] **Daily Usage Interface:** (CLI `process-note.js`)
+- [x] **Semantic Extraction v0.2:** (Experimental Spec defined)
+
+## Forge Alpha Implementation History
+- `feat(alpha): implement commitment quality semantics`
+- `fix(alpha): detect semantic advisor commitments`
+- `fix(alpha): treat commitments as process advancement`
+- `feat(alpha): expand event extraction patterns for commitments`
+- `fix(alpha): align forge output persistence with Supabase schema`
+- `fix(alpha): initialize Supabase runtime`
+- `feat(alpha): add daily advisor note interface`
 
 ## Strategy Status
 - **NASH Physical Migration:** DEFERRED / FROZEN.
-- **Next Candidate:** MIGRATION-008G (Sync Cluster).
+- **Next Candidate:** MIGRATION-008G (Sync Cluster) OR Semantic Extraction Layer Implementation (Experimental).

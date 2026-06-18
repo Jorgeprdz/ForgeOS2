@@ -52,10 +52,44 @@ document.getElementById('processBtn').addEventListener('click', async () => {
   }
 });
 
-function getProcessStatus(owner) {
-  if (owner === "advisor") return { state: "ACTION_REQUIRED", chip: "🟢", action: "Execute commitment" };
-  if (owner === "prospect") return { state: "WAITING", chip: "🟡", action: "Await prospect response" };
-  return { state: "HUMAN_REVIEW", chip: "🔵", action: "Clarify ownership" };
+function getProcessStatus(owner, type) {
+  if (type === 'conversation_occurred') {
+    return {
+      state: 'INFORMATIONAL',
+      chip: '⚪',
+      action: 'No process action required',
+      nextAction: 'No process action required',
+      rationale: 'Conversation events provide context only.'
+    };
+  }
+
+  if (type === 'commitment_established' && owner === 'advisor') {
+    return {
+      state: 'ACTION_REQUIRED',
+      chip: '🟢',
+      action: 'Execute commitment',
+      nextAction: 'Execute commitment',
+      rationale: 'Advisor owns the next action.'
+    };
+  }
+
+  if (type === 'commitment_established' && owner === 'prospect') {
+    return {
+      state: 'WAITING',
+      chip: '🟡',
+      action: 'Await prospect response',
+      nextAction: 'Await prospect response',
+      rationale: 'Prospect owns the next action.'
+    };
+  }
+
+  return {
+    state: 'HUMAN_REVIEW',
+    chip: '🔵',
+    action: 'Clarify ownership',
+    nextAction: 'Clarify ownership',
+    rationale: 'Ownership is unknown or event type requires review.'
+  };
 }
 
 function getTruthStatus(status) {
@@ -80,7 +114,7 @@ function updateCandidateState(id, status, audit) {
   candidate.audit = audit;
   
   if (status === 'accepted') {
-    timelineEvents.unshift({ ...candidate, processState: getProcessStatus(candidate.owner).state });
+    timelineEvents.unshift({ ...candidate, processState: getProcessStatus(candidate.owner, candidate.type).state });
   }
   
   renderCandidates();
@@ -97,7 +131,7 @@ document.getElementById('timelineSearch').addEventListener('input', renderTimeli
 function renderCandidates() {
   const candidatesList = document.getElementById('candidatesList');
   candidatesList.innerHTML = currentCandidates.map(c => {
-    const process = getProcessStatus(c.owner);
+    const process = getProcessStatus(c.owner, c.type);
     const truth = getTruthStatus(c.status);
     
     return `
@@ -176,7 +210,7 @@ function renderTimeline() {
 
   summary.innerHTML = `
     <p>Total Events: ${timelineEvents.length}</p>
-    <p>Open Commitments: ${timelineEvents.filter(e => e.status === 'accepted').length}</p>
+    <p>Open Commitments: ${timelineEvents.filter(e => e.status === 'accepted' && e.type === 'commitment_established').length}</p>
     <p>Waiting States: ${timelineEvents.filter(e => e.processState === 'WAITING').length}</p>
     <p>Advisor Actions Required: ${timelineEvents.filter(e => e.processState === 'ACTION_REQUIRED').length}</p>
   `;
@@ -195,7 +229,7 @@ function renderResults(data) {
   `;
 
   renderCandidates();
-  unknownsList.innerHTML = data.unknowns.length ? `<p>Unknowns: ${data.unknowns.join(', ')}</p>' : '';
+  unknownsList.innerHTML = data.unknowns.length ? `<p>Unknowns: ${data.unknowns.join(', ')}</p>` : '';
   rawJson.textContent = JSON.stringify(data, null, 2);
   
   // Clean up previous invariant if it exists
