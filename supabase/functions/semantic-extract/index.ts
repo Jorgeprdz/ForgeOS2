@@ -82,6 +82,46 @@ function isTrivialGreeting(note: string): boolean {
   return TRIVIAL_GREETINGS.includes(normalizeText(note));
 }
 
+function deterministicProspectRequest(note: string, generatedAt: string) {
+  const normalized = normalizeText(note);
+
+  const hasRequestVerb =
+    normalized.startsWith("pidio ") ||
+    normalized.startsWith("me pidio ") ||
+    normalized.startsWith("solicito ") ||
+    normalized.startsWith("me solicito ") ||
+    normalized.startsWith("requiere ") ||
+    normalized.startsWith("me requiere ");
+
+  if (!hasRequestVerb) return null;
+
+  const dueMatch = normalized.match(/\b(para|el)\s+(lunes|martes|miercoles|jueves|viernes|sabado|domingo|manana|hoy|la proxima semana|proxima semana)\b/);
+  const due = dueMatch ? dueMatch[2] : null;
+
+  let action = note.trim();
+  action = action.replace(/^me\s+/i, "");
+  action = action.replace(/^pid[ií]o\s+/i, "preparar/enviar ");
+  action = action.replace(/^solicit[oó]\s+/i, "preparar/enviar ");
+  action = action.replace(/^requiere\s+/i, "preparar/enviar ");
+  action = action.replace(/\s+para\s+(el\s+)?(lunes|martes|miércoles|miercoles|jueves|viernes|sábado|sabado|domingo|mañana|manana|hoy|la próxima semana|la proxima semana|próxima semana|proxima semana).*$/i, "");
+
+  return {
+    id: "cand_001",
+    type: "commitment_established",
+    owner: "advisor",
+    action: action.trim(),
+    due,
+    quality: computeQuality("commitment_established", "advisor", action.trim(), due),
+    confidence: 1,
+    evidence_span: note.trim(),
+    review_status: "proposed",
+    source: "deterministic_request_extractor",
+    model_version: MODEL_VERSION,
+    generated_at: generatedAt,
+    unknowns: due ? [] : ["due_date"],
+  };
+}
+
 function isAllowedType(type: string): boolean {
   return type === "commitment_established" || type === "conversation_occurred";
 }
@@ -266,6 +306,24 @@ serve(async (req) => {
     }
 
     const generatedAt = new Date().toISOString();
+
+    const deterministicCandidate = deterministicProspectRequest(note, generatedAt);
+    if (deterministicCandidate) {
+      return jsonResponse({
+        function_version: FUNCTION_VERSION,
+        summary: {
+          candidate_count: 1,
+          requires_human_review: true,
+          model_version: MODEL_VERSION,
+        },
+        candidates: [deterministicCandidate],
+        unknowns: deterministicCandidate.unknowns,
+        requiresHumanReview: true,
+        source: "semantic_extractor",
+        model_version: MODEL_VERSION,
+      });
+    }
+
     const responseText = await callGemini(note);
 
     let parsed: Record<string, unknown>;
