@@ -1,5 +1,5 @@
-import { extraerTextoOCR } from '../policy-ocr-engine.js';
-import { parseSolucionlineRetirementQuote } from '../solucionline-retirement-parser.js';
+import { extraerTextoOCR } from '../policy-operations/evidence/policy-ocr-engine.js';
+import { parseSolucionlineRetirementQuote } from '../product-intelligence/evidence/solucionline-retirement-parser.js';
 import {
   buildRetirementPresentationScenario,
   getVerifiedUdiRateMetadata

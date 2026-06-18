@@ -1,4 +1,4 @@
-import { buildVidaMujerSurvivalSchedule } from '../vida-mujer-survival-schedule-engine.js';
+import { buildVidaMujerSurvivalSchedule } from '../product-intelligence/knowledge/vida-mujer-survival-schedule-engine.js';
 
 const results = [];
 

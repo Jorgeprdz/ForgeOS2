@@ -1,5 +1,5 @@
-import { extraerTextoOCR } from '../policy-ocr-engine.js';
-import { parseSolucionlineRetirementQuote } from '../solucionline-retirement-parser.js';
+import { extraerTextoOCR } from '../policy-operations/evidence/policy-ocr-engine.js';
+import { parseSolucionlineRetirementQuote } from '../product-intelligence/evidence/solucionline-retirement-parser.js';
 
 const PDF_PATH = '/storage/emulated/0/Download/Solucionline_20260601_13_09.PDF';
 

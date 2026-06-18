@@ -1,8 +1,8 @@
 import { detectarProductoCotizacion } from '../product-detection-engine.js';
 import { vincularProductKnowledge } from '../product-knowledge-link-engine.js';
 import { obtenerMonedaNormalizada } from '../currency-normalization-engine.js';
-import { proyectarValorFuturo, proyectarUDI } from '../projection-engine.js';
-import { seleccionarHitosSignificativos } from '../projection-milestone-engine.js';
+import { proyectarValorFuturo, proyectarUDI } from '../product-intelligence/projections/projection-engine.js';
+import { seleccionarHitosSignificativos } from '../product-intelligence/projections/projection-milestone-engine.js';
 import { proyectarValoresRescateDinamicos } from '../dynamic-cash-value-projection-engine.js';
 import { prepararInputPresentacion } from '../presentation-input-pipeline.js';
 

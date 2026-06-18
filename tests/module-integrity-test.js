@@ -1,9 +1,9 @@
 const modules = [
   '../product-detection-engine.js',
   '../presentation-input-pipeline.js',
-  '../policy-detail-engine.js',
-  '../policy-timeline-engine.js',
-  '../policy-renewal-engine.js',
+  '../policy-operations/policy-detail/policy-detail-engine.js',
+  '../policy-operations/policy-timeline/policy-timeline-engine.js',
+  '../policy-operations/renewals/policy-renewal-engine.js',
 ];
 
 const results = [];

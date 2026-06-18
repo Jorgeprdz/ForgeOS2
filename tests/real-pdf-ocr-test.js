@@ -1,6 +1,15 @@
-import { extraerTextoOCR } from '../policy-ocr-engine.js';
+import { existsSync } from 'node:fs';
+import { extraerTextoOCR } from '../policy-operations/evidence/policy-ocr-engine.js';
 
-const PDF_PATH = '/storage/emulated/0/Download/Solucionline_20260601_13_09.PDF';
+const DEFAULT_PDF_PATH = '/storage/emulated/0/Download/Solucionline_20260601_13_09.PDF';
+const PDF_PATH = process.env.FORGE_LOCAL_PDF_PATH || DEFAULT_PDF_PATH;
+
+if (!existsSync(PDF_PATH)) {
+  console.log(
+    'SKIPPED: local PDF fixture not found. Set FORGE_LOCAL_PDF_PATH to run this manual OCR test.'
+  );
+  process.exit(0);
+}
 
 const results = [];
 

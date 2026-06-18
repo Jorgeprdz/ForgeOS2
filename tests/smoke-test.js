@@ -1,5 +1,5 @@
-import { agregarEventoTimeline } from '../policy-timeline-engine.js';
-import { detectarRenovaciones } from '../policy-renewal-engine.js';
+import { agregarEventoTimeline } from '../policy-operations/policy-timeline/policy-timeline-engine.js';
+import { detectarRenovaciones } from '../policy-operations/renewals/policy-renewal-engine.js';
 import { detectarProductoCotizacion } from '../product-detection-engine.js';
 
 const results = [];

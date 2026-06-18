@@ -1,6 +1,6 @@
-import { extraerTextoOCR } from '../policy-ocr-engine.js';
-import { parseGMMQuote } from '../gmm-quote-parser.js';
-import { calcularParticipacionClienteGMM } from '../gmm-out-of-pocket-engine.js';
+import { extraerTextoOCR } from '../policy-operations/evidence/policy-ocr-engine.js';
+import { parseGMMQuote } from '../product-intelligence/evidence/gmm-quote-parser.js';
+import { calcularParticipacionClienteGMM } from '../product-intelligence/coverage/gmm-out-of-pocket-engine.js';
 
 const PDF_PATH =
   '/storage/emulated/0/Download/Solucionline_20251215_16_06.PDF';

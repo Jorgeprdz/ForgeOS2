@@ -1,8 +1,8 @@
 import { extraerTextoOCR }
-  from '../policy-ocr-engine.js';
+  from '../policy-operations/evidence/policy-ocr-engine.js';
 
 import { parseGMMQuote }
-  from '../gmm-quote-parser.js';
+  from '../product-intelligence/evidence/gmm-quote-parser.js';
 
 const PDF_PATH =
   '/storage/emulated/0/Download/Solucionline_20251215_16_06.PDF';
