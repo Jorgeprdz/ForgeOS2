@@ -131,6 +131,36 @@ function resolveRelativeMonthReference(text: string, now = new Date()): string |
   return null;
 }
 
+function getNormalizedAction(note: string): string | null {
+  const normalized = normalizeText(note);
+  const hasRequestVerb =
+    normalized.startsWith("pidio ") ||
+    normalized.startsWith("me pidio ") ||
+    normalized.startsWith("solicito ") ||
+    normalized.startsWith("me solicito ") ||
+    normalized.startsWith("requiere ") ||
+    normalized.startsWith("me requiere ") ||
+    normalized.startsWith("llamar ") ||
+    normalized.startsWith("seguimiento ");
+
+  if (!hasRequestVerb) return null;
+
+  let action = note.trim();
+  action = action.replace(/^me\s+/i, "");
+  action = action.replace(/^pid[ií]o\s+/i, "preparar/enviar ");
+  action = action.replace(/^solicit[oó]\s+/i, "preparar/enviar ");
+  action = action.replace(/^requiere\s+/i, "preparar/enviar ");
+
+  const temporalInNote = extractTemporalReference(note);
+  if (temporalInNote) {
+    const escaped = temporalInNote.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const cleanRegex = new RegExp(`\\s+(para|el)?\\s*${escaped}.*$`, "i");
+    action = action.replace(cleanRegex, "");
+  }
+
+  return action.trim();
+}
+
 function buildSemanticFrame(note: string, now = new Date()) {
   const normalized = normalizeText(note);
   const temporal = extractTemporalReference(note);
@@ -155,16 +185,16 @@ function buildSemanticFrame(note: string, now = new Date()) {
     claim_confidence = 0.35;
     claimable = false;
     uncertainty_flags.push("NON_ACTIONABLE_INTENT");
-  } else if (normalized.startsWith("pidio") || normalized.startsWith("me pidio") || normalized.startsWith("solicito") || normalized.startsWith("me solicito") || normalized.startsWith("requiere") || normalized.startsWith("me requiere") || normalized.startsWith("llamar") || normalized.startsWith("seguimiento")) {
-    scope = "commitment";
-    intent_normalized = "advisor_request";
-    claimable = true;
-    semantic_confidence = 0.95;
-    claim_confidence = 0.8;
-    
-    // Simple action extraction for the frame
-    action = note.split(/\b(para|el|en|dentro de)\b/i)[0].trim();
-    action = action.replace(/^(pid[ií]o|solicit[oó]|requiere|me\s+)/i, "").trim();
+  } else {
+    const normalizedAction = getNormalizedAction(note);
+    if (normalizedAction) {
+      scope = "commitment";
+      intent_normalized = "advisor_request";
+      claimable = true;
+      semantic_confidence = 0.95;
+      claim_confidence = 0.8;
+      action = normalizedAction;
+    }
   }
 
   return {
@@ -188,19 +218,8 @@ function buildSemanticFrame(note: string, now = new Date()) {
 }
 
 function deterministicProspectRequest(note: string, generatedAt: string) {
-  const normalized = normalizeText(note);
-
-  const hasRequestVerb =
-    normalized.startsWith("pidio ") ||
-    normalized.startsWith("me pidio ") ||
-    normalized.startsWith("solicito ") ||
-    normalized.startsWith("me solicito ") ||
-    normalized.startsWith("requiere ") ||
-    normalized.startsWith("me requiere ") ||
-    normalized.startsWith("llamar ") ||
-    normalized.startsWith("seguimiento ");
-
-  if (!hasRequestVerb) return null;
+  const normalizedAction = getNormalizedAction(note);
+  if (!normalizedAction) return null;
 
   let due = extractTemporalReference(note);
   const resolvedMonth = resolveRelativeMonthReference(note);
@@ -210,23 +229,6 @@ function deterministicProspectRequest(note: string, generatedAt: string) {
     due = resolvedMonth;
   }
 
-  let action = note.trim();
-  action = action.replace(/^me\s+/i, "");
-  action = action.replace(/^pid[ií]o\s+/i, "preparar/enviar ");
-  action = action.replace(/^solicit[oó]\s+/i, "preparar/enviar ");
-  action = action.replace(/^requiere\s+/i, "preparar/enviar ");
-
-  if (due) {
-    const temporalInNote = extractTemporalReference(note);
-    if (temporalInNote) {
-        const escaped = temporalInNote.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const cleanRegex = new RegExp(`\\s+(para|el)?\\s*${escaped}.*$`, "i");
-        action = action.replace(cleanRegex, "");
-    }
-  }
-
-  action = action.trim();
-
   // Quality Rule
   const isBroad = due && (due.includes("próximo") || due.includes("proximo") || due.includes("año") || due.includes("mes") || due.includes("semana") || due.match(/\b(dentro|en)\b/));
   const quality = (due && !isBroad) ? "strong" : "medium";
@@ -235,7 +237,7 @@ function deterministicProspectRequest(note: string, generatedAt: string) {
     id: "cand_001",
     type: "commitment_established",
     owner: "advisor",
-    action: action,
+    action: normalizedAction,
     due,
     quality,
     confidence: 1,
