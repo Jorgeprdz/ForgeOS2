@@ -72,3 +72,9 @@ Every semantic candidate **MUST** contain:
 
 ## 10. Implementation Recommendation
 **Recommendation:** Semantic Extraction is approved for **Alpha v0.2 EXPERIMENTAL ONLY**. Full adoption into production or Beta is contingent upon rigorous, empirical validation of precision and recall metrics and a final constitutional review.
+
+## 11. Temporal Understanding Discovery
+
+Temporal understanding is tracked separately in `docs/specs/TEMPORAL_UNDERSTANDING_DISCOVERY.md`.
+
+Current v0.8 support covers T1 Exact Temporal, T2 Relative Temporal, and T3 Numeric Range. T4 Alternative Set, T5 Temporal Window, and T6 Conditional Temporal are discovery-closed but implementation-deferred.
