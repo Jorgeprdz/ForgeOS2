@@ -186,6 +186,12 @@ ROBOCOP LOCK 001 does not replace the Constitution, ADRs, Build Tree or Discover
 
 It forces every future task to route through them before work starts.
 
+ROBOCOP ADDENDUM 001 - Forge Thinks, AI Interprets is part of this lock.
+
+Canonical addendum:
+
+- `docs/governance/FORGE_ROBOCOP_AI_INTERPRETATION_ADDENDUM.md`
+
 Canonical authority remains:
 
 - Constitution
