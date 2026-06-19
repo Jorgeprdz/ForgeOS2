@@ -15,18 +15,16 @@ Before Supabase deployment:
 Tracked by:
 FORGE_SECURITY_MIGRATION_PHASE
 */
-const BANXICO_TOKEN = "d8f92037201307ffb65213ec188fa35a55d4b8bec226b3157624381faea9ca7d";
-
 const BANXICO_SERIES = {
   UDI: "SP68257",
   USD_FIX: "SF43718"
 };
 
 function getToken() {
-  const token = process.env.BANXICO_TOKEN || BANXICO_TOKEN;
+  const token = process.env.BANXICO_TOKEN;
 
   if (!token) {
-    throw new Error("Missing BANXICO_TOKEN. Export it first: export BANXICO_TOKEN='your_token_here'");
+    throw new Error("Missing BANXICO_TOKEN. Configure it as an environment variable or Supabase Edge Function secret.");
   }
 
   return token;
