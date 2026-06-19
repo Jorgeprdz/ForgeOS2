@@ -1,23 +1,5 @@
 const https = require("https");
 
-/*
-TEMPORARY DEVELOPMENT CONFIGURATION
-
-DO NOT DEPLOY TO PRODUCTION.
-
-Before Supabase deployment:
-
-1. Remove hardcoded token.
-2. Use environment variables.
-3. Move token access to Edge Functions.
-4. Never expose token to frontend.
-
-Tracked by:
-FORGE_SECURITY_MIGRATION_PHASE
-*/
-const BANXICO_TOKEN =
-  "d8f92037201307ffb65213ec188fa35a55d4b8bec226b3157624381faea9ca7d";
-
 const BANXICO_SERIES = {
   UDI: "SP68257",
   USD: "SF43718"
@@ -345,10 +327,14 @@ function buildPolicyCurrencyTimeline({
 function fetchBanxicoSeries({ currency, startDate, endDate }) {
   const normalizedCurrency = normalizeCurrency(currency);
   const seriesId = BANXICO_SERIES[normalizedCurrency];
-  const token = process.env.BANXICO_TOKEN || BANXICO_TOKEN;
+  const token = process.env.BANXICO_TOKEN;
 
   if (!startDate || !endDate) {
     throw new Error("Missing startDate or endDate for Banxico series query");
+  }
+
+  if (!token) {
+    throw new Error("Missing BANXICO_TOKEN. Configure it as an environment variable or Supabase Edge Function secret.");
   }
 
   const options = {

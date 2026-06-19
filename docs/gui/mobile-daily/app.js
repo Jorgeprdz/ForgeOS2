@@ -1,7 +1,15 @@
-const SUPABASE_URL = 'https://rgcolnioakzrdtsxwscp.supabase.co';
-// Retaining configured key: the placeholder was a placeholder, 
-// ensuring functionality relies on actual configured environment.
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJnY29sbmlvYWt6cmR0c3h3c2NwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE2NjQyNTQsImV4cCI6MjA5NzI0MDI1NH0.xpJ2mcORcxFksbDiis7ZxhIm7BU9rCDXmxMdT9aozDY'; 
+const CONFIG = window.__FORGE_MOBILE_DAILY_CONFIG__ || {};
+const SUPABASE_URL = CONFIG.SUPABASE_URL || 'YOUR_SUPABASE_URL';
+const SUPABASE_ANON_KEY = CONFIG.SUPABASE_ANON_KEY || 'YOUR_SUPABASE_ANON_KEY';
+
+function assertConfiguredSupabase() {
+  if (
+    SUPABASE_URL === 'YOUR_SUPABASE_URL' ||
+    SUPABASE_ANON_KEY === 'YOUR_SUPABASE_ANON_KEY'
+  ) {
+    throw new Error('Configure window.__FORGE_MOBILE_DAILY_CONFIG__ with Supabase URL and anon key before using this demo.');
+  }
+}
 
 let currentCandidates = [];
 let timelineEvents = [];
@@ -23,6 +31,8 @@ document.getElementById('processBtn').addEventListener('click', async () => {
   error.classList.add('hidden');
 
   try {
+    assertConfiguredSupabase();
+
     const response = await fetch(`${SUPABASE_URL}/functions/v1/semantic-extract`, {
       method: 'POST',
       headers: { 
