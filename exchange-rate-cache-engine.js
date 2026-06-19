@@ -1,5 +1,6 @@
 const fs = require("fs");
 const { getCurrentRates } = require("./shared-banxico-rate-engine");
+const { getCurrentRatesFromSupabaseEdge } = require("./shared-banxico-edge-provider");
 
 const CACHE_FILE = "forge-rate-cache.json";
 const MAX_CACHE_AGE_HOURS = 12;
@@ -17,6 +18,14 @@ function writeCache(data) {
   fs.writeFileSync(CACHE_FILE, JSON.stringify(data, null, 2));
 }
 
+async function getCurrentRatesWithConfiguredProvider() {
+  if (process.env.SUPABASE_BANXICO_RATES_URL) {
+    return getCurrentRatesFromSupabaseEdge();
+  }
+
+  return getCurrentRates();
+}
+
 async function getCachedRates({ forceRefresh = false } = {}) {
   const cache = readCache();
   const now = new Date().toISOString();
@@ -32,7 +41,7 @@ async function getCachedRates({ forceRefresh = false } = {}) {
     }
   }
 
-  const rates = await getCurrentRates();
+  const rates = await getCurrentRatesWithConfiguredProvider();
 
   const payload = {
     cachedAt: now,

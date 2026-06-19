@@ -6,8 +6,9 @@ const commands = [
   ['node', ['tests/presentation-pipeline-test.js']],
   ['node', ['tests/critical-path-test.js']],
   ['node', ['tests/business-rules-test.js']],
-  ['node', ['tests/banxico-token-security-test.js',
-  'tests/truth/truth-validators-phase-a-test.js']],
+  ['node', ['tests/banxico-token-security-test.js']],
+  ['node', ['tests/banxico-edge-provider-test.js']],
+  ['node', ['tests/truth/truth-validators-phase-a-test.js']],
   ['node', ['tests/real-pdf-ocr-test.js']],
 ];
 
