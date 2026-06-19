@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-19T04:49:40.552Z",
+  "generatedAt": "2026-06-19T05:23:21.424Z",
   "summary": {
-    "totalJsFilesScanned": 712,
+    "totalJsFilesScanned": 711,
     "totalImportsFound": 227,
     "staticImportsFound": 225,
     "dynamicImportsFound": 2,
