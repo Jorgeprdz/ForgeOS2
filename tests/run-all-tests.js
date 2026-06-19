@@ -17,6 +17,10 @@ const commands = [
   ['node', ['tests/payment-event-engine-test.js']],
   ['node', ['tests/initial-renewal-classifier-test.js']],
   ['node', ['tests/policy-advisor-confirmation-gate-test.js']],
+  ['node', ['tests/carrier-revenue-adapter-contract-test.js']],
+  ['node', ['tests/not-modeled-carrier-adapter-test.js']],
+  ['node', ['tests/carrier-rule-router-test.js']],
+  ['node', ['tests/smnyl-revenue-adapter-test.js']],
   ['node', ['tests/real-pdf-ocr-test.js']],
 ];
 
