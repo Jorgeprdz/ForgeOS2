@@ -5,6 +5,22 @@ echo "      FORGE GUI DIAGNOSTIC"
 echo "===================================="
 echo
 
+echo "[0] Required environment"
+if [ -z "$SUPABASE_URL" ]; then
+  echo "Missing SUPABASE_URL"
+  echo "Example: export SUPABASE_URL='https://YOUR_PROJECT_REF.supabase.co'"
+  exit 1
+fi
+
+if [ -z "$SUPABASE_ANON_KEY" ]; then
+  echo "Missing SUPABASE_ANON_KEY"
+  echo "Set it only in your local shell session. Do not commit it."
+  exit 1
+fi
+
+echo "SUPABASE_URL configured"
+echo "SUPABASE_ANON_KEY configured"
+echo
 echo "[1] Directory"
 pwd
 echo
@@ -52,7 +68,7 @@ echo
 echo "[10] Test Edge Function"
 
 curl --max-time 15 -s -L -X POST \
-  'https://rgcolnioakzrdtsxwscp.supabase.co/functions/v1/semantic-extract' \
+  "${SUPABASE_URL}/functions/v1/semantic-extract" \
   -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
   -H "apikey: $SUPABASE_ANON_KEY" \
   -H "Content-Type: application/json" \

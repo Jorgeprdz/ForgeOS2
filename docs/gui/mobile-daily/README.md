@@ -21,7 +21,7 @@ The GUI will automatically be accessible at that URL, or specifically at:
 
 ## Configuration
 
-The application uses the `SUPABASE_ANON_KEY` defined in `docs/gui/mobile-daily/app.js`. Ensure this key is set correctly for your Supabase project.
+This folder is a demo/local diagnostic surface. Do not hardcode real Supabase keys here. For browser usage, configure window.__FORGE_MOBILE_DAILY_CONFIG__. For Termux diagnostics, export SUPABASE_URL and SUPABASE_ANON_KEY only in the local shell session. Never commit real keys.
 
 > [!WARNING]
 > Do **not** expose or commit the `GEMINI_API_KEY` in any frontend files.
