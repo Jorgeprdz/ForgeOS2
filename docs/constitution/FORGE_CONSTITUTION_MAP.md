@@ -150,9 +150,13 @@ Manager Intelligence Authority Boundary
 ### ADR-016
 Advisor Experience + Benvenù Anti-Dependence Boundary
 
-### Core Principle
+### ADR-016A
+Benvenù Purpose Scarcity + Dignity Boundary
 
-Forge must increase advisor capability rather than advisor dependency.
+### Core Principles
+
+- Forge must increase advisor capability rather than advisor dependency.
+- Purpose may guide. Purpose must not pressure.
 
 ---
 
@@ -237,6 +241,7 @@ The proposed problem space was absorbed by ADR-0019 Process Advancement Intellig
 # CONSTITUTIONAL FOUNDATION
 
 ADR-001 through ADR-018.
+Approved dependent addenda: ADR-016A.
 
 ---
 
