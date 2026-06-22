@@ -1,0 +1,1186 @@
+{
+  "schemaVersion": "1.0.0",
+  "rulePackId": "smnyl_partner_compensation_2026",
+  "title": "SMNYL Partner Compensation 2026 - Official Rule Pack",
+  "status": "official_source_manual_extraction",
+  "source": {
+    "fileName": "PCV 2026 Partners.pdf",
+    "sourceType": "official_compensation_plan",
+    "sourceTruth": true,
+    "documentYear": 2026,
+    "validity": {
+      "from": "2026-01-01",
+      "to": "2026-12-31"
+    },
+    "notes": [
+      "Uploaded PCV 2026 Partners PDF is treated as official Partner 2026 compensation plan per user confirmation.",
+      "Candidate calculations are not payout truth.",
+      "paid_confirmed requires official statement evidence."
+    ]
+  },
+  "constitutionalLocks": [
+    "DOCUMENTO_COMPARTIDO_POR_JORGE_ES_DOCUMENTO_OFICIAL",
+    "Partner compensation must consume advisor economic outputs, not raw advisor activity.",
+    "La póliza define la regla.",
+    "El pago dispara la comisión.",
+    "El estado de comisiones confirma payout truth.",
+    "Unknown is not zero.",
+    "Blocked is not zero.",
+    "Forecast is not payout truth."
+  ],
+  "globalRules": {
+    "currency": "MXN",
+    "payoutTruthRule": {
+      "candidateCalculationIsPayoutTruth": false,
+      "requiresOfficialStatementLine": true,
+      "officialEvidenceRequiredForPaidConfirmed": true
+    },
+    "planParticipation": {
+      "sourcePages": [
+        3,
+        4
+      ],
+      "sourceTruthLevel": "document_confirmed",
+      "partnerMustHaveActiveStatus": true,
+      "advisorMustHaveActiveStatusForProductionToCount": true,
+      "personalPoliciesExcluded": true,
+      "specialBusinessParticipationRequiresCompanyReview": true
+    },
+    "paymentGeneralRule": {
+      "sourcePages": [
+        3
+      ],
+      "sourceTruthLevel": "document_confirmed",
+      "paymentWindow": "second_half_of_each_month",
+      "description": "Bonuses are integrated according to each bonus payment form if the Partner meets the target."
+    },
+    "excludedInitialCommissions": {
+      "sourcePages": [
+        3,
+        16
+      ],
+      "sourceTruthLevel": "document_confirmed",
+      "excludedSources": [
+        "descuento_por_nomina",
+        "primas_AVE",
+        "AVECP",
+        "primas_adicionales_productos_universales"
+      ]
+    },
+    "policyCancellationRecalculation": {
+      "sourcePages": [
+        4
+      ],
+      "sourceTruthLevel": "document_confirmed",
+      "companyMayRecalculateAwardsForCancelledPolicies": true,
+      "rehabilitatedPoliciesCancelledInLessThanMonths": 13,
+      "cancelledPoliciesDeductFromPolicyAccumulatedCount": true
+    },
+    "partnerIndexRules": {
+      "sourcePages": [
+        4
+      ],
+      "sourceTruthLevel": "document_confirmed",
+      "LIMRA": [
+        {
+          "partnerCareerMonthFrom": 1,
+          "partnerCareerMonthTo": 12,
+          "resolvedIndexRule": "base_index",
+          "baseIndex": 78
+        },
+        {
+          "partnerCareerMonthFrom": 13,
+          "partnerCareerMonthTo": 24,
+          "resolvedIndexRule": "max_between_base_and_real",
+          "baseIndex": 78
+        },
+        {
+          "partnerCareerMonthFrom": 25,
+          "partnerCareerMonthTo": null,
+          "resolvedIndexRule": "real_calculated_index"
+        }
+      ],
+      "IGC": [
+        {
+          "partnerCareerMonthFrom": 1,
+          "partnerCareerMonthTo": 12,
+          "resolvedIndexRule": "base_index",
+          "baseIndex": 86
+        },
+        {
+          "partnerCareerMonthFrom": 13,
+          "partnerCareerMonthTo": 15,
+          "resolvedIndexRule": "max_between_base_and_real",
+          "baseIndex": 86
+        },
+        {
+          "partnerCareerMonthFrom": 16,
+          "partnerCareerMonthTo": null,
+          "resolvedIndexRule": "real_calculated_index"
+        }
+      ],
+      "specialLIMRARuleForPartners36MonthsOrLess": {
+        "sourcePages": [
+          4
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "excludeAdvisorsWithCareerMonthsLessThanOrEqual": 16,
+        "fallbackAssignedLIMRAWhenNoAdvisorAtLeast17MonthsAtPartnerMonth16": 75
+      }
+    },
+    "advisorQualifiedDefinition": {
+      "sourcePages": [
+        6
+      ],
+      "sourceTruthLevel": "document_confirmed",
+      "status": "modeled",
+      "requires": {
+        "averageMonthlyInitialCommissionsAtLeast": 9000,
+        "LIMRA": "meets_minimum_of_advisor_contest_booklet",
+        "IGC": "meets_minimum_of_advisor_contest_booklet",
+        "advisorActiveStatus": "active",
+        "commissionRamos": "all_ramos"
+      },
+      "indexApplicabilityRule": {
+        "sourcePages": [
+          6
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "conservationIndexesOnlyApplyIfLifeIndividualInitialCommissionsShareAtLeast": 0.6,
+        "shareBasis": "quarterInitialCommissions"
+      },
+      "forgeBehavior": {
+        "doNotQualifyByCommissionsOnly": true,
+        "ifIndexesApplyAndAreMissing": "blocked_by_missing_advisor_index_evidence",
+        "ifLifeShareIsMissing": "blocked_by_missing_life_individual_share"
+      }
+    },
+    "advisorClassMapping": {
+      "sourcePages": [
+        6
+      ],
+      "sourceTruthLevel": "document_confirmed",
+      "status": "modeled",
+      "knownMappings": [
+        {
+          "class": "CC",
+          "careerMonthRange": {
+            "from": 1,
+            "to": 12
+          }
+        },
+        {
+          "class": "1C",
+          "careerMonthRange": {
+            "from": 13,
+            "to": 24
+          }
+        },
+        {
+          "class": "2C",
+          "careerMonthRange": {
+            "from": 25,
+            "to": 36
+          }
+        },
+        {
+          "class": "3C",
+          "careerMonthRange": {
+            "from": 37,
+            "to": 48
+          }
+        },
+        {
+          "class": "consolidados",
+          "careerMonthRange": {
+            "from": 49,
+            "to": null
+          }
+        }
+      ],
+      "forgeBehavior": {
+        "deriveAdvisorClassFromAdvisorCareerMonth": true,
+        "ifClassCannotBeDerived": "blocked_by_missing_advisor_class"
+      }
+    }
+  },
+  "concepts": {
+    "transition-bonus": {
+      "displayName": "Bono de Transición",
+      "sourcePages": [
+        5
+      ],
+      "sourceTruthLevel": "document_confirmed",
+      "status": "partially_modelable",
+      "calculationMode": "partial_candidate",
+      "payoutGateMode": "official_statement_required",
+      "eligibility": {
+        "partnerCareerMonthFrom": 1,
+        "partnerCareerMonthTo": 6,
+        "mustNotAdministerAssignedPortfolio": true,
+        "mustNotInterveneWithClients": true
+      },
+      "calculation": {
+        "basis": "commissions_generated_by_paid_premiums_from_assigned_direct_key_portfolio",
+        "rate": 1.0
+      },
+      "paymentCadence": {
+        "sourcePages": [
+          5
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "calculationFrequency": "monthly",
+        "paymentFrequency": "monthly",
+        "settlementTiming": "monthly"
+      },
+      "requires": [
+        "assignedPortfolioCommissions",
+        "directKeyAttribution",
+        "commissionEvidence",
+        "partnerNonAdministrationEvidence"
+      ]
+    },
+    "productivity-base": {
+      "displayName": "Productividad Base",
+      "sourcePages": [
+        6
+      ],
+      "sourceTruthLevel": "document_confirmed",
+      "status": "modeled",
+      "calculationMode": "full_candidate",
+      "payoutGateMode": "official_statement_required",
+      "requires": [
+        "qualifiedAdvisorEconomicStatus",
+        "averageMonthlyInitialCommissions",
+        "advisorClass",
+        "paidAppliedEconomicEvidence",
+        "advisorInitialCommissions"
+      ],
+      "table": {
+        "bands": [
+          {
+            "minAverageMonthlyInitialCommissions": 9000,
+            "minInclusive": true,
+            "maxAverageMonthlyInitialCommissions": 18000,
+            "maxInclusive": true,
+            "displayRange": "$9,000 - $18,000",
+            "rates": {
+              "CC": 0.25,
+              "1C": 0.3,
+              "2C": 0.135,
+              "3C": 0.135,
+              "consolidados": 0.135
+            }
+          },
+          {
+            "minAverageMonthlyInitialCommissions": 18000,
+            "minInclusive": false,
+            "maxAverageMonthlyInitialCommissions": 30000,
+            "maxInclusive": true,
+            "displayRange": "$18,001 - $30,000",
+            "rates": {
+              "CC": 0.3,
+              "1C": 0.35,
+              "2C": 0.16,
+              "3C": 0.16,
+              "consolidados": 0.16
+            }
+          },
+          {
+            "minAverageMonthlyInitialCommissions": 30000,
+            "minInclusive": false,
+            "maxAverageMonthlyInitialCommissions": null,
+            "maxInclusive": null,
+            "displayRange": "$30,001 o más",
+            "rates": {
+              "CC": 0.35,
+              "1C": 0.4,
+              "2C": 0.185,
+              "3C": 0.185,
+              "consolidados": 0.185
+            }
+          }
+        ],
+        "continuousBandResolverRequired": true,
+        "notes": [
+          "Printed table uses integer labels, but Forge must resolve decimal average monthly commissions continuously to avoid gaps like 18,000.33."
+        ]
+      },
+      "paymentCadence": {
+        "sourcePages": [
+          8
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "calculationFrequency": "quarterly",
+        "evaluationMonths": [
+          "march",
+          "june",
+          "september",
+          "december"
+        ],
+        "paymentFrequency": "monthly",
+        "paymentDurationMonths": 3,
+        "settlementTiming": "monthly_during_next_three_months_after_quarterly_calculation"
+      },
+      "blockedReasons": [
+        "blocked_by_missing_advisor_class",
+        "blocked_by_missing_qualified_advisor_status",
+        "blocked_by_missing_initial_commission_evidence",
+        "blocked_by_missing_paid_applied_evidence"
+      ]
+    },
+    "productivity-multiplier": {
+      "displayName": "Multiplicador",
+      "sourcePages": [
+        7,
+        8
+      ],
+      "sourceTruthLevel": "document_confirmed",
+      "status": "modeled",
+      "calculationMode": "full_candidate",
+      "payoutGateMode": "official_statement_required",
+      "requires": [
+        "productivityBaseCandidate",
+        "qualifiedAdvisorCount",
+        "partnerCareerMonth",
+        "minimumQualifiedAdvisorRequirement",
+        "trainingWinnerEvaluation"
+      ],
+      "minimumQualifiedAdvisorsByPartnerCareerMonth": {
+        "sourcePages": [
+          7
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "tableName": "Tabla 2. Asesores Calificados Mínimos",
+        "rules": [
+          {
+            "partnerCareerMonthFrom": 1,
+            "partnerCareerMonthTo": 6,
+            "minimumQualifiedAdvisors": 3
+          },
+          {
+            "partnerCareerMonthFrom": 7,
+            "partnerCareerMonthTo": 24,
+            "minimumQualifiedAdvisors": 4
+          },
+          {
+            "partnerCareerMonthFrom": 25,
+            "partnerCareerMonthTo": null,
+            "minimumQualifiedAdvisors": 5
+          }
+        ]
+      },
+      "scale": [
+        {
+          "qualifiedAdvisorCount": 3,
+          "multiplierRate": 0.3
+        },
+        {
+          "qualifiedAdvisorCount": 4,
+          "multiplierRate": 0.4
+        },
+        {
+          "qualifiedAdvisorCount": 5,
+          "multiplierRate": 0.5
+        },
+        {
+          "qualifiedAdvisorCount": 6,
+          "multiplierRate": 0.6
+        },
+        {
+          "qualifiedAdvisorCount": 7,
+          "multiplierRate": 0.7
+        },
+        {
+          "qualifiedAdvisorCount": 8,
+          "multiplierRate": 0.8
+        },
+        {
+          "qualifiedAdvisorCount": 9,
+          "multiplierRate": 0.9
+        },
+        {
+          "qualifiedAdvisorCount": 10,
+          "multiplierRate": 1.0,
+          "appliesToCountAndAbove": true
+        }
+      ],
+      "calculation": {
+        "multiplierAmountCandidateFormula": "productivityBaseCandidate * multiplierRate",
+        "calculatedProductivityBonusCandidateFormula": "productivityBaseCandidate + multiplierAmountCandidate"
+      },
+      "trainingWinnerPayFactor": {
+        "sourcePages": [
+          7,
+          8
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "appliesTo": "calculated_productivity_bonus_total",
+        "requiresTrainingWinnerInQuarterForFullPayment": true,
+        "trainingWinnerMustBeActiveAtQuarterClose": true,
+        "withTrainingWinnerInQuarter": {
+          "payFactor": 1.0
+        },
+        "withoutTrainingWinnerInQuarter": {
+          "payFactor": 0.8,
+          "reason": "reduced_by_missing_training_winner_in_quarter"
+        },
+        "exception": {
+          "sourcePages": [
+            8
+          ],
+          "sourceTruthLevel": "document_confirmed",
+          "partnerConnectedYear": 2026,
+          "trainingWinnerNotRequiredEachQuarterForFullBonus": true,
+          "reason": "partners_connected_in_2026_do_not_require_TA_winner_each_quarter_to_win_100_percent"
+        }
+      },
+      "promotedAdvisorReplicaRule": {
+        "sourcePages": [
+          7
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "replicaDurationMonths": 12,
+        "requiresQualifiedInAnyOfPreviousQuarters": 2,
+        "ifReplicaEndsMidQuarter": "count_until_quarter_end"
+      },
+      "paymentCadence": {
+        "sourcePages": [
+          8
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "calculationFrequency": "quarterly",
+        "evaluationMonths": [
+          "march",
+          "june",
+          "september",
+          "december"
+        ],
+        "paymentFrequency": "monthly",
+        "paymentDurationMonths": 3,
+        "settlementTiming": "monthly_during_next_three_months_after_quarterly_calculation"
+      },
+      "blockedReasons": [
+        "blocked_by_missing_partner_career_month",
+        "blocked_by_insufficient_qualified_advisors_for_partner_career_month",
+        "blocked_by_missing_training_winner_status_when_required"
+      ]
+    },
+    "productivity-annual-additional-bonus": {
+      "displayName": "Bono Adicional Anual de Productividad",
+      "sourcePages": [
+        8
+      ],
+      "sourceTruthLevel": "document_confirmed",
+      "status": "modeled",
+      "calculationMode": "annual_candidate",
+      "payoutGateMode": "official_statement_required",
+      "calculation": {
+        "rateAppliedToProductivityBonusesCalculatedInYear": 0.1
+      },
+      "requires": [
+        "atLeastOneTrainingWinnerInEachQuarter",
+        "trainingWinnersAccumulatedAtDecemberClose",
+        "trainingWinnersActiveAtDecemberClose",
+        "annualProductivityBonusesCalculated"
+      ],
+      "trainingWinnerGoalByConnectionSemester": [
+        {
+          "connectionSemester": "january_june",
+          "trainingWinnerGoal": 8
+        },
+        {
+          "connectionSemester": "july_december",
+          "trainingWinnerGoal": 4
+        }
+      ],
+      "paymentCadence": {
+        "sourcePages": [
+          8
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "calculationFrequency": "annual",
+        "evaluationMonth": "december",
+        "paymentFrequency": "one_time",
+        "settlementTiming": "month_after_calculation"
+      }
+    },
+    "production-bonus": {
+      "displayName": "Bono de Producción",
+      "sourcePages": [
+        9
+      ],
+      "sourceTruthLevel": "document_confirmed",
+      "status": "modeled",
+      "calculationMode": "full_candidate",
+      "payoutGateMode": "official_statement_required",
+      "requires": [
+        "nonQualifiedAdvisorEconomicOutput",
+        "paidAppliedEconomicEvidence",
+        "unitLIMRA",
+        "unitIGC",
+        "organizationType",
+        "advisorActiveStatus"
+      ],
+      "basis": {
+        "commissionType": "initial_commissions_all_ramos",
+        "advisorPopulation": "non_qualified_advisors",
+        "period": "quarter"
+      },
+      "rates": {
+        "nueva_organizacion": 0.135,
+        "consolidados": 0.07
+      },
+      "minimumIndexes": {
+        "LIMRA": 78,
+        "IGC": 86
+      },
+      "paymentCadence": {
+        "sourcePages": [
+          9
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "calculationFrequency": "quarterly",
+        "evaluationMonths": [
+          "march",
+          "june",
+          "september",
+          "december"
+        ],
+        "paymentFrequency": "monthly",
+        "paymentDurationMonths": 3,
+        "settlementTiming": "monthly_during_next_three_months_after_quarterly_calculation"
+      }
+    },
+    "activity-bonus": {
+      "displayName": "Bono de Actividad",
+      "sourcePages": [
+        10
+      ],
+      "sourceTruthLevel": "document_confirmed",
+      "status": "modeled",
+      "calculationMode": "full_candidate",
+      "payoutGateMode": "official_statement_required",
+      "requires": [
+        "qualifiedAdvisorStatus",
+        "advisorMinimumAgeThreeMonths",
+        "validLifeGmmiPolicyMonthlyAverage",
+        "paidAppliedPolicyEvidence",
+        "qualifiedAdvisorInitialCommissionsLifeIndividualAndGmmi"
+      ],
+      "basis": {
+        "commissionType": "initial_commissions_life_individual_and_individual_gmm",
+        "advisorPopulation": "qualified_advisors",
+        "period": "quarter",
+        "policyMetric": "monthly_average_paid_life_and_individual_gmm_policies_per_advisor"
+      },
+      "policyScale": [
+        {
+          "monthlyAveragePolicies": 2,
+          "rate": 0.1
+        },
+        {
+          "monthlyAveragePolicies": 3,
+          "rate": 0.15
+        },
+        {
+          "monthlyAveragePolicies": 4,
+          "rate": 0.2
+        },
+        {
+          "monthlyAveragePolicies": 5,
+          "rate": 0.25
+        },
+        {
+          "monthlyAveragePolicies": 6,
+          "rate": 0.3,
+          "appliesToCountAndAbove": true
+        }
+      ],
+      "calculation": {
+        "rateResolution": "based_on_monthly_average_policies",
+        "amountFormula": "qualifiedAdvisorInitialCommissionsLifeIndividualAndGmmi * activityRate"
+      },
+      "advisorEligibility": {
+        "minimumAdvisorCareerMonths": 3
+      },
+      "paymentCadence": {
+        "sourcePages": [
+          10
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "calculationFrequency": "quarterly",
+        "evaluationMonths": [
+          "march",
+          "june",
+          "september",
+          "december"
+        ],
+        "paymentFrequency": "one_time",
+        "settlementTiming": "month_after_calculation"
+      },
+      "blockedReasons": [
+        "blocked_by_unqualified_advisor",
+        "blocked_by_advisor_age_below_three_months",
+        "blocked_by_missing_monthly_policy_breakdown",
+        "blocked_by_missing_qualified_commissions_life_gmmi"
+      ]
+    },
+    "partner-promotion-bonus": {
+      "displayName": "Bono de Alta Partner",
+      "sourcePages": [
+        11
+      ],
+      "sourceTruthLevel": "document_confirmed",
+      "status": "partially_modelable",
+      "calculationMode": "candidate_with_monthly_support_gate",
+      "payoutGateMode": "official_statement_required",
+      "semanticAmounts": {
+        "total": 300000,
+        "initial": 60000,
+        "monthly": 20000,
+        "monthlyPayments": 12
+      },
+      "paymentSchedule": {
+        "totalPayments": 13,
+        "payment1": {
+          "amount": 60000,
+          "timing": "month_after_partner_promotion"
+        },
+        "payments2To13": {
+          "amount": 20000,
+          "count": 12,
+          "timing": "during_12_months_after_first_payment"
+        }
+      },
+      "requires": [
+        "partnerPromotionEvent",
+        "allPromotionParticipantsActiveAtPaymentTime",
+        "promotedAdvisorReceivesSupport",
+        "officialStatementEvidence"
+      ],
+      "recoveryRule": {
+        "sourcePages": [
+          11
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "canRecoverMissedPromotionBonusesIfPromotedAdvisorRecoversSupportWithinSameCalendarYear": true,
+        "maxRecoverableMonths": 3
+      },
+      "paymentCadence": {
+        "sourcePages": [
+          11
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "calculationFrequency": "promotion_month",
+        "paymentFrequency": "thirteen_payments",
+        "settlementTiming": "first_payment_month_after_promotion_then_12_monthly_payments"
+      }
+    },
+    "connection-bonus": {
+      "displayName": "Bono de Conexión",
+      "sourcePages": [
+        12
+      ],
+      "sourceTruthLevel": "document_confirmed",
+      "status": "modeled",
+      "calculationMode": "full_candidate",
+      "payoutGateMode": "official_statement_required",
+      "eligibility": {
+        "recommendedPersonMustBecomeConnectedAdvisor": true,
+        "advisorContestDateYear": 2026,
+        "bothConnectorAndConnectedAdvisorMustBeActiveGroupAtMonthClose": true
+      },
+      "semanticAmounts": {
+        "advisorOnboarding": 7500
+      },
+      "onboardingBonus": {
+        "amount": 7500,
+        "timing": "at_connected_advisor_onboarding",
+        "paymentType": "one_time"
+      },
+      "monthlyPolicyScale": [
+        {
+          "advisorMonths": [
+            2,
+            3
+          ],
+          "monthlyPolicies": 3,
+          "amount": 5000
+        },
+        {
+          "advisorMonths": [
+            2,
+            3
+          ],
+          "monthlyPolicies": 4,
+          "amount": 9000
+        },
+        {
+          "advisorMonths": [
+            2,
+            3
+          ],
+          "monthlyPolicies": 5,
+          "amount": 15000
+        },
+        {
+          "advisorMonths": [
+            2,
+            3
+          ],
+          "monthlyPolicies": 6,
+          "amount": 20000,
+          "appliesToCountAndAbove": true
+        }
+      ],
+      "policyCounting": {
+        "lifePlusIndividualGMMICountsAs": 0.5,
+        "source": "Reglas de Conteo"
+      },
+      "paymentCadence": {
+        "sourcePages": [
+          12
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "calculationFrequency": [
+          "connected_advisor_onboarding_month",
+          "connected_advisor_month_2",
+          "connected_advisor_month_3"
+        ],
+        "paymentFrequency": "one_time_or_month_after_calculation",
+        "settlementTiming": "month_after_calculation"
+      },
+      "requires": [
+        "advisorOnboardingEvidence",
+        "advisorMonth",
+        "monthlyValidPolicyCount",
+        "paidAppliedPolicyEvidence",
+        "connectorActiveAtMonthClose",
+        "connectedAdvisorActiveAtMonthClose"
+      ]
+    },
+    "development-bonus": {
+      "displayName": "Bono de Desarrollo",
+      "sourcePages": [
+        13,
+        14
+      ],
+      "sourceTruthLevel": "document_confirmed",
+      "status": "modeled",
+      "calculationMode": "full_candidate",
+      "payoutGateMode": "official_statement_required",
+      "advisorMonthRange": {
+        "from": 4,
+        "to": 15
+      },
+      "policyScale": [
+        {
+          "monthlyPolicies": 2,
+          "amount": 5000
+        },
+        {
+          "monthlyPolicies": 3,
+          "amount": 9000
+        },
+        {
+          "monthlyPolicies": 4,
+          "amount": 15000,
+          "appliesToCountAndAbove": true
+        }
+      ],
+      "policyCounting": {
+        "lifePlusIndividualGMMICountsAs": 0.5,
+        "source": "Reglas de Conteo"
+      },
+      "additionalMonth12Bonus": {
+        "sourcePages": [
+          13
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "bonus20000": {
+          "amount": 20000,
+          "requires": [
+            "36_initial_policies_accumulated_by_month_12",
+            "wins_training_allowance_month_12"
+          ]
+        },
+        "additionalBonus30000": {
+          "amount": 30000,
+          "requires": [
+            "48_initial_policies_accumulated_by_month_12",
+            "at_least_one_paid_policy_per_month_months_1_to_12",
+            "only_one_month_without_paid_policies_allowed",
+            "missing_paid_policy_month_cannot_be_month_10_11_or_12",
+            "wins_training_allowance_month_12"
+          ]
+        }
+      },
+      "developerSharingRule": {
+        "sourcePages": [
+          14
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "canShareBetweenTwoDevelopers": true,
+        "sharePercentageEach": 0.5
+      },
+      "developerEligibility": {
+        "sourcePages": [
+          14
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "advisorDeveloperMustBeActiveGroup": true,
+        "ifDeveloperContestMonthsGreaterThan": 12,
+        "ifWithinFirst12MonthsRequiresDevelopmentMonth6GoalsAchievedNoLaterThanMonth6": true
+      },
+      "paymentCadence": {
+        "sourcePages": [
+          14
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "calculationFrequency": "monthly",
+        "paymentFrequency": "monthly",
+        "settlementTiming": "month_after_goal_achieved"
+      },
+      "requires": [
+        "advisorMonth",
+        "monthlyValidPolicyCount",
+        "paidAppliedPolicyEvidence",
+        "developerEligibilityEvidence"
+      ]
+    },
+    "fixed-support": {
+      "displayName": "Apoyos Fijos / Apoyo mensual",
+      "sourcePages": [
+        15,
+        16,
+        17
+      ],
+      "sourceTruthLevel": "document_confirmed",
+      "status": "modeled",
+      "calculationMode": "full_candidate",
+      "payoutGateMode": "official_statement_or_account_statement_required",
+      "description": "Monthly support during first 36 months, decreasing by semester, subject to accumulated commissions and Training Allowance winners.",
+      "duration": {
+        "partnerCareerMonthFrom": 1,
+        "partnerCareerMonthTo": 36
+      },
+      "supportAmountsBySemester": [
+        {
+          "semester": 1,
+          "partnerCareerMonthFrom": 1,
+          "partnerCareerMonthTo": 6,
+          "amount": 65000
+        },
+        {
+          "semester": 2,
+          "partnerCareerMonthFrom": 7,
+          "partnerCareerMonthTo": 12,
+          "amount": 54000
+        },
+        {
+          "semester": 3,
+          "partnerCareerMonthFrom": 13,
+          "partnerCareerMonthTo": 18,
+          "amount": 43500
+        },
+        {
+          "semester": 4,
+          "partnerCareerMonthFrom": 19,
+          "partnerCareerMonthTo": 24,
+          "amount": 32500
+        },
+        {
+          "semester": 5,
+          "partnerCareerMonthFrom": 25,
+          "partnerCareerMonthTo": 30,
+          "amount": 21500
+        },
+        {
+          "semester": 6,
+          "partnerCareerMonthFrom": 31,
+          "partnerCareerMonthTo": 36,
+          "amount": 11000
+        }
+      ],
+      "trainingWinnersRequirement": {
+        "sourcePages": [
+          15
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "countingWindowMonths": 6,
+        "includeEvaluationMonth": true,
+        "rules": [
+          {
+            "partnerCareerMonth": 1,
+            "requiredTrainingWinners": 0
+          },
+          {
+            "partnerCareerMonth": 2,
+            "requiredTrainingWinners": 0
+          },
+          {
+            "partnerCareerMonth": 3,
+            "requiredTrainingWinners": 1
+          },
+          {
+            "partnerCareerMonth": 4,
+            "requiredTrainingWinners": 1
+          },
+          {
+            "partnerCareerMonth": 5,
+            "requiredTrainingWinners": 2
+          },
+          {
+            "partnerCareerMonthFrom": 6,
+            "partnerCareerMonthTo": null,
+            "requiredTrainingWinners": 3
+          }
+        ],
+        "trainingWinnerDefinition": {
+          "winsTrainingAllowanceForFirstTimeWithinFirst12AdvisorContestMonths": true,
+          "countsForMonthsFromFirstTrainingWin": 6,
+          "doesNotExceedAdvisorContestMonth": 12,
+          "mustRemainActiveGroup2": true,
+          "removeFromCountInMonthAdvisorBecomesInactive": true,
+          "firstTwoUnitOnboardingsDoNotCountTowardTAWinnerGoal": true
+        }
+      },
+      "accumulatedCommissionGoals": {
+        "sourcePages": [
+          16
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "basis": "initial_commissions_life_individual_and_individual_gmm",
+        "annualCycleResetMonths": [
+          1,
+          13,
+          25
+        ],
+        "rules": [
+          {
+            "partnerCareerMonth": 1,
+            "goal": 14500
+          },
+          {
+            "partnerCareerMonth": 2,
+            "goal": 33000
+          },
+          {
+            "partnerCareerMonth": 3,
+            "goal": 55000
+          },
+          {
+            "partnerCareerMonth": 4,
+            "goal": 80000
+          },
+          {
+            "partnerCareerMonth": 5,
+            "goal": 109000
+          },
+          {
+            "partnerCareerMonth": 6,
+            "goal": 142000
+          },
+          {
+            "partnerCareerMonth": 7,
+            "goal": 182000
+          },
+          {
+            "partnerCareerMonth": 8,
+            "goal": 229500
+          },
+          {
+            "partnerCareerMonth": 9,
+            "goal": 284500
+          },
+          {
+            "partnerCareerMonth": 10,
+            "goal": 346500
+          },
+          {
+            "partnerCareerMonth": 11,
+            "goal": 409500
+          },
+          {
+            "partnerCareerMonth": 12,
+            "goal": 473000
+          },
+          {
+            "partnerCareerMonth": 13,
+            "goal": 63500
+          },
+          {
+            "partnerCareerMonth": 14,
+            "goal": 128000
+          },
+          {
+            "partnerCareerMonth": 15,
+            "goal": 193500
+          },
+          {
+            "partnerCareerMonth": 16,
+            "goal": 261000
+          },
+          {
+            "partnerCareerMonth": 17,
+            "goal": 330000
+          },
+          {
+            "partnerCareerMonth": 18,
+            "goal": 400000
+          },
+          {
+            "partnerCareerMonth": 19,
+            "goal": 471000
+          },
+          {
+            "partnerCareerMonth": 20,
+            "goal": 543500
+          },
+          {
+            "partnerCareerMonth": 21,
+            "goal": 617000
+          },
+          {
+            "partnerCareerMonth": 22,
+            "goal": 691500
+          },
+          {
+            "partnerCareerMonth": 23,
+            "goal": 767000
+          },
+          {
+            "partnerCareerMonth": 24,
+            "goal": 843500
+          },
+          {
+            "partnerCareerMonth": 25,
+            "goal": 76500
+          },
+          {
+            "partnerCareerMonth": 26,
+            "goal": 154500
+          },
+          {
+            "partnerCareerMonth": 27,
+            "goal": 234500
+          },
+          {
+            "partnerCareerMonth": 28,
+            "goal": 315500
+          },
+          {
+            "partnerCareerMonth": 29,
+            "goal": 397500
+          },
+          {
+            "partnerCareerMonth": 30,
+            "goal": 480500
+          },
+          {
+            "partnerCareerMonth": 31,
+            "goal": 565000
+          },
+          {
+            "partnerCareerMonth": 32,
+            "goal": 650500
+          },
+          {
+            "partnerCareerMonth": 33,
+            "goal": 737000
+          },
+          {
+            "partnerCareerMonth": 34,
+            "goal": 824500
+          },
+          {
+            "partnerCareerMonth": 35,
+            "goal": 913000
+          },
+          {
+            "partnerCareerMonth": 36,
+            "goal": 1003500
+          }
+        ],
+        "notes": [
+          "Table 9 values are monthly goals in thousands of pesos; this JSON stores cumulative goals in full MXN per Partner year cycle."
+        ]
+      },
+      "commissionAchievementPaymentRule": {
+        "sourcePages": [
+          17
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "minimumAchievementRatioForSupport": 0.8,
+        "ifAchievementBelowMinimum": {
+          "status": "blocked",
+          "blockedReason": "blocked_by_accumulated_commissions_below_80_percent"
+        },
+        "ifAchievementBetweenMinimumAndFull": {
+          "payFactorFormula": "accumulatedCommissionActual / accumulatedCommissionGoal",
+          "capAt": 0.9999
+        },
+        "ifAchievementAtLeastFull": {
+          "payFactor": 1.0
+        },
+        "recoverPreviousSupport": {
+          "canRecoverSupportForPreviousMonths": true,
+          "maxPreviousMonths": 3,
+          "withinSamePartnerYear": true,
+          "recoveryPercentage": "achievement_percentage_obtained_in_recovery_month"
+        }
+      },
+      "paymentCadence": {
+        "sourcePages": [
+          17
+        ],
+        "sourceTruthLevel": "document_confirmed",
+        "calculationFrequency": "monthly",
+        "paymentFrequency": "monthly",
+        "settlementTiming": "month_after_calculation"
+      },
+      "requires": [
+        "partnerCareerMonth",
+        "semesterIndex",
+        "accumulatedCommissionActualLifeIndividualAndGmmi",
+        "trainingWinnerActualCountLastSixMonths",
+        "partnerActiveStatus",
+        "officialStatementOrAccountEvidence"
+      ],
+      "blockedReasons": [
+        "blocked_by_partner_beyond_support_duration",
+        "blocked_by_missing_accumulated_commission_actual",
+        "blocked_by_missing_accumulated_commission_goal",
+        "blocked_by_accumulated_commissions_below_80_percent",
+        "blocked_by_missing_training_winner_count",
+        "blocked_by_insufficient_training_winners",
+        "blocked_by_partner_inactive"
+      ]
+    }
+  },
+  "implementationGuidanceForCodex": {
+    "mustUpdate": [
+      "Treat PCV 2026 Partners.pdf as official rule source.",
+      "Use document_confirmed for extracted PCV rules.",
+      "Do not use older draft JSON if it contradicts PCV 2026 Partners.pdf.",
+      "Productivity Base bands must resolve decimal averages without gaps.",
+      "Advisor qualification requires commissions plus active status plus applicable indexes.",
+      "Advisor indexes apply only when at least 60% of quarterly initial commissions belong to Individual Life.",
+      "Multiplier minimum qualified advisors must be derived from Partner career month using Table 2.",
+      "Activity Bonus is quarterly, paid the following month, and uses Individual Life and Individual GMM initial commissions times rate resolved by monthly average policies.",
+      "Support is monthly, paid the following month, and uses Table 8, Table 9, Table 10, and 80%-100% proportional support rule.",
+      "Connection and Development must use monthly policy counts, not quarter totals.",
+      "Payout truth always requires official statement evidence."
+    ],
+    "mustNotDo": [
+      "Do not convert rule candidates into paid_confirmed.",
+      "Do not treat TA-counting precontracts as payout truth.",
+      "Do not sum blocked/unknown/not_modeled as zero.",
+      "Do not use quarter total policy count when the rule requires monthly policies or monthly average policies.",
+      "Do not invent payment cadence.",
+      "Do not ignore advisor/partner active status gates.",
+      "Do not include excluded commission sources."
+    ]
+  }
+}
