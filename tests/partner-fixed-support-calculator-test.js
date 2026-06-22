@@ -43,8 +43,10 @@ const missingGoals = calculatePartnerFixedSupportCandidate({
   taCountingPrecontractCount: 1,
   taCountingEventEvidence: true,
   supportTableEvidence: true,
+  partnerLifecycleStatus: 'partner_active',
 });
-assert.ok(missingGoals.blockedReasons.includes('blocked_by_missing_accumulated_commission_evidence'));
+assert.equal(missingGoals.blockedReasons.includes('blocked_by_missing_accumulated_commission_evidence'), false);
+assert.equal(missingGoals.candidateAmount, 65000);
 
 const officialJsonMonth25 = calculatePartnerFixedSupportCandidate({
   rulePack,
@@ -52,13 +54,37 @@ const officialJsonMonth25 = calculatePartnerFixedSupportCandidate({
   accumulatedCommissions: 100000,
   accumulatedCommissionGoal: 90000,
   accumulatedCommissionGoalsEvidence: true,
-  taCountingPrecontractCount: 1,
-  taCountingEventEvidence: true,
+  taCountingPrecontractCount: 3,
   supportTableEvidence: true,
   partnerLifecycleStatus: 'partner_active',
 });
 assert.equal(officialJsonMonth25.candidateAmount, 21500);
 assert.equal(officialJsonMonth25.metadata.assessment.metadata.semesterIndex, 5);
+
+const officialV1WithoutSupportTableEvidence = calculatePartnerFixedSupportCandidate({
+  rulePack,
+  partnerCareerMonth: 25,
+  accumulatedCommissionActualLifeIndividualAndGmmi: 65025,
+  accumulatedCommissionGoalsEvidence: true,
+  trainingWinnerActualCountLastSixMonths: 3,
+  supportTableEvidence: false,
+  partnerLifecycleStatus: 'partner_active',
+});
+assert.equal(officialV1WithoutSupportTableEvidence.candidateAmount, 18275);
+assert.equal(officialV1WithoutSupportTableEvidence.blockedReasons.includes('blocked_by_missing_table'), false);
+assert.equal(officialV1WithoutSupportTableEvidence.evidenceRequirement.includes('support_table_evidence'), false);
+
+const officialV1MissingActualCommissions = calculatePartnerFixedSupportCandidate({
+  rulePack,
+  partnerCareerMonth: 25,
+  accumulatedCommissionGoalsEvidence: true,
+  trainingWinnerActualCountLastSixMonths: 3,
+  supportTableEvidence: false,
+  partnerLifecycleStatus: 'partner_active',
+});
+assert.equal(officialV1MissingActualCommissions.blockedReasons.includes('blocked_by_missing_accumulated_commission_actual'), true);
+assert.equal(officialV1MissingActualCommissions.blockedReasons.includes('blocked_by_missing_table'), false);
+assert.equal(officialV1MissingActualCommissions.evidenceRequirement.includes('support_table_evidence'), false);
 
 const missingTa = calculatePartnerFixedSupportCandidate({
   semesterIndex: 1,
@@ -67,19 +93,19 @@ const missingTa = calculatePartnerFixedSupportCandidate({
   accumulatedCommissionGoalsEvidence: true,
   supportTableEvidence: true,
 });
-assert.ok(missingTa.blockedReasons.includes('blocked_by_missing_TA_counting_event_evidence'));
+assert.ok(missingTa.blockedReasons.includes('blocked_by_missing_training_winner_count'));
 
 const missingTable = calculatePartnerFixedSupportCandidate({
   semesterIndex: 1,
   accumulatedCommissions: 100000,
   accumulatedCommissionGoal: 90000,
   accumulatedCommissionGoalsEvidence: true,
-  taCountingPrecontractCount: 1,
-  taCountingEventEvidence: true,
+  taCountingPrecontractCount: 0,
   supportTableEvidence: false,
+  partnerLifecycleStatus: 'partner_active',
 });
-assert.ok(missingTable.blockedReasons.includes('blocked_by_missing_table'));
-assert.equal(missingTable.candidateAmount, null);
+assert.equal(missingTable.blockedReasons.includes('blocked_by_missing_table'), false);
+assert.equal(missingTable.candidateAmount, 65000);
 
 const monthGateBlocked = calculatePartnerFixedSupportCandidate({
   semesterIndex: 1,

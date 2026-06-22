@@ -5,6 +5,11 @@ import {
 } from './partner-rule-pack-validator.js';
 
 export const DEFAULT_SMNYL_PARTNER_2026_RULE_PACK_PATH = new URL(
+  '../rule-data/smnyl_partner_compensation_2026_rules_official_v1.json',
+  import.meta.url
+);
+
+export const DEPRECATED_SMNYL_PARTNER_2026_CANONICAL_DRAFT_RULE_PACK_PATH = new URL(
   '../rule-data/smnyl_partner_compensation_2026_rules_canonical_draft.json',
   import.meta.url
 );

@@ -23,6 +23,7 @@ export function assessPartnerProductivityMultiplier({
   partnerCareerMonth = null,
   minimumQualifiedAdvisorRequirement = null,
   multiplierMinimumRequirement = null,
+  partnerConnectedYear = null,
   supportRequirementGateResult = null,
   enforceSupportRequirementGate = false,
   trainingWinnerInQuarter = null,
@@ -67,13 +68,16 @@ export function assessPartnerProductivityMultiplier({
 
   if (!hasNumber(resolvedMinimumRequirement) && hasNumber(partnerCareerMonth)) {
     const configuredRule = (minimumConfig?.rules || []).find((rule) => (
-      hasNumber(rule.fromPartnerCareerMonth) &&
-      hasNumber(rule.toPartnerCareerMonth) &&
-      Number(partnerCareerMonth) >= Number(rule.fromPartnerCareerMonth) &&
-      Number(partnerCareerMonth) <= Number(rule.toPartnerCareerMonth)
+      hasNumber(rule.partnerCareerMonthFrom) &&
+      Number(partnerCareerMonth) >= Number(rule.partnerCareerMonthFrom) &&
+      (
+        rule.partnerCareerMonthTo === null ||
+        rule.partnerCareerMonthTo === undefined ||
+        Number(partnerCareerMonth) <= Number(rule.partnerCareerMonthTo)
+      )
     )) || null;
-    if (hasNumber(configuredRule?.minimumQualifiedAdvisorRequirement)) {
-      resolvedMinimumRequirement = Number(configuredRule.minimumQualifiedAdvisorRequirement);
+    if (hasNumber(configuredRule?.minimumQualifiedAdvisors)) {
+      resolvedMinimumRequirement = Number(configuredRule.minimumQualifiedAdvisors);
     }
   }
 
@@ -113,20 +117,30 @@ export function assessPartnerProductivityMultiplier({
     hasNumber(normalizedTaCountingCount) ? Number(normalizedTaCountingCount) > 0 : null,
   ].find((value) => value === true || value === false);
   const payFactorRule = activeRulePack?.concepts?.[PARTNER_PRODUCTIVITY_MULTIPLIER_CONCEPT_KEY]?.trainingWinnerPayFactor;
+  const trainingWinnerExceptionApplies = Number(partnerConnectedYear) === Number(payFactorRule?.exception?.partnerConnectedYear) &&
+    payFactorRule?.exception?.trainingWinnerNotRequiredEachQuarterForFullBonus === true;
   const payFactor = resolvedTrainingWinnerInQuarter === true
     ? payFactorRule?.withTrainingWinnerInQuarter?.payFactor
     : (
-      resolvedTrainingWinnerInQuarter === false
+      resolvedTrainingWinnerInQuarter === false && !trainingWinnerExceptionApplies
         ? payFactorRule?.withoutTrainingWinnerInQuarter?.payFactor
-        : null
+        : (
+          trainingWinnerExceptionApplies
+            ? payFactorRule?.withTrainingWinnerInQuarter?.payFactor
+            : null
+        )
     );
   let payFactorBlocked = false;
-  if (resolvedTrainingWinnerInQuarter === false) {
+  if (resolvedTrainingWinnerInQuarter === false && !trainingWinnerExceptionApplies) {
     warnings.push(payFactorRule?.withoutTrainingWinnerInQuarter?.reason || 'reduced_by_missing_training_winner_in_quarter');
   } else if (resolvedTrainingWinnerInQuarter === null || resolvedTrainingWinnerInQuarter === undefined) {
-    blockedReasons.push('blocked_by_missing_training_winner_evidence_policy');
-    missingInputs.push('trainingWinnerInQuarter');
-    payFactorBlocked = true;
+    if (trainingWinnerExceptionApplies) {
+      warnings.push(payFactorRule?.exception?.reason || 'training_winner_not_required_by_exception');
+    } else {
+      blockedReasons.push('blocked_by_missing_training_winner_evidence_policy');
+      missingInputs.push('trainingWinnerInQuarter');
+      payFactorBlocked = true;
+    }
   }
 
   let effectiveMultiplierCandidate = percentageCandidate;
@@ -156,6 +170,7 @@ export function assessPartnerProductivityMultiplier({
       multiplierRate: percentageCandidate,
       qualifiedAdvisorCount,
       partnerCareerMonth: hasNumber(partnerCareerMonth) ? Number(partnerCareerMonth) : null,
+      partnerConnectedYear: hasNumber(partnerConnectedYear) ? Number(partnerConnectedYear) : null,
       minimumQualifiedAdvisorRequirement: resolvedMinimumRequirement,
       taCountingPrecontractCount: normalizedTaCountingCount ?? null,
       trainingWinnerInQuarter: resolvedTrainingWinnerInQuarter ?? null,
@@ -166,6 +181,7 @@ export function assessPartnerProductivityMultiplier({
       periodType,
       payFactor: hasNumber(payFactor) ? Number(payFactor) : null,
       payFactorBlocked,
+      trainingWinnerExceptionApplies,
       rulePackId: activeRulePack?.rulePackId || null,
       enforceSupportRequirementGate,
       supportRequirementGateResult,

@@ -43,8 +43,8 @@ const missingGoals = assessPartnerFixedSupport({
   supportTableEvidence: true,
   partnerLifecycleStatus: 'partner_active',
 });
-assert.ok(missingGoals.blockedReasons.includes('blocked_by_missing_accumulated_commission_evidence'));
-assert.equal(missingGoals.amountCandidate, null);
+assert.equal(missingGoals.blockedReasons.includes('blocked_by_missing_accumulated_commission_evidence'), false);
+assert.equal(missingGoals.amountCandidate, 65000);
 
 const officialJsonMonth25 = assessPartnerFixedSupport({
   rulePack,
@@ -52,8 +52,7 @@ const officialJsonMonth25 = assessPartnerFixedSupport({
   accumulatedCommissions: 100000,
   accumulatedCommissionGoal: 90000,
   accumulatedCommissionGoalsEvidence: true,
-  taCountingPrecontractCount: 1,
-  taCountingEventEvidence: true,
+  taCountingPrecontractCount: 3,
   supportTableEvidence: true,
   partnerLifecycleStatus: 'partner_active',
 });
@@ -65,12 +64,13 @@ const missingOfficialGoal = assessPartnerFixedSupport({
   partnerCareerMonth: 25,
   accumulatedCommissions: 100000,
   accumulatedCommissionGoalsEvidence: true,
-  taCountingPrecontractCount: 1,
+  taCountingPrecontractCount: 3,
   taCountingEventEvidence: true,
   supportTableEvidence: true,
   partnerLifecycleStatus: 'partner_active',
 });
-assert.ok(missingOfficialGoal.blockedReasons.includes('blocked_by_missing_accumulated_commission_goal'));
+assert.equal(missingOfficialGoal.metadata.accumulatedCommissionGoal, 76500);
+assert.equal(missingOfficialGoal.amountCandidate, 21500);
 
 const missingTa = assessPartnerFixedSupport({
   semesterIndex: 1,
@@ -78,9 +78,8 @@ const missingTa = assessPartnerFixedSupport({
   accumulatedCommissionGoal: 90000,
   accumulatedCommissionGoalsEvidence: true,
   supportTableEvidence: true,
-  taCountingPrecontractCount: 1,
 });
-assert.ok(missingTa.blockedReasons.includes('blocked_by_missing_TA_counting_event_evidence'));
+assert.ok(missingTa.blockedReasons.includes('blocked_by_missing_training_winner_count'));
 
 const precontractCountsButNotPaidBonus = assessPartnerFixedSupport({
   semesterIndex: 1,

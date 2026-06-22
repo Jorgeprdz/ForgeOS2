@@ -1,8 +1,11 @@
 const REQUIRED_CONCEPTS = Object.freeze([
+  'transition-bonus',
   'productivity-base',
   'productivity-multiplier',
+  'productivity-annual-additional-bonus',
   'production-bonus',
   'activity-bonus',
+  'partner-promotion-bonus',
   'fixed-support',
   'connection-bonus',
   'development-bonus',
@@ -20,6 +23,8 @@ export function validatePartner2026RulePack(rulePack = {}) {
   if (!rulePack.schemaVersion) errors.push('schemaVersion_required');
   if (rulePack.rulePackId !== 'smnyl_partner_compensation_2026') errors.push('invalid_rulePackId');
   if (rulePack.source?.sourceTruth !== true) errors.push('sourceTruth_must_be_true');
+  if (rulePack.source?.fileName !== 'PCV 2026 Partners.pdf') errors.push('official_v1_source_file_required');
+  if (!rulePack.globalRules || typeof rulePack.globalRules !== 'object') errors.push('globalRules_required');
   if (!rulePack.concepts || typeof rulePack.concepts !== 'object') errors.push('concepts_required');
   if (!rulePack.globalRules?.payoutTruthRule) errors.push('payoutTruthRule_required');
 
@@ -27,8 +32,8 @@ export function validatePartner2026RulePack(rulePack = {}) {
     if (!rulePack.concepts?.[conceptKey]) errors.push(`missing_concept:${conceptKey}`);
   }
 
-  if (rulePack.globalRules?.partnerClassMapping?.status === 'partially_modelled' || rulePack.globalRules?.partnerClassMapping?.status === 'partially_modeled') {
-    warnings.push('partnerClassMapping_partially_modeled');
+  if (rulePack.globalRules?.advisorClassMapping?.status !== 'modeled') {
+    warnings.push('advisorClassMapping_not_modeled');
   }
 
   if (rulePack.concepts?.['fixed-support']?.requires?.includes('supportTableEvidence')) {

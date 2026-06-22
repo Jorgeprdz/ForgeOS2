@@ -68,7 +68,8 @@ export function assessPartnerProductivityBase({
   const activeRulePack = rulePack || loadPartner2026RulePack();
   const jsonRateResult = getProductivityBaseRate(activeRulePack, {
     averageMonthlyInitialCommissions,
-    partnerClass: advisorClass,
+    advisorClass,
+    advisorCareerMonth,
   });
   const row = jsonRateResult.band;
 

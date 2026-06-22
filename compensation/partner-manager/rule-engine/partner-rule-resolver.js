@@ -18,8 +18,16 @@ export function resolveBandRate({ bands = [], value = null, classKey = null } = 
 
   const numericValue = Number(value);
   const band = bands.find((row) => (
-    numericValue >= Number(row.minAverageMonthlyInitialCommissions) &&
-    (row.maxAverageMonthlyInitialCommissions === null || numericValue <= Number(row.maxAverageMonthlyInitialCommissions))
+    (row.minInclusive === false
+      ? numericValue > Number(row.minAverageMonthlyInitialCommissions)
+      : numericValue >= Number(row.minAverageMonthlyInitialCommissions)) &&
+    (
+      row.maxAverageMonthlyInitialCommissions === null ||
+      row.maxAverageMonthlyInitialCommissions === undefined ||
+      (row.maxInclusive === false
+        ? numericValue < Number(row.maxAverageMonthlyInitialCommissions)
+        : numericValue <= Number(row.maxAverageMonthlyInitialCommissions))
+    )
   )) || null;
 
   if (!band) return { rate: null, band: null, blockedReasons: ['blocked_by_missing_productivity_band'], missingInputs: [] };
@@ -54,12 +62,13 @@ export function resolveExactOrAboveScale({
   valueKey,
   resultKey,
   appliesToCountAndAboveKey = 'appliesToCountAndAbove',
+  extraMatch = () => true,
 } = {}) {
   if (!hasNumber(value)) return { value: null, row: null, blockedReasons: ['blocked_by_missing_scale_value'], missingInputs: ['value'] };
   const numericValue = Number(value);
-  const exactRow = scale.find((row) => hasNumber(row[valueKey]) && numericValue === Number(row[valueKey])) || null;
+  const exactRow = scale.find((row) => hasNumber(row[valueKey]) && numericValue === Number(row[valueKey]) && extraMatch(row)) || null;
   const aboveRows = scale
-    .filter((row) => row[appliesToCountAndAboveKey] === true && hasNumber(row[valueKey]) && numericValue >= Number(row[valueKey]))
+    .filter((row) => row[appliesToCountAndAboveKey] === true && hasNumber(row[valueKey]) && numericValue >= Number(row[valueKey]) && extraMatch(row))
     .sort((a, b) => Number(b[valueKey]) - Number(a[valueKey]));
   const row = exactRow || aboveRows[0] || null;
   if (!row || !hasNumber(row[resultKey])) return { value: null, row: null, blockedReasons: ['blocked_by_missing_scale_match'], missingInputs: [] };

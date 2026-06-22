@@ -22,6 +22,7 @@ export function calculatePartnerProductivityBaseCandidate({
   qualifiedAdvisorEconomicStatuses = [],
   averageMonthlyInitialCommissions = null,
   advisorClass = null,
+  advisorCareerMonth = null,
   lifecycleGate = null,
   baseAmount = null,
   commissionBasis = null,
@@ -32,6 +33,7 @@ export function calculatePartnerProductivityBaseCandidate({
     qualifiedAdvisorEconomicStatuses,
     averageMonthlyInitialCommissions,
     advisorClass,
+    advisorCareerMonth,
     lifecycleGate,
   });
 

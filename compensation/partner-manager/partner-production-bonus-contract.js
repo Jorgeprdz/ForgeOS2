@@ -21,7 +21,7 @@ function hasNumber(value) {
 
 function normalizeOrganizationType(value = null) {
   const normalized = String(value || '').trim().toLowerCase();
-  if (normalized === 'nueva organizacion' || normalized === 'nueva organización' || normalized === 'new_organization') {
+  if (normalized === 'nueva organizacion' || normalized === 'nueva organización' || normalized === 'new_organization' || normalized === 'nueva_organizacion') {
     return 'nueva_organizacion';
   }
   if (normalized === 'consolidado' || normalized === 'consolidados' || normalized === 'consolidated') {

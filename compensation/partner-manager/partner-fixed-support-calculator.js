@@ -17,6 +17,8 @@ export function calculatePartnerFixedSupportCandidate({
   accumulatedCommissions = null,
   accumulatedCommissionGoal = null,
   accumulatedCommissionGoalsEvidence = false,
+  accumulatedCommissionActualLifeIndividualAndGmmi = null,
+  trainingWinnerActualCountLastSixMonths = null,
   taCountingPrecontractCount = null,
   taCountingEventEvidence = false,
   supportTableEvidence = false,
@@ -30,10 +32,10 @@ export function calculatePartnerFixedSupportCandidate({
     partnerCareerMonth,
     supportRequirementGateResult,
     strictSupportRequirementGate,
-    accumulatedCommissions,
+    accumulatedCommissions: accumulatedCommissions ?? accumulatedCommissionActualLifeIndividualAndGmmi,
     accumulatedCommissionGoal,
     accumulatedCommissionGoalsEvidence,
-    taCountingPrecontractCount,
+    taCountingPrecontractCount: taCountingPrecontractCount ?? trainingWinnerActualCountLastSixMonths,
     taCountingEventEvidence,
     supportTableEvidence,
     partnerLifecycleStatus,
@@ -42,11 +44,18 @@ export function calculatePartnerFixedSupportCandidate({
 
   const blockedReasons = [...fixedSupportAssessment.blockedReasons];
   const missingInputs = [...fixedSupportAssessment.missingInputs];
-  if (supportTableEvidenceRequired && supportTableEvidence !== true && !blockedReasons.includes('blocked_by_missing_table')) {
+  const supportConcept = (rulePack || fixedSupportAssessment.metadata?.assessment?.rulePack)?.concepts?.['fixed-support'] || {};
+  const officialSupportTablesPresent = Boolean(
+    supportConcept.supportAmountsBySemester &&
+    supportConcept.accumulatedCommissionGoals &&
+    supportConcept.trainingWinnersRequirement &&
+    supportConcept.commissionAchievementPaymentRule
+  ) || fixedSupportAssessment.metadata?.baseSupportAmount;
+  if (supportTableEvidenceRequired && supportTableEvidence !== true && !officialSupportTablesPresent && !blockedReasons.includes('blocked_by_missing_table')) {
     blockedReasons.push('blocked_by_missing_table');
   }
-  if (partnerLifecycleStatus && !['connected_active', 'active', 'partner_active', 'manager_active'].includes(partnerLifecycleStatus)) {
-    blockedReasons.push('blocked_by_missing_lifecycle');
+  if (partnerLifecycleStatus && !['connected_active', 'active', 'partner_active', 'manager_active'].includes(partnerLifecycleStatus) && !blockedReasons.includes('blocked_by_partner_inactive')) {
+    blockedReasons.push('blocked_by_partner_inactive');
   }
 
   return createPartnerSafeCalculationResult({
@@ -71,7 +80,9 @@ export function calculatePartnerFixedSupportCandidate({
     warnings: fixedSupportAssessment.warnings,
     sourceNotes: fixedSupportAssessment.sourceNotes,
     confidence: blockedReasons.length > 0 ? 'blocked' : 'medium',
-    evidenceRequirement: ['accumulated_commission_goals_evidence', 'TA_counting_event_evidence', 'support_table_evidence'],
+    evidenceRequirement: officialSupportTablesPresent
+      ? ['accumulated_commission_actual_life_individual_and_gmmi', 'training_winner_actual_count_last_six_months', 'partner_active_status', 'official_statement_or_account_evidence_for_paid_confirmed_only']
+      : ['accumulated_commission_goals_evidence', 'TA_counting_event_evidence', 'support_table_evidence'],
     metadata: {
       assessment: fixedSupportAssessment,
       taCountingPrecontractCountsForSupportOnly: true,

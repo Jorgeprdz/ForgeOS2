@@ -24,6 +24,9 @@ export function assessPartnerActivityBonus({
   qualifiedAdvisorStatus = null,
   advisorCareerMonth = null,
   validLifeGmmPolicyCount = null,
+  monthlyAveragePolicies = null,
+  quarterPolicyTotal = null,
+  policyInputIsMonthlyAverage = false,
   paidAppliedPolicyEvidence = false,
   rawActivityOnly = false,
   period = null,
@@ -39,14 +42,18 @@ export function assessPartnerActivityBonus({
     blockedReasons.push('minimum_three_month_seniority_required');
   }
 
-  if (!hasNumber(validLifeGmmPolicyCount)) {
-    missingInputs.push('validLifeGmmPolicyCount');
-    blockedReasons.push('missing_valid_life_gmm_policy_count');
+  const resolvedMonthlyAveragePolicies = hasNumber(monthlyAveragePolicies)
+    ? monthlyAveragePolicies
+    : (policyInputIsMonthlyAverage ? validLifeGmmPolicyCount : null);
+
+  if (!hasNumber(resolvedMonthlyAveragePolicies)) {
+    missingInputs.push('monthlyAveragePolicies');
+    blockedReasons.push(hasNumber(quarterPolicyTotal) ? 'blocked_by_missing_monthly_policy_breakdown' : 'missing_valid_life_gmm_policy_count');
   }
 
   const activeRulePack = rulePack || loadPartner2026RulePack();
-  const jsonRate = getActivityBonusRate(activeRulePack, { validLifeGmmPolicyCount });
-  if (hasNumber(validLifeGmmPolicyCount)) blockedReasons.push(...jsonRate.blockedReasons);
+  const jsonRate = getActivityBonusRate(activeRulePack, { validLifeGmmPolicyCount: resolvedMonthlyAveragePolicies });
+  if (hasNumber(resolvedMonthlyAveragePolicies)) blockedReasons.push(...jsonRate.blockedReasons);
 
   if (!paidAppliedPolicyEvidence) blockedReasons.push('missing_paid_applied_policy_evidence');
   if (rawActivityOnly) blockedReasons.push('raw_activity_logs_only');
@@ -57,7 +64,7 @@ export function assessPartnerActivityBonus({
       ? PARTNER_RULE_PACK_READINESS.BLOCKED_BY_MISSING_ECONOMIC_INPUT
       : PARTNER_RULE_PACK_READINESS.READY_FOR_CONTRACT_WITH_CAUTION,
     calculationAllowed: true,
-    requiredInputs: ['qualifiedAdvisorStatus', 'advisorCareerMonth', 'validLifeGmmPolicyCount', 'paidAppliedPolicyEvidence'],
+    requiredInputs: ['qualifiedAdvisorStatus', 'advisorCareerMonth', 'monthlyAveragePolicies', 'paidAppliedPolicyEvidence'],
     missingInputs,
     blockedReasons,
     warnings: ['Activity bonus remains evidence-gated; raw activity logs do not qualify.'],
@@ -69,7 +76,7 @@ export function assessPartnerActivityBonus({
       rulePackId: activeRulePack?.rulePackId || null,
       frequency: activeRulePack?.concepts?.['activity-bonus']?.frequency || null,
       period,
-      validLifeGmmPolicyCount,
+      monthlyAveragePolicies: hasNumber(resolvedMonthlyAveragePolicies) ? Number(resolvedMonthlyAveragePolicies) : null,
     },
   });
 }

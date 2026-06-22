@@ -12,7 +12,7 @@ export const DEFAULT_PARTNER_2026_QUALIFIED_COMMISSION_THRESHOLD = DEFAULT_PARTN
   .globalRules
   .advisorQualifiedDefinition
   .requires
-  .averageMonthlyInitialCommissionsGreaterThan;
+  .averageMonthlyInitialCommissionsAtLeast;
 
 export const QUALIFIED_ADVISOR_ECONOMIC_STATUSES = Object.freeze({
   QUALIFIED_CONFIRMED: 'qualified_confirmed',
@@ -21,6 +21,7 @@ export const QUALIFIED_ADVISOR_ECONOMIC_STATUSES = Object.freeze({
   BLOCKED_BY_MISSING_COMMISSION_EVIDENCE: 'blocked_by_missing_commission_evidence',
   BLOCKED_BY_MISSING_LIMRA: 'blocked_by_missing_LIMRA',
   BLOCKED_BY_MISSING_IGC: 'blocked_by_missing_IGC',
+  BLOCKED_BY_MISSING_LIFE_INDIVIDUAL_SHARE: 'blocked_by_missing_life_individual_share',
   BLOCKED_BY_MISSING_LIFECYCLE: 'blocked_by_missing_lifecycle',
   BLOCKED_BY_PRECONTRACT_STATUS: 'blocked_by_precontract_status',
   BLOCKED_BY_MISSING_THRESHOLD: 'blocked_by_missing_threshold',
@@ -41,6 +42,11 @@ function blocked(status, reasons, warnings = []) {
     status,
     qualified: false,
     averageMonthlyInitialCommissions: null,
+    indexesApplied: null,
+    indexApplicabilityReason: null,
+    blockedReasons: reasons,
+    missingInputs: [],
+    sourceRulePackId: DEFAULT_PARTNER_2026_RULE_PACK.rulePackId,
     threshold: null,
     reasons,
     warnings,
@@ -49,6 +55,7 @@ function blocked(status, reasons, warnings = []) {
 }
 
 export function evaluateQualifiedAdvisorEconomicStatus({
+  rulePack = DEFAULT_PARTNER_2026_RULE_PACK,
   advisorId = null,
   averageMonthlyInitialCommissions = null,
   threshold = null,
@@ -56,30 +63,54 @@ export function evaluateQualifiedAdvisorEconomicStatus({
   IGC = null,
   requireLIMRA = true,
   requireIGC = true,
+  lifeIndividualShare = null,
+  lifeIndividualInitialCommissions = null,
+  quarterInitialCommissions = null,
   lifecycleStatus = 'unknown',
   lifecycleGateAllowed = false,
+  advisorActiveStatus = null,
+  active = null,
   advisorStage = null,
   careerMonth = null,
   economicOutputStatus = ADVISOR_ECONOMIC_OUTPUT_STATUSES.UNKNOWN,
 } = {}) {
-  if (!hasNumber(threshold)) {
+  const activeRulePack = rulePack || DEFAULT_PARTNER_2026_RULE_PACK;
+  const sourceRulePackId = activeRulePack?.rulePackId || null;
+  const resolvedThreshold = hasNumber(threshold)
+    ? Number(threshold)
+    : activeRulePack?.globalRules?.advisorQualifiedDefinition?.requires?.averageMonthlyInitialCommissionsAtLeast;
+  const indexRule = activeRulePack?.globalRules?.advisorQualifiedDefinition?.indexApplicabilityRule || {};
+  const indexShareThreshold = indexRule.conservationIndexesOnlyApplyIfLifeIndividualInitialCommissionsShareAtLeast;
+  const derivedLifeShare = hasNumber(lifeIndividualShare)
+    ? Number(lifeIndividualShare)
+    : (
+      hasNumber(lifeIndividualInitialCommissions) && hasNumber(quarterInitialCommissions) && Number(quarterInitialCommissions) > 0
+        ? Number(lifeIndividualInitialCommissions) / Number(quarterInitialCommissions)
+        : null
+    );
+  const indexesApplied = hasNumber(indexShareThreshold) && hasNumber(derivedLifeShare)
+    ? Number(derivedLifeShare) >= Number(indexShareThreshold)
+    : null;
+  const indexApplicabilityReason = indexesApplied === true
+    ? 'life_individual_share_at_or_above_threshold'
+    : (
+      indexesApplied === false
+        ? 'life_individual_share_below_threshold'
+        : 'life_individual_share_unknown'
+    );
+  const activeAllowed = active === true ||
+    advisorActiveStatus === 'active' ||
+    lifecycleStatus === 'connected_active' ||
+    lifecycleStatus === 'active';
+
+  if (!hasNumber(resolvedThreshold)) {
     return {
       ...blocked(
         QUALIFIED_ADVISOR_ECONOMIC_STATUSES.BLOCKED_BY_MISSING_THRESHOLD,
         ['threshold_required_no_silent_default']
       ),
       advisorId,
-    };
-  }
-
-  if (!lifecycleStatus || lifecycleStatus === 'unknown' || lifecycleGateAllowed !== true) {
-    return {
-      ...blocked(
-        QUALIFIED_ADVISOR_ECONOMIC_STATUSES.BLOCKED_BY_MISSING_LIFECYCLE,
-        ['official_lifecycle_gate_required']
-      ),
-      advisorId,
-      threshold,
+      sourceRulePackId,
     };
   }
 
@@ -90,7 +121,24 @@ export function evaluateQualifiedAdvisorEconomicStatus({
         ['precontract_cannot_be_qualified_for_official_partner_compensation']
       ),
       advisorId,
-      threshold,
+      threshold: resolvedThreshold,
+      indexesApplied,
+      indexApplicabilityReason,
+      sourceRulePackId,
+    };
+  }
+
+  if (!lifecycleStatus || lifecycleStatus === 'unknown' || lifecycleGateAllowed !== true || activeAllowed !== true) {
+    return {
+      ...blocked(
+        QUALIFIED_ADVISOR_ECONOMIC_STATUSES.BLOCKED_BY_MISSING_LIFECYCLE,
+        ['official_lifecycle_gate_required', 'advisor_active_status_required']
+      ),
+      advisorId,
+      threshold: resolvedThreshold,
+      indexesApplied,
+      indexApplicabilityReason,
+      sourceRulePackId,
     };
   }
 
@@ -101,7 +149,10 @@ export function evaluateQualifiedAdvisorEconomicStatus({
         ['candidate_economic_output_not_eligible']
       ),
       advisorId,
-      threshold,
+      threshold: resolvedThreshold,
+      indexesApplied,
+      indexApplicabilityReason,
+      sourceRulePackId,
     };
   }
 
@@ -112,33 +163,59 @@ export function evaluateQualifiedAdvisorEconomicStatus({
         ['average_monthly_initial_commissions_required']
       ),
       advisorId,
-      threshold,
+      threshold: resolvedThreshold,
+      indexesApplied,
+      indexApplicabilityReason,
+      sourceRulePackId,
     };
   }
 
-  if (requireLIMRA && !hasNumber(LIMRA)) {
+  if (indexesApplied === null) {
+    return {
+      ...blocked(
+        QUALIFIED_ADVISOR_ECONOMIC_STATUSES.BLOCKED_BY_MISSING_LIFE_INDIVIDUAL_SHARE,
+        ['life_individual_share_required_to_determine_index_applicability']
+      ),
+      advisorId,
+      threshold: resolvedThreshold,
+      indexesApplied,
+      indexApplicabilityReason,
+      missingInputs: ['lifeIndividualShare'],
+      sourceRulePackId,
+    };
+  }
+
+  if (indexesApplied && requireLIMRA && !hasNumber(LIMRA)) {
     return {
       ...blocked(
         QUALIFIED_ADVISOR_ECONOMIC_STATUSES.BLOCKED_BY_MISSING_LIMRA,
         ['LIMRA_required']
       ),
       advisorId,
-      threshold,
+      threshold: resolvedThreshold,
+      indexesApplied,
+      indexApplicabilityReason,
+      missingInputs: ['LIMRA'],
+      sourceRulePackId,
     };
   }
 
-  if (requireIGC && !hasNumber(IGC)) {
+  if (indexesApplied && requireIGC && !hasNumber(IGC)) {
     return {
       ...blocked(
         QUALIFIED_ADVISOR_ECONOMIC_STATUSES.BLOCKED_BY_MISSING_IGC,
         ['IGC_required']
       ),
       advisorId,
-      threshold,
+      threshold: resolvedThreshold,
+      indexesApplied,
+      indexApplicabilityReason,
+      missingInputs: ['IGC'],
+      sourceRulePackId,
     };
   }
 
-  const qualified = Number(averageMonthlyInitialCommissions) > Number(threshold);
+  const qualified = Number(averageMonthlyInitialCommissions) >= Number(resolvedThreshold);
 
   return {
     advisorId,
@@ -147,9 +224,14 @@ export function evaluateQualifiedAdvisorEconomicStatus({
       : QUALIFIED_ADVISOR_ECONOMIC_STATUSES.NOT_QUALIFIED_CONFIRMED,
     qualified,
     averageMonthlyInitialCommissions: Number(averageMonthlyInitialCommissions),
-    threshold: Number(threshold),
+    threshold: Number(resolvedThreshold),
     LIMRA: hasNumber(LIMRA) ? Number(LIMRA) : null,
     IGC: hasNumber(IGC) ? Number(IGC) : null,
+    indexesApplied,
+    indexApplicabilityReason,
+    blockedReasons: [],
+    missingInputs: [],
+    sourceRulePackId,
     lifecycleStatus,
     advisorStage,
     careerMonth,

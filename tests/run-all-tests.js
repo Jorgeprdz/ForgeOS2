@@ -53,6 +53,7 @@ const commands = [
   ['node', ['tests/partner-rule-pack-validator-test.js']],
   ['node', ['tests/partner-rule-resolver-test.js']],
   ['node', ['tests/partner-json-first-rule-engine-test.js']],
+  ['node', ['tests/partner-quarterly-bonus-calculator-test.js']],
   ['node', ['tests/partner-safe-calculation-result-test.js']],
   ['node', ['tests/partner-productivity-base-calculator-test.js']],
   ['node', ['tests/partner-productivity-multiplier-calculator-test.js']],

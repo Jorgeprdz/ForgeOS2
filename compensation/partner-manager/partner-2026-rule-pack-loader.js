@@ -3,8 +3,7 @@ import {
 } from './partner-2026-rule-pack-validator.js';
 
 import {
-  DEFAULT_SMNYL_PARTNER_2026_RULE_PACK_PATH,
-  loadDefaultSMNYLPartner2026RulePack,
+  DEPRECATED_SMNYL_PARTNER_2026_CANONICAL_DRAFT_RULE_PACK_PATH,
   loadPartnerRulePack,
 } from './rule-engine/partner-rule-pack-loader.js';
 
@@ -18,6 +17,11 @@ import {
 } from './rule-engine/partner-rule-resolver.js';
 
 export const PARTNER_2026_RULE_PACK_PATH = new URL(
+  './rule-data/smnyl_partner_compensation_2026_rules_official_v1.json',
+  import.meta.url
+);
+
+export const DEPRECATED_PARTNER_2026_CANONICAL_DRAFT_RULE_PACK_PATH = new URL(
   './rule-data/smnyl_partner_compensation_2026_rules_canonical_draft.json',
   import.meta.url
 );
@@ -36,11 +40,25 @@ function normalizePartnerClass(partnerClass = null) {
   return null;
 }
 
+export function deriveAdvisorClassFromCareerMonth(rulePack, advisorCareerMonth = null) {
+  if (!hasNumber(advisorCareerMonth)) return null;
+  const mappings = rulePack?.globalRules?.advisorClassMapping?.knownMappings || [];
+  const row = mappings.find((item) => {
+    const from = item.careerMonthRange?.from;
+    const to = item.careerMonthRange?.to;
+    return hasNumber(from) &&
+      Number(advisorCareerMonth) >= Number(from) &&
+      (to === null || to === undefined || Number(advisorCareerMonth) <= Number(to));
+  });
+  return row?.class || null;
+}
+
 export function loadPartner2026RulePack({ filePath = PARTNER_2026_RULE_PACK_PATH } = {}) {
   const filePathHref = filePath?.href || String(filePath);
-  const parsed = filePathHref === PARTNER_2026_RULE_PACK_PATH.href || filePathHref === DEFAULT_SMNYL_PARTNER_2026_RULE_PACK_PATH.href
-    ? loadDefaultSMNYLPartner2026RulePack()
-    : loadPartnerRulePack({ filePath });
+  if (filePathHref === DEPRECATED_PARTNER_2026_CANONICAL_DRAFT_RULE_PACK_PATH.href || filePathHref === DEPRECATED_SMNYL_PARTNER_2026_CANONICAL_DRAFT_RULE_PACK_PATH.href) {
+    return loadDeprecatedPartner2026CanonicalDraftRulePack();
+  }
+  const parsed = loadPartnerRulePack({ filePath });
 
   const validation = validatePartner2026RulePack(parsed);
   if (!validation.valid) {
@@ -49,7 +67,19 @@ export function loadPartner2026RulePack({ filePath = PARTNER_2026_RULE_PACK_PATH
 
   return {
     ...parsed,
-    validationWarnings: validation.warnings,
+    validationWarnings: [
+      ...validation.warnings,
+    ],
+    sourceRulePackFile: filePathHref,
+  };
+}
+
+export function loadDeprecatedPartner2026CanonicalDraftRulePack() {
+  const parsed = loadPartnerRulePack({ filePath: DEPRECATED_PARTNER_2026_CANONICAL_DRAFT_RULE_PACK_PATH });
+  return {
+    ...parsed,
+    validationWarnings: ['warning_deprecated_canonical_draft_rule_pack'],
+    sourceRulePackFile: DEPRECATED_PARTNER_2026_CANONICAL_DRAFT_RULE_PACK_PATH.href,
   };
 }
 
@@ -60,13 +90,15 @@ export function getPartner2026Concept(rulePack, conceptKey) {
 export function getProductivityBaseRate(rulePack, {
   averageMonthlyInitialCommissions = null,
   partnerClass = null,
+  advisorClass = null,
+  advisorCareerMonth = null,
 } = {}) {
   const blockedReasons = [];
   const missingInputs = [];
-  const normalizedClass = normalizePartnerClass(partnerClass);
+  const normalizedClass = normalizePartnerClass(advisorClass || partnerClass || deriveAdvisorClassFromCareerMonth(rulePack, advisorCareerMonth));
   if (!normalizedClass) {
-    blockedReasons.push('blocked_by_missing_partner_class');
-    missingInputs.push('partnerClass');
+    blockedReasons.push('blocked_by_missing_advisor_class');
+    missingInputs.push('advisorClass');
   }
   if (!hasNumber(averageMonthlyInitialCommissions)) {
     blockedReasons.push('blocked_by_missing_initial_commission_evidence');
@@ -95,7 +127,7 @@ export function getProductivityMultiplierRate(rulePack, {
   }
 
   const resolved = resolveExactOrAboveScale({
-    scale: getConcept(rulePack, 'productivity-multiplier')?.table || [],
+    scale: getConcept(rulePack, 'productivity-multiplier')?.scale || getConcept(rulePack, 'productivity-multiplier')?.table || [],
     value: qualifiedAdvisorCount,
     valueKey: 'qualifiedAdvisorCount',
     resultKey: 'multiplierRate',
@@ -127,10 +159,10 @@ export function getProductionBonusRate(rulePack, { organizationType = null } = {
 }
 
 export function getActivityBonusRate(rulePack, { validLifeGmmPolicyCount = null } = {}) {
-  const match = resolveExactOrPlusScale({
+  const match = resolveExactOrAboveScale({
     scale: getConcept(rulePack, 'activity-bonus')?.policyScale || [],
     value: validLifeGmmPolicyCount,
-    field: 'policies',
+    valueKey: 'monthlyAveragePolicies',
     resultKey: 'rate',
   });
   return {
@@ -146,13 +178,13 @@ export function getConnectionBonusAmount(rulePack, {
   onboardingEvidence = false,
 } = {}) {
   const connection = getConcept(rulePack, 'connection-bonus');
-  if (onboardingEvidence === true && !hasNumber(advisorMonth)) {
+  if (onboardingEvidence === true && (!hasNumber(advisorMonth) || Number(advisorMonth) === 1)) {
     return { amount: Number(connection?.semanticAmounts?.advisorOnboarding), blockedReasons: [] };
   }
-  const match = resolveExactOrPlusScale({
+  const match = resolveExactOrAboveScale({
     scale: connection?.monthlyPolicyScale || [],
     value: validPolicyCount,
-    field: 'policies',
+    valueKey: 'monthlyPolicies',
     resultKey: 'amount',
     extraMatch: (row) => Array.isArray(row.advisorMonths) && row.advisorMonths.includes(Number(advisorMonth)),
   });
@@ -168,10 +200,10 @@ export function getDevelopmentBonusAmount(rulePack, {
   if (!hasNumber(advisorMonth) || Number(advisorMonth) < Number(range?.from) || Number(advisorMonth) > Number(range?.to)) {
     return { amount: null, blockedReasons: ['advisor_month_4_to_15_required'] };
   }
-  const match = resolveExactOrPlusScale({
+  const match = resolveExactOrAboveScale({
     scale: development?.policyScale || [],
     value: validPolicyCount,
-    field: 'policies',
+    valueKey: 'monthlyPolicies',
     resultKey: 'amount',
   });
   return { amount: match.value, blockedReasons: match.blockedReasons };
