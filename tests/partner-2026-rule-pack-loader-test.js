@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 
 import {
+  DEPRECATED_PARTNER_2026_CANONICAL_DRAFT_RULE_PACK_PATH,
+  deriveAdvisorClassFromCareerMonth,
   getActivityBonusRate,
   getConnectionBonusAmount,
   getDevelopmentBonusAmount,
@@ -10,15 +12,24 @@ import {
   getProductivityBaseRate,
   getProductivityMultiplierRate,
   loadPartner2026RulePack,
+  loadDeprecatedPartner2026CanonicalDraftRulePack,
 } from '../compensation/partner-manager/partner-2026-rule-pack-loader.js';
 
 const rulePack = loadPartner2026RulePack();
 
 assert.equal(rulePack.rulePackId, 'smnyl_partner_compensation_2026');
 assert.equal(rulePack.source.sourceTruth, true);
-assert.equal(rulePack.source.sourceType, 'official_compensation_booklet');
+assert.equal(rulePack.source.fileName, 'PCV 2026 Partners.pdf');
+assert.equal(rulePack.source.sourceType, 'official_compensation_plan');
+assert.ok(rulePack.sourceRulePackFile.includes('official_v1'));
 
-assert.equal(getPartner2026Concept(rulePack, 'activity-bonus').frequency, 'monthly');
+const deprecatedDraft = loadDeprecatedPartner2026CanonicalDraftRulePack();
+assert.ok(deprecatedDraft.sourceRulePackFile.includes('canonical_draft'));
+assert.ok(deprecatedDraft.validationWarnings.includes('warning_deprecated_canonical_draft_rule_pack'));
+assert.equal(DEPRECATED_PARTNER_2026_CANONICAL_DRAFT_RULE_PACK_PATH.href.includes('canonical_draft'), true);
+
+assert.equal(getPartner2026Concept(rulePack, 'activity-bonus').paymentCadence.calculationFrequency, 'quarterly');
+assert.equal(deriveAdvisorClassFromCareerMonth(rulePack, 25), '2C');
 
 const baseRate = getProductivityBaseRate(rulePack, {
   averageMonthlyInitialCommissions: 10000,

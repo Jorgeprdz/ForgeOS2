@@ -67,8 +67,9 @@ developmentRow.amount = 17777;
 const developmentResult = gatePartnerDevelopmentBonusCalculation({
   rulePack: mutatedDevelopment,
   advisorMonth: developmentConcept.advisorMonthRange.from,
-  validPolicyCount: Number(String(developmentRow.policies).replace('+', '')),
+  monthlyPolicies: developmentRow.monthlyPolicies,
   paidAppliedPolicyEvidence: true,
+  developerEligibilityEvidence: true,
 });
 assert.equal(developmentResult.candidateAmount, 17777);
 assert.equal(developmentResult.payoutTruth, false);
@@ -83,8 +84,7 @@ const fixedSupportResult = calculatePartnerFixedSupportCandidate({
   accumulatedCommissions: 100000,
   accumulatedCommissionGoal: 90000,
   accumulatedCommissionGoalsEvidence: true,
-  taCountingPrecontractCount: 1,
-  taCountingEventEvidence: true,
+  taCountingPrecontractCount: 3,
   supportTableEvidence: true,
   partnerLifecycleStatus: 'partner_active',
 });
@@ -92,7 +92,7 @@ assert.equal(fixedSupportResult.candidateAmount, 22222);
 assert.equal(fixedSupportResult.payoutTruth, false);
 
 const mutatedMultiplier = clone(rulePack);
-const multiplierFour = mutatedMultiplier.concepts['productivity-multiplier'].table.find((row) => row.qualifiedAdvisorCount === 4);
+const multiplierFour = mutatedMultiplier.concepts['productivity-multiplier'].scale.find((row) => row.qualifiedAdvisorCount === 4);
 multiplierFour.multiplierRate = 0.4444;
 const multiplierResult = calculatePartnerProductivityMultiplierCandidate({
   rulePack: mutatedMultiplier,

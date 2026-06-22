@@ -11,7 +11,7 @@ import {
 const rulePack = loadPartner2026RulePack();
 const validation = validatePartner2026RulePack(rulePack);
 assert.equal(validation.valid, true);
-assert.ok(validation.warnings.includes('fixed_support_requires_supportTableEvidence'));
+assert.equal(rulePack.source.fileName, 'PCV 2026 Partners.pdf');
 
 const missingConcepts = validatePartner2026RulePack({
   ...rulePack,
@@ -29,6 +29,16 @@ const notSourceTruth = validatePartner2026RulePack({
 });
 assert.equal(notSourceTruth.valid, false);
 assert.ok(notSourceTruth.errors.includes('sourceTruth_must_be_true'));
+
+const wrongSourceFile = validatePartner2026RulePack({
+  ...rulePack,
+  source: {
+    ...rulePack.source,
+    fileName: '2026_Partner_Compensation.pdf',
+  },
+});
+assert.equal(wrongSourceFile.valid, false);
+assert.ok(wrongSourceFile.errors.includes('official_v1_source_file_required'));
 
 const missingPayoutTruthRule = validatePartner2026RulePack({
   ...rulePack,

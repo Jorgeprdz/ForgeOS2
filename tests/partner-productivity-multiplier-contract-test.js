@@ -46,9 +46,9 @@ const missingMinimum = assessPartnerProductivityMultiplier({
   partnerCareerMonth: 7,
   trainingWinnerInQuarter: true,
 });
-assert.equal(missingMinimum.calculationAllowed, false);
-assert.ok(missingMinimum.blockedReasons.includes('blocked_by_missing_multiplier_minimum_requirement'));
-assert.equal(missingMinimum.percentageCandidate, null);
+assert.equal(missingMinimum.calculationAllowed, true);
+assert.equal(missingMinimum.metadata.minimumQualifiedAdvisorRequirement, 4);
+assert.equal(missingMinimum.percentageCandidate, 0.4);
 
 const insufficientForMonth = assessPartnerProductivityMultiplier({
   productivityBaseAssessment: base,

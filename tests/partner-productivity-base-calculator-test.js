@@ -31,6 +31,7 @@ function qualified(amount = 12000) {
     threshold: DEFAULT_PARTNER_2026_QUALIFIED_COMMISSION_THRESHOLD,
     LIMRA: 0.8,
     IGC: 0.9,
+    lifeIndividualShare: 0.6,
     lifecycleStatus: 'connected_active',
     lifecycleGateAllowed: true,
     economicOutputStatus: ADVISOR_ECONOMIC_OUTPUT_STATUSES.PAID_APPLIED_CONFIRMED,
@@ -107,5 +108,35 @@ const held = calculatePartnerProductivityBaseCandidate({
   baseAmount: 100000,
 });
 assert.ok(held.blockedReasons.includes('precontract_held_commission_not_payable'));
+
+const decimalSecondBand = calculatePartnerProductivityBaseCandidate({
+  advisorEconomicOutputs: [output(54001)],
+  qualifiedAdvisorEconomicStatuses: [qualified(18000.333333333332)],
+  averageMonthlyInitialCommissions: 54001 / 3,
+  advisorCareerMonth: 13,
+  lifecycleGate: { allowed: true },
+  baseAmount: 54001,
+});
+assert.equal(decimalSecondBand.candidatePercentage, 0.35);
+
+const exactFirstBand = calculatePartnerProductivityBaseCandidate({
+  advisorEconomicOutputs: [output(54000)],
+  qualifiedAdvisorEconomicStatuses: [qualified(18000)],
+  averageMonthlyInitialCommissions: 18000,
+  advisorCareerMonth: 1,
+  lifecycleGate: { allowed: true },
+  baseAmount: 54000,
+});
+assert.equal(exactFirstBand.candidatePercentage, 0.25);
+
+const thirdBand = calculatePartnerProductivityBaseCandidate({
+  advisorEconomicOutputs: [output(90000.03)],
+  qualifiedAdvisorEconomicStatuses: [qualified(30000.01)],
+  averageMonthlyInitialCommissions: 30000.01,
+  advisorCareerMonth: 25,
+  lifecycleGate: { allowed: true },
+  baseAmount: 90000.03,
+});
+assert.equal(thirdBand.candidatePercentage, 0.185);
 
 console.log('PASS partner-productivity-base-calculator-test');

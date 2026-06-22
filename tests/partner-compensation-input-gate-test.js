@@ -22,6 +22,7 @@ const qualifiedStatus = evaluateQualifiedAdvisorEconomicStatus({
   threshold: DEFAULT_PARTNER_2026_QUALIFIED_COMMISSION_THRESHOLD,
   LIMRA: 0.8,
   IGC: 0.9,
+  lifeIndividualShare: 0.6,
   lifecycleStatus: 'connected_active',
   lifecycleGateAllowed: true,
   economicOutputStatus: ADVISOR_ECONOMIC_OUTPUT_STATUSES.PAID_APPLIED_CONFIRMED,

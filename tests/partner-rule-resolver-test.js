@@ -29,17 +29,18 @@ assert.equal(resolveBandRate({
 }).rate, firstClassRate);
 
 const multiplierConcept = getConcept(rulePack, 'productivity-multiplier');
-const multiplierRow = multiplierConcept.table[0];
+const multiplierScale = multiplierConcept.scale || multiplierConcept.table;
+const multiplierRow = multiplierScale[0];
 assert.equal(multiplierConcept.trainingWinnerPayFactor.withTrainingWinnerInQuarter.payFactor, 1);
 assert.equal(multiplierConcept.trainingWinnerPayFactor.withoutTrainingWinnerInQuarter.payFactor, 0.8);
 assert.equal(resolveThresholdScale({
-  scale: multiplierConcept.table,
+  scale: multiplierScale,
   value: multiplierRow.qualifiedAdvisorCount,
   valueKey: 'qualifiedAdvisorCount',
   resultKey: 'multiplierRate',
 }).value, multiplierRow.multiplierRate);
 assert.deepEqual(
-  multiplierConcept.table.map((row) => ({
+  multiplierScale.map((row) => ({
     qualifiedAdvisorCount: row.qualifiedAdvisorCount,
     multiplierRate: row.multiplierRate,
     appliesToCountAndAbove: row.appliesToCountAndAbove === true,
@@ -56,48 +57,48 @@ assert.deepEqual(
   ]
 );
 assert.equal(resolveExactOrAboveScale({
-  scale: multiplierConcept.table,
+  scale: multiplierScale,
   value: 3,
   valueKey: 'qualifiedAdvisorCount',
   resultKey: 'multiplierRate',
 }).value, 0.3);
 assert.equal(resolveExactOrAboveScale({
-  scale: multiplierConcept.table,
+  scale: multiplierScale,
   value: 4,
   valueKey: 'qualifiedAdvisorCount',
   resultKey: 'multiplierRate',
 }).value, 0.4);
 assert.equal(resolveExactOrAboveScale({
-  scale: multiplierConcept.table,
+  scale: multiplierScale,
   value: 5,
   valueKey: 'qualifiedAdvisorCount',
   resultKey: 'multiplierRate',
 }).value, 0.5);
 assert.equal(resolveExactOrAboveScale({
-  scale: multiplierConcept.table,
+  scale: multiplierScale,
   value: 9,
   valueKey: 'qualifiedAdvisorCount',
   resultKey: 'multiplierRate',
 }).value, 0.9);
 assert.equal(resolveExactOrAboveScale({
-  scale: multiplierConcept.table,
+  scale: multiplierScale,
   value: 10,
   valueKey: 'qualifiedAdvisorCount',
   resultKey: 'multiplierRate',
 }).value, 1);
 assert.equal(resolveExactOrAboveScale({
-  scale: multiplierConcept.table,
+  scale: multiplierScale,
   value: 11,
   valueKey: 'qualifiedAdvisorCount',
   resultKey: 'multiplierRate',
 }).value, 1);
 
 const activityConcept = getConcept(rulePack, 'activity-bonus');
-const plusRow = activityConcept.policyScale.find((row) => String(row.policies).endsWith('+'));
-assert.equal(resolveExactOrPlusScale({
+const plusRow = activityConcept.policyScale.find((row) => row.appliesToCountAndAbove === true);
+assert.equal(resolveExactOrAboveScale({
   scale: activityConcept.policyScale,
-  value: Number(String(plusRow.policies).replace('+', '')) + 1,
-  field: 'policies',
+  value: Number(plusRow.monthlyAveragePolicies) + 1,
+  valueKey: 'monthlyAveragePolicies',
   resultKey: 'rate',
 }).value, plusRow.rate);
 

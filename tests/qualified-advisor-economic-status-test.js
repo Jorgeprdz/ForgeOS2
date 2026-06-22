@@ -16,25 +16,35 @@ const qualified = evaluateQualifiedAdvisorEconomicStatus({
   threshold: DEFAULT_PARTNER_2026_QUALIFIED_COMMISSION_THRESHOLD,
   LIMRA: 0.8,
   IGC: 0.9,
+  lifeIndividualShare: 0.6,
   lifecycleStatus: 'connected_active',
   lifecycleGateAllowed: true,
   economicOutputStatus: ADVISOR_ECONOMIC_OUTPUT_STATUSES.PAID_APPLIED_CONFIRMED,
 });
 assert.equal(qualified.status, QUALIFIED_ADVISOR_ECONOMIC_STATUSES.QUALIFIED_CONFIRMED);
 
-const missingThreshold = evaluateQualifiedAdvisorEconomicStatus({
+const defaultThresholdFromRulePack = evaluateQualifiedAdvisorEconomicStatus({
   averageMonthlyInitialCommissions: 9500,
   LIMRA: 0.8,
   IGC: 0.9,
+  lifeIndividualShare: 0.6,
   lifecycleStatus: 'connected_active',
   lifecycleGateAllowed: true,
 });
-assert.equal(missingThreshold.status, QUALIFIED_ADVISOR_ECONOMIC_STATUSES.BLOCKED_BY_MISSING_THRESHOLD);
+assert.equal(defaultThresholdFromRulePack.status, QUALIFIED_ADVISOR_ECONOMIC_STATUSES.QUALIFIED_CONFIRMED);
+
+const commissionsOnly = evaluateQualifiedAdvisorEconomicStatus({
+  averageMonthlyInitialCommissions: 9500,
+  lifeIndividualShare: 0.5,
+});
+assert.equal(commissionsOnly.qualified, false);
+assert.ok(commissionsOnly.blockedReasons.includes('official_lifecycle_gate_required'));
 
 const missingLimra = evaluateQualifiedAdvisorEconomicStatus({
   averageMonthlyInitialCommissions: 9500,
   threshold: DEFAULT_PARTNER_2026_QUALIFIED_COMMISSION_THRESHOLD,
   IGC: 0.9,
+  lifeIndividualShare: 0.6,
   lifecycleStatus: 'connected_active',
   lifecycleGateAllowed: true,
 });
@@ -44,6 +54,7 @@ const missingIgc = evaluateQualifiedAdvisorEconomicStatus({
   averageMonthlyInitialCommissions: 9500,
   threshold: DEFAULT_PARTNER_2026_QUALIFIED_COMMISSION_THRESHOLD,
   LIMRA: 0.8,
+  lifeIndividualShare: 0.6,
   lifecycleStatus: 'connected_active',
   lifecycleGateAllowed: true,
 });
@@ -54,6 +65,7 @@ const precontract = evaluateQualifiedAdvisorEconomicStatus({
   threshold: DEFAULT_PARTNER_2026_QUALIFIED_COMMISSION_THRESHOLD,
   LIMRA: 0.8,
   IGC: 0.9,
+  lifeIndividualShare: 0.6,
   lifecycleStatus: 'precontract',
   lifecycleGateAllowed: true,
 });
@@ -64,10 +76,28 @@ const candidate = evaluateQualifiedAdvisorEconomicStatus({
   threshold: DEFAULT_PARTNER_2026_QUALIFIED_COMMISSION_THRESHOLD,
   LIMRA: 0.8,
   IGC: 0.9,
+  lifeIndividualShare: 0.6,
   lifecycleStatus: 'connected_active',
   lifecycleGateAllowed: true,
   economicOutputStatus: ADVISOR_ECONOMIC_OUTPUT_STATUSES.CANDIDATE,
 });
 assert.equal(candidate.status, QUALIFIED_ADVISOR_ECONOMIC_STATUSES.BLOCKED_BY_MISSING_COMMISSION_EVIDENCE);
+
+const noIndexesWhenLifeShareBelowThreshold = evaluateQualifiedAdvisorEconomicStatus({
+  averageMonthlyInitialCommissions: 9500,
+  lifeIndividualShare: 0.59,
+  lifecycleStatus: 'connected_active',
+  lifecycleGateAllowed: true,
+  economicOutputStatus: ADVISOR_ECONOMIC_OUTPUT_STATUSES.PAID_APPLIED_CONFIRMED,
+});
+assert.equal(noIndexesWhenLifeShareBelowThreshold.qualified, true);
+assert.equal(noIndexesWhenLifeShareBelowThreshold.indexesApplied, false);
+
+const missingLifeShare = evaluateQualifiedAdvisorEconomicStatus({
+  averageMonthlyInitialCommissions: 9500,
+  lifecycleStatus: 'connected_active',
+  lifecycleGateAllowed: true,
+});
+assert.equal(missingLifeShare.status, QUALIFIED_ADVISOR_ECONOMIC_STATUSES.BLOCKED_BY_MISSING_LIFE_INDIVIDUAL_SHARE);
 
 console.log('PASS qualified-advisor-economic-status-test');

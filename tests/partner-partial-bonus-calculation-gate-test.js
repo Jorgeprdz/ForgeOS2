@@ -29,8 +29,10 @@ assert.ok(connection.blockedReasons.includes('blocked_by_missing_table'));
 const connectionFromJson = gatePartnerConnectionBonusCalculation({
   rulePack,
   advisorMonth: 2,
-  validPolicyCount: 5,
+  monthlyPolicies: 5,
   paidAppliedPolicyEvidence: true,
+  connectorActiveAtMonthClose: true,
+  connectedAdvisorActiveAtMonthClose: true,
 });
 assert.equal(connectionFromJson.calculationAllowed, true);
 assert.equal(connectionFromJson.candidateAmount, 15000);
@@ -44,8 +46,9 @@ assert.equal(development.metadata.exampleOnly.monthlyAmount, 15000);
 const developmentFromJson = gatePartnerDevelopmentBonusCalculation({
   rulePack,
   advisorMonth: 7,
-  validPolicyCount: 5,
+  monthlyPolicies: 5,
   paidAppliedPolicyEvidence: true,
+  developerEligibilityEvidence: true,
 });
 assert.equal(developmentFromJson.calculationAllowed, true);
 assert.equal(developmentFromJson.candidateAmount, 15000);

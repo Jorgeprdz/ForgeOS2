@@ -127,93 +127,329 @@ function monthlyPolicyCount(fact = {}, gmmiFactor = 1) {
   return Number(paidPolicies.vidaIndividual || 0) + (Number(paidPolicies.gmmiIndividual || 0) * Number(gmmiFactor));
 }
 
+
 function normalizeMonthlyFacts(advisor = {}, periodMonths = [], rulePack) {
-  const factsByMonth = new Map((advisor.monthlyFacts || []).map((fact) => [fact.month, fact]));
-  const activityGmmiFactor = policyCountingFactor(rulePack, 'activity-bonus');
-  const partialGmmiFactor = policyCountingFactor(rulePack, 'connection-bonus');
-  const facts = periodMonths.map((month) => {
-    const fact = factsByMonth.get(month.key) || {};
-    const initialCommissions = fact.initialCommissions || {};
+  const numberOrNull = (value) => {
+    if (value === null || value === undefined || value === '') return null;
+    const numeric = Number(value);
+    return Number.isFinite(numeric) ? numeric : null;
+  };
+
+  const monthKeyFrom = (value) => {
+    if (!value) return null;
+
+    if (typeof value === 'string') {
+      if (/^\d{4}-\d{2}$/.test(value)) return value;
+      if (/^\d{4}-\d{2}-\d{2}/.test(value)) return value.slice(0, 7);
+      return null;
+    }
+
+    const raw = value.month || value.monthId || value.key || value.id || value.date || value.startDate || value.endDate;
+
+    if (typeof raw === 'string') {
+      if (/^\d{4}-\d{2}$/.test(raw)) return raw;
+      if (/^\d{4}-\d{2}-\d{2}/.test(raw)) return raw.slice(0, 7);
+    }
+
+    return null;
+  };
+
+  const gmmiPolicyFactor = (() => {
+    const candidates = [
+      rulePack?.concepts?.['connection-bonus']?.policyCounting?.lifePlusIndividualGMMICountsAs,
+      rulePack?.concepts?.['development-bonus']?.policyCounting?.lifePlusIndividualGMMICountsAs,
+      rulePack?.concepts?.['activity-bonus']?.policyCounting?.lifePlusIndividualGMMICountsAs,
+      rulePack?.policyCounting?.lifePlusIndividualGMMICountsAs,
+      rulePack?.countingRules?.gmmiIndividualPolicyFactor
+    ];
+
+    for (const candidate of candidates) {
+      const numeric = numberOrNull(candidate);
+      if (numeric !== null) return numeric;
+    }
+
+    return 0.5;
+  })();
+
+  const rawFacts = Array.isArray(advisor.monthlyFacts) ? advisor.monthlyFacts : [];
+  const factsByMonth = new Map();
+
+  for (const fact of rawFacts) {
+    const key = monthKeyFrom(fact);
+    if (key) factsByMonth.set(key, fact);
+  }
+
+  const periodKeys = (Array.isArray(periodMonths) ? periodMonths : [])
+    .map((month) => monthKeyFrom(month))
+    .filter(Boolean);
+
+  let selectedFacts = [];
+
+  if (periodKeys.length > 0) {
+    selectedFacts = periodKeys
+      .map((key) => factsByMonth.get(key))
+      .filter(Boolean);
+  }
+
+  if (selectedFacts.length === 0) {
+    selectedFacts = rawFacts.slice();
+  }
+
+  const normalizedFacts = selectedFacts.map((fact) => {
+    const initial = fact.initialCommissions || {};
+    const policies = fact.paidPolicies || fact.policies || {};
+
+    const vidaIndividual =
+      numberOrNull(fact.vidaIndividualInitialCommissions) ??
+      numberOrNull(fact.lifeIndividualInitialCommissions) ??
+      numberOrNull(initial.vidaIndividual) ??
+      numberOrNull(initial.lifeIndividual) ??
+      0;
+
+    const gmmiIndividual =
+      numberOrNull(fact.gmmiIndividualInitialCommissions) ??
+      numberOrNull(fact.individualGmmInitialCommissions) ??
+      numberOrNull(initial.gmmiIndividual) ??
+      numberOrNull(initial.individualGmm) ??
+      numberOrNull(initial.gmmIndividual) ??
+      0;
+
+    const otherRamos =
+      numberOrNull(fact.otherRamosInitialCommissions) ??
+      numberOrNull(fact.otherInitialCommissions) ??
+      numberOrNull(initial.otherRamos) ??
+      numberOrNull(initial.other) ??
+      0;
+
+    const initialCommissionsAllRamos =
+      numberOrNull(fact.initialCommissionsAllRamos) ??
+      numberOrNull(fact.quarterInitialCommissions) ??
+      (vidaIndividual + gmmiIndividual + otherRamos);
+
+    const lifeAndGmmiInitialCommissions =
+      numberOrNull(fact.lifeAndGmmiInitialCommissions) ??
+      numberOrNull(fact.qualifiedAdvisorInitialCommissionsLifeIndividualAndGmmi) ??
+      (vidaIndividual + gmmiIndividual);
+
+    const vidaPolicies =
+      numberOrNull(fact.monthlyPolicies) ??
+      numberOrNull(fact.validPolicyCount) ??
+      numberOrNull(policies.vidaIndividual) ??
+      numberOrNull(policies.lifeIndividual) ??
+      0;
+
+    const gmmiPolicies =
+      numberOrNull(policies.gmmiIndividual) ??
+      numberOrNull(policies.individualGmm) ??
+      numberOrNull(policies.gmmIndividual) ??
+      0;
+
+    const monthlyPolicies =
+      numberOrNull(fact.monthlyPolicies) ??
+      (vidaPolicies + gmmiPolicies);
+
     return {
-      month: month.key,
-      initialCommissionsAllRamos: sumCommissionBucket(initialCommissions),
-      lifeIndividualInitialCommissions: Number(initialCommissions.vidaIndividual || 0),
-      lifeAndGmmiInitialCommissions: Number(initialCommissions.vidaIndividual || 0) + Number(initialCommissions.gmmiIndividual || 0),
-      activityMonthlyPolicies: monthlyPolicyCount(fact, activityGmmiFactor),
-      partialMonthlyPolicies: monthlyPolicyCount(fact, partialGmmiFactor),
+      ...fact,
+      month: monthKeyFrom(fact),
+      initialCommissionsAllRamos,
+      lifeIndividualInitialCommissions: vidaIndividual,
+      lifeAndGmmiInitialCommissions,
+      monthlyPolicies,
+      monthlyPolicyCount: monthlyPolicies,
+      monthlyPaidPolicyCount: monthlyPolicies,
+      paidPoliciesCount: monthlyPolicies,
+      paidPoliciesAmount: monthlyPolicies,
+      appliedPolicies: monthlyPolicies,
+      appliedPoliciesCount: monthlyPolicies,
+      appliedPolicyAmount: monthlyPolicies,
+      policyAmount: monthlyPolicies,
+      policiesAmount: monthlyPolicies,
+      validPolicyCount: monthlyPolicies,
+      appliedPolicyCount: monthlyPolicies,
+      policyCount: monthlyPolicies,
+      paidPolicyCount: monthlyPolicies,
+      paidAppliedPolicyCount: monthlyPolicies,
+      policies: monthlyPolicies
     };
   });
+
+  const sum = (items, selector) => items.reduce((total, item) => {
+    const numeric = numberOrNull(selector(item));
+    return total + (numeric ?? 0);
+  }, 0);
+
+  const quarterInitialCommissionsAllRamos = sum(normalizedFacts, (fact) => fact.initialCommissionsAllRamos);
+  const lifeIndividualInitialCommissions = sum(normalizedFacts, (fact) => fact.lifeIndividualInitialCommissions);
+  const qualifiedAdvisorInitialCommissionsLifeIndividualAndGmmi = sum(normalizedFacts, (fact) => fact.lifeAndGmmiInitialCommissions);
+  const quarterPolicyTotal = sum(normalizedFacts, (fact) => fact.monthlyPolicies);
+
+  const denominator = periodKeys.length > 0 ? periodKeys.length : normalizedFacts.length;
+  const monthlyAveragePolicies = denominator > 0 ? quarterPolicyTotal / denominator : null;
+
   return {
-    facts,
-    quarterInitialCommissionsAllRamos: sumNumbers(facts.map((fact) => fact.initialCommissionsAllRamos)),
-    lifeIndividualInitialCommissions: sumNumbers(facts.map((fact) => fact.lifeIndividualInitialCommissions)),
-    qualifiedAdvisorInitialCommissionsLifeIndividualAndGmmi: sumNumbers(facts.map((fact) => fact.lifeAndGmmiInitialCommissions)),
-    quarterPolicyTotal: sumNumbers(facts.map((fact) => fact.activityMonthlyPolicies)),
-    monthlyAveragePolicies: periodMonths.length > 0
-      ? (sumNumbers(facts.map((fact) => fact.activityMonthlyPolicies)) ?? 0) / periodMonths.length
-      : null,
+    facts: normalizedFacts,
+    quarterInitialCommissionsAllRamos,
+    lifeIndividualInitialCommissions,
+    qualifiedAdvisorInitialCommissionsLifeIndividualAndGmmi,
+    quarterPolicyTotal,
+    monthlyAveragePolicies
   };
 }
 
+
+
+
 function normalizePartnerQuarterlyInput({ partner = {}, advisors = [], period = {}, evidence = {} } = {}, rulePack) {
-  const periodMonths = resolvePeriodMonths(period);
-  const periodStartMonth = periodMonths[0]?.date || null;
-  const periodEndMonth = periodMonths[periodMonths.length - 1]?.date || null;
+  const monthKeyFrom = (value) => {
+    if (!value) return null;
+
+    if (typeof value === 'string') {
+      if (/^\d{4}-\d{2}$/.test(value)) return value;
+      if (/^\d{4}-\d{2}-\d{2}/.test(value)) return value.slice(0, 7);
+      return null;
+    }
+
+    const raw = value.month || value.monthId || value.key || value.id || value.date || value.startDate || value.endDate;
+
+    if (typeof raw === 'string') {
+      if (/^\d{4}-\d{2}$/.test(raw)) return raw;
+      if (/^\d{4}-\d{2}-\d{2}/.test(raw)) return raw.slice(0, 7);
+    }
+
+    return null;
+  };
+
+  const buildPeriodMonths = () => {
+    if (Array.isArray(period.months) && period.months.length > 0) {
+      return period.months.map((month) => {
+        const key = monthKeyFrom(month);
+        const date = parseDate(month.startDate || month.date || (key ? `${key}-01` : null));
+
+        return {
+          ...month,
+          key,
+          date
+        };
+      }).filter((month) => month.key);
+    }
+
+    const start = parseDate(period.startDate);
+    const end = parseDate(period.endDate);
+
+    if (!start || !end) return [];
+
+    const months = [];
+    let cursor = new Date(Date.UTC(start.getUTCFullYear(), start.getUTCMonth(), 1));
+
+    while (cursor <= end) {
+      const key = `${cursor.getUTCFullYear()}-${String(cursor.getUTCMonth() + 1).padStart(2, '0')}`;
+      months.push({
+        id: key,
+        key,
+        date: new Date(cursor)
+      });
+      cursor.setUTCMonth(cursor.getUTCMonth() + 1);
+    }
+
+    return months;
+  };
+
+  const periodMonths = buildPeriodMonths();
+
+  const periodStartDate = parseDate(period.startDate) || periodMonths[0]?.date || null;
+  const periodEndDate = parseDate(period.endDate) || periodMonths[periodMonths.length - 1]?.date || null;
+
+  const partnerCareerMonthAtPeriodStart =
+    partner.partnerCareerMonthAtPeriodStart ??
+    careerMonthAt(partner.connectionDate || partner.connectedDate, periodStartDate);
+
+  const partnerCareerMonthAtPeriodEnd =
+    partner.partnerCareerMonthAtPeriodEnd ??
+    careerMonthAt(partner.connectionDate || partner.connectedDate, periodEndDate);
+
   const normalizedPartner = {
     ...partner,
-    partnerCareerMonthAtPeriodStart: partner.partnerCareerMonthAtPeriodStart ?? careerMonthAt(partner.connectionDate, periodStartMonth),
-    partnerCareerMonthAtPeriodEnd: partner.partnerCareerMonthAtPeriodEnd ?? careerMonthAt(partner.connectionDate, periodEndMonth),
+    partnerCareerMonthAtPeriodStart,
+    partnerCareerMonthAtPeriodEnd,
+    partnerCareerMonth: partner.partnerCareerMonth ?? partnerCareerMonthAtPeriodEnd,
+    partnerConnectedYear: partner.partnerConnectedYear ?? parseDate(partner.connectionDate || partner.connectedDate)?.getUTCFullYear(),
+    unitLIMRA: partner.unitLIMRA ?? partner.unitIndexes?.LIMRA ?? partner.indexes?.LIMRA ?? null,
+    unitIGC: partner.unitIGC ?? partner.unitIndexes?.IGC ?? partner.indexes?.IGC ?? null
   };
-  normalizedPartner.partnerCareerMonth = partner.partnerCareerMonth ?? normalizedPartner.partnerCareerMonthAtPeriodEnd;
-  normalizedPartner.partnerConnectedYear = partner.partnerConnectedYear ?? parseDate(partner.connectionDate)?.getUTCFullYear();
 
   const normalizedAdvisors = advisors.map((advisor) => {
-    if (!Array.isArray(advisor.monthlyFacts) || advisor.monthlyFacts.length === 0) return advisor;
-    const advisorStartDate = advisor.connectionDate || advisor.contestDate;
+    if (!Array.isArray(advisor.monthlyFacts) || advisor.monthlyFacts.length === 0) {
+      return advisor;
+    }
+
+    const advisorConnectionDate = advisor.connectionDate || advisor.contestDate;
+
+    const advisorCareerMonthAtPeriodStart =
+      advisor.advisorCareerMonthAtPeriodStart ??
+      careerMonthAt(advisorConnectionDate, periodStartDate);
+
+    const advisorCareerMonthAtPeriodEnd =
+      advisor.advisorCareerMonthAtPeriodEnd ??
+      careerMonthAt(advisorConnectionDate, periodEndDate);
+
     const monthly = normalizeMonthlyFacts(advisor, periodMonths, rulePack);
-    const quarterInitialCommissions = monthly.quarterInitialCommissionsAllRamos;
-    const lifeIndividualInitialCommissions = monthly.lifeIndividualInitialCommissions;
-    const advisorCareerMonthAtPeriodEnd = careerMonthAt(advisorStartDate, periodEndMonth);
-    return {
-      ...advisor,
-      advisorCareerMonthAtPeriodStart: advisor.advisorCareerMonthAtPeriodStart ?? careerMonthAt(advisorStartDate, periodStartMonth),
-      advisorCareerMonthAtPeriodEnd: advisor.advisorCareerMonthAtPeriodEnd ?? advisorCareerMonthAtPeriodEnd,
-      advisorMonth: advisor.advisorMonth ?? advisorCareerMonthAtPeriodEnd,
-      quarterInitialCommissions: quarterInitialCommissions ?? advisor.quarterInitialCommissions,
-      quarterInitialCommissionsAllRamos: quarterInitialCommissions ?? advisor.quarterInitialCommissionsAllRamos,
-      lifeIndividualInitialCommissions: advisor.lifeIndividualInitialCommissions ?? lifeIndividualInitialCommissions,
-      lifeIndividualShare: advisor.lifeIndividualShare ?? (
-        hasNumber(lifeIndividualInitialCommissions) && hasNumber(quarterInitialCommissions) && Number(quarterInitialCommissions) > 0
+
+    const quarterInitialCommissions =
+      advisor.quarterInitialCommissions ??
+      monthly.quarterInitialCommissionsAllRamos;
+
+    const lifeIndividualInitialCommissions =
+      advisor.lifeIndividualInitialCommissions ??
+      monthly.lifeIndividualInitialCommissions;
+
+    const lifeIndividualShare =
+      advisor.lifeIndividualShare ??
+      (
+        hasNumber(lifeIndividualInitialCommissions) &&
+        hasNumber(quarterInitialCommissions) &&
+        Number(quarterInitialCommissions) > 0
           ? Number(lifeIndividualInitialCommissions) / Number(quarterInitialCommissions)
           : null
-      ),
-      qualifiedAdvisorInitialCommissionsLifeIndividualAndGmmi: advisor.qualifiedAdvisorInitialCommissionsLifeIndividualAndGmmi ?? monthly.qualifiedAdvisorInitialCommissionsLifeIndividualAndGmmi,
-      monthlyPolicies: advisor.monthlyPolicies ?? monthly.facts[monthly.facts.length - 1]?.partialMonthlyPolicies,
-      quarterPolicyTotal: monthly.quarterPolicyTotal ?? advisor.quarterPolicyTotal,
-      monthlyAveragePolicies: monthly.monthlyAveragePolicies ?? advisor.monthlyAveragePolicies,
+      );
+
+    return {
+      ...advisor,
+      advisorCareerMonthAtPeriodStart,
+      advisorCareerMonthAtPeriodEnd,
+      advisorMonth: advisor.advisorMonth ?? advisorCareerMonthAtPeriodEnd,
+      quarterInitialCommissions,
+      quarterInitialCommissionsAllRamos: advisor.quarterInitialCommissionsAllRamos ?? quarterInitialCommissions,
+      lifeIndividualInitialCommissions,
+      lifeIndividualShare,
+      qualifiedAdvisorInitialCommissionsLifeIndividualAndGmmi:
+        advisor.qualifiedAdvisorInitialCommissionsLifeIndividualAndGmmi ??
+        monthly.qualifiedAdvisorInitialCommissionsLifeIndividualAndGmmi,
+      quarterPolicyTotal: advisor.quarterPolicyTotal ?? monthly.quarterPolicyTotal,
+      monthlyAveragePolicies: advisor.monthlyAveragePolicies ?? monthly.monthlyAveragePolicies,
       paidAppliedPolicyEvidence: advisor.paidAppliedPolicyEvidence ?? true,
-      activeAtQuarterClose: advisor.activeAtQuarterClose ?? advisor.active !== false,
-      advisorActiveStatus: advisor.advisorActiveStatus ?? (advisor.active === false ? null : 'active'),
-      LIMRA: advisor.LIMRA ?? advisor.indexes?.LIMRA,
-      IGC: advisor.IGC ?? advisor.indexes?.IGC,
+      activeAtQuarterClose: advisor.activeAtQuarterClose ?? (advisor.active === true || advisor.status === 'active'),
+      advisorActiveStatus: advisor.advisorActiveStatus ?? advisor.status,
+      LIMRA: advisor.LIMRA ?? advisor.indexes?.LIMRA ?? null,
+      IGC: advisor.IGC ?? advisor.indexes?.IGC ?? null,
       metadata: {
         ...(advisor.metadata || {}),
-        normalizedMonthlyFacts: monthly.facts,
-      },
+        normalizedMonthlyFacts: monthly.facts
+      }
     };
   });
 
   return {
     partner: normalizedPartner,
     advisors: normalizedAdvisors,
-    period: {
-      ...period,
-      months: period.months || periodMonths.map((month) => month.key),
-    },
+    period,
     evidence,
-    metadata: { periodMonths },
+    metadata: {
+      periodMonths
+    }
   };
 }
+
+
 
 function validOutput(advisor) {
   return createAdvisorEconomicOutput({
@@ -514,9 +750,9 @@ export function calculatePartnerQuarterlyBonusCandidate({
           if (![1, 2, 3].includes(Number(advisorMonth))) return null;
           const result = gatePartnerConnectionBonusCalculation({
             rulePack: activeRulePack,
-            onboardingEvidence: advisor.onboardingEvidence === true || Number(advisorMonth) === 1,
+            onboardingEvidence: advisor.onboardingEvidence === true || advisor.connectedAdvisorEvidence === true || advisor.connectionEvidence === true || Number(advisorMonth) === 1,
             advisorMonth,
-            monthlyPolicies: monthFact?.partialMonthlyPolicies,
+            monthlyPolicies: monthFact?.partialMonthlyPolicies ?? monthFact?.monthlyPolicies ?? monthFact?.validPolicyCount ?? monthFact?.policyCount ?? monthFact?.paidPolicyCount,
             paidAppliedPolicyEvidence: advisor.paidAppliedPolicyEvidence === true,
             connectorActiveAtMonthClose: partner.active === true,
             connectedAdvisorActiveAtMonthClose: advisor.activeAtQuarterClose === true,

@@ -25,6 +25,7 @@ const qualifiedAdvisorStatus = evaluateQualifiedAdvisorEconomicStatus({
   threshold: DEFAULT_PARTNER_2026_QUALIFIED_COMMISSION_THRESHOLD,
   LIMRA: 0.8,
   IGC: 0.9,
+  lifeIndividualShare: 0.6,
   lifecycleStatus: 'connected_active',
   lifecycleGateAllowed: true,
   economicOutputStatus: ADVISOR_ECONOMIC_OUTPUT_STATUSES.PAID_APPLIED_CONFIRMED,
@@ -36,7 +37,7 @@ for (const [count, percentage] of expected) {
     rulePack,
     qualifiedAdvisorStatus,
     advisorCareerMonth: 3,
-    validLifeGmmPolicyCount: count,
+    monthlyAveragePolicies: count,
     paidAppliedPolicyEvidence: true,
     economicBasisAmount: 100000,
   });
@@ -45,7 +46,7 @@ for (const [count, percentage] of expected) {
 
 const unqualified = calculatePartnerActivityBonusCandidate({
   advisorCareerMonth: 3,
-  validLifeGmmPolicyCount: 2,
+  monthlyAveragePolicies: 2,
   paidAppliedPolicyEvidence: true,
   economicBasisAmount: 100000,
 });
@@ -54,7 +55,7 @@ assert.ok(unqualified.blockedReasons.includes('advisor_not_qualified'));
 const tooNew = calculatePartnerActivityBonusCandidate({
   qualifiedAdvisorStatus,
   advisorCareerMonth: 2,
-  validLifeGmmPolicyCount: 2,
+  monthlyAveragePolicies: 2,
   paidAppliedPolicyEvidence: true,
   economicBasisAmount: 100000,
 });
@@ -63,7 +64,7 @@ assert.ok(tooNew.blockedReasons.includes('minimum_three_month_seniority_required
 const missingPolicyEvidence = calculatePartnerActivityBonusCandidate({
   qualifiedAdvisorStatus,
   advisorCareerMonth: 3,
-  validLifeGmmPolicyCount: 2,
+  monthlyAveragePolicies: 2,
   economicBasisAmount: 100000,
 });
 assert.ok(missingPolicyEvidence.blockedReasons.includes('missing_paid_applied_policy_evidence'));
