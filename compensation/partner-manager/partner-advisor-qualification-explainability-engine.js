@@ -1,4 +1,11 @@
+import {
+  createRulePackIdentitySnapshot,
+  flattenRulePackIdentitySnapshot,
+} from '../../governance/rule-pack-identity-snapshot.js';
+
 function numberOrNull(value) {
+  if (value === null || value === undefined || value === '') return null;
+
   const numericValue = Number(value);
   return Number.isFinite(numericValue) ? numericValue : null;
 }
@@ -7,10 +14,6 @@ function round2(value) {
   const numericValue = numberOrNull(value);
   if (numericValue === null) return null;
   return Math.round((numericValue + Number.EPSILON) * 100) / 100;
-}
-
-function bool(value) {
-  return value === true;
 }
 
 function advisorIdOf(advisor = {}, qualification = {}) {
@@ -29,6 +32,112 @@ function asArray(value) {
   return Array.isArray(value) ? value : [];
 }
 
+function firstDefined(candidates = []) {
+  return candidates.find((candidate) => candidate !== undefined);
+}
+
+function createNumericRawFact({ value, source = 'input' } = {}) {
+  if (value === undefined || value === null || value === '') {
+    return {
+      value: null,
+      state: 'missing',
+      source,
+    };
+  }
+
+  const numericValue = numberOrNull(value);
+
+  if (numericValue === null) {
+    return {
+      value: null,
+      state: 'unknown',
+      source,
+      rawValue: value,
+    };
+  }
+
+  return {
+    value: round2(numericValue),
+    state: 'observed',
+    source,
+  };
+}
+
+function createBooleanRawFact({ value, source = 'input' } = {}) {
+  if (value === undefined || value === null || value === '') {
+    return {
+      value: null,
+      state: 'missing',
+      source,
+    };
+  }
+
+  if (value === true || value === false) {
+    return {
+      value,
+      state: 'observed',
+      source,
+    };
+  }
+
+  if (value === 'active') {
+    return {
+      value: true,
+      state: 'observed',
+      source,
+    };
+  }
+
+  if (value === 'inactive') {
+    return {
+      value: false,
+      state: 'observed',
+      source,
+    };
+  }
+
+  return {
+    value: null,
+    state: 'unknown',
+    source,
+    rawValue: value,
+  };
+}
+
+function numericFactFromCandidates(candidates = []) {
+  let firstMissing = null;
+  let firstUnknown = null;
+
+  for (const candidate of candidates) {
+    if (!candidate || candidate.value === undefined) continue;
+
+    const fact = createNumericRawFact(candidate);
+
+    if (fact.state === 'observed') {
+      return fact;
+    }
+
+    if (fact.state === 'unknown' && firstUnknown === null) {
+      firstUnknown = fact;
+    }
+
+    if (fact.state === 'missing' && firstMissing === null) {
+      firstMissing = fact;
+    }
+  }
+
+  return firstUnknown
+    ?? firstMissing
+    ?? createNumericRawFact({ value: undefined, source: 'input' });
+}
+
+
+function boolFactFromCandidates(candidates = []) {
+  const candidate = candidates.find((item) => item && item.value !== undefined);
+  if (!candidate) return createBooleanRawFact({ value: undefined, source: 'input' });
+  return createBooleanRawFact(candidate);
+}
+
 function deriveVidaGmmiBasis(advisor = {}) {
   return numberOrNull(advisor.qualifiedAdvisorInitialCommissionsLifeIndividualAndGmmi)
     ?? numberOrNull(advisor.lifeAndGmmiInitialCommissions)
@@ -43,22 +152,354 @@ function deriveOtherRamosBasis(advisor = {}) {
   return quarterInitial - vidaGmmi;
 }
 
-function buildAdvisorQualificationExplanation({ advisor = {}, qualification = {}, index = null } = {}) {
+function factInitialCommissionTotal(fact = {}) {
+  const initialCommissions = fact.initialCommissions || {};
+
+  const vidaIndividual = numberOrNull(initialCommissions.vidaIndividual) ?? 0;
+  const gmmiIndividual = numberOrNull(initialCommissions.gmmiIndividual) ?? 0;
+  const otherRamos = numberOrNull(initialCommissions.otherRamos) ?? 0;
+
+  const hasAnyObservedValue = numberOrNull(initialCommissions.vidaIndividual) !== null
+    || numberOrNull(initialCommissions.gmmiIndividual) !== null
+    || numberOrNull(initialCommissions.otherRamos) !== null;
+
+  if (!hasAnyObservedValue) return null;
+
+  return vidaIndividual + gmmiIndividual + otherRamos;
+}
+
+function deriveQuarterInitialCommissionsFromMonthlyFacts(advisor = {}) {
+  const monthlyFacts = asArray(advisor.monthlyFacts);
+
+  if (monthlyFacts.length === 0) return null;
+
+  const monthlyTotals = monthlyFacts
+    .map(factInitialCommissionTotal)
+    .filter((value) => value !== null);
+
+  if (monthlyTotals.length === 0) return null;
+
+  return monthlyTotals.reduce((total, value) => total + value, 0);
+}
+
+function deriveAverageMonthlyInitialCommissionsFromMonthlyFacts(advisor = {}) {
+  const monthlyFacts = asArray(advisor.monthlyFacts);
+
+  if (monthlyFacts.length === 0) return null;
+
+  const monthlyTotals = monthlyFacts
+    .map(factInitialCommissionTotal)
+    .filter((value) => value !== null);
+
+  if (monthlyTotals.length === 0) return null;
+
+  return monthlyTotals.reduce((total, value) => total + value, 0) / monthlyTotals.length;
+}
+
+
+function buildRawFacts({ advisor = {}, qualification = {} } = {}) {
+  const activeRawValue = firstDefined([
+    advisor.activeAtQuarterClose,
+    advisor.active,
+    advisor.advisorActiveStatus,
+    advisor.status,
+    qualification.activeAtQuarterClose,
+  ]);
+
+  const derivedAverageMonthlyInitialCommissions = deriveAverageMonthlyInitialCommissionsFromMonthlyFacts(advisor);
+  const derivedQuarterInitialCommissions = deriveQuarterInitialCommissionsFromMonthlyFacts(advisor);
+
+  return {
+    ciPromedio: numericFactFromCandidates([
+      { value: advisor.averageMonthlyInitialCommissions, source: 'normalizedAdvisor.averageMonthlyInitialCommissions' },
+      { value: qualification.averageMonthlyInitialCommissions, source: 'qualification.averageMonthlyInitialCommissions' },
+      { value: derivedAverageMonthlyInitialCommissions, source: 'derived.monthlyFacts.averageMonthlyInitialCommissions' },
+    ]),
+    averageMonthlyInitialCommissions: numericFactFromCandidates([
+      { value: advisor.averageMonthlyInitialCommissions, source: 'normalizedAdvisor.averageMonthlyInitialCommissions' },
+      { value: qualification.averageMonthlyInitialCommissions, source: 'qualification.averageMonthlyInitialCommissions' },
+      { value: derivedAverageMonthlyInitialCommissions, source: 'derived.monthlyFacts.averageMonthlyInitialCommissions' },
+    ]),
+    quarterInitialCommissions: numericFactFromCandidates([
+      { value: advisor.quarterInitialCommissions, source: 'normalizedAdvisor.quarterInitialCommissions' },
+      { value: qualification.quarterInitialCommissions, source: 'qualification.quarterInitialCommissions' },
+      { value: derivedQuarterInitialCommissions, source: 'derived.monthlyFacts.quarterInitialCommissions' },
+    ]),
+    monthlyAveragePolicies: numericFactFromCandidates([
+      { value: advisor.monthlyAveragePolicies, source: 'normalizedAdvisor.monthlyAveragePolicies' },
+    ]),
+    quarterPolicyTotal: numericFactFromCandidates([
+      { value: advisor.quarterPolicyTotal, source: 'normalizedAdvisor.quarterPolicyTotal' },
+    ]),
+    vidaGmmiBasis: createNumericRawFact({
+      value: deriveVidaGmmiBasis(advisor),
+      source: 'derived.vidaGmmiBasis',
+    }),
+    otherRamosBasis: createNumericRawFact({
+      value: deriveOtherRamosBasis(advisor),
+      source: 'derived.otherRamosBasis',
+    }),
+    lifeIndividualShare: numericFactFromCandidates([
+      { value: advisor.lifeIndividualShare, source: 'normalizedAdvisor.lifeIndividualShare' },
+      { value: qualification.lifeIndividualShare, source: 'qualification.lifeIndividualShare' },
+    ]),
+    LIMRA: numericFactFromCandidates([
+      { value: advisor.LIMRA, source: 'normalizedAdvisor.LIMRA' },
+      { value: advisor.indexes?.LIMRA, source: 'advisor.indexes.LIMRA' },
+      { value: qualification.LIMRA, source: 'qualification.LIMRA' },
+    ]),
+    IGC: numericFactFromCandidates([
+      { value: advisor.IGC, source: 'normalizedAdvisor.IGC' },
+      { value: advisor.indexes?.IGC, source: 'advisor.indexes.IGC' },
+      { value: qualification.IGC, source: 'qualification.IGC' },
+    ]),
+    active: createBooleanRawFact({
+      value: activeRawValue,
+      source: 'advisor.activeAtQuarterClose',
+    }),
+    careerMonth: numericFactFromCandidates([
+      { value: advisor.advisorMonth, source: 'normalizedAdvisor.advisorMonth' },
+      { value: qualification.careerMonth, source: 'qualification.careerMonth' },
+    ]),
+  };
+}
+
+
+function evaluatedNumericMetric({ rawFact, threshold = null, priorBlocked = false, excluded = false, missingRequired = false } = {}) {
+  if (excluded) {
+    return {
+      value: rawFact?.value ?? null,
+      state: 'excluded_by_rule',
+    };
+  }
+
+  if (priorBlocked && rawFact?.state === 'observed') {
+    return {
+      value: rawFact.value,
+      state: 'not_evaluated_due_to_prior_block',
+    };
+  }
+
+  if (rawFact?.state === 'missing' || missingRequired) {
+    return {
+      value: null,
+      state: 'missing_and_required',
+    };
+  }
+
+  if (rawFact?.state === 'unknown') {
+    return {
+      value: null,
+      state: 'unknown',
+    };
+  }
+
+  if (rawFact?.state !== 'observed') {
+    return {
+      value: null,
+      state: 'unknown',
+    };
+  }
+
+  if (threshold === null) {
+    return {
+      value: rawFact.value,
+      state: 'evaluated_observed',
+    };
+  }
+
+  return {
+    value: rawFact.value,
+    state: rawFact.value >= threshold ? 'evaluated_passed' : 'evaluated_failed',
+    threshold,
+  };
+}
+
+function evaluatedBooleanMetric({ rawFact } = {}) {
+  if (rawFact?.state === 'missing') {
+    return {
+      value: null,
+      state: 'missing_and_required',
+    };
+  }
+
+  if (rawFact?.state === 'unknown') {
+    return {
+      value: null,
+      state: 'unknown',
+    };
+  }
+
+  return {
+    value: rawFact?.value ?? null,
+    state: rawFact?.value === true ? 'evaluated_passed' : 'evaluated_failed',
+  };
+}
+
+function primaryReasonFrom({ qualified, active, averageMonthlyInitialCommissions, lifeIndividualShare, LIMRA, IGC, blockedReasons = [] } = {}) {
+  if (qualified) return 'qualified';
+
+  if (active !== true) return 'inactive_advisor';
+  if (averageMonthlyInitialCommissions === null) return 'missing_average_monthly_initial_commissions';
+  if (averageMonthlyInitialCommissions < 9000) return 'average_monthly_initial_commissions_below_9000';
+  if (lifeIndividualShare === null) return 'missing_life_individual_share';
+  if (lifeIndividualShare >= 0.6 && LIMRA === null) return 'missing_limra';
+  if (lifeIndividualShare >= 0.6 && IGC === null) return 'missing_igc';
+
+  const explicitBlockedReason = blockedReasons[0];
+  if (explicitBlockedReason) return explicitBlockedReason;
+
+  return 'not_qualified_by_existing_calculator';
+}
+
+function decisionStatusFrom(primaryReason, qualified) {
+  if (qualified) return 'qualified';
+
+  const map = {
+    inactive_advisor: 'blocked_by_inactive_advisor',
+    missing_average_monthly_initial_commissions: 'blocked_by_missing_average_monthly_initial_commissions',
+    average_monthly_initial_commissions_below_9000: 'blocked_by_average_monthly_initial_commissions_below_9000_partner_requirement',
+    missing_life_individual_share: 'blocked_by_missing_life_individual_share',
+    missing_limra: 'blocked_by_missing_limra',
+    missing_igc: 'blocked_by_missing_igc',
+  };
+
+  return map[primaryReason] || String(primaryReason || 'not_qualified_explained');
+}
+
+function money(value) {
+  const numericValue = numberOrNull(value);
+  if (numericValue === null) return 'dato no disponible';
+
+  return new Intl.NumberFormat('es-MX', {
+    style: 'currency',
+    currency: 'MXN',
+    maximumFractionDigits: 2,
+  }).format(numericValue);
+}
+
+function humanSummaryFrom({ qualified, primaryReason, rawFacts = {} } = {}) {
+  const observedCi = rawFacts.ciPromedio?.state === 'observed'
+    ? rawFacts.ciPromedio.value
+    : null;
+
+  const ciSentence = observedCi !== null
+    ? ` El PromCI observado fue ${money(observedCi)}.`
+    : ' No hay PromCI observado confirmable.';
+
+  if (qualified) {
+    return `Califica según el cálculo existente.${ciSentence}`;
+  }
+
+  const reasonText = {
+    inactive_advisor: 'No califica porque el asesor está inactivo al cierre del periodo.',
+    missing_average_monthly_initial_commissions: 'No califica porque falta evidencia de PromCI.',
+    average_monthly_initial_commissions_below_9000: 'No califica porque el PromCI evaluado no alcanza el mínimo requerido.',
+    missing_life_individual_share: 'No califica porque falta información de participación de Vida Individual.',
+    missing_limra: 'No califica porque falta evidencia de LIMRA.',
+    missing_igc: 'No califica porque falta evidencia de IGC.',
+  }[primaryReason] || 'No califica según el cálculo existente.';
+
+  if (observedCi !== null && ['inactive_advisor', 'missing_limra', 'missing_igc', 'missing_life_individual_share'].includes(primaryReason)) {
+    return `${reasonText}${ciSentence} El valor observado se conserva, pero la evaluación quedó detenida por el gate correspondiente.`;
+  }
+
+  return `${reasonText}${ciSentence}`;
+}
+
+function buildEvaluatedMetrics({ rawFacts = {}, active, averageMonthlyInitialCommissions, lifeIndividualShare, LIMRA, IGC } = {}) {
+  const inactivePriorBlock = active !== true;
+  const ciPassed = averageMonthlyInitialCommissions !== null && averageMonthlyInitialCommissions >= 9000;
+  const ciPriorBlock = inactivePriorBlock;
+  const indexGateUnknown = lifeIndividualShare === null;
+  const indexGateRelevant = lifeIndividualShare !== null && lifeIndividualShare >= 0.6;
+  const indexGateExcluded = lifeIndividualShare !== null && lifeIndividualShare < 0.6;
+  const priorBlockForIndex = inactivePriorBlock || !ciPassed;
+
+  return {
+    ciPromedio: evaluatedNumericMetric({
+      rawFact: rawFacts.ciPromedio,
+      threshold: 9000,
+      priorBlocked: ciPriorBlock,
+    }),
+    averageMonthlyInitialCommissions: evaluatedNumericMetric({
+      rawFact: rawFacts.averageMonthlyInitialCommissions,
+      threshold: 9000,
+      priorBlocked: ciPriorBlock,
+    }),
+    active: evaluatedBooleanMetric({
+      rawFact: rawFacts.active,
+    }),
+    lifeIndividualShare: evaluatedNumericMetric({
+      rawFact: rawFacts.lifeIndividualShare,
+      threshold: 0.6,
+      priorBlocked: priorBlockForIndex,
+      missingRequired: indexGateUnknown,
+    }),
+    LIMRA: evaluatedNumericMetric({
+      rawFact: rawFacts.LIMRA,
+      priorBlocked: priorBlockForIndex || indexGateUnknown,
+      excluded: indexGateExcluded,
+      missingRequired: indexGateRelevant && LIMRA === null,
+    }),
+    IGC: evaluatedNumericMetric({
+      rawFact: rawFacts.IGC,
+      priorBlocked: priorBlockForIndex || indexGateUnknown,
+      excluded: indexGateExcluded,
+      missingRequired: indexGateRelevant && IGC === null,
+    }),
+    quarterInitialCommissions: evaluatedNumericMetric({
+      rawFact: rawFacts.quarterInitialCommissions,
+      priorBlocked: false,
+    }),
+    monthlyAveragePolicies: evaluatedNumericMetric({
+      rawFact: rawFacts.monthlyAveragePolicies,
+      priorBlocked: false,
+    }),
+    quarterPolicyTotal: evaluatedNumericMetric({
+      rawFact: rawFacts.quarterPolicyTotal,
+      priorBlocked: false,
+    }),
+    vidaGmmiBasis: evaluatedNumericMetric({
+      rawFact: rawFacts.vidaGmmiBasis,
+      priorBlocked: false,
+    }),
+    otherRamosBasis: evaluatedNumericMetric({
+      rawFact: rawFacts.otherRamosBasis,
+      priorBlocked: false,
+    }),
+    careerMonth: evaluatedNumericMetric({
+      rawFact: rawFacts.careerMonth,
+      priorBlocked: false,
+    }),
+  };
+}
+
+function buildAdvisorQualificationExplanation({
+  advisor = {},
+  qualification = {},
+  index = null,
+  rulePackIdentityStamp,
+} = {}) {
   const qualified = qualification.qualified === true;
-  const active = advisor.activeAtQuarterClose === true || advisor.active === true || advisor.advisorActiveStatus === 'active';
-  const averageMonthlyInitialCommissions =
-    numberOrNull(qualification.averageMonthlyInitialCommissions)
-    ?? numberOrNull(advisor.averageMonthlyInitialCommissions)
-    ?? null;
+  const rawFacts = buildRawFacts({ advisor, qualification });
 
-  const quarterInitialCommissions = numberOrNull(advisor.quarterInitialCommissions);
-  const lifeIndividualShare =
-    numberOrNull(qualification.lifeIndividualShare)
-    ?? numberOrNull(advisor.lifeIndividualShare)
-    ?? null;
-
-  const LIMRA = numberOrNull(advisor.LIMRA);
-  const IGC = numberOrNull(advisor.IGC);
+  const active = rawFacts.active.value === true;
+  const averageMonthlyInitialCommissions = rawFacts.ciPromedio.state === 'observed'
+    ? rawFacts.ciPromedio.value
+    : null;
+  const quarterInitialCommissions = rawFacts.quarterInitialCommissions.state === 'observed'
+    ? rawFacts.quarterInitialCommissions.value
+    : null;
+  const lifeIndividualShare = rawFacts.lifeIndividualShare.state === 'observed'
+    ? rawFacts.lifeIndividualShare.value
+    : null;
+  const LIMRA = rawFacts.LIMRA.state === 'observed'
+    ? rawFacts.LIMRA.value
+    : null;
+  const IGC = rawFacts.IGC.state === 'observed'
+    ? rawFacts.IGC.value
+    : null;
 
   const reasons = [];
   const blockedReasons = [
@@ -123,35 +564,76 @@ function buildAdvisorQualificationExplanation({ advisor = {}, qualification = {}
     warnings.push('unknown_index_gate_relevance_missing_life_individual_share');
   }
 
+  const primaryReason = primaryReasonFrom({
+    qualified,
+    active,
+    averageMonthlyInitialCommissions,
+    lifeIndividualShare,
+    LIMRA,
+    IGC,
+    blockedReasons,
+  });
+
+  const evaluatedMetrics = buildEvaluatedMetrics({
+    rawFacts,
+    active,
+    averageMonthlyInitialCommissions,
+    lifeIndividualShare,
+    LIMRA,
+    IGC,
+  });
+
+  const qualificationDecision = {
+    qualified,
+    status: decisionStatusFrom(primaryReason, qualified),
+    primaryReason,
+  };
+
   return {
     advisorId: advisorIdOf(advisor, qualification),
     advisorName: advisorNameOf(advisor, qualification),
     index,
     status: qualified ? 'qualified_explained' : 'not_qualified_explained',
     qualified,
+    qualificationDecision,
     reasons: unique(reasons),
     blockedReasons: unique(blockedReasons),
     missingInputs: unique(missingInputs),
     warnings: unique(warnings),
     evidenceUsed: unique(evidenceUsed),
     rulesUsed: unique(rulesUsed),
+    rawFacts,
+    evaluatedMetrics,
+    explanation: {
+      humanSummary: humanSummaryFrom({ qualified, primaryReason, rawFacts }),
+      warnings: unique(warnings),
+    },
     metrics: {
-      careerMonth: numberOrNull(advisor.advisorMonth ?? qualification.careerMonth),
-      averageMonthlyInitialCommissions: round2(averageMonthlyInitialCommissions),
+      careerMonth: rawFacts.careerMonth.value,
+      averageMonthlyInitialCommissions: evaluatedMetrics.ciPromedio.value,
       quarterInitialCommissions: round2(quarterInitialCommissions),
-      monthlyAveragePolicies: round2(advisor.monthlyAveragePolicies),
-      quarterPolicyTotal: round2(advisor.quarterPolicyTotal),
-      vidaGmmiBasis: round2(deriveVidaGmmiBasis(advisor)),
-      otherRamosBasis: round2(deriveOtherRamosBasis(advisor)),
-      lifeIndividualShare: round2(lifeIndividualShare),
-      LIMRA,
-      IGC,
+      monthlyAveragePolicies: rawFacts.monthlyAveragePolicies.value,
+      quarterPolicyTotal: rawFacts.quarterPolicyTotal.value,
+      vidaGmmiBasis: rawFacts.vidaGmmiBasis.value,
+      otherRamosBasis: rawFacts.otherRamosBasis.value,
+      lifeIndividualShare: rawFacts.lifeIndividualShare.value,
+      LIMRA: rawFacts.LIMRA.value,
+      IGC: rawFacts.IGC.value,
       active,
     },
+    ...rulePackIdentityStamp,
   };
 }
 
-export function explainPartnerAdvisorQualifications({ quarterlyResult = null } = {}) {
+export function explainPartnerAdvisorQualifications({ quarterlyResult = null, rulePackIdentity = null } = {}) {
+  const identity = createRulePackIdentitySnapshot({
+    rulePackIdentity,
+    calculatedAt: rulePackIdentity?.calculatedAt ?? null,
+    generatedAt: rulePackIdentity?.generatedAt ?? null,
+    allowDraft: true,
+  });
+  const rulePackIdentityStamp = flattenRulePackIdentitySnapshot(identity);
+
   const advisors = quarterlyResult?.qualificationSummary?.normalizedAdvisors || [];
   const qualifications = quarterlyResult?.qualificationSummary?.advisors || [];
 
@@ -160,6 +642,7 @@ export function explainPartnerAdvisorQualifications({ quarterlyResult = null } =
       advisor,
       qualification: qualifications[index] || {},
       index,
+      rulePackIdentityStamp,
     })
   ));
 
@@ -170,6 +653,7 @@ export function explainPartnerAdvisorQualifications({ quarterlyResult = null } =
     advisors: advisorExplanations,
     warnings: unique(advisorExplanations.flatMap((advisor) => advisor.warnings)),
     blockedReasons: unique(advisorExplanations.flatMap((advisor) => advisor.blockedReasons)),
+    ...rulePackIdentityStamp,
   };
 }
 

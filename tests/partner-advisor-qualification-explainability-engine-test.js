@@ -8,7 +8,19 @@ import {
   explainPartnerAdvisorQualifications,
 } from '../compensation/partner-manager/partner-advisor-qualification-explainability-engine.js';
 
+import {
+  GovernanceIdentityMissingError,
+} from '../governance/rule-pack-identity-snapshot.js';
+
 const r2 = (value) => Math.round((Number(value) + Number.EPSILON) * 100) / 100;
+
+const rulePackIdentity = {
+  rulePackId: 'smnyl-partner-compensation-2026-payment-distribution',
+  rulePackVersion: '2026.1.0-test',
+  rulePackHash: 'draft:not-sealed',
+  governanceStatus: 'draft',
+  calculatedAt: null,
+};
 
 const rawFact = (month, vidaIndividual, gmmiIndividual, otherRamos, vidaPolicies, gmmiPolicies = 0) => ({
   month,
@@ -120,7 +132,12 @@ const scenario = calculatePartnerQuarterlyBonusCandidate({
   },
 });
 
-const explanation = explainPartnerAdvisorQualifications({ quarterlyResult: scenario });
+assert.throws(
+  () => explainPartnerAdvisorQualifications({ quarterlyResult: scenario }),
+  GovernanceIdentityMissingError,
+);
+
+const explanation = explainPartnerAdvisorQualifications({ quarterlyResult: scenario, rulePackIdentity });
 
 const byName = new Map(explanation.advisors.map((advisorExplanation) => [
   advisorExplanation.advisorName,
@@ -129,6 +146,7 @@ const byName = new Map(explanation.advisors.map((advisorExplanation) => [
 
 assert.equal(scenario.qualificationSummary.qualifiedAdvisorCount, 5);
 assert.equal(explanation.qualifiedAdvisorCount, 5);
+assert.equal(explanation.rulePackIdentity.rulePackHash, rulePackIdentity.rulePackHash);
 
 assert.equal(byName.get('Ana').qualified, true);
 assert.equal(byName.get('Bruno').qualified, true);
@@ -139,12 +157,103 @@ assert.equal(byName.get('Fernando').qualified, true);
 assert.ok(byName.get('Fernando').reasons.includes('qualified_by_existing_calculator'));
 assert.ok(byName.get('Fernando').reasons.includes('average_monthly_initial_commissions_meets_9000_partner_requirement'));
 assert.ok(byName.get('Fernando').warnings.includes('limra_igc_gate_not_applied_life_individual_share_below_60_percent'));
+assert.equal(byName.get('Fernando').evaluatedMetrics.LIMRA.state, 'excluded_by_rule');
+assert.equal(byName.get('Fernando').evaluatedMetrics.IGC.state, 'excluded_by_rule');
 
 assert.equal(byName.get('Gabriela').qualified, false);
 assert.ok(byName.get('Gabriela').blockedReasons.includes('blocked_by_average_monthly_initial_commissions_below_9000_partner_requirement'));
 assert.equal(r2(byName.get('Gabriela').metrics.averageMonthlyInitialCommissions), 8500);
+assert.equal(byName.get('Gabriela').rawFacts.ciPromedio.value, 8500);
+assert.equal(byName.get('Gabriela').evaluatedMetrics.ciPromedio.state, 'evaluated_failed');
 
 assert.equal(byName.get('Héctor').qualified, false);
 assert.ok(byName.get('Héctor').blockedReasons.includes('blocked_by_inactive_advisor'));
+assert.equal(byName.get('Héctor').rawFacts.ciPromedio.value, 11000);
+assert.equal(byName.get('Héctor').rawFacts.ciPromedio.state, 'observed');
+assert.equal(byName.get('Héctor').evaluatedMetrics.ciPromedio.value, 11000);
+assert.equal(byName.get('Héctor').evaluatedMetrics.ciPromedio.state, 'not_evaluated_due_to_prior_block');
+assert.equal(byName.get('Héctor').metrics.averageMonthlyInitialCommissions, 11000);
+assert.notEqual(byName.get('Héctor').metrics.averageMonthlyInitialCommissions, 0);
+assert.ok(byName.get('Héctor').explanation.humanSummary.includes('PromCI observado'));
+
+assert.equal(explanation.advisors.every((advisorExplanation) => advisorExplanation.rulePackIdentity.rulePackHash === rulePackIdentity.rulePackHash), true);
+
+const zeroScenario = {
+  qualificationSummary: {
+    normalizedAdvisors: [
+      {
+        id: 'zero-real',
+        name: 'Zero Real',
+        active: true,
+        status: 'active',
+        averageMonthlyInitialCommissions: 0,
+        quarterInitialCommissions: 0,
+        lifeIndividualShare: 0.7,
+        LIMRA: 85,
+        IGC: 90,
+      },
+    ],
+    advisors: [
+      {
+        advisorId: 'zero-real',
+        advisorName: 'Zero Real',
+        qualified: false,
+        averageMonthlyInitialCommissions: 0,
+        blockedReasons: ['blocked_by_average_monthly_initial_commissions_below_9000_partner_requirement'],
+      },
+    ],
+  },
+};
+
+const zeroExplanation = explainPartnerAdvisorQualifications({
+  quarterlyResult: zeroScenario,
+  rulePackIdentity,
+}).advisors[0];
+
+assert.equal(zeroExplanation.rawFacts.ciPromedio.value, 0);
+assert.equal(zeroExplanation.rawFacts.ciPromedio.state, 'observed');
+assert.equal(zeroExplanation.evaluatedMetrics.ciPromedio.value, 0);
+assert.equal(zeroExplanation.evaluatedMetrics.ciPromedio.state, 'evaluated_failed');
+assert.ok(zeroExplanation.explanation.humanSummary.includes('PromCI evaluado no alcanza'));
+
+const missingLimraScenario = {
+  qualificationSummary: {
+    normalizedAdvisors: [
+      {
+        id: 'missing-limra',
+        name: 'Missing LIMRA',
+        active: true,
+        status: 'active',
+        averageMonthlyInitialCommissions: 12000,
+        quarterInitialCommissions: 36000,
+        lifeIndividualShare: 0.8,
+        LIMRA: null,
+        IGC: 91,
+      },
+    ],
+    advisors: [
+      {
+        advisorId: 'missing-limra',
+        advisorName: 'Missing LIMRA',
+        qualified: false,
+        averageMonthlyInitialCommissions: 12000,
+        missingInputs: ['LIMRA'],
+      },
+    ],
+  },
+};
+
+const missingLimra = explainPartnerAdvisorQualifications({
+  quarterlyResult: missingLimraScenario,
+  rulePackIdentity,
+}).advisors[0];
+
+assert.equal(missingLimra.rawFacts.ciPromedio.value, 12000);
+assert.equal(missingLimra.rawFacts.LIMRA.state, 'missing');
+assert.equal(missingLimra.evaluatedMetrics.ciPromedio.state, 'evaluated_passed');
+assert.equal(missingLimra.evaluatedMetrics.LIMRA.state, 'missing_and_required');
+assert.equal(missingLimra.qualificationDecision.primaryReason, 'missing_limra');
+assert.ok(missingLimra.explanation.humanSummary.includes('falta evidencia de LIMRA'));
+assert.ok(missingLimra.explanation.humanSummary.includes('$12,000.00'));
 
 console.log('PASS partner-advisor-qualification-explainability-engine-test');
