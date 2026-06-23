@@ -10,6 +10,11 @@ import {
   evaluateAdvisorDevelopmentPolicies,
 } from '../compensation/advisor-development/advisor-development-counting-weighting-engine.js';
 
+import {
+  TRAINING_ALLOWANCE_STATUS,
+  calculateTrainingAllowanceCandidate,
+} from '../compensation/advisor-development/advisor-development-training-allowance-engine.js';
+
 const RULE_PACK_PATH = 'compensation/advisor-development/rule-data/smnyl-advisor-development-2026.rule-pack.json';
 
 function readRulePackRaw() {
@@ -195,9 +200,41 @@ function testCountingEngineConsumesPhysicalRulePack() {
   console.log('PASS counting engine consumes physical advisor development rule pack');
 }
 
+function testTrainingAllowanceEngineConsumesPhysicalRulePack() {
+  const loaded = loadAdvisorDevelopmentRulePack();
+
+  const month12 = calculateTrainingAllowanceCandidate({
+    rulePack: loaded.rulePack,
+    advisorFacts: {
+      advisorMonth: 12,
+      accumulatedInitialCommission: 300000,
+      accumulatedPolicies: 18,
+      accumulatedLifePolicies: 6,
+      priorPaidBonusesInCurrentSemester: 1500,
+    },
+  });
+
+  assert.equal(month12.status, TRAINING_ALLOWANCE_STATUS.ELIGIBLE);
+  assert.equal(month12.semester, 2);
+  assert.equal(month12.tableRow.maximumAward, 210000);
+  assert.equal(month12.calculation.baseBonusCalculated, 300000);
+  assert.equal(month12.calculation.baseBonusCapped, 210000);
+  assert.equal(month12.calculation.excessAmount, 90000);
+  assert.equal(month12.calculation.excessMultiplierRate, 0.35);
+  assert.equal(month12.calculation.excessBonusCalculated, 31500);
+  assert.equal(month12.calculation.totalCalculatedCandidate, 241500);
+  assert.equal(month12.calculation.priorPaidBonusesInCurrentSemester, 1500);
+  assert.equal(month12.calculation.payableCandidate, 240000);
+  assert.equal(month12.payoutTruth, false);
+  assert.deepEqual(month12.evidenceRequirements, ['commission_statement_required']);
+
+  console.log('PASS Training Allowance engine consumes physical rule pack');
+}
+
 testPhysicalJsonIsValid();
 testLoaderLoadsPhysicalDraftRulePack();
 testTrainingAllowanceTableFromPhysicalRulePack();
 testCountingEngineConsumesPhysicalRulePack();
+testTrainingAllowanceEngineConsumesPhysicalRulePack();
 
 console.log('PASS advisor-development-rule-pack-integration-test');
