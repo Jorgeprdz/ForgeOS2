@@ -563,6 +563,14 @@ function inferTrainingWinnerCountLastSixMonths({ advisors = [], evidence = {}, p
   return winners.length;
 }
 
+function isPayablePartnerConceptKey(conceptKey) {
+  return ![
+    'productivityBase',
+    'productivity-base',
+    'productivity_base',
+  ].includes(conceptKey);
+}
+
 function buildQuarterlyPaymentSchedule({ concepts, rulePack }) {
   const monthlyAdvances = [];
   const monthlyPayments = [];
@@ -613,12 +621,19 @@ function buildQuarterlyPaymentSchedule({ concepts, rulePack }) {
     }
   }
 
-  const totalQuarterPayableCandidate = sumNumbers(Object.values(concepts).map(calculatedAmount));
+  const payableMonthlyAdvances = monthlyAdvances.filter((payment) => isPayablePartnerConceptKey(payment.conceptKey));
+  const payableMonthlyPayments = monthlyPayments.filter((payment) => isPayablePartnerConceptKey(payment.conceptKey));
+  const payableEventBasedPayments = eventBasedPayments.filter((payment) => isPayablePartnerConceptKey(payment.conceptKey));
+  const payableQuarterEndPayments = quarterEndPayments.filter((payment) => isPayablePartnerConceptKey(payment.conceptKey));
+
+  const totalQuarterPayableCandidate = sumNumbers(Object.entries(concepts)
+    .filter(([conceptKey]) => isPayablePartnerConceptKey(conceptKey))
+    .map(([, concept]) => calculatedAmount(concept)));
   return {
-    monthlyAdvances,
-    monthlyPayments,
-    eventBasedPayments,
-    quarterEndPayments,
+    monthlyAdvances: payableMonthlyAdvances,
+    monthlyPayments: payableMonthlyPayments,
+    eventBasedPayments: payableEventBasedPayments,
+    quarterEndPayments: payableQuarterEndPayments,
     blockedPayments,
     totalQuarterPayableCandidate,
     averageMonthlyCashflowCandidate: hasNumber(totalQuarterPayableCandidate) ? totalQuarterPayableCandidate / 3 : null,
@@ -803,7 +818,7 @@ export function calculatePartnerQuarterlyBonusCandidate({
           const result = gatePartnerDevelopmentBonusCalculation({
             rulePack: activeRulePack,
             advisorMonth,
-            monthlyPolicies: monthFact?.partialMonthlyPolicies,
+            monthlyPolicies: monthFact?.partialMonthlyPolicies ?? monthFact?.monthlyPolicies ?? monthFact?.validPolicyCount ?? monthFact?.policyCount ?? monthFact?.paidPolicyCount,
             paidAppliedPolicyEvidence: advisor.paidAppliedPolicyEvidence === true,
             developerCount: advisor.developerCount || 1,
             developerEligibilityEvidence: advisor.developerEligibilityEvidence !== false,
@@ -849,10 +864,45 @@ export function calculatePartnerQuarterlyBonusCandidate({
     periodEndDate: periodMonths[periodMonths.length - 1]?.date,
   });
   const supportActualByMonth = evidence.supportAccumulatedCommissionActualByMonth || {};
+    const supportNumberOrNull = (value) => {
+      if (value === null || value === undefined || value === '') return null;
+      const numeric = Number(value);
+      return Number.isFinite(numeric) ? numeric : null;
+    };
+
+    const resolveSupportActualForMonth = (monthKey) => {
+      if (Array.isArray(supportActualByMonth)) {
+        const row = supportActualByMonth.find((item) => (
+          item?.month === monthKey ||
+          item?.id === monthKey ||
+          item?.key === monthKey
+        ));
+
+        if (!row) return evidence.accumulatedCommissionActualLifeIndividualAndGmmi;
+
+        return supportNumberOrNull(row.actualAmount) ??
+          supportNumberOrNull(row.accumulatedCommissionActualLifeIndividualAndGmmi) ??
+          supportNumberOrNull(row.amount) ??
+          supportNumberOrNull(row.value) ??
+          evidence.accumulatedCommissionActualLifeIndividualAndGmmi;
+      }
+
+      const value = supportActualByMonth?.[monthKey];
+
+      if (value && typeof value === 'object') {
+        return supportNumberOrNull(value.actualAmount) ??
+          supportNumberOrNull(value.accumulatedCommissionActualLifeIndividualAndGmmi) ??
+          supportNumberOrNull(value.amount) ??
+          supportNumberOrNull(value.value) ??
+          evidence.accumulatedCommissionActualLifeIndividualAndGmmi;
+      }
+
+      return supportNumberOrNull(value) ?? evidence.accumulatedCommissionActualLifeIndividualAndGmmi;
+    };
   const supportParts = periodMonths.length > 0 && partner.connectionDate
     ? periodMonths.map((month) => {
       const partnerCareerMonth = careerMonthAt(partner.connectionDate, month.date);
-      const actual = supportActualByMonth[month.key] ?? evidence.accumulatedCommissionActualLifeIndividualAndGmmi;
+      const actual = resolveSupportActualForMonth(month.key);
       return {
         month: month.key,
         partnerCareerMonth,
@@ -904,7 +954,9 @@ export function calculatePartnerQuarterlyBonusCandidate({
     fixedSupport,
   };
   const blockedConcepts = collectBlockedConcepts(concepts);
-  const totalQuarterCandidateExcludingBlocked = sumNumbers(Object.values(concepts).map(calculatedAmount));
+  const totalQuarterCandidateExcludingBlocked = sumNumbers(Object.entries(concepts)
+    .filter(([conceptKey]) => isPayablePartnerConceptKey(conceptKey))
+    .map(([, concept]) => calculatedAmount(concept)));
   const paymentSchedule = buildQuarterlyPaymentSchedule({ concepts, rulePack: activeRulePack });
   const allMissingInputs = [
     ...missingInputs,
