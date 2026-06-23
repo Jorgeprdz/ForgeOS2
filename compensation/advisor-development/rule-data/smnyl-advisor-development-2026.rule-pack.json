@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0.0",
+  "rulePackId": "smnyl-advisor-development-2026",
+  "metadata": {
+    "rulePackId": "smnyl-advisor-development-2026",
+    "rulePackVersion": "1.0.0-draft",
+    "rulePackHash": "draft:not-sealed",
+    "rulePackEffectiveDate": "2026-01-01",
+    "governanceStatus": "draft",
+    "sourceEvidenceRefs": [
+      "CC 2026 Asesores en Desarrollo.pdf"
+    ]
+  },
+  "source": {
+    "documentName": "CC 2026 Asesores en Desarrollo",
+    "year": 2026,
+    "sourceEvidenceRefs": [
+      "CC 2026 Asesores en Desarrollo.pdf"
+    ]
+  },
+  "globalRules": {
+    "payoutTruth": false,
+    "payoutTruthRule": "commission_statement_required",
+    "calculatedCandidateIsPayoutTruth": false
+  },
+  "countingAndWeightingRules": {
+    "excludedProducts": [
+      "tempo_vida_1",
+      "star_temporal_1"
+    ],
+    "excludedComponents": [
+      "ave",
+      "avecp",
+      "cvd",
+      "aportacion_adicional_universal",
+      "descuento_por_nomina"
+    ],
+    "vidaIndividual": {
+      "commissionFactor": 0.9
+    },
+    "gmmi": {
+      "commissionFactor": 1,
+      "ageExclusion": {
+        "minAgeExcluded": 60
+      }
+    }
+  },
+  "qualificationRules": {
+    "minimumIndexes": {
+      "LIMRA": 75.5,
+      "IGC": 91
+    },
+    "indexRulesByMonth": [
+      {
+        "advisorMonthRange": {
+          "from": 13,
+          "to": 15
+        },
+        "rule": "use_greater_of_minimum_or_actual"
+      },
+      {
+        "advisorMonthRange": {
+          "from": 16,
+          "to": null
+        },
+        "rule": "use_actual"
+      }
+    ]
+  },
+  "concepts": {}
+}
