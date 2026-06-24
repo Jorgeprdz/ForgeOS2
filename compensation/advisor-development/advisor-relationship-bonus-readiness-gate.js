@@ -263,6 +263,45 @@ function evaluateConnectionBonusReadiness(input = {}) {
 
   if (attributionGate) return attributionGate;
 
+  const advisorMonth = input?.advisorFacts?.advisorMonth;
+
+  if (advisorMonth !== undefined) {
+    if (!isStrictNumber(advisorMonth)) {
+      return buildReadinessResult({
+        relationshipType: RELATIONSHIP_TYPE.CONNECTION,
+        status: RELATIONSHIP_BONUS_READINESS_STATUS.UNKNOWN,
+        reason: 'invalid_advisorMonth',
+        relationshipAttributionResult: input.relationshipAttributionResult,
+        conceptKey,
+        concept,
+      });
+    }
+
+    if (advisorMonth >= 4) {
+      return buildReadinessResult({
+        relationshipType: RELATIONSHIP_TYPE.CONNECTION,
+        status: RELATIONSHIP_BONUS_READINESS_STATUS.NOT_MODELED,
+        reason: 'advisor_month_not_modeled_for_connection_bonus',
+        relationshipAttributionResult: input.relationshipAttributionResult,
+        conceptKey,
+        concept,
+      });
+    }
+
+    if (advisorMonth === 1) {
+      return buildReadinessResult({
+        relationshipType: RELATIONSHIP_TYPE.CONNECTION,
+        status: RELATIONSHIP_BONUS_READINESS_STATUS.READY_FOR_CANDIDATE_CALCULATION,
+        reason: null,
+        relationshipAttributionResult: input.relationshipAttributionResult,
+        includedCount: null,
+        conceptKey,
+        concept,
+        warnings: input.relationshipAttributionResult?.warnings || [],
+      });
+    }
+  }
+
   const policyCountGate = evaluatePolicyCount({
     relationshipType: RELATIONSHIP_TYPE.CONNECTION,
     relationshipAttributionResult: input.relationshipAttributionResult,
