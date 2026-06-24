@@ -109,6 +109,60 @@ function testTrainingAllowanceTableFromPhysicalRulePack() {
   console.log('PASS Training Allowance table loads from physical rule pack');
 }
 
+
+function testConnectionBonusRulePackFromPhysicalRulePack() {
+  const loaded = loadAdvisorDevelopmentRulePack();
+  const connectionBonus = loaded.rulePack.concepts['connection-bonus'];
+
+  assert.equal(connectionBonus.displayName, 'Bono de Conexión');
+  assert.equal(connectionBonus.calculationStatus, 'blocked_until_relationship_attribution_evidence');
+  assert.equal(connectionBonus.calculationFrequency, 'monthly');
+  assert.equal(connectionBonus.payoutTruth, false);
+  assert.equal(connectionBonus.payoutTruthRule, 'commission_statement_required');
+  assert.equal(connectionBonus.attributionModel, 'advisor_connection_attribution');
+  assert.equal(
+    connectionBonus.policyCountSource,
+    'advisor-development-counting-weighting-engine.summary.includedCount',
+  );
+  assert.equal(connectionBonus.readinessGate, 'advisor-relationship-bonus-readiness-gate');
+
+  assert(Array.isArray(connectionBonus.requiredAttributionEvidence));
+  assert(connectionBonus.requiredAttributionEvidence.includes('connectorId'));
+  assert(connectionBonus.requiredAttributionEvidence.includes('connectedAdvisorId'));
+  assert(connectionBonus.requiredAttributionEvidence.includes('onboardingEvidence'));
+  assert(connectionBonus.requiredAttributionEvidence.includes('connectorActiveAtMonthClose'));
+  assert(connectionBonus.requiredAttributionEvidence.includes('connectedAdvisorActiveAtMonthClose'));
+
+  assert.equal(typeof connectionBonus.altaBonus.amount, 'number');
+  assert.equal(connectionBonus.altaBonus.amount, 7500);
+  assert.equal(connectionBonus.altaBonus.trigger, 'connected_advisor_onboarded');
+  assert.equal(connectionBonus.altaBonus.advisorMonth, 1);
+  assert.equal(connectionBonus.altaBonus.requiresReadiness, true);
+
+  assert.deepEqual(connectionBonus.monthlyBonus.advisorMonths, [2, 3]);
+  assert.equal(connectionBonus.monthlyBonus.tiers.length, 4);
+
+  const tier3 = connectionBonus.monthlyBonus.tiers.find((tier) => tier.minimumPolicies === 3);
+  const tier4 = connectionBonus.monthlyBonus.tiers.find((tier) => tier.minimumPolicies === 4);
+  const tier5 = connectionBonus.monthlyBonus.tiers.find((tier) => tier.minimumPolicies === 5);
+  const tier6 = connectionBonus.monthlyBonus.tiers.find((tier) => tier.minimumPolicies === 6);
+
+  assert.equal(typeof tier3.amount, 'number');
+  assert.equal(tier3.amount, 5000);
+
+  assert.equal(typeof tier4.amount, 'number');
+  assert.equal(tier4.amount, 9000);
+
+  assert.equal(typeof tier5.amount, 'number');
+  assert.equal(tier5.amount, 15000);
+
+  assert.equal(typeof tier6.amount, 'number');
+  assert.equal(tier6.amount, 20000);
+  assert.equal(tier6.appliesToCountAndAbove, true);
+
+  console.log('PASS Connection Bonus rule pack loads from physical rule pack');
+}
+
 function testCountingEngineConsumesPhysicalRulePack() {
   const loaded = loadAdvisorDevelopmentRulePack();
 
@@ -234,6 +288,7 @@ function testTrainingAllowanceEngineConsumesPhysicalRulePack() {
 testPhysicalJsonIsValid();
 testLoaderLoadsPhysicalDraftRulePack();
 testTrainingAllowanceTableFromPhysicalRulePack();
+testConnectionBonusRulePackFromPhysicalRulePack();
 testCountingEngineConsumesPhysicalRulePack();
 testTrainingAllowanceEngineConsumesPhysicalRulePack();
 
