@@ -161,6 +161,10 @@ function applyPartnerOwnershipSourceTruthToQuarterlyPart({
   if (!shouldEvaluatePartnerQuarterlyOwnership({ evidence, relationshipAttribution })) {
     return {
       ...part,
+      warnings: [
+        ...(part.warnings || []),
+        'partner_ownership_source_truth_not_required',
+      ],
       metadata: {
         ...part.metadata,
         ownershipSourceTruth: {
