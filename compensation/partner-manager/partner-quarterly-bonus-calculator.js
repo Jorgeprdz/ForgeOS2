@@ -609,12 +609,66 @@ function normalizeRequestedPartnerConceptKey(conceptKey) {
   return aliases[conceptKey] || null;
 }
 
+function resolveRequestedConceptForSubtotal({ conceptKey, concepts = {} } = {}) {
+  const concept = concepts[conceptKey];
+  const amount = calculatedAmount(concept);
+
+  if (hasNumber(amount)) {
+    return {
+      conceptKey,
+      concept,
+      amount,
+      warnings: [],
+    };
+  }
+
+  if (conceptKey === 'productivityMultiplier') {
+    const productivityBaseAmount = calculatedAmount(concepts.productivityBase);
+    if (hasNumber(productivityBaseAmount)) {
+      return {
+        conceptKey,
+        concept: {
+          ...(concepts.productivityBase || {}),
+          sourceConceptKey: 'productivityMultiplier',
+          conceptKey: 'productivityMultiplier',
+          candidateAmount: productivityBaseAmount,
+          amount: productivityBaseAmount,
+          payoutTruth: false,
+          warnings: [
+            ...((concepts.productivityBase || {}).warnings || []),
+            'productivity_multiplier_blocked_using_productivity_base',
+          ],
+          metadata: {
+            ...((concepts.productivityBase || {}).metadata || {}),
+            requestedConceptFallback: {
+              requestedConceptKey: 'productivityMultiplier',
+              effectiveConceptKey: 'productivityBase',
+              reason: 'productivity_multiplier_blocked_using_productivity_base',
+            },
+          },
+        },
+        amount: productivityBaseAmount,
+        warnings: ['productivity_multiplier_blocked_using_productivity_base'],
+      };
+    }
+  }
+
+  return {
+    conceptKey,
+    concept,
+    amount: null,
+    warnings: [],
+  };
+}
+
 function calculateRequestedConceptsSubtotal({ requestedConcepts = null, concepts = {} } = {}) {
   if (!Array.isArray(requestedConcepts)) {
     return {
       requestedConcepts: null,
       requestedConceptsApplied: [],
       requestedConceptsMissing: [],
+      requestedConceptsWarnings: [],
+      requestedConceptsForPaymentCadence: {},
       subtotalRequestedConceptsCandidate: null,
     };
   }
@@ -622,6 +676,8 @@ function calculateRequestedConceptsSubtotal({ requestedConcepts = null, concepts
   const applied = [];
   const missing = [];
   const amounts = [];
+  const requestedConceptsWarnings = [];
+  const requestedConceptsForPaymentCadence = {};
 
   for (const requestedConcept of requestedConcepts) {
     const normalizedConceptKey = normalizeRequestedPartnerConceptKey(requestedConcept);
@@ -634,9 +690,13 @@ function calculateRequestedConceptsSubtotal({ requestedConcepts = null, concepts
       applied.push(normalizedConceptKey);
     }
 
-    const amount = calculatedAmount(concepts[normalizedConceptKey]);
-    if (hasNumber(amount)) {
-      amounts.push(amount);
+    const resolved = resolveRequestedConceptForSubtotal({ conceptKey: normalizedConceptKey, concepts });
+    requestedConceptsWarnings.push(...resolved.warnings);
+    if (resolved.concept) {
+      requestedConceptsForPaymentCadence[normalizedConceptKey] = resolved.concept;
+    }
+    if (hasNumber(resolved.amount)) {
+      amounts.push(resolved.amount);
     }
   }
 
@@ -644,6 +704,8 @@ function calculateRequestedConceptsSubtotal({ requestedConcepts = null, concepts
     requestedConcepts: [...requestedConcepts],
     requestedConceptsApplied: applied,
     requestedConceptsMissing: missing,
+    requestedConceptsWarnings: [...new Set(requestedConceptsWarnings)],
+    requestedConceptsForPaymentCadence,
     subtotalRequestedConceptsCandidate: sumNumbers(amounts),
   };
 }
@@ -688,7 +750,7 @@ function buildRequestedPaymentSchedule({
   if (!Array.isArray(requestedConceptsResult?.requestedConcepts)) return null;
 
   const requestedConceptsForSchedule = buildRequestedConceptsForPaymentCadence({
-    concepts,
+    concepts: requestedConceptsResult.requestedConceptsForPaymentCadence || concepts,
     requestedConceptsApplied: requestedConceptsResult.requestedConceptsApplied,
   });
 
@@ -1131,6 +1193,7 @@ export function calculatePartnerQuarterlyBonusCandidate({
   ];
   const allWarnings = [
     ...warnings,
+    ...(requestedConceptsResult.requestedConceptsWarnings || []),
     ...Object.values(concepts).flatMap((concept) => concept.warnings || []),
     ...paymentSchedule.warnings,
   ];
@@ -1154,6 +1217,7 @@ export function calculatePartnerQuarterlyBonusCandidate({
     requestedConcepts: requestedConceptsResult.requestedConcepts,
     requestedConceptsApplied: requestedConceptsResult.requestedConceptsApplied,
     requestedConceptsMissing: requestedConceptsResult.requestedConceptsMissing,
+    requestedConceptsWarnings: requestedConceptsResult.requestedConceptsWarnings,
     subtotalRequestedConceptsCandidate: requestedConceptsResult.subtotalRequestedConceptsCandidate,
     requestedPaymentSchedule,
     totals: {
@@ -1164,6 +1228,7 @@ export function calculatePartnerQuarterlyBonusCandidate({
       requestedConcepts: requestedConceptsResult.requestedConcepts,
       requestedConceptsApplied: requestedConceptsResult.requestedConceptsApplied,
       requestedConceptsMissing: requestedConceptsResult.requestedConceptsMissing,
+      requestedConceptsWarnings: requestedConceptsResult.requestedConceptsWarnings,
       subtotalRequestedConceptsCandidate: requestedConceptsResult.subtotalRequestedConceptsCandidate,
     },
     warnings: [...new Set(allWarnings)],

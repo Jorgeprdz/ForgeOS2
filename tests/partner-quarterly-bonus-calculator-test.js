@@ -552,6 +552,55 @@ assert.deepEqual(requestedProductivityPayments.map((payment) => payment.month), 
 assert.deepEqual(requestedProductivityPayments.map((payment) => payment.amount), [44520, 44520, 44520]);
 assert.equal(partnerXRequestedSubtotal.subtotalRequestedConceptsCandidate, 136395);
 
+const partnerXRequestedProductivityBaseFallback = calculatePartnerXQuarterlyCandidate({
+  partner: {
+    partnerId: 'PARTNER_X_005P_1_B1',
+    partnerCareerMonth: 25,
+    partnerConnectedYear: 2026,
+    organizationType: 'nueva_organizacion',
+    unitLIMRA: 80,
+    unitIGC: 90,
+    active: true,
+  },
+  requestedConcepts: ['production', 'productivityMultiplier'],
+});
+const fallbackExpectedAmount =
+  partnerXRequestedProductivityBaseFallback.concepts.production.candidateAmount +
+  partnerXRequestedProductivityBaseFallback.concepts.productivityBase.candidateAmount;
+assert.ok(partnerXRequestedProductivityBaseFallback.concepts.productivityBase.candidateAmount > 0);
+assert.equal(partnerXRequestedProductivityBaseFallback.concepts.productivityMultiplier.candidateAmount, null);
+assert.equal(partnerXRequestedProductivityBaseFallback.subtotalRequestedConceptsCandidate, fallbackExpectedAmount);
+assert.equal(partnerXRequestedProductivityBaseFallback.requestedPaymentSchedule.totals.projectedAmount, fallbackExpectedAmount);
+assert.ok(partnerXRequestedProductivityBaseFallback.warnings.includes('productivity_multiplier_blocked_using_productivity_base'));
+assert.equal(Array.isArray(partnerXRequestedProductivityBaseFallback.requestedPaymentSchedule.projectedPayments), true);
+assert.equal(partnerXRequestedProductivityBaseFallback.requestedPaymentSchedule.projectedPayments.length, 6);
+assert.equal(
+  partnerXRequestedProductivityBaseFallback.requestedPaymentSchedule.projectedPayments.reduce((total, payment) => total + payment.amount, 0),
+  fallbackExpectedAmount
+);
+const fallbackConceptKeys = new Set(
+  partnerXRequestedProductivityBaseFallback.requestedPaymentSchedule.projectedPayments.flatMap((payment) => [
+    payment.conceptKey,
+    payment.canonicalConceptKey,
+  ])
+);
+assert.equal(fallbackConceptKeys.has('production'), true);
+assert.equal(fallbackConceptKeys.has('productivity'), true);
+assert.equal(fallbackConceptKeys.has('activity'), false);
+assert.equal(fallbackConceptKeys.has('development'), false);
+assert.equal(fallbackConceptKeys.has('connection'), false);
+assert.equal(fallbackConceptKeys.has('fixedSupport'), false);
+assert.equal(
+  partnerXRequestedProductivityBaseFallback.requestedPaymentSchedule.projectedPayments.every((payment) => payment.payoutTruth === false),
+  true
+);
+const fallbackProductionPayments = partnerXRequestedProductivityBaseFallback.requestedPaymentSchedule.projectedPayments
+  .filter((payment) => payment.canonicalConceptKey === 'production');
+assert.deepEqual(fallbackProductionPayments.map((payment) => payment.amount), [945, 945, 945]);
+const fallbackProductivityPayments = partnerXRequestedProductivityBaseFallback.requestedPaymentSchedule.projectedPayments
+  .filter((payment) => payment.canonicalConceptKey === 'productivity');
+assert.deepEqual(fallbackProductivityPayments.map((payment) => payment.amount), [31800, 31800, 31800]);
+
 const partnerXRequestedAliases = calculatePartnerXQuarterlyCandidate({
   requestedConcepts: ['production-bonus', 'productivity-multiplier'],
 });
