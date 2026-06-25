@@ -250,3 +250,128 @@ testGenericDispatcherRoutesDevelopment();
 testUnknownRelationshipTypeReturnsNotModeled();
 
 console.log('PASS advisor-relationship-attribution-evaluator-test');
+
+
+const forge005B1Assert = (await import('node:assert/strict')).default;
+const {
+  evaluateManagerPrecontractRdaAttribution: forge005B1EvaluateManagerPrecontractRdaAttribution,
+} = await import('../compensation/advisor-development/advisor-relationship-attribution-evaluator.js');
+
+{
+  const connectionResult = forge005B1EvaluateManagerPrecontractRdaAttribution({
+    advisorId: 'Fer',
+    relationshipType: 'connection',
+    connectionOwnerId: 'Pamela',
+    managerPrecontractAttributionEvidence: true,
+  });
+
+  forge005B1Assert.equal(connectionResult.status, 'confirmed');
+  forge005B1Assert.equal(connectionResult.relationshipType, 'connection');
+  forge005B1Assert.equal(connectionResult.ownerId, 'Pamela');
+  forge005B1Assert.equal(connectionResult.advisorId, 'Fer');
+  forge005B1Assert.equal(connectionResult.source, 'manager_os');
+  forge005B1Assert.equal(connectionResult.payoutTruth, false);
+  console.log('PASS manager precontract RDA connection attribution comes from Manager OS');
+
+  const developmentResult = forge005B1EvaluateManagerPrecontractRdaAttribution({
+    advisorId: 'Fer',
+    relationshipType: 'development',
+    developmentOwnerId: 'Juan',
+    developerShare: 0.5,
+    managerPrecontractAttributionEvidence: true,
+  });
+
+  forge005B1Assert.equal(developmentResult.status, 'confirmed');
+  forge005B1Assert.equal(developmentResult.relationshipType, 'development');
+  forge005B1Assert.equal(developmentResult.ownerId, 'Juan');
+  forge005B1Assert.equal(developmentResult.advisorId, 'Fer');
+  forge005B1Assert.equal(developmentResult.developerShare, 0.5);
+  forge005B1Assert.equal(developmentResult.source, 'manager_os');
+  forge005B1Assert.equal(developmentResult.payoutTruth, false);
+  console.log('PASS manager precontract RDA development attribution supports shared development');
+
+  const missingManagerEvidence = forge005B1EvaluateManagerPrecontractRdaAttribution({
+    advisorId: 'Fer',
+    relationshipType: 'connection',
+    connectionOwnerId: 'Pamela',
+  });
+
+  forge005B1Assert.equal(missingManagerEvidence.status, 'blocked');
+  forge005B1Assert.equal(
+    missingManagerEvidence.reason,
+    'blocked_by_missing_manager_precontract_attribution',
+  );
+  forge005B1Assert.deepEqual(
+    missingManagerEvidence.requiredEvidence,
+    ['manager_precontract_attribution_evidence'],
+  );
+  forge005B1Assert.equal(missingManagerEvidence.payoutTruth, false);
+  console.log('PASS missing Manager OS attribution blocks RDA attribution');
+
+  const advisorSelfAssignment = forge005B1EvaluateManagerPrecontractRdaAttribution({
+    advisorId: 'Fer',
+    relationshipType: 'development',
+    developmentOwnerId: 'Juan',
+    developerShare: 1.0,
+    source: 'advisor_os',
+    managerPrecontractAttributionEvidence: false,
+  });
+
+  forge005B1Assert.equal(advisorSelfAssignment.status, 'blocked');
+  forge005B1Assert.equal(
+    advisorSelfAssignment.reason,
+    'blocked_by_missing_manager_precontract_attribution',
+  );
+  forge005B1Assert.equal(advisorSelfAssignment.payoutTruth, false);
+  console.log('PASS Advisor OS self-assignment does not confirm RDA attribution');
+
+  const missingShare = forge005B1EvaluateManagerPrecontractRdaAttribution({
+    advisorId: 'Fer',
+    relationshipType: 'development',
+    developmentOwnerId: 'Juan',
+    managerPrecontractAttributionEvidence: true,
+  });
+
+  forge005B1Assert.equal(missingShare.status, 'blocked');
+  forge005B1Assert.equal(missingShare.reason, 'blocked_by_missing_developer_share');
+  forge005B1Assert.deepEqual(missingShare.requiredEvidence, ['developer_share']);
+  forge005B1Assert.equal(missingShare.payoutTruth, false);
+  console.log('PASS missing developerShare blocks development attribution');
+
+  const invalidShare = forge005B1EvaluateManagerPrecontractRdaAttribution({
+    advisorId: 'Fer',
+    relationshipType: 'development',
+    developmentOwnerId: 'Juan',
+    developerShare: '0.5',
+    managerPrecontractAttributionEvidence: true,
+  });
+
+  forge005B1Assert.equal(invalidShare.status, 'unknown');
+  forge005B1Assert.equal(invalidShare.reason, 'invalid_developer_share');
+  forge005B1Assert.equal(invalidShare.payoutTruth, false);
+  console.log('PASS non-numeric developerShare returns unknown');
+
+  const unsupportedShare = forge005B1EvaluateManagerPrecontractRdaAttribution({
+    advisorId: 'Fer',
+    relationshipType: 'development',
+    developmentOwnerId: 'Juan',
+    developerShare: 0.25,
+    managerPrecontractAttributionEvidence: true,
+  });
+
+  forge005B1Assert.equal(unsupportedShare.status, 'not_modeled');
+  forge005B1Assert.equal(unsupportedShare.reason, 'unsupported_developer_share');
+  forge005B1Assert.equal(unsupportedShare.payoutTruth, false);
+  console.log('PASS unsupported developerShare returns not_modeled');
+
+  const unknownRelationship = forge005B1EvaluateManagerPrecontractRdaAttribution({
+    advisorId: 'Fer',
+    relationshipType: 'mentorship',
+    managerPrecontractAttributionEvidence: true,
+  });
+
+  forge005B1Assert.equal(unknownRelationship.status, 'not_modeled');
+  forge005B1Assert.equal(unknownRelationship.reason, 'unknown_relationship_type');
+  forge005B1Assert.equal(unknownRelationship.payoutTruth, false);
+  console.log('PASS unknown relationship type returns not_modeled');
+}

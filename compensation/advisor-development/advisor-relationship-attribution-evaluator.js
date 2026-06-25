@@ -429,3 +429,100 @@ export {
   evaluateConnectionAttribution,
   evaluateDevelopmentAttribution,
 };
+
+
+/**
+ * Evaluates Manager OS precontract RDA attribution.
+ *
+ * Evidence-first boundary:
+ * - Manager OS creates attribution.
+ * - Compensation consumes attribution.
+ * - Advisor OS cannot self-assign RDA.
+ * - This function never creates payout truth or money.
+ */
+export function evaluateManagerPrecontractRdaAttribution({
+  advisorId,
+  relationshipType,
+  connectionOwnerId,
+  developmentOwnerId,
+  developerShare,
+  managerPrecontractAttributionEvidence = false,
+  source = 'manager_os',
+} = {}) {
+  const payoutTruth = false;
+
+  if (managerPrecontractAttributionEvidence !== true) {
+    return {
+      status: 'blocked',
+      reason: 'blocked_by_missing_manager_precontract_attribution',
+      requiredEvidence: ['manager_precontract_attribution_evidence'],
+      relationshipType,
+      advisorId,
+      payoutTruth,
+    };
+  }
+
+  if (relationshipType !== 'connection' && relationshipType !== 'development') {
+    return {
+      status: 'not_modeled',
+      reason: 'unknown_relationship_type',
+      relationshipType,
+      advisorId,
+      payoutTruth,
+    };
+  }
+
+  if (relationshipType === 'connection') {
+    return {
+      status: 'confirmed',
+      reason: null,
+      relationshipType: 'connection',
+      ownerId: connectionOwnerId,
+      advisorId,
+      source,
+      payoutTruth,
+    };
+  }
+
+  if (developerShare === undefined || developerShare === null) {
+    return {
+      status: 'blocked',
+      reason: 'blocked_by_missing_developer_share',
+      requiredEvidence: ['developer_share'],
+      relationshipType,
+      advisorId,
+      payoutTruth,
+    };
+  }
+
+  if (typeof developerShare !== 'number' || !Number.isFinite(developerShare)) {
+    return {
+      status: 'unknown',
+      reason: 'invalid_developer_share',
+      relationshipType,
+      advisorId,
+      payoutTruth,
+    };
+  }
+
+  if (developerShare !== 1.0 && developerShare !== 0.5) {
+    return {
+      status: 'not_modeled',
+      reason: 'unsupported_developer_share',
+      relationshipType,
+      advisorId,
+      payoutTruth,
+    };
+  }
+
+  return {
+    status: 'confirmed',
+    reason: null,
+    relationshipType: 'development',
+    ownerId: developmentOwnerId,
+    advisorId,
+    developerShare,
+    source,
+    payoutTruth,
+  };
+}
