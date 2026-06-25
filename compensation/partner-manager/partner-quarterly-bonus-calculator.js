@@ -150,6 +150,53 @@ function shouldEvaluatePartnerQuarterlyOwnership({ evidence = {}, relationshipAt
   return Boolean(relationshipAttribution) || evidence.partnerOwnershipSourceTruthRequired === true;
 }
 
+function summarizePartnerConceptOwnershipSourceTruth({ evidence = {}, parts = [] } = {}) {
+  const ownershipResults = parts
+    .map((part) => part.metadata?.ownershipSourceTruth)
+    .filter(Boolean);
+
+  const confirmedParts = ownershipResults.filter((ownershipSourceTruth) => (
+    ownershipSourceTruth.status === 'confirmed'
+  )).length;
+
+  const blockedParts = ownershipResults.filter((ownershipSourceTruth) => (
+    Array.isArray(ownershipSourceTruth.blockedReasons)
+    && ownershipSourceTruth.blockedReasons.length > 0
+  )).length;
+
+  const legacyParts = ownershipResults.filter((ownershipSourceTruth) => (
+    ownershipSourceTruth.status === 'not_required_legacy_mode'
+  )).length;
+
+  const evaluatedParts = ownershipResults.length;
+  let status = 'not_evaluated';
+
+  if (confirmedParts > 0 && blockedParts > 0) {
+    status = 'mixed_confirmed_and_blocked';
+  } else if (confirmedParts > 0 && legacyParts > 0) {
+    status = 'mixed_confirmed_and_legacy';
+  } else if (blockedParts > 0 && legacyParts > 0) {
+    status = 'mixed_blocked_and_legacy';
+  } else if (confirmedParts > 0) {
+    status = 'confirmed';
+  } else if (blockedParts > 0) {
+    status = 'blocked';
+  } else if (legacyParts > 0) {
+    status = 'legacy_not_required';
+  }
+
+  return {
+    required: evidence.partnerOwnershipSourceTruthRequired === true,
+    status,
+    evaluatedParts,
+    confirmedParts,
+    blockedParts,
+    legacyParts,
+    totalParts: parts.length,
+    payoutTruth: false,
+  };
+}
+
 function applyPartnerOwnershipSourceTruthToQuarterlyPart({
   part,
   partner = {},
@@ -1234,7 +1281,13 @@ export function calculatePartnerQuarterlyBonusCandidate({
     blockedReasons: connectionParts.flatMap((part) => part.blockedReasons || []),
     missingInputs: connectionParts.flatMap((part) => part.missingInputs || []),
     warnings: connectionParts.flatMap((part) => part.warnings || []),
-    metadata: { parts: connectionParts },
+    metadata: {
+      parts: connectionParts,
+      ownershipSourceTruth: summarizePartnerConceptOwnershipSourceTruth({
+        evidence,
+        parts: connectionParts,
+      }),
+    },
   };
 
   const developmentParts = advisors.flatMap((advisor) => {
@@ -1323,7 +1376,13 @@ export function calculatePartnerQuarterlyBonusCandidate({
     blockedReasons: developmentParts.flatMap((part) => part.blockedReasons || []),
     missingInputs: developmentParts.flatMap((part) => part.missingInputs || []),
     warnings: developmentParts.flatMap((part) => part.warnings || []),
-    metadata: { parts: developmentParts },
+    metadata: {
+      parts: developmentParts,
+      ownershipSourceTruth: summarizePartnerConceptOwnershipSourceTruth({
+        evidence,
+        parts: developmentParts,
+      }),
+    },
   };
 
   const inferredTrainingWinnerCount = inferTrainingWinnerCountLastSixMonths({

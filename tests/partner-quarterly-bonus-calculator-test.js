@@ -721,6 +721,18 @@ assert.equal(pamelaConnectionMonth3.metadata.ownershipSourceTruth.payoutTruth, f
 assert.ok(rawMonthlyFactsScenario.concepts.connection.warnings.includes(
   'partner_ownership_source_truth_not_required',
 ));
+assert.equal(
+  rawMonthlyFactsScenario.concepts.connection.metadata.ownershipSourceTruth.status,
+  'legacy_not_required',
+);
+assert.equal(
+  rawMonthlyFactsScenario.concepts.connection.metadata.ownershipSourceTruth.legacyParts > 0,
+  true,
+);
+assert.equal(
+  rawMonthlyFactsScenario.concepts.connection.metadata.ownershipSourceTruth.payoutTruth,
+  false,
+);
 
 const developmentMonths = rawMonthlyFactsScenario.concepts.development.metadata.parts
   .filter((part) => part.metadata.advisorId === 'Ana')
@@ -737,6 +749,18 @@ assert.deepEqual(anaDevelopmentOwnershipMarkers, [
 assert.ok(rawMonthlyFactsScenario.concepts.development.warnings.includes(
   'partner_ownership_source_truth_not_required',
 ));
+assert.equal(
+  rawMonthlyFactsScenario.concepts.development.metadata.ownershipSourceTruth.status,
+  'legacy_not_required',
+);
+assert.equal(
+  rawMonthlyFactsScenario.concepts.development.metadata.ownershipSourceTruth.legacyParts > 0,
+  true,
+);
+assert.equal(
+  rawMonthlyFactsScenario.concepts.development.metadata.ownershipSourceTruth.payoutTruth,
+  false,
+);
 
 const supportCareerMonths = rawMonthlyFactsScenario.concepts.fixedSupport.metadata.parts.map((part) => part.partnerCareerMonth);
 assert.deepEqual(supportCareerMonths, [25, 26, 27]);

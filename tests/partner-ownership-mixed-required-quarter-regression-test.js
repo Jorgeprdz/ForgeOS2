@@ -131,6 +131,28 @@ assert.equal(result.concepts.development.warnings.includes(
   'partner_ownership_source_truth_not_required',
 ), false);
 
+assert.deepEqual(result.concepts.connection.metadata.ownershipSourceTruth, {
+  required: true,
+  status: 'mixed_confirmed_and_blocked',
+  evaluatedParts: 3,
+  confirmedParts: 1,
+  blockedParts: 2,
+  legacyParts: 0,
+  totalParts: 3,
+  payoutTruth: false,
+});
+
+assert.deepEqual(result.concepts.development.metadata.ownershipSourceTruth, {
+  required: true,
+  status: 'confirmed',
+  evaluatedParts: 1,
+  confirmedParts: 1,
+  blockedParts: 0,
+  legacyParts: 0,
+  totalParts: 1,
+  payoutTruth: false,
+});
+
 const connectionParts = result.concepts.connection.metadata.parts;
 const developmentParts = result.concepts.development.metadata.parts;
 
