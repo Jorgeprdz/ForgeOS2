@@ -29,6 +29,10 @@ import {
 } from './partner-partial-bonus-calculation-gate.js';
 
 import {
+  evaluatePartnerOwnershipSourceTruth,
+} from './partner-ownership-source-truth-gate.js';
+
+import {
   calculatePartnerProductionBonusCandidate,
 } from './partner-production-bonus-calculator.js';
 
@@ -62,6 +66,153 @@ function hasNumber(value) {
 function sumNumbers(values) {
   const numeric = values.filter(hasNumber).map(Number);
   return numeric.length > 0 ? numeric.reduce((total, value) => total + value, 0) : null;
+}
+
+function resolvePartnerOwnershipPartnerId(partner = {}) {
+  return partner.partnerId || partner.id || partner.name || null;
+}
+
+function resolvePartnerOwnershipAdvisorId(advisor = {}) {
+  return advisor.advisorId || advisor.name || null;
+}
+
+function resolvePartnerQuarterlyRelationshipType(requestedConcept) {
+  const normalized = String(requestedConcept || '').trim().toLowerCase();
+
+  if (['connection', 'connection-bonus', 'connection_bonus'].includes(normalized)) {
+    return 'connection';
+  }
+
+  if (['development', 'development-bonus', 'development_bonus'].includes(normalized)) {
+    return 'development';
+  }
+
+  return null;
+}
+
+function findRelationshipAttributionInContainer(container, relationshipType) {
+  if (!container) return null;
+
+  if (Array.isArray(container)) {
+    return container.find((entry) => entry?.relationshipType === relationshipType) || null;
+  }
+
+  if (container.relationshipType === relationshipType) return container;
+  if (container[relationshipType]) return container[relationshipType];
+  if (container[relationshipType + 'Attribution']) return container[relationshipType + 'Attribution'];
+
+  return null;
+}
+
+function resolvePartnerQuarterlyRelationshipAttribution({
+  advisor = {},
+  evidence = {},
+  requestedConcept,
+} = {}) {
+  const relationshipType = resolvePartnerQuarterlyRelationshipType(requestedConcept);
+  if (!relationshipType) return null;
+
+  const advisorId = resolvePartnerOwnershipAdvisorId(advisor);
+  const sourceAdvisor = advisor.metadata?.sourceAdvisor || {};
+
+  const containers = [
+    advisor.relationshipAttribution,
+    advisor.relationshipAttributions,
+    advisor.managerPrecontractRelationshipAttribution,
+    advisor.managerPrecontractRelationshipAttributions,
+    advisor.precontractRelationshipAttribution,
+    advisor.precontractRelationshipAttributions,
+    advisor.ownershipAttribution,
+    advisor.ownershipAttributions,
+    sourceAdvisor.relationshipAttribution,
+    sourceAdvisor.relationshipAttributions,
+    sourceAdvisor.managerPrecontractRelationshipAttribution,
+    sourceAdvisor.managerPrecontractRelationshipAttributions,
+    sourceAdvisor.precontractRelationshipAttribution,
+    sourceAdvisor.precontractRelationshipAttributions,
+    sourceAdvisor.ownershipAttribution,
+    sourceAdvisor.ownershipAttributions,
+    advisorId ? evidence.relationshipAttributionsByAdvisor?.[advisorId] : null,
+    advisorId ? evidence.managerPrecontractRelationshipAttributionsByAdvisor?.[advisorId] : null,
+    advisorId ? evidence.precontractRelationshipAttributionsByAdvisor?.[advisorId] : null,
+    advisorId ? evidence.partnerOwnershipAttributionsByAdvisor?.[advisorId] : null,
+  ];
+
+  for (const container of containers) {
+    const attribution = findRelationshipAttributionInContainer(container, relationshipType);
+    if (attribution) return attribution;
+  }
+
+  return null;
+}
+
+function shouldEvaluatePartnerQuarterlyOwnership({ evidence = {}, relationshipAttribution = null } = {}) {
+  return Boolean(relationshipAttribution) || evidence.partnerOwnershipSourceTruthRequired === true;
+}
+
+function applyPartnerOwnershipSourceTruthToQuarterlyPart({
+  part,
+  partner = {},
+  evidence = {},
+  advisor = {},
+  requestedConcept,
+  relationshipAttribution = null,
+} = {}) {
+  if (!shouldEvaluatePartnerQuarterlyOwnership({ evidence, relationshipAttribution })) {
+    return part;
+  }
+
+  const ownershipSourceTruth = evaluatePartnerOwnershipSourceTruth({
+    partnerId: resolvePartnerOwnershipPartnerId(partner),
+    requestedConcept,
+    relationshipAttribution,
+  });
+
+  if (
+    ownershipSourceTruth.status === 'confirmed' &&
+    ownershipSourceTruth.ownershipAllowed === true &&
+    ownershipSourceTruth.calculationAllowed === true
+  ) {
+    return {
+      ...part,
+      metadata: {
+        ...part.metadata,
+        ownershipSourceTruth,
+      },
+    };
+  }
+
+  return {
+    ...part,
+    status: ownershipSourceTruth.status,
+    calculationAllowed: false,
+    calculatedCandidate: false,
+    candidateAmount: null,
+    blockedReasons: [
+      ...(part.blockedReasons || []),
+      ...(ownershipSourceTruth.blockedReasons || []),
+    ].filter(Boolean),
+    missingInputs: [
+      ...(part.missingInputs || []),
+      ...(ownershipSourceTruth.missingInputs || []),
+    ].filter(Boolean),
+    metadata: {
+      ...part.metadata,
+      ownershipSourceTruth,
+    },
+  };
+}
+
+function resolvePartnerQuarterlyDeveloperCount({
+  advisor = {},
+  relationshipAttribution = null,
+} = {}) {
+  if (relationshipAttribution?.relationshipType === 'development') {
+    if (relationshipAttribution.developerShare === 0.5) return 2;
+    if (relationshipAttribution.developerShare === 1.0) return 1;
+  }
+
+  return advisor.developerCount || 1;
 }
 
 function quarterAverage(value) {
@@ -985,6 +1136,13 @@ export function calculatePartnerQuarterlyBonusCandidate({
           const advisorMonth = careerMonthAt(advisor.connectionDate || advisor.contestDate, month.date);
           const monthFact = advisor.metadata.normalizedMonthlyFacts.find((fact) => fact.month === month.key);
           if (![1, 2, 3].includes(Number(advisorMonth))) return null;
+
+          const relationshipAttribution = resolvePartnerQuarterlyRelationshipAttribution({
+            advisor,
+            evidence,
+            requestedConcept: 'connection-bonus',
+          });
+
           const result = gatePartnerConnectionBonusCalculation({
             rulePack: activeRulePack,
             onboardingEvidence: advisor.onboardingEvidence === true || advisor.connectedAdvisorEvidence === true || advisor.connectionEvidence === true || Number(advisorMonth) === 1,
@@ -994,20 +1152,36 @@ export function calculatePartnerQuarterlyBonusCandidate({
             connectorActiveAtMonthClose: partner.active === true,
             connectedAdvisorActiveAtMonthClose: advisor.activeAtQuarterClose === true,
           });
-          return {
-            ...result,
-            metadata: {
-              ...result.metadata,
-              advisorId: advisor.advisorId || advisor.name || null,
-              month: month.key,
-              advisorMonth,
+
+          return applyPartnerOwnershipSourceTruthToQuarterlyPart({
+            part: {
+              ...result,
+              metadata: {
+                ...result.metadata,
+                advisorId: advisor.advisorId || advisor.name || null,
+                month: month.key,
+                advisorMonth,
+              },
             },
-          };
+            partner,
+            evidence,
+            advisor,
+            requestedConcept: 'connection-bonus',
+            relationshipAttribution,
+          });
         })
         .filter(Boolean);
     }
+
     if (![1, 2, 3].includes(Number(advisor.advisorMonth))) return [];
-    return [gatePartnerConnectionBonusCalculation({
+
+    const relationshipAttribution = resolvePartnerQuarterlyRelationshipAttribution({
+      advisor,
+      evidence,
+      requestedConcept: 'connection-bonus',
+    });
+
+    const result = gatePartnerConnectionBonusCalculation({
       rulePack: activeRulePack,
       onboardingEvidence: advisor.onboardingEvidence === true,
       advisorMonth: advisor.advisorMonth,
@@ -1016,6 +1190,22 @@ export function calculatePartnerQuarterlyBonusCandidate({
       paidAppliedPolicyEvidence: advisor.paidAppliedPolicyEvidence === true,
       connectorActiveAtMonthClose: partner.active === true,
       connectedAdvisorActiveAtMonthClose: advisor.activeAtMonthClose === true,
+    });
+
+    return [applyPartnerOwnershipSourceTruthToQuarterlyPart({
+      part: {
+        ...result,
+        metadata: {
+          ...result.metadata,
+          advisorId: advisor.advisorId || advisor.name || null,
+          advisorMonth: advisor.advisorMonth,
+        },
+      },
+      partner,
+      evidence,
+      advisor,
+      requestedConcept: 'connection-bonus',
+      relationshipAttribution,
     })];
   });
   const connectionAmount = sumNumbers(connectionParts.map((part) => part.candidateAmount));
@@ -1037,35 +1227,74 @@ export function calculatePartnerQuarterlyBonusCandidate({
           const advisorMonth = careerMonthAt(advisor.connectionDate || advisor.contestDate, month.date);
           const monthFact = advisor.metadata.normalizedMonthlyFacts.find((fact) => fact.month === month.key);
           if (Number(advisorMonth) < 4 || Number(advisorMonth) > 15) return null;
+
+          const relationshipAttribution = resolvePartnerQuarterlyRelationshipAttribution({
+            advisor,
+            evidence,
+            requestedConcept: 'development-bonus',
+          });
+
           const result = gatePartnerDevelopmentBonusCalculation({
             rulePack: activeRulePack,
             advisorMonth,
             monthlyPolicies: monthFact?.partialMonthlyPolicies ?? monthFact?.monthlyPolicies ?? monthFact?.validPolicyCount ?? monthFact?.policyCount ?? monthFact?.paidPolicyCount,
             paidAppliedPolicyEvidence: advisor.paidAppliedPolicyEvidence === true,
-            developerCount: advisor.developerCount || 1,
+            developerCount: resolvePartnerQuarterlyDeveloperCount({ advisor, relationshipAttribution }),
             developerEligibilityEvidence: advisor.developerEligibilityEvidence !== false,
           });
-          return {
-            ...result,
-            metadata: {
-              ...result.metadata,
-              advisorId: advisor.advisorId || advisor.name || null,
-              month: month.key,
-              advisorMonth,
+
+          return applyPartnerOwnershipSourceTruthToQuarterlyPart({
+            part: {
+              ...result,
+              metadata: {
+                ...result.metadata,
+                advisorId: advisor.advisorId || advisor.name || null,
+                month: month.key,
+                advisorMonth,
+              },
             },
-          };
+            partner,
+            evidence,
+            advisor,
+            requestedConcept: 'development-bonus',
+            relationshipAttribution,
+          });
         })
         .filter(Boolean);
     }
+
     if (Number(advisor.advisorMonth) < 4 || Number(advisor.advisorMonth) > 15) return [];
-    return [gatePartnerDevelopmentBonusCalculation({
+
+    const relationshipAttribution = resolvePartnerQuarterlyRelationshipAttribution({
+      advisor,
+      evidence,
+      requestedConcept: 'development-bonus',
+    });
+
+    const result = gatePartnerDevelopmentBonusCalculation({
       rulePack: activeRulePack,
       advisorMonth: advisor.advisorMonth,
       monthlyPolicies: advisor.monthlyPolicies,
       quarterPolicyTotal: advisor.quarterPolicyTotal,
       paidAppliedPolicyEvidence: advisor.paidAppliedPolicyEvidence === true,
-      developerCount: advisor.developerCount || 1,
+      developerCount: resolvePartnerQuarterlyDeveloperCount({ advisor, relationshipAttribution }),
       developerEligibilityEvidence: advisor.developerEligibilityEvidence === true,
+    });
+
+    return [applyPartnerOwnershipSourceTruthToQuarterlyPart({
+      part: {
+        ...result,
+        metadata: {
+          ...result.metadata,
+          advisorId: advisor.advisorId || advisor.name || null,
+          advisorMonth: advisor.advisorMonth,
+        },
+      },
+      partner,
+      evidence,
+      advisor,
+      requestedConcept: 'development-bonus',
+      relationshipAttribution,
     })];
   });
   const developmentAmount = sumNumbers(developmentParts.map((part) => part.candidateAmount));

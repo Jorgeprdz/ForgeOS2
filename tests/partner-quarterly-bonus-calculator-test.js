@@ -729,3 +729,202 @@ assert.equal(rawMonthlyFactsScenario.partner.partnerCareerMonthAtPeriodEnd, 27);
 assert.equal(rawMonthlyFactsScenario.concepts.productivityMultiplier.metadata.qualifiedAdvisorCount, 6);
 
 console.log('PASS partner-quarterly-bonus-calculator-test');
+
+
+{
+  const requiredOwnershipBlocksAdvisorRdaConnection = calculatePartnerQuarterlyBonusCandidate({
+    partner: {
+      partnerId: 'Juan',
+      partnerCareerMonth: 12,
+      partnerConnectedYear: 2026,
+      organizationType: 'nueva_organizacion',
+      unitLIMRA: 80,
+      unitIGC: 90,
+      active: true,
+    },
+    period: { type: 'quarter', quarter: 'Q1', year: 2026 },
+    evidence: {
+      paidAppliedEconomicEvidence: true,
+      partnerOwnershipSourceTruthRequired: true,
+    },
+    advisors: [
+      {
+        name: 'Fer',
+        advisorId: 'Fer',
+        advisorMonth: 1,
+        monthlyPolicies: 0,
+        quarterPolicyTotal: 0,
+        activeAtQuarterClose: true,
+        activeAtMonthClose: true,
+        onboardingEvidence: true,
+        paidAppliedPolicyEvidence: true,
+        LIMRA: 80,
+        IGC: 90,
+        relationshipAttributions: {
+          connection: {
+            status: 'confirmed',
+            relationshipType: 'connection',
+            advisorId: 'Fer',
+            connectionOwnerType: 'advisor',
+            connectionOwnerId: 'Pamela',
+            rdaStatus: 'confirmed',
+            rdaOwnerId: 'Pamela',
+            payoutTruth: false,
+          },
+        },
+      },
+    ],
+  });
+
+  assert.equal(requiredOwnershipBlocksAdvisorRdaConnection.concepts.connection.candidateAmount, null);
+  assert.ok(requiredOwnershipBlocksAdvisorRdaConnection.concepts.connection.blockedReasons.includes(
+    'blocked_partner_cannot_claim_advisor_rda_connection',
+  ));
+  assert.equal(requiredOwnershipBlocksAdvisorRdaConnection.payoutTruth, false);
+  console.log('PASS quarterly partner connection blocks advisor RDA ownership claim');
+}
+
+{
+  const requiredOwnershipAllowsDirectPartnerConnection = calculatePartnerQuarterlyBonusCandidate({
+    partner: {
+      partnerId: 'Juan',
+      partnerCareerMonth: 12,
+      partnerConnectedYear: 2026,
+      organizationType: 'nueva_organizacion',
+      unitLIMRA: 80,
+      unitIGC: 90,
+      active: true,
+    },
+    period: { type: 'quarter', quarter: 'Q1', year: 2026 },
+    evidence: {
+      paidAppliedEconomicEvidence: true,
+      partnerOwnershipSourceTruthRequired: true,
+    },
+    advisors: [
+      {
+        name: 'Roberto',
+        advisorId: 'Roberto',
+        advisorMonth: 1,
+        monthlyPolicies: 0,
+        quarterPolicyTotal: 0,
+        activeAtQuarterClose: true,
+        activeAtMonthClose: true,
+        onboardingEvidence: true,
+        paidAppliedPolicyEvidence: true,
+        LIMRA: 80,
+        IGC: 90,
+        relationshipAttributions: {
+          connection: {
+            status: 'confirmed',
+            relationshipType: 'connection',
+            advisorId: 'Roberto',
+            connectionOwnerType: 'partner',
+            connectionOwnerId: 'Juan',
+            rdaStatus: 'not_applicable',
+            rdaOwnerId: null,
+            payoutTruth: false,
+          },
+        },
+      },
+    ],
+  });
+
+  assert.equal(requiredOwnershipAllowsDirectPartnerConnection.concepts.connection.candidateAmount, 7500);
+  const directConnectionPart = requiredOwnershipAllowsDirectPartnerConnection.concepts.connection.metadata.parts[0];
+  assert.equal(directConnectionPart.metadata.ownershipSourceTruth.status, 'confirmed');
+  assert.equal(directConnectionPart.metadata.ownershipSourceTruth.metadata.rdaStatus, 'not_applicable');
+  assert.equal(requiredOwnershipAllowsDirectPartnerConnection.payoutTruth, false);
+  console.log('PASS quarterly partner connection allows direct partner ownership');
+}
+
+{
+  const requiredOwnershipAppliesSharedDevelopment = calculatePartnerQuarterlyBonusCandidate({
+    partner: {
+      partnerId: 'Juan',
+      partnerCareerMonth: 12,
+      partnerConnectedYear: 2026,
+      organizationType: 'nueva_organizacion',
+      unitLIMRA: 80,
+      unitIGC: 90,
+      active: true,
+    },
+    period: { type: 'quarter', quarter: 'Q1', year: 2026 },
+    evidence: {
+      paidAppliedEconomicEvidence: true,
+      partnerOwnershipSourceTruthRequired: true,
+    },
+    advisors: [
+      {
+        name: 'Fer',
+        advisorId: 'Fer',
+        advisorMonth: 4,
+        monthlyPolicies: 3,
+        quarterPolicyTotal: 3,
+        activeAtQuarterClose: true,
+        paidAppliedPolicyEvidence: true,
+        developerEligibilityEvidence: true,
+        LIMRA: 80,
+        IGC: 90,
+        relationshipAttributions: {
+          development: {
+            status: 'confirmed',
+            relationshipType: 'development',
+            advisorId: 'Fer',
+            developmentOwnerType: 'partner',
+            developmentOwnerId: 'Juan',
+            developerShare: 0.5,
+            payoutTruth: false,
+          },
+        },
+      },
+    ],
+  });
+
+  assert.equal(requiredOwnershipAppliesSharedDevelopment.concepts.development.candidateAmount, 4500);
+  const sharedDevelopmentPart = requiredOwnershipAppliesSharedDevelopment.concepts.development.metadata.parts[0];
+  assert.equal(sharedDevelopmentPart.metadata.shareFactor, 0.5);
+  assert.equal(sharedDevelopmentPart.metadata.ownershipSourceTruth.status, 'confirmed');
+  assert.equal(requiredOwnershipAppliesSharedDevelopment.payoutTruth, false);
+  console.log('PASS quarterly partner development applies Manager OS shared developerShare');
+}
+
+{
+  const requiredOwnershipBlocksMissingAttribution = calculatePartnerQuarterlyBonusCandidate({
+    partner: {
+      partnerId: 'Juan',
+      partnerCareerMonth: 12,
+      partnerConnectedYear: 2026,
+      organizationType: 'nueva_organizacion',
+      unitLIMRA: 80,
+      unitIGC: 90,
+      active: true,
+    },
+    period: { type: 'quarter', quarter: 'Q1', year: 2026 },
+    evidence: {
+      paidAppliedEconomicEvidence: true,
+      partnerOwnershipSourceTruthRequired: true,
+    },
+    advisors: [
+      {
+        name: 'Roberto',
+        advisorId: 'Roberto',
+        advisorMonth: 1,
+        monthlyPolicies: 0,
+        quarterPolicyTotal: 0,
+        activeAtQuarterClose: true,
+        activeAtMonthClose: true,
+        onboardingEvidence: true,
+        paidAppliedPolicyEvidence: true,
+        LIMRA: 80,
+        IGC: 90,
+      },
+    ],
+  });
+
+  assert.equal(requiredOwnershipBlocksMissingAttribution.concepts.connection.candidateAmount, null);
+  assert.ok(requiredOwnershipBlocksMissingAttribution.concepts.connection.blockedReasons.includes(
+    'blocked_by_missing_manager_precontract_attribution',
+  ));
+  assert.equal(requiredOwnershipBlocksMissingAttribution.payoutTruth, false);
+  console.log('PASS quarterly partner ownership required blocks missing Manager OS attribution');
+}
