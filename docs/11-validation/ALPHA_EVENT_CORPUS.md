@@ -7,7 +7,7 @@ Date: 2026-06-17
 ---
 
 ## 1. Purpose
-This corpus validates the `EVENT_LEDGER_SPEC.md` against real-world advisor scenarios. It tests event extraction, evidence classification, ownership, waiting states, micro-commitments, and next-action recommendations.
+This corpus validates the `../10-specs/EVENT_LEDGER_SPEC.md` against real-world advisor scenarios. It tests event extraction, evidence classification, ownership, waiting states, micro-commitments, and next-action recommendations.
 
 ---
 

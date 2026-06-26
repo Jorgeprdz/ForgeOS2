@@ -75,6 +75,6 @@ Every semantic candidate **MUST** contain:
 
 ## 11. Temporal Understanding Discovery
 
-Temporal understanding is tracked separately in `docs/specs/TEMPORAL_UNDERSTANDING_DISCOVERY.md`.
+Temporal understanding is tracked separately in `docs/10-specs/TEMPORAL_UNDERSTANDING_DISCOVERY.md`.
 
 Current v0.8 support covers T1 Exact Temporal, T2 Relative Temporal, and T3 Numeric Range. T4 Alternative Set, T5 Temporal Window, and T6 Conditional Temporal are discovery-closed but implementation-deferred.
