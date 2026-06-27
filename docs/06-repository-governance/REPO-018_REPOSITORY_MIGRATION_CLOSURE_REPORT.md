@@ -160,7 +160,7 @@ Archive is custodial storage; domain ownership still applies. Projection evidenc
 
 Impact:
 
-`docs/archive/product-intelligence/projection-evidence/` became the canonical placement for projection validation evidence.
+`docs/99-archive/product-intelligence/projection-evidence/` became the canonical placement for projection validation evidence.
 
 ### Migration Harness
 

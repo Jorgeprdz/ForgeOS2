@@ -34,11 +34,11 @@ The future REPO-017 execution should be a small governed movement batch: create 
 
 ## Approved Destination
 
-`docs/archive/product-intelligence/projection-evidence/`
+`docs/99-archive/product-intelligence/projection-evidence/`
 
 This location is canonical for the remaining 3 projection validation reports because it:
 
-- keeps historical evidence in `docs/archive/`;
+- keeps historical evidence in `docs/99-archive/`;
 - makes Product Intelligence ownership explicit;
 - names projection evidence as the artifact class;
 - avoids treating validation reports as runtime, architecture doctrine or repository governance.
@@ -47,9 +47,9 @@ This location is canonical for the remaining 3 projection validation reports bec
 
 REPO-017 should execute one controlled batch:
 
-1. Create `docs/archive/product-intelligence/projection-evidence/`.
+1. Create `docs/99-archive/product-intelligence/projection-evidence/`.
 2. Move the 3 tracked root `.txt` reports using `git mv`.
-3. Rewrite only the 3 links in `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md`.
+3. Rewrite only the 3 links in `docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md`.
 4. Run:
 
 ```sh

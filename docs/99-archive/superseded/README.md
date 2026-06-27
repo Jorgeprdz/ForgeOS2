@@ -10,6 +10,6 @@ Canonical version:
 
 Archived root version:
 
-`docs/archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md`
+`docs/99-archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md`
 
 The archived root version was a later Markdown conversion with formatting and repository references. It should not be treated as canonical constitutional doctrine.

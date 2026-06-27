@@ -9,11 +9,11 @@ REPO-017 executed the approved Product Intelligence projection evidence archive 
 
 Exactly 3 tracked root `.txt` validation reports were moved with `git mv` into:
 
-`docs/archive/product-intelligence/projection-evidence/`
+`docs/99-archive/product-intelligence/projection-evidence/`
 
 Exactly 3 checkpoint links were rewritten in:
 
-`docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md`
+`docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md`
 
 No additional files were moved, no imports were rewritten, no runtime files were modified and no code files were modified.
 
@@ -21,17 +21,17 @@ No additional files were moved, no imports were rewritten, no runtime files were
 
 | # | Source | Destination |
 | ---: | --- | --- |
-| 1 | `FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | `docs/archive/product-intelligence/projection-evidence/FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` |
-| 2 | `FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | `docs/archive/product-intelligence/projection-evidence/FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` |
-| 3 | `FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | `docs/archive/product-intelligence/projection-evidence/FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` |
+| 1 | `FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | `docs/99-archive/product-intelligence/projection-evidence/FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` |
+| 2 | `FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | `docs/99-archive/product-intelligence/projection-evidence/FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` |
+| 3 | `FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | `docs/99-archive/product-intelligence/projection-evidence/FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` |
 
 ## Links Rewritten
 
 | # | Source File | Visible Text | Old Target | New Target |
 | ---: | --- | --- | --- | --- |
-| 1 | `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | `FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | `product-intelligence/projection-evidence/FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` |
-| 2 | `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | `FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | `product-intelligence/projection-evidence/FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` |
-| 3 | `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | `FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | `product-intelligence/projection-evidence/FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` |
+| 1 | `docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | `FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | `product-intelligence/projection-evidence/FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` |
+| 2 | `docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | `FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | `product-intelligence/projection-evidence/FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` |
+| 3 | `docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | `FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | `product-intelligence/projection-evidence/FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` |
 
 ## Validation Results
 

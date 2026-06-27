@@ -40,7 +40,7 @@ The final 7 links should not be handled as a bulk rewrite. They require two diff
 
 The 4 WAVE-B records all involve `FORGE_FOUNDATION_LOCK.md`. The target currently exists at:
 
-`docs/archive/FORGE_FOUNDATION_LOCK.md`
+`docs/99-archive/FORGE_FOUNDATION_LOCK.md`
 
 These links are historically sensitive because the source files discuss foundation closure, ratification or superseded constitutional material. A simple path rewrite would make Markdown validation pass, but it may weaken the fact that the original reference name is part of the historical record.
 
@@ -54,16 +54,16 @@ The execution should preserve the historical artifact name in the visible text a
 
 | # | Source File | Broken Target | Historical Meaning | Current Canonical Location | Provenance Risk | Classification |
 | ---: | --- | --- | --- | --- | --- | --- |
-| 1 | `docs/adr/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | Foundation lock review references the closure artifact as part of ratification lineage. | `docs/archive/FORGE_FOUNDATION_LOCK.md` | Low if visible name is preserved; medium if rewritten without context. | DUAL_LINK_REQUIRED |
-| 2 | `docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | Final foundation lock review references the same historical closure artifact. | `docs/archive/FORGE_FOUNDATION_LOCK.md` | Low if visible name is preserved; medium if rewritten as ordinary current documentation. | DUAL_LINK_REQUIRED |
-| 3 | `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `FORGE_FOUNDATION_LOCK.md` | Ratification and closure document names Foundation Lock as a constitutional/foundation artifact. | `docs/archive/FORGE_FOUNDATION_LOCK.md` | Medium because this document contains canonical closure context. | DUAL_LINK_REQUIRED |
-| 4 | `docs/archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md` | `FORGE_FOUNDATION_LOCK.md` | Superseded root conversion references Foundation Lock from historical root context. | `docs/archive/FORGE_FOUNDATION_LOCK.md` | Medium because the source itself is non-canonical and archived. | DUAL_LINK_REQUIRED |
+| 1 | `docs/adr/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | Foundation lock review references the closure artifact as part of ratification lineage. | `docs/99-archive/FORGE_FOUNDATION_LOCK.md` | Low if visible name is preserved; medium if rewritten without context. | DUAL_LINK_REQUIRED |
+| 2 | `docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | Final foundation lock review references the same historical closure artifact. | `docs/99-archive/FORGE_FOUNDATION_LOCK.md` | Low if visible name is preserved; medium if rewritten as ordinary current documentation. | DUAL_LINK_REQUIRED |
+| 3 | `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `FORGE_FOUNDATION_LOCK.md` | Ratification and closure document names Foundation Lock as a constitutional/foundation artifact. | `docs/99-archive/FORGE_FOUNDATION_LOCK.md` | Medium because this document contains canonical closure context. | DUAL_LINK_REQUIRED |
+| 4 | `docs/99-archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md` | `FORGE_FOUNDATION_LOCK.md` | Superseded root conversion references Foundation Lock from historical root context. | `docs/99-archive/FORGE_FOUNDATION_LOCK.md` | Medium because the source itself is non-canonical and archived. | DUAL_LINK_REQUIRED |
 
 ## NEEDS_MOVE Ownership Policy
 
 The 3 NEEDS_MOVE links appear in:
 
-`docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md`
+`docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md`
 
 The referenced targets exist only at repository root:
 
@@ -81,7 +81,7 @@ The targets should be archived under a governed Product Intelligence evidence de
 
 Recommended destination family for future execution:
 
-`docs/archive/product-intelligence/projection-evidence/`
+`docs/99-archive/product-intelligence/projection-evidence/`
 
 This keeps the reports historical/evidentiary rather than implying active runtime ownership.
 
@@ -89,9 +89,9 @@ This keeps the reports historical/evidentiary rather than implying active runtim
 
 | # | Source File | Missing Target | Exists Elsewhere? | Correct Owner | Correct Destination Domain | Recommended Classification |
 | ---: | --- | --- | --- | --- | --- | --- |
-| 1 | `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | Exists at repository root only. | Product Intelligence + Projection Evidence Archive | `docs/archive/product-intelligence/projection-evidence/` | ARCHIVE_TARGET_REQUIRED |
-| 2 | `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | Exists at repository root only. | Product Intelligence + Projection Evidence Archive | `docs/archive/product-intelligence/projection-evidence/` | ARCHIVE_TARGET_REQUIRED |
-| 3 | `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | Exists at repository root only. | Product Intelligence + Projection Evidence Archive | `docs/archive/product-intelligence/projection-evidence/` | ARCHIVE_TARGET_REQUIRED |
+| 1 | `docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | Exists at repository root only. | Product Intelligence + Projection Evidence Archive | `docs/99-archive/product-intelligence/projection-evidence/` | ARCHIVE_TARGET_REQUIRED |
+| 2 | `docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | Exists at repository root only. | Product Intelligence + Projection Evidence Archive | `docs/99-archive/product-intelligence/projection-evidence/` | ARCHIVE_TARGET_REQUIRED |
+| 3 | `docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | Exists at repository root only. | Product Intelligence + Projection Evidence Archive | `docs/99-archive/product-intelligence/projection-evidence/` | ARCHIVE_TARGET_REQUIRED |
 
 ## Historical Link Traceability Rule
 
@@ -111,9 +111,9 @@ For historical constitutional or foundation references, preserve the original ar
 Practical pattern:
 
 Visible text: `FORGE_FOUNDATION_LOCK.md`
-Target path: `../archive/FORGE_FOUNDATION_LOCK.md`
+Target path: `../99-archive/FORGE_FOUNDATION_LOCK.md`
 
-For archived/superseded sources where the relative path differs, compute the relative path from the source file to `docs/archive/FORGE_FOUNDATION_LOCK.md`.
+For archived/superseded sources where the relative path differs, compute the relative path from the source file to `docs/99-archive/FORGE_FOUNDATION_LOCK.md`.
 
 ## REPO-015 Execution Readiness
 

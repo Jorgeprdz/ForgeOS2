@@ -161,7 +161,7 @@ Verdict: Runtime-only root is too narrow.
 | `auth-guard.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `auto-task-generator-engine.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `base-repository.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
-| `broken-link-report.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
+| `broken-link-report.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
 | `buying-signals-engine.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `cache-runtime.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `candidate-assessment-engine.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
@@ -258,7 +258,7 @@ Verdict: Runtime-only root is too narrow.
 | `domain-runtime.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `domain-store.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `drag-drop-policy-zone.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
-| `duplicate-destination-report.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
+| `duplicate-destination-report.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
 | `dynamic-cash-value-projection-engine.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `education-cost-master-test.js` | File | Runtime Asset | ROOT_ALLOWED | Executable validation entry may currently rely on root-relative module layout. | Allow until test/code migration plan exists. |
 | `education-paths-master-test.js` | File | Runtime Asset | ROOT_ALLOWED | Executable validation entry may currently rely on root-relative module layout. | Allow until test/code migration plan exists. |
@@ -310,24 +310,24 @@ Verdict: Runtime-only root is too narrow.
 | `followup-type.constants.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `followup.entity.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `FORGE_CONSTITUTION_V3.md` | File | Governance Asset | ROOT_REQUIRED | Canonical constitutional authority remains directly discoverable from root. | Protected root asset. |
-| `FORGE_DUAL_INTELLIGENCE_OPERATIONAL_BLUEPRINT.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
-| `FORGE_GMM_EVIDENCE_PACKET_VALIDATION.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
-| `FORGE_GMM_RED_TEAM_RETEST_REPORT.txt` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
-| `FORGE_GMM_SOURCE_VALIDATION_WORKFLOW.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
-| `FORGE_HUMAN_CAPITAL_ALLOCATION_FLOW.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
-| `FORGE_IMPLEMENTATION_READINESS_001C_TRUTH_VALIDATION_RESULT_CONTRACT.txt` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
-| `FORGE_LARIZA_PEDRO_CAMARENA_TEST.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
-| `FORGE_MANAGER_OS_BLUEPRINT.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
+| `FORGE_DUAL_INTELLIGENCE_OPERATIONAL_BLUEPRINT.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
+| `FORGE_GMM_EVIDENCE_PACKET_VALIDATION.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
+| `FORGE_GMM_RED_TEAM_RETEST_REPORT.txt` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
+| `FORGE_GMM_SOURCE_VALIDATION_WORKFLOW.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
+| `FORGE_HUMAN_CAPITAL_ALLOCATION_FLOW.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
+| `FORGE_IMPLEMENTATION_READINESS_001C_TRUTH_VALIDATION_RESULT_CONTRACT.txt` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
+| `FORGE_LARIZA_PEDRO_CAMARENA_TEST.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
+| `FORGE_MANAGER_OS_BLUEPRINT.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
 | `FORGE_MASTER_BUILD_TREE.md` | File | Governance Asset | ROOT_REQUIRED | Canonical build/navigation tree remains directly discoverable from root. | Protected root asset. |
-| `FORGE_REPOSITORY_MIGRATION_PLAN.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
-| `FORGE_UDI_PROJECTION_VALIDATION_REPORT.txt` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
-| `FORGE_VALIDATION_REQUIREMENTS_REPORT.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
+| `FORGE_REPOSITORY_MIGRATION_PLAN.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
+| `FORGE_UDI_PROJECTION_VALIDATION_REPORT.txt` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
+| `FORGE_VALIDATION_REQUIREMENTS_REPORT.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
 | `forge-ai-connector-master-test.js` | File | Runtime Asset | ROOT_ALLOWED | Executable validation entry may currently rely on root-relative module layout. | Allow until test/code migration plan exists. |
 | `forge-ai-connector.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `forge-ai-guardrails-engine.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `forge-ai-prompt-builder.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `forge-build-tree-status.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
-| `forge-full-inventory.txt` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
+| `forge-full-inventory.txt` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
 | `forge-global-master-test.js` | File | Runtime Asset | ROOT_ALLOWED | Executable validation entry may currently rely on root-relative module layout. | Allow until test/code migration plan exists. |
 | `forge-gmm-real-case-smoke-test.js` | File | Runtime Asset | ROOT_ALLOWED | Executable validation entry may currently rely on root-relative module layout. | Allow until test/code migration plan exists. |
 | `forge-gmm-sprint-2-smoke-test.js` | File | Runtime Asset | ROOT_ALLOWED | Executable validation entry may currently rely on root-relative module layout. | Allow until test/code migration plan exists. |
@@ -390,7 +390,7 @@ Verdict: Runtime-only root is too narrow.
 | `index.html` | File | Runtime Asset | ROOT_REQUIRED | Current app shell/PWA runtime expects this file at root. | Protected runtime asset. |
 | `interview-evidence-fixture-test.js` | File | Runtime Asset | ROOT_ALLOWED | Executable validation entry may currently rely on root-relative module layout. | Allow until test/code migration plan exists. |
 | `introduction-message-engine.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
-| `inventory-schema-validation-report.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
+| `inventory-schema-validation-report.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
 | `lead-temperature-engine.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `life-event-engine.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `life-event-master-test.js` | File | Runtime Asset | ROOT_ALLOWED | Executable validation entry may currently rely on root-relative module layout. | Allow until test/code migration plan exists. |
@@ -417,7 +417,7 @@ Verdict: Runtime-only root is too narrow.
 | `maternity-smoke-test.js` | File | Runtime Asset | ROOT_ALLOWED | Executable validation entry may currently rely on root-relative module layout. | Allow until test/code migration plan exists. |
 | `memory-manager.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `migration-inventory.json` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
-| `migration-validation-report.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
+| `migration-validation-report.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
 | `module-lifecycle.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `momentum-engine.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `monthly-revenue-engine.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
@@ -614,7 +614,7 @@ Verdict: Runtime-only root is too narrow.
 | `realtime-engine.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `realtime-task-engine.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `recruitment-fixture-validation-test.js` | File | Runtime Asset | ROOT_ALLOWED | Executable validation entry may currently rely on root-relative module layout. | Allow until test/code migration plan exists. |
-| `reference-rewrite-plan.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
+| `reference-rewrite-plan.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
 | `referidos.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `referral-ai-followup.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `referral-card-ui.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
@@ -654,8 +654,8 @@ Verdict: Runtime-only root is too narrow.
 | `revenue-forecast-engine.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `revenue-optimization-engine.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `risk-story-context-engine.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
-| `ROOT_DOCS_MIGRATION_BATCH_1_MOVE_MAP.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
-| `ROOT_DOCS_MIGRATION_BATCH_2_MOVE_MAP.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/archive/domain placement review. |
+| `ROOT_DOCS_MIGRATION_BATCH_1_MOVE_MAP.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
+| `ROOT_DOCS_MIGRATION_BATCH_2_MOVE_MAP.md` | File | Documentation | ROOT_OPTIONAL | Documentation value remains, but no unique root capability established. | Candidate for docs/99-archive/domain placement review. |
 | `route-transition-manager.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `runtime.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |
 | `sales-coach-engine.js` | File | Runtime Asset | ROOT_ALLOWED | Executable code may currently rely on root-relative module layout. | Allow temporarily; require future code-domain migration plan. |

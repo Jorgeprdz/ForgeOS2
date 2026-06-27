@@ -223,7 +223,7 @@ function destinationFor(file) {
     return `docs/03-discovery/${file}`;
   }
 
-  return `docs/archive/${file}`;
+  return `docs/99-archive/${file}`;
 }
 
 function classifyPlanRecord(file, sets) {

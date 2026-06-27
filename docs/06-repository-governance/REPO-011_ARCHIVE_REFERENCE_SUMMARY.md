@@ -36,9 +36,9 @@ Status: PLANNING COMPLETE / NO EXECUTION
 
 | Archive Target | Count |
 | --- | ---: |
-| docs/archive/FORGE_FOUNDATION_LOCK.md | 22 |
-| docs/archive/FORGE_ADVISOR_EXPERIENCE_ARCHITECTURE.md | 2 |
-| docs/archive/SCHEMA_CATALOG.md | 1 |
+| docs/99-archive/FORGE_FOUNDATION_LOCK.md | 22 |
+| docs/99-archive/FORGE_ADVISOR_EXPERIENCE_ARCHITECTURE.md | 2 |
+| docs/99-archive/SCHEMA_CATALOG.md | 1 |
 
 ## Recommendation
 

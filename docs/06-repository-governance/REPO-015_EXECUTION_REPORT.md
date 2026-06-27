@@ -18,7 +18,7 @@ Preserve the original artifact name as visible historical text while linking to 
 Applied pattern:
 
 - Visible text preserved: `FORGE_FOUNDATION_LOCK.md`
-- Link target updated to the source-relative path for `docs/archive/FORGE_FOUNDATION_LOCK.md`
+- Link target updated to the source-relative path for `docs/99-archive/FORGE_FOUNDATION_LOCK.md`
 
 ## Execution Counts
 
@@ -37,16 +37,16 @@ Applied pattern:
 - `docs/adr/PAQ-07-FOUNDATION-LOCK-REVIEW.md`
 - `docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md`
 - `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md`
-- `docs/archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md`
+- `docs/99-archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md`
 
 ## Links Rewritten
 
 | # | Source File | Visible Text | Old Target | New Target |
 | ---: | --- | --- | --- | --- |
-| 1 | `docs/adr/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../archive/FORGE_FOUNDATION_LOCK.md` |
-| 2 | `docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../archive/FORGE_FOUNDATION_LOCK.md` |
-| 3 | `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../../archive/FORGE_FOUNDATION_LOCK.md` |
-| 4 | `docs/archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../FORGE_FOUNDATION_LOCK.md` |
+| 1 | `docs/adr/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../99-archive/FORGE_FOUNDATION_LOCK.md` |
+| 2 | `docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../99-archive/FORGE_FOUNDATION_LOCK.md` |
+| 3 | `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../../99-archive/FORGE_FOUNDATION_LOCK.md` |
+| 4 | `docs/99-archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../FORGE_FOUNDATION_LOCK.md` |
 
 ## Skipped Items
 
@@ -54,9 +54,9 @@ The following 3 links were not modified because REPO-014 classified them as `ARC
 
 | Source File | Broken Target | Required Governance Action |
 | --- | --- | --- |
-| `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | Approve archive destination for root validation report target. |
-| `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | Approve archive destination for root validation report target. |
-| `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | Approve archive destination for root validation report target. |
+| `docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | Approve archive destination for root validation report target. |
+| `docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | Approve archive destination for root validation report target. |
+| `docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | Approve archive destination for root validation report target. |
 
 ## Validation Results
 
@@ -80,16 +80,16 @@ Additional validation:
 
 | Source File | Link | Status | Governance Category |
 | --- | --- | --- | --- |
-| `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | TARGET_BROKEN | ARCHIVE_TARGET_REQUIRED |
-| `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | TARGET_BROKEN | ARCHIVE_TARGET_REQUIRED |
-| `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | TARGET_BROKEN | ARCHIVE_TARGET_REQUIRED |
+| `docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | TARGET_BROKEN | ARCHIVE_TARGET_REQUIRED |
+| `docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | TARGET_BROKEN | ARCHIVE_TARGET_REQUIRED |
+| `docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | TARGET_BROKEN | ARCHIVE_TARGET_REQUIRED |
 
 ## Recommended REPO-016 Scope
 
 REPO-016 should resolve the final 3 broken links by authorizing a target archival movement plan for the tracked root projection validation reports:
 
 1. Create an explicit move map for the 3 root `.txt` validation reports.
-2. Move approved targets to `docs/archive/product-intelligence/projection-evidence/` using `git mv`.
+2. Move approved targets to `docs/99-archive/product-intelligence/projection-evidence/` using `git mv`.
 3. Rewrite only the 3 checkpoint links to the new source-relative archive paths.
 4. Run the migration harness check and `git diff --check`.
 

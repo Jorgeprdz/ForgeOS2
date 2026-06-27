@@ -7,7 +7,7 @@ Status: GOVERNED MOVE PLANNING / NO EXECUTION
 
 REPO-016 analyzed the final 3 broken Markdown links remaining after REPO-015. All 3 originate from:
 
-`docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md`
+`docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md`
 
 The broken links point to tracked `.txt` validation reports that currently live at repository root. These are not runtime assets and not repository governance reports. They are Product Intelligence projection evidence artifacts.
 
@@ -17,9 +17,9 @@ No files were moved, no links were rewritten, no imports were changed and no run
 
 | # | Referencing Document | Broken Link | Harness Resolved Target | Current Actual Location | Status |
 | ---: | --- | --- | --- | --- | --- |
-| 1 | `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | `docs/archive/FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | `FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | Target exists at root only |
-| 2 | `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | `docs/archive/FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | `FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | Target exists at root only |
-| 3 | `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | `docs/archive/FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | `FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | Target exists at root only |
+| 1 | `docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | `docs/99-archive/FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | `FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | Target exists at root only |
+| 2 | `docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | `docs/99-archive/FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | `FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | Target exists at root only |
+| 3 | `docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | `docs/99-archive/FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | `FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt` | Target exists at root only |
 
 ## Target Report Purposes
 

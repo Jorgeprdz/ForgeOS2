@@ -68,7 +68,7 @@ Subcarpetas recomendadas para la primera migracion controlada:
 - `compensation/smnyl-agency-2026/`, `compensation/production/`, `compensation/contests/`, `compensation/manager-compensation/`
 - `rule-packs/smnyl-agency-2026/`
 - `platform/runtime/`, `platform/storage/`, `platform/sync/`, `platform/commands/`, `platform/ui-shell/`
-- `docs/architecture/`, `docs/archive/`, `docs/adr/`, `docs/03-discovery/`
+- `docs/architecture/`, `docs/99-archive/`, `docs/adr/`, `docs/03-discovery/`
 - `tests/unit/`, `tests/master/`, `tests/smoke/`, `tests/fixtures/`
 
 ## 4. Archivos que NO deben moverse en la primera fase
@@ -738,7 +738,7 @@ Criterio mecanico: JS/TS sin imports relativos y sin referencias entrantes detec
 | `ALFA_MEDICAL_SHARED_RULE_LIBRARY_CANDIDATES.md` | product-intelligence | `product-intelligence/ALFA_MEDICAL_SHARED_RULE_LIBRARY_CANDIDATES.md` | BAJO | - | 5 - Product intelligence |
 | `ALFA_MEDICAL_WAITING_PERIOD_RULES.md` | product-intelligence | `product-intelligence/ALFA_MEDICAL_WAITING_PERIOD_RULES.md` | BAJO | - | 5 - Product intelligence |
 | `COMPENSATION_DOMAIN_MODEL.md` | compensation | `compensation/COMPENSATION_DOMAIN_MODEL.md` | BAJO | - | 9 - Compensation |
-| `DIAGRAMA_RAZONAMIENTO_EDWIN_IS15.md` | docs | `docs/archive/DIAGRAMA_RAZONAMIENTO_EDWIN_IS15.md` | BAJO | - | 1 - Docs y arquitectura |
+| `DIAGRAMA_RAZONAMIENTO_EDWIN_IS15.md` | docs | `docs/99-archive/DIAGRAMA_RAZONAMIENTO_EDWIN_IS15.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FIXTURE_CATALOG.md` | shared-intelligence | `shared-intelligence/FIXTURE_CATALOG.md` | BAJO | - | 3 - Shared intelligence |
 | `FORGE_ACTION_SAFETY_COMPONENTS_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_ACTION_SAFETY_COMPONENTS_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
 | `FORGE_ACTION_SAFETY_DESTROYERS_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_ACTION_SAFETY_DESTROYERS_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
@@ -750,35 +750,35 @@ Criterio mecanico: JS/TS sin imports relativos y sin referencias entrantes detec
 | `FORGE_ADVISOR_EXPERIENCE_ARCHITECTURE.md` | advisor-os | `advisor-os/FORGE_ADVISOR_EXPERIENCE_ARCHITECTURE.md` | BAJO | - | 7 - Advisor OS |
 | `FORGE_ADVISOR_FRICTION_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_ADVISOR_FRICTION_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
 | `FORGE_ADVISOR_INSIGHTS.md` | advisor-os | `advisor-os/FORGE_ADVISOR_INSIGHTS.md` | BAJO | - | 7 - Advisor OS |
-| `FORGE_ARCHITECTURAL_CONSTITUTION_v3.md` | docs | `docs/archive/FORGE_ARCHITECTURAL_CONSTITUTION_v3.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_ARCHITECTURAL_CONSTITUTION_v3.md` | docs | `docs/99-archive/FORGE_ARCHITECTURAL_CONSTITUTION_v3.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_ARTICLE_0_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_ARTICLE_0_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
-| `FORGE_ARTICLE_0_POSITION_IN_CONSTITUTION.md` | docs | `docs/archive/FORGE_ARTICLE_0_POSITION_IN_CONSTITUTION.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_ARTICLE_0_SUCCESS_MEASURES.md` | docs | `docs/archive/FORGE_ARTICLE_0_SUCCESS_MEASURES.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_BENVENU_EXPERIENCE_LOCK.md` | docs | `docs/archive/FORGE_BENVENU_EXPERIENCE_LOCK.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_BENVENU_LEOPARD_EXPERIENCE_SPEC.md` | docs | `docs/archive/FORGE_BENVENU_LEOPARD_EXPERIENCE_SPEC.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_ARTICLE_0_POSITION_IN_CONSTITUTION.md` | docs | `docs/99-archive/FORGE_ARTICLE_0_POSITION_IN_CONSTITUTION.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_ARTICLE_0_SUCCESS_MEASURES.md` | docs | `docs/99-archive/FORGE_ARTICLE_0_SUCCESS_MEASURES.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_BENVENU_EXPERIENCE_LOCK.md` | docs | `docs/99-archive/FORGE_BENVENU_EXPERIENCE_LOCK.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_BENVENU_LEOPARD_EXPERIENCE_SPEC.md` | docs | `docs/99-archive/FORGE_BENVENU_LEOPARD_EXPERIENCE_SPEC.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_CAREER_LIFECYCLE_MODEL_DISCOVERY.md` | manager-os | `manager-os/FORGE_CAREER_LIFECYCLE_MODEL_DISCOVERY.md` | BAJO | - | 8 - Manager OS |
 | `FORGE_CAREER_OPERATING_SYSTEM_DISCOVERY.md` | manager-os | `manager-os/FORGE_CAREER_OPERATING_SYSTEM_DISCOVERY.md` | BAJO | - | 8 - Manager OS |
 | `FORGE_CLIENT_DECISION_MODEL_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_CLIENT_DECISION_MODEL_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
-| `FORGE_CLIENT_PRESENTATION_SIMULATION.md` | docs | `docs/archive/FORGE_CLIENT_PRESENTATION_SIMULATION.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_CODEBASE_CARTOGRAPHY_PHASE_1.md` | docs | `docs/archive/FORGE_CODEBASE_CARTOGRAPHY_PHASE_1.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_CODEBASE_DOMAIN_ASSIGNMENT_CONCISE.md` | docs | `docs/archive/FORGE_CODEBASE_DOMAIN_ASSIGNMENT_CONCISE.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_CODEBASE_DOMAIN_ASSIGNMENT_SUMMARY.md` | docs | `docs/archive/FORGE_CODEBASE_DOMAIN_ASSIGNMENT_SUMMARY.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_CLIENT_PRESENTATION_SIMULATION.md` | docs | `docs/99-archive/FORGE_CLIENT_PRESENTATION_SIMULATION.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_CODEBASE_CARTOGRAPHY_PHASE_1.md` | docs | `docs/99-archive/FORGE_CODEBASE_CARTOGRAPHY_PHASE_1.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_CODEBASE_DOMAIN_ASSIGNMENT_CONCISE.md` | docs | `docs/99-archive/FORGE_CODEBASE_DOMAIN_ASSIGNMENT_CONCISE.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_CODEBASE_DOMAIN_ASSIGNMENT_SUMMARY.md` | docs | `docs/99-archive/FORGE_CODEBASE_DOMAIN_ASSIGNMENT_SUMMARY.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_COMPENSATION_INTELLIGENCE_ARCHITECTURE.md` | compensation | `compensation/FORGE_COMPENSATION_INTELLIGENCE_ARCHITECTURE.md` | BAJO | - | 9 - Compensation |
-| `FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | docs | `docs/archive/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | docs | `docs/99-archive/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_CONSTITUTION_CANDIDATES.md` | manager-os | `manager-os/FORGE_CONSTITUTION_CANDIDATES.md` | BAJO | - | 8 - Manager OS |
-| `FORGE_CONSTITUTION_LOCK_PREPARATION.md` | docs | `docs/archive/FORGE_CONSTITUTION_LOCK_PREPARATION.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_CONSTITUTION_V3.md` | docs | `docs/archive/FORGE_CONSTITUTION_V3.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_CORPORATE_VS_FIELD_INTELLIGENCE_COMPARISON.md` | docs | `docs/archive/FORGE_CORPORATE_VS_FIELD_INTELLIGENCE_COMPARISON.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_CONSTITUTION_LOCK_PREPARATION.md` | docs | `docs/99-archive/FORGE_CONSTITUTION_LOCK_PREPARATION.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_CONSTITUTION_V3.md` | docs | `docs/99-archive/FORGE_CONSTITUTION_V3.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_CORPORATE_VS_FIELD_INTELLIGENCE_COMPARISON.md` | docs | `docs/99-archive/FORGE_CORPORATE_VS_FIELD_INTELLIGENCE_COMPARISON.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_DECISION_VS_TRANSACTION_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_DECISION_VS_TRANSACTION_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
 | `FORGE_DEPENDENCY_SIGNAL_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_DEPENDENCY_SIGNAL_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
 | `FORGE_DISCOVERY_CONSOLIDATION_REPORT.md` | advisor-os | `advisor-os/FORGE_DISCOVERY_CONSOLIDATION_REPORT.md` | BAJO | - | 7 - Advisor OS |
-| `FORGE_DOCS_CHECKPOINT_PAQ_ORDER_REPORT.md` | docs | `docs/archive/FORGE_DOCS_CHECKPOINT_PAQ_ORDER_REPORT.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_DOCS_CHECKPOINT_PAQ_ORDER_REPORT.md` | docs | `docs/99-archive/FORGE_DOCS_CHECKPOINT_PAQ_ORDER_REPORT.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_DUAL_INTELLIGENCE_OPERATIONAL_BLUEPRINT.md` | policy-operations | `policy-operations/FORGE_DUAL_INTELLIGENCE_OPERATIONAL_BLUEPRINT.md` | BAJO | - | 6 - Policy operations |
-| `FORGE_ETHICAL_BOUNDARY_REVIEW.md` | docs | `docs/archive/FORGE_ETHICAL_BOUNDARY_REVIEW.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_ETHICAL_BOUNDARY_REVIEW.md` | docs | `docs/99-archive/FORGE_ETHICAL_BOUNDARY_REVIEW.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_FALSE_READINESS_DISCOVERY.md` | manager-os | `manager-os/FORGE_FALSE_READINESS_DISCOVERY.md` | BAJO | - | 8 - Manager OS |
-| `FORGE_FOUNDATION_LOCK.md` | docs | `docs/archive/FORGE_FOUNDATION_LOCK.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_FOUNDATION_LOCK.md` | docs | `docs/99-archive/FORGE_FOUNDATION_LOCK.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_FRICTION_INTELLIGENCE_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_FRICTION_INTELLIGENCE_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
-| `FORGE_FRICTION_PATTERN_LIBRARY.md` | docs | `docs/archive/FORGE_FRICTION_PATTERN_LIBRARY.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_FRICTION_PATTERN_LIBRARY.md` | docs | `docs/99-archive/FORGE_FRICTION_PATTERN_LIBRARY.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_GLOBAL_UDI_PROJECTION_PRODUCT_INTERPRETATION.md` | product-intelligence | `product-intelligence/FORGE_GLOBAL_UDI_PROJECTION_PRODUCT_INTERPRETATION.md` | BAJO | - | 5 - Product intelligence |
 | `FORGE_GLOBAL_UDI_PROJECTION_REASONING_DIAGRAM.md` | shared-intelligence | `shared-intelligence/FORGE_GLOBAL_UDI_PROJECTION_REASONING_DIAGRAM.md` | BAJO | - | 3 - Shared intelligence |
 | `FORGE_GMM_ASSESSMENT_LANGUAGE_ARCHITECTURE.md` | product-intelligence | `product-intelligence/FORGE_GMM_ASSESSMENT_LANGUAGE_ARCHITECTURE.md` | BAJO | - | 5 - Product intelligence |
@@ -819,33 +819,33 @@ Criterio mecanico: JS/TS sin imports relativos y sin referencias entrantes detec
 | `FORGE_GMM_STORY_STRUCTURE_DISCOVERY.md` | product-intelligence | `product-intelligence/FORGE_GMM_STORY_STRUCTURE_DISCOVERY.md` | BAJO | - | 5 - Product intelligence |
 | `FORGE_GMM_UNIVERSAL_EVIDENCE_PACKET.md` | product-intelligence | `product-intelligence/FORGE_GMM_UNIVERSAL_EVIDENCE_PACKET.md` | BAJO | - | 5 - Product intelligence |
 | `FORGE_HIDDEN_FRICTIONS_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_HIDDEN_FRICTIONS_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
-| `FORGE_HUMAN_CAPITAL_ALLOCATION_FLOW.md` | docs | `docs/archive/FORGE_HUMAN_CAPITAL_ALLOCATION_FLOW.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_HUMAN_CAPITAL_ALLOCATION_FLOW.md` | docs | `docs/99-archive/FORGE_HUMAN_CAPITAL_ALLOCATION_FLOW.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_HUMAN_DECISION_DISCOVERY_CHECKPOINT.md` | advisor-os | `advisor-os/FORGE_HUMAN_DECISION_DISCOVERY_CHECKPOINT.md` | BAJO | - | 7 - Advisor OS |
-| `FORGE_HUMAN_DEVELOPMENT_BUSINESS_FOUNDATIONAL_TRUTH.md` | docs | `docs/archive/FORGE_HUMAN_DEVELOPMENT_BUSINESS_FOUNDATIONAL_TRUTH.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_HUMAN_DEVELOPMENT_BUSINESS_FOUNDATIONAL_TRUTH.md` | docs | `docs/99-archive/FORGE_HUMAN_DEVELOPMENT_BUSINESS_FOUNDATIONAL_TRUTH.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_HUMAN_JUDGMENT_PRESERVATION_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_HUMAN_JUDGMENT_PRESERVATION_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
 | `FORGE_JUDGMENT_DEVELOPMENT_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_JUDGMENT_DEVELOPMENT_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
 | `FORGE_JUDGMENT_VS_PRODUCTION_ANALYSIS.md` | product-intelligence | `product-intelligence/FORGE_JUDGMENT_VS_PRODUCTION_ANALYSIS.md` | BAJO | - | 5 - Product intelligence |
 | `FORGE_LARIZA_ADVISOR_COPILOT.md` | advisor-os | `advisor-os/FORGE_LARIZA_ADVISOR_COPILOT.md` | BAJO | - | 7 - Advisor OS |
-| `FORGE_LARIZA_CLIENT_PRESENTATION.md` | docs | `docs/archive/FORGE_LARIZA_CLIENT_PRESENTATION.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_LARIZA_DECISION_CLARITY_REVIEW.md` | docs | `docs/archive/FORGE_LARIZA_DECISION_CLARITY_REVIEW.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_LARIZA_PEDRO_CAMARENA_TEST.md` | docs | `docs/archive/FORGE_LARIZA_PEDRO_CAMARENA_TEST.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_LARIZA_CLIENT_PRESENTATION.md` | docs | `docs/99-archive/FORGE_LARIZA_CLIENT_PRESENTATION.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_LARIZA_DECISION_CLARITY_REVIEW.md` | docs | `docs/99-archive/FORGE_LARIZA_DECISION_CLARITY_REVIEW.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_LARIZA_PEDRO_CAMARENA_TEST.md` | docs | `docs/99-archive/FORGE_LARIZA_PEDRO_CAMARENA_TEST.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_LARIZA_QUOTE_REVIEW.md` | product-intelligence | `product-intelligence/FORGE_LARIZA_QUOTE_REVIEW.md` | BAJO | - | 5 - Product intelligence |
 | `FORGE_LOCK_CANDIDATE_REVIEW.md` | manager-os | `manager-os/FORGE_LOCK_CANDIDATE_REVIEW.md` | BAJO | - | 8 - Manager OS |
 | `FORGE_MANAGER_FRICTION_DISCOVERY.md` | manager-os | `manager-os/FORGE_MANAGER_FRICTION_DISCOVERY.md` | BAJO | - | 8 - Manager OS |
 | `FORGE_MANAGER_OS_BLUEPRINT.md` | manager-os | `manager-os/FORGE_MANAGER_OS_BLUEPRINT.md` | BAJO | - | 8 - Manager OS |
 | `FORGE_MASTER_BUILD_TREE.md` | docs/root-governance | `FORGE_MASTER_BUILD_TREE.md` | NO_MOVER | - | 0 - No mover |
 | `FORGE_REPOSITORY_MIGRATION_PLAN.md` | docs/root-governance | `FORGE_REPOSITORY_MIGRATION_PLAN.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_MISSING_SOURCES_REPORT.md` | docs | `docs/archive/FORGE_MISSING_SOURCES_REPORT.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_MISSING_SOURCES_REPORT.md` | docs | `docs/99-archive/FORGE_MISSING_SOURCES_REPORT.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_NEXT_DISCOVERY_PRIORITY_REPORT.md` | advisor-os | `advisor-os/FORGE_NEXT_DISCOVERY_PRIORITY_REPORT.md` | BAJO | - | 7 - Advisor OS |
 | `FORGE_OS_CURRENT_STATE_DOMAIN_COMPENSATION_ADVISOR_EXPERIENCE.md` | compensation | `compensation/FORGE_OS_CURRENT_STATE_DOMAIN_COMPENSATION_ADVISOR_EXPERIENCE.md` | BAJO | - | 9 - Compensation |
 | `FORGE_PEDRO_CAMARENA_INTELLIGENCE_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_PEDRO_CAMARENA_INTELLIGENCE_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
-| `FORGE_PHASE_2_1_ARCHITECTURE_DECISION_LOG.md` | docs | `docs/archive/FORGE_PHASE_2_1_ARCHITECTURE_DECISION_LOG.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_PHASE_2_1_BUILD_TREE_DECISION_NOTES.md` | docs | `docs/archive/FORGE_PHASE_2_1_BUILD_TREE_DECISION_NOTES.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_PHASE_2_X_ARCHITECTURE_REVIEW.md` | docs | `docs/archive/FORGE_PHASE_2_X_ARCHITECTURE_REVIEW.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_PHASE_2_X_CLOSEOUT_NOTE.md` | docs | `docs/archive/FORGE_PHASE_2_X_CLOSEOUT_NOTE.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_PHASE_2_X_CONCEPTUAL_BUILD_TREE.md` | docs | `docs/archive/FORGE_PHASE_2_X_CONCEPTUAL_BUILD_TREE.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_PHASE_2_X_MODULE_MARKDOWN_BUNDLE.md` | docs | `docs/archive/FORGE_PHASE_2_X_MODULE_MARKDOWN_BUNDLE.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` | docs | `docs/archive/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_PHASE_2_1_ARCHITECTURE_DECISION_LOG.md` | docs | `docs/99-archive/FORGE_PHASE_2_1_ARCHITECTURE_DECISION_LOG.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_PHASE_2_1_BUILD_TREE_DECISION_NOTES.md` | docs | `docs/99-archive/FORGE_PHASE_2_1_BUILD_TREE_DECISION_NOTES.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_PHASE_2_X_ARCHITECTURE_REVIEW.md` | docs | `docs/99-archive/FORGE_PHASE_2_X_ARCHITECTURE_REVIEW.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_PHASE_2_X_CLOSEOUT_NOTE.md` | docs | `docs/99-archive/FORGE_PHASE_2_X_CLOSEOUT_NOTE.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_PHASE_2_X_CONCEPTUAL_BUILD_TREE.md` | docs | `docs/99-archive/FORGE_PHASE_2_X_CONCEPTUAL_BUILD_TREE.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_PHASE_2_X_MODULE_MARKDOWN_BUNDLE.md` | docs | `docs/99-archive/FORGE_PHASE_2_X_MODULE_MARKDOWN_BUNDLE.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` | docs | `docs/99-archive/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_PROFESSIONAL_DEVELOPMENT_MODEL_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_PROFESSIONAL_DEVELOPMENT_MODEL_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
 | `FORGE_PROFESSIONAL_EXCELLENCE_MODEL_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_PROFESSIONAL_EXCELLENCE_MODEL_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
 | `FORGE_PROFESSIONAL_SALES_LAW_CANDIDATES.md` | manager-os | `manager-os/FORGE_PROFESSIONAL_SALES_LAW_CANDIDATES.md` | BAJO | - | 8 - Manager OS |
@@ -853,13 +853,13 @@ Criterio mecanico: JS/TS sin imports relativos y sin referencias entrantes detec
 | `FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | shared-intelligence | `shared-intelligence/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | BAJO | - | 3 - Shared intelligence |
 | `FORGE_PROSPECT_DECISION_TIMELINE_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_PROSPECT_DECISION_TIMELINE_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
 | `FORGE_QUOTE_VS_POLICY_ANALYSIS.md` | product-intelligence | `product-intelligence/FORGE_QUOTE_VS_POLICY_ANALYSIS.md` | BAJO | - | 5 - Product intelligence |
-| `FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | docs | `docs/archive/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | docs | `docs/99-archive/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_READINESS_INTELLIGENCE_DISCOVERY.md` | manager-os | `manager-os/FORGE_READINESS_INTELLIGENCE_DISCOVERY.md` | BAJO | - | 8 - Manager OS |
 | `FORGE_READINESS_MODEL_CANDIDATE.md` | manager-os | `manager-os/FORGE_READINESS_MODEL_CANDIDATE.md` | BAJO | - | 8 - Manager OS |
 | `FORGE_READINESS_SIGNALS_DISCOVERY.md` | manager-os | `manager-os/FORGE_READINESS_SIGNALS_DISCOVERY.md` | BAJO | - | 8 - Manager OS |
 | `FORGE_READINESS_VS_FRICTION_COMPARISON.md` | manager-os | `manager-os/FORGE_READINESS_VS_FRICTION_COMPARISON.md` | BAJO | - | 8 - Manager OS |
-| `FORGE_REAL_WORLD_CASE_REVIEW.md` | docs | `docs/archive/FORGE_REAL_WORLD_CASE_REVIEW.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_RETIREMENT_FUTURE_UDI_REASONING_DIAGRAM.md` | docs | `docs/archive/FORGE_RETIREMENT_FUTURE_UDI_REASONING_DIAGRAM.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_REAL_WORLD_CASE_REVIEW.md` | docs | `docs/99-archive/FORGE_REAL_WORLD_CASE_REVIEW.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_RETIREMENT_FUTURE_UDI_REASONING_DIAGRAM.md` | docs | `docs/99-archive/FORGE_RETIREMENT_FUTURE_UDI_REASONING_DIAGRAM.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_SALES_DECISION_SEQUENCE_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_SALES_DECISION_SEQUENCE_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
 | `FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md` | shared-intelligence | `shared-intelligence/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md` | BAJO | - | 3 - Shared intelligence |
 | `FORGE_SHARED_COMMERCIAL_MODEL_FOUNDATION_REVIEW.md` | shared-intelligence | `shared-intelligence/FORGE_SHARED_COMMERCIAL_MODEL_FOUNDATION_REVIEW.md` | BAJO | - | 3 - Shared intelligence |
@@ -868,40 +868,40 @@ Criterio mecanico: JS/TS sin imports relativos y sin referencias entrantes detec
 | `FORGE_SHARED_DOMAIN_MODEL.md` | shared-intelligence | `shared-intelligence/FORGE_SHARED_DOMAIN_MODEL.md` | BAJO | - | 3 - Shared intelligence |
 | `FORGE_SHARED_POLICY_CURRENCY_TIMELINE_RECOMMENDATION.md` | policy-operations | `policy-operations/FORGE_SHARED_POLICY_CURRENCY_TIMELINE_RECOMMENDATION.md` | BAJO | - | 6 - Policy operations |
 | `FORGE_SKYNET_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_SKYNET_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
-| `FORGE_SKYNET_GOVERNANCE_MODEL.md` | docs | `docs/archive/FORGE_SKYNET_GOVERNANCE_MODEL.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_TRUTH_CLASSIFICATION_MATRIX.md` | docs | `docs/archive/FORGE_TRUTH_CLASSIFICATION_MATRIX.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_TRUTH_DEPENDENCY_MAP.md` | docs | `docs/archive/FORGE_TRUTH_DEPENDENCY_MAP.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_SKYNET_GOVERNANCE_MODEL.md` | docs | `docs/99-archive/FORGE_SKYNET_GOVERNANCE_MODEL.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_TRUTH_CLASSIFICATION_MATRIX.md` | docs | `docs/99-archive/FORGE_TRUTH_CLASSIFICATION_MATRIX.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_TRUTH_DEPENDENCY_MAP.md` | docs | `docs/99-archive/FORGE_TRUTH_DEPENDENCY_MAP.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_UNIVERSAL_SALES_PRINCIPLES_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_UNIVERSAL_SALES_PRINCIPLES_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
-| `FORGE_VALIDATION_REQUIREMENTS_REPORT.md` | docs | `docs/archive/FORGE_VALIDATION_REQUIREMENTS_REPORT.md` | BAJO | - | 1 - Docs y arquitectura |
+| `FORGE_VALIDATION_REQUIREMENTS_REPORT.md` | docs | `docs/99-archive/FORGE_VALIDATION_REQUIREMENTS_REPORT.md` | BAJO | - | 1 - Docs y arquitectura |
 | `IMAGINA_SER_EDWIN_ADVISOR_INTERPRETATION_REPORT.md` | advisor-os | `advisor-os/IMAGINA_SER_EDWIN_ADVISOR_INTERPRETATION_REPORT.md` | BAJO | - | 7 - Advisor OS |
-| `IMAGINA_SER_EDWIN_RAW_SOURCE_REPORT.md` | docs | `docs/archive/IMAGINA_SER_EDWIN_RAW_SOURCE_REPORT.md` | BAJO | - | 1 - Docs y arquitectura |
-| `IMAGINA_SER_EDWIN_REASONING_DIAGRAM.md` | docs | `docs/archive/IMAGINA_SER_EDWIN_REASONING_DIAGRAM.md` | BAJO | - | 1 - Docs y arquitectura |
+| `IMAGINA_SER_EDWIN_RAW_SOURCE_REPORT.md` | docs | `docs/99-archive/IMAGINA_SER_EDWIN_RAW_SOURCE_REPORT.md` | BAJO | - | 1 - Docs y arquitectura |
+| `IMAGINA_SER_EDWIN_REASONING_DIAGRAM.md` | docs | `docs/99-archive/IMAGINA_SER_EDWIN_REASONING_DIAGRAM.md` | BAJO | - | 1 - Docs y arquitectura |
 | `INTERVIEW_KNOWLEDGE_BASE.md` | manager-os | `manager-os/INTERVIEW_KNOWLEDGE_BASE.md` | BAJO | - | 8 - Manager OS |
 | `MANAGER_COMPENSATION_KNOWLEDGE_BASE.md` | compensation | `compensation/MANAGER_COMPENSATION_KNOWLEDGE_BASE.md` | BAJO | - | 9 - Compensation |
-| `PACKAGE_NOTES.md` | docs | `docs/archive/PACKAGE_NOTES.md` | BAJO | - | 1 - Docs y arquitectura |
+| `PACKAGE_NOTES.md` | docs | `docs/99-archive/PACKAGE_NOTES.md` | BAJO | - | 1 - Docs y arquitectura |
 | `PAQ-01-RECRUITMENT-INTELLIGENCE-DISCOVERY.md` | manager-os | `manager-os/PAQ-01-RECRUITMENT-INTELLIGENCE-DISCOVERY.md` | BAJO | - | 8 - Manager OS |
 | `PAQ-02-RECRUITMENT-DOMAIN-MODEL-ADDENDUM.md` | manager-os | `manager-os/PAQ-02-RECRUITMENT-DOMAIN-MODEL-ADDENDUM.md` | BAJO | - | 8 - Manager OS |
 | `PAQ-02-RECRUITMENT-DOMAIN-MODEL.md` | manager-os | `manager-os/PAQ-02-RECRUITMENT-DOMAIN-MODEL.md` | BAJO | - | 8 - Manager OS |
 | `PAQ-03-CAREER-CAPITAL-RELATIONSHIP-CAPITAL-BOUNDARY-REVIEW.md` | manager-os | `manager-os/PAQ-03-CAREER-CAPITAL-RELATIONSHIP-CAPITAL-BOUNDARY-REVIEW.md` | BAJO | - | 8 - Manager OS |
-| `PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md` | docs | `docs/archive/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md` | BAJO | - | 1 - Docs y arquitectura |
+| `PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md` | docs | `docs/99-archive/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md` | BAJO | - | 1 - Docs y arquitectura |
 | `PAQ-04-P200-MARKET-NATURAL-DISCOVERY-REVIEW.md` | advisor-os | `advisor-os/PAQ-04-P200-MARKET-NATURAL-DISCOVERY-REVIEW.md` | BAJO | - | 7 - Advisor OS |
 | `PAQ-05-RELATIONSHIP-ACTIVATION-REVIEW.md` | advisor-os | `advisor-os/PAQ-05-RELATIONSHIP-ACTIVATION-REVIEW.md` | BAJO | - | 7 - Advisor OS |
 | `PAQ-05-RULE-SNAPSHOT-HARDENING.md` | rule-packs | `rule-packs/PAQ-05-RULE-SNAPSHOT-HARDENING.md` | BAJO | - | 4 - Rule packs |
-| `PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md` | docs | `docs/archive/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md` | BAJO | - | 1 - Docs y arquitectura |
+| `PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md` | docs | `docs/99-archive/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md` | BAJO | - | 1 - Docs y arquitectura |
 | `PAQ-06-RECRUITMENT-HARDENING-REVIEW.md` | manager-os | `manager-os/PAQ-06-RECRUITMENT-HARDENING-REVIEW.md` | BAJO | - | 8 - Manager OS |
-| `PAQ-07-FOUNDATION-LOCK-REVIEW.md` | docs | `docs/archive/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | BAJO | - | 1 - Docs y arquitectura |
+| `PAQ-07-FOUNDATION-LOCK-REVIEW.md` | docs | `docs/99-archive/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | BAJO | - | 1 - Docs y arquitectura |
 | `PAQ-07-PARTNER-INTELLIGENCE-DISCOVERY.md` | advisor-os | `advisor-os/PAQ-07-PARTNER-INTELLIGENCE-DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
 | `PAQ-08-ADVISOR-DEVELOPMENT-INTELLIGENCE-DISCOVERY.md` | advisor-os | `advisor-os/PAQ-08-ADVISOR-DEVELOPMENT-INTELLIGENCE-DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
-| `PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | docs | `docs/archive/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | BAJO | - | 1 - Docs y arquitectura |
-| `PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.md` | docs | `docs/archive/PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.md` | BAJO | - | 1 - Docs y arquitectura |
+| `PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | docs | `docs/99-archive/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | BAJO | - | 1 - Docs y arquitectura |
+| `PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.md` | docs | `docs/99-archive/PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.md` | BAJO | - | 1 - Docs y arquitectura |
 | `PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md` | product-intelligence | `product-intelligence/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md` | BAJO | - | 5 - Product intelligence |
 | `PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md` | product-intelligence | `product-intelligence/PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md` | BAJO | - | 5 - Product intelligence |
 | `PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md` | advisor-os | `advisor-os/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
-| `PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md` | docs | `docs/archive/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md` | BAJO | - | 1 - Docs y arquitectura |
+| `PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md` | docs | `docs/99-archive/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md` | BAJO | - | 1 - Docs y arquitectura |
 | `PAQ-11-FORECAST-INTELLIGENCE-DISCOVERY.md` | advisor-os | `advisor-os/PAQ-11-FORECAST-INTELLIGENCE-DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
-| `PAQ-11.5-FORECAST-INTELLIGENCE-ARCHITECTURE.md` | docs | `docs/archive/PAQ-11.5-FORECAST-INTELLIGENCE-ARCHITECTURE.md` | BAJO | - | 1 - Docs y arquitectura |
-| `PAQ-11.5.2-FORECAST-INTELLIGENCE-ARCHITECTURE-LOCK.md` | docs | `docs/archive/PAQ-11.5.2-FORECAST-INTELLIGENCE-ARCHITECTURE-LOCK.md` | BAJO | - | 1 - Docs y arquitectura |
-| `PAQ-11.5.2-FORECAST-INTELLIGENCE.md` | docs | `docs/archive/PAQ-11.5.2-FORECAST-INTELLIGENCE.md` | BAJO | - | 1 - Docs y arquitectura |
+| `PAQ-11.5-FORECAST-INTELLIGENCE-ARCHITECTURE.md` | docs | `docs/99-archive/PAQ-11.5-FORECAST-INTELLIGENCE-ARCHITECTURE.md` | BAJO | - | 1 - Docs y arquitectura |
+| `PAQ-11.5.2-FORECAST-INTELLIGENCE-ARCHITECTURE-LOCK.md` | docs | `docs/99-archive/PAQ-11.5.2-FORECAST-INTELLIGENCE-ARCHITECTURE-LOCK.md` | BAJO | - | 1 - Docs y arquitectura |
+| `PAQ-11.5.2-FORECAST-INTELLIGENCE.md` | docs | `docs/99-archive/PAQ-11.5.2-FORECAST-INTELLIGENCE.md` | BAJO | - | 1 - Docs y arquitectura |
 | `PAQ-12-ADVISOR-EXPERIENCE-INTELLIGENCE-PRODUCTIVITY.md` | product-intelligence | `product-intelligence/PAQ-12-ADVISOR-EXPERIENCE-INTELLIGENCE-PRODUCTIVITY.md` | BAJO | - | 5 - Product intelligence |
 | `PAQ-12.1-ADVISOR-EXPERIENCE-INTELLIGENCE-ARCHITECTURE.md` | advisor-os | `advisor-os/PAQ-12.1-ADVISOR-EXPERIENCE-INTELLIGENCE-ARCHITECTURE.md` | BAJO | - | 7 - Advisor OS |
 | `PAQ-12.x.y-FIRST-WOW-MOMENT-DISCOVERY.md` | advisor-os | `advisor-os/PAQ-12.x.y-FIRST-WOW-MOMENT-DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
@@ -909,8 +909,8 @@ Criterio mecanico: JS/TS sin imports relativos y sin referencias entrantes detec
 | `READINESS_VS_POTENTIAL_VS_EXCELLENCE.md` | manager-os | `manager-os/READINESS_VS_POTENTIAL_VS_EXCELLENCE.md` | BAJO | - | 8 - Manager OS |
 | `RECRUITMENT_DOMAIN_MODEL.md` | manager-os | `manager-os/RECRUITMENT_DOMAIN_MODEL.md` | BAJO | - | 8 - Manager OS |
 | `RECRUITMENT_KNOWLEDGE_BASE.md` | manager-os | `manager-os/RECRUITMENT_KNOWLEDGE_BASE.md` | BAJO | - | 8 - Manager OS |
-| `REPORTE_FUENTE_ORIGINAL_EDWIN_IS15.md` | docs | `docs/archive/REPORTE_FUENTE_ORIGINAL_EDWIN_IS15.md` | BAJO | - | 1 - Docs y arquitectura |
-| `REPORTE_INTERPRETACION_FORGE_EDWIN_IS15.md` | docs | `docs/archive/REPORTE_INTERPRETACION_FORGE_EDWIN_IS15.md` | BAJO | - | 1 - Docs y arquitectura |
+| `REPORTE_FUENTE_ORIGINAL_EDWIN_IS15.md` | docs | `docs/99-archive/REPORTE_FUENTE_ORIGINAL_EDWIN_IS15.md` | BAJO | - | 1 - Docs y arquitectura |
+| `REPORTE_INTERPRETACION_FORGE_EDWIN_IS15.md` | docs | `docs/99-archive/REPORTE_INTERPRETACION_FORGE_EDWIN_IS15.md` | BAJO | - | 1 - Docs y arquitectura |
 | `SCHEMA_CATALOG.md` | shared-intelligence | `shared-intelligence/SCHEMA_CATALOG.md` | BAJO | - | 3 - Shared intelligence |
 | `accessibility-engine.js` | legacy | `legacy/accessibility-engine.js` | MEDIO | - | 11 - Legacy quarantine |
 | `accident-intelligence-engine.js` | legacy | `legacy/accident-intelligence-engine.js` | MEDIO | - | 11 - Legacy quarantine |

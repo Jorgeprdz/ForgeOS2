@@ -5,7 +5,7 @@ Official architecture documentation index.
 
 ## Foundation
 
-- [FORGE Foundation Lock v1.0](../archive/FORGE_FOUNDATION_LOCK.md)
+- [FORGE Foundation Lock v1.0](../99-archive/FORGE_FOUNDATION_LOCK.md)
 - [PAQ-08 Foundation Lock Final Review](../05-foundation/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md)
 - [PAQ-07 Foundation Lock Review](../05-foundation/PAQ-07-FOUNDATION-LOCK-REVIEW.md)
 - [Forge Ratification and Foundation Closure](../05-foundation/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md)

@@ -154,7 +154,7 @@ docs/
 | `docs/reports/validation/` | Validation evidence |
 | `docs/reports/red-team/` | Red-team evidence |
 | `docs/evidence/` | Source/evidence archive |
-| `docs/archive/` | Historical artifacts |
+| `docs/99-archive/` | Historical artifacts |
 
 ---
 
