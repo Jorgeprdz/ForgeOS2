@@ -60,7 +60,7 @@ Legacy detection is candidate-level only. It uses observable naming, REPO-004 CR
 | Shared Intelligence | 128 |
 | Unknown | 154 |
 
-Full ownership map: `docs/architecture/runtime/RUNTIME-001_RUNTIME_OWNERSHIP_MAP.md`.
+Full ownership map: `docs/07-runtime/RUNTIME-001_RUNTIME_OWNERSHIP_MAP.md`.
 
 ## Question 5: Flat Root Test
 
@@ -72,7 +72,7 @@ The risk is real, but it proves that movement requires dependency mapping, not t
 
 ## Question 6: Runtime Classification Model
 
-See `docs/architecture/runtime/RUNTIME-001_RUNTIME_CLASSIFICATION_MODEL.md`.
+See `docs/07-runtime/RUNTIME-001_RUNTIME_CLASSIFICATION_MODEL.md`.
 
 ## Question 7: High-Risk Root Assets
 

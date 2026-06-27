@@ -67,8 +67,8 @@ Only stage:
 
 Do NOT stage:
 
-- docs/architecture/runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.json
-- docs/architecture/runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md
+- docs/07-runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.json
+- docs/07-runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md
 - features.
 - speed,
 

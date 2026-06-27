@@ -22,9 +22,9 @@ RUNTIME-004 applies no fix. It defines the safest minimal repair path for a futu
 
 Source reports reviewed:
 
-- `docs/architecture/runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md`
-- `docs/architecture/runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.json`
-- `docs/architecture/runtime/RUNTIME-003_APP_SHELL_COUPLING_MAP.md`
+- `docs/07-runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md`
+- `docs/07-runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.json`
+- `docs/07-runtime/RUNTIME-003_APP_SHELL_COUPLING_MAP.md`
 
 Confirmed RUNTIME-003 counts:
 

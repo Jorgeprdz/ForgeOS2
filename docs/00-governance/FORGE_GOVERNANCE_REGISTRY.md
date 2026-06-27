@@ -38,7 +38,7 @@ Forge work is governed in this order:
 | Discovery documents | `docs/architecture/discovery/`, `docs/03-discovery/`, `docs/03-discoveries/` | Discovery status, open questions, accepted/rejected discoveries and readiness inputs. |
 | Implementation readiness | `docs/architecture/discovery/FORGE_IMPLEMENTATION_READINESS_*` | Readiness contracts and implementation conditions. |
 | Repository governance | `docs/architecture/repository/` | Repository surface, migration and protected asset governance. |
-| Runtime governance | `docs/architecture/runtime/` | Runtime boundary, migration and boot-readiness governance. |
+| Runtime governance | `docs/07-runtime/` | Runtime boundary, migration and boot-readiness governance. |
 | ROBOCOP directives | `docs/00-governance/FORGE_ROBOCOP_DIRECTIVES.md` | Mandatory pre-work gate. |
 
 ## Required Work Intake Record
@@ -128,7 +128,7 @@ The following surfaces must be declared explicitly before work may touch them:
 - `docs/adr/`
 - `docs/architecture/constitution/`
 - `docs/architecture/discovery/`
-- `docs/architecture/runtime/`
+- `docs/07-runtime/`
 - `docs/architecture/repository/`
 - `app.js`
 - route files

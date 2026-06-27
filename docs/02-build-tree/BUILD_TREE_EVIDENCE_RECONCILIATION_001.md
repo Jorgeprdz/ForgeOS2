@@ -60,9 +60,9 @@ Board approval status:
 - AGENTS.md
 - docs/00-governance/FORGE_ROBOCOP_DIRECTIVES.md
 - docs/00-governance/FORGE_GOVERNANCE_REGISTRY.md
-- docs/architecture/runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md
-- docs/architecture/runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.json
-- docs/architecture/runtime/MIGRATION-007_PROGRESS.md
+- docs/07-runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md
+- docs/07-runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.json
+- docs/07-runtime/MIGRATION-007_PROGRESS.md
 - docs/02-build-tree/BUILD_TREE_UPDATE_REPORT.txt
 - docs/02-build-tree/FORGE_PHASE_2_1_BUILD_TREE_DECISION_NOTES.md
 - docs/02-build-tree/FORGE_PHASE_2_X_CONCEPTUAL_BUILD_TREE.md
@@ -92,11 +92,11 @@ Operator-provided current evidence:
 | --- | --- | --- | --- |
 | ROBOCOP LOCK 001 status is LOCKED | docs/00-governance/FORGE_ROBOCOP_DIRECTIVES.md | Governance gate may be treated as locked | High |
 | Constitutional Gate required before work | AGENTS.md; docs/00-governance/FORGE_ROBOCOP_DIRECTIVES.md | Future work must declare all 10 gate fields | High |
-| Runtime audit is EXECUTABLE | docs/architecture/runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md | Runtime/Test Integrity may move to validated baseline | High |
-| Missing targets are 0 | docs/architecture/runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md | Stale import blocker class is cleared at current baseline | High |
-| Missing exports are 0 | docs/architecture/runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md | Export blocker class is cleared at current baseline | High |
-| Circular imports are 0 | docs/architecture/runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md | Cycle blocker class is cleared at current baseline | High |
-| Boot blockers are 0 | docs/architecture/runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md | Boot-blocker class is cleared at current baseline | High |
+| Runtime audit is EXECUTABLE | docs/07-runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md | Runtime/Test Integrity may move to validated baseline | High |
+| Missing targets are 0 | docs/07-runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md | Stale import blocker class is cleared at current baseline | High |
+| Missing exports are 0 | docs/07-runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md | Export blocker class is cleared at current baseline | High |
+| Circular imports are 0 | docs/07-runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md | Cycle blocker class is cleared at current baseline | High |
+| Boot blockers are 0 | docs/07-runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md | Boot-blocker class is cleared at current baseline | High |
 | TRUST LOCK 001B passed | Operator-provided current evidence | Test migration repair can be treated as completed for planning | Medium-high |
 | Base test suite PASS | Operator-provided current evidence | Base test suite no longer blocks next documentation planning | Medium-high |
 | real PDF OCR skips when local fixture is absent | tests/real-pdf-ocr-test.js | OCR remains manual/local until fixture is versioned | High |

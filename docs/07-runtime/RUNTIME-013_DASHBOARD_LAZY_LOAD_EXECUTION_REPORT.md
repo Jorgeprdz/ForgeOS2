@@ -22,7 +22,7 @@ Execution artifact:
 
 | File | Change |
 | --- | --- |
-| `docs/architecture/runtime/RUNTIME-013_DASHBOARD_LAZY_LOAD_EXECUTION_REPORT.md` | Added this execution report. |
+| `docs/07-runtime/RUNTIME-013_DASHBOARD_LAZY_LOAD_EXECUTION_REPORT.md` | Added this execution report. |
 
 Validation side effect:
 
