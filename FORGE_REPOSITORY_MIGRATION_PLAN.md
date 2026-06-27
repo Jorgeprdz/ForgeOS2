@@ -683,7 +683,7 @@ Criterio mecanico: JS/TS sin imports relativos y sin referencias entrantes detec
 | Nombre | Archivos |
 | --- | --- |
 | `forge_constitution_amendment_v1.1.md` | `FORGE_CONSTITUTION_AMENDMENT_v1.1.md`<br>`docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` |
-| `forge_phase_transition_foundation_to_intelligence.md` | `FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md`<br>`docs/architecture/phase-transitions/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` |
+| `forge_phase_transition_foundation_to_intelligence.md` | `FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md`<br>`docs/05-phase-transitions/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` |
 | `forge_ratification_and_foundation_closure.md` | `FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md`<br>`docs/architecture/foundation/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` |
 | `forge_shared_commercial_model_evidence_provenance_foundation.md` | `FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md`<br>`docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md` |
 | `forge_shared_commercial_model_identity_attribution_hardening.md` | `FORGE_SHARED_COMMERCIAL_MODEL_IDENTITY_ATTRIBUTION_HARDENING.md`<br>`docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_IDENTITY_ATTRIBUTION_HARDENING.md` |
@@ -1049,7 +1049,7 @@ Criterio mecanico: JS/TS sin imports relativos y sin referencias entrantes detec
 | `docs/architecture/foundation/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | docs | `docs/architecture/foundation/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/architecture/foundation/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | docs | `docs/architecture/foundation/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/architecture/foundation/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | docs | `docs/architecture/foundation/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | BAJO | - | 1 - Docs y arquitectura |
-| `docs/architecture/phase-transitions/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` | docs | `docs/architecture/phase-transitions/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` | BAJO | - | 1 - Docs y arquitectura |
+| `docs/05-phase-transitions/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` | docs | `docs/05-phase-transitions/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md` | docs | `docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_IDENTITY_ATTRIBUTION_HARDENING.md` | docs | `docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_IDENTITY_ATTRIBUTION_HARDENING.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_PERIODS_OPERATIONAL_CLOCKS_HARDENING.md` | docs | `docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_PERIODS_OPERATIONAL_CLOCKS_HARDENING.md` | BAJO | - | 1 - Docs y arquitectura |

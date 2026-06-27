@@ -26,7 +26,7 @@ Official architecture documentation index.
 
 ## Phase Transitions
 
-- [Foundation Phase to Intelligence Domains Phase](phase-transitions/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md)
+- [Foundation Phase to Intelligence Domains Phase](../05-phase-transitions/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md)
 
 ## Intelligence Domains
 
