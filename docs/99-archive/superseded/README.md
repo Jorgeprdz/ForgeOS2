@@ -6,7 +6,7 @@ This folder preserves documents that should not be treated as canonical current 
 
 Canonical version:
 
-`docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md`
+`docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md`
 
 Archived root version:
 
