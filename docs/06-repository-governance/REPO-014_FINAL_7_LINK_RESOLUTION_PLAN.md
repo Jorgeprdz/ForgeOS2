@@ -24,8 +24,8 @@ REPO-015 eligible count:
 
 | # | Source File | Current Broken Link | Recommended Treatment | Risk | Owner | Eligible for REPO-015 Execution? |
 | ---: | --- | --- | --- | --- | --- | --- |
-| 1 | `docs/adr/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | Preserve visible historical name and rewrite target to `docs/99-archive/FORGE_FOUNDATION_LOCK.md` using source-relative path. | LOW | Archive + Constitution | YES |
-| 2 | `docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | Preserve visible historical name and rewrite target to `docs/99-archive/FORGE_FOUNDATION_LOCK.md` using source-relative path. | LOW | Archive + Constitution | YES |
+| 1 | `docs/02-adr-candidates/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | Preserve visible historical name and rewrite target to `docs/99-archive/FORGE_FOUNDATION_LOCK.md` using source-relative path. | LOW | Archive + Constitution | YES |
+| 2 | `docs/02-adr-candidates/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | Preserve visible historical name and rewrite target to `docs/99-archive/FORGE_FOUNDATION_LOCK.md` using source-relative path. | LOW | Archive + Constitution | YES |
 | 3 | `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `FORGE_FOUNDATION_LOCK.md` | Preserve visible historical name and rewrite target to `docs/99-archive/FORGE_FOUNDATION_LOCK.md` using source-relative path; include execution note that Foundation Lock remains archived historical evidence. | MEDIUM | Archive + Constitution | YES |
 | 4 | `docs/99-archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md` | `FORGE_FOUNDATION_LOCK.md` | Preserve visible historical name and rewrite target to `docs/99-archive/FORGE_FOUNDATION_LOCK.md` using source-relative path; do not imply canonical doctrine. | MEDIUM | Archive + Constitution | YES |
 | 5 | `docs/99-archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | Archive target under governed Product Intelligence projection evidence destination, then rewrite checkpoint link. | MEDIUM | Product Intelligence + Projection Evidence Archive | NO |
@@ -50,8 +50,8 @@ Expected source-relative targets:
 
 | Source File | Expected New Target |
 | --- | --- |
-| `docs/adr/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | `../99-archive/FORGE_FOUNDATION_LOCK.md` |
-| `docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | `../99-archive/FORGE_FOUNDATION_LOCK.md` |
+| `docs/02-adr-candidates/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | `../99-archive/FORGE_FOUNDATION_LOCK.md` |
+| `docs/02-adr-candidates/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | `../99-archive/FORGE_FOUNDATION_LOCK.md` |
 | `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `../../99-archive/FORGE_FOUNDATION_LOCK.md` |
 | `docs/99-archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md` | `../FORGE_FOUNDATION_LOCK.md` |
 

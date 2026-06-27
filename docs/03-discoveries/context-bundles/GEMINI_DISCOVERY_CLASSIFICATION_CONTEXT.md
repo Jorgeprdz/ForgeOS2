@@ -14,7 +14,7 @@ Its purpose is to provide a canonical navigation model for all approved constitu
 
 Canonical ADR files live in `adr/`.
 
-`docs/adr/` is used for ADR-related working documents, transition material, and ADR-stage documentation that has not been folded into the canonical ADR set.
+`docs/02-adr-candidates/` is used for ADR-related working documents, transition material, and ADR-stage documentation that has not been folded into the canonical ADR set.
 
 This document does not replace individual ADRs.
 
@@ -300,7 +300,7 @@ Its purpose is to provide a canonical navigation model for all approved constitu
 
 Canonical ADR files live in `adr/`.
 
-`docs/adr/` is used for ADR-related working documents, transition material, and ADR-stage documentation that has not been folded into the canonical ADR set.
+`docs/02-adr-candidates/` is used for ADR-related working documents, transition material, and ADR-stage documentation that has not been folded into the canonical ADR set.
 
 This document does not replace individual ADRs.
 

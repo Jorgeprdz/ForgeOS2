@@ -34,8 +34,8 @@ Applied pattern:
 
 ## Files Modified
 
-- `docs/adr/PAQ-07-FOUNDATION-LOCK-REVIEW.md`
-- `docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md`
+- `docs/02-adr-candidates/PAQ-07-FOUNDATION-LOCK-REVIEW.md`
+- `docs/02-adr-candidates/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md`
 - `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md`
 - `docs/99-archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md`
 
@@ -43,8 +43,8 @@ Applied pattern:
 
 | # | Source File | Visible Text | Old Target | New Target |
 | ---: | --- | --- | --- | --- |
-| 1 | `docs/adr/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../99-archive/FORGE_FOUNDATION_LOCK.md` |
-| 2 | `docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../99-archive/FORGE_FOUNDATION_LOCK.md` |
+| 1 | `docs/02-adr-candidates/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../99-archive/FORGE_FOUNDATION_LOCK.md` |
+| 2 | `docs/02-adr-candidates/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../99-archive/FORGE_FOUNDATION_LOCK.md` |
 | 3 | `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../../99-archive/FORGE_FOUNDATION_LOCK.md` |
 | 4 | `docs/99-archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../FORGE_FOUNDATION_LOCK.md` |
 

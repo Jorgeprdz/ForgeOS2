@@ -160,7 +160,7 @@ function destinationFor(file) {
   }
 
   if (lower.includes('adr') || /^PAQ-\d+/.test(file)) {
-    return `docs/adr/${file}`;
+    return `docs/02-adr-candidates/${file}`;
   }
 
   if (lower.includes('repository') || lower.includes('repo-') || lower.includes('codebase') || lower.includes('migration')) {

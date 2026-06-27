@@ -97,7 +97,7 @@ Board approval status:
 - AGENTS.md
 - FORGE_CONSTITUTION_V3.md
 - adr/ADR-001 through ADR-008, ADR-010, ADR-011, ADR-015, ADR-017, ADR-018
-- docs/adr/ADR-0019_PROCESS_ADVANCEMENT_INTELLIGENCE.md
+- docs/02-adr-candidates/ADR-0019_PROCESS_ADVANCEMENT_INTELLIGENCE.md
 
 ## Executive Summary
 

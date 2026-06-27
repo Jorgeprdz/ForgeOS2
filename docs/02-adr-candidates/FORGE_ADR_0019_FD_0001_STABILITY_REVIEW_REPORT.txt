@@ -9,8 +9,8 @@ Review the ADR/documentation layout, the Constitution Map references to ADR-001A
 Findings:
 1. Documentation layout is split in practice.
    - `adr/` contains the canonical constitutional ADR set for ADR-001 through ADR-018.
-   - `docs/adr/` currently contains newer ADR-facing documents such as ADR-0019 and ADR-001D.
-   - Recommendation only: keep `adr/` as the canonical home for ratified constitutional ADRs, and treat `docs/adr/` as the working/staging location for new or transitional ADR material until ratification.
+   - `docs/02-adr-candidates/` currently contains newer ADR-facing documents such as ADR-0019 and ADR-001D.
+   - Recommendation only: keep `adr/` as the canonical home for ratified constitutional ADRs, and treat `docs/02-adr-candidates/` as the working/staging location for new or transitional ADR material until ratification.
 
 2. Constitution Map references ADR-001A, ADR-001B, and ADR-001C, but no canonical `ADR-001A`, `ADR-001B`, or `ADR-001C` files exist.
    - Existing artifacts for 001A/001B/001C are implementation-readiness contracts:

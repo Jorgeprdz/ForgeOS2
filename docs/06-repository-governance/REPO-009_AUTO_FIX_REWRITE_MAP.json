@@ -22,34 +22,34 @@
     "FORGE_CONSTITUTION_V3.md": 30,
     "schemas/advisor.schema.json": 1,
     "docs/01-constitution/PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.md": 1,
-    "docs/adr/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md": 1,
-    "docs/adr/PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md": 1,
-    "docs/adr/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md": 1,
-    "docs/adr/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md": 1,
+    "docs/02-adr-candidates/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md": 1,
+    "docs/02-adr-candidates/PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md": 1,
+    "docs/02-adr-candidates/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md": 1,
+    "docs/02-adr-candidates/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md": 1,
     "docs/04-product-intelligence/FORGE_GLOBAL_UDI_PROJECTION_PRODUCT_INTERPRETATION.md": 1
   },
   "sourceCounts": {
-    "docs/adr/PAQ-01-RECRUITMENT-INTELLIGENCE-DISCOVERY.md": 3,
-    "docs/adr/PAQ-02-RECRUITMENT-DOMAIN-MODEL-ADDENDUM.md": 3,
-    "docs/adr/PAQ-02-RECRUITMENT-DOMAIN-MODEL.md": 3,
-    "docs/adr/PAQ-03-CAREER-CAPITAL-RELATIONSHIP-CAPITAL-BOUNDARY-REVIEW.md": 3,
-    "docs/adr/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md": 3,
-    "docs/adr/PAQ-04-P200-MARKET-NATURAL-DISCOVERY-REVIEW.md": 3,
-    "docs/adr/PAQ-05-RELATIONSHIP-ACTIVATION-REVIEW.md": 3,
-    "docs/adr/PAQ-05-RULE-SNAPSHOT-HARDENING.md": 3,
-    "docs/adr/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md": 3,
-    "docs/adr/PAQ-06-RECRUITMENT-HARDENING-REVIEW.md": 3,
-    "docs/adr/PAQ-07-FOUNDATION-LOCK-REVIEW.md": 3,
-    "docs/adr/PAQ-07-PARTNER-INTELLIGENCE-DISCOVERY.md": 3,
-    "docs/adr/PAQ-08-ADVISOR-DEVELOPMENT-INTELLIGENCE-DISCOVERY.md": 3,
-    "docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md": 3,
-    "docs/adr/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md": 3,
-    "docs/adr/PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md": 3,
-    "docs/adr/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md": 3,
-    "docs/adr/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md": 3,
-    "docs/adr/PAQ-11.5-FORECAST-INTELLIGENCE-ARCHITECTURE.md": 5,
-    "docs/adr/PAQ-12-ADVISOR-EXPERIENCE-INTELLIGENCE-PRODUCTIVITY.md": 4,
-    "docs/adr/PAQ-12.1-ADVISOR-EXPERIENCE-INTELLIGENCE-ARCHITECTURE.md": 4,
+    "docs/02-adr-candidates/PAQ-01-RECRUITMENT-INTELLIGENCE-DISCOVERY.md": 3,
+    "docs/02-adr-candidates/PAQ-02-RECRUITMENT-DOMAIN-MODEL-ADDENDUM.md": 3,
+    "docs/02-adr-candidates/PAQ-02-RECRUITMENT-DOMAIN-MODEL.md": 3,
+    "docs/02-adr-candidates/PAQ-03-CAREER-CAPITAL-RELATIONSHIP-CAPITAL-BOUNDARY-REVIEW.md": 3,
+    "docs/02-adr-candidates/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md": 3,
+    "docs/02-adr-candidates/PAQ-04-P200-MARKET-NATURAL-DISCOVERY-REVIEW.md": 3,
+    "docs/02-adr-candidates/PAQ-05-RELATIONSHIP-ACTIVATION-REVIEW.md": 3,
+    "docs/02-adr-candidates/PAQ-05-RULE-SNAPSHOT-HARDENING.md": 3,
+    "docs/02-adr-candidates/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md": 3,
+    "docs/02-adr-candidates/PAQ-06-RECRUITMENT-HARDENING-REVIEW.md": 3,
+    "docs/02-adr-candidates/PAQ-07-FOUNDATION-LOCK-REVIEW.md": 3,
+    "docs/02-adr-candidates/PAQ-07-PARTNER-INTELLIGENCE-DISCOVERY.md": 3,
+    "docs/02-adr-candidates/PAQ-08-ADVISOR-DEVELOPMENT-INTELLIGENCE-DISCOVERY.md": 3,
+    "docs/02-adr-candidates/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md": 3,
+    "docs/02-adr-candidates/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md": 3,
+    "docs/02-adr-candidates/PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md": 3,
+    "docs/02-adr-candidates/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md": 3,
+    "docs/02-adr-candidates/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md": 3,
+    "docs/02-adr-candidates/PAQ-11.5-FORECAST-INTELLIGENCE-ARCHITECTURE.md": 5,
+    "docs/02-adr-candidates/PAQ-12-ADVISOR-EXPERIENCE-INTELLIGENCE-PRODUCTIVITY.md": 4,
+    "docs/02-adr-candidates/PAQ-12.1-ADVISOR-EXPERIENCE-INTELLIGENCE-ARCHITECTURE.md": 4,
     "docs/architecture/README.md": 4,
     "docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md": 3,
     "docs/99-archive/FORGE_OS_CURRENT_STATE_DOMAIN_COMPENSATION_ADVISOR_EXPERIENCE.md": 3,
@@ -65,7 +65,7 @@
     {
       "id": 1,
       "triageIndex": 1,
-      "sourceFile": "docs/adr/PAQ-01-RECRUITMENT-INTELLIGENCE-DISCOVERY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-01-RECRUITMENT-INTELLIGENCE-DISCOVERY.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -78,7 +78,7 @@
     {
       "id": 2,
       "triageIndex": 2,
-      "sourceFile": "docs/adr/PAQ-01-RECRUITMENT-INTELLIGENCE-DISCOVERY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-01-RECRUITMENT-INTELLIGENCE-DISCOVERY.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -91,7 +91,7 @@
     {
       "id": 3,
       "triageIndex": 3,
-      "sourceFile": "docs/adr/PAQ-01-RECRUITMENT-INTELLIGENCE-DISCOVERY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-01-RECRUITMENT-INTELLIGENCE-DISCOVERY.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -104,7 +104,7 @@
     {
       "id": 4,
       "triageIndex": 5,
-      "sourceFile": "docs/adr/PAQ-02-RECRUITMENT-DOMAIN-MODEL-ADDENDUM.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-02-RECRUITMENT-DOMAIN-MODEL-ADDENDUM.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -117,7 +117,7 @@
     {
       "id": 5,
       "triageIndex": 6,
-      "sourceFile": "docs/adr/PAQ-02-RECRUITMENT-DOMAIN-MODEL-ADDENDUM.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-02-RECRUITMENT-DOMAIN-MODEL-ADDENDUM.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -130,7 +130,7 @@
     {
       "id": 6,
       "triageIndex": 7,
-      "sourceFile": "docs/adr/PAQ-02-RECRUITMENT-DOMAIN-MODEL-ADDENDUM.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-02-RECRUITMENT-DOMAIN-MODEL-ADDENDUM.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -143,7 +143,7 @@
     {
       "id": 7,
       "triageIndex": 9,
-      "sourceFile": "docs/adr/PAQ-02-RECRUITMENT-DOMAIN-MODEL.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-02-RECRUITMENT-DOMAIN-MODEL.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -156,7 +156,7 @@
     {
       "id": 8,
       "triageIndex": 10,
-      "sourceFile": "docs/adr/PAQ-02-RECRUITMENT-DOMAIN-MODEL.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-02-RECRUITMENT-DOMAIN-MODEL.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -169,7 +169,7 @@
     {
       "id": 9,
       "triageIndex": 11,
-      "sourceFile": "docs/adr/PAQ-02-RECRUITMENT-DOMAIN-MODEL.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-02-RECRUITMENT-DOMAIN-MODEL.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -182,7 +182,7 @@
     {
       "id": 10,
       "triageIndex": 13,
-      "sourceFile": "docs/adr/PAQ-03-CAREER-CAPITAL-RELATIONSHIP-CAPITAL-BOUNDARY-REVIEW.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-03-CAREER-CAPITAL-RELATIONSHIP-CAPITAL-BOUNDARY-REVIEW.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -195,7 +195,7 @@
     {
       "id": 11,
       "triageIndex": 14,
-      "sourceFile": "docs/adr/PAQ-03-CAREER-CAPITAL-RELATIONSHIP-CAPITAL-BOUNDARY-REVIEW.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-03-CAREER-CAPITAL-RELATIONSHIP-CAPITAL-BOUNDARY-REVIEW.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -208,7 +208,7 @@
     {
       "id": 12,
       "triageIndex": 15,
-      "sourceFile": "docs/adr/PAQ-03-CAREER-CAPITAL-RELATIONSHIP-CAPITAL-BOUNDARY-REVIEW.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-03-CAREER-CAPITAL-RELATIONSHIP-CAPITAL-BOUNDARY-REVIEW.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -221,7 +221,7 @@
     {
       "id": 13,
       "triageIndex": 17,
-      "sourceFile": "docs/adr/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -234,7 +234,7 @@
     {
       "id": 14,
       "triageIndex": 18,
-      "sourceFile": "docs/adr/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -247,7 +247,7 @@
     {
       "id": 15,
       "triageIndex": 19,
-      "sourceFile": "docs/adr/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -260,7 +260,7 @@
     {
       "id": 16,
       "triageIndex": 21,
-      "sourceFile": "docs/adr/PAQ-04-P200-MARKET-NATURAL-DISCOVERY-REVIEW.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-04-P200-MARKET-NATURAL-DISCOVERY-REVIEW.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -273,7 +273,7 @@
     {
       "id": 17,
       "triageIndex": 22,
-      "sourceFile": "docs/adr/PAQ-04-P200-MARKET-NATURAL-DISCOVERY-REVIEW.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-04-P200-MARKET-NATURAL-DISCOVERY-REVIEW.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -286,7 +286,7 @@
     {
       "id": 18,
       "triageIndex": 23,
-      "sourceFile": "docs/adr/PAQ-04-P200-MARKET-NATURAL-DISCOVERY-REVIEW.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-04-P200-MARKET-NATURAL-DISCOVERY-REVIEW.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -299,7 +299,7 @@
     {
       "id": 19,
       "triageIndex": 25,
-      "sourceFile": "docs/adr/PAQ-05-RELATIONSHIP-ACTIVATION-REVIEW.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-05-RELATIONSHIP-ACTIVATION-REVIEW.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -312,7 +312,7 @@
     {
       "id": 20,
       "triageIndex": 26,
-      "sourceFile": "docs/adr/PAQ-05-RELATIONSHIP-ACTIVATION-REVIEW.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-05-RELATIONSHIP-ACTIVATION-REVIEW.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -325,7 +325,7 @@
     {
       "id": 21,
       "triageIndex": 27,
-      "sourceFile": "docs/adr/PAQ-05-RELATIONSHIP-ACTIVATION-REVIEW.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-05-RELATIONSHIP-ACTIVATION-REVIEW.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -338,7 +338,7 @@
     {
       "id": 22,
       "triageIndex": 29,
-      "sourceFile": "docs/adr/PAQ-05-RULE-SNAPSHOT-HARDENING.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-05-RULE-SNAPSHOT-HARDENING.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -351,7 +351,7 @@
     {
       "id": 23,
       "triageIndex": 30,
-      "sourceFile": "docs/adr/PAQ-05-RULE-SNAPSHOT-HARDENING.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-05-RULE-SNAPSHOT-HARDENING.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -364,7 +364,7 @@
     {
       "id": 24,
       "triageIndex": 31,
-      "sourceFile": "docs/adr/PAQ-05-RULE-SNAPSHOT-HARDENING.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-05-RULE-SNAPSHOT-HARDENING.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -377,7 +377,7 @@
     {
       "id": 25,
       "triageIndex": 33,
-      "sourceFile": "docs/adr/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -390,7 +390,7 @@
     {
       "id": 26,
       "triageIndex": 34,
-      "sourceFile": "docs/adr/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -403,7 +403,7 @@
     {
       "id": 27,
       "triageIndex": 35,
-      "sourceFile": "docs/adr/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -416,7 +416,7 @@
     {
       "id": 28,
       "triageIndex": 37,
-      "sourceFile": "docs/adr/PAQ-06-RECRUITMENT-HARDENING-REVIEW.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-06-RECRUITMENT-HARDENING-REVIEW.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -429,7 +429,7 @@
     {
       "id": 29,
       "triageIndex": 38,
-      "sourceFile": "docs/adr/PAQ-06-RECRUITMENT-HARDENING-REVIEW.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-06-RECRUITMENT-HARDENING-REVIEW.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -442,7 +442,7 @@
     {
       "id": 30,
       "triageIndex": 39,
-      "sourceFile": "docs/adr/PAQ-06-RECRUITMENT-HARDENING-REVIEW.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-06-RECRUITMENT-HARDENING-REVIEW.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -455,7 +455,7 @@
     {
       "id": 31,
       "triageIndex": 41,
-      "sourceFile": "docs/adr/PAQ-07-FOUNDATION-LOCK-REVIEW.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-07-FOUNDATION-LOCK-REVIEW.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -468,7 +468,7 @@
     {
       "id": 32,
       "triageIndex": 42,
-      "sourceFile": "docs/adr/PAQ-07-FOUNDATION-LOCK-REVIEW.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-07-FOUNDATION-LOCK-REVIEW.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -481,7 +481,7 @@
     {
       "id": 33,
       "triageIndex": 43,
-      "sourceFile": "docs/adr/PAQ-07-FOUNDATION-LOCK-REVIEW.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-07-FOUNDATION-LOCK-REVIEW.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -494,7 +494,7 @@
     {
       "id": 34,
       "triageIndex": 45,
-      "sourceFile": "docs/adr/PAQ-07-PARTNER-INTELLIGENCE-DISCOVERY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-07-PARTNER-INTELLIGENCE-DISCOVERY.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -507,7 +507,7 @@
     {
       "id": 35,
       "triageIndex": 46,
-      "sourceFile": "docs/adr/PAQ-07-PARTNER-INTELLIGENCE-DISCOVERY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-07-PARTNER-INTELLIGENCE-DISCOVERY.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -520,7 +520,7 @@
     {
       "id": 36,
       "triageIndex": 47,
-      "sourceFile": "docs/adr/PAQ-07-PARTNER-INTELLIGENCE-DISCOVERY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-07-PARTNER-INTELLIGENCE-DISCOVERY.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -533,7 +533,7 @@
     {
       "id": 37,
       "triageIndex": 49,
-      "sourceFile": "docs/adr/PAQ-08-ADVISOR-DEVELOPMENT-INTELLIGENCE-DISCOVERY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-08-ADVISOR-DEVELOPMENT-INTELLIGENCE-DISCOVERY.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -546,7 +546,7 @@
     {
       "id": 38,
       "triageIndex": 50,
-      "sourceFile": "docs/adr/PAQ-08-ADVISOR-DEVELOPMENT-INTELLIGENCE-DISCOVERY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-08-ADVISOR-DEVELOPMENT-INTELLIGENCE-DISCOVERY.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -559,7 +559,7 @@
     {
       "id": 39,
       "triageIndex": 51,
-      "sourceFile": "docs/adr/PAQ-08-ADVISOR-DEVELOPMENT-INTELLIGENCE-DISCOVERY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-08-ADVISOR-DEVELOPMENT-INTELLIGENCE-DISCOVERY.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -572,7 +572,7 @@
     {
       "id": 40,
       "triageIndex": 53,
-      "sourceFile": "docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -585,7 +585,7 @@
     {
       "id": 41,
       "triageIndex": 54,
-      "sourceFile": "docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -598,7 +598,7 @@
     {
       "id": 42,
       "triageIndex": 55,
-      "sourceFile": "docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -611,7 +611,7 @@
     {
       "id": 43,
       "triageIndex": 57,
-      "sourceFile": "docs/adr/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -624,7 +624,7 @@
     {
       "id": 44,
       "triageIndex": 58,
-      "sourceFile": "docs/adr/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -637,7 +637,7 @@
     {
       "id": 45,
       "triageIndex": 59,
-      "sourceFile": "docs/adr/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -650,7 +650,7 @@
     {
       "id": 46,
       "triageIndex": 61,
-      "sourceFile": "docs/adr/PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -663,7 +663,7 @@
     {
       "id": 47,
       "triageIndex": 62,
-      "sourceFile": "docs/adr/PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -676,7 +676,7 @@
     {
       "id": 48,
       "triageIndex": 63,
-      "sourceFile": "docs/adr/PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -689,7 +689,7 @@
     {
       "id": 49,
       "triageIndex": 65,
-      "sourceFile": "docs/adr/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -702,7 +702,7 @@
     {
       "id": 50,
       "triageIndex": 66,
-      "sourceFile": "docs/adr/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -715,7 +715,7 @@
     {
       "id": 51,
       "triageIndex": 67,
-      "sourceFile": "docs/adr/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -728,7 +728,7 @@
     {
       "id": 52,
       "triageIndex": 69,
-      "sourceFile": "docs/adr/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -741,7 +741,7 @@
     {
       "id": 53,
       "triageIndex": 70,
-      "sourceFile": "docs/adr/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -754,7 +754,7 @@
     {
       "id": 54,
       "triageIndex": 71,
-      "sourceFile": "docs/adr/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -767,7 +767,7 @@
     {
       "id": 55,
       "triageIndex": 73,
-      "sourceFile": "docs/adr/PAQ-11.5-FORECAST-INTELLIGENCE-ARCHITECTURE.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-11.5-FORECAST-INTELLIGENCE-ARCHITECTURE.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -780,7 +780,7 @@
     {
       "id": 56,
       "triageIndex": 74,
-      "sourceFile": "docs/adr/PAQ-11.5-FORECAST-INTELLIGENCE-ARCHITECTURE.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-11.5-FORECAST-INTELLIGENCE-ARCHITECTURE.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -793,7 +793,7 @@
     {
       "id": 57,
       "triageIndex": 75,
-      "sourceFile": "docs/adr/PAQ-11.5-FORECAST-INTELLIGENCE-ARCHITECTURE.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-11.5-FORECAST-INTELLIGENCE-ARCHITECTURE.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -806,7 +806,7 @@
     {
       "id": 58,
       "triageIndex": 76,
-      "sourceFile": "docs/adr/PAQ-11.5-FORECAST-INTELLIGENCE-ARCHITECTURE.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-11.5-FORECAST-INTELLIGENCE-ARCHITECTURE.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -819,7 +819,7 @@
     {
       "id": 59,
       "triageIndex": 77,
-      "sourceFile": "docs/adr/PAQ-11.5-FORECAST-INTELLIGENCE-ARCHITECTURE.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-11.5-FORECAST-INTELLIGENCE-ARCHITECTURE.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -832,7 +832,7 @@
     {
       "id": 60,
       "triageIndex": 78,
-      "sourceFile": "docs/adr/PAQ-12-ADVISOR-EXPERIENCE-INTELLIGENCE-PRODUCTIVITY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-12-ADVISOR-EXPERIENCE-INTELLIGENCE-PRODUCTIVITY.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -845,7 +845,7 @@
     {
       "id": 61,
       "triageIndex": 79,
-      "sourceFile": "docs/adr/PAQ-12-ADVISOR-EXPERIENCE-INTELLIGENCE-PRODUCTIVITY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-12-ADVISOR-EXPERIENCE-INTELLIGENCE-PRODUCTIVITY.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -858,7 +858,7 @@
     {
       "id": 62,
       "triageIndex": 80,
-      "sourceFile": "docs/adr/PAQ-12-ADVISOR-EXPERIENCE-INTELLIGENCE-PRODUCTIVITY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-12-ADVISOR-EXPERIENCE-INTELLIGENCE-PRODUCTIVITY.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -871,7 +871,7 @@
     {
       "id": 63,
       "triageIndex": 83,
-      "sourceFile": "docs/adr/PAQ-12-ADVISOR-EXPERIENCE-INTELLIGENCE-PRODUCTIVITY.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-12-ADVISOR-EXPERIENCE-INTELLIGENCE-PRODUCTIVITY.md",
       "currentBrokenReference": "schemas/advisor.schema.json",
       "correctRelativeReference": "../../schemas/advisor.schema.json",
       "targetFile": "schemas/advisor.schema.json",
@@ -884,7 +884,7 @@
     {
       "id": 64,
       "triageIndex": 84,
-      "sourceFile": "docs/adr/PAQ-12.1-ADVISOR-EXPERIENCE-INTELLIGENCE-ARCHITECTURE.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-12.1-ADVISOR-EXPERIENCE-INTELLIGENCE-ARCHITECTURE.md",
       "currentBrokenReference": "FORGE_MASTER_BUILD_TREE.md",
       "correctRelativeReference": "../../FORGE_MASTER_BUILD_TREE.md",
       "targetFile": "FORGE_MASTER_BUILD_TREE.md",
@@ -897,7 +897,7 @@
     {
       "id": 65,
       "triageIndex": 85,
-      "sourceFile": "docs/adr/PAQ-12.1-ADVISOR-EXPERIENCE-INTELLIGENCE-ARCHITECTURE.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-12.1-ADVISOR-EXPERIENCE-INTELLIGENCE-ARCHITECTURE.md",
       "currentBrokenReference": "AGENTS.md",
       "correctRelativeReference": "../../AGENTS.md",
       "targetFile": "AGENTS.md",
@@ -910,7 +910,7 @@
     {
       "id": 66,
       "triageIndex": 86,
-      "sourceFile": "docs/adr/PAQ-12.1-ADVISOR-EXPERIENCE-INTELLIGENCE-ARCHITECTURE.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-12.1-ADVISOR-EXPERIENCE-INTELLIGENCE-ARCHITECTURE.md",
       "currentBrokenReference": "FORGE_CONSTITUTION_V3.md",
       "correctRelativeReference": "../../FORGE_CONSTITUTION_V3.md",
       "targetFile": "FORGE_CONSTITUTION_V3.md",
@@ -923,7 +923,7 @@
     {
       "id": 67,
       "triageIndex": 89,
-      "sourceFile": "docs/adr/PAQ-12.1-ADVISOR-EXPERIENCE-INTELLIGENCE-ARCHITECTURE.md",
+      "sourceFile": "docs/02-adr-candidates/PAQ-12.1-ADVISOR-EXPERIENCE-INTELLIGENCE-ARCHITECTURE.md",
       "currentBrokenReference": "PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.md",
       "correctRelativeReference": "../01-constitution/PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.md",
       "targetFile": "docs/01-constitution/PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.md",
@@ -938,11 +938,11 @@
       "triageIndex": 91,
       "sourceFile": "docs/architecture/README.md",
       "currentBrokenReference": "../../PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md",
-      "correctRelativeReference": "../adr/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md",
-      "targetFile": "docs/adr/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md",
+      "correctRelativeReference": "../02-adr-candidates/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md",
+      "targetFile": "docs/02-adr-candidates/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md",
       "targetExists": true,
       "confidence": "HIGH",
-      "reason": "Target ADR exists under docs/adr; current path points to old root-level location.",
+      "reason": "Target ADR exists under docs/02-adr-candidates; current path points to old root-level location.",
       "safety": "SAFE",
       "rootCause": "Architecture README path depth points to old root location for ADR document"
     },
@@ -951,11 +951,11 @@
       "triageIndex": 92,
       "sourceFile": "docs/architecture/README.md",
       "currentBrokenReference": "../../PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md",
-      "correctRelativeReference": "../adr/PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md",
-      "targetFile": "docs/adr/PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md",
+      "correctRelativeReference": "../02-adr-candidates/PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md",
+      "targetFile": "docs/02-adr-candidates/PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md",
       "targetExists": true,
       "confidence": "HIGH",
-      "reason": "Target ADR exists under docs/adr; current path points to old root-level location.",
+      "reason": "Target ADR exists under docs/02-adr-candidates; current path points to old root-level location.",
       "safety": "SAFE",
       "rootCause": "Architecture README path depth points to old root location for ADR document"
     },
@@ -964,11 +964,11 @@
       "triageIndex": 93,
       "sourceFile": "docs/architecture/README.md",
       "currentBrokenReference": "../../PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md",
-      "correctRelativeReference": "../adr/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md",
-      "targetFile": "docs/adr/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md",
+      "correctRelativeReference": "../02-adr-candidates/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md",
+      "targetFile": "docs/02-adr-candidates/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md",
       "targetExists": true,
       "confidence": "HIGH",
-      "reason": "Target ADR exists under docs/adr; current path points to old root-level location.",
+      "reason": "Target ADR exists under docs/02-adr-candidates; current path points to old root-level location.",
       "safety": "SAFE",
       "rootCause": "Architecture README path depth points to old root location for ADR document"
     },
@@ -977,11 +977,11 @@
       "triageIndex": 94,
       "sourceFile": "docs/architecture/README.md",
       "currentBrokenReference": "../../PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md",
-      "correctRelativeReference": "../adr/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md",
-      "targetFile": "docs/adr/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md",
+      "correctRelativeReference": "../02-adr-candidates/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md",
+      "targetFile": "docs/02-adr-candidates/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md",
       "targetExists": true,
       "confidence": "HIGH",
-      "reason": "Target ADR exists under docs/adr; current path points to old root-level location.",
+      "reason": "Target ADR exists under docs/02-adr-candidates; current path points to old root-level location.",
       "safety": "SAFE",
       "rootCause": "Architecture README path depth points to old root location for ADR document"
     },

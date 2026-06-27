@@ -397,4 +397,4 @@ Constitutional conclusion:
 
 Next recommended PAQ:
 
-Create `docs/adr/ADR-0020_REPOSITORY_DOMAIN_STRUCTURE.md` as a governance ADR. It should incorporate REPO-001, define the migration gates, and explicitly block file movement until dry-run tooling and batch approval exist.
+Create `docs/02-adr-candidates/ADR-0020_REPOSITORY_DOMAIN_STRUCTURE.md` as a governance ADR. It should incorporate REPO-001, define the migration gates, and explicitly block file movement until dry-run tooling and batch approval exist.

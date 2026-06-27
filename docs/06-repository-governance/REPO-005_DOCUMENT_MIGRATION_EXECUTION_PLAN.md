@@ -143,7 +143,7 @@ docs/
 | Destination | Owner |
 | --- | --- |
 | `docs/01-constitution/` | Constitution / constitutional governance |
-| `docs/adr/` | ADR governance |
+| `docs/02-adr-candidates/` | ADR governance |
 | `docs/06-repository-governance/` | Repository governance |
 | `docs/02-build-tree/` | Architecture governance |
 | `docs/03-discovery/` | Discovery governance |

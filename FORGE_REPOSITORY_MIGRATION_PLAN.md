@@ -68,7 +68,7 @@ Subcarpetas recomendadas para la primera migracion controlada:
 - `compensation/smnyl-agency-2026/`, `compensation/production/`, `compensation/contests/`, `compensation/manager-compensation/`
 - `rule-packs/smnyl-agency-2026/`
 - `platform/runtime/`, `platform/storage/`, `platform/sync/`, `platform/commands/`, `platform/ui-shell/`
-- `docs/architecture/`, `docs/99-archive/`, `docs/adr/`, `docs/03-discovery/`
+- `docs/architecture/`, `docs/99-archive/`, `docs/02-adr-candidates/`, `docs/03-discovery/`
 - `tests/unit/`, `tests/master/`, `tests/smoke/`, `tests/fixtures/`
 
 ## 4. Archivos que NO deben moverse en la primera fase
@@ -1033,9 +1033,9 @@ Criterio mecanico: JS/TS sin imports relativos y sin referencias entrantes detec
 | `discovery-to-presentation-engine.js` | advisor-os | `advisor-os/discovery-to-presentation-engine.js` | BAJO | - | 7 - Advisor OS |
 | `dna-coaching-engine.js` | manager-os | `manager-os/dna-coaching-engine.js` | BAJO | - | 8 - Manager OS |
 | `dna-script-strategy-engine.js` | legacy | `legacy/dna-script-strategy-engine.js` | MEDIO | - | 11 - Legacy quarantine |
-| `docs/adr/ADR-0019_PROCESS_ADVANCEMENT_INTELLIGENCE.md` | docs | `docs/adr/ADR-0019_PROCESS_ADVANCEMENT_INTELLIGENCE.md` | BAJO | - | 1 - Docs y arquitectura |
-| `docs/adr/ADR-001D_HANDLING_VOCABULARY.md` | docs | `docs/adr/ADR-001D_HANDLING_VOCABULARY.md` | BAJO | - | 1 - Docs y arquitectura |
-| `docs/adr/ADR-0021_CANDIDATE_INTELLIGENCE_GOVERNANCE.md` | docs | `docs/adr/ADR-0021_CANDIDATE_INTELLIGENCE_GOVERNANCE.md` | BAJO | - | 1 - Docs y arquitectura |
+| `docs/02-adr-candidates/ADR-0019_PROCESS_ADVANCEMENT_INTELLIGENCE.md` | docs | `docs/02-adr-candidates/ADR-0019_PROCESS_ADVANCEMENT_INTELLIGENCE.md` | BAJO | - | 1 - Docs y arquitectura |
+| `docs/02-adr-candidates/ADR-001D_HANDLING_VOCABULARY.md` | docs | `docs/02-adr-candidates/ADR-001D_HANDLING_VOCABULARY.md` | BAJO | - | 1 - Docs y arquitectura |
+| `docs/02-adr-candidates/ADR-0021_CANDIDATE_INTELLIGENCE_GOVERNANCE.md` | docs | `docs/02-adr-candidates/ADR-0021_CANDIDATE_INTELLIGENCE_GOVERNANCE.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/architecture/README.md` | docs | `docs/architecture/README.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | docs | `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.3.md` | docs | `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.3.md` | BAJO | - | 1 - Docs y arquitectura |

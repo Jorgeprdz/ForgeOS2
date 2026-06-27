@@ -30,10 +30,10 @@ Official architecture documentation index.
 
 ## Intelligence Domains
 
-- [PAQ-09 Productivity Intelligence Discovery](../adr/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md)
-- [PAQ-09.5 Productivity Intelligence Architecture Lock](../adr/PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md)
-- [PAQ-10 Conservation Intelligence Discovery](../adr/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md)
-- [PAQ-10.5 Conservation Intelligence Architecture Lock](../adr/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md)
+- [PAQ-09 Productivity Intelligence Discovery](../02-adr-candidates/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md)
+- [PAQ-09.5 Productivity Intelligence Architecture Lock](../02-adr-candidates/PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md)
+- [PAQ-10 Conservation Intelligence Discovery](../02-adr-candidates/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md)
+- [PAQ-10.5 Conservation Intelligence Architecture Lock](../02-adr-candidates/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md)
 
 ## Operating References
 

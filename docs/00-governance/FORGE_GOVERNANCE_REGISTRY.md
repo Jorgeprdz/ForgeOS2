@@ -33,7 +33,7 @@ Forge work is governed in this order:
 | Constitution map | `docs/01-constitution/FORGE_CONSTITUTION_MAP.md` | Maps constitutional layers and ADR authority flow. |
 | Architectural Constitution | `docs/01-constitution/FORGE_ARCHITECTURAL_CONSTITUTION_v3.md` | Locked architectural constitutional concepts. |
 | Canonical ADRs | `adr/` | Canonical ADR authority set. |
-| ADR working material | `docs/adr/` | Working, transition and PAQ-stage ADR material. |
+| ADR working material | `docs/02-adr-candidates/` | Working, transition and PAQ-stage ADR material. |
 | Build Tree | `FORGE_MASTER_BUILD_TREE.md` | Canonical project area and status map. |
 | Discovery documents | `docs/03-discovery/`, `docs/03-discovery/`, `docs/03-discoveries/` | Discovery status, open questions, accepted/rejected discoveries and readiness inputs. |
 | Implementation readiness | `docs/03-discovery/FORGE_IMPLEMENTATION_READINESS_*` | Readiness contracts and implementation conditions. |
@@ -125,7 +125,7 @@ The following surfaces must be declared explicitly before work may touch them:
 - `FORGE_CONSTITUTION_V3.md`
 - `FORGE_MASTER_BUILD_TREE.md`
 - `adr/`
-- `docs/adr/`
+- `docs/02-adr-candidates/`
 - `docs/01-constitution/`
 - `docs/03-discovery/`
 - `docs/07-runtime/`

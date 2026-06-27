@@ -23,9 +23,9 @@ When this digest conflicts with a source ADR, the root Constitution or the Const
 - Canonical ADR directory:
   - `adr/`
 - Process ADR exception:
-  - `docs/adr/ADR-0019_PROCESS_ADVANCEMENT_INTELLIGENCE.md`
+  - `docs/02-adr-candidates/ADR-0019_PROCESS_ADVANCEMENT_INTELLIGENCE.md`
 - Working / transition docs:
-  - `docs/adr/`
+  - `docs/02-adr-candidates/`
 - Governance docs:
   - `docs/00-governance/`
 - PAQs:
@@ -93,7 +93,7 @@ When this digest conflicts with a source ADR, the root Constitution or the Const
 | ADR-016A | Benvenù Purpose Scarcity + Dignity Boundary | Human Intelligence | FINAL / LOCKED CANDIDATE | Approved dependent addendum to ADR-016. | Purpose / Advisor Experience | Purpose is advisor-owned, event-gated, dignity-preserving and forgettable. | Does not authorize implementation. |
 | ADR-017 | Compensation Intelligence Evidence Boundary | Economic Intelligence | Final | Canonical ADR under `adr/`. | Compensation Intelligence | Compensation requires evidence, rule snapshots, period context and payout truth boundaries. | Does not authorize implementation by itself. |
 | ADR-018 | Economic Motivation Client First Boundary | Economic Intelligence | Final | Canonical ADR under `adr/`. | Economic Motivation | Money is context, never pressure; Client First remains above economic motivation. | Does not authorize implementation by itself. |
-| ADR-0019 | Process Advancement Intelligence | Process Intelligence | LOCKED | Process ADR lives under `docs/adr`; do not confuse with ADR-019. | Process Advancement | Advancement beats activity; prospect owns decision, advisor owns process. | Does not authorize implementation by itself. |
+| ADR-0019 | Process Advancement Intelligence | Process Intelligence | LOCKED | Process ADR lives under `docs/02-adr-candidates`; do not confuse with ADR-019. | Process Advancement | Advancement beats activity; prospect owns decision, advisor owns process. | Does not authorize implementation by itself. |
 
 ## 7. Addendum Registry
 
@@ -230,8 +230,8 @@ Rule: PAQs are not implementation approval by default.
 Document, do not fix:
 
 - ADR-001 to ADR-004 status mismatch.
-- ADR-0019 location under `docs/adr`.
-- `docs/adr/ADR-0021` to `ADR-0026` exist but are not listed in Constitution Map.
+- ADR-0019 location under `docs/02-adr-candidates`.
+- `docs/02-adr-candidates/ADR-0021` to `ADR-0026` exist but are not listed in Constitution Map.
 - Filename convention drift.
 - Operational readiness docs are not canonical ADRs.
 - PAQs may be mistaken as implementation approval.
