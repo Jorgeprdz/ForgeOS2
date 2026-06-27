@@ -425,8 +425,8 @@ Bono de Transicion is now **IMPLEMENTED_CANDIDATE** for candidateAmount coverage
 
 Coverage count update:
 
-- implemented_candidate: 7
-- partial: 3
+- implemented_candidate: 8
+- partial: 2
 - missing: 0
 - blocked_for_payoutTruth: 10
 
@@ -441,6 +441,34 @@ Transition candidate coverage is based on:
 - no-client-intervention evidence
 - months 1-6 transition window
 - standalone monthly transition orchestrator
+- `payoutTruth=false`
+
+Still not implemented:
+
+- `payoutTruth=true`
+- official statement/account ingestion
+- production payout operations
+
+## Annual Productivity Coverage Update — 003B/C-4B
+
+Bono Adicional Anual de Productividad is now **IMPLEMENTED_CANDIDATE** for candidateAmount coverage.
+
+Coverage count update:
+
+- implemented_candidate: 8
+- partial: 2
+- missing: 0
+- blocked_for_payoutTruth: 10
+
+Annual productivity candidate coverage is based on:
+
+- Q1-Q4 productivity bonus candidate results
+- Q1-Q4 TA/training winner evidence
+- December active TA winner threshold evidence
+- Jan-Jun threshold: 8
+- Jul-Dec threshold: 4
+- candidateAmount = 10% of yearly productivity bonus candidates
+- annual orchestrator separate from quarterly productivity flow
 - `payoutTruth=false`
 
 Still not implemented:

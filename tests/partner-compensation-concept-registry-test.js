@@ -43,6 +43,17 @@ assert.equal(multiplier.metadata.requiresTrainingWinnerEvidenceForPayFactor, tru
 assert.equal(multiplier.metadata.officialStatementRequiredForPayoutTruth, true);
 assert.ok(multiplier.constitutionalRules.some((rule) => rule.includes('not confirmed payout')));
 
+
+const annualProductivityAdditional = getPartnerCompensationConceptEntry('productivity-annual-additional-bonus');
+assert.equal(annualProductivityAdditional.calculationMode, PARTNER_CONCEPT_CALCULATION_MODES.CANDIDATE_WITH_CAUTION);
+assert.equal(annualProductivityAdditional.supportsCandidateCalculation, true);
+assert.equal(annualProductivityAdditional.supportsFullCalculation, false);
+assert.equal(annualProductivityAdditional.requiresOfficialStatementForPayout, true);
+assert.equal(isPartnerConceptKnown('productivity-annual-additional-bonus'), true);
+assert.equal(isPartnerConceptCandidateCalculable('productivity-annual-additional-bonus'), true);
+assert.equal(isPartnerConceptFullCalculable('productivity-annual-additional-bonus'), false);
+assert.equal(isPartnerConceptPartial('productivity-annual-additional-bonus'), false);
+
 const production = getPartnerCompensationConceptEntry('production-bonus');
 assert.ok(production.economicInputRequirement.includes('non_qualified_advisor_economic_output'));
 

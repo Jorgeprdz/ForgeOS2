@@ -81,4 +81,10 @@ const unknown = evaluatePartnerCompensationInput({
 assert.equal(unknown.allowed, false);
 assert.ok(unknown.blockedReasons.includes('unknown_concept'));
 
+
+assert.equal(
+  PARTNER_COMPENSATION_CONCEPT_KEYS.PRODUCTIVITY_ANNUAL_ADDITIONAL_BONUS,
+  'productivity-annual-additional-bonus'
+);
+
 console.log('PASS partner-compensation-input-gate-test');

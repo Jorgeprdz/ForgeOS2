@@ -23,7 +23,7 @@ const pcvConcepts = Object.freeze([
   ['transition-bonus', 'Bono de Transicion', 'IMPLEMENTED_CANDIDATE'],
   ['productivity-base', 'Bono de Productividad Base', 'IMPLEMENTED_CANDIDATE'],
   ['productivity-multiplier', 'Multiplicador de Productividad', 'IMPLEMENTED_CANDIDATE'],
-  ['productivity-annual-additional-bonus', 'Bono Adicional Anual de Productividad', 'PARTIAL'],
+  ['productivity-annual-additional-bonus', 'Bono Adicional Anual de Productividad', 'IMPLEMENTED_CANDIDATE'],
   ['production-bonus', 'Bono de Produccion', 'IMPLEMENTED_CANDIDATE'],
   ['activity-bonus', 'Bono de Actividad', 'IMPLEMENTED_CANDIDATE'],
   ['partner-promotion-bonus', 'Bono de Alta Partner', 'PARTIAL'],
@@ -73,7 +73,7 @@ for (const conceptKey of implementedCandidateConcepts) {
 }
 
 assert.equal(getPartnerCompensationConceptEntry('transition-bonus').calculationMode, PARTNER_CONCEPT_CALCULATION_MODES.CANDIDATE_WITH_CAUTION);
-assert.equal(isPartnerConceptKnown('productivity-annual-additional-bonus'), false);
+assert.equal(getPartnerCompensationConceptEntry('productivity-annual-additional-bonus').calculationMode, PARTNER_CONCEPT_CALCULATION_MODES.CANDIDATE_WITH_CAUTION);
 assert.equal(getPartnerCompensationConceptEntry('partner-promotion-bonus').calculationMode, PARTNER_CONCEPT_CALCULATION_MODES.SEMANTIC_ONLY);
 assert.equal(getPartnerCompensationConceptEntry('fixed-support').supportsFullCalculation, false);
 

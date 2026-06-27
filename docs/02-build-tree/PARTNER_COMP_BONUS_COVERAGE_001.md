@@ -39,7 +39,7 @@ Scope:
 | Bono de Transicion | `transition-bonus` | IMPLEMENTED_CANDIDATE | Yes | BLOCKED_BY_OFFICIAL_EVIDENCE | Official statement/account ingestion and production payout operations. |
 | Bono de Productividad Base | `productivity-base` | IMPLEMENTED_CANDIDATE | Yes | BLOCKED_BY_OFFICIAL_EVIDENCE | Official statement ingestion and statement line match. |
 | Multiplicador de Productividad | `productivity-multiplier` | IMPLEMENTED_CANDIDATE | Yes, when evidence is not blocked | BLOCKED_BY_OFFICIAL_EVIDENCE | Official statement ingestion and longitudinal qualified-advisor/training evidence hardening. |
-| Bono Adicional Anual de Productividad | `productivity-annual-additional-bonus` | PARTIAL | No repo-real calculator today | BLOCKED_BY_OFFICIAL_EVIDENCE | Annual additional productivity bonus calculator/orchestrator/test coverage. |
+| Bono Adicional Anual de Productividad | `productivity-annual-additional-bonus` | IMPLEMENTED_CANDIDATE | Yes | BLOCKED_BY_OFFICIAL_EVIDENCE | Official statement/account ingestion and production payout operations. |
 | Bono de Produccion | `production-bonus` | IMPLEMENTED_CANDIDATE | Yes | BLOCKED_BY_OFFICIAL_EVIDENCE | Official economic output source adapter and statement line match. |
 | Bono de Actividad | `activity-bonus` | IMPLEMENTED_CANDIDATE | Yes | BLOCKED_BY_OFFICIAL_EVIDENCE | Paid-applied policy/economic source adapter and statement line match. |
 | Bono de Alta Partner | `partner-promotion-bonus` | PARTIAL | No full candidate; semantic schedule only | BLOCKED_BY_OFFICIAL_EVIDENCE | Alta Partner promotion monthly schedule/support-gate calculator/orchestrator/test coverage. |
@@ -52,6 +52,7 @@ Scope:
 - Bono de Transicion
 - Bono de Productividad Base
 - Multiplicador de Productividad
+- Bono Adicional Anual de Productividad
 - Bono de Produccion
 - Bono de Actividad
 - Bono de Conexion
@@ -61,7 +62,6 @@ These concepts can calculate candidate amounts with structured evidence and `pay
 
 ## Partial Concepts
 
-- Bono Adicional Anual de Productividad
 - Bono de Alta Partner
 - Apoyos
 
@@ -119,8 +119,8 @@ Bono de Transicion is now **IMPLEMENTED_CANDIDATE** for candidateAmount coverage
 
 Coverage count update:
 
-- implemented_candidate: 7
-- partial: 3
+- implemented_candidate: 8
+- partial: 2
 - missing: 0
 - blocked_for_payoutTruth: 10
 
@@ -135,6 +135,34 @@ Transition candidate coverage is based on:
 - no-client-intervention evidence
 - months 1-6 transition window
 - standalone monthly transition orchestrator
+- `payoutTruth=false`
+
+Still not implemented:
+
+- `payoutTruth=true`
+- official statement/account ingestion
+- production payout operations
+
+## Annual Productivity Coverage Update — 003B/C-4B
+
+Bono Adicional Anual de Productividad is now **IMPLEMENTED_CANDIDATE** for candidateAmount coverage.
+
+Coverage count update:
+
+- implemented_candidate: 8
+- partial: 2
+- missing: 0
+- blocked_for_payoutTruth: 10
+
+Annual productivity candidate coverage is based on:
+
+- Q1-Q4 productivity bonus candidate results
+- Q1-Q4 TA/training winner evidence
+- December active TA winner threshold evidence
+- Jan-Jun threshold: 8
+- Jul-Dec threshold: 4
+- candidateAmount = 10% of yearly productivity bonus candidates
+- annual orchestrator separate from quarterly productivity flow
 - `payoutTruth=false`
 
 Still not implemented:

@@ -5,6 +5,7 @@ import {
 export const PARTNER_COMPENSATION_CONCEPT_KEYS = Object.freeze({
   PRODUCTIVITY_BASE: 'productivity-base',
   PRODUCTIVITY_MULTIPLIER: 'productivity-multiplier',
+  PRODUCTIVITY_ANNUAL_ADDITIONAL_BONUS: 'productivity-annual-additional-bonus',
   PRODUCTION_BONUS: 'production-bonus',
   ACTIVITY_BONUS: 'activity-bonus',
   FIXED_SUPPORT: 'fixed-support',
