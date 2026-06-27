@@ -147,8 +147,8 @@ docs/
 | `docs/architecture/repository/` | Repository governance |
 | `docs/02-build-tree/` | Architecture governance |
 | `docs/architecture/discovery/` | Discovery governance |
-| `docs/architecture/product-intelligence/` | Product Intelligence |
-| `docs/architecture/manager-os/` | Manager OS |
+| `docs/04-product-intelligence/` | Product Intelligence |
+| `docs/04-manager-os/` | Manager OS |
 | `docs/architecture/advisor-os/` | Advisor OS |
 | `docs/architecture/compensation/` | Compensation |
 | `docs/reports/validation/` | Validation evidence |
@@ -336,7 +336,7 @@ Improves because:
 Evidence:
 
 - `docs/architecture/repository/` now receives migration and cartography artifacts.
-- `docs/architecture/product-intelligence/` now receives GMM/Alfa/Vida/quote docs.
+- `docs/04-product-intelligence/` now receives GMM/Alfa/Vida/quote docs.
 
 ### 7.3 Constitutional Clarity
 

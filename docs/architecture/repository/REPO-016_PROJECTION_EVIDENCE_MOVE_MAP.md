@@ -22,7 +22,7 @@ The 3 reports are historical validation evidence for Product Intelligence projec
 | Criterion | Result | Notes |
 | --- | --- | --- |
 | Correct canonical archive | PASS | The destination states both archive custody and Product Intelligence ownership. |
-| Better location found | NO | `docs/archive/` alone is too broad; `docs/architecture/product-intelligence/` would overstate current architecture status. |
+| Better location found | NO | `docs/archive/` alone is too broad; `docs/04-product-intelligence/` would overstate current architecture status. |
 | Provenance preserved | PASS | Filenames remain unchanged and movement would be via `git mv` in future execution. |
 | Discoverability preserved | PASS | Product Intelligence and projection evidence are explicit in the path. |
 | Runtime risk | PASS | Targets are `.txt` documentation/evidence files, not runtime code. |

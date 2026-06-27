@@ -182,7 +182,7 @@ function destinationFor(file) {
   }
 
   if (lower.includes('manager') || lower.includes('partner') || lower.includes('andrey') || lower.includes('russell')) {
-    return `docs/architecture/manager-os/${file}`;
+    return `docs/04-manager-os/${file}`;
   }
 
   if (lower.includes('advisor') || lower.includes('nash') || lower.includes('relationship')) {
@@ -200,7 +200,7 @@ function destinationFor(file) {
     lower.includes('quote') ||
     lower.includes('coverage')
   ) {
-    return `docs/architecture/product-intelligence/${file}`;
+    return `docs/04-product-intelligence/${file}`;
   }
 
   if (lower.includes('compensation') || lower.includes('comision') || lower.includes('commission')) {

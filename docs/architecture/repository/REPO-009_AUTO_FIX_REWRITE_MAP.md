@@ -29,7 +29,7 @@ No source files were modified. The patch artifact is dry-run only.
 | `docs/adr/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md` | 1 |
 | `docs/adr/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md` | 1 |
 | `docs/architecture/constitution/PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.md` | 1 |
-| `docs/architecture/product-intelligence/FORGE_GLOBAL_UDI_PROJECTION_PRODUCT_INTERPRETATION.md` | 1 |
+| `docs/04-product-intelligence/FORGE_GLOBAL_UDI_PROJECTION_PRODUCT_INTERPRETATION.md` | 1 |
 | `schemas/advisor.schema.json` | 1 |
 
 ## Rewrite Map
@@ -116,7 +116,7 @@ No source files were modified. The patch artifact is dry-run only.
 | 78 | SAFE | `docs/archive/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` | `FORGE_MASTER_BUILD_TREE.md` | `../../FORGE_MASTER_BUILD_TREE.md` | `FORGE_MASTER_BUILD_TREE.md` | HIGH | Target is a protected root governance anchor and exists at repository root; current link is broken because source document now lives below root. |
 | 79 | SAFE | `docs/archive/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` | `AGENTS.md` | `../../AGENTS.md` | `AGENTS.md` | HIGH | Target is a protected root governance anchor and exists at repository root; current link is broken because source document now lives below root. |
 | 80 | SAFE | `docs/archive/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` | `FORGE_CONSTITUTION_V3.md` | `../../FORGE_CONSTITUTION_V3.md` | `FORGE_CONSTITUTION_V3.md` | HIGH | Target is a protected root governance anchor and exists at repository root; current link is broken because source document now lives below root. |
-| 81 | SAFE | `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_GLOBAL_UDI_PROJECTION_PRODUCT_INTERPRETATION.md` | `../architecture/product-intelligence/FORGE_GLOBAL_UDI_PROJECTION_PRODUCT_INTERPRETATION.md` | `docs/architecture/product-intelligence/FORGE_GLOBAL_UDI_PROJECTION_PRODUCT_INTERPRETATION.md` | MEDIUM_HIGH | Target exists under docs/architecture/product-intelligence; current path points to old archive-relative location. |
+| 81 | SAFE | `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_GLOBAL_UDI_PROJECTION_PRODUCT_INTERPRETATION.md` | `../architecture/product-intelligence/FORGE_GLOBAL_UDI_PROJECTION_PRODUCT_INTERPRETATION.md` | `docs/04-product-intelligence/FORGE_GLOBAL_UDI_PROJECTION_PRODUCT_INTERPRETATION.md` | MEDIUM_HIGH | Target exists under docs/04-product-intelligence; current path points to old archive-relative location. |
 | 82 | SAFE | `docs/archive/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md` | `FORGE_MASTER_BUILD_TREE.md` | `../../FORGE_MASTER_BUILD_TREE.md` | `FORGE_MASTER_BUILD_TREE.md` | HIGH | Target is a protected root governance anchor and exists at repository root; current link is broken because source document now lives below root. |
 | 83 | SAFE | `docs/archive/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md` | `AGENTS.md` | `../../AGENTS.md` | `AGENTS.md` | HIGH | Target is a protected root governance anchor and exists at repository root; current link is broken because source document now lives below root. |
 | 84 | SAFE | `docs/archive/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md` | `FORGE_CONSTITUTION_V3.md` | `../../FORGE_CONSTITUTION_V3.md` | `FORGE_CONSTITUTION_V3.md` | HIGH | Target is a protected root governance anchor and exists at repository root; current link is broken because source document now lives below root. |

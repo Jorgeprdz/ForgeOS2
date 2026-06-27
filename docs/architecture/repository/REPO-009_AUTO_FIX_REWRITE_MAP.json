@@ -26,7 +26,7 @@
     "docs/adr/PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md": 1,
     "docs/adr/PAQ-10-CONSERVATION-INTELLIGENCE-DISCOVERY.md": 1,
     "docs/adr/PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md": 1,
-    "docs/architecture/product-intelligence/FORGE_GLOBAL_UDI_PROJECTION_PRODUCT_INTERPRETATION.md": 1
+    "docs/04-product-intelligence/FORGE_GLOBAL_UDI_PROJECTION_PRODUCT_INTERPRETATION.md": 1
   },
   "sourceCounts": {
     "docs/adr/PAQ-01-RECRUITMENT-INTELLIGENCE-DISCOVERY.md": 3,
@@ -1108,10 +1108,10 @@
       "sourceFile": "docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md",
       "currentBrokenReference": "FORGE_GLOBAL_UDI_PROJECTION_PRODUCT_INTERPRETATION.md",
       "correctRelativeReference": "../architecture/product-intelligence/FORGE_GLOBAL_UDI_PROJECTION_PRODUCT_INTERPRETATION.md",
-      "targetFile": "docs/architecture/product-intelligence/FORGE_GLOBAL_UDI_PROJECTION_PRODUCT_INTERPRETATION.md",
+      "targetFile": "docs/04-product-intelligence/FORGE_GLOBAL_UDI_PROJECTION_PRODUCT_INTERPRETATION.md",
       "targetExists": true,
       "confidence": "MEDIUM_HIGH",
-      "reason": "Target exists under docs/architecture/product-intelligence; current path points to old archive-relative location.",
+      "reason": "Target exists under docs/04-product-intelligence; current path points to old archive-relative location.",
       "safety": "SAFE",
       "rootCause": "Product intelligence relocation"
     },
