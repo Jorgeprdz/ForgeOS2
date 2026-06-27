@@ -277,7 +277,7 @@ Forge OS adopts the **RODI (Return on Development Investment) Principle**:
 Forge Constitution Amendment v1.1 is ratified as constitutional doctrine.
 
 Full text:
-`docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md`
+`docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md`
 
 The amendment formalizes the discoveries from Foundation Lock, Shared Commercial Model, Compensation Intelligence, Advisor Experience, Forecast Intelligence and Business Planning Intelligence.
 

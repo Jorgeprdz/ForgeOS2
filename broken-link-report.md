@@ -137,7 +137,7 @@ This report resolves Markdown links relative to each source file. It ignores fen
 | `docs/architecture/README.md` | `shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md` | `docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md` | OK |
 | `docs/architecture/README.md` | `shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_PERIODS_OPERATIONAL_CLOCKS_HARDENING.md` | `docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_PERIODS_OPERATIONAL_CLOCKS_HARDENING.md` | OK |
 | `docs/architecture/README.md` | `../../FORGE_CONSTITUTION_V3.md` | `FORGE_CONSTITUTION_V3.md` | OK |
-| `docs/architecture/README.md` | `constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | `docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | OK |
+| `docs/architecture/README.md` | `constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | OK |
 | `docs/architecture/README.md` | `phase-transitions/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` | `docs/architecture/phase-transitions/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` | OK |
 | `docs/architecture/README.md` | `../../PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md` | `PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md` | BROKEN |
 | `docs/architecture/README.md` | `../../PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md` | `PAQ-09.5-PRODUCTIVITY-INTELLIGENCE-ARCHITECTURE-LOCK.md` | BROKEN |
@@ -145,10 +145,10 @@ This report resolves Markdown links relative to each source file. It ignores fen
 | `docs/architecture/README.md` | `../../PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md` | `PAQ-10.5-CONSERVATION-INTELLIGENCE-ARCHITECTURE-LOCK.md` | BROKEN |
 | `docs/architecture/README.md` | `../../AGENTS.md` | `AGENTS.md` | OK |
 | `docs/architecture/README.md` | `../../FORGE_MASTER_BUILD_TREE.md` | `FORGE_MASTER_BUILD_TREE.md` | OK |
-| `docs/architecture/constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `FORGE_MASTER_BUILD_TREE.md` | `docs/architecture/constitution/FORGE_MASTER_BUILD_TREE.md` | BROKEN |
-| `docs/architecture/constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `AGENTS.md` | `docs/architecture/constitution/AGENTS.md` | BROKEN |
-| `docs/architecture/constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `FORGE_CONSTITUTION_V3.md` | `docs/architecture/constitution/FORGE_CONSTITUTION_V3.md` | BROKEN |
-| `docs/architecture/constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `FORGE_FOUNDATION_LOCK.md` | `docs/architecture/constitution/FORGE_FOUNDATION_LOCK.md` | BROKEN |
+| `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `FORGE_MASTER_BUILD_TREE.md` | `docs/01-constitution/FORGE_MASTER_BUILD_TREE.md` | BROKEN |
+| `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `AGENTS.md` | `docs/01-constitution/AGENTS.md` | BROKEN |
+| `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `FORGE_CONSTITUTION_V3.md` | `docs/01-constitution/FORGE_CONSTITUTION_V3.md` | BROKEN |
+| `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `FORGE_FOUNDATION_LOCK.md` | `docs/01-constitution/FORGE_FOUNDATION_LOCK.md` | BROKEN |
 | `docs/archive/FORGE_OS_CURRENT_STATE_DOMAIN_COMPENSATION_ADVISOR_EXPERIENCE.md` | `FORGE_MASTER_BUILD_TREE.md` | `docs/archive/FORGE_MASTER_BUILD_TREE.md` | BROKEN |
 | `docs/archive/FORGE_OS_CURRENT_STATE_DOMAIN_COMPENSATION_ADVISOR_EXPERIENCE.md` | `AGENTS.md` | `docs/archive/AGENTS.md` | BROKEN |
 | `docs/archive/FORGE_OS_CURRENT_STATE_DOMAIN_COMPENSATION_ADVISOR_EXPERIENCE.md` | `FORGE_CONSTITUTION_V3.md` | `docs/archive/FORGE_CONSTITUTION_V3.md` | BROKEN |

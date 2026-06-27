@@ -31,7 +31,7 @@ Forge work is governed in this order:
 | Agent operating contract | `AGENTS.md` | Defines Codex workflow, protected surfaces and operational rules. |
 | Root Constitution anchor | `FORGE_CONSTITUTION_V3.md` | Root-level constitutional authority anchor. |
 | Constitution map | `docs/01-constitution/FORGE_CONSTITUTION_MAP.md` | Maps constitutional layers and ADR authority flow. |
-| Architectural Constitution | `docs/architecture/constitution/FORGE_ARCHITECTURAL_CONSTITUTION_v3.md` | Locked architectural constitutional concepts. |
+| Architectural Constitution | `docs/01-constitution/FORGE_ARCHITECTURAL_CONSTITUTION_v3.md` | Locked architectural constitutional concepts. |
 | Canonical ADRs | `adr/` | Canonical ADR authority set. |
 | ADR working material | `docs/adr/` | Working, transition and PAQ-stage ADR material. |
 | Build Tree | `FORGE_MASTER_BUILD_TREE.md` | Canonical project area and status map. |
@@ -126,7 +126,7 @@ The following surfaces must be declared explicitly before work may touch them:
 - `FORGE_MASTER_BUILD_TREE.md`
 - `adr/`
 - `docs/adr/`
-- `docs/architecture/constitution/`
+- `docs/01-constitution/`
 - `docs/03-discovery/`
 - `docs/07-runtime/`
 - `docs/06-repository-governance/`

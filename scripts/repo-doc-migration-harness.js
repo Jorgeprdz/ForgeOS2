@@ -156,7 +156,7 @@ function destinationFor(file) {
     lower.includes('truth_classification') ||
     lower.includes('truth_dependency')
   ) {
-    return `docs/architecture/constitution/${file}`;
+    return `docs/01-constitution/${file}`;
   }
 
   if (lower.includes('adr') || /^PAQ-\d+/.test(file)) {

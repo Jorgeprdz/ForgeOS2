@@ -20,7 +20,7 @@ Explicit exclusions: `AGENTS.md`, `FORGE_CONSTITUTION_V3.md`, `FORGE_MASTER_BUIL
 | Result | Count | Notes |
 | --- | ---: | --- |
 | EXECUTED_GIT_MV | 322 | Moved with `git mv`; no code/runtime files moved. |
-| SKIP_DEST_EXISTS | 1 | `FORGE_CONSTITUTION_AMENDMENT_v1.1.md` was not moved because `docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` already existed. |
+| SKIP_DEST_EXISTS | 1 | `FORGE_CONSTITUTION_AMENDMENT_v1.1.md` was not moved because `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` already existed. |
 | BLOCKED_UNTRACKED | 5 | Left in root because `git mv` cannot move untracked files without first changing tracking state. |
 | SKIP_PROTECTED | 3 | `AGENTS.md`, `FORGE_CONSTITUTION_V3.md`, `FORGE_MASTER_BUILD_TREE.md`. |
 | SKIP_TEST_DOC | 10 | Left in root due user exclusion for any test file. |
@@ -81,10 +81,10 @@ Explicit exclusions: `AGENTS.md`, `FORGE_CONSTITUTION_V3.md`, `FORGE_MASTER_BUIL
 | MOVE | `FORGE_ADVISOR_FRICTION_DISCOVERY.md` | `docs/03-discovery/FORGE_ADVISOR_FRICTION_DISCOVERY.md` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_ADVISOR_INSIGHTS.md` | `docs/archive/FORGE_ADVISOR_INSIGHTS.md` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_ALFA_MEDICAL_VS_FLEX_PRODUCT_INTELLIGENCE_NOTES.txt` | `docs/04-product-intelligence/FORGE_ALFA_MEDICAL_VS_FLEX_PRODUCT_INTELLIGENCE_NOTES.txt` | Tracked root documentation file within batch scope. |
-| MOVE | `FORGE_ARCHITECTURAL_CONSTITUTION_v3.md` | `docs/architecture/constitution/FORGE_ARCHITECTURAL_CONSTITUTION_v3.md` | Tracked root documentation file within batch scope. |
-| MOVE | `FORGE_ARTICLE_0_DISCOVERY.md` | `docs/architecture/constitution/FORGE_ARTICLE_0_DISCOVERY.md` | Tracked root documentation file within batch scope. |
-| MOVE | `FORGE_ARTICLE_0_POSITION_IN_CONSTITUTION.md` | `docs/architecture/constitution/FORGE_ARTICLE_0_POSITION_IN_CONSTITUTION.md` | Tracked root documentation file within batch scope. |
-| MOVE | `FORGE_ARTICLE_0_SUCCESS_MEASURES.md` | `docs/architecture/constitution/FORGE_ARTICLE_0_SUCCESS_MEASURES.md` | Tracked root documentation file within batch scope. |
+| MOVE | `FORGE_ARCHITECTURAL_CONSTITUTION_v3.md` | `docs/01-constitution/FORGE_ARCHITECTURAL_CONSTITUTION_v3.md` | Tracked root documentation file within batch scope. |
+| MOVE | `FORGE_ARTICLE_0_DISCOVERY.md` | `docs/01-constitution/FORGE_ARTICLE_0_DISCOVERY.md` | Tracked root documentation file within batch scope. |
+| MOVE | `FORGE_ARTICLE_0_POSITION_IN_CONSTITUTION.md` | `docs/01-constitution/FORGE_ARTICLE_0_POSITION_IN_CONSTITUTION.md` | Tracked root documentation file within batch scope. |
+| MOVE | `FORGE_ARTICLE_0_SUCCESS_MEASURES.md` | `docs/01-constitution/FORGE_ARTICLE_0_SUCCESS_MEASURES.md` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_BENVENU_EXPERIENCE_LOCK.md` | `docs/archive/FORGE_BENVENU_EXPERIENCE_LOCK.md` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_BENVENU_LEOPARD_COPY_DIRECTIONS.txt` | `docs/archive/FORGE_BENVENU_LEOPARD_COPY_DIRECTIONS.txt` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_BENVENU_LEOPARD_EXPERIENCE_SPEC.md` | `docs/archive/FORGE_BENVENU_LEOPARD_EXPERIENCE_SPEC.md` | Tracked root documentation file within batch scope. |
@@ -107,10 +107,10 @@ Explicit exclusions: `AGENTS.md`, `FORGE_CONSTITUTION_V3.md`, `FORGE_MASTER_BUIL
 | MOVE | `FORGE_CODEBASE_UNKNOWN_REVIEW_QUEUE.txt` | `docs/06-repository-governance/FORGE_CODEBASE_UNKNOWN_REVIEW_QUEUE.txt` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_CODEX_PROMPT_001_SOURCE_OWNERSHIP_REGISTRY_V0_1.txt` | `docs/archive/FORGE_CODEX_PROMPT_001_SOURCE_OWNERSHIP_REGISTRY_V0_1.txt` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_COMPENSATION_INTELLIGENCE_ARCHITECTURE.md` | `docs/archive/FORGE_COMPENSATION_INTELLIGENCE_ARCHITECTURE.md` | Tracked root documentation file within batch scope. |
-| SKIP_DEST_EXISTS | `FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | `docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | Destination already existed; skipped to avoid overwrite/delete. |
-| MOVE | `FORGE_CONSTITUTION_AMENDMENT_v1.1.txt` | `docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.txt` | Tracked root documentation file within batch scope. |
-| MOVE | `FORGE_CONSTITUTION_CANDIDATES.md` | `docs/architecture/constitution/FORGE_CONSTITUTION_CANDIDATES.md` | Tracked root documentation file within batch scope. |
-| MOVE | `FORGE_CONSTITUTION_LOCK_PREPARATION.md` | `docs/architecture/constitution/FORGE_CONSTITUTION_LOCK_PREPARATION.md` | Tracked root documentation file within batch scope. |
+| SKIP_DEST_EXISTS | `FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | Destination already existed; skipped to avoid overwrite/delete. |
+| MOVE | `FORGE_CONSTITUTION_AMENDMENT_v1.1.txt` | `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.txt` | Tracked root documentation file within batch scope. |
+| MOVE | `FORGE_CONSTITUTION_CANDIDATES.md` | `docs/01-constitution/FORGE_CONSTITUTION_CANDIDATES.md` | Tracked root documentation file within batch scope. |
+| MOVE | `FORGE_CONSTITUTION_LOCK_PREPARATION.md` | `docs/01-constitution/FORGE_CONSTITUTION_LOCK_PREPARATION.md` | Tracked root documentation file within batch scope. |
 | SKIP_PROTECTED | `FORGE_CONSTITUTION_V3.md` | - | Protected root governance anchor. |
 | MOVE | `FORGE_CORPORATE_VS_FIELD_INTELLIGENCE_COMPARISON.md` | `docs/archive/FORGE_CORPORATE_VS_FIELD_INTELLIGENCE_COMPARISON.md` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_CURRENCY_INTELLIGENCE_AUDIT_REPORT.txt` | `docs/archive/FORGE_CURRENCY_INTELLIGENCE_AUDIT_REPORT.txt` | Tracked root documentation file within batch scope. |
@@ -248,7 +248,7 @@ Explicit exclusions: `AGENTS.md`, `FORGE_CONSTITUTION_V3.md`, `FORGE_MASTER_BUIL
 | MOVE | `FORGE_PHASE_2_X_REFACTOR_CANDIDATE_QUEUE.txt` | `docs/02-build-tree/FORGE_PHASE_2_X_REFACTOR_CANDIDATE_QUEUE.txt` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_PHASE_2_X_REFACTOR_SUMMARY.txt` | `docs/02-build-tree/FORGE_PHASE_2_X_REFACTOR_SUMMARY.txt` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_PHASE_2_X_REVIEW_REQUIRED_QUEUE.txt` | `docs/02-build-tree/FORGE_PHASE_2_X_REVIEW_REQUIRED_QUEUE.txt` | Tracked root documentation file within batch scope. |
-| MOVE | `FORGE_PHASE_TRANSITION_CONSTITUTION_TO_IMPLEMENTATION.txt` | `docs/architecture/constitution/FORGE_PHASE_TRANSITION_CONSTITUTION_TO_IMPLEMENTATION.txt` | Tracked root documentation file within batch scope. |
+| MOVE | `FORGE_PHASE_TRANSITION_CONSTITUTION_TO_IMPLEMENTATION.txt` | `docs/01-constitution/FORGE_PHASE_TRANSITION_CONSTITUTION_TO_IMPLEMENTATION.txt` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` | `docs/archive/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.txt` | `docs/archive/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.txt` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_PROFESSIONAL_DEVELOPMENT_MODEL_DISCOVERY.md` | `docs/03-discovery/FORGE_PROFESSIONAL_DEVELOPMENT_MODEL_DISCOVERY.md` | Tracked root documentation file within batch scope. |
@@ -259,8 +259,8 @@ Explicit exclusions: `AGENTS.md`, `FORGE_CONSTITUTION_V3.md`, `FORGE_MASTER_BUIL
 | MOVE | `FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_PROSPECT_DECISION_TIMELINE_DISCOVERY.md` | `docs/03-discovery/FORGE_PROSPECT_DECISION_TIMELINE_DISCOVERY.md` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_QUOTE_VS_POLICY_ANALYSIS.md` | `docs/04-product-intelligence/FORGE_QUOTE_VS_POLICY_ANALYSIS.md` | Tracked root documentation file within batch scope. |
-| MOVE | `FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `docs/architecture/constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | Tracked root documentation file within batch scope. |
-| MOVE | `FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.txt` | `docs/architecture/constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.txt` | Tracked root documentation file within batch scope. |
+| MOVE | `FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | Tracked root documentation file within batch scope. |
+| MOVE | `FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.txt` | `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.txt` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_READINESS_INTELLIGENCE_DISCOVERY.md` | `docs/03-discovery/FORGE_READINESS_INTELLIGENCE_DISCOVERY.md` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_READINESS_MODEL_CANDIDATE.md` | `docs/03-discovery/FORGE_READINESS_MODEL_CANDIDATE.md` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_READINESS_SIGNALS_DISCOVERY.md` | `docs/03-discovery/FORGE_READINESS_SIGNALS_DISCOVERY.md` | Tracked root documentation file within batch scope. |
@@ -288,8 +288,8 @@ Explicit exclusions: `AGENTS.md`, `FORGE_CONSTITUTION_V3.md`, `FORGE_MASTER_BUIL
 | MOVE | `FORGE_SOURCE_OWNERSHIP_REGISTRY_V0_1_IMPLEMENTATION_REPORT.txt` | `docs/archive/FORGE_SOURCE_OWNERSHIP_REGISTRY_V0_1_IMPLEMENTATION_REPORT.txt` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_TEMP_BANXICO_ENABLEMENT_REPORT.txt` | `docs/archive/FORGE_TEMP_BANXICO_ENABLEMENT_REPORT.txt` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_TRUTHS_CONSOLIDATION_REPORT.txt` | `docs/archive/FORGE_TRUTHS_CONSOLIDATION_REPORT.txt` | Tracked root documentation file within batch scope. |
-| MOVE | `FORGE_TRUTH_CLASSIFICATION_MATRIX.md` | `docs/architecture/constitution/FORGE_TRUTH_CLASSIFICATION_MATRIX.md` | Tracked root documentation file within batch scope. |
-| MOVE | `FORGE_TRUTH_DEPENDENCY_MAP.md` | `docs/architecture/constitution/FORGE_TRUTH_DEPENDENCY_MAP.md` | Tracked root documentation file within batch scope. |
+| MOVE | `FORGE_TRUTH_CLASSIFICATION_MATRIX.md` | `docs/01-constitution/FORGE_TRUTH_CLASSIFICATION_MATRIX.md` | Tracked root documentation file within batch scope. |
+| MOVE | `FORGE_TRUTH_DEPENDENCY_MAP.md` | `docs/01-constitution/FORGE_TRUTH_DEPENDENCY_MAP.md` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_UDI_HISTORICAL_GROWTH_REPORT.txt` | `docs/archive/FORGE_UDI_HISTORICAL_GROWTH_REPORT.txt` | Tracked root documentation file within batch scope. |
 | SKIP_TEST_DOC | `FORGE_UDI_PROJECTION_VALIDATION_REPORT.txt` | - | Filename indicates test/validation artifact; user excluded any test file. |
 | MOVE | `FORGE_UNIVERSAL_SALES_PRINCIPLES_DISCOVERY.md` | `docs/03-discovery/FORGE_UNIVERSAL_SALES_PRINCIPLES_DISCOVERY.md` | Tracked root documentation file within batch scope. |
@@ -330,8 +330,8 @@ Explicit exclusions: `AGENTS.md`, `FORGE_CONSTITUTION_V3.md`, `FORGE_MASTER_BUIL
 | MOVE | `PAQ-08-ADVISOR-DEVELOPMENT-INTELLIGENCE-DISCOVERY.txt` | `docs/adr/PAQ-08-ADVISOR-DEVELOPMENT-INTELLIGENCE-DISCOVERY.txt` | Tracked root documentation file within batch scope. |
 | MOVE | `PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | `docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | Tracked root documentation file within batch scope. |
 | MOVE | `PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.txt` | `docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.txt` | Tracked root documentation file within batch scope. |
-| MOVE | `PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.md` | `docs/architecture/constitution/PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.md` | Tracked root documentation file within batch scope. |
-| MOVE | `PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.txt` | `docs/architecture/constitution/PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.txt` | Tracked root documentation file within batch scope. |
+| MOVE | `PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.md` | `docs/01-constitution/PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.md` | Tracked root documentation file within batch scope. |
+| MOVE | `PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.txt` | `docs/01-constitution/PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.txt` | Tracked root documentation file within batch scope. |
 | MOVE | `PAQ-09-PRODUCTIVITY-INTELLIGENCE-ARQUITECTURA-CONCEPTUAL.txt` | `docs/adr/PAQ-09-PRODUCTIVITY-INTELLIGENCE-ARQUITECTURA-CONCEPTUAL.txt` | Tracked root documentation file within batch scope. |
 | MOVE | `PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md` | `docs/adr/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.md` | Tracked root documentation file within batch scope. |
 | MOVE | `PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.txt` | `docs/adr/PAQ-09-PRODUCTIVITY-INTELLIGENCE-DISCOVERY.txt` | Tracked root documentation file within batch scope. |

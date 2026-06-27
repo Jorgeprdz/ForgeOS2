@@ -36,7 +36,7 @@ Applied pattern:
 
 - `docs/adr/PAQ-07-FOUNDATION-LOCK-REVIEW.md`
 - `docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md`
-- `docs/architecture/constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md`
+- `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md`
 - `docs/archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md`
 
 ## Links Rewritten
@@ -45,7 +45,7 @@ Applied pattern:
 | ---: | --- | --- | --- | --- |
 | 1 | `docs/adr/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../archive/FORGE_FOUNDATION_LOCK.md` |
 | 2 | `docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../archive/FORGE_FOUNDATION_LOCK.md` |
-| 3 | `docs/architecture/constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../../archive/FORGE_FOUNDATION_LOCK.md` |
+| 3 | `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../../archive/FORGE_FOUNDATION_LOCK.md` |
 | 4 | `docs/archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md` | `FORGE_FOUNDATION_LOCK.md` | `FORGE_FOUNDATION_LOCK.md` | `../FORGE_FOUNDATION_LOCK.md` |
 
 ## Skipped Items

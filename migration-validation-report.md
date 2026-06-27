@@ -18,7 +18,7 @@ This report validates the generated plan. It does not move files.
 
 | Source | Destination |
 | --- | --- |
-| `FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | `docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` |
+| `FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` |
 
 ## Review Required
 

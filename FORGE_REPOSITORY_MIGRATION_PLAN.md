@@ -682,7 +682,7 @@ Criterio mecanico: JS/TS sin imports relativos y sin referencias entrantes detec
 
 | Nombre | Archivos |
 | --- | --- |
-| `forge_constitution_amendment_v1.1.md` | `FORGE_CONSTITUTION_AMENDMENT_v1.1.md`<br>`docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` |
+| `forge_constitution_amendment_v1.1.md` | `FORGE_CONSTITUTION_AMENDMENT_v1.1.md`<br>`docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` |
 | `forge_phase_transition_foundation_to_intelligence.md` | `FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md`<br>`docs/05-phase-transitions/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` |
 | `forge_ratification_and_foundation_closure.md` | `FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md`<br>`docs/05-foundation/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` |
 | `forge_shared_commercial_model_evidence_provenance_foundation.md` | `FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md`<br>`docs/05-shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md` |
@@ -1037,9 +1037,9 @@ Criterio mecanico: JS/TS sin imports relativos y sin referencias entrantes detec
 | `docs/adr/ADR-001D_HANDLING_VOCABULARY.md` | docs | `docs/adr/ADR-001D_HANDLING_VOCABULARY.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/adr/ADR-0021_CANDIDATE_INTELLIGENCE_GOVERNANCE.md` | docs | `docs/adr/ADR-0021_CANDIDATE_INTELLIGENCE_GOVERNANCE.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/architecture/README.md` | docs | `docs/architecture/README.md` | BAJO | - | 1 - Docs y arquitectura |
-| `docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | docs | `docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | BAJO | - | 1 - Docs y arquitectura |
-| `docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.3.md` | docs | `docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.3.md` | BAJO | - | 1 - Docs y arquitectura |
-| `docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.4.md` | docs | `docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.4.md` | BAJO | - | 1 - Docs y arquitectura |
+| `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | docs | `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | BAJO | - | 1 - Docs y arquitectura |
+| `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.3.md` | docs | `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.3.md` | BAJO | - | 1 - Docs y arquitectura |
+| `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.4.md` | docs | `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.4.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/03-discovery/ANDREY_TERMINOLOGY_REVIEW_MIRANDA.md` | docs | `docs/03-discovery/ANDREY_TERMINOLOGY_REVIEW_MIRANDA.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/03-discovery/FORGE_DUAL_INTELLIGENCE_DISCOVERY_ANDREY_RUSSELL.md` | docs | `docs/03-discovery/FORGE_DUAL_INTELLIGENCE_DISCOVERY_ANDREY_RUSSELL.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/03-discovery/MANAGER_OS_CONSOLIDATION_REPORT.md` | docs | `docs/03-discovery/MANAGER_OS_CONSOLIDATION_REPORT.md` | BAJO | - | 1 - Docs y arquitectura |

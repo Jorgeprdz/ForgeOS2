@@ -15,7 +15,7 @@ Date: 2026-06-18
 Applicable Constitution:
 
 - FORGE_CONSTITUTION_V3.md
-- docs/architecture/constitution/FORGE_ARCHITECTURAL_CONSTITUTION_v3.md
+- docs/01-constitution/FORGE_ARCHITECTURAL_CONSTITUTION_v3.md
 - Evidence precedes judgment.
 - No invented truth.
 - Forecasts are suggestions, facts are facts.
@@ -97,7 +97,7 @@ The map is documentation-only. It does not create engines, schemas, runtime beha
 ## Sources Inspected
 
 - FORGE_CONSTITUTION_V3.md
-- docs/architecture/constitution/FORGE_ARCHITECTURAL_CONSTITUTION_v3.md
+- docs/01-constitution/FORGE_ARCHITECTURAL_CONSTITUTION_v3.md
 - docs/01-constitution/FORGE_CONSTITUTION_MAP.md
 - AGENTS.md
 - docs/00-governance/FORGE_ROBOCOP_DIRECTIVES.md

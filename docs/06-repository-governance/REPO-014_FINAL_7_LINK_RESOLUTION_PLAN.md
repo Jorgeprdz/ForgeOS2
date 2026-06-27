@@ -26,7 +26,7 @@ REPO-015 eligible count:
 | ---: | --- | --- | --- | --- | --- | --- |
 | 1 | `docs/adr/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | Preserve visible historical name and rewrite target to `docs/archive/FORGE_FOUNDATION_LOCK.md` using source-relative path. | LOW | Archive + Constitution | YES |
 | 2 | `docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | `FORGE_FOUNDATION_LOCK.md` | Preserve visible historical name and rewrite target to `docs/archive/FORGE_FOUNDATION_LOCK.md` using source-relative path. | LOW | Archive + Constitution | YES |
-| 3 | `docs/architecture/constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `FORGE_FOUNDATION_LOCK.md` | Preserve visible historical name and rewrite target to `docs/archive/FORGE_FOUNDATION_LOCK.md` using source-relative path; include execution note that Foundation Lock remains archived historical evidence. | MEDIUM | Archive + Constitution | YES |
+| 3 | `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `FORGE_FOUNDATION_LOCK.md` | Preserve visible historical name and rewrite target to `docs/archive/FORGE_FOUNDATION_LOCK.md` using source-relative path; include execution note that Foundation Lock remains archived historical evidence. | MEDIUM | Archive + Constitution | YES |
 | 4 | `docs/archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md` | `FORGE_FOUNDATION_LOCK.md` | Preserve visible historical name and rewrite target to `docs/archive/FORGE_FOUNDATION_LOCK.md` using source-relative path; do not imply canonical doctrine. | MEDIUM | Archive + Constitution | YES |
 | 5 | `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt` | Archive target under governed Product Intelligence projection evidence destination, then rewrite checkpoint link. | MEDIUM | Product Intelligence + Projection Evidence Archive | NO |
 | 6 | `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | `FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt` | Archive target under governed Product Intelligence projection evidence destination, then rewrite checkpoint link. | MEDIUM | Product Intelligence + Projection Evidence Archive | NO |
@@ -52,7 +52,7 @@ Expected source-relative targets:
 | --- | --- |
 | `docs/adr/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | `../archive/FORGE_FOUNDATION_LOCK.md` |
 | `docs/adr/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | `../archive/FORGE_FOUNDATION_LOCK.md` |
-| `docs/architecture/constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `../../archive/FORGE_FOUNDATION_LOCK.md` |
+| `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | `../../archive/FORGE_FOUNDATION_LOCK.md` |
 | `docs/archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md` | `../FORGE_FOUNDATION_LOCK.md` |
 
 REPO-015 must not touch the 3 NEEDS_MOVE projection validation links unless a target archive move map is explicitly approved in the same authorization.

@@ -53,7 +53,7 @@ Executed the 96 approved SAFE documentation link rewrites from `docs/06-reposito
 | `docs/adr/PAQ-12-ADVISOR-EXPERIENCE-INTELLIGENCE-PRODUCTIVITY.md` | 4 |
 | `docs/adr/PAQ-12.1-ADVISOR-EXPERIENCE-INTELLIGENCE-ARCHITECTURE.md` | 4 |
 | `docs/architecture/README.md` | 4 |
-| `docs/architecture/constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | 3 |
+| `docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | 3 |
 | `docs/archive/FORGE_OS_CURRENT_STATE_DOMAIN_COMPENSATION_ADVISOR_EXPERIENCE.md` | 3 |
 | `docs/archive/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` | 3 |
 | `docs/archive/FORGE_PROJECTION_INTELLIGENCE_CHECKPOINT_NOTE.md` | 1 |

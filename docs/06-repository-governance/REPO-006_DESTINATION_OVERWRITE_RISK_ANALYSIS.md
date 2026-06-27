@@ -10,7 +10,7 @@ BUILD-003 reports one hard destination overwrite risk:
 | Field | Evidence |
 | --- | --- |
 | Source path | `FORGE_CONSTITUTION_AMENDMENT_v1.1.md` |
-| Destination path | `docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` |
+| Destination path | `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` |
 | BUILD-003 classification | `CONTENT_DIFFERS` |
 | Source size | 32,693 bytes |
 | Destination size | 32,054 bytes |
@@ -119,11 +119,11 @@ Ownership outcome: `DESTINATION_IS_CANONICAL`
 
 Evidence:
 
-- `FORGE_CONSTITUTION_V3.md` explicitly ratifies Amendment v1.1 and points to `docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md`.
+- `FORGE_CONSTITUTION_V3.md` explicitly ratifies Amendment v1.1 and points to `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md`.
 - The destination file was introduced by `fefcc34 docs: ratify forge constitution amendment v1.1`.
 - The root file was introduced later by `f5a593e docs: convert PAQ architecture reviews to markdown`.
 - REPO-004 states that root is a protected compatibility and governance surface, not a destination domain.
-- REPO-005 identifies `docs/architecture/constitution/` as the destination for constitutional governance and notes the remaining tracked root doc with destination collision.
+- REPO-005 identifies `docs/01-constitution/` as the destination for constitutional governance and notes the remaining tracked root doc with destination collision.
 
 The destination has stronger constitutional ownership because it is the ratified amendment path referenced by the active Constitution. The source has useful markdown/navigation treatment, but its later conversion lineage is weaker than the destination's ratification lineage.
 
@@ -141,11 +141,11 @@ The destination has stronger constitutional ownership because it is the ratified
 
 Recommended action: `ARCHIVE_SOURCE`
 
-The source file should not be moved into `docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` because that destination already contains the ratified canonical document.
+The source file should not be moved into `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` because that destination already contains the ratified canonical document.
 
 Future human-approved migration should treat the root source as a historical markdown conversion artifact, not as the canonical constitutional amendment. A safe future resolution would be:
 
-1. Keep `docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` as canonical.
+1. Keep `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` as canonical.
 2. Exclude `FORGE_CONSTITUTION_AMENDMENT_v1.1.md` from any move plan targeting the canonical destination.
 3. Preserve the root source only as archive/history if required.
 4. Review references to the root source before any archive action.
