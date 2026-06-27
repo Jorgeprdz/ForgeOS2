@@ -38,7 +38,7 @@ Rules:
 | Manager OS | PARTIALLY_IMPLEMENTED | `manager-os/`; `docs/04-manager-os/`; `docs/05-readiness/` | Split recruitment subset from planned leadership/org health. |
 | Universal Command OS / Alfred | PARTIALLY_IMPLEMENTED | `universal-command-engine.js`; `platform/commands/` | Change from planned to implemented foundation / needs review. |
 | Offline / Sync | PARTIALLY_IMPLEMENTED | `platform/sync/`; `offline-sync.js`; runtime readiness docs | Change from planned to partial hardening. |
-| Partner Compensation Candidate Foundation | IMPLEMENTED BASELINE / CLOSED | `compensation/partner-manager/`; `tests/partner-*.js`; Juan real exercise regression | Candidate calculation foundation closed; not payout truth. |
+| Partner Compensation Candidate Foundation | IMPLEMENTED BASELINE / CLOSED | `compensation/partner-manager/`; `tests/partner-*.js`; Juan real exercise regression; `docs/02-build-tree/PARTNER_COMP_BONUS_COVERAGE_001.md` | Candidate calculation foundation closed; six PCV bonuses are IMPLEMENTED_CANDIDATE, four remain PARTIAL; not payout truth. |
 | Broader Compensation Intelligence | PARTIALLY_IMPLEMENTED | `compensation/`; Partner candidate foundation tests | Keep broader domain yellow until official statement ingestion and payout operations exist. |
 | Official statement ingestion / payout operations | PENDING | Payout truth boundary tests; no official statement ingestion closure | Future scope only; `payoutTruth=true` requires official confirmed evidence and statement line. |
 | Forecast / projection engines | PARTIALLY_IMPLEMENTED | `product-intelligence/projections/`; forecast/projection engines | Split engines from full Forecast Intelligence architecture lock. |

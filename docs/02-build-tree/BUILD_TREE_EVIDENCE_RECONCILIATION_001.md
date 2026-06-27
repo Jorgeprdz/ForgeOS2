@@ -350,3 +350,43 @@ Broader Compensation Intelligence remains PARTIALLY_IMPLEMENTED.
 Official statement ingestion, production payout operations and real carrier statement payout truth confirmation remain PENDING.
 
 Partner Intelligence remains PENDING as a separate future workstream.
+
+---
+
+## Partner Compensation Bonus Coverage Lock
+
+Status: PARTNER-COMP-BONUS-COVERAGE-001B/C DOCUMENTATION/TEST LOCK
+
+Coverage document:
+
+- `docs/02-build-tree/PARTNER_COMP_BONUS_COVERAGE_001.md`
+
+Coverage test:
+
+- `tests/partner-pcv-2026-bonus-coverage-audit-test.js`
+
+### Repo-Real PCV Coverage
+
+| Status | Concepts |
+| --- | --- |
+| IMPLEMENTED_CANDIDATE | Bono de Productividad Base; Multiplicador de Productividad; Bono de Produccion; Bono de Actividad; Bono de Conexion; Bono de Desarrollo |
+| PARTIAL | Bono de Transicion; Bono Adicional Anual de Productividad; Bono de Alta Partner; Apoyos |
+| MISSING | None completely absent from official rule-data |
+| BLOCKED_BY_OFFICIAL_EVIDENCE | All PCV Partner bonuses for `payoutTruth=true` |
+
+### Coverage Boundaries
+
+- `candidateAmount` is not `payoutTruth`.
+- `payoutTruth=true` requires official confirmed evidence and statement/account line match.
+- Unknown is not zero.
+- Semantic amount is not full `candidateAmount`.
+- Raw activity logs are insufficient without paid-applied evidence.
+- Ownership source truth gate remains protected.
+
+### Remaining Candidate Completeness Gaps
+
+1. Transition candidate calculator/orchestrator/test coverage.
+2. Annual additional productivity bonus calculator/orchestrator/test coverage.
+3. Alta Partner promotion monthly schedule/support-gate calculator/orchestrator/test coverage.
+4. Apoyos support table / proportional payment / recovery reconciliation.
+5. Official statement/account ingestion after candidate completeness.
