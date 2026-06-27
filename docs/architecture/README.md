@@ -6,18 +6,18 @@ Official architecture documentation index.
 ## Foundation
 
 - [FORGE Foundation Lock v1.0](../archive/FORGE_FOUNDATION_LOCK.md)
-- [PAQ-08 Foundation Lock Final Review](foundation/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md)
-- [PAQ-07 Foundation Lock Review](foundation/PAQ-07-FOUNDATION-LOCK-REVIEW.md)
-- [Forge Ratification and Foundation Closure](foundation/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md)
+- [PAQ-08 Foundation Lock Final Review](../05-foundation/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md)
+- [PAQ-07 Foundation Lock Review](../05-foundation/PAQ-07-FOUNDATION-LOCK-REVIEW.md)
+- [Forge Ratification and Foundation Closure](../05-foundation/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md)
 
 ## Shared Commercial Model
 
-- [Metrics Ownership Finalization](shared-commercial-model/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md)
-- [Rule Snapshot Hardening](shared-commercial-model/PAQ-05-RULE-SNAPSHOT-HARDENING.md)
-- [Commercial Events Taxonomy](shared-commercial-model/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md)
-- [Identity & Attribution Hardening](shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_IDENTITY_ATTRIBUTION_HARDENING.md)
-- [Evidence & Provenance Foundation](shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md)
-- [Periods & Operational Clocks Hardening](shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_PERIODS_OPERATIONAL_CLOCKS_HARDENING.md)
+- [Metrics Ownership Finalization](../05-shared-commercial-model/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md)
+- [Rule Snapshot Hardening](../05-shared-commercial-model/PAQ-05-RULE-SNAPSHOT-HARDENING.md)
+- [Commercial Events Taxonomy](../05-shared-commercial-model/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md)
+- [Identity & Attribution Hardening](../05-shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_IDENTITY_ATTRIBUTION_HARDENING.md)
+- [Evidence & Provenance Foundation](../05-shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md)
+- [Periods & Operational Clocks Hardening](../05-shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_PERIODS_OPERATIONAL_CLOCKS_HARDENING.md)
 
 ## Constitution
 

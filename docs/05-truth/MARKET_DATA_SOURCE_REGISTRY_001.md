@@ -160,7 +160,7 @@ The following promotions are blocked:
 
 This registry records and depends on:
 
-- BANXICO RATE SOURCE AUDIT 001: `docs/architecture/truth/BANXICO_RATE_SOURCE_AUDIT_001.md`.
+- BANXICO RATE SOURCE AUDIT 001: `docs/05-truth/BANXICO_RATE_SOURCE_AUDIT_001.md`.
 - BANXICO TOKEN SECURITY PATCH 001: commit `ca44b2a Remove hardcoded Banxico token`.
 - SUPABASE BANXICO EDGE PROVIDER 001: commit `8dcd5eb Add Supabase Banxico Edge provider routing`.
 - POST-LOCK BASELINE 001: confirmed baseline tests and runtime audit after Edge provider lock.
@@ -176,7 +176,7 @@ Validation commands required for this lock:
 ```sh
 git log --oneline -3
 git status --short
-rg -n "SP68257|SF43718|BANXICO_SIE_API|SUPABASE_BANXICO_RATES_URL|BANXICO_TOKEN|Bmx-Token|8\.7" shared-banxico-edge-provider.js shared-banxico-rate-engine.js exchange-rate-cache-engine.js tests docs/architecture/truth
+rg -n "SP68257|SF43718|BANXICO_SIE_API|SUPABASE_BANXICO_RATES_URL|BANXICO_TOKEN|Bmx-Token|8\.7" shared-banxico-edge-provider.js shared-banxico-rate-engine.js exchange-rate-cache-engine.js tests docs/05-truth
 node tests/banxico-token-security-test.js
 node tests/banxico-edge-provider-test.js
 node tests/run-all-tests.js

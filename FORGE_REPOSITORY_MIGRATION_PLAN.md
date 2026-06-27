@@ -684,15 +684,15 @@ Criterio mecanico: JS/TS sin imports relativos y sin referencias entrantes detec
 | --- | --- |
 | `forge_constitution_amendment_v1.1.md` | `FORGE_CONSTITUTION_AMENDMENT_v1.1.md`<br>`docs/architecture/constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` |
 | `forge_phase_transition_foundation_to_intelligence.md` | `FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md`<br>`docs/05-phase-transitions/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` |
-| `forge_ratification_and_foundation_closure.md` | `FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md`<br>`docs/architecture/foundation/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` |
-| `forge_shared_commercial_model_evidence_provenance_foundation.md` | `FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md`<br>`docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md` |
-| `forge_shared_commercial_model_identity_attribution_hardening.md` | `FORGE_SHARED_COMMERCIAL_MODEL_IDENTITY_ATTRIBUTION_HARDENING.md`<br>`docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_IDENTITY_ATTRIBUTION_HARDENING.md` |
-| `forge_shared_commercial_model_periods_operational_clocks_hardening.md` | `FORGE_SHARED_COMMERCIAL_MODEL_PERIODS_OPERATIONAL_CLOCKS_HARDENING.md`<br>`docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_PERIODS_OPERATIONAL_CLOCKS_HARDENING.md` |
-| `paq-04-metrics-ownership-finalization.md` | `PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md`<br>`docs/architecture/shared-commercial-model/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md` |
-| `paq-05-rule-snapshot-hardening.md` | `PAQ-05-RULE-SNAPSHOT-HARDENING.md`<br>`docs/architecture/shared-commercial-model/PAQ-05-RULE-SNAPSHOT-HARDENING.md` |
-| `paq-06-commercial-events-taxonomy.md` | `PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md`<br>`docs/architecture/shared-commercial-model/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md` |
-| `paq-07-foundation-lock-review.md` | `PAQ-07-FOUNDATION-LOCK-REVIEW.md`<br>`docs/architecture/foundation/PAQ-07-FOUNDATION-LOCK-REVIEW.md` |
-| `paq-08-foundation-lock-final-review.md` | `PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md`<br>`docs/architecture/foundation/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` |
+| `forge_ratification_and_foundation_closure.md` | `FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md`<br>`docs/05-foundation/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` |
+| `forge_shared_commercial_model_evidence_provenance_foundation.md` | `FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md`<br>`docs/05-shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md` |
+| `forge_shared_commercial_model_identity_attribution_hardening.md` | `FORGE_SHARED_COMMERCIAL_MODEL_IDENTITY_ATTRIBUTION_HARDENING.md`<br>`docs/05-shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_IDENTITY_ATTRIBUTION_HARDENING.md` |
+| `forge_shared_commercial_model_periods_operational_clocks_hardening.md` | `FORGE_SHARED_COMMERCIAL_MODEL_PERIODS_OPERATIONAL_CLOCKS_HARDENING.md`<br>`docs/05-shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_PERIODS_OPERATIONAL_CLOCKS_HARDENING.md` |
+| `paq-04-metrics-ownership-finalization.md` | `PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md`<br>`docs/05-shared-commercial-model/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md` |
+| `paq-05-rule-snapshot-hardening.md` | `PAQ-05-RULE-SNAPSHOT-HARDENING.md`<br>`docs/05-shared-commercial-model/PAQ-05-RULE-SNAPSHOT-HARDENING.md` |
+| `paq-06-commercial-events-taxonomy.md` | `PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md`<br>`docs/05-shared-commercial-model/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md` |
+| `paq-07-foundation-lock-review.md` | `PAQ-07-FOUNDATION-LOCK-REVIEW.md`<br>`docs/05-foundation/PAQ-07-FOUNDATION-LOCK-REVIEW.md` |
+| `paq-08-foundation-lock-final-review.md` | `PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md`<br>`docs/05-foundation/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` |
 
 ### Por contenido exacto
 
@@ -1046,16 +1046,16 @@ Criterio mecanico: JS/TS sin imports relativos y sin referencias entrantes detec
 | `docs/architecture/discovery/MANAGER_OS_OPEN_QUESTIONS.md` | docs | `docs/architecture/discovery/MANAGER_OS_OPEN_QUESTIONS.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/architecture/discovery/RUSSELL-001_IDENTITY_BASELINE_MODEL.md` | docs | `docs/architecture/discovery/RUSSELL-001_IDENTITY_BASELINE_MODEL.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/architecture/discovery/RUSSELL-002_IDENTITY_DRIFT_DETECTION.md` | docs | `docs/architecture/discovery/RUSSELL-002_IDENTITY_DRIFT_DETECTION.md` | BAJO | - | 1 - Docs y arquitectura |
-| `docs/architecture/foundation/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | docs | `docs/architecture/foundation/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | BAJO | - | 1 - Docs y arquitectura |
-| `docs/architecture/foundation/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | docs | `docs/architecture/foundation/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | BAJO | - | 1 - Docs y arquitectura |
-| `docs/architecture/foundation/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | docs | `docs/architecture/foundation/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | BAJO | - | 1 - Docs y arquitectura |
+| `docs/05-foundation/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | docs | `docs/05-foundation/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md` | BAJO | - | 1 - Docs y arquitectura |
+| `docs/05-foundation/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | docs | `docs/05-foundation/PAQ-07-FOUNDATION-LOCK-REVIEW.md` | BAJO | - | 1 - Docs y arquitectura |
+| `docs/05-foundation/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | docs | `docs/05-foundation/PAQ-08-FOUNDATION-LOCK-FINAL-REVIEW.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/05-phase-transitions/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` | docs | `docs/05-phase-transitions/FORGE_PHASE_TRANSITION_FOUNDATION_TO_INTELLIGENCE.md` | BAJO | - | 1 - Docs y arquitectura |
-| `docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md` | docs | `docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md` | BAJO | - | 1 - Docs y arquitectura |
-| `docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_IDENTITY_ATTRIBUTION_HARDENING.md` | docs | `docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_IDENTITY_ATTRIBUTION_HARDENING.md` | BAJO | - | 1 - Docs y arquitectura |
-| `docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_PERIODS_OPERATIONAL_CLOCKS_HARDENING.md` | docs | `docs/architecture/shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_PERIODS_OPERATIONAL_CLOCKS_HARDENING.md` | BAJO | - | 1 - Docs y arquitectura |
-| `docs/architecture/shared-commercial-model/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md` | docs | `docs/architecture/shared-commercial-model/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md` | BAJO | - | 1 - Docs y arquitectura |
-| `docs/architecture/shared-commercial-model/PAQ-05-RULE-SNAPSHOT-HARDENING.md` | docs | `docs/architecture/shared-commercial-model/PAQ-05-RULE-SNAPSHOT-HARDENING.md` | BAJO | - | 1 - Docs y arquitectura |
-| `docs/architecture/shared-commercial-model/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md` | docs | `docs/architecture/shared-commercial-model/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md` | BAJO | - | 1 - Docs y arquitectura |
+| `docs/05-shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md` | docs | `docs/05-shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_EVIDENCE_PROVENANCE_FOUNDATION.md` | BAJO | - | 1 - Docs y arquitectura |
+| `docs/05-shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_IDENTITY_ATTRIBUTION_HARDENING.md` | docs | `docs/05-shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_IDENTITY_ATTRIBUTION_HARDENING.md` | BAJO | - | 1 - Docs y arquitectura |
+| `docs/05-shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_PERIODS_OPERATIONAL_CLOCKS_HARDENING.md` | docs | `docs/05-shared-commercial-model/FORGE_SHARED_COMMERCIAL_MODEL_PERIODS_OPERATIONAL_CLOCKS_HARDENING.md` | BAJO | - | 1 - Docs y arquitectura |
+| `docs/05-shared-commercial-model/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md` | docs | `docs/05-shared-commercial-model/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md` | BAJO | - | 1 - Docs y arquitectura |
+| `docs/05-shared-commercial-model/PAQ-05-RULE-SNAPSHOT-HARDENING.md` | docs | `docs/05-shared-commercial-model/PAQ-05-RULE-SNAPSHOT-HARDENING.md` | BAJO | - | 1 - Docs y arquitectura |
+| `docs/05-shared-commercial-model/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md` | docs | `docs/05-shared-commercial-model/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/constitution/FORGE_CONSTITUTION_MAP.md` | docs | `docs/constitution/FORGE_CONSTITUTION_MAP.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/03-discovery/FD-0001_BETTER_DECISIONS_UNDER_UNCERTAINTY.md` | docs | `docs/03-discovery/FD-0001_BETTER_DECISIONS_UNDER_UNCERTAINTY.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/03-discovery/PROCESS_ADVANCEMENT_IMPLEMENTATION_READINESS.md` | docs | `docs/03-discovery/PROCESS_ADVANCEMENT_IMPLEMENTATION_READINESS.md` | BAJO | - | 1 - Docs y arquitectura |

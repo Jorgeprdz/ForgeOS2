@@ -145,7 +145,7 @@ docs/
 | `docs/architecture/constitution/` | Constitution / constitutional governance |
 | `docs/adr/` | ADR governance |
 | `docs/architecture/repository/` | Repository governance |
-| `docs/architecture/build-tree/` | Architecture governance |
+| `docs/02-build-tree/` | Architecture governance |
 | `docs/architecture/discovery/` | Discovery governance |
 | `docs/architecture/product-intelligence/` | Product Intelligence |
 | `docs/architecture/manager-os/` | Manager OS |

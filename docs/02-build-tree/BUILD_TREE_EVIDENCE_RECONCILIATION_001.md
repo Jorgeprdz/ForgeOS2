@@ -63,9 +63,9 @@ Board approval status:
 - docs/architecture/runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.md
 - docs/architecture/runtime/RUNTIME-003_MODULE_GRAPH_VALIDATION.json
 - docs/architecture/runtime/MIGRATION-007_PROGRESS.md
-- docs/architecture/build-tree/BUILD_TREE_UPDATE_REPORT.txt
-- docs/architecture/build-tree/FORGE_PHASE_2_1_BUILD_TREE_DECISION_NOTES.md
-- docs/architecture/build-tree/FORGE_PHASE_2_X_CONCEPTUAL_BUILD_TREE.md
+- docs/02-build-tree/BUILD_TREE_UPDATE_REPORT.txt
+- docs/02-build-tree/FORGE_PHASE_2_1_BUILD_TREE_DECISION_NOTES.md
+- docs/02-build-tree/FORGE_PHASE_2_X_CONCEPTUAL_BUILD_TREE.md
 - tests/real-pdf-ocr-test.js
 
 Operator-provided current evidence:

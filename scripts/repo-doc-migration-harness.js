@@ -178,7 +178,7 @@ function destinationFor(file) {
     lower.includes('delete_later') ||
     lower.includes('consolidate_later')
   ) {
-    return `docs/architecture/build-tree/${file}`;
+    return `docs/02-build-tree/${file}`;
   }
 
   if (lower.includes('manager') || lower.includes('partner') || lower.includes('andrey') || lower.includes('russell')) {

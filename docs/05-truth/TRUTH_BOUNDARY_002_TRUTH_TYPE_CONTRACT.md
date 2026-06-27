@@ -85,7 +85,7 @@ Board approval status:
 
 ## Sources Inspected
 
-- docs/architecture/truth/TRUTH_BOUNDARY_001_SOURCE_TRUTH_AND_EVIDENCE_STATE.md
+- docs/05-truth/TRUTH_BOUNDARY_001_SOURCE_TRUTH_AND_EVIDENCE_STATE.md
 - docs/00-governance/FORGE_ROBOCOP_DIRECTIVES.md
 - docs/00-governance/FORGE_ROBOCOP_AI_INTERPRETATION_ADDENDUM.md
 - AGENTS.md

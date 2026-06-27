@@ -278,7 +278,7 @@ Runtime graph audit was not run because this sprint is documentation-only and ti
 Expected final status:
 
 ```text
-?? docs/architecture/readiness/MANAGER_ADVISOR_ACCESS_MODEL_001.md
+?? docs/05-readiness/MANAGER_ADVISOR_ACCESS_MODEL_001.md
 ```
 
 ---
@@ -305,7 +305,7 @@ RLS implications: advisor self-access stays primary; manager reads only derived 
 
 Future sprint recommendation: MANAGER ADVISOR INVITATION ACCESS FOUNDATION 001.
 
-Files created: `docs/architecture/readiness/MANAGER_ADVISOR_ACCESS_MODEL_001.md`.
+Files created: `docs/05-readiness/MANAGER_ADVISOR_ACCESS_MODEL_001.md`.
 
 Commands run: status, log, Supabase file inventory, docs inventory, manager/advisor RLS search.
 

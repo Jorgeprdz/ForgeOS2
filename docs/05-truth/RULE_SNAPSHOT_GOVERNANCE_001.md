@@ -87,10 +87,10 @@ Board approval status:
 
 ## Sources Inspected
 
-- docs/architecture/truth/TRUTH_BOUNDARY_001_SOURCE_TRUTH_AND_EVIDENCE_STATE.md
-- docs/architecture/truth/TRUTH_BOUNDARY_002_TRUTH_TYPE_CONTRACT.md
-- docs/architecture/truth/SOURCE_OWNERSHIP_REGISTRY_001.md
-- docs/architecture/truth/EVIDENCE_STATE_CONTRACT_001.md
+- docs/05-truth/TRUTH_BOUNDARY_001_SOURCE_TRUTH_AND_EVIDENCE_STATE.md
+- docs/05-truth/TRUTH_BOUNDARY_002_TRUTH_TYPE_CONTRACT.md
+- docs/05-truth/SOURCE_OWNERSHIP_REGISTRY_001.md
+- docs/05-truth/EVIDENCE_STATE_CONTRACT_001.md
 - docs/00-governance/FORGE_ROBOCOP_DIRECTIVES.md
 - docs/00-governance/FORGE_ROBOCOP_AI_INTERPRETATION_ADDENDUM.md
 - AGENTS.md
