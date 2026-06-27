@@ -84,3 +84,31 @@ No PCV 2026 Partner concept is completely absent from official rule-data.
 All PCV Partner bonuses remain blocked for `payoutTruth=true` until Forge has official statement/account ingestion, official confirmed evidence and statement/account line match.
 
 Candidate calculations, semantic amounts, OCR/PDF/AI extraction, high confidence matching, raw activity logs and manually entered projections do not establish payout truth.
+
+## Partner Compensation Closure Correction — Status Truth
+
+Partner Compensation overall is **PARTIAL / ACTIVE WORKSTREAM**.
+
+The **Partner Compensation Candidate Foundation Subset** is **IMPLEMENTED_CANDIDATE / SUBSET STABILIZED**.
+
+Full candidate completeness is **NOT CLOSED**.
+
+Implemented candidate concepts:
+- Productividad Base
+- Multiplicador de Productividad
+- Bono de Produccion
+- Bono de Actividad
+- Bono de Conexion
+- Bono de Desarrollo
+
+Partial candidate concepts / active gaps:
+- Bono de Transicion
+- Bono Adicional Anual de Productividad
+- Bono de Alta Partner
+- Apoyos
+
+Boundary:
+- `candidateAmount` is not `payoutTruth`.
+- `payoutTruth=true` remains `BLOCKED_BY_OFFICIAL_EVIDENCE` for all PCV concepts until official statement/account ingestion and statement line match exist.
+- Unknown is not zero.
+- Ownership source truth remains protected.

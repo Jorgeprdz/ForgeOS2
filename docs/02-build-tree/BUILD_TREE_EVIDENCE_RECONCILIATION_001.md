@@ -343,7 +343,7 @@ Scope:
 
 ### Closeout Interpretation
 
-Partner Compensation Candidate Foundation is IMPLEMENTED BASELINE / CLOSED for candidate-calculation readiness.
+Partner Compensation Candidate Foundation Subset is IMPLEMENTED_CANDIDATE / SUBSET STABILIZED for candidate-calculation readiness; Partner Compensation overall remains PARTIAL / ACTIVE WORKSTREAM and full candidate completeness is NOT CLOSED.
 
 Broader Compensation Intelligence remains PARTIALLY_IMPLEMENTED.
 
@@ -390,3 +390,31 @@ Coverage test:
 3. Alta Partner promotion monthly schedule/support-gate calculator/orchestrator/test coverage.
 4. Apoyos support table / proportional payment / recovery reconciliation.
 5. Official statement/account ingestion after candidate completeness.
+
+## Partner Compensation Closure Correction — Status Truth
+
+Partner Compensation overall is **PARTIAL / ACTIVE WORKSTREAM**.
+
+The **Partner Compensation Candidate Foundation Subset** is **IMPLEMENTED_CANDIDATE / SUBSET STABILIZED**.
+
+Full candidate completeness is **NOT CLOSED**.
+
+Implemented candidate concepts:
+- Productividad Base
+- Multiplicador de Productividad
+- Bono de Produccion
+- Bono de Actividad
+- Bono de Conexion
+- Bono de Desarrollo
+
+Partial candidate concepts / active gaps:
+- Bono de Transicion
+- Bono Adicional Anual de Productividad
+- Bono de Alta Partner
+- Apoyos
+
+Boundary:
+- `candidateAmount` is not `payoutTruth`.
+- `payoutTruth=true` remains `BLOCKED_BY_OFFICIAL_EVIDENCE` for all PCV concepts until official statement/account ingestion and statement line match exist.
+- Unknown is not zero.
+- Ownership source truth remains protected.
