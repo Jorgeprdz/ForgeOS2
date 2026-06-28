@@ -57,9 +57,10 @@ function testConceptShapeFromPhysicalRulePack() {
   }
 
   assert.equal(rulePack.concepts['life-initial-bonus'].modelStatus, 'implemented_candidate');
+  assert.equal(rulePack.concepts['life-renewal-bonus'].modelStatus, 'implemented_candidate');
 
   const skeletonConceptKeys = REQUIRED_NEW_PROFESSIONAL_CONCEPT_KEYS
-    .filter((conceptKey) => conceptKey !== 'life-initial-bonus');
+    .filter((conceptKey) => !['life-initial-bonus', 'life-renewal-bonus'].includes(conceptKey));
   for (const conceptKey of skeletonConceptKeys) {
     assert.equal(rulePack.concepts[conceptKey].modelStatus, 'skeleton_not_calculated');
   }
@@ -84,6 +85,20 @@ function testLifeInitialBonusTablesFromPhysicalRulePack() {
   console.log('PASS life-initial-bonus required tables load from physical rule pack');
 }
 
+function testLifeRenewalBonusTablesFromPhysicalRulePack() {
+  const { rulePack } = loadNewProfessional2026RulePack();
+  const concept = rulePack.concepts['life-renewal-bonus'];
+
+  assert.ok(concept.igcTierMetadata);
+  assert.ok(concept.bonusRateByGroupAndIgcTable);
+  assert.equal(concept.igcTierMetadata.minimumIgc, 91);
+  assert.deepEqual(concept.igcTierMetadata.tierColumns, [91, 92.5, 95, 95.75]);
+  assert.equal(concept.bonusRateByGroupAndIgcTable['1']['95.75'], 0.16);
+  assert.equal(concept.bonusRateByGroupAndIgcTable['16']['91'], 0.01);
+
+  console.log('PASS life-renewal-bonus required IGC table loads from physical rule pack');
+}
+
 function testGlobalExclusionsFromPhysicalRulePack() {
   const { rulePack } = loadNewProfessional2026RulePack();
 
@@ -98,6 +113,7 @@ testPhysicalJsonIsValid();
 testPhysicalRulePackLoadsAndValidates();
 testConceptShapeFromPhysicalRulePack();
 testLifeInitialBonusTablesFromPhysicalRulePack();
+testLifeRenewalBonusTablesFromPhysicalRulePack();
 testGlobalExclusionsFromPhysicalRulePack();
 
 console.log('PASS new-professional-rule-pack-integration-test');

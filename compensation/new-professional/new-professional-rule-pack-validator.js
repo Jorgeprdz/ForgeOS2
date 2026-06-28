@@ -3,6 +3,7 @@ const NEW_PROFESSIONAL_SOURCE_DOCUMENT = 'CC 2026 Asesores Nuevos Profesionales'
 const NEW_PROFESSIONAL_PARTICIPANT_TYPE = 'new_professional_advisor';
 const NEW_PROFESSIONAL_PAYOUT_TRUTH_RULE = 'commission_statement_required';
 const LIFE_INITIAL_BONUS_CONCEPT_KEY = 'life-initial-bonus';
+const LIFE_RENEWAL_BONUS_CONCEPT_KEY = 'life-renewal-bonus';
 
 const REQUIRED_NEW_PROFESSIONAL_CONCEPT_KEYS = Object.freeze([
   'life-initial-bonus',
@@ -195,6 +196,49 @@ function validateLifeInitialBonusConcept(concept, errors) {
   }
 }
 
+function validateLifeRenewalBonusConcept(concept, errors) {
+  if (concept.modelStatus !== 'implemented_candidate') {
+    errors.push(createIssue(
+      'invalid_life_renewal_bonus_model_status',
+      'life-renewal-bonus.modelStatus must be implemented_candidate',
+      'concepts.life-renewal-bonus.modelStatus',
+    ));
+  }
+
+  const metadata = concept.igcTierMetadata;
+  if (!isPlainObject(metadata) ||
+    metadata.minimumIgc !== 91 ||
+    !Array.isArray(metadata.tierColumns) ||
+    ![91, 92.5, 95, 95.75].every((tier) => metadata.tierColumns.includes(tier)) ||
+    !Array.isArray(metadata.tierResolution)) {
+    errors.push(createIssue(
+      'missing_life_renewal_igc_tier_metadata',
+      'life-renewal-bonus.igcTierMetadata with minimumIgc and tiers is required',
+      'concepts.life-renewal-bonus.igcTierMetadata',
+    ));
+  }
+
+  const rateTable = concept.bonusRateByGroupAndIgcTable;
+  if (!isPlainObject(rateTable)) {
+    errors.push(createIssue(
+      'missing_life_renewal_bonus_rate_table',
+      'life-renewal-bonus.bonusRateByGroupAndIgcTable is required',
+      'concepts.life-renewal-bonus.bonusRateByGroupAndIgcTable',
+    ));
+  } else {
+    for (let group = 1; group <= 16; group += 1) {
+      const row = rateTable[String(group)];
+      if (!isPlainObject(row) || !['91', '92.5', '95', '95.75'].every((tier) => isNumber(row[tier]))) {
+        errors.push(createIssue(
+          'invalid_life_renewal_bonus_rate_group',
+          `life-renewal-bonus bonus rate group ${group} must include all IGC tiers`,
+          `concepts.life-renewal-bonus.bonusRateByGroupAndIgcTable.${group}`,
+        ));
+      }
+    }
+  }
+}
+
 function validateIdentity(rulePack, errors) {
   if (rulePack.rulePackId !== NEW_PROFESSIONAL_RULE_PACK_ID) {
     errors.push(createIssue(
@@ -341,6 +385,8 @@ function validateConcepts(rulePack, errors) {
 
     if (conceptKey === LIFE_INITIAL_BONUS_CONCEPT_KEY && concept.modelStatus === 'implemented_candidate') {
       validateLifeInitialBonusConcept(concept, errors);
+    } else if (conceptKey === LIFE_RENEWAL_BONUS_CONCEPT_KEY && concept.modelStatus === 'implemented_candidate') {
+      validateLifeRenewalBonusConcept(concept, errors);
     } else if (concept.modelStatus !== 'skeleton_not_calculated') {
       errors.push(createIssue(
         'invalid_concept_model_status',
@@ -407,6 +453,7 @@ function validateNewProfessionalRulePack(rulePack) {
 
 export {
   LIFE_INITIAL_BONUS_CONCEPT_KEY,
+  LIFE_RENEWAL_BONUS_CONCEPT_KEY,
   NEW_PROFESSIONAL_PARTICIPANT_TYPE,
   NEW_PROFESSIONAL_PAYOUT_TRUTH_RULE,
   NEW_PROFESSIONAL_RULE_PACK_ID,
