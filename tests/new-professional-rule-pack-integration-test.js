@@ -59,12 +59,17 @@ function testConceptShapeFromPhysicalRulePack() {
   assert.equal(rulePack.concepts['life-initial-bonus'].modelStatus, 'implemented_candidate');
   assert.equal(rulePack.concepts['life-renewal-bonus'].modelStatus, 'implemented_candidate');
   assert.equal(rulePack.concepts['gmmi-initial-premium-bonus'].modelStatus, 'implemented_candidate');
+  assert.equal(
+    rulePack.concepts['gmmi-initial-premium-growth-annual-bonus'].modelStatus,
+    'implemented_candidate',
+  );
 
   const skeletonConceptKeys = REQUIRED_NEW_PROFESSIONAL_CONCEPT_KEYS
     .filter((conceptKey) => ![
       'life-initial-bonus',
       'life-renewal-bonus',
       'gmmi-initial-premium-bonus',
+      'gmmi-initial-premium-growth-annual-bonus',
     ].includes(conceptKey));
   for (const conceptKey of skeletonConceptKeys) {
     assert.equal(rulePack.concepts[conceptKey].modelStatus, 'skeleton_not_calculated');
@@ -120,6 +125,37 @@ function testGmmiInitialPremiumBonusTableFromPhysicalRulePack() {
   console.log('PASS gmmi-initial-premium-bonus required quarterly table loads from physical rule pack');
 }
 
+function testGmmiInitialPremiumGrowthAnnualBonusTableFromPhysicalRulePack() {
+  const { rulePack } = loadNewProfessional2026RulePack();
+  const concept = rulePack.concepts['gmmi-initial-premium-growth-annual-bonus'];
+  const table = concept.gmmiInitialPremiumGrowthAnnualBonusTable;
+
+  assert.equal(concept.modelStatus, 'implemented_candidate');
+  assert.ok(table);
+  assert.equal(table.tiers.length, 3);
+  assert.deepEqual(table.tiers[0], {
+    tier: 1,
+    minimumGrowthRate: 0.15,
+    maximumGrowthRateExclusive: 0.2,
+    bonusRate: 0.1,
+  });
+  assert.deepEqual(table.tiers[1], {
+    tier: 2,
+    minimumGrowthRate: 0.2,
+    maximumGrowthRateExclusive: 0.3,
+    bonusRate: 0.2,
+  });
+  assert.deepEqual(table.tiers[2], {
+    tier: 3,
+    minimumGrowthRate: 0.3,
+    maximumGrowthRateExclusive: null,
+    bonusRate: 0.3,
+  });
+  assert.equal(Object.keys(rulePack.concepts).length, 10);
+
+  console.log('PASS gmmi-initial-premium-growth-annual-bonus required annual table loads from physical rule pack');
+}
+
 function testGlobalExclusionsFromPhysicalRulePack() {
   const { rulePack } = loadNewProfessional2026RulePack();
 
@@ -136,6 +172,7 @@ testConceptShapeFromPhysicalRulePack();
 testLifeInitialBonusTablesFromPhysicalRulePack();
 testLifeRenewalBonusTablesFromPhysicalRulePack();
 testGmmiInitialPremiumBonusTableFromPhysicalRulePack();
+testGmmiInitialPremiumGrowthAnnualBonusTableFromPhysicalRulePack();
 testGlobalExclusionsFromPhysicalRulePack();
 
 console.log('PASS new-professional-rule-pack-integration-test');

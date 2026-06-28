@@ -283,7 +283,7 @@
       }
     },
     "gmmi-initial-premium-growth-annual-bonus": {
-      "displayName": "Bono Anual de Crecimiento Prima Inicial GMMI",
+      "displayName": "GMMI Bono Anual por Crecimiento de Primas Iniciales",
       "category": "gmmi",
       "cadence": "annual",
       "payoutTruth": false,
@@ -291,7 +291,32 @@
       "sourceEvidence": [
         "CC 2026 Asesores Nuevos Profesionales.pdf"
       ],
-      "modelStatus": "skeleton_not_calculated"
+      "modelStatus": "implemented_candidate",
+      "gmmiInitialPremiumGrowthAnnualBonusTable": {
+        "sourceTable": "Table 8. Bono Anual por Crecimiento de Primas Iniciales.",
+        "bonusBase": "annual_gmmi_initial_premium_monthly_bonus_base",
+        "growthRateFormula": "(currentContestYearEligibleGmmiInitialNetPremium - previousContestYearEligibleGmmiInitialNetPremium) / previousContestYearEligibleGmmiInitialNetPremium",
+        "tiers": [
+          {
+            "tier": 1,
+            "minimumGrowthRate": 0.15,
+            "maximumGrowthRateExclusive": 0.2,
+            "bonusRate": 0.1
+          },
+          {
+            "tier": 2,
+            "minimumGrowthRate": 0.2,
+            "maximumGrowthRateExclusive": 0.3,
+            "bonusRate": 0.2
+          },
+          {
+            "tier": 3,
+            "minimumGrowthRate": 0.3,
+            "maximumGrowthRateExclusive": null,
+            "bonusRate": 0.3
+          }
+        ]
+      }
     },
     "gmmi-renewal-premium-bonus": {
       "displayName": "Bono Prima de Renovacion GMMI",

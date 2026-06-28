@@ -5,6 +5,8 @@ const NEW_PROFESSIONAL_PAYOUT_TRUTH_RULE = 'commission_statement_required';
 const LIFE_INITIAL_BONUS_CONCEPT_KEY = 'life-initial-bonus';
 const LIFE_RENEWAL_BONUS_CONCEPT_KEY = 'life-renewal-bonus';
 const GMMI_INITIAL_PREMIUM_BONUS_CONCEPT_KEY = 'gmmi-initial-premium-bonus';
+const GMMI_INITIAL_PREMIUM_GROWTH_ANNUAL_BONUS_CONCEPT_KEY =
+  'gmmi-initial-premium-growth-annual-bonus';
 
 const REQUIRED_NEW_PROFESSIONAL_CONCEPT_KEYS = Object.freeze([
   'life-initial-bonus',
@@ -277,6 +279,39 @@ function validateGmmiInitialPremiumBonusConcept(concept, errors) {
   }
 }
 
+function validateGmmiInitialPremiumGrowthAnnualBonusConcept(concept, errors) {
+  if (concept.modelStatus !== 'implemented_candidate') {
+    errors.push(createIssue(
+      'invalid_gmmi_initial_premium_growth_annual_bonus_model_status',
+      'gmmi-initial-premium-growth-annual-bonus.modelStatus must be implemented_candidate',
+      'concepts.gmmi-initial-premium-growth-annual-bonus.modelStatus',
+    ));
+  }
+
+  const table = concept.gmmiInitialPremiumGrowthAnnualBonusTable;
+  if (!isPlainObject(table) || !Array.isArray(table.tiers) || table.tiers.length !== 3) {
+    errors.push(createIssue(
+      'missing_gmmi_initial_premium_growth_annual_bonus_table',
+      'gmmi-initial-premium-growth-annual-bonus.gmmiInitialPremiumGrowthAnnualBonusTable is required',
+      'concepts.gmmi-initial-premium-growth-annual-bonus.gmmiInitialPremiumGrowthAnnualBonusTable',
+    ));
+    return;
+  }
+
+  table.tiers.forEach((tier, index) => {
+    if (!isPlainObject(tier) ||
+      !isNumber(tier.minimumGrowthRate) ||
+      !(isNumber(tier.maximumGrowthRateExclusive) || tier.maximumGrowthRateExclusive === null) ||
+      !isNumber(tier.bonusRate)) {
+      errors.push(createIssue(
+        'invalid_gmmi_initial_premium_growth_annual_bonus_tier',
+        `gmmi-initial-premium-growth-annual-bonus tier ${index + 1} must include growth bounds and bonusRate`,
+        `concepts.gmmi-initial-premium-growth-annual-bonus.gmmiInitialPremiumGrowthAnnualBonusTable.tiers.${index}`,
+      ));
+    }
+  });
+}
+
 function validateIdentity(rulePack, errors) {
   if (rulePack.rulePackId !== NEW_PROFESSIONAL_RULE_PACK_ID) {
     errors.push(createIssue(
@@ -427,6 +462,11 @@ function validateConcepts(rulePack, errors) {
       validateLifeRenewalBonusConcept(concept, errors);
     } else if (conceptKey === GMMI_INITIAL_PREMIUM_BONUS_CONCEPT_KEY && concept.modelStatus === 'implemented_candidate') {
       validateGmmiInitialPremiumBonusConcept(concept, errors);
+    } else if (
+      conceptKey === GMMI_INITIAL_PREMIUM_GROWTH_ANNUAL_BONUS_CONCEPT_KEY &&
+      concept.modelStatus === 'implemented_candidate'
+    ) {
+      validateGmmiInitialPremiumGrowthAnnualBonusConcept(concept, errors);
     } else if (concept.modelStatus !== 'skeleton_not_calculated') {
       errors.push(createIssue(
         'invalid_concept_model_status',
@@ -493,6 +533,7 @@ function validateNewProfessionalRulePack(rulePack) {
 
 export {
   GMMI_INITIAL_PREMIUM_BONUS_CONCEPT_KEY,
+  GMMI_INITIAL_PREMIUM_GROWTH_ANNUAL_BONUS_CONCEPT_KEY,
   LIFE_INITIAL_BONUS_CONCEPT_KEY,
   LIFE_RENEWAL_BONUS_CONCEPT_KEY,
   NEW_PROFESSIONAL_PARTICIPANT_TYPE,
