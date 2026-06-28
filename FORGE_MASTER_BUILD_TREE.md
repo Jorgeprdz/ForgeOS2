@@ -351,3 +351,62 @@ Still not implemented:
 - `payoutTruth=true`
 - official statement/account ingestion
 - production payout operations
+
+---
+
+## ADVISOR_DEVELOPMENT_COMPENSATION_2026_CLOSED
+
+Status: `PASS_ADVISOR_DEV_COMP_COMMITTED_PUSHED`
+
+Commit:
+- `18b8ac42146116377ccff5cd9418e8cc428b3fec`
+- `feat: add advisor development monthly compensation candidate`
+
+Scope:
+- Advisor Development Compensation 2026
+- Training Allowance candidate
+- Connection Bonus candidate
+- Development Bonus candidate
+- Monthly Income Candidate orchestration
+
+Primary files:
+- `compensation/advisor-development/rule-data/smnyl-advisor-development-2026.rule-pack.json`
+- `compensation/advisor-development/advisor-development-rule-pack-validator.js`
+- `compensation/advisor-development/advisor-development-training-allowance-engine.js`
+- `compensation/advisor-development/advisor-development-connection-bonus-engine.js`
+- `compensation/advisor-development/advisor-development-development-bonus-engine.js`
+- `compensation/advisor-development/advisor-development-monthly-income-candidate-orchestrator.js`
+- `compensation/advisor-development/advisor-development-counting-weighting-engine.js`
+- `compensation/advisor-development/advisor-relationship-attribution-evaluator.js`
+- `compensation/advisor-development/advisor-relationship-bonus-readiness-gate.js`
+
+Primary tests:
+- `tests/advisor-development-rule-pack-validator-test.js`
+- `tests/advisor-development-rule-pack-integration-test.js`
+- `tests/advisor-development-training-allowance-engine-test.js`
+- `tests/advisor-development-connection-bonus-engine-test.js`
+- `tests/advisor-development-development-bonus-engine-test.js`
+- `tests/advisor-development-monthly-income-candidate-scenario-test.js`
+- `tests/advisor-development-counting-weighting-engine-test.js`
+- `tests/advisor-relationship-attribution-evaluator-test.js`
+- `tests/advisor-relationship-bonus-readiness-gate-test.js`
+- `tests/advisor-relationship-bonus-readiness-gate-alta-test.js`
+
+Final validated scenario:
+- Training Allowance: `70000`
+- Connection Bonus: `7500`
+- Development Bonus: `32500`
+- Total monthly candidate: `110000`
+- `payoutTruth=false`
+
+Boundary:
+- No payment execution path
+- No official commission statement adapter
+- No runtime/UI/app changes
+- No Partner compensation file changes
+- No package.json changes
+
+Validation gates:
+- `PASS_ADVISOR_DEV_MONTHLY_ORCHESTRATOR_READY_FOR_FINAL_GATE`
+- `PASS_ADVISOR_DEV_COMP_READY_FOR_COMMIT_AUTHORIZATION`
+- `PASS_ADVISOR_DEV_COMP_COMMITTED_PUSHED`
