@@ -402,7 +402,53 @@
       "sourceEvidence": [
         "CC 2026 Asesores Nuevos Profesionales.pdf"
       ],
-      "modelStatus": "skeleton_not_calculated"
+      "modelStatus": "implemented_candidate",
+      "calculationStatus": "blocked_until_relationship_attribution_evidence",
+      "calculationFrequency": "monthly",
+      "attributionModel": "new_professional_connection_attribution",
+      "policyCountSource": "new-professional-counting-weighting-engine.summary.includedCount",
+      "readinessGate": "new-professional-relationship-bonus-readiness-gate",
+      "requiredAttributionEvidence": [
+        "connectorId",
+        "connectedAdvisorId",
+        "connectionDate",
+        "onboardingEvidence",
+        "connectorActiveAtMonthClose",
+        "connectedAdvisorActiveAtMonthClose",
+        "attributionEvidenceStatus"
+      ],
+      "altaBonus": {
+        "amount": 7500,
+        "trigger": "connected_advisor_onboarded",
+        "advisorMonth": 1,
+        "requiresReadiness": true
+      },
+      "monthlyBonus": {
+        "advisorMonths": [
+          2,
+          3
+        ],
+        "tiers": [
+          {
+            "minimumPolicies": 3,
+            "amount": 5000
+          },
+          {
+            "minimumPolicies": 4,
+            "amount": 9000
+          },
+          {
+            "minimumPolicies": 5,
+            "amount": 15000
+          },
+          {
+            "minimumPolicies": 6,
+            "amount": 20000,
+            "appliesToCountAndAbove": true
+          }
+        ]
+      },
+      "blockedReason": "blocked_by_missing_connection_attribution_evidence"
     },
     "development-bonus": {
       "displayName": "Bono de Desarrollo",

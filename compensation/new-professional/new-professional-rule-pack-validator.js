@@ -8,6 +8,7 @@ const GMMI_INITIAL_PREMIUM_BONUS_CONCEPT_KEY = 'gmmi-initial-premium-bonus';
 const GMMI_INITIAL_PREMIUM_GROWTH_ANNUAL_BONUS_CONCEPT_KEY =
   'gmmi-initial-premium-growth-annual-bonus';
 const GMMI_RENEWAL_PREMIUM_BONUS_CONCEPT_KEY = 'gmmi-renewal-premium-bonus';
+const CONNECTION_BONUS_CONCEPT_KEY = 'connection-bonus';
 
 const REQUIRED_NEW_PROFESSIONAL_CONCEPT_KEYS = Object.freeze([
   'life-initial-bonus',
@@ -349,6 +350,77 @@ function validateGmmiRenewalPremiumBonusConcept(concept, errors) {
   }
 }
 
+function validateConnectionBonusConcept(concept, errors) {
+  if (concept.modelStatus !== 'implemented_candidate') {
+    errors.push(createIssue(
+      'invalid_connection_bonus_model_status',
+      'connection-bonus.modelStatus must be implemented_candidate',
+      'concepts.connection-bonus.modelStatus',
+    ));
+  }
+
+  if (concept.calculationStatus !== 'blocked_until_relationship_attribution_evidence' ||
+    concept.calculationFrequency !== 'monthly' ||
+    concept.payoutTruth !== false ||
+    concept.payoutTruthRule !== NEW_PROFESSIONAL_PAYOUT_TRUTH_RULE ||
+    !Array.isArray(concept.requiredAttributionEvidence) ||
+    concept.requiredAttributionEvidence.length === 0) {
+    errors.push(createIssue(
+      'missing_connection_bonus_readiness_config',
+      'connection-bonus readiness and payout truth config is required',
+      'concepts.connection-bonus',
+    ));
+  }
+
+  const altaBonus = concept.altaBonus;
+  if (!isPlainObject(altaBonus) ||
+    !isNumber(altaBonus.amount) ||
+    altaBonus.amount !== 7500 ||
+    altaBonus.advisorMonth !== 1 ||
+    altaBonus.requiresReadiness !== true) {
+    errors.push(createIssue(
+      'missing_connection_bonus_alta_bonus',
+      'connection-bonus.altaBonus must include amount 7500 for advisorMonth 1',
+      'concepts.connection-bonus.altaBonus',
+    ));
+  }
+
+  const monthlyBonus = concept.monthlyBonus;
+  if (!isPlainObject(monthlyBonus) ||
+    !Array.isArray(monthlyBonus.advisorMonths) ||
+    monthlyBonus.advisorMonths.length !== 2 ||
+    !monthlyBonus.advisorMonths.includes(2) ||
+    !monthlyBonus.advisorMonths.includes(3) ||
+    !Array.isArray(monthlyBonus.tiers) ||
+    monthlyBonus.tiers.length !== 4) {
+    errors.push(createIssue(
+      'missing_connection_bonus_monthly_bonus',
+      'connection-bonus.monthlyBonus must include advisor months 2-3 and four tiers',
+      'concepts.connection-bonus.monthlyBonus',
+    ));
+    return;
+  }
+
+  for (const tier of monthlyBonus.tiers) {
+    if (!isPlainObject(tier) || !isNumber(tier.minimumPolicies) || !isNumber(tier.amount)) {
+      errors.push(createIssue(
+        'invalid_connection_bonus_monthly_tier',
+        'connection-bonus monthly tiers must include numeric minimumPolicies and amount',
+        'concepts.connection-bonus.monthlyBonus.tiers',
+      ));
+    }
+  }
+
+  const topTier = monthlyBonus.tiers.find((tier) => tier.minimumPolicies === 6);
+  if (!topTier || topTier.amount !== 20000 || topTier.appliesToCountAndAbove !== true) {
+    errors.push(createIssue(
+      'invalid_connection_bonus_top_tier',
+      'connection-bonus top monthly tier must be 6+ policies for 20000',
+      'concepts.connection-bonus.monthlyBonus.tiers',
+    ));
+  }
+}
+
 function validateIdentity(rulePack, errors) {
   if (rulePack.rulePackId !== NEW_PROFESSIONAL_RULE_PACK_ID) {
     errors.push(createIssue(
@@ -509,6 +581,8 @@ function validateConcepts(rulePack, errors) {
       concept.modelStatus === 'implemented_candidate'
     ) {
       validateGmmiRenewalPremiumBonusConcept(concept, errors);
+    } else if (conceptKey === CONNECTION_BONUS_CONCEPT_KEY && concept.modelStatus === 'implemented_candidate') {
+      validateConnectionBonusConcept(concept, errors);
     } else if (concept.modelStatus !== 'skeleton_not_calculated') {
       errors.push(createIssue(
         'invalid_concept_model_status',
@@ -574,6 +648,7 @@ function validateNewProfessionalRulePack(rulePack) {
 }
 
 export {
+  CONNECTION_BONUS_CONCEPT_KEY,
   GMMI_INITIAL_PREMIUM_BONUS_CONCEPT_KEY,
   GMMI_INITIAL_PREMIUM_GROWTH_ANNUAL_BONUS_CONCEPT_KEY,
   GMMI_RENEWAL_PREMIUM_BONUS_CONCEPT_KEY,

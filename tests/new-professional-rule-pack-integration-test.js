@@ -64,6 +64,7 @@ function testConceptShapeFromPhysicalRulePack() {
     'implemented_candidate',
   );
   assert.equal(rulePack.concepts['gmmi-renewal-premium-bonus'].modelStatus, 'implemented_candidate');
+  assert.equal(rulePack.concepts['connection-bonus'].modelStatus, 'implemented_candidate');
 
   const skeletonConceptKeys = REQUIRED_NEW_PROFESSIONAL_CONCEPT_KEYS
     .filter((conceptKey) => ![
@@ -72,6 +73,7 @@ function testConceptShapeFromPhysicalRulePack() {
       'gmmi-initial-premium-bonus',
       'gmmi-initial-premium-growth-annual-bonus',
       'gmmi-renewal-premium-bonus',
+      'connection-bonus',
     ].includes(conceptKey));
   for (const conceptKey of skeletonConceptKeys) {
     assert.equal(rulePack.concepts[conceptKey].modelStatus, 'skeleton_not_calculated');
@@ -187,6 +189,26 @@ function testGmmiRenewalPremiumBonusTableFromPhysicalRulePack() {
   console.log('PASS gmmi-renewal-premium-bonus required quarterly table loads from physical rule pack');
 }
 
+function testConnectionBonusConfigFromPhysicalRulePack() {
+  const { rulePack } = loadNewProfessional2026RulePack();
+  const concept = rulePack.concepts['connection-bonus'];
+
+  assert.equal(concept.modelStatus, 'implemented_candidate');
+  assert.equal(concept.payoutTruth, false);
+  assert.equal(concept.payoutTruthRule, 'commission_statement_required');
+  assert.equal(concept.calculationStatus, 'blocked_until_relationship_attribution_evidence');
+  assert.equal(concept.altaBonus.amount, 7500);
+  assert.equal(concept.altaBonus.advisorMonth, 1);
+  assert.deepEqual(concept.monthlyBonus.advisorMonths, [2, 3]);
+  assert.equal(concept.monthlyBonus.tiers.length, 4);
+  assert.equal(concept.monthlyBonus.tiers.find((tier) => tier.minimumPolicies === 3).amount, 5000);
+  assert.equal(concept.monthlyBonus.tiers.find((tier) => tier.minimumPolicies === 6).amount, 20000);
+  assert.equal(concept.monthlyBonus.tiers.find((tier) => tier.minimumPolicies === 6).appliesToCountAndAbove, true);
+  assert.equal(Object.keys(rulePack.concepts).length, 10);
+
+  console.log('PASS connection-bonus required config loads from physical rule pack');
+}
+
 function testGlobalExclusionsFromPhysicalRulePack() {
   const { rulePack } = loadNewProfessional2026RulePack();
 
@@ -205,6 +227,7 @@ testLifeRenewalBonusTablesFromPhysicalRulePack();
 testGmmiInitialPremiumBonusTableFromPhysicalRulePack();
 testGmmiInitialPremiumGrowthAnnualBonusTableFromPhysicalRulePack();
 testGmmiRenewalPremiumBonusTableFromPhysicalRulePack();
+testConnectionBonusConfigFromPhysicalRulePack();
 testGlobalExclusionsFromPhysicalRulePack();
 
 console.log('PASS new-professional-rule-pack-integration-test');
