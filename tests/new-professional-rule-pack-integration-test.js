@@ -63,6 +63,7 @@ function testConceptShapeFromPhysicalRulePack() {
     rulePack.concepts['gmmi-initial-premium-growth-annual-bonus'].modelStatus,
     'implemented_candidate',
   );
+  assert.equal(rulePack.concepts['gmmi-renewal-premium-bonus'].modelStatus, 'implemented_candidate');
 
   const skeletonConceptKeys = REQUIRED_NEW_PROFESSIONAL_CONCEPT_KEYS
     .filter((conceptKey) => ![
@@ -70,6 +71,7 @@ function testConceptShapeFromPhysicalRulePack() {
       'life-renewal-bonus',
       'gmmi-initial-premium-bonus',
       'gmmi-initial-premium-growth-annual-bonus',
+      'gmmi-renewal-premium-bonus',
     ].includes(conceptKey));
   for (const conceptKey of skeletonConceptKeys) {
     assert.equal(rulePack.concepts[conceptKey].modelStatus, 'skeleton_not_calculated');
@@ -156,6 +158,35 @@ function testGmmiInitialPremiumGrowthAnnualBonusTableFromPhysicalRulePack() {
   console.log('PASS gmmi-initial-premium-growth-annual-bonus required annual table loads from physical rule pack');
 }
 
+function testGmmiRenewalPremiumBonusTableFromPhysicalRulePack() {
+  const { rulePack } = loadNewProfessional2026RulePack();
+  const concept = rulePack.concepts['gmmi-renewal-premium-bonus'];
+  const table = concept.gmmiRenewalPremiumQuarterlyBonusTable;
+
+  assert.equal(concept.modelStatus, 'implemented_candidate');
+  assert.ok(table);
+  assert.equal(Object.keys(table.groups).length, 5);
+  assert.deepEqual(table.groups['1'], {
+    group: 1,
+    month1PremiumGoal: 1775000,
+    month2PremiumGoal: 3560000,
+    month3PremiumGoal: 4440000,
+    policyGoal: 5,
+    bonusRate: 0.03,
+  });
+  assert.deepEqual(table.groups['5'], {
+    group: 5,
+    month1PremiumGoal: 380000,
+    month2PremiumGoal: 770000,
+    month3PremiumGoal: 960000,
+    policyGoal: 3,
+    bonusRate: 0.0125,
+  });
+  assert.equal(Object.keys(rulePack.concepts).length, 10);
+
+  console.log('PASS gmmi-renewal-premium-bonus required quarterly table loads from physical rule pack');
+}
+
 function testGlobalExclusionsFromPhysicalRulePack() {
   const { rulePack } = loadNewProfessional2026RulePack();
 
@@ -173,6 +204,7 @@ testLifeInitialBonusTablesFromPhysicalRulePack();
 testLifeRenewalBonusTablesFromPhysicalRulePack();
 testGmmiInitialPremiumBonusTableFromPhysicalRulePack();
 testGmmiInitialPremiumGrowthAnnualBonusTableFromPhysicalRulePack();
+testGmmiRenewalPremiumBonusTableFromPhysicalRulePack();
 testGlobalExclusionsFromPhysicalRulePack();
 
 console.log('PASS new-professional-rule-pack-integration-test');

@@ -7,6 +7,7 @@ const LIFE_RENEWAL_BONUS_CONCEPT_KEY = 'life-renewal-bonus';
 const GMMI_INITIAL_PREMIUM_BONUS_CONCEPT_KEY = 'gmmi-initial-premium-bonus';
 const GMMI_INITIAL_PREMIUM_GROWTH_ANNUAL_BONUS_CONCEPT_KEY =
   'gmmi-initial-premium-growth-annual-bonus';
+const GMMI_RENEWAL_PREMIUM_BONUS_CONCEPT_KEY = 'gmmi-renewal-premium-bonus';
 
 const REQUIRED_NEW_PROFESSIONAL_CONCEPT_KEYS = Object.freeze([
   'life-initial-bonus',
@@ -312,6 +313,42 @@ function validateGmmiInitialPremiumGrowthAnnualBonusConcept(concept, errors) {
   });
 }
 
+function validateGmmiRenewalPremiumBonusConcept(concept, errors) {
+  if (concept.modelStatus !== 'implemented_candidate') {
+    errors.push(createIssue(
+      'invalid_gmmi_renewal_premium_bonus_model_status',
+      'gmmi-renewal-premium-bonus.modelStatus must be implemented_candidate',
+      'concepts.gmmi-renewal-premium-bonus.modelStatus',
+    ));
+  }
+
+  const table = concept.gmmiRenewalPremiumQuarterlyBonusTable;
+  if (!isPlainObject(table) || table.unit !== 'MXN' || !isPlainObject(table.groups)) {
+    errors.push(createIssue(
+      'missing_gmmi_renewal_premium_quarterly_bonus_table',
+      'gmmi-renewal-premium-bonus.gmmiRenewalPremiumQuarterlyBonusTable is required',
+      'concepts.gmmi-renewal-premium-bonus.gmmiRenewalPremiumQuarterlyBonusTable',
+    ));
+    return;
+  }
+
+  for (let group = 1; group <= 5; group += 1) {
+    const row = table.groups[String(group)];
+    if (!isPlainObject(row) ||
+      !isNumber(row.month1PremiumGoal) ||
+      !isNumber(row.month2PremiumGoal) ||
+      !isNumber(row.month3PremiumGoal) ||
+      !isNumber(row.policyGoal) ||
+      !isNumber(row.bonusRate)) {
+      errors.push(createIssue(
+        'invalid_gmmi_renewal_premium_quarterly_bonus_group',
+        `gmmi-renewal-premium-bonus group ${group} must include premium goals, policyGoal and bonusRate`,
+        `concepts.gmmi-renewal-premium-bonus.gmmiRenewalPremiumQuarterlyBonusTable.groups.${group}`,
+      ));
+    }
+  }
+}
+
 function validateIdentity(rulePack, errors) {
   if (rulePack.rulePackId !== NEW_PROFESSIONAL_RULE_PACK_ID) {
     errors.push(createIssue(
@@ -467,6 +504,11 @@ function validateConcepts(rulePack, errors) {
       concept.modelStatus === 'implemented_candidate'
     ) {
       validateGmmiInitialPremiumGrowthAnnualBonusConcept(concept, errors);
+    } else if (
+      conceptKey === GMMI_RENEWAL_PREMIUM_BONUS_CONCEPT_KEY &&
+      concept.modelStatus === 'implemented_candidate'
+    ) {
+      validateGmmiRenewalPremiumBonusConcept(concept, errors);
     } else if (concept.modelStatus !== 'skeleton_not_calculated') {
       errors.push(createIssue(
         'invalid_concept_model_status',
@@ -534,6 +576,7 @@ function validateNewProfessionalRulePack(rulePack) {
 export {
   GMMI_INITIAL_PREMIUM_BONUS_CONCEPT_KEY,
   GMMI_INITIAL_PREMIUM_GROWTH_ANNUAL_BONUS_CONCEPT_KEY,
+  GMMI_RENEWAL_PREMIUM_BONUS_CONCEPT_KEY,
   LIFE_INITIAL_BONUS_CONCEPT_KEY,
   LIFE_RENEWAL_BONUS_CONCEPT_KEY,
   NEW_PROFESSIONAL_PARTICIPANT_TYPE,

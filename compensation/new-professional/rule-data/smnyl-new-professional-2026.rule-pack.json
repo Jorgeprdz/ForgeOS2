@@ -319,7 +319,7 @@
       }
     },
     "gmmi-renewal-premium-bonus": {
-      "displayName": "Bono Prima de Renovacion GMMI",
+      "displayName": "GMMI Bonos Trimestral Sobre Primas de Renovacion",
       "category": "gmmi",
       "cadence": "renewal",
       "payoutTruth": false,
@@ -327,7 +327,60 @@
       "sourceEvidence": [
         "CC 2026 Asesores Nuevos Profesionales.pdf"
       ],
-      "modelStatus": "skeleton_not_calculated"
+      "modelStatus": "implemented_candidate",
+      "gmmiRenewalPremiumQuarterlyBonusTable": {
+        "sourceTable": "Table 9. Prima renovacion y polizas iniciales de GMMI en el trimestre.",
+        "unit": "MXN",
+        "premiumGoalBasis": "accumulated_eligible_paid_gmmi_renewal_net_premium",
+        "policyGoalBasis": "accumulated_gmmi_initial_policies_paid",
+        "quarterMonths": [
+          1,
+          2,
+          3
+        ],
+        "groups": {
+          "1": {
+            "group": 1,
+            "month1PremiumGoal": 1775000,
+            "month2PremiumGoal": 3560000,
+            "month3PremiumGoal": 4440000,
+            "policyGoal": 5,
+            "bonusRate": 0.03
+          },
+          "2": {
+            "group": 2,
+            "month1PremiumGoal": 1195000,
+            "month2PremiumGoal": 2395000,
+            "month3PremiumGoal": 2990000,
+            "policyGoal": 4,
+            "bonusRate": 0.0265
+          },
+          "3": {
+            "group": 3,
+            "month1PremiumGoal": 945000,
+            "month2PremiumGoal": 1890000,
+            "month3PremiumGoal": 2355000,
+            "policyGoal": 4,
+            "bonusRate": 0.022
+          },
+          "4": {
+            "group": 4,
+            "month1PremiumGoal": 570000,
+            "month2PremiumGoal": 1140000,
+            "month3PremiumGoal": 1420000,
+            "policyGoal": 3,
+            "bonusRate": 0.0175
+          },
+          "5": {
+            "group": 5,
+            "month1PremiumGoal": 380000,
+            "month2PremiumGoal": 770000,
+            "month3PremiumGoal": 960000,
+            "policyGoal": 3,
+            "bonusRate": 0.0125
+          }
+        }
+      }
     },
     "gmmi-loss-ratio-annual-bonus": {
       "displayName": "Bono Anual Siniestralidad GMMI",
