@@ -412,13 +412,13 @@ Validation gates:
 - `PASS_ADVISOR_DEV_COMP_COMMITTED_PUSHED`
 
 <!-- FORGEOS:NP_COMPENSATION_2026_STATUS:START -->
-## New Professional Compensation 2026 — Build Tree Status
+## New Professional Compensation 2026 — Final Build Tree Status
 
-Last updated: 20260628-120552
+Last updated: 20260628-125722
 
 Latest committed slice:
-- connection-bonus
-- commit: 23294c8f8cc8b192f6a246c8c22baea8fc0cb47e
+- development-bonus
+- commit: 8f3062506b484df140e1fe7179f427ae3b9b3ba7
 - status: implemented_candidate
 - payoutTruth: false
 - paymentExecutionPath: false
@@ -431,14 +431,15 @@ Implemented candidate modules:
 - gmmi-initial-premium-growth-annual-bonus
 - gmmi-renewal-premium-bonus
 - connection-bonus
-
-Deferred / intentionally not modeled:
-- gmmi-loss-ratio-annual-bonus — deferred_not_modeled; does not depend directly on advisor-controlled activity/productivity.
-
-Remaining New Professional concepts:
 - development-bonus
-- temporary-total-disability-benefit
-- death-benefit
+
+Deferred / intentionally not modeled by user decision:
+- gmmi-loss-ratio-annual-bonus — deferred_not_modeled; does not depend directly on advisor-controlled activity/productivity.
+- temporary-total-disability-benefit — out_of_scope_not_modeled; benefit/contingency, not commercial productivity compensation.
+- death-benefit — out_of_scope_not_modeled; benefit/contingency, not commercial productivity compensation.
+
+New Professional compensation commercial scope:
+- CLOSED_BY_USER_SCOPE_DECISION
 
 Constitutional boundaries:
 - Candidate calculation only.
@@ -447,4 +448,5 @@ Constitutional boundaries:
 - No official statement adapter.
 - No payment execution path.
 - No cross-imports from Advisor Development or Partner modules.
+- Out-of-scope benefit concepts remain present in source shape but have no engines.
 <!-- FORGEOS:NP_COMPENSATION_2026_STATUS:END -->
