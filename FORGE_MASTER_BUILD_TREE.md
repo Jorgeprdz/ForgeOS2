@@ -708,3 +708,86 @@ Still not closed:
 - Candidate-to-Precontract Gate
 - Product Intelligence
 <!-- FORGEOS:RECRUITMENT_INTERVIEW_FLOW_STATUS:END -->
+
+<!-- FORGEOS:RECRUITMENT_PIPELINE_ENGINE_STATUS:START -->
+## Recruitment Pipeline Engine — Implementation Status
+
+Last updated: 20260628-170731
+
+Status:
+- IMPLEMENTED
+
+Implemented infrastructure:
+- recruitment-pipeline-engine
+
+Implemented files:
+- manager-os/recruitment/pipeline/recruitment-pipeline-engine.js
+
+Verified focal tests:
+- manager-os/recruitment/tests/recruitment-pipeline-engine-master-test.js
+- manager-os/recruitment/tests/recruitment-fixture-validation-test.js
+- manager-os/recruitment/tests/interview-flow-engine-master-test.js
+- manager-os/recruitment/tests/candidate-assessment-master-test.js
+- manager-os/recruitment/tests/candidate-evidence-provenance-master-test.js
+
+Implementation commit:
+- a3a0d748108253b92a56dc904f08c0712f774feb
+
+What this implementation covers:
+- explicit recruitment pipeline state evaluation
+- state normalization from recruit/application/candidate statuses
+- transition safety
+- missing evidence detection
+- human review requirements
+- candidate assessment integration
+- evidence provenance preservation
+- interview flow integration
+- ready-for-precontract-review boundary as decision support only
+
+Canonical pipeline states:
+- PROSPECT
+- CANDIDATE
+- APPLICATION_STARTED
+- APPLICATION_SUBMITTED
+- INTERVIEWING
+- INTERVIEW_FLOW_ACTIVE
+- MANAGER_REVIEW
+- READY_FOR_PRECONTRACT_REVIEW
+- BLOCKED
+- REJECTED_BY_DECISION_SUPPORT_ONLY
+- WITHDRAWN
+- REENTRY_REVIEW
+- NOT_MODELED
+- UNKNOWN
+
+Forbidden downstream transitions:
+- PRECONTRACT as actual truth
+- ADVISOR_LIFECYCLE
+- REVENUE
+- COMPENSATION
+- PAYOUT
+
+Constitutional boundaries:
+- Recruitment Pipeline is decision support only.
+- Recruitment Pipeline does not approve or reject candidates automatically.
+- Recruitment Pipeline does not close full Recruitment.
+- Recruitment Pipeline does not close Manager OS / RDA Attribution.
+- Recruitment Pipeline does not close Candidate-to-Precontract Gate.
+- Recruitment Pipeline does not create precontract truth.
+- Recruitment Pipeline does not create Advisor Lifecycle truth.
+- Recruitment Pipeline does not create revenue, compensation, or payout truth.
+- readyForPrecontractReview is not precontract status.
+- Missing evidence is not zero and not automatic disqualification.
+- REJECT recommendation is not automatic rejection.
+- Manager override still requires human review.
+- Unknown states are blocked or marked not modeled.
+
+Closure certificate:
+- docs/evidence/RECRUITMENT_PIPELINE_ENGINE_CLOSURE_CERTIFICATE.md
+
+Still not closed:
+- Full Recruitment
+- Manager OS / RDA Attribution
+- Candidate-to-Precontract Gate
+- Product Intelligence
+<!-- FORGEOS:RECRUITMENT_PIPELINE_ENGINE_STATUS:END -->
