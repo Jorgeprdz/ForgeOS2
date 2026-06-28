@@ -638,3 +638,73 @@ Deferred future slices:
 - MANAGER_OS_RECRUITING_ATTRIBUTION_002A
 - RECRUITMENT_TO_PRECONTRACT_GATE_002A
 <!-- FORGEOS:RECRUITMENT_CANDIDATE_INTELLIGENCE_STATUS:END -->
+
+<!-- FORGEOS:RECRUITMENT_INTERVIEW_FLOW_STATUS:START -->
+## Recruitment Interview Flow — Implementation Status
+
+Last updated: 20260628-164100
+
+Status:
+- IMPLEMENTED
+
+Implemented infrastructure:
+- interview-flow-engine
+
+Implemented files:
+- manager-os/recruitment/interview-flow/interview-flow-engine.js
+
+Verified focal tests:
+- manager-os/recruitment/tests/interview-flow-engine-master-test.js
+- manager-os/recruitment/tests/interview-evidence-fixture-test.js
+- manager-os/recruitment/tests/candidate-assessment-master-test.js
+- manager-os/recruitment/tests/candidate-evidence-provenance-master-test.js
+
+Implementation commit:
+- 8479d33e32c43eceab0f9fc4fec2f4164f07e378
+
+What this implementation covers:
+- explicit 4-stage interview flow
+- stage normalization
+- allowed transitions
+- blocked transitions
+- missing evidence detection
+- human review requirements
+- provenance/evidence reference preservation
+- unsafe transition blocking
+
+Canonical interview stages:
+- INITIAL_INTERVIEW
+- SELECTION_INTERVIEW
+- CAREER_INTERVIEW
+- ADDITIONAL_INTERVIEW
+
+Supported aliases:
+- SCREENING -> INITIAL_INTERVIEW
+- FIRST_INTERVIEW -> INITIAL_INTERVIEW
+- SECOND_INTERVIEW -> SELECTION_INTERVIEW
+- MANAGER_REVIEW -> CAREER_INTERVIEW
+- FINAL_REVIEW -> ADDITIONAL_INTERVIEW
+- REENTRY_REVIEW -> ADDITIONAL_INTERVIEW
+
+Constitutional boundaries:
+- Interview Flow is decision support only.
+- Interview Flow does not approve or reject candidates automatically.
+- Interview Flow does not close full Recruitment Pipeline.
+- Interview Flow does not create precontract truth.
+- Interview Flow does not create Advisor Lifecycle truth.
+- Interview Flow does not create revenue, compensation, or payout truth.
+- Missing evidence is not zero and not automatic disqualification.
+- REJECT recommendation is not automatic rejection.
+- Manager override still requires human review.
+- PRECONTRACT transition is blocked.
+- Unknown stages are blocked or marked not modeled.
+
+Closure certificate:
+- docs/evidence/RECRUITMENT_INTERVIEW_FLOW_CLOSURE_CERTIFICATE.md
+
+Still not closed:
+- Full Recruitment Pipeline
+- Manager OS / RDA Attribution
+- Candidate-to-Precontract Gate
+- Product Intelligence
+<!-- FORGEOS:RECRUITMENT_INTERVIEW_FLOW_STATUS:END -->
