@@ -2,6 +2,7 @@ const { evaluateCandidateHardFactors } = require("./candidate-hard-factors-engin
 const { evaluateCandidateVitalFactors } = require("./candidate-vital-factors-engine");
 const { evaluateCandidateCoachability } = require("./candidate-coachability-engine");
 const { evaluateCandidateMarketQuality } = require("./candidate-market-quality-engine");
+const { evaluateCandidateEvidenceProvenance } = require("./candidate-evidence-provenance-engine");
 
 function clampScore(score) {
   return Math.max(0, Math.min(100, Math.round(score)));
@@ -136,7 +137,7 @@ function evaluateCandidateAssessment(input = {}) {
 
   const recommendation = decideRecommendation(scores, input, results, contradictionRisks, confidence);
 
-  return {
+  const assessment = {
     overallScore,
     hardFactorScore,
     vitalFactorScore,
@@ -156,6 +157,11 @@ function evaluateCandidateAssessment(input = {}) {
     recommendation,
     managerAction: managerActionFromRecommendation(recommendation, scores),
     confidence
+  };
+
+  return {
+    ...assessment,
+    provenance: evaluateCandidateEvidenceProvenance({ input, assessment })
   };
 }
 
