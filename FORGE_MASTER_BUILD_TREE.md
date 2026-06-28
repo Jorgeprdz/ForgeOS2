@@ -18,7 +18,7 @@ Rules:
 
 - File existence is not enough to mark a branch complete.
 - Completed means backed by canonical docs, tracked implementation, tests or harness evidence.
-- Partner Compensation Candidate Foundation Subset is stabilized as an IMPLEMENTED_CANDIDATE baseline; Partner Compensation overall remains PARTIAL / ACTIVE WORKSTREAM.
+- Partner Compensation Candidate Foundation Subset remains IMPLEMENTED_CANDIDATE, and the Monthly Income Candidate Orchestrator is CLOSED / PUSHED as candidate calculation coverage; Partner Compensation overall remains PARTIAL / ACTIVE WORKSTREAM until payout truth and official statement/payment operations exist.
 - Broader Compensation Intelligence, official statement ingestion, payout operations and Partner Intelligence remain future scope.
 - Candidate calculators are not payout truth; `payoutTruth=true` requires official confirmed evidence and a statement line.
 - Unknown is not zero, and ownership source truth remains protected.
@@ -38,7 +38,7 @@ Rules:
 | Manager OS | PARTIALLY_IMPLEMENTED | `manager-os/`; `docs/04-manager-os/`; `docs/05-readiness/` | Split recruitment subset from planned leadership/org health. |
 | Universal Command OS / Alfred | PARTIALLY_IMPLEMENTED | `universal-command-engine.js`; `platform/commands/` | Change from planned to implemented foundation / needs review. |
 | Offline / Sync | PARTIALLY_IMPLEMENTED | `platform/sync/`; `offline-sync.js`; runtime readiness docs | Change from planned to partial hardening. |
-| Partner Compensation Candidate Foundation Subset | IMPLEMENTED_CANDIDATE / SUBSET STABILIZED | `compensation/partner-manager/`; `tests/partner-*.js`; Juan real exercise regression; `docs/02-build-tree/PARTNER_COMP_BONUS_COVERAGE_001.md` | All 10 PCV bonuses are IMPLEMENTED_CANDIDATE, none remain PARTIAL; Partner Compensation overall remains PARTIAL / ACTIVE WORKSTREAM until payout truth and official statement operations exist. |
+| Partner Compensation Candidate Foundation Subset | IMPLEMENTED_CANDIDATE / MONTHLY INCOME CANDIDATE CLOSED | `compensation/partner-manager/`; `tests/partner-*.js`; `tests/partner-month7-real-income-scenario-test.js`; commit `310c47e` | Monthly income candidate orchestration now covers Producción, Productividad Base, Multiplicador, Apoyo, Desarrollo, Conexión and Actividad with locked Test G/Test H scenarios. `payoutTruth=false`; no official statement adapter; no payment execution path. Partner Compensation overall remains PARTIAL / ACTIVE WORKSTREAM until payout truth and official statement/payment operations exist. |
 | Broader Compensation Intelligence | PARTIALLY_IMPLEMENTED | `compensation/`; Partner candidate foundation tests | Keep broader domain yellow until official statement ingestion and payout operations exist. |
 | Official statement ingestion / payout operations | PENDING | Payout truth boundary tests; no official statement ingestion closure | Future scope only; `payoutTruth=true` requires official confirmed evidence and statement line. |
 | Forecast / projection engines | PARTIALLY_IMPLEMENTED | `product-intelligence/projections/`; forecast/projection engines | Split engines from full Forecast Intelligence architecture lock. |
@@ -122,7 +122,7 @@ The following source paths are obsolete after `/docs` canonicalization and must 
     - Promotion & Succession 🔵
 - **Recruitment Intelligence Domain** 🟢 (Implemented subset / Architecture Locked)
 - **Partner Intelligence** 🔵 (Planned / separate future workstream)
-    - Partner Compensation Candidate Foundation Subset 🟡 (Implemented candidate subset / stabilized; overall Partner Compensation remains partial; not payout truth)
+    - Partner Compensation Candidate Foundation Subset 🟡 (Monthly Income Candidate CLOSED / PUSHED as candidate coverage; overall Partner Compensation remains partial; not payout truth)
     - Official statement ingestion / payout operations 🔵 (Pending)
 
 ---
@@ -136,7 +136,7 @@ The following source paths are obsolete after `/docs` canonicalization and must 
 - **Career OS Transition Engine** 🔵
 - **Offline First & Sync Engine** 🟡 (Partial / hardening)
 - **Compensation Intelligence** 🟡 (Broader domain PARTIALLY_IMPLEMENTED)
-    - Partner Compensation Candidate Foundation Subset 🟡 (Implemented candidate subset / stabilized; overall Partner Compensation remains partial; not payout truth)
+    - Partner Compensation Candidate Foundation Subset 🟡 (Monthly Income Candidate CLOSED / PUSHED as candidate coverage; overall Partner Compensation remains partial; not payout truth)
     - Official statement ingestion / payout operations 🔵 (Pending)
 - **Forecast Intelligence** 🟡 (Projection engines partial / Architecture Lock)
 
@@ -153,7 +153,7 @@ The following source paths are obsolete after `/docs` canonicalization and must 
 
 Partner Compensation overall is **PARTIAL / ACTIVE WORKSTREAM**.
 
-The **Partner Compensation Candidate Foundation Subset** is **IMPLEMENTED_CANDIDATE / SUBSET STABILIZED**.
+The **Partner Compensation Candidate Foundation Subset** is **IMPLEMENTED_CANDIDATE / MONTHLY INCOME CANDIDATE CLOSED**.
 
 Full candidate completeness is **IMPLEMENTED_CANDIDATE / CLOSED FOR CANDIDATE COVERAGE**.
 
@@ -177,6 +177,53 @@ Boundary:
 - `payoutTruth=true` remains `BLOCKED_BY_OFFICIAL_EVIDENCE` for all PCV concepts until official statement/account ingestion and statement line match exist.
 - Unknown is not zero.
 - Ownership source truth remains protected.
+
+## Partner Compensation Monthly Income Candidate Closure — 2026-06-27
+
+Partner Compensation Candidate Foundation Subset has advanced from **IMPLEMENTED_CANDIDATE / SUBSET STABILIZED** to **IMPLEMENTED_CANDIDATE / MONTHLY INCOME CANDIDATE CLOSED**.
+
+Closure commit:
+
+`310c47ef3a581c50b725de358cad54b396e47232`
+
+### Closed candidate scope
+
+- Producción
+- Productividad Base
+- Multiplicador
+- Apoyo
+- Desarrollo
+- Conexión
+- Actividad
+- Monthly Income Candidate Orchestrator
+
+### Locked regression scenarios
+
+#### Test G
+
+| Month | Support | Connection | Development | Production | Productivity | Activity | Total |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 2026-04 | 54,000 | 15,000 | 30,000 | 0 | 57,100 | 33,300 | 189,400 |
+| 2026-05 | 54,000 | 0 | 52,500 | 0 | 57,100 | 0 | 163,600 |
+| 2026-06 | 54,000 | 0 | 67,500 | 0 | 57,100 | 0 | 178,600 |
+
+#### Test H
+
+| Month | Support | Connection | Development | Production | Productivity | Activity | Total |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 2026-04 | 43,500 | 21,500 | 45,000 | 1,080 | 46,200 | 58,200 | 215,480 |
+| 2026-05 | 43,500 | 24,000 | 52,500 | 1,080 | 46,200 | 0 | 167,280 |
+
+### Truth boundary
+
+Partner Compensation overall remains **PARTIAL / ACTIVE WORKSTREAM**.
+
+This closure is candidate-calculation coverage only:
+
+- `payoutTruth=false`
+- no official statement adapter
+- no payment execution path
+- no production payout authority
 
 ## Transition Coverage Update — 002B/C-5C
 
