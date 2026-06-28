@@ -410,3 +410,41 @@ Validation gates:
 - `PASS_ADVISOR_DEV_MONTHLY_ORCHESTRATOR_READY_FOR_FINAL_GATE`
 - `PASS_ADVISOR_DEV_COMP_READY_FOR_COMMIT_AUTHORIZATION`
 - `PASS_ADVISOR_DEV_COMP_COMMITTED_PUSHED`
+
+<!-- FORGEOS:NP_COMPENSATION_2026_STATUS:START -->
+## New Professional Compensation 2026 — Build Tree Status
+
+Last updated: 20260628-120552
+
+Latest committed slice:
+- connection-bonus
+- commit: 23294c8f8cc8b192f6a246c8c22baea8fc0cb47e
+- status: implemented_candidate
+- payoutTruth: false
+- paymentExecutionPath: false
+
+Implemented candidate modules:
+- life-initial-bonus
+- life-renewal-bonus
+- life-bonus-total-orchestrator
+- gmmi-initial-premium-bonus
+- gmmi-initial-premium-growth-annual-bonus
+- gmmi-renewal-premium-bonus
+- connection-bonus
+
+Deferred / intentionally not modeled:
+- gmmi-loss-ratio-annual-bonus — deferred_not_modeled; does not depend directly on advisor-controlled activity/productivity.
+
+Remaining New Professional concepts:
+- development-bonus
+- temporary-total-disability-benefit
+- death-benefit
+
+Constitutional boundaries:
+- Candidate calculation only.
+- payoutTruth remains false.
+- Commission statement / official evidence remains required for payment truth.
+- No official statement adapter.
+- No payment execution path.
+- No cross-imports from Advisor Development or Partner modules.
+<!-- FORGEOS:NP_COMPENSATION_2026_STATUS:END -->
