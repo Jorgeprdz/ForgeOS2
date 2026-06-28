@@ -89,3 +89,58 @@ Recruitment Candidate Intelligence calculates:
 ## Final Closure Statement
 
 Recruitment Candidate Intelligence is closed as a tested decision-support subset. This closure does not close full Recruitment, Interview Intelligence, Manager OS recruiting attribution, Candidate-to-Precontract handoff, Advisor Lifecycle, Revenue, Compensation, Product Intelligence, or payout truth.
+
+<!-- FORGEOS:RECRUITMENT_EVIDENCE_TO_SCORE_PROVENANCE_002A:START -->
+## Evidence-to-Score Provenance Update — 002A
+
+**Status:** IMPLEMENTED
+**Decision:** RECRUITMENT_EVIDENCE_TO_SCORE_PROVENANCE_IMPLEMENTED
+**Last updated:** 20260628-161914
+**Implementation commit:** c32053d84d0e78f2689cd17f45cf245af114f1ce
+
+### Implemented files
+
+- `manager-os/recruitment/candidate-intelligence/candidate-evidence-provenance-engine.js`
+- `manager-os/recruitment/tests/candidate-evidence-provenance-master-test.js`
+
+### Integrated file
+
+- `manager-os/recruitment/candidate-intelligence/candidate-assessment-engine.js`
+
+### Verified behavior
+
+- Aggregate candidate assessment now exposes provenance.
+- Evidence references and source evidence IDs can be preserved.
+- Scored signals, missing signals, unsupported signals, evidence-backed signals and input-backed signals are surfaced.
+- Confidence limitations and warnings are surfaced.
+- Human review requirement is explicit.
+- Automatic decision remains disallowed.
+
+### Constitutional boundaries preserved
+
+~~~txt
+automaticDecisionAllowed=false
+confidenceIsNotEvidenceProvenance=true
+createsRecruitmentTruth=false
+createsPrecontractTruth=false
+createsAdvisorLifecycleTruth=false
+createsRevenue=false
+createsCompensation=false
+createsPayoutTruth=false
+~~~
+
+### Verified focal test
+
+- `manager-os/recruitment/tests/candidate-evidence-provenance-master-test.js`
+
+### Closure impact
+
+This update covers the previously documented evidence-to-score provenance gap for the Candidate Intelligence subset.
+
+This update does not close:
+- full Recruitment Pipeline
+- Interview Intelligence / 4 interviews
+- Manager OS / RDA attribution
+- Candidate-to-precontract gate
+- Product Intelligence
+<!-- FORGEOS:RECRUITMENT_EVIDENCE_TO_SCORE_PROVENANCE_002A:END -->

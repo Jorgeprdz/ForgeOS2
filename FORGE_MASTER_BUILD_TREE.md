@@ -565,30 +565,28 @@ Closure certificate:
 <!-- FORGEOS:RECRUITMENT_CANDIDATE_INTELLIGENCE_STATUS:START -->
 ## Recruitment Candidate Intelligence — Closure Status
 
-Last updated: 20260628-160224
+Last updated: 20260628-161914
 
 Status:
-
 - CLOSED
 
 Closed infrastructure:
-
 - candidate-vital-factors-engine
 - candidate-hard-factors-engine
 - candidate-coachability-engine
 - candidate-market-quality-engine
 - candidate-assessment-engine
+- candidate-evidence-provenance-engine
 
 Verified focal tests:
-
 - manager-os/recruitment/tests/candidate-vital-factors-master-test.js
 - manager-os/recruitment/tests/candidate-hard-factors-master-test.js
 - manager-os/recruitment/tests/candidate-coachability-master-test.js
 - manager-os/recruitment/tests/candidate-market-quality-master-test.js
 - manager-os/recruitment/tests/candidate-assessment-master-test.js
+- manager-os/recruitment/tests/candidate-evidence-provenance-master-test.js
 
 What this closure covers:
-
 - candidate vital factors / vitales
 - hard factors
 - coachability
@@ -599,9 +597,22 @@ What this closure covers:
 - recommendation
 - manager action
 - confidence
+- evidence-to-score provenance
+- evidence refs and source evidence IDs
+- scored, missing, unsupported, evidence-backed and input-backed signals
+- confidence limitations and human review flags
+
+Evidence-to-score provenance:
+- IMPLEMENTED
+- commit: c32053d84d0e78f2689cd17f45cf245af114f1ce
+- automaticDecisionAllowed=false
+- confidenceIsNotEvidenceProvenance=true
+- humanReviewRequired is exposed by provenance logic
+- createsRevenue=false
+- createsCompensation=false
+- createsPayoutTruth=false
 
 Constitutional boundaries:
-
 - Candidate score is not absolute truth.
 - Candidate recommendation is manager decision support, not automatic approval/rejection.
 - Candidate Intelligence does not approve, reject, hire, contract, activate, or onboard a candidate by itself.
@@ -615,20 +626,15 @@ Constitutional boundaries:
 - Interview Intelligence / 4 interviews are not closed.
 - Manager OS / RDA attribution is not closed.
 - Candidate-to-precontract gate is not closed.
-- Evidence-to-score provenance contract remains future implementation.
 - Product Intelligence remains deferred to final phase.
 - Compensation, Advisor Lifecycle, and Revenue remain closed read/reference only.
 
 Closure certificate:
-
 - docs/evidence/RECRUITMENT_CANDIDATE_INTELLIGENCE_CLOSURE_CERTIFICATE.md
 
 Deferred future slices:
-
-- RECRUITMENT_EVIDENCE_TO_SCORE_PROVENANCE_002A
 - RECRUITMENT_INTERVIEW_FLOW_002A
 - RECRUITMENT_PIPELINE_ENGINE_002A
 - MANAGER_OS_RECRUITING_ATTRIBUTION_002A
 - RECRUITMENT_TO_PRECONTRACT_GATE_002A
-
 <!-- FORGEOS:RECRUITMENT_CANDIDATE_INTELLIGENCE_STATUS:END -->
