@@ -109,4 +109,117 @@ assert.equal(monthGateBlocked.calculationAllowed, false);
 assert.equal(monthGateBlocked.amountCandidate, null);
 assert.ok(monthGateBlocked.blockedReasons.includes('blocked_by_insufficient_qualified_advisors_for_partner_month'));
 
+// PCV_2026_FIXED_SUPPORT_OFFICIAL_TABLES_CONTRACT_TEST
+{
+  const pcv2026FixedSupportContract = await import('../compensation/partner-manager/partner-fixed-support-contract.js');
+
+  assert.deepEqual(
+    pcv2026FixedSupportContract.PCV_2026_FIXED_SUPPORT_MONTHLY_SUPPORT_AMOUNTS_BY_SEMESTER.map(
+      (entry) => entry.monthlySupportAmount
+    ),
+    [65000, 54000, 43500, 32500, 21500, 11000]
+  );
+
+  assert.equal(
+    pcv2026FixedSupportContract.PCV_2026_FIXED_SUPPORT_INITIAL_COMMISSION_GOALS_BY_CAREER_MONTH.length,
+    36
+  );
+
+  assert.deepEqual(
+    pcv2026FixedSupportContract.PCV_2026_FIXED_SUPPORT_INITIAL_COMMISSION_GOALS_BY_CAREER_MONTH.map(
+      (entry) => entry.initialCommissionGoal
+    ),
+    [
+      14500, 18500, 22000, 25000, 29000, 33000, 40000, 47500, 55000, 62000, 63000, 63500,
+      63500, 64500, 65500, 67500, 69000, 70000, 71000, 72500, 73500, 74500, 75500, 76500,
+      76500, 78000, 80000, 81000, 82000, 83000, 84500, 85500, 86500, 87500, 88500, 90500
+    ]
+  );
+
+  assert.equal(
+    pcv2026FixedSupportContract.getPcv2026FixedSupportMonthlyAmountForCareerMonth(1),
+    65000
+  );
+  assert.equal(
+    pcv2026FixedSupportContract.getPcv2026FixedSupportMonthlyAmountForCareerMonth(7),
+    54000
+  );
+  assert.equal(
+    pcv2026FixedSupportContract.getPcv2026FixedSupportMonthlyAmountForCareerMonth(36),
+    11000
+  );
+
+  assert.equal(
+    pcv2026FixedSupportContract.getPcv2026FixedSupportInitialCommissionGoalForCareerMonth(1),
+    14500
+  );
+  assert.equal(
+    pcv2026FixedSupportContract.getPcv2026FixedSupportInitialCommissionGoalForCareerMonth(36),
+    90500
+  );
+
+  assert.equal(
+    pcv2026FixedSupportContract.getPcv2026FixedSupportTrainingAdvisorTargetForCareerMonth(1),
+    0
+  );
+  assert.equal(
+    pcv2026FixedSupportContract.getPcv2026FixedSupportTrainingAdvisorTargetForCareerMonth(3),
+    1
+  );
+  assert.equal(
+    pcv2026FixedSupportContract.getPcv2026FixedSupportTrainingAdvisorTargetForCareerMonth(5),
+    2
+  );
+  assert.equal(
+    pcv2026FixedSupportContract.getPcv2026FixedSupportTrainingAdvisorTargetForCareerMonth(6),
+    3
+  );
+
+  assert.equal(
+    pcv2026FixedSupportContract.PCV_2026_FIXED_SUPPORT_FIRST_TWO_HIRES_EXCLUSION.excludedHireCount,
+    2
+  );
+  assert.equal(
+    pcv2026FixedSupportContract.PCV_2026_FIXED_SUPPORT_FIRST_TWO_HIRES_EXCLUSION.appliesTo,
+    'training_advisor_winner_goal'
+  );
+
+  const contractReadiness = pcv2026FixedSupportContract.validatePcv2026FixedSupportOfficialContract({
+    careerMonth: 1,
+    payoutTruth: false,
+  });
+
+  assert.equal(contractReadiness.status, 'CONTRACT_TABLES_AVAILABLE');
+  assert.equal(contractReadiness.readyForCandidateCalculator, true);
+  assert.equal(contractReadiness.calculationPerformed, false);
+  assert.equal(contractReadiness.candidateAmount, null);
+  assert.equal(contractReadiness.payoutTruth, false);
+  assert.equal(contractReadiness.monthlySupportAmount, 65000);
+  assert.equal(contractReadiness.initialCommissionGoal, 14500);
+  assert.equal(contractReadiness.trainingAdvisorTarget, 0);
+
+  const blockedByPayoutTruth = pcv2026FixedSupportContract.validatePcv2026FixedSupportOfficialContract({
+    careerMonth: 1,
+    payoutTruth: true,
+  });
+
+  assert.equal(blockedByPayoutTruth.status, 'BLOCKED_OR_UNKNOWN');
+  assert.equal(blockedByPayoutTruth.candidateAmount, null);
+  assert.equal(blockedByPayoutTruth.payoutTruth, false);
+  assert.equal(
+    blockedByPayoutTruth.blockingReasons.includes('PAYOUT_TRUTH_INPUT_NOT_ALLOWED_FOR_CANDIDATE_CONTRACT'),
+    true
+  );
+
+  const blockedByUnknownCareerMonth =
+    pcv2026FixedSupportContract.validatePcv2026FixedSupportOfficialContract({ careerMonth: 37 });
+
+  assert.equal(blockedByUnknownCareerMonth.status, 'BLOCKED_OR_UNKNOWN');
+  assert.equal(blockedByUnknownCareerMonth.candidateAmount, null);
+  assert.equal(
+    blockedByUnknownCareerMonth.blockingReasons.includes('CAREER_MONTH_REQUIRED_1_TO_36'),
+    true
+  );
+}
+
 console.log('PASS partner-fixed-support-contract-test');

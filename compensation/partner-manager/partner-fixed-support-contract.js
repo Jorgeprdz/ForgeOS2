@@ -194,3 +194,191 @@ export function assessPartnerFixedSupport({
     },
   });
 }
+
+// PCV_2026_FIXED_SUPPORT_OFFICIAL_TABLES_LOCK
+export const PCV_2026_FIXED_SUPPORT_MONTHLY_SUPPORT_AMOUNTS_BY_SEMESTER = Object.freeze([
+  Object.freeze({ semester: 1, careerMonthStart: 1, careerMonthEnd: 6, monthlySupportAmount: 65000 }),
+  Object.freeze({ semester: 2, careerMonthStart: 7, careerMonthEnd: 12, monthlySupportAmount: 54000 }),
+  Object.freeze({ semester: 3, careerMonthStart: 13, careerMonthEnd: 18, monthlySupportAmount: 43500 }),
+  Object.freeze({ semester: 4, careerMonthStart: 19, careerMonthEnd: 24, monthlySupportAmount: 32500 }),
+  Object.freeze({ semester: 5, careerMonthStart: 25, careerMonthEnd: 30, monthlySupportAmount: 21500 }),
+  Object.freeze({ semester: 6, careerMonthStart: 31, careerMonthEnd: 36, monthlySupportAmount: 11000 }),
+]);
+
+export const PCV_2026_FIXED_SUPPORT_INITIAL_COMMISSION_GOALS_BY_CAREER_MONTH = Object.freeze([
+  Object.freeze({ careerMonth: 1, initialCommissionGoal: 14500 }),
+  Object.freeze({ careerMonth: 2, initialCommissionGoal: 18500 }),
+  Object.freeze({ careerMonth: 3, initialCommissionGoal: 22000 }),
+  Object.freeze({ careerMonth: 4, initialCommissionGoal: 25000 }),
+  Object.freeze({ careerMonth: 5, initialCommissionGoal: 29000 }),
+  Object.freeze({ careerMonth: 6, initialCommissionGoal: 33000 }),
+  Object.freeze({ careerMonth: 7, initialCommissionGoal: 40000 }),
+  Object.freeze({ careerMonth: 8, initialCommissionGoal: 47500 }),
+  Object.freeze({ careerMonth: 9, initialCommissionGoal: 55000 }),
+  Object.freeze({ careerMonth: 10, initialCommissionGoal: 62000 }),
+  Object.freeze({ careerMonth: 11, initialCommissionGoal: 63000 }),
+  Object.freeze({ careerMonth: 12, initialCommissionGoal: 63500 }),
+  Object.freeze({ careerMonth: 13, initialCommissionGoal: 63500 }),
+  Object.freeze({ careerMonth: 14, initialCommissionGoal: 64500 }),
+  Object.freeze({ careerMonth: 15, initialCommissionGoal: 65500 }),
+  Object.freeze({ careerMonth: 16, initialCommissionGoal: 67500 }),
+  Object.freeze({ careerMonth: 17, initialCommissionGoal: 69000 }),
+  Object.freeze({ careerMonth: 18, initialCommissionGoal: 70000 }),
+  Object.freeze({ careerMonth: 19, initialCommissionGoal: 71000 }),
+  Object.freeze({ careerMonth: 20, initialCommissionGoal: 72500 }),
+  Object.freeze({ careerMonth: 21, initialCommissionGoal: 73500 }),
+  Object.freeze({ careerMonth: 22, initialCommissionGoal: 74500 }),
+  Object.freeze({ careerMonth: 23, initialCommissionGoal: 75500 }),
+  Object.freeze({ careerMonth: 24, initialCommissionGoal: 76500 }),
+  Object.freeze({ careerMonth: 25, initialCommissionGoal: 76500 }),
+  Object.freeze({ careerMonth: 26, initialCommissionGoal: 78000 }),
+  Object.freeze({ careerMonth: 27, initialCommissionGoal: 80000 }),
+  Object.freeze({ careerMonth: 28, initialCommissionGoal: 81000 }),
+  Object.freeze({ careerMonth: 29, initialCommissionGoal: 82000 }),
+  Object.freeze({ careerMonth: 30, initialCommissionGoal: 83000 }),
+  Object.freeze({ careerMonth: 31, initialCommissionGoal: 84500 }),
+  Object.freeze({ careerMonth: 32, initialCommissionGoal: 85500 }),
+  Object.freeze({ careerMonth: 33, initialCommissionGoal: 86500 }),
+  Object.freeze({ careerMonth: 34, initialCommissionGoal: 87500 }),
+  Object.freeze({ careerMonth: 35, initialCommissionGoal: 88500 }),
+  Object.freeze({ careerMonth: 36, initialCommissionGoal: 90500 }),
+]);
+
+export const PCV_2026_FIXED_SUPPORT_TA_WINNER_TARGETS_BY_CAREER_MONTH = Object.freeze([
+  Object.freeze({ careerMonthStart: 1, careerMonthEnd: 2, requiredTrainingAdvisorWinners: 0 }),
+  Object.freeze({ careerMonthStart: 3, careerMonthEnd: 4, requiredTrainingAdvisorWinners: 1 }),
+  Object.freeze({ careerMonthStart: 5, careerMonthEnd: 5, requiredTrainingAdvisorWinners: 2 }),
+  Object.freeze({ careerMonthStart: 6, careerMonthEnd: 36, requiredTrainingAdvisorWinners: 3 }),
+]);
+
+export const PCV_2026_FIXED_SUPPORT_FIRST_TWO_HIRES_EXCLUSION = Object.freeze({
+  appliesTo: 'training_advisor_winner_goal',
+  excludedHireCount: 2,
+  rule: 'first two hires in Partner unit are not considered for TA winner goal',
+  evidenceRequired: true,
+});
+
+export const PCV_2026_FIXED_SUPPORT_COMPLIANCE_RULES = Object.freeze({
+  minimumComplianceRatio: 0.8,
+  proportionalSupportStartInclusive: 0.8,
+  proportionalSupportEndExclusive: 1,
+  fullSupportStartInclusive: 1,
+  recoveryMaxPreviousMonths: 3,
+  recoveryRequiresSamePartnerYear: true,
+  payoutTruth: false,
+  unknownIsNotZero: true,
+});
+
+export function normalizePcv2026FixedSupportCareerMonth(value) {
+  const careerMonth = Number(value);
+
+  if (!Number.isInteger(careerMonth) || careerMonth < 1 || careerMonth > 36) {
+    return null;
+  }
+
+  return careerMonth;
+}
+
+export function getPcv2026FixedSupportSemesterForCareerMonth(value) {
+  const careerMonth = normalizePcv2026FixedSupportCareerMonth(value);
+
+  if (careerMonth === null) return null;
+
+  const semester = PCV_2026_FIXED_SUPPORT_MONTHLY_SUPPORT_AMOUNTS_BY_SEMESTER.find(
+    (entry) => careerMonth >= entry.careerMonthStart && careerMonth <= entry.careerMonthEnd
+  );
+
+  return semester ? semester.semester : null;
+}
+
+export function getPcv2026FixedSupportMonthlyAmountForCareerMonth(value) {
+  const careerMonth = normalizePcv2026FixedSupportCareerMonth(value);
+
+  if (careerMonth === null) return null;
+
+  const semester = PCV_2026_FIXED_SUPPORT_MONTHLY_SUPPORT_AMOUNTS_BY_SEMESTER.find(
+    (entry) => careerMonth >= entry.careerMonthStart && careerMonth <= entry.careerMonthEnd
+  );
+
+  return semester ? semester.monthlySupportAmount : null;
+}
+
+export function getPcv2026FixedSupportInitialCommissionGoalForCareerMonth(value) {
+  const careerMonth = normalizePcv2026FixedSupportCareerMonth(value);
+
+  if (careerMonth === null) return null;
+
+  const goal = PCV_2026_FIXED_SUPPORT_INITIAL_COMMISSION_GOALS_BY_CAREER_MONTH.find(
+    (entry) => entry.careerMonth === careerMonth
+  );
+
+  return goal ? goal.initialCommissionGoal : null;
+}
+
+export function getPcv2026FixedSupportTrainingAdvisorTargetForCareerMonth(value) {
+  const careerMonth = normalizePcv2026FixedSupportCareerMonth(value);
+
+  if (careerMonth === null) return null;
+
+  const target = PCV_2026_FIXED_SUPPORT_TA_WINNER_TARGETS_BY_CAREER_MONTH.find(
+    (entry) => careerMonth >= entry.careerMonthStart && careerMonth <= entry.careerMonthEnd
+  );
+
+  return target ? target.requiredTrainingAdvisorWinners : null;
+}
+
+export function getPcv2026FixedSupportOfficialTables() {
+  return {
+    monthlySupportAmountsBySemester: PCV_2026_FIXED_SUPPORT_MONTHLY_SUPPORT_AMOUNTS_BY_SEMESTER,
+    initialCommissionGoalsByCareerMonth: PCV_2026_FIXED_SUPPORT_INITIAL_COMMISSION_GOALS_BY_CAREER_MONTH,
+    trainingAdvisorWinnerTargetsByCareerMonth: PCV_2026_FIXED_SUPPORT_TA_WINNER_TARGETS_BY_CAREER_MONTH,
+    firstTwoHiresExclusion: PCV_2026_FIXED_SUPPORT_FIRST_TWO_HIRES_EXCLUSION,
+    complianceRules: PCV_2026_FIXED_SUPPORT_COMPLIANCE_RULES,
+  };
+}
+
+export function validatePcv2026FixedSupportOfficialContract(input = {}) {
+  const careerMonth = normalizePcv2026FixedSupportCareerMonth(input.careerMonth);
+  const blockingReasons = [];
+
+  if (input.payoutTruth === true) {
+    blockingReasons.push('PAYOUT_TRUTH_INPUT_NOT_ALLOWED_FOR_CANDIDATE_CONTRACT');
+  }
+
+  if (careerMonth === null) {
+    blockingReasons.push('CAREER_MONTH_REQUIRED_1_TO_36');
+  }
+
+  const monthlySupportAmount = getPcv2026FixedSupportMonthlyAmountForCareerMonth(careerMonth);
+  const initialCommissionGoal = getPcv2026FixedSupportInitialCommissionGoalForCareerMonth(careerMonth);
+  const trainingAdvisorTarget = getPcv2026FixedSupportTrainingAdvisorTargetForCareerMonth(careerMonth);
+
+  if (careerMonth !== null && monthlySupportAmount === null) {
+    blockingReasons.push('MONTHLY_SUPPORT_AMOUNT_NOT_FOUND');
+  }
+
+  if (careerMonth !== null && initialCommissionGoal === null) {
+    blockingReasons.push('INITIAL_COMMISSION_GOAL_NOT_FOUND');
+  }
+
+  if (careerMonth !== null && trainingAdvisorTarget === null) {
+    blockingReasons.push('TRAINING_ADVISOR_TARGET_NOT_FOUND');
+  }
+
+  return {
+    concept: 'fixed-support',
+    status: blockingReasons.length === 0 ? 'CONTRACT_TABLES_AVAILABLE' : 'BLOCKED_OR_UNKNOWN',
+    readyForCandidateCalculator: blockingReasons.length === 0,
+    calculationPerformed: false,
+    candidateAmount: null,
+    payoutTruth: false,
+    careerMonth,
+    semester: getPcv2026FixedSupportSemesterForCareerMonth(careerMonth),
+    monthlySupportAmount,
+    initialCommissionGoal,
+    trainingAdvisorTarget,
+    firstTwoHiresExclusion: PCV_2026_FIXED_SUPPORT_FIRST_TWO_HIRES_EXCLUSION,
+    complianceRules: PCV_2026_FIXED_SUPPORT_COMPLIANCE_RULES,
+    blockingReasons,
+  };
+}
