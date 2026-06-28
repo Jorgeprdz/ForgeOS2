@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 
 import {
+  DEVELOPMENT_BONUS_CONCEPT_KEY,
   EXPECTED_RULE_PACK_ID,
   EXPECTED_SOURCE_EVIDENCE_REF,
   TRAINING_ALLOWANCE_CONCEPT_KEY,
@@ -61,6 +62,87 @@ function createTrainingAllowanceConcept(overrides = {}) {
   };
 }
 
+function createDevelopmentBonusConcept(overrides = {}) {
+  return {
+    displayName: 'Bono de Desarrollo',
+    targetPopulation: 'relationship_attributed_developers',
+    calculationStatus: 'blocked_until_relationship_attribution_evidence',
+    calculationFrequency: 'monthly',
+    paymentFrequency: 'following_month_when_monthly_goal_reached',
+    payoutTruth: false,
+    payoutTruthRule: 'commission_statement_required',
+    attributionModel: 'advisor_development_attribution',
+    sourceNotes: [
+      'CC 2026 Asesores en Desarrollo - Bono de Desarrollo',
+    ],
+    supportedDeveloperShares: [
+      1,
+      0.5,
+    ],
+    requiredAttributionEvidence: [
+      'developerId',
+      'developedAdvisorId',
+      'developmentStartDate',
+      'developerEligibilityEvidence',
+      'developerActiveAtMonthClose',
+      'developedAdvisorActiveAtMonthClose',
+      'developerShare',
+      'attributionEvidenceStatus',
+    ],
+    policyCountSource: 'advisor-development-counting-weighting-engine.summary.includedCount',
+    policyCountRule: {
+      vidaPlusGmmiCountsAs: 0.5,
+    },
+    monthlyBonus: {
+      advisorMonthRange: {
+        from: 4,
+        to: 15,
+      },
+      tiers: [
+        {
+          minimumPolicies: 2,
+          amount: 5000,
+        },
+        {
+          minimumPolicies: 3,
+          amount: 9000,
+        },
+        {
+          minimumPolicies: 4,
+          amount: 15000,
+          appliesToCountAndAbove: true,
+        },
+      ],
+    },
+    month12AdditionalBonuses: {
+      bonus20000: {
+        advisorMonth: 12,
+        amount: 20000,
+        requiredAccumulatedInitialPoliciesByMonth12: 36,
+        requiresTrainingAllowanceMonth12Won: true,
+      },
+      additionalBonus30000: {
+        advisorMonth: 12,
+        amount: 30000,
+        requiredAccumulatedInitialPoliciesByMonth12: 48,
+        requiresTrainingAllowanceMonth12Won: true,
+        requiresAtLeastOnePaidPolicyEachMonth: {
+          from: 1,
+          to: 12,
+        },
+        maxZeroPolicyMonthsAllowed: 1,
+        zeroPolicyMonthsThatLoseAdditional: [
+          10,
+          11,
+          12,
+        ],
+      },
+    },
+    blockedReason: 'blocked_by_missing_development_assignment_evidence',
+    ...overrides,
+  };
+}
+
 function createValidDraft(overrides = {}) {
   return {
     schemaVersion: '1.0.0',
@@ -74,6 +156,7 @@ function createValidDraft(overrides = {}) {
       sourceEvidenceRefs: [EXPECTED_SOURCE_EVIDENCE_REF],
     },
     source: {
+      documentName: 'CC 2026 Asesores en Desarrollo',
       sourceEvidenceRefs: [EXPECTED_SOURCE_EVIDENCE_REF],
     },
     globalRules: {
@@ -100,6 +183,7 @@ function createValidDraft(overrides = {}) {
     },
     concepts: {
       [TRAINING_ALLOWANCE_CONCEPT_KEY]: createTrainingAllowanceConcept(),
+      [DEVELOPMENT_BONUS_CONCEPT_KEY]: createDevelopmentBonusConcept(),
     },
     ...overrides,
   };
@@ -221,6 +305,229 @@ function testMissingTrainingAllowanceConceptFails() {
   console.log('PASS missing Training Allowance concept fails validation');
 }
 
+function testMissingDevelopmentBonusConceptFails() {
+  const draft = createValidDraft({
+    concepts: {
+      [TRAINING_ALLOWANCE_CONCEPT_KEY]: createTrainingAllowanceConcept(),
+    },
+  });
+
+  const result = validateAdvisorDevelopmentRulePack(draft);
+
+  assert.equal(result.isValid, false);
+  assert(result.validationErrors.some((error) => error.code === 'missing_development_bonus_concept'));
+
+  console.log('PASS missing Development Bonus concept fails validation');
+}
+
+function testDevelopmentBonusPayoutTruthMustBeFalse() {
+  const draft = createValidDraft({
+    concepts: {
+      [TRAINING_ALLOWANCE_CONCEPT_KEY]: createTrainingAllowanceConcept(),
+      [DEVELOPMENT_BONUS_CONCEPT_KEY]: createDevelopmentBonusConcept({
+        payoutTruth: true,
+      }),
+    },
+  });
+
+  const result = validateAdvisorDevelopmentRulePack(draft);
+
+  assert.equal(result.isValid, false);
+  assert(result.validationErrors.some((error) => error.code === 'invalid_development_bonus_payout_truth'));
+
+  console.log('PASS Development Bonus payoutTruth must be explicitly false');
+}
+
+function testMissingDevelopmentBonusMonthRangeFails() {
+  const developmentBonus = createDevelopmentBonusConcept({
+    monthlyBonus: {
+      ...createDevelopmentBonusConcept().monthlyBonus,
+      advisorMonthRange: undefined,
+    },
+  });
+  delete developmentBonus.monthlyBonus.advisorMonthRange;
+
+  const result = validateAdvisorDevelopmentRulePack(createValidDraft({
+    concepts: {
+      [TRAINING_ALLOWANCE_CONCEPT_KEY]: createTrainingAllowanceConcept(),
+      [DEVELOPMENT_BONUS_CONCEPT_KEY]: developmentBonus,
+    },
+  }));
+
+  assert.equal(result.isValid, false);
+  assert(result.validationErrors.some((error) => error.code === 'invalid_development_bonus_month_range'));
+
+  console.log('PASS missing Development Bonus monthly eligible range fails validation');
+}
+
+function testWrongDevelopmentBonusMonthRangeFails() {
+  const developmentBonus = createDevelopmentBonusConcept({
+    monthlyBonus: {
+      ...createDevelopmentBonusConcept().monthlyBonus,
+      advisorMonthRange: {
+        from: 3,
+        to: 15,
+      },
+    },
+  });
+
+  const result = validateAdvisorDevelopmentRulePack(createValidDraft({
+    concepts: {
+      [TRAINING_ALLOWANCE_CONCEPT_KEY]: createTrainingAllowanceConcept(),
+      [DEVELOPMENT_BONUS_CONCEPT_KEY]: developmentBonus,
+    },
+  }));
+
+  assert.equal(result.isValid, false);
+  assert(result.validationErrors.some((error) => error.code === 'invalid_development_bonus_month_range'));
+
+  console.log('PASS wrong Development Bonus monthly eligible range fails validation');
+}
+
+function testMissingDevelopmentBonusPolicyScaleFails() {
+  const result = validateAdvisorDevelopmentRulePack(createValidDraft({
+    concepts: {
+      [TRAINING_ALLOWANCE_CONCEPT_KEY]: createTrainingAllowanceConcept(),
+      [DEVELOPMENT_BONUS_CONCEPT_KEY]: createDevelopmentBonusConcept({
+        monthlyBonus: {
+          advisorMonthRange: {
+            from: 4,
+            to: 15,
+          },
+        },
+      }),
+    },
+  }));
+
+  assert.equal(result.isValid, false);
+  assert(result.validationErrors.some((error) => error.code === 'missing_development_bonus_policy_scale'));
+
+  console.log('PASS missing Development Bonus policy scale fails validation');
+}
+
+function testWrongDevelopmentBonusTierAmountFails() {
+  const developmentBonus = createDevelopmentBonusConcept();
+  developmentBonus.monthlyBonus.tiers = developmentBonus.monthlyBonus.tiers.map((tier) => (
+    tier.minimumPolicies === 3
+      ? { ...tier, amount: 8000 }
+      : tier
+  ));
+
+  const result = validateAdvisorDevelopmentRulePack(createValidDraft({
+    concepts: {
+      [TRAINING_ALLOWANCE_CONCEPT_KEY]: createTrainingAllowanceConcept(),
+      [DEVELOPMENT_BONUS_CONCEPT_KEY]: developmentBonus,
+    },
+  }));
+
+  assert.equal(result.isValid, false);
+  assert(result.validationErrors.some((error) => error.code === 'invalid_development_bonus_policy_tier_amount'));
+
+  console.log('PASS wrong Development Bonus policy tier amount fails validation');
+}
+
+function testMissingDevelopmentBonusVidaGmmiCountingRuleFails() {
+  const developmentBonus = createDevelopmentBonusConcept();
+  delete developmentBonus.policyCountRule;
+
+  const result = validateAdvisorDevelopmentRulePack(createValidDraft({
+    concepts: {
+      [TRAINING_ALLOWANCE_CONCEPT_KEY]: createTrainingAllowanceConcept(),
+      [DEVELOPMENT_BONUS_CONCEPT_KEY]: developmentBonus,
+    },
+  }));
+
+  assert.equal(result.isValid, false);
+  assert(result.validationErrors.some((error) => error.code === 'invalid_development_bonus_policy_count_rule'));
+
+  console.log('PASS missing Development Bonus Vida + GMMI 0.5 counting rule fails validation');
+}
+
+function testMissingDevelopmentBonusMonth12AdditionalRulesFails() {
+  const developmentBonus = createDevelopmentBonusConcept();
+  delete developmentBonus.month12AdditionalBonuses;
+
+  const result = validateAdvisorDevelopmentRulePack(createValidDraft({
+    concepts: {
+      [TRAINING_ALLOWANCE_CONCEPT_KEY]: createTrainingAllowanceConcept(),
+      [DEVELOPMENT_BONUS_CONCEPT_KEY]: developmentBonus,
+    },
+  }));
+
+  assert.equal(result.isValid, false);
+  assert(result.validationErrors.some((error) => error.code === 'missing_development_bonus_month12_additional_rules'));
+
+  console.log('PASS missing Development Bonus month 12 additional rules fails validation');
+}
+
+function testMissingDevelopmentBonus36PolicyRuleFails() {
+  const developmentBonus = createDevelopmentBonusConcept();
+  delete developmentBonus.month12AdditionalBonuses.bonus20000;
+
+  const result = validateAdvisorDevelopmentRulePack(createValidDraft({
+    concepts: {
+      [TRAINING_ALLOWANCE_CONCEPT_KEY]: createTrainingAllowanceConcept(),
+      [DEVELOPMENT_BONUS_CONCEPT_KEY]: developmentBonus,
+    },
+  }));
+
+  assert.equal(result.isValid, false);
+  assert(result.validationErrors.some((error) => error.code === 'invalid_development_bonus_36_policy_rule'));
+
+  console.log('PASS missing Development Bonus 36-policy / 20k rule fails validation');
+}
+
+function testMissingDevelopmentBonus48PolicyRuleFails() {
+  const developmentBonus = createDevelopmentBonusConcept();
+  delete developmentBonus.month12AdditionalBonuses.additionalBonus30000;
+
+  const result = validateAdvisorDevelopmentRulePack(createValidDraft({
+    concepts: {
+      [TRAINING_ALLOWANCE_CONCEPT_KEY]: createTrainingAllowanceConcept(),
+      [DEVELOPMENT_BONUS_CONCEPT_KEY]: developmentBonus,
+    },
+  }));
+
+  assert.equal(result.isValid, false);
+  assert(result.validationErrors.some((error) => error.code === 'invalid_development_bonus_48_policy_rule'));
+
+  console.log('PASS missing Development Bonus 48-policy / 30k rule fails validation');
+}
+
+function testMissingDevelopmentBonusTrainingAllowanceMonth12RequirementFails() {
+  const developmentBonus = createDevelopmentBonusConcept();
+  developmentBonus.month12AdditionalBonuses.additionalBonus30000.requiresTrainingAllowanceMonth12Won = false;
+
+  const result = validateAdvisorDevelopmentRulePack(createValidDraft({
+    concepts: {
+      [TRAINING_ALLOWANCE_CONCEPT_KEY]: createTrainingAllowanceConcept(),
+      [DEVELOPMENT_BONUS_CONCEPT_KEY]: developmentBonus,
+    },
+  }));
+
+  assert.equal(result.isValid, false);
+  assert(result.validationErrors.some((error) => error.code === 'missing_development_bonus_ta_month12_requirement'));
+
+  console.log('PASS missing Development Bonus TA month 12 requirement fails validation');
+}
+
+function testMissingDevelopmentBonusZeroPolicyMonthExclusionFails() {
+  const developmentBonus = createDevelopmentBonusConcept();
+  developmentBonus.month12AdditionalBonuses.additionalBonus30000.zeroPolicyMonthsThatLoseAdditional = [11, 12];
+
+  const result = validateAdvisorDevelopmentRulePack(createValidDraft({
+    concepts: {
+      [TRAINING_ALLOWANCE_CONCEPT_KEY]: createTrainingAllowanceConcept(),
+      [DEVELOPMENT_BONUS_CONCEPT_KEY]: developmentBonus,
+    },
+  }));
+
+  assert.equal(result.isValid, false);
+  assert(result.validationErrors.some((error) => error.code === 'missing_development_bonus_zero_policy_month_10_12_exclusion'));
+
+  console.log('PASS missing Development Bonus zero-policy months 10-12 exclusion fails validation');
+}
+
 function testTrainingAllowanceTableRequiresTwelveRows() {
   const trainingAllowance = createTrainingAllowanceConcept({
     table: createTrainingAllowanceConcept().table.slice(0, 11),
@@ -301,6 +608,18 @@ testMissingCountingAndWeightingRulesFails();
 testInvalidPayoutTruthFails();
 testMissingOfficialSourceFails();
 testMissingTrainingAllowanceConceptFails();
+testMissingDevelopmentBonusConceptFails();
+testDevelopmentBonusPayoutTruthMustBeFalse();
+testMissingDevelopmentBonusMonthRangeFails();
+testWrongDevelopmentBonusMonthRangeFails();
+testMissingDevelopmentBonusPolicyScaleFails();
+testWrongDevelopmentBonusTierAmountFails();
+testMissingDevelopmentBonusVidaGmmiCountingRuleFails();
+testMissingDevelopmentBonusMonth12AdditionalRulesFails();
+testMissingDevelopmentBonus36PolicyRuleFails();
+testMissingDevelopmentBonus48PolicyRuleFails();
+testMissingDevelopmentBonusTrainingAllowanceMonth12RequirementFails();
+testMissingDevelopmentBonusZeroPolicyMonthExclusionFails();
 testTrainingAllowanceTableRequiresTwelveRows();
 testTrainingAllowanceNumericFieldsAreStrict();
 testTrainingAllowanceExcessMultiplierRateIsStrictNumber();

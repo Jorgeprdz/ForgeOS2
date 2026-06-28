@@ -32,6 +32,10 @@ function getTrainingAllowance(rulePack) {
   return rulePack.concepts['training-allowance'];
 }
 
+function getDevelopmentBonus(rulePack) {
+  return rulePack.concepts['development-bonus'];
+}
+
 function testPhysicalJsonIsValid() {
   const raw = readRulePackRaw();
   const parsed = JSON.parse(raw);
@@ -41,6 +45,7 @@ function testPhysicalJsonIsValid() {
   assert.equal(parsed.globalRules.payoutTruth, false);
   assert.equal(getTrainingAllowance(parsed).calculationRules.excessMultiplierRate, 0.35);
   assert.equal(getTrainingAllowance(parsed).table.length, 12);
+  assert.equal(getDevelopmentBonus(parsed).payoutTruth, false);
 
   console.log('PASS physical advisor development rule pack JSON is valid');
 }
@@ -168,6 +173,60 @@ function testConnectionBonusRulePackFromPhysicalRulePack() {
   assert.equal(tier6.appliesToCountAndAbove, true);
 
   console.log('PASS Connection Bonus rule pack loads from physical rule pack');
+}
+
+function testDevelopmentBonusRulePackFromPhysicalRulePack() {
+  const loaded = loadAdvisorDevelopmentRulePack();
+  const developmentBonus = getDevelopmentBonus(loaded.rulePack);
+
+  assert.equal(developmentBonus.displayName, 'Bono de Desarrollo');
+  assert.equal(developmentBonus.calculationStatus, 'blocked_until_relationship_attribution_evidence');
+  assert.equal(developmentBonus.calculationFrequency, 'monthly');
+  assert.equal(developmentBonus.paymentFrequency, 'following_month_when_monthly_goal_reached');
+  assert.equal(developmentBonus.payoutTruth, false);
+  assert.equal(developmentBonus.payoutTruthRule, 'commission_statement_required');
+  assert.equal(developmentBonus.attributionModel, 'advisor_development_attribution');
+  assert.deepEqual(developmentBonus.supportedDeveloperShares, [1, 0.5]);
+  assert.equal(developmentBonus.policyCountRule.vidaPlusGmmiCountsAs, 0.5);
+  assert.equal(
+    developmentBonus.policyCountSource,
+    'advisor-development-counting-weighting-engine.summary.includedCount',
+  );
+
+  assert.deepEqual(developmentBonus.monthlyBonus.advisorMonthRange, {
+    from: 4,
+    to: 15,
+  });
+
+  const tier2 = developmentBonus.monthlyBonus.tiers.find((tier) => tier.minimumPolicies === 2);
+  const tier3 = developmentBonus.monthlyBonus.tiers.find((tier) => tier.minimumPolicies === 3);
+  const tier4 = developmentBonus.monthlyBonus.tiers.find((tier) => tier.minimumPolicies === 4);
+
+  assert.equal(tier2.amount, 5000);
+  assert.equal(tier3.amount, 9000);
+  assert.equal(tier4.amount, 15000);
+  assert.equal(tier4.appliesToCountAndAbove, true);
+
+  const bonus20000 = developmentBonus.month12AdditionalBonuses.bonus20000;
+  const bonus30000 = developmentBonus.month12AdditionalBonuses.additionalBonus30000;
+
+  assert.equal(bonus20000.advisorMonth, 12);
+  assert.equal(bonus20000.amount, 20000);
+  assert.equal(bonus20000.requiredAccumulatedInitialPoliciesByMonth12, 36);
+  assert.equal(bonus20000.requiresTrainingAllowanceMonth12Won, true);
+
+  assert.equal(bonus30000.advisorMonth, 12);
+  assert.equal(bonus30000.amount, 30000);
+  assert.equal(bonus30000.requiredAccumulatedInitialPoliciesByMonth12, 48);
+  assert.equal(bonus30000.requiresTrainingAllowanceMonth12Won, true);
+  assert.deepEqual(bonus30000.requiresAtLeastOnePaidPolicyEachMonth, {
+    from: 1,
+    to: 12,
+  });
+  assert.equal(bonus30000.maxZeroPolicyMonthsAllowed, 1);
+  assert.deepEqual(bonus30000.zeroPolicyMonthsThatLoseAdditional, [10, 11, 12]);
+
+  console.log('PASS Development Bonus rule pack loads from physical rule pack');
 }
 
 function testCountingEngineConsumesPhysicalRulePack() {
@@ -349,6 +408,7 @@ testPhysicalJsonIsValid();
 testLoaderLoadsPhysicalDraftRulePack();
 testTrainingAllowanceTableFromPhysicalRulePack();
 testConnectionBonusRulePackFromPhysicalRulePack();
+testDevelopmentBonusRulePackFromPhysicalRulePack();
 testConnectionBonusEngineConsumesPhysicalRulePack();
 testCountingEngineConsumesPhysicalRulePack();
 testTrainingAllowanceEngineConsumesPhysicalRulePack();

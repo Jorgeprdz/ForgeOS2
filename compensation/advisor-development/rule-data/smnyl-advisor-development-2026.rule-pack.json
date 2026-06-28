@@ -265,9 +265,13 @@
       "targetPopulation": "relationship_attributed_developers",
       "calculationStatus": "blocked_until_relationship_attribution_evidence",
       "calculationFrequency": "monthly",
+      "paymentFrequency": "following_month_when_monthly_goal_reached",
       "payoutTruth": false,
       "payoutTruthRule": "commission_statement_required",
       "attributionModel": "advisor_development_attribution",
+      "sourceNotes": [
+        "CC 2026 Asesores en Desarrollo - Bono de Desarrollo"
+      ],
       "supportedDeveloperShares": [
         1,
         0.5
@@ -283,6 +287,54 @@
         "attributionEvidenceStatus"
       ],
       "policyCountSource": "advisor-development-counting-weighting-engine.summary.includedCount",
+      "policyCountRule": {
+        "vidaPlusGmmiCountsAs": 0.5
+      },
+      "monthlyBonus": {
+        "advisorMonthRange": {
+          "from": 4,
+          "to": 15
+        },
+        "tiers": [
+          {
+            "minimumPolicies": 2,
+            "amount": 5000
+          },
+          {
+            "minimumPolicies": 3,
+            "amount": 9000
+          },
+          {
+            "minimumPolicies": 4,
+            "amount": 15000,
+            "appliesToCountAndAbove": true
+          }
+        ]
+      },
+      "month12AdditionalBonuses": {
+        "bonus20000": {
+          "advisorMonth": 12,
+          "amount": 20000,
+          "requiredAccumulatedInitialPoliciesByMonth12": 36,
+          "requiresTrainingAllowanceMonth12Won": true
+        },
+        "additionalBonus30000": {
+          "advisorMonth": 12,
+          "amount": 30000,
+          "requiredAccumulatedInitialPoliciesByMonth12": 48,
+          "requiresTrainingAllowanceMonth12Won": true,
+          "requiresAtLeastOnePaidPolicyEachMonth": {
+            "from": 1,
+            "to": 12
+          },
+          "maxZeroPolicyMonthsAllowed": 1,
+          "zeroPolicyMonthsThatLoseAdditional": [
+            10,
+            11,
+            12
+          ]
+        }
+      },
       "blockedReason": "blocked_by_missing_development_assignment_evidence"
     }
   }
