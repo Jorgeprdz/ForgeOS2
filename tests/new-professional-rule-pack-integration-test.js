@@ -65,6 +65,7 @@ function testConceptShapeFromPhysicalRulePack() {
   );
   assert.equal(rulePack.concepts['gmmi-renewal-premium-bonus'].modelStatus, 'implemented_candidate');
   assert.equal(rulePack.concepts['connection-bonus'].modelStatus, 'implemented_candidate');
+  assert.equal(rulePack.concepts['development-bonus'].modelStatus, 'implemented_candidate');
 
   const skeletonConceptKeys = REQUIRED_NEW_PROFESSIONAL_CONCEPT_KEYS
     .filter((conceptKey) => ![
@@ -74,6 +75,7 @@ function testConceptShapeFromPhysicalRulePack() {
       'gmmi-initial-premium-growth-annual-bonus',
       'gmmi-renewal-premium-bonus',
       'connection-bonus',
+      'development-bonus',
     ].includes(conceptKey));
   for (const conceptKey of skeletonConceptKeys) {
     assert.equal(rulePack.concepts[conceptKey].modelStatus, 'skeleton_not_calculated');
@@ -209,6 +211,34 @@ function testConnectionBonusConfigFromPhysicalRulePack() {
   console.log('PASS connection-bonus required config loads from physical rule pack');
 }
 
+function testDevelopmentBonusConfigFromPhysicalRulePack() {
+  const { rulePack } = loadNewProfessional2026RulePack();
+  const concept = rulePack.concepts['development-bonus'];
+
+  assert.equal(concept.modelStatus, 'implemented_candidate');
+  assert.equal(concept.payoutTruth, false);
+  assert.equal(concept.payoutTruthRule, 'commission_statement_required');
+  assert.deepEqual(concept.advisorMonthRange, { from: 4, to: 15 });
+  assert.equal(concept.policyScale.find((tier) => tier.monthlyPolicies === 2).amount, 5000);
+  assert.equal(concept.policyScale.find((tier) => tier.monthlyPolicies === 3).amount, 9000);
+  assert.equal(concept.policyScale.find((tier) => tier.monthlyPolicies === 4).amount, 15000);
+  assert.equal(concept.policyScale.find((tier) => tier.monthlyPolicies === 4).appliesToCountAndAbove, true);
+  assert.deepEqual(concept.developerSharingRule.supportedDeveloperShares, [1, 0.5]);
+  assert.equal(Object.keys(rulePack.concepts).length, 10);
+
+  console.log('PASS development-bonus required config loads from physical rule pack');
+}
+
+function testOutOfScopeBenefitsRemainPresentButNotImplemented() {
+  const { rulePack } = loadNewProfessional2026RulePack();
+
+  assert.equal(rulePack.concepts['gmmi-loss-ratio-annual-bonus'].modelStatus, 'skeleton_not_calculated');
+  assert.equal(rulePack.concepts['temporary-total-disability-benefit'].modelStatus, 'skeleton_not_calculated');
+  assert.equal(rulePack.concepts['death-benefit'].modelStatus, 'skeleton_not_calculated');
+
+  console.log('PASS out-of-scope benefit concepts remain present but not implemented');
+}
+
 function testGlobalExclusionsFromPhysicalRulePack() {
   const { rulePack } = loadNewProfessional2026RulePack();
 
@@ -228,6 +258,8 @@ testGmmiInitialPremiumBonusTableFromPhysicalRulePack();
 testGmmiInitialPremiumGrowthAnnualBonusTableFromPhysicalRulePack();
 testGmmiRenewalPremiumBonusTableFromPhysicalRulePack();
 testConnectionBonusConfigFromPhysicalRulePack();
+testDevelopmentBonusConfigFromPhysicalRulePack();
+testOutOfScopeBenefitsRemainPresentButNotImplemented();
 testGlobalExclusionsFromPhysicalRulePack();
 
 console.log('PASS new-professional-rule-pack-integration-test');

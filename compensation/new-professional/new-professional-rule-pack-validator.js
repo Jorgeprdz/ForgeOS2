@@ -9,6 +9,7 @@ const GMMI_INITIAL_PREMIUM_GROWTH_ANNUAL_BONUS_CONCEPT_KEY =
   'gmmi-initial-premium-growth-annual-bonus';
 const GMMI_RENEWAL_PREMIUM_BONUS_CONCEPT_KEY = 'gmmi-renewal-premium-bonus';
 const CONNECTION_BONUS_CONCEPT_KEY = 'connection-bonus';
+const DEVELOPMENT_BONUS_CONCEPT_KEY = 'development-bonus';
 
 const REQUIRED_NEW_PROFESSIONAL_CONCEPT_KEYS = Object.freeze([
   'life-initial-bonus',
@@ -421,6 +422,80 @@ function validateConnectionBonusConcept(concept, errors) {
   }
 }
 
+function validateDevelopmentBonusConcept(concept, errors) {
+  if (concept.modelStatus !== 'implemented_candidate') {
+    errors.push(createIssue(
+      'invalid_development_bonus_model_status',
+      'development-bonus.modelStatus must be implemented_candidate',
+      'concepts.development-bonus.modelStatus',
+    ));
+  }
+
+  const range = concept.advisorMonthRange;
+  if (!isPlainObject(range) || range.from !== 4 || range.to !== 15) {
+    errors.push(createIssue(
+      'missing_development_bonus_advisor_month_range',
+      'development-bonus.advisorMonthRange must be 4 through 15',
+      'concepts.development-bonus.advisorMonthRange',
+    ));
+  }
+
+  if (!Array.isArray(concept.policyScale) || concept.policyScale.length !== 3) {
+    errors.push(createIssue(
+      'missing_development_bonus_policy_scale',
+      'development-bonus.policyScale must include three monthly policy tiers',
+      'concepts.development-bonus.policyScale',
+    ));
+  } else {
+    for (const tier of concept.policyScale) {
+      if (!isPlainObject(tier) || !isNumber(tier.monthlyPolicies) || !isNumber(tier.amount)) {
+        errors.push(createIssue(
+          'invalid_development_bonus_policy_scale_tier',
+          'development-bonus policy tiers must include numeric monthlyPolicies and amount',
+          'concepts.development-bonus.policyScale',
+        ));
+      }
+    }
+
+    const topTier = concept.policyScale.find((tier) => tier.monthlyPolicies === 4);
+    if (!topTier || topTier.amount !== 15000 || topTier.appliesToCountAndAbove !== true) {
+      errors.push(createIssue(
+        'invalid_development_bonus_top_tier',
+        'development-bonus top tier must be 4+ policies for 15000',
+        'concepts.development-bonus.policyScale',
+      ));
+    }
+  }
+
+  const sharing = concept.developerSharingRule;
+  if (!isPlainObject(sharing) ||
+    sharing.canShareBetweenTwoDevelopers !== true ||
+    sharing.sharePercentageEach !== 0.5 ||
+    !Array.isArray(sharing.supportedDeveloperShares) ||
+    !sharing.supportedDeveloperShares.includes(1) ||
+    !sharing.supportedDeveloperShares.includes(0.5)) {
+    errors.push(createIssue(
+      'missing_development_bonus_sharing_rule',
+      'development-bonus.developerSharingRule must support full and shared developerShare',
+      'concepts.development-bonus.developerSharingRule',
+    ));
+  }
+
+  if (concept.payoutTruth !== false ||
+    concept.payoutTruthRule !== NEW_PROFESSIONAL_PAYOUT_TRUTH_RULE ||
+    concept.calculationStatus !== 'blocked_until_development_attribution_evidence' ||
+    concept.calculationFrequency !== 'monthly' ||
+    !Array.isArray(concept.requiredAttributionEvidence) ||
+    concept.requiredAttributionEvidence.length === 0 ||
+    !isPlainObject(concept.developerEligibility)) {
+    errors.push(createIssue(
+      'missing_development_bonus_readiness_config',
+      'development-bonus readiness and payout truth config is required',
+      'concepts.development-bonus',
+    ));
+  }
+}
+
 function validateIdentity(rulePack, errors) {
   if (rulePack.rulePackId !== NEW_PROFESSIONAL_RULE_PACK_ID) {
     errors.push(createIssue(
@@ -583,6 +658,8 @@ function validateConcepts(rulePack, errors) {
       validateGmmiRenewalPremiumBonusConcept(concept, errors);
     } else if (conceptKey === CONNECTION_BONUS_CONCEPT_KEY && concept.modelStatus === 'implemented_candidate') {
       validateConnectionBonusConcept(concept, errors);
+    } else if (conceptKey === DEVELOPMENT_BONUS_CONCEPT_KEY && concept.modelStatus === 'implemented_candidate') {
+      validateDevelopmentBonusConcept(concept, errors);
     } else if (concept.modelStatus !== 'skeleton_not_calculated') {
       errors.push(createIssue(
         'invalid_concept_model_status',
@@ -649,6 +726,7 @@ function validateNewProfessionalRulePack(rulePack) {
 
 export {
   CONNECTION_BONUS_CONCEPT_KEY,
+  DEVELOPMENT_BONUS_CONCEPT_KEY,
   GMMI_INITIAL_PREMIUM_BONUS_CONCEPT_KEY,
   GMMI_INITIAL_PREMIUM_GROWTH_ANNUAL_BONUS_CONCEPT_KEY,
   GMMI_RENEWAL_PREMIUM_BONUS_CONCEPT_KEY,

@@ -459,7 +459,75 @@
       "sourceEvidence": [
         "CC 2026 Asesores Nuevos Profesionales.pdf"
       ],
-      "modelStatus": "skeleton_not_calculated"
+      "modelStatus": "implemented_candidate",
+      "calculationStatus": "blocked_until_development_attribution_evidence",
+      "calculationFrequency": "monthly",
+      "attributionModel": "new_professional_development_attribution",
+      "policyCountSource": "new-professional-counting-weighting-engine.summary.includedCount",
+      "requiredAttributionEvidence": [
+        "developedAdvisorId",
+        "developerId",
+        "developmentRelationshipType",
+        "developmentAttributionConfirmed",
+        "developerEligibilityEvidence",
+        "developerShare"
+      ],
+      "advisorMonthRange": {
+        "from": 4,
+        "to": 15
+      },
+      "policyScale": [
+        {
+          "monthlyPolicies": 2,
+          "amount": 5000
+        },
+        {
+          "monthlyPolicies": 3,
+          "amount": 9000
+        },
+        {
+          "monthlyPolicies": 4,
+          "amount": 15000,
+          "appliesToCountAndAbove": true
+        }
+      ],
+      "policyCounting": {
+        "lifePlusIndividualGMMICountsAs": 0.5,
+        "source": "Reglas de Conteo"
+      },
+      "developerSharingRule": {
+        "canShareBetweenTwoDevelopers": true,
+        "sharePercentageEach": 0.5,
+        "supportedDeveloperShares": [
+          1,
+          0.5
+        ]
+      },
+      "developerEligibility": {
+        "advisorDeveloperMustBeActiveGroup": true,
+        "ifDeveloperContestMonthsGreaterThan": 12,
+        "ifWithinFirst12MonthsRequiresDevelopmentMonth6GoalsAchievedNoLaterThanMonth6": true
+      },
+      "additionalMonth12Bonus": {
+        "bonus20000": {
+          "amount": 20000,
+          "requires": [
+            "36_initial_policies_accumulated_by_month_12",
+            "wins_training_allowance_month_12"
+          ]
+        },
+        "additionalBonus30000": {
+          "amount": 30000,
+          "requires": [
+            "48_initial_policies_accumulated_by_month_12",
+            "at_least_one_paid_policy_per_month_months_1_to_12",
+            "only_one_month_without_paid_policies_allowed",
+            "missing_paid_policy_month_cannot_be_month_10_11_or_12",
+            "wins_training_allowance_month_12"
+          ]
+        }
+      },
+      "blockedReason": "blocked_by_missing_development_attribution_evidence"
     },
     "temporary-total-disability-benefit": {
       "displayName": "Beneficio por Invalidez Total Temporal",
