@@ -110,6 +110,64 @@ function roundPcv2026FixedSupportMoney(value) {
   return Math.round((Number(value) + Number.EPSILON) * 100) / 100;
 }
 
+function derivePcv2026AccumulatedCommissionGoal(careerMonth, officialTables) {
+  const normalizedCareerMonth =
+    pcv2026ApoyosOfficialContractTables005bc3.normalizePcv2026FixedSupportCareerMonth(careerMonth);
+
+  if (normalizedCareerMonth === null) {
+    return null;
+  }
+
+  return officialTables.initialCommissionGoalsByCareerMonth
+    .filter((entry) => entry.careerMonth <= normalizedCareerMonth)
+    .reduce((total, entry) => total + entry.initialCommissionGoal, 0);
+}
+
+function resolvePcv2026AccumulatedCommissionGoal(input = {}, contractReadiness, officialTables) {
+  const explicitAccumulatedGoalInput =
+    input.accumulatedCommissionGoal ??
+    input.accumulatedOfficialCommissionGoal ??
+    input.accumulatedInitialCommissionGoal;
+  const explicitAccumulatedGoal = normalizePcv2026FixedSupportNumber(explicitAccumulatedGoalInput);
+
+  if (explicitAccumulatedGoal !== null) {
+    return {
+      accumulatedCommissionGoal: explicitAccumulatedGoal,
+      commissionGoalSource: 'explicit_input',
+    };
+  }
+
+  const derivedAccumulatedGoal =
+    derivePcv2026AccumulatedCommissionGoal(contractReadiness.careerMonth, officialTables);
+
+  return {
+    accumulatedCommissionGoal: derivedAccumulatedGoal,
+    commissionGoalSource: derivedAccumulatedGoal === null
+      ? 'blocked_or_unknown'
+      : 'official_contract_table_accumulated',
+  };
+}
+
+function resolvePcv2026AccumulatedCommissionActual(input = {}) {
+  return normalizePcv2026FixedSupportNumber(
+    input.accumulatedCommissionActual ??
+      input.accumulatedTeamInitialCommissionsLifeAndIndividualGmm ??
+      input.accumulatedCommissionActualLifeIndividualAndGmmi ??
+      input.initialCommissionsLifeAndIndividualGmm ??
+      input.initialCommissionAmount ??
+      input.initialCommissions ??
+      input.monthlyInitialCommissions
+  );
+}
+
+function resolvePcv2026RawTaWinnerEvidence(input = {}) {
+  return normalizePcv2026FixedSupportNumber(
+    input.signedPrecontractsLastSixMonths ??
+      input.newAdvisorsLastSixMonths ??
+      input.trainingAdvisorWinnersLastSixMonths
+  );
+}
+
 function resolvePcv2026FixedSupportTaWinnersAfterFirstTwoHires(input = {}) {
   if (input.trainingAdvisorWinnersLastSixMonthsAfterFirstTwoHiresExclusion !== undefined) {
     return normalizePcv2026FixedSupportNumber(
@@ -117,18 +175,8 @@ function resolvePcv2026FixedSupportTaWinnersAfterFirstTwoHires(input = {}) {
     );
   }
 
-  if (
-    input.firstTwoHiresExclusionApplied === true &&
-    input.trainingAdvisorWinnersLastSixMonths !== undefined
-  ) {
-    return normalizePcv2026FixedSupportNumber(input.trainingAdvisorWinnersLastSixMonths);
-  }
-
-  if (
-    input.firstTwoHiresExclusionEvidence === true &&
-    input.trainingAdvisorWinnersLastSixMonths !== undefined
-  ) {
-    return normalizePcv2026FixedSupportNumber(input.trainingAdvisorWinnersLastSixMonths);
+  if (input.firstTwoHiresExclusionApplied === true || input.firstTwoHiresExclusionEvidence === true) {
+    return resolvePcv2026RawTaWinnerEvidence(input);
   }
 
   return null;
@@ -142,25 +190,31 @@ export function calculatePcv2026FixedSupportCandidateAmount(input = {}) {
     });
 
   const blockingReasons = [...contractReadiness.blockingReasons];
+  const officialTables =
+    pcv2026ApoyosOfficialContractTables005bc3.getPcv2026FixedSupportOfficialTables();
 
-  const initialCommissions = normalizePcv2026FixedSupportNumber(
-    input.initialCommissionsLifeAndIndividualGmm ??
-      input.initialCommissionAmount ??
-      input.initialCommissions ??
-      input.monthlyInitialCommissions
-  );
+  const accumulatedCommissionActual = resolvePcv2026AccumulatedCommissionActual(input);
 
-  if (initialCommissions === null) {
-    blockingReasons.push('INITIAL_COMMISSIONS_EVIDENCE_REQUIRED');
+  if (accumulatedCommissionActual === null) {
+    blockingReasons.push('ACCUMULATED_COMMISSIONS_EVIDENCE_REQUIRED');
   }
 
-  const trainingAdvisorWinnersLastSixMonths =
+  const accumulatedCommissionGoalResolution =
+    resolvePcv2026AccumulatedCommissionGoal(input, contractReadiness, officialTables);
+  const accumulatedCommissionGoal = accumulatedCommissionGoalResolution.accumulatedCommissionGoal;
+  const commissionGoalSource = accumulatedCommissionGoalResolution.commissionGoalSource;
+
+  if (accumulatedCommissionGoal === null) {
+    blockingReasons.push('ACCUMULATED_COMMISSION_GOAL_REQUIRED');
+  }
+
+  const trainingAdvisorWinnerEvidenceCount =
     resolvePcv2026FixedSupportTaWinnersAfterFirstTwoHires(input);
 
   if (
     contractReadiness.trainingAdvisorTarget !== null &&
     contractReadiness.trainingAdvisorTarget > 0 &&
-    trainingAdvisorWinnersLastSixMonths === null
+    trainingAdvisorWinnerEvidenceCount === null
   ) {
     blockingReasons.push('TRAINING_ADVISOR_WINNERS_LAST_SIX_MONTHS_EVIDENCE_REQUIRED');
   }
@@ -168,8 +222,8 @@ export function calculatePcv2026FixedSupportCandidateAmount(input = {}) {
   if (
     contractReadiness.trainingAdvisorTarget !== null &&
     contractReadiness.trainingAdvisorTarget > 0 &&
-    trainingAdvisorWinnersLastSixMonths !== null &&
-    trainingAdvisorWinnersLastSixMonths < contractReadiness.trainingAdvisorTarget
+    trainingAdvisorWinnerEvidenceCount !== null &&
+    trainingAdvisorWinnerEvidenceCount < contractReadiness.trainingAdvisorTarget
   ) {
     blockingReasons.push('TRAINING_ADVISOR_WINNER_TARGET_NOT_MET');
   }
@@ -194,8 +248,6 @@ export function calculatePcv2026FixedSupportCandidateAmount(input = {}) {
     blockingReasons.push('SAME_PARTNER_YEAR_RECOVERY_EVIDENCE_REQUIRED');
   }
 
-  const officialTables =
-    pcv2026ApoyosOfficialContractTables005bc3.getPcv2026FixedSupportOfficialTables();
   const complianceRules = officialTables.complianceRules;
   const minimumComplianceRatio = complianceRules.minimumComplianceRatio;
   const proportionalSupportStartInclusive = complianceRules.proportionalSupportStartInclusive;
@@ -203,8 +255,8 @@ export function calculatePcv2026FixedSupportCandidateAmount(input = {}) {
   const fullSupportStartInclusive = complianceRules.fullSupportStartInclusive;
 
   const commissionComplianceRatio =
-    initialCommissions !== null && contractReadiness.initialCommissionGoal
-      ? initialCommissions / contractReadiness.initialCommissionGoal
+    accumulatedCommissionActual !== null && accumulatedCommissionGoal
+      ? accumulatedCommissionActual / accumulatedCommissionGoal
       : null;
 
   if (commissionComplianceRatio !== null && commissionComplianceRatio < minimumComplianceRatio) {
@@ -222,14 +274,19 @@ export function calculatePcv2026FixedSupportCandidateAmount(input = {}) {
       semester: contractReadiness.semester,
       monthlySupportAmount: contractReadiness.monthlySupportAmount,
       initialCommissionGoal: contractReadiness.initialCommissionGoal,
-      initialCommissions,
+      accumulatedCommissionGoal,
+      accumulatedCommissionActual,
+      initialCommissions: accumulatedCommissionActual,
       commissionComplianceRatio,
+      achievementRatio: commissionComplianceRatio,
+      commissionGoalSource,
       minimumComplianceRatio,
       proportionalSupportStartInclusive,
       proportionalSupportEndExclusive,
       fullSupportStartInclusive,
       trainingAdvisorTarget: contractReadiness.trainingAdvisorTarget,
-      trainingAdvisorWinnersLastSixMonths,
+      trainingAdvisorWinnerEvidenceCount,
+      trainingAdvisorWinnersLastSixMonths: trainingAdvisorWinnerEvidenceCount,
       recoveryPreviousMonthsRequested,
       recoveryCandidateAmount: null,
       blockingReasons,
@@ -260,14 +317,19 @@ export function calculatePcv2026FixedSupportCandidateAmount(input = {}) {
     semester: contractReadiness.semester,
     monthlySupportAmount,
     initialCommissionGoal: contractReadiness.initialCommissionGoal,
-    initialCommissions,
+    accumulatedCommissionGoal,
+    accumulatedCommissionActual,
+    initialCommissions: accumulatedCommissionActual,
     commissionComplianceRatio,
+    achievementRatio: commissionComplianceRatio,
+    commissionGoalSource,
     minimumComplianceRatio,
     proportionalSupportStartInclusive,
     proportionalSupportEndExclusive,
     fullSupportStartInclusive,
     trainingAdvisorTarget: contractReadiness.trainingAdvisorTarget,
-    trainingAdvisorWinnersLastSixMonths,
+    trainingAdvisorWinnerEvidenceCount,
+    trainingAdvisorWinnersLastSixMonths: trainingAdvisorWinnerEvidenceCount,
     recoveryPreviousMonthsRequested,
     recoveryCandidateAmount,
     totalCandidateAmount: roundPcv2026FixedSupportMoney(candidateAmount + recoveryCandidateAmount),

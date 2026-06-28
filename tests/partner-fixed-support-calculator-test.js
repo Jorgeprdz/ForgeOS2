@@ -1,7 +1,9 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 
 import {
   FIXED_SUPPORT_AMOUNTS_BY_SEMESTER,
+  PCV_2026_FIXED_SUPPORT_INITIAL_COMMISSION_GOALS_BY_CAREER_MONTH,
 } from '../compensation/partner-manager/partner-fixed-support-contract.js';
 
 import {
@@ -141,6 +143,9 @@ assert.ok(monthGateBlocked.blockedReasons.includes('blocked_by_insufficient_qual
   assert.equal(fullSupport.payoutTruth, false);
   assert.equal(fullSupport.monthlySupportAmount, 65000);
   assert.equal(fullSupport.initialCommissionGoal, 14500);
+  assert.equal(fullSupport.accumulatedCommissionGoal, 14500);
+  assert.equal(fullSupport.achievementRatio, 1);
+  assert.equal(fullSupport.commissionGoalSource, 'official_contract_table_accumulated');
   assert.equal(fullSupport.trainingAdvisorTarget, 0);
   assert.equal(fullSupport.minimumComplianceRatio, 0.8);
   assert.equal(fullSupport.proportionalSupportStartInclusive, 0.8);
@@ -160,6 +165,157 @@ assert.ok(monthGateBlocked.blockedReasons.includes('blocked_by_insufficient_qual
   assert.equal(proportionalSupport.candidateAmount, 52000);
   assert.equal(proportionalSupport.payoutTruth, false);
 
+  const monthTwoAccumulatedGoal = pcv2026FixedSupportCalculator.calculatePcv2026FixedSupportCandidateAmount({
+    careerMonth: 2,
+    accumulatedCommissionActual: 33000,
+    payoutTruth: false,
+  });
+
+  assert.equal(monthTwoAccumulatedGoal.status, 'CALCULATED_CANDIDATE');
+  assert.equal(monthTwoAccumulatedGoal.accumulatedCommissionGoal, 14500 + 18500);
+  assert.equal(monthTwoAccumulatedGoal.commissionGoalSource, 'official_contract_table_accumulated');
+  assert.equal(monthTwoAccumulatedGoal.achievementRatio, 1);
+
+  const derivedAccumulatedGoal = pcv2026FixedSupportCalculator.calculatePcv2026FixedSupportCandidateAmount({
+    careerMonth: 3,
+    accumulatedCommissionActual: 55000,
+    firstTwoHiresExclusionApplied: true,
+    signedPrecontractsLastSixMonths: 1,
+    payoutTruth: false,
+  });
+
+  assert.equal(derivedAccumulatedGoal.status, 'CALCULATED_CANDIDATE');
+  assert.equal(derivedAccumulatedGoal.accumulatedCommissionGoal, 14500 + 18500 + 22000);
+  assert.equal(derivedAccumulatedGoal.accumulatedCommissionActual, 55000);
+  assert.equal(derivedAccumulatedGoal.achievementRatio, 1);
+  assert.equal(derivedAccumulatedGoal.commissionGoalSource, 'official_contract_table_accumulated');
+  assert.equal(derivedAccumulatedGoal.trainingAdvisorWinnerEvidenceCount, 1);
+  assert.equal(derivedAccumulatedGoal.candidateAmount, 65000);
+
+  const explicitAccumulatedGoal = pcv2026FixedSupportCalculator.calculatePcv2026FixedSupportCandidateAmount({
+    careerMonth: 3,
+    accumulatedCommissionActual: 80000,
+    accumulatedCommissionGoal: 100000,
+    firstTwoHiresExclusionApplied: true,
+    signedPrecontractsLastSixMonths: 1,
+    payoutTruth: false,
+  });
+
+  assert.equal(explicitAccumulatedGoal.status, 'CALCULATED_CANDIDATE');
+  assert.equal(explicitAccumulatedGoal.accumulatedCommissionGoal, 100000);
+  assert.equal(explicitAccumulatedGoal.commissionGoalSource, 'explicit_input');
+  assert.equal(explicitAccumulatedGoal.achievementRatio, 0.8);
+  assert.equal(explicitAccumulatedGoal.commissionComplianceRatio, 0.8);
+  assert.equal(explicitAccumulatedGoal.candidateAmount, 52000);
+
+  const expectedMonthThirtySixAccumulatedGoal =
+    PCV_2026_FIXED_SUPPORT_INITIAL_COMMISSION_GOALS_BY_CAREER_MONTH.reduce(
+      (total, entry) => total + entry.initialCommissionGoal,
+      0
+    );
+  const monthThirtySixAccumulatedGoal = pcv2026FixedSupportCalculator.calculatePcv2026FixedSupportCandidateAmount({
+    careerMonth: 36,
+    accumulatedCommissionActual: expectedMonthThirtySixAccumulatedGoal,
+    trainingAdvisorWinnersLastSixMonthsAfterFirstTwoHiresExclusion: 3,
+    payoutTruth: false,
+  });
+
+  assert.equal(monthThirtySixAccumulatedGoal.status, 'CALCULATED_CANDIDATE');
+  assert.equal(monthThirtySixAccumulatedGoal.accumulatedCommissionGoal, expectedMonthThirtySixAccumulatedGoal);
+  assert.equal(monthThirtySixAccumulatedGoal.commissionGoalSource, 'official_contract_table_accumulated');
+  assert.equal(monthThirtySixAccumulatedGoal.achievementRatio, 1);
+  assert.equal(monthThirtySixAccumulatedGoal.candidateAmount, 11000);
+
+  const calculatorSource = readFileSync(
+    new URL('../compensation/partner-manager/partner-fixed-support-calculator.js', import.meta.url),
+    'utf8'
+  );
+  for (const hardcodedGoalValue of ['14500', '18500', '22000', '90500']) {
+    assert.equal(
+      calculatorSource.includes(hardcodedGoalValue),
+      false,
+      `Calculator must not hardcode official monthly goal value ${hardcodedGoalValue}.`
+    );
+  }
+
+  const signedPrecontractsAlias = pcv2026FixedSupportCalculator.calculatePcv2026FixedSupportCandidateAmount({
+    careerMonth: 3,
+    accumulatedCommissionActual: 55000,
+    firstTwoHiresExclusionEvidence: true,
+    signedPrecontractsLastSixMonths: 1,
+    payoutTruth: false,
+  });
+
+  assert.equal(signedPrecontractsAlias.status, 'CALCULATED_CANDIDATE');
+  assert.equal(signedPrecontractsAlias.trainingAdvisorWinnerEvidenceCount, 1);
+
+  const newAdvisorsAlias = pcv2026FixedSupportCalculator.calculatePcv2026FixedSupportCandidateAmount({
+    careerMonth: 5,
+    accumulatedCommissionActual: 109000,
+    firstTwoHiresExclusionEvidence: true,
+    newAdvisorsLastSixMonths: 2,
+    payoutTruth: false,
+  });
+
+  assert.equal(newAdvisorsAlias.status, 'CALCULATED_CANDIDATE');
+  assert.equal(newAdvisorsAlias.trainingAdvisorWinnerEvidenceCount, 2);
+
+  const missingFirstTwoHiresExclusionEvidence = pcv2026FixedSupportCalculator.calculatePcv2026FixedSupportCandidateAmount({
+    careerMonth: 3,
+    accumulatedCommissionActual: 55000,
+    signedPrecontractsLastSixMonths: 1,
+    payoutTruth: false,
+  });
+
+  assert.equal(missingFirstTwoHiresExclusionEvidence.status, 'BLOCKED_OR_UNKNOWN');
+  assert.equal(missingFirstTwoHiresExclusionEvidence.candidateAmount, null);
+  assert.equal(
+    missingFirstTwoHiresExclusionEvidence.blockingReasons.includes(
+      'TRAINING_ADVISOR_WINNERS_LAST_SIX_MONTHS_EVIDENCE_REQUIRED'
+    ),
+    true
+  );
+
+  const belowAccumulatedEightyPercent = pcv2026FixedSupportCalculator.calculatePcv2026FixedSupportCandidateAmount({
+    careerMonth: 3,
+    accumulatedCommissionActual: 43999,
+    firstTwoHiresExclusionApplied: true,
+    signedPrecontractsLastSixMonths: 1,
+    payoutTruth: false,
+  });
+
+  assert.equal(belowAccumulatedEightyPercent.status, 'BLOCKED_OR_UNKNOWN');
+  assert.equal(belowAccumulatedEightyPercent.candidateAmount, null);
+  assert.equal(
+    belowAccumulatedEightyPercent.blockingReasons.includes('MINIMUM_80_PERCENT_COMPLIANCE_NOT_MET'),
+    true
+  );
+
+  const accumulatedEightyPercent = pcv2026FixedSupportCalculator.calculatePcv2026FixedSupportCandidateAmount({
+    careerMonth: 3,
+    accumulatedCommissionActual: 44000,
+    firstTwoHiresExclusionApplied: true,
+    signedPrecontractsLastSixMonths: 1,
+    payoutTruth: false,
+  });
+
+  assert.equal(accumulatedEightyPercent.status, 'CALCULATED_CANDIDATE');
+  assert.equal(accumulatedEightyPercent.commissionComplianceRatio, 0.8);
+  assert.equal(accumulatedEightyPercent.candidateAmount, 52000);
+
+  const accumulatedFullSupport = pcv2026FixedSupportCalculator.calculatePcv2026FixedSupportCandidateAmount({
+    careerMonth: 3,
+    accumulatedCommissionActual: 55000,
+    firstTwoHiresExclusionApplied: true,
+    signedPrecontractsLastSixMonths: 1,
+    payoutTruth: false,
+  });
+
+  assert.equal(accumulatedFullSupport.status, 'CALCULATED_CANDIDATE');
+  assert.equal(accumulatedFullSupport.commissionComplianceRatio, 1);
+  assert.equal(accumulatedFullSupport.candidateAmount, 65000);
+  assert.equal(accumulatedFullSupport.payoutTruth, false);
+
   const blockedBelowMinimum = pcv2026FixedSupportCalculator.calculatePcv2026FixedSupportCandidateAmount({
     careerMonth: 1,
     initialCommissionsLifeAndIndividualGmm: 11599,
@@ -177,7 +333,7 @@ assert.ok(monthGateBlocked.blockedReasons.includes('blocked_by_insufficient_qual
 
   const monthSixTaTargetMet = pcv2026FixedSupportCalculator.calculatePcv2026FixedSupportCandidateAmount({
     careerMonth: 6,
-    initialCommissionsLifeAndIndividualGmm: 33000,
+    accumulatedCommissionActual: 142000,
     firstTwoHiresExclusionApplied: true,
     trainingAdvisorWinnersLastSixMonths: 3,
     payoutTruth: false,
@@ -189,7 +345,7 @@ assert.ok(monthGateBlocked.blockedReasons.includes('blocked_by_insufficient_qual
 
   const monthSixTaTargetMissing = pcv2026FixedSupportCalculator.calculatePcv2026FixedSupportCandidateAmount({
     careerMonth: 6,
-    initialCommissionsLifeAndIndividualGmm: 33000,
+    accumulatedCommissionActual: 142000,
     firstTwoHiresExclusionApplied: true,
     trainingAdvisorWinnersLastSixMonths: 2,
     payoutTruth: false,
@@ -204,7 +360,7 @@ assert.ok(monthGateBlocked.blockedReasons.includes('blocked_by_insufficient_qual
 
   const blockedWithoutFirstTwoEvidence = pcv2026FixedSupportCalculator.calculatePcv2026FixedSupportCandidateAmount({
     careerMonth: 6,
-    initialCommissionsLifeAndIndividualGmm: 33000,
+    accumulatedCommissionActual: 142000,
     trainingAdvisorWinnersLastSixMonths: 3,
     payoutTruth: false,
   });
@@ -220,7 +376,7 @@ assert.ok(monthGateBlocked.blockedReasons.includes('blocked_by_insufficient_qual
 
   const recoveryCandidate = pcv2026FixedSupportCalculator.calculatePcv2026FixedSupportCandidateAmount({
     careerMonth: 7,
-    initialCommissionsLifeAndIndividualGmm: 40000,
+    accumulatedCommissionActual: 182000,
     firstTwoHiresExclusionApplied: true,
     trainingAdvisorWinnersLastSixMonths: 3,
     recoveryPreviousMonthsRequested: 2,
@@ -236,7 +392,7 @@ assert.ok(monthGateBlocked.blockedReasons.includes('blocked_by_insufficient_qual
 
   const blockedRecoveryOverThree = pcv2026FixedSupportCalculator.calculatePcv2026FixedSupportCandidateAmount({
     careerMonth: 7,
-    initialCommissionsLifeAndIndividualGmm: 40000,
+    accumulatedCommissionActual: 182000,
     firstTwoHiresExclusionApplied: true,
     trainingAdvisorWinnersLastSixMonths: 3,
     recoveryPreviousMonthsRequested: 4,
