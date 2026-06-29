@@ -1217,3 +1217,79 @@ Closure certificate:
 Next safest consumer:
 - Advisor Lifecycle first, through reference-only consumption, before Compensation.
 <!-- FORGEOS:MANAGER_OS_RDA_CONSUMER_CONTRACT_STATUS:END -->
+
+<!-- FORGEOS:ADVISOR_LIFECYCLE_RDA_REFERENCE_CONSUMER_STATUS:START -->
+## Advisor Lifecycle RDA Reference Consumer — Closure Status
+
+Last updated: 20260628-225214
+
+Status:
+- CLOSED
+
+Implemented infrastructure:
+- advisor-lifecycle-rda-reference-consumer
+
+Implemented files:
+- advisor-lifecycle/advisor-lifecycle-rda-reference-consumer.js
+
+Verified focal tests:
+- tests/advisor-lifecycle-rda-reference-consumer-test.js
+- manager-os/tests/manager-rda-consumer-contract-master-test.js
+
+Implementation commit:
+- e072049db7a28b46617198cbdaf9801d39745ffd
+
+What this closure covers:
+- Advisor Lifecycle read-only consumption of Manager OS RDA Consumer Contract
+- lifecycle-safe RDA reference status mapping
+- RDA reference readiness classification
+- proposed and confirmed RDA owner reference preservation
+- manager/human review flags
+- missing evidence preservation
+- missing prerequisite preservation
+- evidence refs and source evidence IDs preservation
+- forbidden lifecycle/downstream transition blocking
+- input immutability
+- no Advisor Lifecycle truth creation
+
+Supported lifecycle RDA reference statuses:
+- NOT_EVALUATED
+- PENDING_REVIEW
+- BLOCKED
+- READY_FOR_LIFECYCLE_REFERENCE
+
+Critical distinction:
+- Advisor Lifecycle RDA Reference Consumer is read-only.
+- It does not create Advisor Lifecycle truth.
+- It does not create precontract truth.
+- It does not create compensation ownership truth.
+- It does not create revenue.
+- It does not create compensation.
+- It does not create payout truth.
+- It does not create payment execution.
+- It does not create automatic approval/rejection.
+- Manager OS RDA reference is lifecycle context only.
+- Unknown is not zero.
+- Blocked is not zero.
+- Missing evidence is not negative evidence.
+
+Constitutional boundaries:
+- automaticDecisionAllowed=false
+- createsAdvisorLifecycleTruth=false
+- createsCompensationOwnershipTruth=false
+- createsPrecontractTruth=false
+- createsRevenue=false
+- createsCompensation=false
+- createsPayoutTruth=false
+
+Closure certificate:
+- docs/evidence/ADVISOR_LIFECYCLE_RDA_REFERENCE_CONSUMER_CLOSURE_CERTIFICATE.md
+
+Still separate:
+- Recruitment Foundation remains closed and prerequisite-only.
+- Manager OS RDA Attribution Truth remains the attribution truth owner.
+- Manager OS RDA Consumer Contract remains reference-only.
+- Revenue remains separate.
+- Compensation remains separate.
+- Product Intelligence remains deferred to final phase.
+<!-- FORGEOS:ADVISOR_LIFECYCLE_RDA_REFERENCE_CONSUMER_STATUS:END -->
