@@ -1336,3 +1336,61 @@ Constitutional boundaries:
 Closure certificate:
 - docs/evidence/CAREER_CHAIN_TERMINOLOGY_CLEANUP_CLOSURE_CERTIFICATE.md
 <!-- FORGEOS:CAREER_CHAIN_TERMINOLOGY_CLEANUP_STATUS:END -->
+
+<!-- FORGEOS:MANAGER_OS_ADVISOR_SIGNAL_CONSUMER_CONTRACT_STATUS:START -->
+## Manager OS Advisor Signal Consumer Contract -- Closure Status
+
+Last updated: 20260629-093223
+
+Status:
+
+- CLOSED
+
+Implementation commit:
+
+- 1d42506c5c57bb43369ad8c31278bce9705ef5ae
+
+Closed infrastructure:
+
+- manager-advisor-signal-consumer-contract
+- manager-advisor-signal-consumer-contract-master-test
+
+Verified focal tests:
+
+- manager-os/tests/manager-advisor-signal-consumer-contract-master-test.js
+- manager-os/tests/manager-rda-consumer-contract-master-test.js
+- manager-os/tests/manager-rda-attribution-truth-engine-master-test.js
+
+What this closure covers:
+
+- Advisor OS signal consumption by Manager OS
+- Manager-visible coaching/review context
+- Evidence refs
+- Source evidence IDs
+- Source owners
+- Period/freshness boundaries
+- Default-zero risk warnings
+- Forbidden-use blocking
+- Allowed context-only uses
+
+Constitutional boundaries:
+
+- Advisor OS owns advisor-facing execution context.
+- Manager OS consumes Advisor OS signals as context only.
+- Manager OS does not recalculate Advisor OS truth.
+- Manager OS does not create manager judgment truth.
+- Manager OS does not create human ranking truth.
+- Manager OS does not create promotion decision truth.
+- Manager OS does not create Advisor Lifecycle truth.
+- Manager OS does not create revenue.
+- Manager OS does not create compensation.
+- Manager OS does not create payout truth.
+- Missing evidence is not negative evidence.
+- Unknown is not zero.
+- Legacy default-zero signals require review.
+- The contract supports coaching and review, not punishment or automatic decisions.
+
+Closure certificate:
+
+- docs/evidence/MANAGER_OS_ADVISOR_SIGNAL_CONSUMER_CONTRACT_CLOSURE_CERTIFICATE.md
+<!-- FORGEOS:MANAGER_OS_ADVISOR_SIGNAL_CONSUMER_CONTRACT_STATUS:END -->
