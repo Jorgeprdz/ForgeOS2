@@ -545,7 +545,6 @@ Advisor Lifecycle may include:
 - Career stage.
 - Asesor en Desarrollo.
 - Nuevo Profesional.
-- Senior advisor.
 - Partner.
 - Manager.
 - Director.
@@ -1155,4 +1154,3 @@ Architecture conclusion:
 Forge is ready to open PAQ-09 Productivity Intelligence, provided Productivity is treated as a distinct output domain that consumes behavior, development and production evidence without owning all of them.
 
 No implementation is approved by this ratification.
-

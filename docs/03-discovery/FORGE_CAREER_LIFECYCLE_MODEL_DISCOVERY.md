@@ -492,7 +492,6 @@ Why separate:
 
 - A partner can be an individual contributor.
 - A manager can be early in partner maturity.
-- A senior advisor may have no team.
 - A director may need stage-specific business planning.
 - Leadership can be gained, lost or paused independently.
 

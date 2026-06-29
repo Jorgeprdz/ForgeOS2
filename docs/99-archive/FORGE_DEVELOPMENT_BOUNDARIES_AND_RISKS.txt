@@ -151,15 +151,6 @@ Use family purpose to push production.
 Correct interpretation:
 Use as supportive context only.
 
-Scenario 5:
-Senior advisor has ten years of experience.
-
-Bad interpretation:
-High maturity.
-
-Correct interpretation:
-Tenure is context. Maturity requires evidence.
-
 CONSTITUTIONAL BOUNDARIES TO CONSIDER
 
 1. Development requires evidence of changed behavior or capability.

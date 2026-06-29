@@ -540,7 +540,6 @@ Relevant lifecycle contexts:
 - Signed Advisor.
 - Advisor in Development.
 - Productive Advisor.
-- Senior Advisor.
 - Manager.
 - Partner.
 - Director.
@@ -1116,4 +1115,3 @@ Forecast Intelligence - ARCHITECTURE LOCK / NOT IMPLEMENTED.
 
 Recommended next PAQ:
 PAQ-12 Business Planning Intelligence Discovery.
-

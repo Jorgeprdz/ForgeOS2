@@ -25,7 +25,7 @@ Long-term vision:
 
 «Forge accompanies the entire commercial career:
 
-Candidate → Precontract → Advisor → Senior Advisor → Manager → Director»
+Candidate → Precontract → Advisor → Manager / Partner → Director»
 
 ---
 

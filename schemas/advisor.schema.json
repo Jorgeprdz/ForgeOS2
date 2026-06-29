@@ -20,7 +20,7 @@
     "status": {
       "type": "string",
       "description": "Commercial lifecycle status for the advisor.",
-      "enum": ["CANDIDATE", "PRECONTRACT", "ACTIVE", "SENIOR_ADVISOR", "MANAGER", "DIRECTOR", "INACTIVE"],
+      "enum": ["CANDIDATE", "PRECONTRACT", "ACTIVE", "MANAGER", "DIRECTOR", "INACTIVE"],
       "examples": ["ACTIVE"]
     },
     "managerId": {

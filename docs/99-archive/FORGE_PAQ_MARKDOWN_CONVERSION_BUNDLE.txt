@@ -13628,7 +13628,7 @@ Career Intelligence determines where a person is in the commercial career lifecy
 
 ### It answers
 
-Is this person a candidate, precontract candidate, advisor, senior advisor, manager, Partner or director?
+Is this person a candidate, precontract candidate, advisor, manager, Partner or director?
 What is the applicable career stage?
 What career month applies?
 What contest month applies?

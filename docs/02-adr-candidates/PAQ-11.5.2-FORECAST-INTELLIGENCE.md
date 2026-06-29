@@ -540,7 +540,6 @@ Relevant lifecycle contexts:
 - Signed Advisor.
 - Advisor in Development.
 - Productive Advisor.
-- Senior Advisor.
 - Manager.
 - Partner.
 - Director.
