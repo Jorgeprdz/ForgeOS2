@@ -1293,3 +1293,46 @@ Still separate:
 - Compensation remains separate.
 - Product Intelligence remains deferred to final phase.
 <!-- FORGEOS:ADVISOR_LIFECYCLE_RDA_REFERENCE_CONSUMER_STATUS:END -->
+
+<!-- FORGEOS:CAREER_CHAIN_TERMINOLOGY_CLEANUP_STATUS:START -->
+## Career Chain Terminology Cleanup — Closure Status
+
+Last updated: 20260628-230850
+
+Status:
+- CLOSED
+
+Ordered current chain status:
+- Manager OS RDA Attribution Truth: CLOSED
+- Manager OS RDA Consumer Contract: CLOSED
+- Advisor Lifecycle RDA Reference Consumer: CLOSED
+- Career Chain Terminology Cleanup: CLOSED
+
+Implementation commit:
+- 750fadb6e43c4c98233835eadea58c44d18ad910
+
+Removed role:
+- Senior Advisor / Senior Adviser / senior advisor / SENIOR_ADVISOR
+
+Canonical career route:
+- Candidate -> Precontract -> Advisor -> Manager / Partner -> Director
+
+Schema cleanup:
+- completed
+- `SENIOR_ADVISOR` removed from `schemas/advisor.schema.json`
+
+Final search:
+- returned no forbidden Senior Advisor runtime/model/schema/doc-active matches
+- remaining mentions are allowed only in this closure block and closure certificate as deprecated-term documentation
+
+Constitutional boundaries:
+- terminology/schema cleanup only
+- no Advisor Lifecycle truth created
+- no compensation truth created
+- no revenue truth created
+- no payout truth created
+- no automatic decision created
+
+Closure certificate:
+- docs/evidence/CAREER_CHAIN_TERMINOLOGY_CLEANUP_CLOSURE_CERTIFICATE.md
+<!-- FORGEOS:CAREER_CHAIN_TERMINOLOGY_CLEANUP_STATUS:END -->
