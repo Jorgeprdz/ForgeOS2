@@ -19,6 +19,10 @@ It exists so future ForgeOS phases do not drift, skip dependencies, rely only on
 - Advisor OS owns advisor-facing execution context.
 - Manager OS may consume official signals but must not recalculate or redefine their truth.
 - Forecast is not payout truth.
+- Forecast is not compensation truth.
+- Forecast is not official revenue truth.
+- Forecast is not promotion truth.
+- Forecast is not Advisor Lifecycle truth.
 - Compensation candidate calculation is not payment truth.
 - No stage, commit or push unless explicitly authorized.
 
@@ -55,8 +59,89 @@ Closure facts:
 
 ## Current Next Phase
 
-- Phase: MANAGER_OS_ADVISOR_TRACKING_BOUNDARY_HARDENING_013A
-- Mode: READ ONLY SCOPE ANALYSIS
+- Phase: MANAGER_OS_ADVISOR_TRACKING_BOUNDARY_HARDENING_013B_C
+- Mode: SURGICAL IMPLEMENTATION + TESTS
+
+## Roadmap Addendum 001B -- Manager OS Forecast Intelligence
+
+Status: ROADMAP AMENDMENT / FORECAST INSERTION
+
+### Purpose
+
+Add Manager OS Forecast Intelligence as a formal future workstream after Historical Analytics and before Coaching Intelligence.
+
+This addendum does not replace the current active phase.
+
+Current active implementation track remains:
+
+- MANAGER_OS_ADVISOR_TRACKING_BOUNDARY_HARDENING_013B_C
+
+Next implementation phase remains 013B/C unless a later explicit governance phase changes it.
+
+### Rationale
+
+- Metrics measures what happened.
+- Historical Analytics compares what happened.
+- Forecast projects what may happen.
+- Coaching Intelligence uses metrics, snapshots, historical analytics and forecast context to recommend development actions.
+- Dashboard only presents view models and must not create truth.
+
+### Forecast Scope
+
+Manager OS Forecast Intelligence must cover:
+
+- Proyeccion de ingresos al cierre del trimestre
+- Proyeccion de altas / firmas de precontratos al mes, trimestre y ano
+- Proyeccion de entrevistas:
+  - iniciales
+  - seleccion
+  - carrera
+  - adicionales
+- Proyeccion de ingresos de asesores al trimestre
+- Proyeccion de asesores calificados
+
+### Forecast Boundaries
+
+- Forecast is scenario context only.
+- Forecast is not payout truth.
+- Forecast is not compensation truth.
+- Forecast is not official revenue truth.
+- Forecast is not Advisor Lifecycle truth.
+- Forecast is not promotion truth.
+- Forecast does not create human ranking truth.
+- Forecast does not create punishment or enforcement.
+- Forecast must expose assumptions.
+- Forecast must expose confidence limitations.
+- Forecast must expose missing evidence.
+- Forecast must expose source owners.
+- Forecast must expose freshness.
+- Missing evidence is not negative evidence.
+- Unknown is not zero.
+- Forecast must not consume raw unbounded inputs.
+- Forecast must consume protected snapshots, metrics and historical analytics.
+
+### Future Planning Notes
+
+These are future planning notes only. No files are created by this addendum.
+
+Proposed future files under `manager-os/forecast/`:
+
+- manager-forecast-boundary-contract.js
+- manager-quarter-income-forecast-engine.js
+- manager-recruitment-signing-forecast-engine.js
+- manager-interview-forecast-engine.js
+- manager-advisor-income-forecast-engine.js
+- manager-qualified-advisor-forecast-engine.js
+- manager-forecast-scenario-engine.js
+
+Proposed future tests:
+
+- manager-os/tests/manager-forecast-boundary-contract-master-test.js
+- manager-os/tests/manager-quarter-income-forecast-master-test.js
+- manager-os/tests/manager-recruitment-signing-forecast-master-test.js
+- manager-os/tests/manager-interview-forecast-master-test.js
+- manager-os/tests/manager-advisor-income-forecast-master-test.js
+- manager-os/tests/manager-qualified-advisor-forecast-master-test.js
 
 ## Locked Roadmap Order
 
@@ -70,14 +155,16 @@ Closure facts:
 8. 016B/C -- Recruitment Metrics + Advisor Metrics Implementation
 9. 017A -- Historical Analytics Scope
 10. 017B/C -- Historical Analytics Implementation
-11. 018A -- Coaching Intelligence Scope with NASH + Mick + Candy Crush
-12. 018B/C -- Coaching Intelligence Orchestrator Implementation
-13. 019A -- Conversation Intelligence Scope
-14. 019B/C -- Candidate / Precontract / Advisor Conversation Guidance
-15. 020A -- Candy Crush Experience Scope
-16. 020B/C -- Coaching Missions / Levels / Streaks / Progress Cards
-17. 021A -- Dashboard View Model Scope
-18. 021B/C -- Dashboard View Models + Chart Data
+11. 018A -- Manager OS Forecast Intelligence Scope
+12. 018B/C -- Manager OS Forecast Intelligence Implementation
+13. 019A -- Coaching Intelligence Scope with NASH + Mick + Candy Crush
+14. 019B/C -- Coaching Intelligence Orchestrator Implementation
+15. 020A -- Conversation Intelligence Scope
+16. 020B/C -- Candidate / Precontract / Advisor Conversation Guidance
+17. 021A -- Candy Crush Experience Scope
+18. 021B/C -- Coaching Missions / Levels / Streaks / Progress Cards
+19. 022A -- Dashboard View Model Scope
+20. 022B/C -- Dashboard View Models + Chart Data
 
 ## Continuity Rules
 
@@ -122,10 +209,13 @@ PHASE RESULT
 - 015B/C depends on 015A and 012C.
 - 016B/C depends on CandidateManagerSnapshot and AdvisorManagerSnapshot scope.
 - 017B/C depends on Metrics V1.
-- 018B/C depends on AdvisorManagerSnapshot, Metrics V1, and NASH/Mick/Candy Crush scope.
-- 019B/C depends on CandidateManagerSnapshot, AdvisorManagerSnapshot, pipeline context, and NASH conversation boundaries.
-- 020B/C depends on Coaching Intelligence scope.
-- 021B/C depends on Metrics, Historical Analytics, Coaching, and Conversation view-model boundaries.
+- 018A depends on Metrics V1 and Historical Analytics scope.
+- 018B/C depends on Historical Analytics Implementation, CandidateManagerSnapshot, AdvisorManagerSnapshot, Recruitment Metrics, Advisor Metrics, and protected evidence/source/freshness context.
+- 019A depends on AdvisorManagerSnapshot, Metrics V1, Historical Analytics, Forecast Intelligence scope, and NASH/Mick/Candy Crush boundaries.
+- 019B/C depends on Coaching Intelligence scope.
+- 020B/C depends on CandidateManagerSnapshot, AdvisorManagerSnapshot, pipeline context, coaching context, and NASH conversation boundaries.
+- 021B/C depends on Coaching Intelligence scope and Forecast-safe experience boundaries.
+- 022B/C depends on Metrics, Historical Analytics, Forecast, Coaching, and Conversation view-model boundaries.
 
 ## Next Prompt Bank
 
