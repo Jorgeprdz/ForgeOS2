@@ -1136,3 +1136,84 @@ Still separate:
 - Partner Compensation remains separate.
 - Product Intelligence remains deferred to final phase.
 <!-- FORGEOS:MANAGER_OS_RDA_ATTRIBUTION_TRUTH_STATUS:END -->
+
+<!-- FORGEOS:MANAGER_OS_RDA_CONSUMER_CONTRACT_STATUS:START -->
+## Manager OS RDA Consumer Contract — Closure Status
+
+Last updated: 20260628-223246
+
+Status:
+- CLOSED
+
+Implemented infrastructure:
+- manager-rda-consumer-contract
+
+Implemented files:
+- manager-os/rda-attribution/manager-rda-consumer-contract.js
+
+Verified focal tests:
+- manager-os/tests/manager-rda-consumer-contract-master-test.js
+- manager-os/tests/manager-rda-attribution-truth-engine-master-test.js
+
+Implementation commit:
+- 216e4713688d857509483d495330ef0a632ad98f
+
+What this closure covers:
+- shared read-only consumer contract for Manager OS RDA Attribution Truth
+- reference-only mapping for Recruitment
+- reference-only mapping for Advisor Lifecycle
+- reference-only mapping for Revenue
+- reference-only mapping for Compensation
+- evidence refs and source evidence IDs preservation
+- missing evidence and missing prerequisite preservation
+- forbidden downstream transition blocking
+- blocked/unknown/not-modeled preservation
+- input immutability
+- no downstream truth creation
+
+Supported consumer modes:
+- SHARED_CONTRACT
+- RECRUITMENT_REFERENCE
+- ADVISOR_LIFECYCLE_REFERENCE
+- REVENUE_REFERENCE
+- COMPENSATION_REFERENCE
+
+Supported contract statuses:
+- MISSING
+- READY_FOR_REFERENCE
+- NEEDS_REVIEW
+- BLOCKED
+- UNKNOWN
+- NOT_MODELED
+
+Critical distinction:
+- The consumer contract is reference-only.
+- It does not create compensation ownership truth.
+- It does not create precontract truth.
+- It does not create Advisor Lifecycle truth.
+- It does not create revenue.
+- It does not create compensation.
+- It does not create payout truth.
+- It does not create payment execution.
+- It does not create automatic approval/rejection.
+- Manager OS RDA attribution truth is not compensation ownership truth.
+- Manager OS RDA attribution truth is not payout truth.
+- Unknown is not zero.
+- Blocked is not zero.
+- Missing evidence is not negative evidence.
+
+Constitutional boundaries:
+- automaticDecisionAllowed=false
+- createsCompensationOwnershipTruth=false
+- createsPrecontractTruth=false
+- createsAdvisorLifecycleTruth=false
+- createsRevenue=false
+- createsCompensation=false
+- createsPayoutTruth=false
+
+Closure certificate:
+- docs/evidence/MANAGER_OS_RDA_CONSUMER_CONTRACT_CLOSURE_CERTIFICATE.md
+
+Next safest consumer:
+- Advisor Lifecycle first, through reference-only consumption, before Compensation.
+<!-- FORGEOS:MANAGER_OS_RDA_CONSUMER_CONTRACT_STATUS:END -->
