@@ -403,3 +403,18 @@ It delays it so Forge can become visible first through a safe, read-only Alive S
 SEMAFORO=PASS
 DECISION=PASS_042A_UI_RENDERING_BOUNDARY_SCOPE_READY_FOR_IMPLEMENTATION
 NEXT=042B_UI_RENDERING_BOUNDARY_IMPLEMENTATION
+
+<!-- BEGIN FORGEOS:UI_RENDERING_BOUNDARY_IMPLEMENTATION_APPENDIX_042B -->
+## 042B Implementation Appendix
+
+- `042B_UI_RENDERING_BOUNDARY_IMPLEMENTATION` implemented UI Rendering Boundary Contract.
+- UI rendering candidate is not user interface execution.
+- Forge Alive view is not dashboard truth.
+- Read-only render model candidate can be prepared.
+- Actual UI rendering remains false.
+- Dashboard, route, component, and interactive action remain false.
+- Persistence, truth, CRM mutation, task/calendar, API calls, and send/action execution remain false.
+- Metric / Economic Truth remains separate and planned.
+- Unified Build Tree updated.
+- Next: `043A_FORGE_ALIVE_SHELL_SCOPE`
+<!-- END FORGEOS:UI_RENDERING_BOUNDARY_IMPLEMENTATION_APPENDIX_042B -->
