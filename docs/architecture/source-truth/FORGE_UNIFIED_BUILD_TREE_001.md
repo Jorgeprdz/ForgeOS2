@@ -1095,3 +1095,37 @@ GREEN AUDIT / PERSISTENCE BOUNDARY / SCOPE
 `-- RED Persistence write / file write / database write / CRM mutation / truth creation remain forbidden
 ```
 <!-- END FORGEOS:AUDIT_PERSISTENCE_SCOPE_UNIFIED_STATUS -->
+
+<!-- BEGIN FORGEOS:AUDIT_PERSISTENCE_IMPLEMENTATION_UNIFIED_STATUS -->
+## AUDIT / PERSISTENCE BOUNDARY / IMPLEMENTED
+
+```text
+GREEN AUDIT / PERSISTENCE BOUNDARY / IMPLEMENTED
+|-- GREEN 039A Audit / Persistence Boundary Scope Closed
+|-- GREEN 039B Audit / Persistence Boundary Contract Implemented
+|   |-- GREEN UI Read Model snapshot required
+|   |-- GREEN Presentation model candidate required
+|   |-- GREEN Audit event and persistence record candidates required
+|   |-- GREEN Retention, persistence, immutability, privacy policies required
+|   |-- GREEN Evidence, owners, freshness, audit, idempotency required
+|   |-- GREEN Audit persistence record candidate can be prepared
+|   `-- GREEN Persistence write and business truth remain false
+|
+|-- BLUE Next Layer
+|   `-- BLUE 040A Truth Promotion Boundary Scope
+|
+`-- RED Still Forbidden
+    |-- RED Persistence write
+    |-- RED File/database write
+    |-- RED CRM mutation
+    |-- RED Business truth creation
+    |-- RED Delivery/message truth creation
+    |-- RED Task/calendar auto-creation
+    |-- RED UI rendering
+    |-- RED Provider/external API calls
+    |-- RED Send/action execution
+    |-- RED Compensation/revenue/payout truth
+    |-- RED Ranking/punishment/HR/personality truth
+    `-- RED Manipulation/surveillance
+```
+<!-- END FORGEOS:AUDIT_PERSISTENCE_IMPLEMENTATION_UNIFIED_STATUS -->

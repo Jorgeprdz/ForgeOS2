@@ -348,3 +348,18 @@ Truth Promotion Boundary remains separate.
 SEMAFORO=PASS
 DECISION=PASS_039A_AUDIT_PERSISTENCE_SCOPE_READY_FOR_IMPLEMENTATION
 NEXT=039B_AUDIT_PERSISTENCE_IMPLEMENTATION
+
+<!-- BEGIN FORGEOS:AUDIT_PERSISTENCE_IMPLEMENTATION_APPENDIX_039B -->
+## 039B Implementation Appendix
+
+- `039B_AUDIT_PERSISTENCE_IMPLEMENTATION` implemented Audit / Persistence Boundary Contract.
+- Audit event candidate is not persistence.
+- Audit persistence candidate is not business truth.
+- Audit persistence record candidate can be prepared.
+- Persistence write remains false.
+- File/database writes remain false.
+- Business truth creation remains false.
+- Truth Promotion Boundary remains separate.
+- Unified Build Tree updated.
+- Next: `040A_TRUTH_PROMOTION_BOUNDARY_SCOPE`
+<!-- END FORGEOS:AUDIT_PERSISTENCE_IMPLEMENTATION_APPENDIX_039B -->
