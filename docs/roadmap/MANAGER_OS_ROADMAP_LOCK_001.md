@@ -425,3 +425,44 @@ Locked implementation commit: fe2a24d62ebf33729d215f77d28f2ede7466ee2d
 - Manager OS Full Product / Runtime Readiness: approximately 60%.
 
 <!-- NASH_MANAGER_CONTEXT_INTAKE_DOCS_SYNC_023D_END -->
+
+<!-- MICK_MANAGER_CONTEXT_INTAKE_DOCS_SYNC_024D_START -->
+
+## Roadmap Update — Manager OS Through 024B/C
+
+Locked implementation commit: 2d597f4398324b108d01957892ea7e8136dfa85a
+
+### Completed sequence
+
+1. Manager recruitment pipeline capture.
+2. Candidate and advisor manager snapshots.
+3. Manager Metrics Intelligence.
+4. Manager Historical Analytics.
+5. Historical storage, rollup, and query-plan boundaries.
+6. Manager Forecast Intelligence.
+7. Manager Dashboard Intelligence.
+8. Manager Coaching Intelligence.
+9. Manager Review Plan Intelligence.
+10. Manager External Context Bridge.
+11. Nash Manager Context Intake.
+12. Mick Manager Context Intake.
+
+### Current roadmap position
+
+Manager OS has completed its protected context-preparation chain and now has safe intake layers for Nash conversation-prep context and Mick behavior-review context.
+
+### Open next roadmap items
+
+- Engagement / Private Motivation Context Intake.
+- Command / Action Handoff Boundary.
+- Manager Read Model / UI Scope.
+- Persistence / Adapter Boundary Scope.
+
+### Current estimate
+
+- Manager OS Core Intelligence Spine: 100%.
+- Manager OS External Intake Layer: 66%.
+- Manager OS Architecture Roadmap: approximately 80%.
+- Manager OS Full Product / Runtime Readiness: approximately 63%.
+
+<!-- MICK_MANAGER_CONTEXT_INTAKE_DOCS_SYNC_024D_END -->
