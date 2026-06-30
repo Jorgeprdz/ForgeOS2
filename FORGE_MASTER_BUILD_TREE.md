@@ -1748,3 +1748,64 @@ WHATSAPP_SMS_DELIVERY=NOT_IMPLEMENTED
 ~~~
 
 <!-- FORGE_GENESIS_PROFILE_INTAKE_AND_NASH_LOCK_001_END -->
+
+<!-- FORGEOS:MANAGER_OS_MESSAGE_GENERATION_PROMPT_BUILDER_SCOPE_STATUS:START -->
+## Manager OS Message Generation Prompt Builder Scope 027A
+
+Status: SCOPED
+
+Mainline continuation:
+
+- 1f55a7e86eebd057d3b353d825d01b84102d9f9e
+- docs: close manager os context intelligence v1
+
+Locked state:
+
+~~~text
+MANAGER_OS_CONTEXT_INTELLIGENCE_V1=CLOSED
+MANAGER_OS_PRODUCT_RUNTIME_LAYER=OPEN
+MANAGER_OS_MESSAGE_GENERATION_PROMPT_BUILDER=SCOPED
+MESSAGE_GENERATION_RUNTIME=NOT_IMPLEMENTED
+LLM_RUNTIME=NOT_IMPLEMENTED
+MESSAGE_DRAFT_CREATION=NOT_IMPLEMENTED
+WHATSAPP_SMS_DELIVERY=NOT_IMPLEMENTED
+HUMAN_APPROVAL_GATE=REQUIRED
+LEGACY_NASH_MESSAGE_ENGINE=EXISTS_NEEDS_BOUNDARY_WRAPPER
+~~~
+
+Scope:
+
+- Manager OS Context Intelligence V1 is closed.
+- Manager OS Product Runtime Layer remains open.
+- Manager OS Message Generation Layer remains not implemented.
+- Legacy Nash message engines exist.
+- Legacy Nash message engines are not approved for direct Manager OS runtime execution.
+- Prompt Builder is scoped as a protected instruction builder, not a draft generator.
+- Prompt Builder does not call LLM runtime.
+- Prompt Builder does not create drafts.
+- Prompt Builder does not send messages.
+- Prompt Builder does not create tasks or calendar events.
+- Prompt Builder does not create downstream truth.
+- Human approval remains required before any action.
+
+Language lock:
+
+~~~text
+Prompt is not draft.
+Draft is not approved communication.
+Nash support is not Nash runtime execution.
+Message recommendation is not message send.
+Next-best-action is not execution.
+Human approval is mandatory before action.
+~~~
+
+Scope documents:
+
+- docs/architecture/source-truth/MANAGER_OS_MESSAGE_GENERATION_PROMPT_BUILDER_SCOPE_027A.md
+- docs/roadmap/MANAGER_OS_MESSAGE_GENERATION_PROMPT_BUILDER_SCOPE_027A.md
+
+Recommended next phase:
+
+- 027B_MANAGER_OS_MESSAGE_GENERATION_PROMPT_BUILDER_BOUNDARY_IMPLEMENTATION
+
+<!-- FORGEOS:MANAGER_OS_MESSAGE_GENERATION_PROMPT_BUILDER_SCOPE_STATUS:END -->
