@@ -1044,3 +1044,37 @@ GREEN UI / READ MODEL BOUNDARY / SCOPE
 `-- RED UI rendering / dashboard creation / persistence / CRM mutation / truth creation remain forbidden
 ```
 <!-- END FORGEOS:UI_READ_MODEL_SCOPE_UNIFIED_STATUS -->
+
+<!-- BEGIN FORGEOS:UI_READ_MODEL_IMPLEMENTATION_UNIFIED_STATUS -->
+## UI / READ MODEL BOUNDARY / IMPLEMENTED
+
+```text
+GREEN UI / READ MODEL BOUNDARY / IMPLEMENTED
+|-- GREEN 038A UI / Read Model Boundary Scope Closed
+|-- GREEN 038B UI / Read Model Boundary Contract Implemented
+|   |-- GREEN Provider Webhook snapshot required
+|   |-- GREEN Provider event read model candidate required
+|   |-- GREEN Display/read model/visibility policies required
+|   |-- GREEN Evidence, owners, freshness, audit required
+|   |-- GREEN Read-only presentation model candidate can be prepared
+|   |-- GREEN Warnings and limitations remain visible
+|   `-- GREEN UI rendering and persistence remain false
+|
+|-- BLUE Next Layer
+|   `-- BLUE 039A Audit / Persistence Scope
+|
+`-- RED Still Forbidden
+    |-- RED UI rendering
+    |-- RED Dashboard creation
+    |-- RED Persistence write
+    |-- RED CRM mutation
+    |-- RED Delivery/message truth creation
+    |-- RED Task/calendar auto-creation
+    |-- RED Provider/external API calls
+    |-- RED Automatic follow-up/retry
+    |-- RED Send execution
+    |-- RED Compensation/revenue/payout truth
+    |-- RED Ranking/punishment/HR/personality truth
+    `-- RED Manipulation/surveillance
+```
+<!-- END FORGEOS:UI_READ_MODEL_IMPLEMENTATION_UNIFIED_STATUS -->

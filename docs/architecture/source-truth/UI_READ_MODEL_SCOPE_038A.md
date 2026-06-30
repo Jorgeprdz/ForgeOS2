@@ -330,3 +330,18 @@ Audit / Persistence remains separate.
 SEMAFORO=PASS
 DECISION=PASS_038A_UI_READ_MODEL_SCOPE_READY_FOR_IMPLEMENTATION
 NEXT=038B_UI_READ_MODEL_IMPLEMENTATION
+
+<!-- BEGIN FORGEOS:UI_READ_MODEL_IMPLEMENTATION_APPENDIX_038B -->
+## 038B Implementation Appendix
+
+- `038B_UI_READ_MODEL_IMPLEMENTATION` implemented UI / Read Model Boundary Contract.
+- UI read model candidate is not UI rendering truth.
+- Read-only presentation model candidate can be prepared.
+- UI rendering remains false.
+- Persistence remains false.
+- Delivery/message truth creation remains false.
+- Audit / Persistence remains separate.
+- Truth Promotion Boundary remains separate.
+- Unified Build Tree updated.
+- Next: `039A_AUDIT_PERSISTENCE_SCOPE`
+<!-- END FORGEOS:UI_READ_MODEL_IMPLEMENTATION_APPENDIX_038B -->
