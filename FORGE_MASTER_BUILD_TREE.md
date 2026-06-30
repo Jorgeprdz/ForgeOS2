@@ -1969,3 +1969,28 @@ Interpretation:
 - No implementation/runtime changes were made by this restoration.
 
 <!-- FORGEOS:FORGE_GENESIS_TO_CURRENT_BUILDTREE_RESTORATION_STATUS:END -->
+
+<!-- FORGEOS:FORGE_UNIFIED_BUILDTREE_SEMAFORO_TREE_FORMAT_STATUS:START -->
+## Forge Unified Build Tree Semaforo Tree Format 002
+
+Status: CLOSED
+
+Unified Build Tree was rewritten into Genesis-style branch/subbranch/sub-subbranch format.
+
+Updated file:
+
+- docs/architecture/source-truth/FORGE_UNIFIED_BUILD_TREE_001.md
+
+Certificate:
+
+- docs/evidence/FORGE_UNIFIED_BUILDTREE_SEMAFORO_TREE_FORMAT_CERTIFICATE_002.md
+
+Source preservation:
+
+- Original Genesis Build Tree remains preserved byte-exact.
+- Unified tree is a planning/source-truth aid, not replacement for original Genesis.
+- Current implementation truth remains evidence/test/closure based.
+- Manager OS through 028B is implemented pending 028C docs sync.
+- No implementation code changed.
+
+<!-- FORGEOS:FORGE_UNIFIED_BUILDTREE_SEMAFORO_TREE_FORMAT_STATUS:END -->

@@ -1,144 +1,466 @@
 # Forge OS Unified Build Tree 001
 
-Status: UNIFIED_BUILD_TREE_GENERATED
+Status: UNIFIED_BUILD_TREE_GENERATED / SEMAFORO_TREE_FORMAT
 
 Date: 2026-06-29
 
-Purpose: combine Genesis vision, current implemented state, and constitutional boundaries into a clean planning tree.
+Purpose: combine Genesis product intent, current implementation truth, and constitutional boundaries in the original Genesis visual language.
+
+## Status Legend
+
+- 🟢 CLOSED / BUILT / VERIFIED
+- 🟡 IMPLEMENTED_PENDING_DOCS_SYNC / IN_PROGRESS / ACTIVE
+- 🔵 PLANNED / SCOPED / NOT_IMPLEMENTED
+- 🔴 BLOCKED / NEEDS_SOURCE_TRUTH / NOT_APPROVED
+- ⚫ PARKED / DEFERRED / OUT_OF_SCOPE
+
+## Source Boundary
+
+- The byte-exact Genesis original remains preserved at `docs/architecture/source-truth/FORGE_GENESIS_VISION_BUILD_TREE_ORIGINAL_001.md`.
+- This unified tree is a planning/source-truth aid, not a replacement for the original Genesis source.
+- Current implementation truth remains evidence/test/closure based.
+- Historical vision is product intent, not current implementation proof.
 
 ~~~text
 FORGE OS UNIFIED BUILD TREE 001
 
-01 Genesis Commercial Engine
-├── status: PARTIAL
-├── current implemented pieces: revenue helpers, sales conversion helpers, relationship/product/recruitment foundations
-├── open pieces: official revenue truth, commercial event ledger, end-to-end action execution gates
-├── boundary notes: revenue context is not official revenue truth; recommendation is not execution
-└── next likely workstream: source-owned commercial event and revenue boundary audit
+🟡 01 FORGE GENESIS / SIGNAL TO MESSAGE OPERATING LAYER
+│
+├── 🟢 Protected Context Foundation
+│   ├── 🟢 Manager OS Context Intelligence V1
+│   ├── 🟢 Manager External Context Bridge
+│   ├── 🟢 Nash Manager Context Intake
+│   ├── 🟢 Mick Manager Context Intake
+│   └── 🟢 Engagement / Private Motivation Context Intake
+│
+├── 🟢 Prompt Builder
+│   ├── 🟢 Manager Message Prompt Builder Boundary
+│   ├── 🟢 Manager Message Prompt Builder
+│   ├── 🟢 Prompt is not draft
+│   └── 🟢 Nash support is not Nash runtime execution
+│
+├── 🟡 LLM Draft + Safety Layer
+│   ├── 🟡 LLM Draft Intake - IMPLEMENTED_PENDING_DOCS_SYNC
+│   ├── 🟡 Message Safety Validator - IMPLEMENTED_PENDING_DOCS_SYNC
+│   ├── 🔵 028C Docs Closure
+│   ├── 🟢 Draft is not approved communication
+│   ├── 🟢 Safety validation is not human approval
+│   └── 🔴 LLM runtime execution - NOT AUTHORIZED
+│
+└── 🔵 Human Approval + Delivery Layer
+    ├── 🔵 HUMAN APPROVAL Gate
+    ├── 🔵 WhatsApp/SMS Adapter Boundary
+    ├── 🔵 Send Execution Gate
+    ├── 🔵 Task / Calendar Adapter Boundary
+    └── 🔴 Automatic send - NOT AUTHORIZED
 
-02 Advisor OS
-├── status: PARTIAL
-├── current implemented pieces: advisor execution modules, followup/prospecting/referral surfaces, advisor signal consumption by Manager OS
-├── open pieces: Advisor Experience, learning state, Benvenu, Clippy, Candy Crush
-├── boundary notes: Advisor OS owns advisor-facing execution context; Manager OS may consume protected signals only
-└── next likely workstream: Advisor Experience scope after Manager message approval/delivery gates
+🟡 02 REVENUE GENERATION ENGINE
+│
+├── 🟡 Genesis Intent
+│   ├── 🟡 Prospecting / warm market / referrals / reactivation
+│   ├── 🟡 Opportunity intelligence
+│   └── 🟡 Action-oriented commercial production support
+│
+├── 🟡 Current Implementation
+│   ├── 🟡 Revenue helpers and forecast context
+│   ├── 🟡 Manager Forecast Intelligence as scenario context
+│   └── 🟡 Sales/revenue root engines need source ownership review
+│
+├── 🔵 Open Work
+│   ├── 🔵 Official revenue source ownership
+│   ├── 🔵 Commercial event ledger
+│   └── 🔵 Revenue truth boundary closure
+│
+└── 🔴 Constitutional Blocks
+    ├── 🔴 Forecast is not official revenue truth
+    ├── 🔴 Manager OS context is not revenue truth
+    └── 🔴 Revenue truth requires official evidence
 
-03 Manager OS
-├── status: PARTIAL_WITH_MULTIPLE_CLOSED_SUBCHAINS
-├── current implemented pieces: Recruitment Foundation, RDA, snapshots, metrics, historical analytics, forecast, coaching, dashboard, review plan, context intake, prompt builder, draft intake, safety validator
-├── open pieces: Human Approval Gate, delivery adapters, Organization Health, Leadership Intelligence
-├── boundary notes: no punishment, ranking, promotion, HR, lifecycle, revenue, compensation, payout, send, task, calendar, or automatic decision truth
-└── next likely workstream: 028C docs sync, then Human Approval Gate scope
+🟡 03 SALES CONVERSION ENGINE
+│
+├── 🟡 Genesis Intent
+│   ├── 🟡 Objection handling
+│   ├── 🟡 Sales scripts and adaptive outreach
+│   └── 🟡 Conversion guidance for advisors
+│
+├── 🟡 Current Implementation
+│   ├── 🟡 Root sales, script, objection and outreach helpers
+│   ├── 🟡 Advisor OS execution modules
+│   └── 🟡 Relationship and Nash surfaces used as context
+│
+├── 🔵 Open Work
+│   ├── 🔵 Branch-level evidence audit
+│   ├── 🔵 Source/freshness boundaries
+│   └── 🔵 Advisor OS conversation integration
+│
+└── 🔴 Prohibited Surfaces
+    ├── 🔴 Recommendation is not execution
+    ├── 🔴 No invented product claims
+    └── 🔴 No unsupported income/protection diagnosis
 
-04 Nash Conversation Intelligence
-├── status: PARTIAL_BOUNDARY_PROTECTED
-├── current implemented pieces: legacy Nash runtime files, Nash Manager Context Intake
-├── open pieces: direct runtime migration, safety wrapper, Advisor OS conversation integration
-├── boundary notes: Nash support is not Nash runtime execution; next-best-action is not execution
-└── next likely workstream: keep Nash behind intake/approval boundaries
+🟡 04 NASH CONVERSATION INTELLIGENCE
+│
+├── 🟡 Genesis Intent
+│   ├── 🟡 Intent
+│   ├── 🟡 Objections
+│   ├── 🟡 Next Best Action
+│   └── 🟡 Conversation guidance
+│
+├── 🟡 Current Implementation
+│   ├── 🟡 Legacy Nash runtime files
+│   ├── 🟡 Nash message recommendation engine
+│   ├── 🟡 Nash next-best-action engine
+│   ├── 🟢 Nash Manager Context Intake
+│   └── 🟢 Manager/Nash context bridge
+│
+├── 🔵 Open Work
+│   ├── 🔵 Direct runtime migration review
+│   ├── 🔵 Advisor OS conversation integration
+│   └── 🔵 Nash runtime safety wrapper
+│
+└── 🔴 Boundary Locks
+    ├── 🔴 Nash support is not Nash runtime execution
+    ├── 🔴 Next-best-action is not execution
+    └── 🔴 Legacy Nash message output is not approved communication
 
-05 Message Generation Operating Chain
-├── status: IMPLEMENTED_PENDING_DOCS_SYNC for 028B
-├── current implemented pieces: Prompt Builder, LLM Draft Intake Boundary, Message Safety Validator
-├── open pieces: 028C docs sync, Human Approval Gate, delivery adapter, send execution gate, UI/read model, persistence
-├── boundary notes: prompt is not draft; draft is not approved communication; safety validation is not human approval; safeForSend remains false
-└── next likely workstream: 028C_LLM_DRAFT_INTAKE_AND_MESSAGE_SAFETY_VALIDATOR_DOCS_SYNC
+🟡 05 PRODUCT INTELLIGENCE ENGINE
+│
+├── 🟡 Genesis Intent
+│   ├── 🟡 Understand products
+│   ├── 🟡 Support product fit
+│   └── 🟡 Help advisors explain value
+│
+├── 🟡 Current Implementation
+│   ├── 🟡 Product Intelligence coverage subset
+│   ├── 🟡 GMM validation surfaces
+│   ├── 🟡 Product/projection helpers
+│   └── 🟡 Coverage tests and docs exist
+│
+├── 🔵 Open Work
+│   ├── 🔵 Full product evidence packets
+│   ├── 🔵 Quote-to-policy comparison closure
+│   └── 🔵 Product truth source registry
+│
+└── 🔴 Constitutional Blocks
+    ├── 🔴 No invented products
+    ├── 🔴 No invented benefits
+    ├── 🔴 No invented premiums
+    └── 🔴 Product truth comes from documentation
 
-06 Product Intelligence
-├── status: PARTIAL
-├── current implemented pieces: coverage subset, GMM validation surfaces, projection/product helpers
-├── open pieces: full evidence packets, product truth closure, quote/policy comparison
-├── boundary notes: no invented products, benefits, premiums, or unsupported claims
-└── next likely workstream: evidence packet and source ownership closure
+🟡 06 RELATIONSHIP INTELLIGENCE ENGINE
+│
+├── 🟡 Genesis Intent
+│   ├── 🟡 Relationship history
+│   ├── 🟡 Next actions
+│   ├── 🟡 Life events
+│   └── 🟡 Referral opportunities
+│
+├── 🟡 Current Implementation
+│   ├── 🟡 Relationship timeline engine
+│   ├── 🟡 Relationship health engine
+│   ├── 🟡 Referral opportunity engine
+│   └── 🟡 Relationship master engine/tests
+│
+├── 🔵 Open Work
+│   ├── 🔵 Branch-level closure
+│   ├── 🔵 Evidence/source/freshness contract
+│   └── 🔵 Manager/Advisor consumption boundary
+│
+└── 🔴 Boundary Locks
+    ├── 🔴 Relationship recommendation is not execution
+    └── 🔴 Missing relationship evidence is not negative evidence
 
-07 Relationship Intelligence
-├── status: PARTIAL
-├── current implemented pieces: timeline, health, next action, referral/opportunity engines
-├── open pieces: branch-level closure, freshness/source owner contracts
-├── boundary notes: relationship recommendation is not execution
-└── next likely workstream: relationship evidence/freshness boundary
+🔵 07 LEARNING INTELLIGENCE ENGINE
+│
+├── 🔵 Genesis Intent
+│   ├── 🔵 Advisor growth
+│   ├── 🔵 Feature learning state
+│   ├── 🔵 Progressive discovery
+│   └── 🔵 Behavioral adaptation
+│
+├── 🟡 Current Implementation
+│   ├── 🟡 Mick Manager Context Intake
+│   ├── 🟡 Productivity / behavior context surfaces
+│   └── 🔵 Advisor Experience learning modules not implemented
+│
+├── 🔵 Open Work
+│   ├── 🔵 Learning state contract
+│   ├── 🔵 Benvenu / Clippy / Candy Crush boundaries
+│   └── 🔵 Advisor Experience implementation scope
+│
+└── 🔴 Boundary Locks
+    ├── 🔴 Learning signal is not promotion truth
+    ├── 🔴 Streak is not compensation truth
+    └── 🔴 Mission completion is not Advisor Lifecycle truth
 
-08 Revenue Intelligence
-├── status: PARTIAL / BLOCKED_BY_EVIDENCE for official truth
-├── current implemented pieces: revenue helpers and forecast context
-├── open pieces: official revenue source ownership and statement/event truth
-├── boundary notes: forecast is not official revenue truth
-└── next likely workstream: revenue truth source registry
+🟡 08 POLICY & SALES OPERATIONS
+│
+├── 🟡 Genesis Intent
+│   ├── 🟡 Policy detail and timeline
+│   ├── 🟡 Renewals and follow-up
+│   ├── 🟡 Tasks and operational center
+│   └── 🟡 OCR / institutional evidence intake
+│
+├── 🟡 Current Implementation
+│   ├── 🟡 policy-operations/
+│   ├── 🟡 Root policy/task helpers
+│   └── 🟡 Legacy operational surfaces
+│
+├── 🔵 Open Work
+│   ├── 🔵 Branch-level closure
+│   ├── 🔵 Task/calendar execution boundary
+│   └── 🔵 Policy source truth registry
+│
+└── 🔴 Boundary Locks
+    ├── 🔴 Task suggestion is not task execution
+    ├── 🔴 Calendar context is not calendar write
+    └── 🔴 Policy facts require evidence
 
-09 Compensation / Economic Intelligence
-├── status: PARTIAL
-├── current implemented pieces: Partner Compensation candidate foundation and monthly income candidate closure
-├── open pieces: official statement ingestion, payout operations, payment execution truth
-├── boundary notes: candidate calculation is not payment truth; payout truth requires official evidence
-└── next likely workstream: official statement ingestion scope
+🟡 09 MANAGER OS / MANAGER & TEAM INTELLIGENCE
+│
+├── 🟢 Recruitment + Candidate Foundations
+│   ├── 🟢 Recruitment Foundation
+│   ├── 🟢 Candidate Intelligence
+│   ├── 🟢 Interview Flow
+│   ├── 🟢 Recruitment Pipeline
+│   ├── 🟢 Recruitment-to-Precontract Gate
+│   └── 🟢 CandidateManagerSnapshot
+│
+├── 🟢 Manager Context + Analytics
+│   ├── 🟢 Advisor Signal Consumer Contract
+│   ├── 🟢 Advisor Tracking Boundary
+│   ├── 🟢 AdvisorManagerSnapshot
+│   ├── 🟢 Metrics Intelligence
+│   ├── 🟢 Historical Analytics
+│   ├── 🟢 Historical Storage / Rollup / Query Plan
+│   ├── 🟢 Forecast Intelligence
+│   ├── 🟢 Coaching Intelligence
+│   ├── 🟢 Dashboard Intelligence
+│   └── 🟢 Review Plan Intelligence
+│
+├── 🟢 External Context Intake
+│   ├── 🟢 External Context Bridge
+│   ├── 🟢 Nash Context Intake
+│   ├── 🟢 Mick Behavior Context Intake
+│   └── 🟢 Engagement / Private Motivation Context Intake
+│
+├── 🟡 Message Generation Boundary
+│   ├── 🟢 Prompt Builder
+│   ├── 🟡 LLM Draft Intake - IMPLEMENTED_PENDING_DOCS_SYNC
+│   ├── 🟡 Message Safety Validator - IMPLEMENTED_PENDING_DOCS_SYNC
+│   ├── 🔵 Human Approval Gate
+│   └── 🔵 Delivery Adapter Boundary
+│
+├── 🔵 Open Manager Domains
+│   ├── 🔵 Organization Health Intelligence
+│   ├── 🔵 Leadership Intelligence
+│   └── 🔵 Partner Intelligence as separate future workstream
+│
+└── 🔴 Manager OS Truth Boundaries
+    ├── 🔴 No punishment truth
+    ├── 🔴 No human ranking truth
+    ├── 🔴 No promotion truth
+    ├── 🔴 No Advisor Lifecycle truth
+    ├── 🔴 No revenue truth
+    ├── 🔴 No compensation truth
+    └── 🔴 No payout truth
 
-10 Forecast / Productivity / Conservation Intelligence
-├── status: PARTIAL
-├── current implemented pieces: Manager Forecast Intelligence, Manager Metrics, Mick context intake, product projections
-├── open pieces: conservation closure, broad productivity branch closure
-├── boundary notes: forecast/productivity/conservation signals are context only, not punishment or promotion truth
-└── next likely workstream: conservation/productivity source boundary discovery
+🟡 10 ADVISOR OS / ADVISOR EXPERIENCE INTELLIGENCE
+│
+├── 🟡 Advisor OS Execution Context
+│   ├── 🟡 Prospecting
+│   ├── 🟡 Follow-up
+│   ├── 🟡 Referrals
+│   ├── 🟡 Advisor performance / score / monitor surfaces
+│   └── 🟡 Advisor-facing execution modules
+│
+├── 🔵 Advisor Experience Vision
+│   ├── 🔵 Advisor Setup
+│   ├── 🔵 Benvenu Experience
+│   ├── 🔵 Advisor Baseline Snapshot
+│   ├── 🔵 Progressive Discovery
+│   ├── 🔵 Clippy Engine
+│   ├── 🔵 Candy Crush Experience
+│   └── 🔵 Feature Learning State
+│
+└── 🔴 Boundary Locks
+    ├── 🔴 Advisor OS owns advisor-facing execution context
+    ├── 🔴 Manager OS consumes protected signals only
+    └── 🔴 Experience progress is not performance/promotion truth
 
-11 Recruitment / Career / Advisor Lifecycle
-├── status: Recruitment CLOSED; Advisor Lifecycle PARTIAL
-├── current implemented pieces: Recruitment Foundation, CandidateManagerSnapshot, RDA prerequisite, Advisor Lifecycle RDA reference consumer
-├── open pieces: Advisor Lifecycle truth engines and career transition boundaries
-├── boundary notes: READY_FOR_PRECONTRACT_REVIEW is not PRECONTRACT; lifecycle reference is not lifecycle truth
-└── next likely workstream: Advisor Lifecycle truth boundary scope
+🟢 11 RECRUITMENT / CANDIDATE INTELLIGENCE
+│
+├── 🟢 Recruitment Foundation Closed
+│   ├── 🟢 Candidate Intelligence
+│   ├── 🟢 Evidence-to-score provenance
+│   ├── 🟢 Interview Flow
+│   ├── 🟢 Recruitment Pipeline
+│   ├── 🟢 Recruitment-to-Precontract Gate
+│   └── 🟢 Recruitment RDA Prerequisite Boundary
+│
+├── 🟢 Manager Recruitment Capture
+│   ├── 🟢 Recruitment Event Capture Contract
+│   └── 🟢 CandidateManagerSnapshot
+│
+└── 🔴 Boundary Locks
+    ├── 🔴 Candidate score is not absolute truth
+    ├── 🔴 Candidate recommendation is decision support
+    ├── 🔴 READY_FOR_PRECONTRACT_REVIEW is not PRECONTRACT
+    └── 🔴 Recruitment does not create lifecycle/revenue/compensation/payout truth
 
-12 Policy & Sales Operations
-├── status: PARTIAL
-├── current implemented pieces: policy operations folder and root policy/task helpers
-├── open pieces: branch closure, task/calendar approval boundaries
-├── boundary notes: task suggestion is not task execution
-└── next likely workstream: policy source and task execution boundary
+🟡 12 CAREER INTELLIGENCE / ADVISOR LIFECYCLE
+│
+├── 🟢 RDA Reference Consumption
+│   ├── 🟢 Manager OS RDA Attribution Truth
+│   ├── 🟢 Manager OS RDA Consumer Contract
+│   └── 🟢 Advisor Lifecycle RDA Reference Consumer
+│
+├── 🟡 Career Chain Current Route
+│   ├── 🟢 Candidate
+│   ├── 🟢 Precontract
+│   ├── 🟢 Advisor
+│   ├── 🟢 Manager / Partner
+│   └── 🟢 Director
+│
+├── 🔵 Open Work
+│   ├── 🔵 Advisor Lifecycle truth boundary
+│   ├── 🔵 Career OS Transition Engine
+│   └── 🔵 Lifecycle activation/stage truth
+│
+└── 🔴 Boundary Locks
+    ├── 🔴 RDA reference is not lifecycle truth
+    ├── 🔴 Manager self-confirmation is not ownership truth
+    └── 🔴 Senior Advisor / SENIOR_ADVISOR removed as valid stage
 
-13 Universal Command OS / Alfred
-├── status: PARTIAL
-├── current implemented pieces: universal-command-engine and platform command surfaces
-├── open pieces: command action authorization, approval gate integration
-├── boundary notes: command is not execution without approval
-└── next likely workstream: command/action safety gate after Human Approval Gate
+🟡 13 COMPENSATION INTELLIGENCE
+│
+├── 🟡 Candidate Calculation Coverage
+│   ├── 🟡 Partner Compensation Candidate Foundation Subset
+│   ├── 🟢 Monthly Income Candidate Orchestrator
+│   ├── 🟢 Produccion / Productividad / Multiplicador / Apoyos
+│   └── 🟢 Test G / Test H scenarios
+│
+├── 🔵 Open Work
+│   ├── 🔵 Official statement ingestion
+│   ├── 🔵 Payout operations
+│   ├── 🔵 Payment execution truth
+│   └── 🔵 Broader compensation branch closure
+│
+└── 🔴 Boundary Locks
+    ├── 🔴 Candidate calculation is not payment truth
+    ├── 🔴 Payout truth requires official evidence
+    ├── 🔴 Forecast is not payout truth
+    └── 🔴 RDA attribution is not compensation ownership truth
 
-14 Platform Services
-├── status: PARTIAL
-├── current implemented pieces: platform services, runtime baseline, sync pieces, compatibility shell
-├── open pieces: full offline/sync closure, UI modernization
-├── boundary notes: platform owns infrastructure, not business truth
-└── next likely workstream: runtime/persistence boundary hardening
+🟡 14 FORECAST / PRODUCTIVITY / CONSERVATION INTELLIGENCE
+│
+├── 🟢 Manager Forecast + Metrics
+│   ├── 🟢 Manager Metrics Intelligence
+│   ├── 🟢 Historical Analytics
+│   ├── 🟢 Forecast Intelligence
+│   └── 🟢 Scenario context only
+│
+├── 🟡 Productivity / Mick
+│   ├── 🟢 Mick Manager Context Intake
+│   ├── 🟡 Productivity Intelligence branch partial
+│   └── 🔵 Branch-level closure pending
+│
+├── 🟡 Conservation
+│   ├── 🟡 Conservation surfaces need review
+│   └── 🔵 Evidence-backed scope pending
+│
+└── 🔴 Boundary Locks
+    ├── 🔴 Forecast is not payout/revenue/compensation truth
+    ├── 🔴 Productivity signal is not punishment truth
+    └── 🔴 Conservation risk is not payout or punishment truth
 
-15 Evidence / Provenance / Rule Packs / Operational Clocks
-├── status: PARTIAL
-├── current implemented pieces: truth docs, recruitment provenance, rule-pack isolation, historical storage/query-plan contracts
-├── open pieces: unified evidence registry, operational clock ownership, RuleSnapshot closure
-├── boundary notes: missing evidence is not negative evidence; one metric has one owner
-└── next likely workstream: evidence and operational clock registry
+🟡 15 UNIVERSAL COMMAND OS / ALFRED
+│
+├── 🟡 Current Implementation
+│   ├── 🟡 universal-command-engine.js
+│   ├── 🟡 platform/commands/
+│   └── 🟡 Command surfaces need governance review
+│
+├── 🔵 Open Work
+│   ├── 🔵 Command action authorization
+│   ├── 🔵 Human Approval Gate integration
+│   └── 🔵 Action execution boundary
+│
+└── 🔴 Boundary Locks
+    ├── 🔴 Command is not execution
+    └── 🔴 No automatic action without approval
 
-16 UI / Read Model / Persistence
-├── status: PENDING / PARTIAL legacy compatibility
-├── current implemented pieces: legacy UI/runtime surfaces and platform shell pieces
-├── open pieces: message read model, persistence adapter, UI approval workflow
-├── boundary notes: UI cannot create business truth or bypass approval
-└── next likely workstream: read model scope after approval gate
+🟡 16 PLATFORM SERVICES
+│
+├── 🟡 Current Implementation
+│   ├── 🟡 platform/
+│   ├── 🟡 Runtime Integrity Baseline
+│   ├── 🟡 Offline / Sync partial
+│   ├── 🟡 app.js compatibility facade
+│   ├── 🟡 index.html legacy host
+│   └── 🟡 service-worker compatibility surface
+│
+├── 🔵 Open Work
+│   ├── 🔵 Full offline/sync closure
+│   ├── 🔵 Runtime/persistence boundary hardening
+│   └── 🔵 UI modernization
+│
+└── 🔴 Boundary Locks
+    ├── 🔴 Platform owns infrastructure, not business truth
+    └── 🔴 app/index/service-worker require explicit approval
 
-17 Human Approval / Delivery / Runtime Gates
-├── status: PENDING
-├── current implemented pieces: required boundaries documented; no send execution implemented
-├── open pieces: Human Approval Gate, WhatsApp/SMS delivery adapter, Send Execution Gate, task/calendar adapter
-├── boundary notes: safety validation is not human approval; delivery requires explicit approval
-└── next likely workstream: 029A_HUMAN_APPROVAL_GATE_SCOPE
+🟡 17 EVIDENCE, PROVENANCE, RULES, PERIODS, SOURCE TRUTH
+│
+├── 🟡 Evidence + Provenance
+│   ├── 🟡 Truth governance docs
+│   ├── 🟢 Recruitment evidence provenance
+│   ├── 🟡 Message evidence refs/source owners/freshness
+│   └── 🔵 Unified evidence registry pending
+│
+├── 🟡 Rules + Periods
+│   ├── 🟡 Rule Packs / SMNYL boundaries
+│   ├── 🟡 Historical storage/query-plan contracts
+│   ├── 🔵 RuleSnapshot closure pending
+│   └── 🔵 Operational Clock ownership pending
+│
+└── 🔴 Boundary Locks
+    ├── 🔴 Unknown is not zero
+    ├── 🔴 Missing evidence is not negative evidence
+    ├── 🔴 One metric has one owner
+    └── 🔴 Forge Core does not hardcode carrier-specific truth
 
-18 Parked / Future / Not Modeled
-├── status: PARKED / NEEDS_REVIEW
-├── current implemented pieces: none for unratified candidates
-├── open pieces: Russell, Proposal Intelligence, Organization Health, Leadership Intelligence, unknown legacy roots
-├── boundary notes: discovery/candidate docs do not authorize implementation
-└── next likely workstream: evidence-first discovery only
+⚫ 18 PARKED / DEFERRED / NOT APPROVED WORK
+│
+├── ⚫ Parked / Deferred
+│   ├── ⚫ Proposal Intelligence
+│   ├── ⚫ Russell Identity Intelligence
+│   ├── ⚫ Unknown legacy root modules
+│   └── ⚫ Future candidates without ratification
+│
+├── 🔵 Future / Planned
+│   ├── 🔵 Organization Health
+│   ├── 🔵 Leadership Intelligence
+│   ├── 🔵 Partner Intelligence
+│   ├── 🔵 Human Approval Gate
+│   ├── 🔵 Delivery Adapter
+│   └── 🔵 UI / Read Model / Persistence
+│
+└── 🔴 Not Approved
+    ├── 🔴 Discovery docs do not authorize implementation
+    ├── 🔴 Candidate docs do not authorize implementation
+    ├── 🔴 Historical vision is not current implementation truth
+    └── 🔴 No stage/commit/push without explicit gate
 ~~~
 
-## Planning Notes
+## Current Active Next Workstream
 
-- This unified tree is not a replacement for byte-preserved Genesis history.
-- This unified tree is not production readiness proof.
+~~~text
+NEXT=028C_LLM_DRAFT_INTAKE_AND_MESSAGE_SAFETY_VALIDATOR_DOCS_SYNC
+~~~
+
+## Non-Replacement Declaration
+
+- This unified tree does not replace the byte-preserved Genesis Build Tree.
+- This unified tree does not make planned work implemented.
+- This unified tree does not create production readiness.
 - Current implementation truth still requires evidence, tests, and closure artifacts.
-- The active next workstream remains `028C_LLM_DRAFT_INTAKE_AND_MESSAGE_SAFETY_VALIDATOR_DOCS_SYNC` unless explicitly changed.
