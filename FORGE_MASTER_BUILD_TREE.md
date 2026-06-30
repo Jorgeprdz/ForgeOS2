@@ -1,5 +1,26 @@
 # FORGE OS Master Build Tree
 
+<!-- FORGEOS:NASH_MICK_NBA_RECONNECTION_SCOPE_STATUS:START -->
+## Nash + Mick + NBA Reconnection Scope 006A
+
+Status: SCOPED / READY_FOR_006B_C_CONTRACT_IMPLEMENTATION
+
+- Nash + Mick + NBA reconnection scope completed.
+- NBA is defined as Next Best Action + Reason Why.
+- Forge Northstar is locked for this layer: signals -> voluntary explained action.
+- Nash safe modern path: `nash/context-intake/*` plus `manager-os/external-context-bridge/manager-nash-conversation-context-bridge.js`.
+- Mick safe modern path: `mick/context-intake/*` plus `manager-os/external-context-bridge/manager-mick-behavior-context-bridge.js`, Manager OS review-plan intelligence, and Manager OS coaching intelligence.
+- Legacy Nash and Mick modules remain source material only and are not approved for direct runtime execution.
+- NBA Reason Why contract must consume protected/sanitized context only.
+- NBA Reason Why contract must not execute Nash runtime, Mick runtime, message send, task creation, calendar creation, compensation/revenue/payout truth, ranking, punishment, HR truth, promotion truth, or Advisor Lifecycle truth.
+- Human approval remains mandatory before action.
+
+Scope doc: `docs/architecture/source-truth/NASH_MICK_NBA_RECONNECTION_SCOPE_006A.md`
+
+Certificate: `docs/evidence/NASH_MICK_NBA_RECONNECTION_SCOPE_CERTIFICATE_006A.md`
+
+<!-- FORGEOS:NASH_MICK_NBA_RECONNECTION_SCOPE_STATUS:END -->
+
 <!-- FORGEOS:MICK_EXISTING_ENGINE_INVENTORY_AND_PURPOSE_DISCOVERY_STATUS:START -->
 ## Mick Existing Engine Inventory and Purpose Discovery 005B
 
