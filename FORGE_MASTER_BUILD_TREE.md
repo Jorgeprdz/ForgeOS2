@@ -1580,3 +1580,69 @@ signals → protected context → prompt builder → LLM draft → Forge validat
 - No unauthorized product, policy, revenue, compensation, payout, HR, lifecycle, precontract, hiring, or automatic decision truth.
 
 <!-- FORGE_GENESIS_MESSAGE_GENERATION_ROADMAP_SYNC_024E_END -->
+
+<!-- ENGAGEMENT_PRIVATE_MOTIVATION_CONTEXT_INTAKE_DOCS_SYNC_025D_START -->
+
+## Manager OS Continuity Sync — Through 025B/C
+
+Status: IMPLEMENTED_AND_PUSHED
+Latest implementation commit: 6b0c9ec932cd89e2f2cfbe48a1716a387f46acf1
+
+### Implemented chain
+
+| Layer | Status | Canonical scope |
+| --- | --- | --- |
+| Manager Recruitment Pipeline Capture | IMPLEMENTED | Protected candidate/recruitment context capture. |
+| Candidate Manager Snapshot | IMPLEMENTED | Candidate manager-facing snapshot context only. |
+| Advisor Manager Snapshot | IMPLEMENTED | Advisor manager-facing snapshot context only. |
+| Manager Metrics Intelligence | IMPLEMENTED | Protected metric context only; no downstream truth. |
+| Manager Historical Analytics | IMPLEMENTED | Historical review context only; no raw truth mutation. |
+| Historical Storage / Rollup / Query Plan Contracts | IMPLEMENTED | Query planning and rollup contracts only; no query execution or writes. |
+| Manager Forecast Intelligence | IMPLEMENTED | Scenario context only; not revenue, promotion, payout, lifecycle, or automatic decision truth. |
+| Manager Dashboard Intelligence | IMPLEMENTED | Manager review dashboard context only; no UI/rendering/chart truth. |
+| Manager Coaching Intelligence | IMPLEMENTED | Manager conversation/coaching context only; no HR/disciplinary truth. |
+| Manager Review Plan Intelligence | IMPLEMENTED | Review planning context only; no task/calendar/message creation. |
+| Manager External Context Bridge | IMPLEMENTED | Sanitized context export for Nash, Mick, and Engagement consumers only. |
+| Nash Manager Context Intake | IMPLEMENTED | Intake/validation for Manager OS sanitized Nash conversation-prep packets only. |
+| Mick Manager Context Intake | IMPLEMENTED | Intake/validation for Manager OS sanitized Mick behavior-review packets only. |
+| Engagement / Private Motivation Context Intake | IMPLEMENTED | Intake/validation for Manager OS sanitized engagement-support packets only. |
+| Forge Genesis Message Generation Roadmap | DOCUMENTED | Signal-to-message operating layer required for Manager OS and Advisor OS. |
+
+### Progress estimate
+
+| Area | Estimate | Notes |
+| --- | ---: | --- |
+| Manager OS Core Intelligence Spine | 100% | Current defined context spine is complete through External Context Bridge and all three external intake consumers. |
+| Manager OS External Intake Layer | 100% | Nash, Mick, and Engagement intakes are complete. |
+| Manager OS Architecture Roadmap | ~86% | Context intelligence chain and external intakes are complete; closure report and operating layers remain. |
+| Manager OS Full Product / Runtime Readiness | ~66% | No UI, persistence, message generation runtime, WhatsApp/SMS delivery, or live operating surface yet. |
+
+### Boundary lock
+
+- Progress estimate is planning context only.
+- Engagement / Private Motivation Context Intake is intake/validation context only.
+- Engagement receives private motivation review context only.
+- No engagement runtime execution.
+- No private intent truth.
+- No motivation truth.
+- No emotional diagnosis.
+- No burnout diagnosis.
+- No psychological profile truth.
+- No Purpose Vault read/write.
+- No hidden personalization.
+- No manipulation.
+- No shame mechanics.
+- No scarcity pressure.
+- No manager leverage.
+- No client manipulation.
+- No message sending.
+- No draft creation.
+- No task creation.
+- No calendar writes.
+- No HR, disciplinary, ranking, promotion, punishment, termination, revenue, compensation, payout, lifecycle, precontract, hiring, or automatic decision truth.
+
+### Next step
+
+026A — Manager OS Context Intelligence V1 Closure Report.
+
+<!-- ENGAGEMENT_PRIVATE_MOTIVATION_CONTEXT_INTAKE_DOCS_SYNC_025D_END -->

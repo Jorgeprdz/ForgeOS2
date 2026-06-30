@@ -518,3 +518,56 @@ Message Generation must consume those protected contexts and never bypass them.
 Manager OS may prepare and validate message drafts, but it must not automatically send messages or create drafts/tasks/calendar events without explicit human authorization.
 
 <!-- FORGE_GENESIS_MESSAGE_GENERATION_ROADMAP_SYNC_024E_END -->
+
+<!-- ENGAGEMENT_PRIVATE_MOTIVATION_CONTEXT_INTAKE_DOCS_SYNC_025D_START -->
+
+## Roadmap Update — Manager OS Through 025B/C
+
+Locked implementation commit: 6b0c9ec932cd89e2f2cfbe48a1716a387f46acf1
+
+### Completed sequence
+
+1. Manager recruitment pipeline capture.
+2. Candidate and advisor manager snapshots.
+3. Manager Metrics Intelligence.
+4. Manager Historical Analytics.
+5. Historical storage, rollup, and query-plan boundaries.
+6. Manager Forecast Intelligence.
+7. Manager Dashboard Intelligence.
+8. Manager Coaching Intelligence.
+9. Manager Review Plan Intelligence.
+10. Manager External Context Bridge.
+11. Nash Manager Context Intake.
+12. Mick Manager Context Intake.
+13. Engagement / Private Motivation Context Intake.
+14. Forge Genesis Message Generation Roadmap documentation.
+
+### Current roadmap position
+
+Manager OS has completed its protected context-preparation chain and now has safe intake layers for Nash conversation-prep context, Mick behavior-review context, and Engagement private motivation review context.
+
+### External Intake Layer status
+
+The Manager OS External Intake Layer is now complete for V1:
+
+- Nash: conversation preparation without pressure.
+- Mick: behavior review without surveillance.
+- Engagement: private motivation review without manipulation.
+
+### Open next roadmap items
+
+- 026A — Manager OS Context Intelligence V1 Closure Report.
+- Message Generation Prompt Builder.
+- LLM Draft Intake + Message Safety Validator.
+- Human Approval Gate.
+- WhatsApp/SMS Delivery Adapter Boundary.
+- Send Execution Gate.
+
+### Current estimate
+
+- Manager OS Core Intelligence Spine: 100%.
+- Manager OS External Intake Layer: 100%.
+- Manager OS Architecture Roadmap: approximately 86%.
+- Manager OS Full Product / Runtime Readiness: approximately 66%.
+
+<!-- ENGAGEMENT_PRIVATE_MOTIVATION_CONTEXT_INTAKE_DOCS_SYNC_025D_END -->
