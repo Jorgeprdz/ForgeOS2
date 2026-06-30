@@ -1413,3 +1413,19 @@ GREEN STATIC PREVIEW DEPLOYMENT BOUNDARY / SCOPE
 `-- RED deploy / publish / settings mutation / public URL / DNS / live app / API / auth / analytics / storage / CRM / truth / action remain forbidden
 ```
 <!-- END FORGEOS:STATIC_PREVIEW_DEPLOYMENT_BOUNDARY_SCOPE_UNIFIED_STATUS -->
+
+<!-- BEGIN FORGEOS:STATIC_PREVIEW_DEPLOYMENT_BOUNDARY_IMPLEMENTATION_UNIFIED_STATUS -->
+## STATIC PREVIEW DEPLOYMENT BOUNDARY / IMPLEMENTED
+
+```text
+GREEN STATIC PREVIEW DEPLOYMENT BOUNDARY / IMPLEMENTED
+|-- GREEN 045A Static Preview Deployment Boundary Scope Closed
+|-- GREEN 045B Static Preview Deployment Boundary Contract Implemented
+|-- GREEN Public surface candidate review can be prepared
+|-- GREEN GitHub Pages availability is not deployment authorization
+|-- GREEN Rollback and expiration notes remain visible
+|-- BLUE 046A Static Preview Public Surface Decision Scope
+|-- BLUE Metric / Economic Truth Scope
+`-- RED deploy / publish / settings mutation / public URL / DNS / custom domain / live app / API / auth / analytics / storage / CRM / truth / action remain forbidden
+```
+<!-- END FORGEOS:STATIC_PREVIEW_DEPLOYMENT_BOUNDARY_IMPLEMENTATION_UNIFIED_STATUS -->
