@@ -1,5 +1,24 @@
 # FORGE OS Master Build Tree
 
+<!-- FORGEOS:FORGE_ROOT_ENGINE_INVENTORY_AND_BUILDTREE_CROSSWALK_STATUS:START -->
+## Forge Root Engine Inventory and Build Tree Crosswalk 004
+
+Status: ROOT_ENGINE_INVENTORY_CROSSWALKED
+
+- Root-level engine inventory completed from tracked files only.
+- Crosswalk completed against the unified semaforo Build Tree.
+- Unified Build Tree updated with root-level placement-review section.
+- Inventory document: `docs/architecture/source-truth/FORGE_ROOT_ENGINE_INVENTORY_AND_BUILDTREE_CROSSWALK_004.md`
+- Certificate: `docs/evidence/FORGE_ROOT_ENGINE_INVENTORY_AND_BUILDTREE_CROSSWALK_CERTIFICATE_004.md`
+- No code moved.
+- No implementation changed.
+- No imports rewritten.
+- A detected file does not equal closure.
+- A root-level engine is not automatically source truth.
+- Unknown remains unknown.
+
+<!-- FORGEOS:FORGE_ROOT_ENGINE_INVENTORY_AND_BUILDTREE_CROSSWALK_STATUS:END -->
+
 ## Status Legend
 
 - 🟢 Cerrado (Ratified/Locked)

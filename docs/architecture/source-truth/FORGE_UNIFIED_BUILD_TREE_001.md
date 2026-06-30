@@ -458,6 +458,51 @@ FORGE OS UNIFIED BUILD TREE 001
 NEXT=028C_LLM_DRAFT_INTAKE_AND_MESSAGE_SAFETY_VALIDATOR_DOCS_SYNC
 ~~~
 
+## Root-Level Engine Inventory / Placement Review
+
+~~~text
+🟡 ROOT-LEVEL ENGINE INVENTORY / PLACEMENT REVIEW
+│
+├── 🟡 Detected Root-Level Engines
+│   ├── 🟡 Total tracked root-level engine/module candidates: 219
+│   ├── 🟡 Nash Conversation Intelligence: 34 candidates - confidence HIGH
+│   ├── 🟡 Product Intelligence Engine: 37 candidates - confidence MEDIUM
+│   ├── 🟡 Sales Conversion Engine: 25 candidates - confidence MEDIUM
+│   ├── 🟡 Relationship Intelligence Engine: 14 candidates - confidence HIGH
+│   ├── 🟡 Policy & Sales Operations: 11 candidates - confidence MEDIUM
+│   ├── 🟡 Manager OS / Manager & Team Intelligence: 8 candidates - confidence MEDIUM
+│   ├── 🟡 Forecast / Productivity / Conservation Intelligence: 7 candidates - confidence HIGH
+│   ├── 🟡 Universal Command OS / Alfred: 7 candidates - confidence MEDIUM
+│   ├── 🟡 Platform Services: 9 candidates - confidence MEDIUM
+│   ├── 🟡 Evidence / Provenance / Source Truth: 5 candidates - confidence MEDIUM
+│   ├── 🟡 Revenue Generation Engine: 3 candidates - confidence HIGH
+│   ├── 🟡 Compensation Intelligence: 2 candidates - confidence HIGH
+│   ├── 🟡 Advisor OS / Advisor Experience Intelligence: 2 candidates - confidence MEDIUM
+│   └── 🔴 UNKNOWN / NEEDS REVIEW: 54 candidates - confidence LOW
+│
+├── 🔵 Future Placement Candidates
+│   ├── 🔵 Legacy Nash root files -> Nash Conversation Intelligence after runtime boundary review
+│   ├── 🔵 Relationship root files -> Relationship Intelligence after source/freshness closure
+│   ├── 🔵 Product/GMM/Imagina/ORVI/Vida/Segu root files -> Product Intelligence after evidence packet review
+│   ├── 🔵 Sales/outreach/conversion root files -> Sales Conversion after recommendation/execution boundary review
+│   ├── 🔵 Policy/activity/WhatsApp root files -> Policy & Sales Operations after adapter/write boundary review
+│   ├── 🔵 Revenue root files -> Revenue Generation only after official revenue source ownership review
+│   ├── 🔵 Compensation root files -> Compensation Intelligence only as candidate/calculation context until payout evidence exists
+│   └── 🔵 Shared/platform root files -> Platform or Evidence branches only after ownership review
+│
+├── 🔴 Unknown / Needs Source-Truth Review
+│   ├── 🔴 Generic root engines are not automatically Build Tree truth
+│   ├── 🔴 Filename evidence alone does not prove implementation closure
+│   ├── 🔴 Root location does not authorize runtime use
+│   └── 🔴 See detailed queue in docs/architecture/source-truth/FORGE_ROOT_ENGINE_INVENTORY_AND_BUILDTREE_CROSSWALK_004.md
+│
+└── ⚫ No Movement Authorized In This Phase
+    ├── ⚫ No file moves
+    ├── ⚫ No import rewrites
+    ├── ⚫ No runtime changes
+    └── ⚫ Documentation placement review only
+~~~
+
 ## Non-Replacement Declaration
 
 - This unified tree does not replace the byte-preserved Genesis Build Tree.
