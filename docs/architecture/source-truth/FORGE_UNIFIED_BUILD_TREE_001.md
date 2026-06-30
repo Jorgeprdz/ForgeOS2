@@ -882,3 +882,40 @@ GREEN CONNECTOR EXECUTOR BOUNDARY / SCOPE
 `-- RED Automatic send / silent send / executor invocation / external API call remain forbidden
 ```
 <!-- END FORGEOS:CONNECTOR_EXECUTOR_BOUNDARY_SCOPE_UNIFIED_STATUS -->
+
+<!-- BEGIN FORGEOS:CONNECTOR_EXECUTOR_BOUNDARY_IMPLEMENTATION_UNIFIED_STATUS -->
+## CONNECTOR EXECUTOR BOUNDARY / IMPLEMENTED
+
+```text
+GREEN CONNECTOR EXECUTOR BOUNDARY / IMPLEMENTED
+|-- GREEN 035A Connector Executor Boundary Scope Closed
+|-- GREEN 035B Connector Executor Boundary Contract Implemented
+|   |-- GREEN Connector Execution Gate snapshot required
+|   |-- GREEN Connector invocation candidate required
+|   |-- GREEN Final executor confirmation required
+|   |-- GREEN Executor capability and policy required
+|   |-- GREEN Audit trail and idempotency required
+|   |-- GREEN Executor command candidate can be prepared
+|   |-- GREEN Dry-run can be modeled
+|   `-- GREEN External API call remains false
+|
+|-- BLUE Next Layer
+|   `-- BLUE 036A External Dispatch Boundary Scope
+|
+`-- RED Still Forbidden
+    |-- RED Automatic send
+    |-- RED Silent send
+    |-- RED AI self-send
+    |-- RED Executor invocation
+    |-- RED Connector invocation
+    |-- RED Connector execution
+    |-- RED External API call
+    |-- RED Provider dispatch
+    |-- RED Credential material exposure
+    |-- RED Queue/scheduled/webhook side effects
+    |-- RED Task/calendar auto-creation
+    |-- RED Compensation/revenue/payout truth
+    |-- RED Ranking/punishment/HR/personality truth
+    `-- RED Manipulation/surveillance
+```
+<!-- END FORGEOS:CONNECTOR_EXECUTOR_BOUNDARY_IMPLEMENTATION_UNIFIED_STATUS -->

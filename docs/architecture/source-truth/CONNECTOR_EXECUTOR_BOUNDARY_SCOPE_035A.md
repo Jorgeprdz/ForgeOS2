@@ -353,3 +353,16 @@ Actual external dispatch must remain separate.
 SEMAFORO=PASS
 DECISION=PASS_035A_CONNECTOR_EXECUTOR_BOUNDARY_SCOPE_READY_FOR_IMPLEMENTATION
 NEXT=035B_CONNECTOR_EXECUTOR_BOUNDARY_IMPLEMENTATION
+
+<!-- BEGIN FORGEOS:CONNECTOR_EXECUTOR_BOUNDARY_IMPLEMENTATION_APPENDIX_035B -->
+## 035B Implementation Appendix
+
+- `035B_CONNECTOR_EXECUTOR_BOUNDARY_IMPLEMENTATION` implemented Connector Executor Boundary Contract.
+- Connector execution handoff is not connector executor execution.
+- Executor command candidate can be prepared.
+- External API call remains false.
+- Executor invocation remains false.
+- External Dispatch Boundary remains separate.
+- Unified Build Tree updated.
+- Next: `036A_EXTERNAL_DISPATCH_BOUNDARY_SCOPE`
+<!-- END FORGEOS:CONNECTOR_EXECUTOR_BOUNDARY_IMPLEMENTATION_APPENDIX_035B -->
