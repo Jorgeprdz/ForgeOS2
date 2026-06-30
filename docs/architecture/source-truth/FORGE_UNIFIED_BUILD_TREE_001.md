@@ -1221,8 +1221,8 @@ GREEN CANONICAL TRUTH REGISTRY / IMPLEMENTED
 |   |-- GREEN Explicit zero/false values preserved as review context
 |   `-- GREEN Metric / Economic Truth remains separate
 |
-|-- BLUE Next Layer
-|   `-- BLUE 042A Metric / Economic Truth Scope
+|-- BLUE Pivoted Next Layer
+|   `-- BLUE 042A UI Rendering Boundary Scope
 |
 `-- RED Still Forbidden
     |-- RED Canonical truth write
@@ -1240,3 +1240,22 @@ GREEN CANONICAL TRUTH REGISTRY / IMPLEMENTED
     `-- RED Manipulation/surveillance
 ```
 <!-- END FORGEOS:CANONICAL_TRUTH_REGISTRY_IMPLEMENTATION_UNIFIED_STATUS -->
+
+<!-- BEGIN FORGEOS:UI_RENDERING_BOUNDARY_SCOPE_UNIFIED_STATUS -->
+## UI RENDERING BOUNDARY / SCOPE CLOSED
+
+```text
+GREEN UI RENDERING BOUNDARY / SCOPE
+|-- GREEN 042A UI Rendering Boundary Scope Closed
+|-- GREEN Roadmap pivot approved after 041B
+|-- GREEN UI rendering candidate is not user interface execution
+|-- GREEN Forge Alive view is not dashboard truth
+|-- GREEN Read-only render model candidate scoped
+|-- GREEN Warnings, limitations, source trace, reason why, next review action scoped
+|-- GREEN Metric / Economic Truth remains separate and planned
+|-- BLUE 042B UI Rendering Boundary Implementation
+|-- BLUE 043A Forge Alive Shell Scope
+|-- BLUE Metric / Economic Truth Scope
+`-- RED UI rendering / dashboard creation / interactive action / CRM mutation / truth creation remain forbidden
+```
+<!-- END FORGEOS:UI_RENDERING_BOUNDARY_SCOPE_UNIFIED_STATUS -->
