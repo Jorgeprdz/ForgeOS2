@@ -762,3 +762,20 @@ GREEN PROVIDER RUNTIME BOUNDARY / IMPLEMENTED
     `-- RED Manipulation/surveillance
 ```
 <!-- END FORGEOS:PROVIDER_RUNTIME_BOUNDARY_IMPLEMENTATION_UNIFIED_STATUS -->
+
+<!-- BEGIN FORGEOS:PROVIDER_CONNECTOR_BOUNDARY_SCOPE_UNIFIED_STATUS -->
+## PROVIDER CONNECTOR BOUNDARY / SCOPE CLOSED
+
+```text
+GREEN PROVIDER CONNECTOR BOUNDARY / SCOPE
+|-- GREEN 033A Provider Connector Boundary Scope Closed
+|-- GREEN Provider runtime preparation is not connector execution
+|-- GREEN Connector capability and policy review scoped
+|-- GREEN Credential material exposure remains forbidden
+|-- GREEN External API call remains forbidden
+|-- GREEN Dry-run and connector invocation candidate scoped
+|-- BLUE 033B Provider Connector Boundary Implementation
+|-- BLUE Connector Execution Gate Scope
+`-- RED Automatic send / silent send / connector invocation / external provider dispatch remain forbidden
+```
+<!-- END FORGEOS:PROVIDER_CONNECTOR_BOUNDARY_SCOPE_UNIFIED_STATUS -->
