@@ -1129,3 +1129,21 @@ GREEN AUDIT / PERSISTENCE BOUNDARY / IMPLEMENTED
     `-- RED Manipulation/surveillance
 ```
 <!-- END FORGEOS:AUDIT_PERSISTENCE_IMPLEMENTATION_UNIFIED_STATUS -->
+
+<!-- BEGIN FORGEOS:TRUTH_PROMOTION_BOUNDARY_SCOPE_UNIFIED_STATUS -->
+## TRUTH PROMOTION BOUNDARY / SCOPE CLOSED
+
+```text
+GREEN TRUTH PROMOTION BOUNDARY / SCOPE
+|-- GREEN 040A Truth Promotion Boundary Scope Closed
+|-- GREEN Truth promotion candidate is not canonical truth
+|-- GREEN Canonical Truth Registry remains separate
+|-- GREEN Promotion policy, metric ownership, truth ownership, conflict review, human truth review scoped
+|-- GREEN Canonical truth write remains forbidden
+|-- GREEN Business/metric truth creation remains forbidden
+|-- BLUE 040B Truth Promotion Boundary Implementation
+|-- BLUE Canonical Truth Registry Scope
+|-- BLUE UI Rendering Boundary Scope
+`-- RED Canonical truth write / metric truth / compensation truth / HR truth / CRM mutation remain forbidden
+```
+<!-- END FORGEOS:TRUTH_PROMOTION_BOUNDARY_SCOPE_UNIFIED_STATUS -->
