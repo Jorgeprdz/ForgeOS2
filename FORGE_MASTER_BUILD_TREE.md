@@ -1711,3 +1711,40 @@ It includes recruitment/candidate/advisor manager context, metrics, historical a
 027A — Manager OS Message Generation Prompt Builder Scope.
 
 <!-- MANAGER_OS_CONTEXT_INTELLIGENCE_V1_CLOSURE_REPORT_026A_END -->
+
+<!-- FORGE_GENESIS_PROFILE_INTAKE_AND_NASH_LOCK_001_START -->
+
+## Forge Genesis Profile Intake + Nash Conversation Intelligence Lock 001
+
+Status: DOCUMENTED
+Source commit at documentation time: 1f55a7e86eebd057d3b353d825d01b84102d9f9e
+
+### Locked Concept
+
+Forge Genesis must support profile intake before message generation.
+
+Manager OS profile intake reads candidates for career compatibility and recruitment approach context.
+
+Advisor OS profile intake reads prospects for protected commercial conversation context.
+
+Both paths consume Nash before message prompt generation.
+
+### Boundary
+
+- Profile data is context, not truth.
+- Candidate compatibility is not hiring truth.
+- Prospect compatibility is not sales truth.
+- Nash creates conversation support only.
+- Nash does not decide, execute, send, approve, reject, diagnose, rank, punish, promote, compensate, or create payout truth.
+- Human approval remains required before any message action.
+
+### Runtime Status
+
+~~~text
+PROFILE_INTAKE_RUNTIME=NOT_IMPLEMENTED
+MESSAGE_GENERATION_RUNTIME=NOT_IMPLEMENTED
+LLM_RUNTIME=NOT_IMPLEMENTED
+WHATSAPP_SMS_DELIVERY=NOT_IMPLEMENTED
+~~~
+
+<!-- FORGE_GENESIS_PROFILE_INTAKE_AND_NASH_LOCK_001_END -->
