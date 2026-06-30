@@ -1429,3 +1429,21 @@ GREEN STATIC PREVIEW DEPLOYMENT BOUNDARY / IMPLEMENTED
 `-- RED deploy / publish / settings mutation / public URL / DNS / custom domain / live app / API / auth / analytics / storage / CRM / truth / action remain forbidden
 ```
 <!-- END FORGEOS:STATIC_PREVIEW_DEPLOYMENT_BOUNDARY_IMPLEMENTATION_UNIFIED_STATUS -->
+
+<!-- BEGIN FORGEOS:STATIC_PREVIEW_PUBLIC_SURFACE_DECISION_SCOPE_UNIFIED_STATUS -->
+## STATIC PREVIEW PUBLIC SURFACE DECISION / SCOPE CLOSED
+
+```text
+GREEN STATIC PREVIEW PUBLIC SURFACE DECISION / SCOPE
+|-- GREEN 046A Static Preview Public Surface Decision Scope Closed
+|-- GREEN GitHub Pages availability is not deployment authorization
+|-- GREEN Owner public surface decision is separate from deployment execution
+|-- GREEN Public URL creation / verification remains forbidden
+|-- GREEN GitHub Pages settings mutation remains forbidden
+|-- GREEN Deploy / publish remain forbidden
+|-- BLUE 046B Static Preview Public Surface Decision Implementation
+|-- BLUE 047A Public URL Verification Boundary Scope if needed
+|-- BLUE Metric / Economic Truth Scope
+`-- RED deploy / publish / settings mutation / public URL / DNS / live app / API / auth / analytics / storage / CRM / truth / action remain forbidden
+```
+<!-- END FORGEOS:STATIC_PREVIEW_PUBLIC_SURFACE_DECISION_SCOPE_UNIFIED_STATUS -->
