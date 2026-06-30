@@ -865,3 +865,20 @@ GREEN CONNECTOR EXECUTION GATE / IMPLEMENTED
     `-- RED Manipulation/surveillance
 ```
 <!-- END FORGEOS:CONNECTOR_EXECUTION_GATE_IMPLEMENTATION_UNIFIED_STATUS -->
+
+<!-- BEGIN FORGEOS:CONNECTOR_EXECUTOR_BOUNDARY_SCOPE_UNIFIED_STATUS -->
+## CONNECTOR EXECUTOR BOUNDARY / SCOPE CLOSED
+
+```text
+GREEN CONNECTOR EXECUTOR BOUNDARY / SCOPE
+|-- GREEN 035A Connector Executor Boundary Scope Closed
+|-- GREEN Connector execution handoff is not connector executor execution
+|-- GREEN Executor capability and policy review scoped
+|-- GREEN Executor command candidate scoped
+|-- GREEN External dispatch remains separate
+|-- GREEN External API call remains forbidden
+|-- BLUE 035B Connector Executor Boundary Implementation
+|-- BLUE External Dispatch Boundary Scope
+`-- RED Automatic send / silent send / executor invocation / external API call remain forbidden
+```
+<!-- END FORGEOS:CONNECTOR_EXECUTOR_BOUNDARY_SCOPE_UNIFIED_STATUS -->
