@@ -1078,3 +1078,20 @@ GREEN UI / READ MODEL BOUNDARY / IMPLEMENTED
     `-- RED Manipulation/surveillance
 ```
 <!-- END FORGEOS:UI_READ_MODEL_IMPLEMENTATION_UNIFIED_STATUS -->
+
+<!-- BEGIN FORGEOS:AUDIT_PERSISTENCE_SCOPE_UNIFIED_STATUS -->
+## AUDIT / PERSISTENCE BOUNDARY / SCOPE CLOSED
+
+```text
+GREEN AUDIT / PERSISTENCE BOUNDARY / SCOPE
+|-- GREEN 039A Audit / Persistence Boundary Scope Closed
+|-- GREEN Audit event candidate is not persistence
+|-- GREEN Audit persistence candidate is not business truth
+|-- GREEN Retention, immutability, privacy, evidence, freshness, and idempotency scoped
+|-- GREEN Persistence write remains separate
+|-- GREEN Truth Promotion Boundary remains separate
+|-- BLUE 039B Audit / Persistence Boundary Implementation
+|-- BLUE Truth Promotion Boundary Scope
+`-- RED Persistence write / file write / database write / CRM mutation / truth creation remain forbidden
+```
+<!-- END FORGEOS:AUDIT_PERSISTENCE_SCOPE_UNIFIED_STATUS -->
