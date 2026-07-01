@@ -740,3 +740,12 @@ Additional scenario fixtures are implemented:
 Next recommended phase:
 - Manager OS Genesis Beta Loop read model, or
 - Advisor OS Genesis scenario alignment.
+
+# Genesis Beta Loop Real Adapter Wiring Roadmap Status
+
+052D_GENESIS_BETA_LOOP_REAL_ADAPTER_WIRING_TABLES: GREEN / CLOSED.
+
+Real adapter wiring and Markdown table read model are implemented for Genesis Beta Loop scenario inspection.
+
+Next recommended phase:
+- Manager OS Genesis Beta Loop read model for UI.

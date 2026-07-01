@@ -1643,3 +1643,12 @@ GREEN FORGE ALIVE STATIC PREVIEW MILESTONE CLOSURE / IMPLEMENTED
 |   |-- GREEN Delivery candidate only
 |   `-- RED Send/runtime/truth mutation
 <!-- FORGEOS:GENESIS_BETA_LOOP_ADDITIONAL_SCENARIO_FIXTURES_052C:END -->
+
+<!-- FORGEOS:GENESIS_BETA_LOOP_REAL_ADAPTER_WIRING_052D:START -->
+|-- GREEN 052D Genesis Beta Loop Real Adapter Wiring + Table Read Model
+|   |-- GREEN Real Forge modules wired as adapters
+|   |-- GREEN Adapter diagnostics visible
+|   |-- GREEN Stage outputs renderable as Markdown tables
+|   |-- GREEN Boundary flags visible
+|   `-- RED Send/runtime/truth mutation
+<!-- FORGEOS:GENESIS_BETA_LOOP_REAL_ADAPTER_WIRING_052D:END -->

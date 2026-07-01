@@ -3074,3 +3074,20 @@ Boundary preserved:
 - no CRM/task/calendar write
 - no revenue/compensation/payout/lifecycle/HR/ranking/punishment truth
 <!-- FORGEOS:GENESIS_BETA_LOOP_ADDITIONAL_SCENARIO_FIXTURES_052C:END -->
+
+<!-- FORGEOS:GENESIS_BETA_LOOP_REAL_ADAPTER_WIRING_052D:START -->
+## Genesis Beta Loop Real Adapter Wiring 052D
+
+Status: CLOSED / REAL ADAPTER WIRING + TABLE READ MODEL IMPLEMENTED.
+
+052D connects the Genesis Beta Loop Orchestrator to real Forge boundary modules and renders table output.
+
+Boundary preserved:
+- no send
+- no provider runtime
+- no LLM runtime execution
+- no CRM/task/calendar write
+- no revenue/compensation/payout/lifecycle/HR/ranking/punishment truth
+- delivery candidate is not send
+- Send Execution Gate remains separate
+<!-- FORGEOS:GENESIS_BETA_LOOP_REAL_ADAPTER_WIRING_052D:END -->
