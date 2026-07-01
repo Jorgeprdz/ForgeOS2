@@ -346,3 +346,14 @@ Tests must prove:
 SEMAFORO=PASS
 DECISION=PASS_047A_PUBLIC_URL_VERIFICATION_BOUNDARY_SCOPE_READY_FOR_IMPLEMENTATION
 NEXT=047B_PUBLIC_URL_VERIFICATION_BOUNDARY_IMPLEMENTATION
+
+<!-- BEGIN FORGEOS:PUBLIC_URL_VERIFICATION_BOUNDARY_IMPLEMENTATION_APPENDIX_047B -->
+## 047B Implementation Appendix
+
+- `047B_PUBLIC_URL_VERIFICATION_BOUNDARY_IMPLEMENTATION` implemented the Public URL Verification Boundary Contract.
+- Verification is evidence-review only.
+- GitHub Pages availability is not deployment authorization.
+- No network call, HTTP request, DNS lookup, live URL direct verification, public URL creation, deploy, publish, GitHub Pages settings mutation, DNS/custom domain, API/auth/analytics/storage/forms/service worker/CRM/truth/action surfaces are authorized.
+- Unified Build Tree updated.
+- Next: `048A_STATIC_PREVIEW_RELEASE_NOTE_SCOPE`
+<!-- END FORGEOS:PUBLIC_URL_VERIFICATION_BOUNDARY_IMPLEMENTATION_APPENDIX_047B -->

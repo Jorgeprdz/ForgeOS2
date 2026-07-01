@@ -1482,3 +1482,20 @@ GREEN PUBLIC URL VERIFICATION BOUNDARY / SCOPE
 `-- RED deploy / publish / settings mutation / public URL creation / DNS / live app / API / auth / analytics / storage / CRM / truth / action remain forbidden
 ```
 <!-- END FORGEOS:PUBLIC_URL_VERIFICATION_BOUNDARY_SCOPE_UNIFIED_STATUS -->
+
+<!-- BEGIN FORGEOS:PUBLIC_URL_VERIFICATION_BOUNDARY_IMPLEMENTATION_UNIFIED_STATUS -->
+## PUBLIC URL VERIFICATION BOUNDARY / IMPLEMENTED
+
+```text
+GREEN PUBLIC URL VERIFICATION BOUNDARY / IMPLEMENTED
+|-- GREEN 047A Public URL Verification Boundary Scope Closed
+|-- GREEN 047B Public URL Verification Boundary Contract Implemented
+|-- GREEN Verification is evidence-review only
+|-- GREEN No network call / HTTP request / DNS lookup
+|-- GREEN Public URL creation remains forbidden
+|-- GREEN Live URL direct verification remains forbidden
+|-- BLUE 048A Static Preview Release Note Scope
+|-- BLUE Metric / Economic Truth Scope
+`-- RED deploy / publish / settings mutation / public URL creation / DNS / live app / API / auth / analytics / storage / CRM / truth / action remain forbidden
+```
+<!-- END FORGEOS:PUBLIC_URL_VERIFICATION_BOUNDARY_IMPLEMENTATION_UNIFIED_STATUS -->
