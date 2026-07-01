@@ -4,7 +4,18 @@ Phase: ARTICLE_0_CANDIDATE_LOCK_001
 
 Mode: DOCS ONLY SOURCE-TRUTH CANDIDATE LOCK
 
-Status: CANDIDATE_LOCKED / NOT_RATIFIED
+Status: HISTORICAL_CANDIDATE_LOCK / SUPERSEDED_BY_ARTICLE_0_RATIFICATION_001
+
+## Supersession Note
+
+This candidate lock is historical.
+
+It is superseded by
+`docs/architecture/source-truth/ARTICLE_0_RATIFICATION_001.md`.
+
+The original candidate status remains historical, not active.
+
+Active status: ARTICLE_0_RATIFIED / RATIFIED / ACTIVE.
 
 ## Article 0 Candidate Wording
 

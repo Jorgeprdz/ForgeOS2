@@ -1,14 +1,36 @@
 # FORGE OS Master Build Tree
 
+<!-- FORGEOS:ARTICLE_0_RATIFICATION_STATUS:START -->
+## Article 0 Ratification 001
+
+Status: ARTICLE_0_RATIFIED / RATIFIED / ACTIVE
+
+- Ratification authority: explicit ratification received from Jorge: "Ratifico".
+- Canonical wording: "Forge exists to strengthen human judgment, not replace it."
+- Expanded wording: Forge may augment, inform, teach and accelerate professional judgment, but must never cultivate dependency, replace human responsibility or become the final authority on human potential.
+- Article 0 Gate: "Does this strengthen human judgment, or does it create dependency?"
+- Mandatory HOLD: any intelligence feature must hold for Article 0 review if it gives answers without teaching reasoning, hides uncertainty, removes human responsibility, increases dependency, becomes final authority on human potential, or optimizes execution while weakening long-term judgment.
+- Article 0 is the active highest governance principle above Forge Constitution, Skynet, and Intelligence Systems.
+- Skynet remains unchanged.
+- no Skynet law modification.
+- No broad Constitution rewrite.
+- No code, engine, UI, schema, runtime, or product behavior changed.
+
+Ratification doc: `docs/architecture/source-truth/ARTICLE_0_RATIFICATION_001.md`
+
+Certificate: `docs/evidence/ARTICLE_0_RATIFICATION_CERTIFICATE_001.md`
+
+<!-- FORGEOS:ARTICLE_0_RATIFICATION_STATUS:END -->
+
 <!-- FORGEOS:ARTICLE_0_CANDIDATE_LOCK_STATUS:START -->
 ## Article 0 Candidate Lock 001
 
-Status: CANDIDATE_LOCKED / NOT_RATIFIED
+Status: HISTORICAL_CANDIDATE_LOCK / SUPERSEDED_BY_ARTICLE_0_RATIFICATION_001
 
 - Article 0 candidate wording is locked as governance source-truth:
   "Forge exists to strengthen human judgment, not replace it."
-- Article 0 remains a candidate and is not ratified.
-- Future ratification requires explicit user approval.
+- Article 0 candidate lock is historical.
+- Active status is now ARTICLE_0_RATIFIED / RATIFIED / ACTIVE.
 - Article 0 sits conceptually above Forge Constitution, Skynet, and Intelligence Systems.
 - Article 0 Gate: "Does this strengthen human judgment, or does it create dependency?"
 - Mandatory HOLD: if a feature gives answers without teaching reasoning, hides uncertainty, removes human responsibility, or increases dependency, hold for Article 0 review.

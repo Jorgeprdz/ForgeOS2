@@ -1,5 +1,39 @@
 # FORGE CONSTITUTION MAP
 
+<!-- FORGEOS:ARTICLE_0_RATIFICATION_CONSTITUTION_REFERENCE:START -->
+## Article 0 Ratification Reference
+
+Status: ARTICLE_0_RATIFIED / RATIFIED / ACTIVE
+
+Article 0 is the active highest governance principle above Forge Constitution,
+Skynet, and Intelligence Systems.
+
+Canonical wording:
+
+Forge exists to strengthen human judgment, not replace it.
+
+Expanded wording:
+
+Forge may augment, inform, teach and accelerate professional judgment, but must
+never cultivate dependency, replace human responsibility or become the final
+authority on human potential.
+
+Article 0 Gate:
+
+Does this strengthen human judgment, or does it create dependency?
+
+This guarded block is a ratification reference only. It does not rewrite the
+Constitution broadly.
+
+Skynet remains unchanged.
+
+no Skynet law modification.
+
+Ratification source:
+`docs/architecture/source-truth/ARTICLE_0_RATIFICATION_001.md`
+
+<!-- FORGEOS:ARTICLE_0_RATIFICATION_CONSTITUTION_REFERENCE:END -->
+
 ## Status
 
 LOCKED

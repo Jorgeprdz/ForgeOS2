@@ -27,11 +27,11 @@ FORGE OS UNIFIED BUILD TREE 001
 🟢 00 ARTICLE 0 / HUMAN JUDGMENT GOVERNANCE
 │
 ├── 🟢 Article 0 Candidate Lock
-│   ├── 🟢 Status: CANDIDATE_LOCKED / NOT_RATIFIED
+│   ├── 🟢 Status: ARTICLE_0_RATIFIED / RATIFIED / ACTIVE
 │   ├── 🟢 Forge exists to strengthen human judgment, not replace it
 │   ├── 🟢 Article 0 Gate: strengthen human judgment or create dependency?
 │   ├── 🟢 Mandatory HOLD for dependency risk
-│   └── 🟢 Future ratification requires explicit user approval
+│   └── 🟢 Ratification authority: Jorge - Ratifico
 │
 ├── 🟢 Relationship To Governance
 │   ├── 🟢 Article 0 -> Forge Constitution -> Skynet -> Intelligence Systems
@@ -40,7 +40,8 @@ FORGE OS UNIFIED BUILD TREE 001
 │
 └── 🔴 Still Forbidden
     ├── 🔴 no Skynet modification
-    ├── 🔴 no Constitution ratification
+    ├── 🔴 no Skynet law modification
+    ├── 🔴 no broad Constitution rewrite
     ├── 🔴 no ratification by accident
     └── 🔴 no intelligence dependency pattern
 
