@@ -68,6 +68,17 @@ function assertFalseFlags(out) {
   ].forEach((flag) => assert.strictEqual(out[flag], false, flag));
 }
 
+function assertNoPressureRisk(response) {
+  const safety = response.output.stages.safetyValidator;
+  assert.strictEqual(safety.safetyStatus, "READY_FOR_HUMAN_REVIEW", response.scenarioId);
+  assert.ok(!safety.detectedRisks.includes("PRESSURE_LANGUAGE"), response.scenarioId);
+  assert.ok(!safety.requiredRevisions.includes("PRESSURE_LANGUAGE"), response.scenarioId);
+  assert.strictEqual(response.output.draftQualityStatus, "DRAFT_READY_FOR_HUMAN_REVIEW");
+  assert.strictEqual(response.output.pressureRiskReviewed, true);
+  assert.strictEqual(response.output.manipulationRiskReviewed, true);
+  assert.strictEqual(response.output.payoutTruthRiskReviewed, true);
+}
+
 test("real adapter modules load and expose callable functions", () => {
   const diagnostics = inspectGenesisBetaLoopRealAdapters();
   for (const stage of requiredStages) {
@@ -150,6 +161,30 @@ test("real response includes Article 0 read-model alignment", () => {
   assert.ok(response.output.article0ReadModel.learningPrompt.includes("What evidence supports this?"));
 });
 
+test("real response includes draft quality review fields", () => {
+  const response = buildGenesisBetaLoopRealResponse(buildJorgeMariaFollowup15DaysFixture());
+  assert.strictEqual(response.output.draftQualityStatus, "DRAFT_READY_FOR_HUMAN_REVIEW");
+  assert.strictEqual(response.output.draftQualityDecision, "KEEP_AS_HUMAN_REVIEW_CANDIDATE");
+  assert.strictEqual(response.output.pressureRiskReviewed, true);
+  assert.strictEqual(response.output.manipulationRiskReviewed, true);
+  assert.strictEqual(response.output.payoutTruthRiskReviewed, true);
+  assert.ok(response.output.humanJudgmentReminder.includes("Forge is not final authority"));
+  assert.ok(response.output.suggestedHumanReviewQuestions.includes("Could this sound like pressure?"));
+  assert.strictEqual(response.output.draftQualityReadModel.approvedForSend, false);
+});
+
+test("Jorge and Maria draft no longer triggers pressure language", () => {
+  assertNoPressureRisk(buildGenesisBetaLoopRealResponse(buildJorgeMariaFollowup15DaysFixture()));
+});
+
+test("Andres and Juan draft no longer triggers pressure language", () => {
+  assertNoPressureRisk(buildGenesisBetaLoopRealResponse(buildAndresJuanBonusProximityFixture()));
+});
+
+test("Lupita and Maria draft remains ready for human review", () => {
+  assertNoPressureRisk(buildGenesisBetaLoopRealResponse(buildLupitaMariaCarGoalFixture()));
+});
+
 test("real response table renders Article 0 alignment fields", () => {
   const table = buildGenesisBetaLoopRealResponseTables(buildJorgeMariaFollowup15DaysFixture());
   assert.ok(table.includes("article0Status"));
@@ -159,6 +194,8 @@ test("real response table renders Article 0 alignment fields", () => {
   assert.ok(table.includes("learningPrompt"));
   assert.ok(table.includes("judgmentDevelopmentPrompt"));
   assert.ok(table.includes("actionBoundary"));
+  assert.ok(table.includes("draftQualityStatus"));
+  assert.ok(table.includes("suggestedHumanReviewQuestions"));
 });
 
 test("real wiring preserves delivery candidate and send separation", () => {

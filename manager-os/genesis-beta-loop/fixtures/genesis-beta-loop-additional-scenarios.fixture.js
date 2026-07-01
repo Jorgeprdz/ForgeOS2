@@ -31,7 +31,7 @@ function buildAndresJuanBonusProximityFixture() {
     nashContext: {
       conversationAngle: "mensaje claro, consultivo y sin prometer resultado",
       tone: "profesional, breve, seguro",
-      objectionSupport: "si Juan pide tiempo, ofrecer revisar dudas sin presion",
+      objectionSupport: "si Juan pide tiempo, ofrecer revisar dudas cuando le acomode",
       doNotInventIntent: true,
     },
     mickContext: {
@@ -46,7 +46,7 @@ function buildAndresJuanBonusProximityFixture() {
       reasonWhy: "Juan tiene una senal relativa favorable y puede ayudar a Andres a acercarse a su objetivo.",
       whyNow: "La ventana comercial puede enfriarse si no se da seguimiento oportuno.",
       whyThisPerson: "Juan tiene mejor senal relativa que otros prospectos revisados.",
-      whyThisAction: "Un seguimiento consultivo puede aclarar dudas y avanzar sin presion.",
+      whyThisAction: "Un seguimiento consultivo puede aclarar dudas y mantener la decision en manos de Juan.",
       whyThisMessage: "El mensaje debe hablar de revisar dudas, no de urgencia falsa.",
       candidateCommissionContext: {
         amount: 3000,
@@ -56,7 +56,7 @@ function buildAndresJuanBonusProximityFixture() {
         notPayoutTruth: true,
       },
     },
-    draftText: "Hola Juan, espero que estes muy bien. Queria retomar lo que platicamos para revisar tus dudas con calma y ver si esto hace sentido para ti. Sin presion.",
+    draftText: "Hola Juan, espero que estes muy bien. Queria retomar lo que platicamos para revisar tus dudas con calma y confirmar si esto todavia hace sentido para ti. Lo vemos a tu ritmo.",
     humanApproval: {
       reviewer: "Andres",
       action: "APPROVE",
@@ -112,7 +112,7 @@ function buildLupitaMariaCarGoalFixture() {
     },
     nashContext: {
       conversationAngle: "mensaje seguro, humano y orientado a retomar conversacion",
-      tone: "calido, directo, sin presion",
+      tone: "calido, directo y respetuoso del ritmo de Maria",
       objectionSupport: "si Maria no puede hablar hoy, proponer otro momento",
       doNotInventIntent: true,
     },
@@ -128,7 +128,7 @@ function buildLupitaMariaCarGoalFixture() {
       reasonWhy: "Maria tiene una senal relativa de avance y puede ser buen siguiente paso.",
       whyNow: "Dar seguimiento hoy mantiene continuidad y apoya la consistencia de Lupita.",
       whyThisPerson: "Maria aparece como oportunidad relativa frente al objetivo de actividad.",
-      whyThisAction: "Un contacto breve puede abrir conversacion sin presionar.",
+      whyThisAction: "Un contacto breve puede abrir conversacion manteniendo la decision en manos de Maria.",
       whyThisMessage: "El mensaje debe ser seguro, simple y humano.",
       goalContext: {
         goal: "comprar coche",

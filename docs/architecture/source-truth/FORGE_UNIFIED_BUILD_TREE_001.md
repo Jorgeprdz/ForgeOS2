@@ -1705,3 +1705,22 @@ GREEN FORGE ALIVE STATIC PREVIEW MILESTONE CLOSURE / IMPLEMENTED
 |   |-- RED Revenue/compensation/payout/lifecycle/HR/ranking/punishment/personality truth
 |   `-- RED Skynet/Constitution/Article 0 text modification
 <!-- FORGEOS:GENESIS_BETA_LOOP_REAL_ADAPTER_PAYLOAD_ALIGNMENT_052F:END -->
+
+<!-- FORGEOS:GENESIS_BETA_LOOP_DRAFT_QUALITY_ALIGNMENT_052H:START -->
+|-- GREEN 052H Genesis Beta Loop Draft Quality Alignment
+|   |-- GREEN Scenario draft candidates use consultative non-pressuring language
+|   |-- GREEN Jorge/Maria no longer triggers PRESSURE_LANGUAGE
+|   |-- GREEN Andres/Juan no longer triggers PRESSURE_LANGUAGE
+|   |-- GREEN Lupita/Maria remains safe for human review
+|   |-- GREEN Draft quality read-model fields visible
+|   |-- GREEN Message Safety Validator unchanged
+|   |-- GREEN Article 0 judgment-development read model preserved
+|   |-- GREEN Human Approval Gate remains required
+|   |-- BLUE 052I Human Review Packet
+|   |-- RED Automatic send
+|   |-- RED Provider/LLM runtime execution
+|   |-- RED Fake reviewer or fake approval
+|   |-- RED CRM/task/calendar writes
+|   |-- RED Revenue/compensation/payout/lifecycle/HR/ranking/punishment/personality truth
+|   `-- RED Skynet/Constitution/Article 0 text modification
+<!-- FORGEOS:GENESIS_BETA_LOOP_DRAFT_QUALITY_ALIGNMENT_052H:END -->

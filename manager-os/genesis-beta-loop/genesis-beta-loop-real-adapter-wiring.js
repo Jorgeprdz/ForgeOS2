@@ -352,6 +352,40 @@ function callRealStage(stage, fn, payload) {
   }
 }
 
+function buildDraftQualityReadModel(stages) {
+  const safety = (stages && stages.safetyValidator) || {};
+  const detectedRisks = unique(safety.detectedRisks || safety.risks || []);
+  const requiredRevisions = unique(safety.requiredRevisions || []);
+  const pressureRiskDetected = detectedRisks.includes("PRESSURE_LANGUAGE");
+  const manipulationRiskDetected = detectedRisks.includes("MANIPULATION");
+  const payoutTruthRiskDetected = detectedRisks.includes("COMPENSATION_REVENUE_PAYOUT_TRUTH");
+  const readyForHumanReview = safety.safetyStatus === "READY_FOR_HUMAN_REVIEW";
+
+  return {
+    draftQualityStatus: readyForHumanReview ? "DRAFT_READY_FOR_HUMAN_REVIEW" : "DRAFT_REVIEW_REQUIRED",
+    draftQualityDecision: readyForHumanReview ? "KEEP_AS_HUMAN_REVIEW_CANDIDATE" : "REVIEW_DRAFT_BEFORE_APPROVAL",
+    pressureRiskReviewed: true,
+    manipulationRiskReviewed: true,
+    payoutTruthRiskReviewed: true,
+    pressureRiskDetected,
+    manipulationRiskDetected,
+    payoutTruthRiskDetected,
+    detectedRisks,
+    requiredRevisions,
+    humanJudgmentReminder: "Review this as a draft candidate only. Forge is not final authority and the human must decide before approval or delivery preparation.",
+    suggestedHumanReviewQuestions: [
+      "Does this message respect the person's agency?",
+      "What evidence supports the follow-up?",
+      "What context is missing?",
+      "Could this sound like pressure?",
+      "What decision must the human make before approving?",
+    ],
+    draftCandidateOnly: true,
+    approvedForSend: false,
+    humanApprovalRequired: true,
+  };
+}
+
 function buildGenesisBetaLoopRealAdapters(input) {
   const diagnostics = inspectGenesisBetaLoopRealAdapters();
 
@@ -399,12 +433,15 @@ function buildGenesisBetaLoopRealAdapters(input) {
 function buildGenesisBetaLoopRealResponse(input) {
   const wiring = buildGenesisBetaLoopRealAdapters(input);
   const output = buildGenesisBetaLoopOrchestrator(input, wiring.adapters);
+  const draftQuality = buildDraftQualityReadModel(output.stages);
 
   return {
     scenarioId: input.scenarioId || "UNKNOWN_SCENARIO",
     adapterDiagnostics: wiring.diagnostics,
     output: {
       ...output,
+      ...draftQuality,
+      draftQualityReadModel: draftQuality,
       ...FALSE_FLAGS,
     },
   };
@@ -449,6 +486,13 @@ function buildGenesisBetaLoopRealResponseTables(input) {
   lines.push(row("learningPrompt", out.learningPrompt));
   lines.push(row("judgmentDevelopmentPrompt", out.judgmentDevelopmentPrompt));
   lines.push(row("actionBoundary", out.actionBoundary));
+  lines.push(row("draftQualityStatus", out.draftQualityStatus));
+  lines.push(row("draftQualityDecision", out.draftQualityDecision));
+  lines.push(row("pressureRiskReviewed", out.pressureRiskReviewed));
+  lines.push(row("manipulationRiskReviewed", out.manipulationRiskReviewed));
+  lines.push(row("payoutTruthRiskReviewed", out.payoutTruthRiskReviewed));
+  lines.push(row("humanJudgmentReminder", out.humanJudgmentReminder));
+  lines.push(row("suggestedHumanReviewQuestions", out.suggestedHumanReviewQuestions));
   lines.push("");
   lines.push("| Adapter | Real module status |");
   lines.push("|---|---|");

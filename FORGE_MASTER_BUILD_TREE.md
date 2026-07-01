@@ -3210,3 +3210,25 @@ Boundary preserved:
 - Constitution not rewritten
 - remaining blocks stay visible when safety or human approval requirements are unmet
 <!-- FORGEOS:GENESIS_BETA_LOOP_REAL_ADAPTER_PAYLOAD_ALIGNMENT_052F:END -->
+
+<!-- FORGEOS:GENESIS_BETA_LOOP_DRAFT_QUALITY_ALIGNMENT_052H:START -->
+## Genesis Beta Loop Draft Quality Alignment 052H
+
+Status: CLOSED / DRAFT QUALITY ALIGNMENT IMPLEMENTED.
+
+052H improves Genesis Beta Loop scenario draft quality without weakening Message Safety Validator rules.
+
+Boundary preserved:
+- Message Safety Validator unchanged
+- Article 0 consumed, not modified
+- Skynet unchanged
+- Constitution not rewritten
+- human approval remains mandatory
+- no fake reviewer or fake approval
+- no send/runtime/truth mutation
+- delivery candidate remains blocked unless approval is valid
+
+Evidence:
+- docs/architecture/source-truth/GENESIS_BETA_LOOP_DRAFT_QUALITY_ALIGNMENT_CLOSURE_052H.md
+- docs/evidence/GENESIS_BETA_LOOP_DRAFT_QUALITY_ALIGNMENT_CERTIFICATE_052H.md
+<!-- FORGEOS:GENESIS_BETA_LOOP_DRAFT_QUALITY_ALIGNMENT_052H:END -->
