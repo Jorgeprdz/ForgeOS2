@@ -1014,3 +1014,12 @@ The Smart Widget Stack carousel now slides one smart widget card at a time inste
 
 Next:
 - 053M_SMART_WIDGET_CARD_LEVEL_CAROUSEL_OUTPUT_REVIEW.
+
+# Forge Alive Static Command Textbox Glow Scope Roadmap Status
+
+053N_FORGE_ALIVE_STATIC_COMMAND_TEXTBOX_GLOW_SCOPE: GREEN / SCOPED.
+
+Forge Alive command layer is now scoped as a persistent textbox with Forge-compatible animated glow. Smart widgets remain contextual and may slide only within bounded content regions behind or below the command textbox.
+
+Next:
+- 053O_FORGE_ALIVE_STATIC_COMMAND_TEXTBOX_GLOW_IMPLEMENTATION.

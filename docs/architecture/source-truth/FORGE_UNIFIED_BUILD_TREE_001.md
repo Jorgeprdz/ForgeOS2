@@ -1943,3 +1943,12 @@ GREEN FORGE ALIVE STATIC PREVIEW MILESTONE CLOSURE / IMPLEMENTED
 |   |-- RED approval/send/runtime/truth mutation
 |   `-- BLUE 053M Smart Widget Card Level Carousel Output Review
 <!-- FORGEOS:SMART_WIDGET_CARD_LEVEL_CAROUSEL_FIX_053L:END -->
+
+|-- GREEN 053N Forge Alive Static Command Textbox Glow Scope
+|   |-- GREEN Alfred / command bar is scoped as a persistent command textbox
+|   |-- GREEN Smart widgets remain bounded contextual content
+|   |-- GREEN Widget movement occurs behind or below the command textbox
+|   |-- GREEN Animated glow is visual-only and Forge palette constrained
+|   |-- GREEN Reduced-motion fallback required
+|   |-- GREEN Article 0 and read-only safety boundaries unchanged
+|   `-- RED approval/send/runtime/truth mutation

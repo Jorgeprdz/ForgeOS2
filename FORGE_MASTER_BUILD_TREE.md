@@ -3641,3 +3641,15 @@ Evidence:
 - docs/architecture/source-truth/FORGE_ALIVE_SMART_WIDGET_CARD_LEVEL_CAROUSEL_FIX_CLOSURE_053L.md
 - docs/evidence/FORGE_ALIVE_SMART_WIDGET_CARD_LEVEL_CAROUSEL_FIX_CERTIFICATE_053L.md
 <!-- FORGEOS:SMART_WIDGET_CARD_LEVEL_CAROUSEL_FIX_053L:END -->
+
+## Forge Alive Static Command Textbox Glow Scope 053N
+
+053N scopes the persistent Forge Alive command layer as a textbox with Forge-compatible animated glow.
+
+- Alfred / command bar is a persistent command textbox
+- Smart Widget Stack remains bounded contextual content
+- widget movement stays behind or below the command textbox
+- glow is visual-only and Forge palette constrained
+- reduced-motion fallback required
+- no approval/send/runtime/truth mutation
+- Article 0 unchanged
