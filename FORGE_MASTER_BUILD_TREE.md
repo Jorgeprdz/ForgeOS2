@@ -3616,3 +3616,28 @@ Evidence:
 - docs/architecture/source-truth/FORGE_ALIVE_SMART_WIDGET_STACK_DOT_GLIDE_LEADING_DROP_TUNING_CLOSURE_053K.md
 - docs/evidence/FORGE_ALIVE_SMART_WIDGET_STACK_DOT_GLIDE_LEADING_DROP_TUNING_CERTIFICATE_053K.md
 <!-- FORGEOS:SMART_WIDGET_DOT_GLIDE_LEADING_DROP_TUNING_053K:END -->
+
+<!-- FORGEOS:SMART_WIDGET_CARD_LEVEL_CAROUSEL_FIX_053L:START -->
+## Forge Alive Smart Widget Card Level Carousel Fix 053L
+
+Status: CLOSED / STATIC_PREVIEW_CAROUSEL_FIXED.
+
+053L changes the Smart Widget Stack carousel so one slide equals one smart widget card.
+
+Boundary:
+- static preview UI only
+- Preview v053L visible
+- one card per slide
+- dots represent cards
+- deep-link context support preserved
+- no approval/send/runtime/truth mutation
+- Article 0 unchanged
+- Skynet unchanged
+
+Evidence:
+- docs/static-preview/forge-alive/index.html
+- docs/static-preview/forge-alive/styles.css
+- docs/static-preview/forge-alive/smart-widget-stack.js
+- docs/architecture/source-truth/FORGE_ALIVE_SMART_WIDGET_CARD_LEVEL_CAROUSEL_FIX_CLOSURE_053L.md
+- docs/evidence/FORGE_ALIVE_SMART_WIDGET_CARD_LEVEL_CAROUSEL_FIX_CERTIFICATE_053L.md
+<!-- FORGEOS:SMART_WIDGET_CARD_LEVEL_CAROUSEL_FIX_053L:END -->

@@ -1,6 +1,7 @@
-import { forgeAliveSmartWidgetStackPreview } from "./smart-widget-stack-data.js?v=053K";
+import { forgeAliveSmartWidgetStackPreview } from "./smart-widget-stack-data.js?v=053L";
 
 const params = new URLSearchParams(window.location.search);
+const CARD_LEVEL_CAROUSEL_RULE = "one smart widget card per slide";
 
 function el(tag, className, text) {
   const node = document.createElement(tag);
@@ -17,17 +18,32 @@ function familyLabel(value) {
     .toLowerCase();
 }
 
-function initialContextIndex(contexts) {
+function flattenWidgets(contexts) {
+  return contexts.flatMap((context) =>
+    context.widgets
+      .slice()
+      .sort((a, b) => b.priority - a.priority)
+      .map((widget, index) => ({
+        ...widget,
+        contextId: context.id,
+        contextLabel: context.label,
+        contextReason: context.selectedWhen,
+        contextIndex: index,
+      }))
+  );
+}
+
+function initialCardIndex(cards) {
   const requested = params.get("context");
   if (requested) {
-    const match = contexts.findIndex((context) => context.id === requested);
+    const match = cards.findIndex((card) => card.contextId === requested);
     if (match >= 0) return match;
   }
 
   const hour = new Date().getHours();
-  if (hour >= 15) return Math.max(0, contexts.findIndex((context) => context.id === "four-pm-review"));
-  if (hour >= 7 && hour <= 10) return Math.max(0, contexts.findIndex((context) => context.id === "morning-agenda"));
-  return Math.max(0, contexts.findIndex((context) => context.id === "follow-up-risk"));
+  if (hour >= 15) return Math.max(0, cards.findIndex((card) => card.contextId === "four-pm-review"));
+  if (hour >= 7 && hour <= 10) return Math.max(0, cards.findIndex((card) => card.contextId === "morning-agenda"));
+  return Math.max(0, cards.findIndex((card) => card.contextId === "follow-up-risk"));
 }
 
 function renderChip(text, tone) {
@@ -38,7 +54,7 @@ function renderChip(text, tone) {
 
 function renderDots(count, activeIndex) {
   const dots = el("div", "smart-widget-dots");
-  dots.setAttribute("aria-label", "Smart widget position");
+  dots.setAttribute("aria-label", "Smart widget card position");
   dots.style.setProperty("--dot-progress", String(activeIndex));
   dots.style.setProperty("--dot-index", String(activeIndex));
   dots.style.setProperty("--dot-count", String(count));
@@ -77,10 +93,10 @@ function updateDots(root, activeIndex, progress = activeIndex) {
   dots.forEach((dot, index) => dot.classList.toggle("active", index === activeIndex));
 }
 
-function syncDotsFromScroll(root, carousel, contexts) {
+function syncDotsFromScroll(root, carousel, cards) {
   const width = carousel.clientWidth || 1;
   const rawProgress = carousel.scrollLeft / width;
-  const maxIndex = Math.max(0, contexts.length - 1);
+  const maxIndex = Math.max(0, cards.length - 1);
   const progress = Math.max(0, Math.min(maxIndex, rawProgress));
   const activeIndex = Math.max(0, Math.min(maxIndex, Math.round(progress)));
   updateDots(root, activeIndex, progress);
@@ -93,21 +109,30 @@ function renderEvidence(items) {
   return wrap;
 }
 
-function renderWidget(widget, index) {
-  const card = el("article", "smart-widget-card glass");
+function renderWidget(card, index) {
+  const slide = el("section", "smart-widget-slide");
+  slide.setAttribute("aria-label", `${card.contextLabel}: ${card.title}`);
+
+  const article = el("article", "smart-widget-card glass");
+
+  const context = el("div", "smart-widget-slide-header");
+  context.appendChild(el("p", "smart-widget-eyebrow", card.contextLabel));
+  context.appendChild(el("h3", "", card.contextReason));
+  context.appendChild(el("p", "smart-widget-subtitle", "Desliza una tarjeta a la vez."));
+  article.appendChild(context);
 
   const top = el("div", "smart-widget-card-top");
   const titleBlock = el("div", "smart-widget-title-block");
-  titleBlock.appendChild(el("p", "smart-widget-eyebrow", familyLabel(widget.family)));
-  titleBlock.appendChild(el("h3", "", widget.title));
-  titleBlock.appendChild(el("p", "smart-widget-subtitle", widget.subtitle));
+  titleBlock.appendChild(el("p", "smart-widget-eyebrow", familyLabel(card.family)));
+  titleBlock.appendChild(el("h3", "", card.title));
+  titleBlock.appendChild(el("p", "smart-widget-subtitle", card.subtitle));
   top.appendChild(titleBlock);
 
   const priority = el("div", "smart-widget-priority");
-  priority.appendChild(el("span", "", String(widget.priority)));
-  priority.appendChild(el("small", "", index === 0 ? "TOP" : "CTX"));
+  priority.appendChild(el("span", "", String(card.priority)));
+  priority.appendChild(el("small", "", index === 0 ? "TOP" : "CARD"));
   top.appendChild(priority);
-  card.appendChild(top);
+  article.appendChild(top);
 
   const chips = el("div", "smart-widget-chips");
   chips.appendChild(renderChip("Human final authority", "gold"));
@@ -115,34 +140,15 @@ function renderWidget(widget, index) {
   chips.appendChild(renderChip("Not approved", ""));
   chips.appendChild(renderChip("Not sendable", ""));
   chips.appendChild(renderChip("Delivery locked", ""));
-  card.appendChild(chips);
+  article.appendChild(chips);
 
-  card.appendChild(el("p", "smart-widget-why", `Why now: ${widget.whyNow}`));
-  card.appendChild(renderEvidence(widget.evidence));
-  card.appendChild(el("p", "smart-widget-uncertainty", `Uncertainty: ${widget.uncertainty}`));
-  card.appendChild(el("p", "article-zero-reminder compact", forgeAliveSmartWidgetStackPreview.article0));
-  card.appendChild(el("p", "smart-widget-prompt", widget.prompt));
+  article.appendChild(el("p", "smart-widget-why", `Why now: ${card.whyNow}`));
+  article.appendChild(renderEvidence(card.evidence));
+  article.appendChild(el("p", "smart-widget-uncertainty", `Uncertainty: ${card.uncertainty}`));
+  article.appendChild(el("p", "article-zero-reminder compact", forgeAliveSmartWidgetStackPreview.article0));
+  article.appendChild(el("p", "smart-widget-prompt", card.prompt));
 
-  return card;
-}
-
-function renderSlide(context) {
-  const slide = el("section", "smart-widget-slide");
-  slide.setAttribute("aria-label", context.label);
-
-  const header = el("div", "smart-widget-slide-header");
-  header.appendChild(el("p", "smart-widget-eyebrow", context.label));
-  header.appendChild(el("h3", "", context.selectedWhen));
-  header.appendChild(el("p", "smart-widget-subtitle", "Desliza para revisar otros contextos."));
-  slide.appendChild(header);
-
-  const stack = el("div", "smart-widget-slide-stack");
-  context.widgets
-    .slice()
-    .sort((a, b) => b.priority - a.priority)
-    .forEach((widget, index) => stack.appendChild(renderWidget(widget, index)));
-  slide.appendChild(stack);
-
+  slide.appendChild(article);
   return slide;
 }
 
@@ -151,21 +157,22 @@ function main() {
   if (!target) return;
 
   const contexts = forgeAliveSmartWidgetStackPreview.contexts;
-  const activeIndex = initialContextIndex(contexts);
+  const cards = flattenWidgets(contexts);
+  const activeIndex = initialCardIndex(cards);
   target.innerHTML = "";
 
   const header = el("header", "smart-widget-header glass");
   header.appendChild(el("p", "smart-widget-eyebrow", forgeAliveSmartWidgetStackPreview.version));
   header.appendChild(el("h2", "", "Smart Widget Stack"));
-  header.appendChild(el("p", "smart-widget-subtitle", "Desliza el stack. Forge muestra contexto; el humano decide."));
+  header.appendChild(el("p", "smart-widget-subtitle", "Desliza una tarjeta. Forge muestra contexto; el humano decide."));
   target.appendChild(header);
 
-  const carousel = el("section", "smart-widget-carousel");
-  carousel.setAttribute("aria-label", "Swipe smart widget stack contexts");
-  contexts.forEach((context) => carousel.appendChild(renderSlide(context)));
+  const carousel = el("section", "smart-widget-carousel card-level");
+  carousel.setAttribute("aria-label", "Swipe smart widget cards");
+  cards.forEach((card, index) => carousel.appendChild(renderWidget(card, index)));
   target.appendChild(carousel);
 
-  target.appendChild(renderDots(contexts.length, activeIndex));
+  target.appendChild(renderDots(cards.length, activeIndex));
 
   requestAnimationFrame(() => {
     const targetSlide = carousel.children[activeIndex];
@@ -178,7 +185,7 @@ function main() {
     if (rafId) return;
     rafId = window.requestAnimationFrame(() => {
       rafId = 0;
-      syncDotsFromScroll(target, carousel, contexts);
+      syncDotsFromScroll(target, carousel, cards);
     });
   }, { passive: true });
 }
