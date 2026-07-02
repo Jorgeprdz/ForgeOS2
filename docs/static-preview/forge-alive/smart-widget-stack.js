@@ -1,4 +1,4 @@
-import { forgeAliveSmartWidgetStackPreview } from "./smart-widget-stack-data.js?v=053H";
+import { forgeAliveSmartWidgetStackPreview } from "./smart-widget-stack-data.js?v=053J";
 
 const params = new URLSearchParams(window.location.search);
 
@@ -39,6 +39,7 @@ function renderChip(text, tone) {
 function renderDots(count, activeIndex) {
   const dots = el("div", "smart-widget-dots");
   dots.setAttribute("aria-label", "Smart widget position");
+  dots.style.setProperty("--dot-progress", String(activeIndex));
   dots.style.setProperty("--dot-index", String(activeIndex));
   dots.style.setProperty("--dot-count", String(count));
 
@@ -55,22 +56,34 @@ function renderDots(count, activeIndex) {
   return dots;
 }
 
-function updateDots(root, activeIndex) {
+function updateDots(root, activeIndex, progress = activeIndex) {
   const dotsRoot = root.querySelector(".smart-widget-dots");
   if (!dotsRoot) return;
 
-  const previousIndex = Number(dotsRoot.style.getPropertyValue("--dot-index") || "0");
+  const previousProgress = Number(dotsRoot.style.getPropertyValue("--dot-progress") || "0");
+  dotsRoot.style.setProperty("--dot-progress", String(progress));
   dotsRoot.style.setProperty("--dot-index", String(activeIndex));
-  dotsRoot.classList.remove("moving-left", "moving-right", "is-moving");
-  dotsRoot.classList.add(activeIndex >= previousIndex ? "moving-right" : "moving-left", "is-moving");
+
+  dotsRoot.classList.toggle("moving-right", progress >= previousProgress);
+  dotsRoot.classList.toggle("moving-left", progress < previousProgress);
+  dotsRoot.classList.add("is-moving");
 
   window.clearTimeout(dotsRoot._glideTimer);
   dotsRoot._glideTimer = window.setTimeout(() => {
     dotsRoot.classList.remove("moving-left", "moving-right", "is-moving");
-  }, 320);
+  }, 130);
 
   const dots = [...dotsRoot.querySelectorAll(".smart-widget-dot")];
   dots.forEach((dot, index) => dot.classList.toggle("active", index === activeIndex));
+}
+
+function syncDotsFromScroll(root, carousel, contexts) {
+  const width = carousel.clientWidth || 1;
+  const rawProgress = carousel.scrollLeft / width;
+  const maxIndex = Math.max(0, contexts.length - 1);
+  const progress = Math.max(0, Math.min(maxIndex, rawProgress));
+  const activeIndex = Math.max(0, Math.min(maxIndex, Math.round(progress)));
+  updateDots(root, activeIndex, progress);
 }
 
 function renderEvidence(items) {
@@ -160,14 +173,13 @@ function main() {
     updateDots(target, activeIndex);
   });
 
-  let scrollTimer = null;
+  let rafId = 0;
   carousel.addEventListener("scroll", () => {
-    window.clearTimeout(scrollTimer);
-    scrollTimer = window.setTimeout(() => {
-      const width = carousel.clientWidth || 1;
-      const index = Math.max(0, Math.min(contexts.length - 1, Math.round(carousel.scrollLeft / width)));
-      updateDots(target, index);
-    }, 70);
+    if (rafId) return;
+    rafId = window.requestAnimationFrame(() => {
+      rafId = 0;
+      syncDotsFromScroll(target, carousel, contexts);
+    });
   }, { passive: true });
 }
 

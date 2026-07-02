@@ -541,7 +541,7 @@ section#genesis-cards.genesis-cards-stack .article-zero-reminder.compact {
   overflow-wrap: anywhere;
 }
 
-/* FORGEOS:SMART_WIDGET_STACK_DOT_GLIDE_053H:START */
+/* FORGEOS:SMART_WIDGET_STACK_DOT_GLIDE_CONTINUOUS_053J:START */
 #smart-widget-stack,
 .smart-widget-stack {
   display: grid;
@@ -783,17 +783,17 @@ section#genesis-cards.genesis-cards-stack .article-zero-reminder.compact {
   border-radius: 999px;
   background: linear-gradient(90deg, #ffe9b1, #d29a3d);
   box-shadow: 0 0 14px rgba(224, 183, 96, 0.38);
-  transform: translateX(calc(var(--dot-index) * var(--dot-step)));
+  transform: translateX(calc(var(--dot-progress) * var(--dot-step)));
   transform-origin: center;
   transition:
     transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
-    width 180ms ease,
-    border-radius 180ms ease;
+    width 120ms ease,
+    border-radius 120ms ease;
   z-index: 2;
 }
 
 #smart-widget-stack .smart-widget-dots.is-moving .smart-widget-dot-glider {
-  width: 24px;
+  width: 26px;
   border-radius: 999px 14px 14px 999px;
 }
 
@@ -806,4 +806,4 @@ section#genesis-cards.genesis-cards-stack .article-zero-reminder.compact {
     transition: none;
   }
 }
-/* FORGEOS:SMART_WIDGET_STACK_DOT_GLIDE_053H:END */
+/* FORGEOS:SMART_WIDGET_STACK_DOT_GLIDE_CONTINUOUS_053J:END */

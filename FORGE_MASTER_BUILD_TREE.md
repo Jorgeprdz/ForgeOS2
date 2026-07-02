@@ -3569,3 +3569,27 @@ Evidence:
 - docs/architecture/source-truth/FORGE_ALIVE_STATIC_COMMAND_LAYER_RULE_SCOPE_053I.md
 - docs/evidence/FORGE_ALIVE_STATIC_COMMAND_LAYER_RULE_SCOPE_CERTIFICATE_053I.md
 <!-- FORGEOS:STATIC_COMMAND_LAYER_RULE_SCOPE_053I:END -->
+
+<!-- FORGEOS:SMART_WIDGET_DOT_GLIDE_CONTINUOUS_SYNC_053J:START -->
+## Forge Alive Smart Widget Dot Glide Continuous Sync 053J
+
+Status: CLOSED / STATIC_PREVIEW_MICRO_INTERACTION_TUNED.
+
+053J synchronizes the Smart Widget Stack dot glider with carousel scroll progress.
+
+Boundary:
+- static preview micro-interaction only
+- Preview v053J visible
+- dot glider follows swipe continuously
+- requestAnimationFrame scroll sync
+- no approval/send/runtime/truth mutation
+- Article 0 unchanged
+- Skynet unchanged
+
+Evidence:
+- docs/static-preview/forge-alive/index.html
+- docs/static-preview/forge-alive/styles.css
+- docs/static-preview/forge-alive/smart-widget-stack.js
+- docs/architecture/source-truth/FORGE_ALIVE_SMART_WIDGET_STACK_DOT_GLIDE_CONTINUOUS_SYNC_CLOSURE_053J.md
+- docs/evidence/FORGE_ALIVE_SMART_WIDGET_STACK_DOT_GLIDE_CONTINUOUS_SYNC_CERTIFICATE_053J.md
+<!-- FORGEOS:SMART_WIDGET_DOT_GLIDE_CONTINUOUS_SYNC_053J:END -->
