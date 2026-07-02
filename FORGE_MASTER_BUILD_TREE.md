@@ -3756,3 +3756,16 @@ Evidence:
 - no live search or runtime execution
 - no approval/send/runtime/truth mutation
 - Article 0 unchanged
+
+## Forge Alive Command Orb Final Timing Tuning 053X
+
+053X adds one more small delay to orb opening and a larger delay to result reveal.
+
+- pill expansion increased to 760ms
+- input/control reveal delay increased to 240ms
+- result reveal delay increased to 420ms
+- orb exit remains responsive
+- reduced-motion fallback preserved
+- no live search or runtime execution
+- no approval/send/runtime/truth mutation
+- Article 0 unchanged

@@ -1318,3 +1318,44 @@ section#genesis-cards.genesis-cards-stack .article-zero-reminder.compact {
   }
 }
 /* FORGEOS:COMMAND_ORB_TIMING_SLOWDOWN_053W:END */
+
+/* FORGEOS:COMMAND_ORB_FINAL_TIMING_053X:START */
+.command-pill {
+  transition:
+    opacity 280ms ease 150ms,
+    transform 760ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 380ms ease,
+    border-color 380ms ease;
+}
+
+.command-pill-input,
+.command-pill-slash,
+.command-pill-close {
+  transition:
+    opacity 240ms ease 240ms,
+    transform 300ms ease 240ms;
+}
+
+.command-orb-layer.is-expanded .command-orb {
+  transition:
+    opacity 230ms ease 50ms,
+    transform 470ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.command-orb-results {
+  transition:
+    opacity 300ms ease 420ms,
+    transform 440ms cubic-bezier(0.16, 1, 0.3, 1) 420ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .command-pill,
+  .command-pill-input,
+  .command-pill-slash,
+  .command-pill-close,
+  .command-orb-layer.is-expanded .command-orb,
+  .command-orb-results {
+    transition: opacity 120ms ease;
+  }
+}
+/* FORGEOS:COMMAND_ORB_FINAL_TIMING_053X:END */
