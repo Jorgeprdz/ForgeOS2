@@ -2090,3 +2090,15 @@ GREEN FORGE ALIVE STATIC PREVIEW MILESTONE CLOSURE / IMPLEMENTED
 |   |-- GREEN Mobile portrait orb-to-pill behavior preserved
 |   |-- GREEN Article 0 and read-only safety boundaries unchanged
 |   `-- RED approval/send/runtime/truth mutation
+
+|-- GREEN 054I Alfred Universal Command Memory Voice Scope
+|   |-- GREEN Alfred scoped as universal command layer
+|   |-- GREEN Alfred scoped as universal index layer
+|   |-- GREEN Alfred scoped as memory ledger layer
+|   |-- GREEN /Memoria preferred over /bitacora
+|   |-- GREEN Referral, agenda, calendar prep, product intelligence, message draft, and chatbot commands scoped
+|   |-- GREEN ALFRED_VOICE_CAPTURE scoped for future microphone capture
+|   |-- GREEN Voice capture remains transcription preview and memory prep only
+|   |-- GREEN Article 0 and human final authority preserved
+|   |-- RED audio runtime or speech engine implementation
+|   `-- RED approval/send/runtime/truth mutation

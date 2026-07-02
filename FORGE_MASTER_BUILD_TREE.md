@@ -3835,3 +3835,17 @@ Evidence:
 - mobile portrait orb-to-pill behavior preserved
 - no approval/send/runtime/truth mutation
 - Article 0 unchanged
+
+## Alfred Universal Command Memory Voice Scope 054I
+
+054I scopes Alfred as Forge's universal command, memory, routing, voice-capture, and action-preparation layer.
+
+- Alfred is command bar plus universal index plus memory ledger
+- `/Memoria` is preferred over `/bitacora`
+- `/Referido`, `/Agenda`, `/Crear evento`, `/Cotizar`, `/Proyectar`, `/Presentacion`, `/Mejora este mensaje`, and `/Chatbot` are scoped
+- voice capture is scoped as `ALFRED_VOICE_CAPTURE`
+- microphone capture remains preview/prep only
+- read models must remain preview only / review only / not approved / not sendable
+- no audio runtime or speech engine implemented
+- no approval/send/runtime/truth mutation
+- Article 0 unchanged
