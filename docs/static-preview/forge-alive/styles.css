@@ -475,3 +475,29 @@ section#genesis-cards.genesis-cards-stack .article-zero-reminder.compact {
   text-transform: uppercase;
   width: fit-content;
 }
+
+/* 052W Genesis chip spacing fix */
+section#genesis-cards.genesis-cards-stack .genesis-card-chips.compact {
+  display: grid !important;
+  gap: 0.42rem !important;
+  grid-template-columns: 1fr !important;
+  margin: 0.15rem 0 0.1rem;
+}
+
+section#genesis-cards.genesis-cards-stack .genesis-card-chips.compact .forge-chip {
+  border-radius: 0.72rem;
+  box-sizing: border-box;
+  display: flex !important;
+  justify-content: flex-start;
+  letter-spacing: 0.01em;
+  line-height: 1.22;
+  min-height: 1.72rem;
+  padding: 0.48rem 0.58rem;
+  text-align: left;
+  width: 100%;
+}
+
+section#genesis-cards.genesis-cards-stack .genesis-evidence-row .forge-chip {
+  justify-content: flex-start;
+  text-align: left;
+}
