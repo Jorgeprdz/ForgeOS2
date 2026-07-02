@@ -84,3 +84,43 @@ if (layer) {
     });
   }
 }
+
+// FORGEOS:DESKTOP_CONTEXT_DRAWER_054F:START
+(() => {
+  const initDesktopContextDrawer = () => {
+    const toggle = document.querySelector(".desktop-context-toggle");
+    const panel = document.querySelector(".desktop-context-rail");
+    const close = document.querySelector(".desktop-context-close");
+
+    if (!toggle || !panel) {
+      return;
+    }
+
+    const setOpen = (isOpen) => {
+      document.body.classList.toggle("desktop-context-open", isOpen);
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      panel.setAttribute("aria-hidden", String(!isOpen));
+    };
+
+    toggle.addEventListener("click", () => {
+      setOpen(!document.body.classList.contains("desktop-context-open"));
+    });
+
+    if (close) {
+      close.addEventListener("click", () => setOpen(false));
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+      }
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initDesktopContextDrawer, { once: true });
+  } else {
+    initDesktopContextDrawer();
+  }
+})();
+// FORGEOS:DESKTOP_CONTEXT_DRAWER_054F:END

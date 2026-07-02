@@ -3822,3 +3822,16 @@ Evidence:
 - mobile portrait orb-to-pill behavior preserved
 - no approval/send/runtime/truth mutation
 - Article 0 unchanged
+
+## Forge Alive Desktop Context Rail Drawer Tuning 054F
+
+054F changes the desktop context rail from an always-visible floating panel into a collapsible dedicated drawer.
+
+- Contexto vivo trigger added
+- desktop context rail closed by default
+- local click interaction opens/closes panel
+- crystal/glow styling preserved
+- command bar and desktop navigation preserved
+- mobile portrait orb-to-pill behavior preserved
+- no approval/send/runtime/truth mutation
+- Article 0 unchanged

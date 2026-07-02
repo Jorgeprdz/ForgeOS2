@@ -1890,3 +1890,112 @@ section#genesis-cards.genesis-cards-stack .article-zero-reminder.compact {
   }
 }
 /* FORGEOS:DESKTOP_ASYMMETRIC_COCKPIT_054D:END */
+
+/* FORGEOS:DESKTOP_CONTEXT_DRAWER_054F:START */
+.desktop-context-toggle,
+.desktop-context-close {
+  display: none;
+}
+
+@media (min-width: 900px), (orientation: landscape) {
+  .desktop-context-toggle {
+    position: fixed;
+    top: 92px;
+    right: 28px;
+    z-index: 117;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 42px;
+    padding: 0 14px 0 16px;
+    border: 1px solid rgba(116, 211, 255, 0.22);
+    border-radius: 999px;
+    color: rgba(239, 247, 255, 0.9);
+    background:
+      linear-gradient(135deg, rgba(13, 31, 54, 0.76), rgba(6, 21, 39, 0.64)),
+      rgba(8, 18, 36, 0.6);
+    -webkit-backdrop-filter: blur(18px) saturate(155%);
+    backdrop-filter: blur(18px) saturate(155%);
+    box-shadow:
+      0 0 24px rgba(85, 198, 255, 0.18),
+      inset 0 0 16px rgba(255, 225, 161, 0.06);
+  }
+
+  .desktop-context-toggle span {
+    font-size: 0.78rem;
+    font-weight: 750;
+    letter-spacing: 0.02em;
+  }
+
+  .desktop-context-toggle b {
+    display: grid;
+    width: 22px;
+    height: 22px;
+    place-items: center;
+    border-radius: 999px;
+    color: rgba(10, 18, 31, 0.96);
+    background: linear-gradient(135deg, #ffe4a3, #d6a94f);
+    font-size: 0.72rem;
+  }
+
+  .desktop-context-rail {
+    top: 146px !important;
+    right: 22px !important;
+    z-index: 119 !important;
+    width: min(360px, calc(100vw - 72px)) !important;
+    min-width: 0 !important;
+    max-height: min(620px, calc(100vh - 178px));
+    overflow: auto;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(calc(100% + 34px)) scale(0.98);
+    transition:
+      transform 360ms cubic-bezier(0.2, 0.78, 0.2, 1),
+      opacity 240ms ease,
+      box-shadow 260ms ease;
+  }
+
+  .desktop-context-open .desktop-context-rail {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0) scale(1);
+    box-shadow:
+      0 24px 80px rgba(0, 0, 0, 0.42),
+      0 0 46px rgba(85, 198, 255, 0.16),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .desktop-context-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    border: 1px solid rgba(170, 204, 255, 0.16);
+    border-radius: 999px;
+    color: rgba(239, 247, 255, 0.76);
+    background: rgba(7, 18, 34, 0.68);
+  }
+
+  .desktop-context-rail strong {
+    padding-right: 34px;
+  }
+
+  .desktop-context-open .desktop-context-toggle {
+    border-color: rgba(255, 225, 161, 0.42);
+    box-shadow:
+      0 0 28px rgba(85, 198, 255, 0.22),
+      0 0 20px rgba(255, 225, 161, 0.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .desktop-context-rail,
+  .desktop-context-open .desktop-context-rail {
+    transition: none !important;
+  }
+}
+/* FORGEOS:DESKTOP_CONTEXT_DRAWER_054F:END */

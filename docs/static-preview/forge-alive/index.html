@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Forge Alive Static Preview</title>
-  <link rel="stylesheet" href="./styles.css?v=054D">
+  <link rel="stylesheet" href="./styles.css?v=054F">
 </head>
 <body>
   <main class="phone-shell" aria-label="Forge Alive static preview">
@@ -21,7 +21,12 @@
       <a>Alfred</a>
       <a>Mas</a>
     </aside>
-    <aside class="desktop-context-rail glass" aria-label="Contexto desktop">
+        <button class="desktop-context-toggle" type="button" aria-expanded="false" aria-controls="desktop-context-rail">
+      <span>Contexto vivo</span>
+      <b>3</b>
+    </button>
+<aside class="desktop-context-rail glass" id="desktop-context-rail" aria-label="Contexto desktop" aria-hidden="true">
+      <button class="desktop-context-close" type="button" aria-label="Cerrar contexto">×</button>
       <strong>Contexto vivo</strong>
       <section>
         <span>Prioridad</span>
@@ -42,7 +47,7 @@
     </aside>
 
     <section class="safety-ribbon">SAMPLE DATA / READ-ONLY / NOT PRODUCTION</section>
-    <section class="preview-version-badge">Preview v054D</section>
+    <section class="preview-version-badge">Preview v054F</section>
 
     <header class="hero">
       <div>
@@ -162,7 +167,7 @@
 
   <script src="./sample-data.js"></script>
 
-  <script src="./smart-widget-stack.js?v=054D" type="module"></script>
-  <script src="./command-bar-orb.js?v=054D" type="module"></script>
+  <script src="./smart-widget-stack.js?v=054F" type="module"></script>
+  <script src="./command-bar-orb.js?v=054F" type="module"></script>
 </body>
 </html>

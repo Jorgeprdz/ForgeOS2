@@ -1122,3 +1122,12 @@ Forge Alive desktop/landscape now moves away from a centered phone-column previe
 
 Next:
 - 054E_DESKTOP_LANDSCAPE_ASYMMETRIC_COCKPIT_OUTPUT_REVIEW.
+
+# Forge Alive Desktop Context Rail Drawer Tuning Roadmap Status
+
+054F_DESKTOP_CONTEXT_RAIL_DRAWER_TUNING: GREEN / IMPLEMENTED.
+
+Forge Alive desktop/landscape now treats Contexto vivo as a collapsible dedicated panel instead of an always-visible floating window.
+
+Next:
+- 054G_DESKTOP_CONTEXT_RAIL_DRAWER_OUTPUT_REVIEW.
