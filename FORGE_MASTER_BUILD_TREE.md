@@ -3769,3 +3769,16 @@ Evidence:
 - no live search or runtime execution
 - no approval/send/runtime/truth mutation
 - Article 0 unchanged
+
+## Forge Alive Command Bar Desktop Landscape Layout Tuning 053Y
+
+053Y adds desktop and landscape layout behavior.
+
+- mobile keeps orb-to-pill command pattern
+- desktop/landscape show command bar extended by default
+- command bar remains fixed to viewport layer
+- smart widgets receive wider horizontal layout behavior
+- wider grids apply where available
+- no live search or runtime execution
+- no approval/send/runtime/truth mutation
+- Article 0 unchanged

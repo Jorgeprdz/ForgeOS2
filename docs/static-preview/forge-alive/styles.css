@@ -1359,3 +1359,132 @@ section#genesis-cards.genesis-cards-stack .article-zero-reminder.compact {
   }
 }
 /* FORGEOS:COMMAND_ORB_FINAL_TIMING_053X:END */
+
+/* FORGEOS:COMMAND_BAR_DESKTOP_LANDSCAPE_053Y:START */
+@media (min-width: 760px), (orientation: landscape) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .phone-frame,
+  .app-shell,
+  main {
+    max-width: min(1120px, calc(100vw - 36px));
+    width: min(1120px, calc(100vw - 36px));
+    padding-bottom: max(126px, calc(106px + env(safe-area-inset-bottom)));
+  }
+
+  .command-orb-layer {
+    left: 50%;
+    right: auto;
+    bottom: max(28px, calc(22px + env(safe-area-inset-bottom)));
+    width: min(720px, calc(100vw - 64px));
+    justify-items: stretch;
+    transform: translateX(-50%);
+  }
+
+  .command-orb {
+    display: none;
+  }
+
+  .command-pill {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    min-height: 60px;
+    opacity: 1;
+    transform: none;
+    transform-origin: center center;
+    pointer-events: auto;
+    transition:
+      box-shadow 260ms ease,
+      border-color 260ms ease,
+      background 260ms ease;
+  }
+
+  .command-pill-input,
+  .command-pill-slash,
+  .command-pill-close {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .command-pill-close {
+    display: none;
+  }
+
+  .command-orb-layer.is-expanded .command-pill,
+  .command-orb-layer.is-typing .command-pill {
+    opacity: 1;
+    transform: none;
+  }
+
+  .command-orb-results {
+    right: 0;
+    left: 0;
+    bottom: 72px;
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .smart-widget-stack {
+    max-width: 100%;
+  }
+
+  .smart-widget-carousel,
+  .smart-widget-carousel.card-level {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(300px, 0.42fr);
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-inline: 2px;
+  }
+
+  .smart-widget-slide,
+  .smart-widget-card,
+  .smart-widget-card.compact {
+    scroll-snap-align: start;
+  }
+
+  #genesis-cards,
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .primary-card,
+  .assistant-card,
+  .panel,
+  .mini-card,
+  .command-orb-results article {
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+  }
+}
+
+@media (min-width: 980px) {
+  .phone-frame,
+  .app-shell,
+  main {
+    max-width: min(1180px, calc(100vw - 48px));
+    width: min(1180px, calc(100vw - 48px));
+  }
+
+  .command-orb-layer {
+    width: min(760px, calc(100vw - 96px));
+  }
+
+  .smart-widget-carousel,
+  .smart-widget-carousel.card-level {
+    grid-auto-columns: minmax(340px, 0.36fr);
+  }
+
+  #genesis-cards,
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+/* FORGEOS:COMMAND_BAR_DESKTOP_LANDSCAPE_053Y:END */
