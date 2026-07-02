@@ -3547,3 +3547,25 @@ Evidence:
 - docs/architecture/source-truth/FORGE_ALIVE_SMART_WIDGET_STACK_DOT_GLIDE_ANIMATION_CLOSURE_053H.md
 - docs/evidence/FORGE_ALIVE_SMART_WIDGET_STACK_DOT_GLIDE_ANIMATION_CERTIFICATE_053H.md
 <!-- FORGEOS:SMART_WIDGET_STACK_DOT_GLIDE_ANIMATION_053H:END -->
+
+<!-- FORGEOS:STATIC_COMMAND_LAYER_RULE_SCOPE_053I:START -->
+## Forge Alive Static Command Layer Rule Scope 053I
+
+Status: SCOPED / DOCS_ONLY / NOT_IMPLEMENTED.
+
+053I scopes the rule that Alfred / command bar is a persistent command layer.
+
+Boundary:
+- docs only
+- no UI implementation
+- Alfred / command bar stays stable
+- smart widgets slide inside bounded content layer
+- content moves behind or below command layer
+- no approval/send/runtime/truth mutation
+- Article 0 unchanged
+- Skynet unchanged
+
+Evidence:
+- docs/architecture/source-truth/FORGE_ALIVE_STATIC_COMMAND_LAYER_RULE_SCOPE_053I.md
+- docs/evidence/FORGE_ALIVE_STATIC_COMMAND_LAYER_RULE_SCOPE_CERTIFICATE_053I.md
+<!-- FORGEOS:STATIC_COMMAND_LAYER_RULE_SCOPE_053I:END -->
