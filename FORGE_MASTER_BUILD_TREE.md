@@ -3341,3 +3341,50 @@ Evidence:
 - docs/architecture/source-truth/FORGE_ALIVE_GENESIS_BETA_LOOP_UI_RENDERING_WIRING_FIX_CLOSURE_052P.md
 - docs/evidence/FORGE_ALIVE_GENESIS_BETA_LOOP_UI_RENDERING_WIRING_FIX_CERTIFICATE_052P.md
 <!-- FORGEOS:FORGE_ALIVE_GENESIS_BETA_LOOP_UI_RENDERING_WIRING_FIX_052P:END -->
+
+<!-- FORGEOS:FORGE_ALIVE_SMART_WIDGET_STACK_SCOPE_052Y:START -->
+## Forge Alive Smart Widget Stack Scope 052Y
+
+Status: SCOPED / NOT IMPLEMENTED.
+
+052Y consolidates existing Forge Alive design and governance sources into the Smart Widget Stack source-truth.
+
+Core decision:
+- 052Y Forge Alive Smart Widget Stack Scope status: SCOPED / NOT IMPLEMENTED.
+- Genesis Beta Loop cards are not permanent home cards.
+- Genesis Beta Loop cards are now a widget family: `GENESIS_REVIEW_PACKET_WIDGET_FAMILY`.
+- Mi Dia / Mi Día, Alfred, and the command cockpit should show contextually relevant read-only widgets.
+- Smart Widget Stack is contextual, time-aware, signal-aware, and Article 0 governed.
+- The Smart Widget Stack may prioritize by urgency, business impact, risk, freshness, confidence, missing context, Article 0 learning value, and human decision checkpoint need.
+
+Design roots:
+- `docs/10-design/FORGE_UI_LOCK_001_MI_DIA_ALFRED_COMMAND_COCKPIT.md`
+- `docs/10-design/FORGE_HOME_SMART_WIDGETS_CONTEXTUAL_RULE_001.md`
+- `docs/architecture/source-truth/FORGE_ALIVE_GENESIS_BETA_LOOP_UI_RENDERING_SCOPE_052M.md`
+- `docs/architecture/source-truth/UI_READ_MODEL_SCOPE_038A.md`
+- `docs/architecture/source-truth/UI_RENDERING_BOUNDARY_SCOPE_042A.md`
+- `docs/architecture/source-truth/FORGE_ALIVE_SHELL_SCOPE_043A.md`
+- `docs/09-live-mvp/LIVE-001_FORGE_ALIVE_MVP_READINESS.md`
+- `docs/architecture/source-truth/ARTICLE_0_RATIFICATION_001.md`
+
+Boundary preserved:
+- no code
+- no UI implementation
+- no frontend components
+- no runtime
+- no engine/schema changes
+- no approval mutation
+- no send
+- no CRM/task/calendar writes
+- no delivery unlock
+- no truth mutation
+- no approval/send/runtime/truth mutation
+- Article 0 unchanged
+- Skynet unchanged
+- Constitution not rewritten
+- no unrelated candidate ratification
+
+Next phase: 052Z Smart Widget Stack Read Model.
+
+Phase id: `052Z_SMART_WIDGET_STACK_READ_MODEL`.
+<!-- FORGEOS:FORGE_ALIVE_SMART_WIDGET_STACK_SCOPE_052Y:END -->

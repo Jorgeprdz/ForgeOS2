@@ -838,6 +838,39 @@ Constitution rewrite occurred. Message Safety Validator remains unchanged.
 Next recommended phase:
 - 052L Forge Alive UI Rendering Scope.
 
+# Forge Alive Smart Widget Stack Scope Roadmap Status
+
+052Y Forge Alive Smart Widget Stack Scope status: SCOPED / NOT IMPLEMENTED.
+
+Forge Alive Smart Widget Stack is now scoped as the product-system source-truth
+for how Mi Dia / Mi Día, Alfred, and the command cockpit choose contextually
+relevant read-only widgets.
+
+Core roadmap decision:
+- Genesis Beta Loop cards are not permanent home cards.
+- Genesis Beta Loop cards are now a widget family: `GENESIS_REVIEW_PACKET_WIDGET_FAMILY`.
+- Forge Alive should not always show the same cards.
+- Smart Widget Stack is contextual, time-aware, signal-aware, and Article 0 governed.
+- Smart widgets should prioritize urgency, business impact, risk, freshness,
+  confidence, missing context, Article 0 learning value, and human decision
+  checkpoint need.
+
+Article 0 remains active and unchanged: Forge exists to strengthen human
+judgment, not replace it.
+
+Boundaries:
+- no send button
+- no approval mutation
+- no delivery unlock
+- no provider/LLM runtime trigger
+- no approval/send/runtime/truth mutation
+- no CRM/task/calendar writes
+- no payout/revenue/compensation/lifecycle/HR/ranking truth mutation
+- no permanent fixed cards that ignore context
+
+Next phase:
+- 052Z Smart Widget Stack Read Model.
+
 # Forge Alive Genesis Beta Loop UI Rendering Scope Roadmap Status
 
 052M_FORGE_ALIVE_GENESIS_BETA_LOOP_UI_RENDERING_SCOPE: GREEN / CLOSED.
