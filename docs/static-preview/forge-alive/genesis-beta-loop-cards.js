@@ -32,35 +32,33 @@ function el(tag, className, text) {
   return node;
 }
 
-function chip(text, variant) {
-  return el("span", `forge-chip ${variant || ""}`.trim(), text);
+function labelRow(label, value) {
+  const row = el("div", "genesis-label-row");
+  row.appendChild(el("span", "genesis-label-key", label));
+  row.appendChild(el("span", "genesis-label-value", value));
+  return row;
 }
 
 function renderCard(card) {
   const article = el("article", "mini-card glass genesis-beta-loop-card compact");
 
-  const top = el("div", "genesis-card-top");
-  const titleWrap = el("div", "");
-  titleWrap.appendChild(el("p", "eyebrow", "Genesis Beta Loop"));
-  titleWrap.appendChild(el("h3", "", card.title));
-  titleWrap.appendChild(el("p", "muted", card.context));
-  top.appendChild(titleWrap);
-  top.appendChild(chip("Review only", "gold"));
-  article.appendChild(top);
-
+  article.appendChild(el("p", "eyebrow", "Genesis Beta Loop"));
+  article.appendChild(el("h3", "", card.title));
+  article.appendChild(el("p", "muted", card.context));
   article.appendChild(el("p", "genesis-subtitle", card.subtitle));
 
-  const chips = el("div", "genesis-card-chips compact");
-  chips.appendChild(chip("Human final authority", "blue"));
-  chips.appendChild(chip("Not approved", "locked"));
-  chips.appendChild(chip("Not sendable", "locked"));
-  chips.appendChild(chip(card.boundary, "locked"));
-  article.appendChild(chips);
+  const labels = el("div", "genesis-label-stack");
+  labels.appendChild(labelRow("Authority", "Human final authority"));
+  labels.appendChild(labelRow("Boundary", "Review only"));
+  labels.appendChild(labelRow("Approval", "Not approved"));
+  labels.appendChild(labelRow("Send", "Not sendable"));
+  labels.appendChild(labelRow("Lock", card.boundary));
+  article.appendChild(labels);
 
   article.appendChild(el("p", "genesis-draft-preview compact", card.draft));
 
   const evidence = el("div", "genesis-evidence-row");
-  card.evidence.slice(0, 3).forEach((item) => evidence.appendChild(chip(item, "soft")));
+  card.evidence.forEach((item) => evidence.appendChild(el("span", "forge-chip soft", item)));
   article.appendChild(evidence);
 
   article.appendChild(el("p", "article-zero-reminder compact", "Article 0: strengthen judgment, not replace it."));
