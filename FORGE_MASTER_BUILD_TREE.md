@@ -3315,3 +3315,29 @@ Evidence:
 - docs/architecture/source-truth/FORGE_ALIVE_GENESIS_BETA_LOOP_UI_RENDERING_SCOPE_052M.md
 - docs/evidence/FORGE_ALIVE_GENESIS_BETA_LOOP_UI_RENDERING_SCOPE_CERTIFICATE_052M.md
 <!-- FORGEOS:FORGE_ALIVE_GENESIS_BETA_LOOP_UI_RENDERING_SCOPE_052M:END -->
+
+<!-- FORGEOS:FORGE_ALIVE_GENESIS_BETA_LOOP_UI_RENDERING_WIRING_FIX_052P:START -->
+## Forge Alive Genesis Beta Loop UI Rendering Wiring Fix 052P
+
+Status: CLOSED / STATIC PREVIEW WIRING FIXED.
+
+052P fixes Genesis Beta Loop Forge Alive static preview rendering so cards load from browser-safe static data and render all three existing scenarios.
+
+Boundary:
+- static preview UI rendering only
+- no approval mutation
+- no send
+- no runtime
+- no delivery unlock
+- no truth mutation
+- Article 0 unchanged
+- Skynet unchanged
+- Constitution not rewritten
+
+Evidence:
+- docs/static-preview/forge-alive/genesis-beta-loop-card-data.js
+- docs/static-preview/forge-alive/genesis-beta-loop-cards.js
+- docs/static-preview/forge-alive/index.html
+- docs/architecture/source-truth/FORGE_ALIVE_GENESIS_BETA_LOOP_UI_RENDERING_WIRING_FIX_CLOSURE_052P.md
+- docs/evidence/FORGE_ALIVE_GENESIS_BETA_LOOP_UI_RENDERING_WIRING_FIX_CERTIFICATE_052P.md
+<!-- FORGEOS:FORGE_ALIVE_GENESIS_BETA_LOOP_UI_RENDERING_WIRING_FIX_052P:END -->

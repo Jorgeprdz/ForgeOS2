@@ -1,40 +1,32 @@
-const cards = [
-  {
-    title: "Jorge / Maria follow-up review",
-    subtitle: "relationship follow-up context, not send approval",
-    draft: "Hola Maria, espero que estes muy bien. Queria retomar nuestra conversacion con calma y saber si te gustaria que lo revisemos juntos esta semana.",
-    evidence: ["previous conversation", "15-day follow-up", "pending follow-up"],
-    note: "Delivery locked until real human approval."
-  },
-  {
-    title: "Andres / Juan bonus proximity review",
-    subtitle: "motivational context / candidate estimate, not payout truth",
-    draft: "Juan, vi que hay una oportunidad que podria valer la pena revisar con calma. Si te hace sentido, podemos ver juntos que falta y decidir el siguiente paso.",
-    evidence: ["bonus proximity", "Juan relative signal", "consultative message"],
-    note: "Bonus context is not payout truth."
-  },
-  {
-    title: "Lupita / Maria car goal review",
-    subtitle: "motivation context, not compensation truth",
-    draft: "Maria, me acorde de la meta del coche y pense que puede servir como referencia para ordenar el siguiente paso. Si quieres, lo revisamos con calma.",
-    evidence: ["car goal", "Maria advancement signal", "consistency signal"],
-    note: "Goal context is not compensation truth."
-  }
-];
+import { genesisBetaLoopCards } from "./genesis-beta-loop-card-data.js";
 
 function el(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
-  if (text) node.textContent = text;
+  if (text !== undefined && text !== null) node.textContent = String(text);
   return node;
+}
+
+function chip(text, className = "forge-chip") {
+  return el("span", className, text);
+}
+
+function list(title, items) {
+  const section = el("div", "genesis-card-section");
+  section.appendChild(el("h4", "", title));
+  const ul = el("ul", "genesis-card-list");
+  (items || []).forEach((item) => ul.appendChild(el("li", "", item)));
+  section.appendChild(ul);
+  return section;
 }
 
 function renderCard(card) {
   const article = el("article", "mini-card glass genesis-beta-loop-card");
+  article.setAttribute("data-scenario-id", card.scenarioId);
 
-  article.appendChild(el("p", "eyebrow", "Genesis Beta Loop"));
-  article.appendChild(el("h3", "", card.title));
-  article.appendChild(el("p", "muted", card.subtitle));
+  const eyebrow = el("p", "eyebrow", "Genesis Beta Loop");
+  const title = el("h3", "", card.title);
+  const subtitle = el("p", "muted", card.subtitle);
 
   const chips = el("div", "genesis-card-chips");
   [
@@ -45,19 +37,33 @@ function renderCard(card) {
     "Delivery locked",
     "Evidence visible",
     "Uncertainty visible"
-  ].forEach((label) => chips.appendChild(el("span", "forge-chip", label)));
+  ].forEach((label) => chips.appendChild(chip(label)));
+
+  const safety = el("p", "metric-line", `Safety: ${card.safetyBadge}`);
+  const draft = el("p", "metric-line", `Draft: ${card.draftQualityBadge}`);
+  const draftPreview = el("p", "genesis-draft-preview", card.candidateDraftPreview);
+
+  const article0 = el(
+    "p",
+    "article-zero-reminder",
+    "Article 0: strengthen human judgment, not replace it."
+  );
+
+  article.appendChild(eyebrow);
+  article.appendChild(title);
+  article.appendChild(subtitle);
   article.appendChild(chips);
-
+  article.appendChild(safety);
+  article.appendChild(draft);
   article.appendChild(el("h4", "", "Draft preview"));
-  article.appendChild(el("p", "genesis-draft-preview", card.draft));
-
-  article.appendChild(el("h4", "", "Evidence"));
-  const evidence = el("ul", "genesis-card-list");
-  card.evidence.forEach((item) => evidence.appendChild(el("li", "", item)));
-  article.appendChild(evidence);
-
-  article.appendChild(el("p", "muted", card.note));
-  article.appendChild(el("p", "article-zero-reminder", "Article 0: strengthen human judgment, not replace it."));
+  article.appendChild(draftPreview);
+  article.appendChild(list("Evidence", card.evidenceRefs));
+  article.appendChild(el("p", "muted", `Reasoning: ${card.reasoningSummary}`));
+  article.appendChild(el("p", "muted", `Uncertainty: ${card.uncertaintySummary}`));
+  article.appendChild(list("Human review questions", card.humanReviewQuestions));
+  article.appendChild(list("Approval prerequisites", card.approvalPrerequisites));
+  article.appendChild(el("p", "locked-line", `Blocked: ${card.blockedReason.join(", ")}`));
+  article.appendChild(article0);
 
   return article;
 }
@@ -66,7 +72,7 @@ function main() {
   const target = document.getElementById("genesis-cards");
   if (!target) return;
   target.innerHTML = "";
-  cards.forEach((card) => target.appendChild(renderCard(card)));
+  genesisBetaLoopCards.forEach((card) => target.appendChild(renderCard(card)));
 }
 
 document.addEventListener("DOMContentLoaded", main);

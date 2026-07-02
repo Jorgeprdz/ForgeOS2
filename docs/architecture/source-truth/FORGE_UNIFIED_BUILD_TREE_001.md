@@ -1786,3 +1786,16 @@ GREEN FORGE ALIVE STATIC PREVIEW MILESTONE CLOSURE / IMPLEMENTED
 |   |-- RED Revenue/compensation/payout/lifecycle/HR/ranking/punishment/personality truth
 |   `-- RED Skynet/Constitution/Article 0 text modification
 <!-- FORGEOS:FORGE_ALIVE_GENESIS_BETA_LOOP_UI_RENDERING_SCOPE_052M:END -->
+
+<!-- FORGEOS:FORGE_ALIVE_GENESIS_BETA_LOOP_UI_RENDERING_WIRING_FIX_052P:START -->
+|-- GREEN 052P Forge Alive Genesis Beta Loop UI Rendering Wiring Fix
+|   |-- GREEN Browser-safe static card data
+|   |-- GREEN All three Genesis Beta Loop scenarios rendered
+|   |-- GREEN Human final authority visible
+|   |-- GREEN Review only / Not approved / Not sendable / Delivery locked visible
+|   |-- GREEN Evidence and uncertainty visible
+|   |-- RED Approval mutation
+|   |-- RED Send execution
+|   |-- RED Runtime execution
+|   |-- RED Truth mutation
+<!-- FORGEOS:FORGE_ALIVE_GENESIS_BETA_LOOP_UI_RENDERING_WIRING_FIX_052P:END -->

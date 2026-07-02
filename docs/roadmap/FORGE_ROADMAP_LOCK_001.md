@@ -850,3 +850,11 @@ Article 0 remains active and unchanged. Skynet remains unchanged. No Constitutio
 
 Next recommended phase:
 - 052N Forge Alive UI Rendering Implementation.
+
+# Forge Alive Genesis Beta Loop UI Rendering Wiring Fix Roadmap Status
+
+052P_FORGE_ALIVE_GENESIS_BETA_LOOP_UI_RENDERING_WIRING_FIX: GREEN / CLOSED.
+
+Genesis Beta Loop static preview rendering now uses browser-safe static card data and renders all three review-only cards.
+
+No approval, send, runtime, delivery unlock, or truth mutation was added.
