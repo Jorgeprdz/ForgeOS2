@@ -1,0 +1,2121 @@
+{
+  "phase": "054N_ALFRED_REVIEW_ACTION_PACKET_OUTPUT_REVIEW",
+  "source": "ALFRED_REVIEW_ACTION_PACKET_READ_MODEL",
+  "generatedAt": "2026-07-02T23:49:21.355Z",
+  "casesReviewed": 12,
+  "boundary": {
+    "previewOnly": true,
+    "reviewOnly": true,
+    "notApproved": true,
+    "notSendable": true,
+    "createsTruth": false,
+    "executesRuntime": false,
+    "sendsMessage": false,
+    "writesCrm": false,
+    "createsCalendarEvent": false,
+    "audioRuntimeEnabled": false,
+    "speechEngineEnabled": false
+  },
+  "snapshots": [
+    {
+      "caseId": "memory_juan_interest_followup_packet",
+      "command": "/Memoria Hoy vi a Juan. Me dijo que si le interesa retiro, pero quiere revisarlo con su esposa. Me pidio que le hable la proxima semana.",
+      "options": {},
+      "packetId": "ALFRED_REVIEW_PACKET_71228e36",
+      "packetType": "MEMORY_REVIEW_PACKET",
+      "sourceCommand": "/Memoria",
+      "routeFamily": "ALFRED_MEMORY",
+      "actionsCount": 2,
+      "actionTypes": [
+        "prepare_memory_entry",
+        "prepare_follow_up"
+      ],
+      "uncertaintyCount": 0,
+      "reviewPurpose": "Review a meeting memory packet with person, retirement interest, spouse context, and follow-up timing.",
+      "decision": "PASS_REVIEW_ONLY_NO_EXECUTION",
+      "packet": {
+        "packetId": "ALFRED_REVIEW_PACKET_71228e36",
+        "packetType": "MEMORY_REVIEW_PACKET",
+        "source": "ALFRED_REVIEW_ACTION_PACKET_READ_MODEL",
+        "sourcePhase": "054M_ALFRED_REVIEW_ACTION_PACKET_READ_MODEL_IMPLEMENTATION",
+        "sourceReadModel": "ALFRED_UNIVERSAL_COMMAND_MEMORY_READ_MODEL",
+        "rawInput": "/Memoria Hoy vi a Juan. Me dijo que si le interesa retiro, pero quiere revisarlo con su esposa. Me pidio que le hable la proxima semana.",
+        "sourceCommand": "/Memoria",
+        "normalizedCommand": "/Memoria",
+        "intentFamily": "memory_capture_prep",
+        "routeFamily": "ALFRED_MEMORY",
+        "primaryEntity": "Juan",
+        "relatedEntities": [],
+        "productInterests": [
+          "retiro"
+        ],
+        "calendarCandidate": {
+          "day": "",
+          "time": "",
+          "eventCandidate": false,
+          "reviewRequired": true,
+          "createsCalendarEvent": false
+        },
+        "referralCandidate": {
+          "referralName": "",
+          "sourceName": "",
+          "relationship": "",
+          "hasReferralSignal": false,
+          "reviewRequired": true,
+          "writesCrm": false
+        },
+        "messageDraftCandidate": {
+          "rawText": "",
+          "reviewRequired": false,
+          "sendsMessage": false,
+          "notSendable": true
+        },
+        "followUpCandidate": {
+          "reviewRequired": true,
+          "createsTask": false
+        },
+        "extractedFacts": [
+          {
+            "factType": "person_candidate",
+            "value": "Juan",
+            "reviewRequired": true
+          },
+          {
+            "factType": "product_interest",
+            "value": "retiro",
+            "reviewRequired": true
+          },
+          {
+            "factType": "memory_signal",
+            "value": "interest_signal",
+            "reviewRequired": true
+          },
+          {
+            "factType": "memory_signal",
+            "value": "relationship_context",
+            "reviewRequired": true
+          },
+          {
+            "factType": "memory_signal",
+            "value": "follow_up_signal",
+            "reviewRequired": true
+          }
+        ],
+        "uncertainty": [
+          "All extracted fields remain reviewable candidates, not source truth."
+        ],
+        "reviewSummary": "Alfred prepared a memory review packet from /Memoria for Juan. Human review is required before any write, send, calendar, CRM, or truth action.",
+        "proposedActions": [
+          {
+            "actionId": "ALFRED_ACTION_01",
+            "actionType": "prepare_memory_entry",
+            "label": "Prepare memory entry for human review",
+            "status": "PREPARED_FOR_HUMAN_REVIEW",
+            "executionState": "NOT_EXECUTED",
+            "requiresHumanConfirmation": true,
+            "previewOnly": true,
+            "reviewOnly": true,
+            "notApproved": true,
+            "notSendable": true,
+            "createsTruth": false,
+            "executesRuntime": false,
+            "sendsMessage": false,
+            "writesCrm": false,
+            "createsCalendarEvent": false,
+            "createsTask": false,
+            "createsRevenueTruth": false,
+            "createsCompensationTruth": false,
+            "createsPayoutTruth": false
+          },
+          {
+            "actionId": "ALFRED_ACTION_02",
+            "actionType": "prepare_follow_up",
+            "label": "Prepare follow-up candidate for human review",
+            "status": "PREPARED_FOR_HUMAN_REVIEW",
+            "executionState": "NOT_EXECUTED",
+            "requiresHumanConfirmation": true,
+            "previewOnly": true,
+            "reviewOnly": true,
+            "notApproved": true,
+            "notSendable": true,
+            "createsTruth": false,
+            "executesRuntime": false,
+            "sendsMessage": false,
+            "writesCrm": false,
+            "createsCalendarEvent": false,
+            "createsTask": false,
+            "createsRevenueTruth": false,
+            "createsCompensationTruth": false,
+            "createsPayoutTruth": false
+          }
+        ],
+        "forbiddenActions": [
+          "approve_without_human",
+          "send_message",
+          "write_crm",
+          "create_calendar_event",
+          "create_task",
+          "create_revenue_truth",
+          "create_commission_truth",
+          "create_payout_truth",
+          "execute_audio_runtime",
+          "execute_speech_engine",
+          "call_live_search",
+          "call_provider_runtime"
+        ],
+        "humanReviewQuestions": [
+          "Confirm that the memory summary reflects the conversation accurately."
+        ],
+        "confirmationRequired": true,
+        "humanReview": {
+          "required": true,
+          "finalAuthority": "HUMAN",
+          "approvalStatus": "NOT_APPROVED",
+          "allowedNextStep": "HUMAN_REVIEW_ONLY"
+        },
+        "voice": {
+          "voiceCaptureSupportedByContract": true,
+          "transcriptionPreviewOnly": true,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "transcriptionRequiresReview": true
+        },
+        "safety": {
+          "previewOnly": true,
+          "reviewOnly": true,
+          "notApproved": true,
+          "notSendable": true,
+          "createsTruth": false,
+          "executesRuntime": false,
+          "requiresHumanConfirmation": true,
+          "sendsMessage": false,
+          "writesCrm": false,
+          "createsCalendarEvent": false,
+          "createsTask": false,
+          "createsRevenueTruth": false,
+          "createsCompensationTruth": false,
+          "createsPayoutTruth": false,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "liveSearchEnabled": false,
+          "providerRuntimeEnabled": false,
+          "memoryWriteRequiresReview": true,
+          "calendarCreateRequiresConfirmation": true,
+          "crmWriteRequiresConfirmation": true,
+          "sendMessageRequiresConfirmation": true,
+          "transcriptionPreviewOnly": true
+        },
+        "finalAuthority": "HUMAN"
+      }
+    },
+    {
+      "caseId": "memory_lariza_couple_product_packet",
+      "command": "/Memoria A Lariza le interesa para ella y su novio. Les intereso retiro y Vida Mujer.",
+      "options": {},
+      "packetId": "ALFRED_REVIEW_PACKET_2a87b156",
+      "packetType": "MEMORY_REVIEW_PACKET",
+      "sourceCommand": "/Memoria",
+      "routeFamily": "ALFRED_MEMORY",
+      "actionsCount": 1,
+      "actionTypes": [
+        "prepare_memory_entry"
+      ],
+      "uncertaintyCount": 0,
+      "reviewPurpose": "Review couple context and product interest packet without creating proposal or CRM truth.",
+      "decision": "PASS_REVIEW_ONLY_NO_EXECUTION",
+      "packet": {
+        "packetId": "ALFRED_REVIEW_PACKET_2a87b156",
+        "packetType": "MEMORY_REVIEW_PACKET",
+        "source": "ALFRED_REVIEW_ACTION_PACKET_READ_MODEL",
+        "sourcePhase": "054M_ALFRED_REVIEW_ACTION_PACKET_READ_MODEL_IMPLEMENTATION",
+        "sourceReadModel": "ALFRED_UNIVERSAL_COMMAND_MEMORY_READ_MODEL",
+        "rawInput": "/Memoria A Lariza le interesa para ella y su novio. Les intereso retiro y Vida Mujer.",
+        "sourceCommand": "/Memoria",
+        "normalizedCommand": "/Memoria",
+        "intentFamily": "memory_capture_prep",
+        "routeFamily": "ALFRED_MEMORY",
+        "primaryEntity": "Lariza",
+        "relatedEntities": [
+          {
+            "type": "person_candidate",
+            "value": "Vida Mujer",
+            "reviewRequired": true
+          }
+        ],
+        "productInterests": [
+          "retiro",
+          "Vida Mujer",
+          "vida"
+        ],
+        "calendarCandidate": {
+          "day": "",
+          "time": "",
+          "eventCandidate": false,
+          "reviewRequired": true,
+          "createsCalendarEvent": false
+        },
+        "referralCandidate": {
+          "referralName": "",
+          "sourceName": "",
+          "relationship": "",
+          "hasReferralSignal": false,
+          "reviewRequired": true,
+          "writesCrm": false
+        },
+        "messageDraftCandidate": {
+          "rawText": "",
+          "reviewRequired": false,
+          "sendsMessage": false,
+          "notSendable": true
+        },
+        "followUpCandidate": {
+          "reviewRequired": false,
+          "createsTask": false
+        },
+        "extractedFacts": [
+          {
+            "factType": "person_candidate",
+            "value": "Lariza",
+            "reviewRequired": true
+          },
+          {
+            "factType": "person_candidate",
+            "value": "Vida Mujer",
+            "reviewRequired": true
+          },
+          {
+            "factType": "product_interest",
+            "value": "retiro",
+            "reviewRequired": true
+          },
+          {
+            "factType": "product_interest",
+            "value": "Vida Mujer",
+            "reviewRequired": true
+          },
+          {
+            "factType": "product_interest",
+            "value": "vida",
+            "reviewRequired": true
+          },
+          {
+            "factType": "memory_signal",
+            "value": "interest_signal",
+            "reviewRequired": true
+          },
+          {
+            "factType": "memory_signal",
+            "value": "relationship_context",
+            "reviewRequired": true
+          }
+        ],
+        "uncertainty": [
+          "All extracted fields remain reviewable candidates, not source truth."
+        ],
+        "reviewSummary": "Alfred prepared a memory review packet from /Memoria for Lariza. Human review is required before any write, send, calendar, CRM, or truth action.",
+        "proposedActions": [
+          {
+            "actionId": "ALFRED_ACTION_01",
+            "actionType": "prepare_memory_entry",
+            "label": "Prepare memory entry for human review",
+            "status": "PREPARED_FOR_HUMAN_REVIEW",
+            "executionState": "NOT_EXECUTED",
+            "requiresHumanConfirmation": true,
+            "previewOnly": true,
+            "reviewOnly": true,
+            "notApproved": true,
+            "notSendable": true,
+            "createsTruth": false,
+            "executesRuntime": false,
+            "sendsMessage": false,
+            "writesCrm": false,
+            "createsCalendarEvent": false,
+            "createsTask": false,
+            "createsRevenueTruth": false,
+            "createsCompensationTruth": false,
+            "createsPayoutTruth": false
+          }
+        ],
+        "forbiddenActions": [
+          "approve_without_human",
+          "send_message",
+          "write_crm",
+          "create_calendar_event",
+          "create_task",
+          "create_revenue_truth",
+          "create_commission_truth",
+          "create_payout_truth",
+          "execute_audio_runtime",
+          "execute_speech_engine",
+          "call_live_search",
+          "call_provider_runtime"
+        ],
+        "humanReviewQuestions": [
+          "Confirm that the memory summary reflects the conversation accurately."
+        ],
+        "confirmationRequired": true,
+        "humanReview": {
+          "required": true,
+          "finalAuthority": "HUMAN",
+          "approvalStatus": "NOT_APPROVED",
+          "allowedNextStep": "HUMAN_REVIEW_ONLY"
+        },
+        "voice": {
+          "voiceCaptureSupportedByContract": true,
+          "transcriptionPreviewOnly": true,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "transcriptionRequiresReview": true
+        },
+        "safety": {
+          "previewOnly": true,
+          "reviewOnly": true,
+          "notApproved": true,
+          "notSendable": true,
+          "createsTruth": false,
+          "executesRuntime": false,
+          "requiresHumanConfirmation": true,
+          "sendsMessage": false,
+          "writesCrm": false,
+          "createsCalendarEvent": false,
+          "createsTask": false,
+          "createsRevenueTruth": false,
+          "createsCompensationTruth": false,
+          "createsPayoutTruth": false,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "liveSearchEnabled": false,
+          "providerRuntimeEnabled": false,
+          "memoryWriteRequiresReview": true,
+          "calendarCreateRequiresConfirmation": true,
+          "crmWriteRequiresConfirmation": true,
+          "sendMessageRequiresConfirmation": true,
+          "transcriptionPreviewOnly": true
+        },
+        "finalAuthority": "HUMAN"
+      }
+    },
+    {
+      "caseId": "referral_luis_from_giovanni_packet",
+      "command": "/Referido Luis Perez es referido de Giovanni Islas, compañero del trabajo.",
+      "options": {},
+      "packetId": "ALFRED_REVIEW_PACKET_47c53b7f",
+      "packetType": "REFERRAL_CAPTURE_REVIEW_PACKET",
+      "sourceCommand": "/Referido",
+      "routeFamily": "ALFRED_REFERRAL_CAPTURE",
+      "actionsCount": 1,
+      "actionTypes": [
+        "prepare_referral_record"
+      ],
+      "uncertaintyCount": 0,
+      "reviewPurpose": "Review referral capture packet with source and relationship, without CRM write.",
+      "decision": "PASS_REVIEW_ONLY_NO_EXECUTION",
+      "packet": {
+        "packetId": "ALFRED_REVIEW_PACKET_47c53b7f",
+        "packetType": "REFERRAL_CAPTURE_REVIEW_PACKET",
+        "source": "ALFRED_REVIEW_ACTION_PACKET_READ_MODEL",
+        "sourcePhase": "054M_ALFRED_REVIEW_ACTION_PACKET_READ_MODEL_IMPLEMENTATION",
+        "sourceReadModel": "ALFRED_UNIVERSAL_COMMAND_MEMORY_READ_MODEL",
+        "rawInput": "/Referido Luis Perez es referido de Giovanni Islas, compañero del trabajo.",
+        "sourceCommand": "/Referido",
+        "normalizedCommand": "/Referido",
+        "intentFamily": "referral_capture_prep",
+        "routeFamily": "ALFRED_REFERRAL_CAPTURE",
+        "primaryEntity": "Luis Perez",
+        "relatedEntities": [
+          {
+            "type": "person_candidate",
+            "value": "Luis Perez",
+            "reviewRequired": true
+          },
+          {
+            "type": "referral_source",
+            "value": "Giovanni Islas",
+            "reviewRequired": true
+          },
+          {
+            "type": "relationship_context",
+            "value": "compañero del trabajo",
+            "reviewRequired": true
+          }
+        ],
+        "productInterests": [],
+        "calendarCandidate": {
+          "day": "",
+          "time": "",
+          "eventCandidate": false,
+          "reviewRequired": true,
+          "createsCalendarEvent": false
+        },
+        "referralCandidate": {
+          "referralName": "Luis Perez",
+          "sourceName": "Giovanni Islas",
+          "relationship": "compañero del trabajo",
+          "hasReferralSignal": true,
+          "reviewRequired": true,
+          "writesCrm": false
+        },
+        "messageDraftCandidate": {
+          "rawText": "",
+          "reviewRequired": false,
+          "sendsMessage": false,
+          "notSendable": true
+        },
+        "followUpCandidate": {
+          "reviewRequired": false,
+          "createsTask": false
+        },
+        "extractedFacts": [
+          {
+            "factType": "person_candidate",
+            "value": "Giovanni Islas",
+            "reviewRequired": true
+          },
+          {
+            "factType": "person_candidate",
+            "value": "Luis Perez",
+            "reviewRequired": true
+          },
+          {
+            "factType": "referral_candidate",
+            "value": "Luis Perez",
+            "reviewRequired": true
+          },
+          {
+            "factType": "referral_source",
+            "value": "Giovanni Islas",
+            "reviewRequired": true
+          },
+          {
+            "factType": "referral_relationship",
+            "value": "compañero del trabajo",
+            "reviewRequired": true
+          },
+          {
+            "factType": "memory_signal",
+            "value": "referral_signal",
+            "reviewRequired": true
+          }
+        ],
+        "uncertainty": [
+          "All extracted fields remain reviewable candidates, not source truth."
+        ],
+        "reviewSummary": "Alfred prepared a referral capture review packet from /Referido for Luis Perez. Human review is required before any write, send, calendar, CRM, or truth action.",
+        "proposedActions": [
+          {
+            "actionId": "ALFRED_ACTION_01",
+            "actionType": "prepare_referral_record",
+            "label": "Prepare referral capture for human review",
+            "status": "PREPARED_FOR_HUMAN_REVIEW",
+            "executionState": "NOT_EXECUTED",
+            "requiresHumanConfirmation": true,
+            "previewOnly": true,
+            "reviewOnly": true,
+            "notApproved": true,
+            "notSendable": true,
+            "createsTruth": false,
+            "executesRuntime": false,
+            "sendsMessage": false,
+            "writesCrm": false,
+            "createsCalendarEvent": false,
+            "createsTask": false,
+            "createsRevenueTruth": false,
+            "createsCompensationTruth": false,
+            "createsPayoutTruth": false
+          }
+        ],
+        "forbiddenActions": [
+          "approve_without_human",
+          "send_message",
+          "write_crm",
+          "create_calendar_event",
+          "create_task",
+          "create_revenue_truth",
+          "create_commission_truth",
+          "create_payout_truth",
+          "execute_audio_runtime",
+          "execute_speech_engine",
+          "call_live_search",
+          "call_provider_runtime"
+        ],
+        "humanReviewQuestions": [
+          "Confirm referral name, source, relationship, and consent/context before contact preparation."
+        ],
+        "confirmationRequired": true,
+        "humanReview": {
+          "required": true,
+          "finalAuthority": "HUMAN",
+          "approvalStatus": "NOT_APPROVED",
+          "allowedNextStep": "HUMAN_REVIEW_ONLY"
+        },
+        "voice": {
+          "voiceCaptureSupportedByContract": true,
+          "transcriptionPreviewOnly": true,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "transcriptionRequiresReview": true
+        },
+        "safety": {
+          "previewOnly": true,
+          "reviewOnly": true,
+          "notApproved": true,
+          "notSendable": true,
+          "createsTruth": false,
+          "executesRuntime": false,
+          "requiresHumanConfirmation": true,
+          "sendsMessage": false,
+          "writesCrm": false,
+          "createsCalendarEvent": false,
+          "createsTask": false,
+          "createsRevenueTruth": false,
+          "createsCompensationTruth": false,
+          "createsPayoutTruth": false,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "liveSearchEnabled": false,
+          "providerRuntimeEnabled": false,
+          "memoryWriteRequiresReview": true,
+          "calendarCreateRequiresConfirmation": true,
+          "crmWriteRequiresConfirmation": true,
+          "sendMessageRequiresConfirmation": true,
+          "transcriptionPreviewOnly": true
+        },
+        "finalAuthority": "HUMAN"
+      }
+    },
+    {
+      "caseId": "agenda_maria_friday_11_packet",
+      "command": "/Agenda Tengo cita con Maria el viernes a las 11.",
+      "options": {},
+      "packetId": "ALFRED_REVIEW_PACKET_4d24ddf7",
+      "packetType": "CALENDAR_EVENT_DRAFT_REVIEW_PACKET",
+      "sourceCommand": "/Agenda",
+      "routeFamily": "ALFRED_CALENDAR_PREP",
+      "actionsCount": 2,
+      "actionTypes": [
+        "prepare_calendar_event",
+        "prepare_follow_up"
+      ],
+      "uncertaintyCount": 0,
+      "reviewPurpose": "Review calendar draft packet without creating a calendar event.",
+      "decision": "PASS_REVIEW_ONLY_NO_EXECUTION",
+      "packet": {
+        "packetId": "ALFRED_REVIEW_PACKET_4d24ddf7",
+        "packetType": "CALENDAR_EVENT_DRAFT_REVIEW_PACKET",
+        "source": "ALFRED_REVIEW_ACTION_PACKET_READ_MODEL",
+        "sourcePhase": "054M_ALFRED_REVIEW_ACTION_PACKET_READ_MODEL_IMPLEMENTATION",
+        "sourceReadModel": "ALFRED_UNIVERSAL_COMMAND_MEMORY_READ_MODEL",
+        "rawInput": "/Agenda Tengo cita con Maria el viernes a las 11.",
+        "sourceCommand": "/Agenda",
+        "normalizedCommand": "/Agenda",
+        "intentFamily": "calendar_event_prep",
+        "routeFamily": "ALFRED_CALENDAR_PREP",
+        "primaryEntity": "Maria",
+        "relatedEntities": [],
+        "productInterests": [],
+        "calendarCandidate": {
+          "day": "viernes",
+          "time": "11:00",
+          "eventCandidate": true,
+          "reviewRequired": true,
+          "createsCalendarEvent": false
+        },
+        "referralCandidate": {
+          "referralName": "",
+          "sourceName": "",
+          "relationship": "",
+          "hasReferralSignal": false,
+          "reviewRequired": true,
+          "writesCrm": false
+        },
+        "messageDraftCandidate": {
+          "rawText": "",
+          "reviewRequired": false,
+          "sendsMessage": false,
+          "notSendable": true
+        },
+        "followUpCandidate": {
+          "reviewRequired": true,
+          "createsTask": false
+        },
+        "extractedFacts": [
+          {
+            "factType": "person_candidate",
+            "value": "Maria",
+            "reviewRequired": true
+          },
+          {
+            "factType": "calendar_day_candidate",
+            "value": "viernes",
+            "reviewRequired": true
+          },
+          {
+            "factType": "calendar_time_candidate",
+            "value": "11:00",
+            "reviewRequired": true
+          },
+          {
+            "factType": "memory_signal",
+            "value": "follow_up_signal",
+            "reviewRequired": true
+          },
+          {
+            "factType": "memory_signal",
+            "value": "appointment_signal",
+            "reviewRequired": true
+          }
+        ],
+        "uncertainty": [
+          "Calendar year and exact date require confirmation."
+        ],
+        "reviewSummary": "Alfred prepared a calendar event draft review packet from /Agenda for Maria. Human review is required before any write, send, calendar, CRM, or truth action.",
+        "proposedActions": [
+          {
+            "actionId": "ALFRED_ACTION_01",
+            "actionType": "prepare_calendar_event",
+            "label": "Prepare calendar event draft for human review",
+            "status": "PREPARED_FOR_HUMAN_REVIEW",
+            "executionState": "NOT_EXECUTED",
+            "requiresHumanConfirmation": true,
+            "previewOnly": true,
+            "reviewOnly": true,
+            "notApproved": true,
+            "notSendable": true,
+            "createsTruth": false,
+            "executesRuntime": false,
+            "sendsMessage": false,
+            "writesCrm": false,
+            "createsCalendarEvent": false,
+            "createsTask": false,
+            "createsRevenueTruth": false,
+            "createsCompensationTruth": false,
+            "createsPayoutTruth": false
+          },
+          {
+            "actionId": "ALFRED_ACTION_02",
+            "actionType": "prepare_follow_up",
+            "label": "Prepare follow-up candidate for human review",
+            "status": "PREPARED_FOR_HUMAN_REVIEW",
+            "executionState": "NOT_EXECUTED",
+            "requiresHumanConfirmation": true,
+            "previewOnly": true,
+            "reviewOnly": true,
+            "notApproved": true,
+            "notSendable": true,
+            "createsTruth": false,
+            "executesRuntime": false,
+            "sendsMessage": false,
+            "writesCrm": false,
+            "createsCalendarEvent": false,
+            "createsTask": false,
+            "createsRevenueTruth": false,
+            "createsCompensationTruth": false,
+            "createsPayoutTruth": false
+          }
+        ],
+        "forbiddenActions": [
+          "approve_without_human",
+          "send_message",
+          "write_crm",
+          "create_calendar_event",
+          "create_task",
+          "create_revenue_truth",
+          "create_commission_truth",
+          "create_payout_truth",
+          "execute_audio_runtime",
+          "execute_speech_engine",
+          "call_live_search",
+          "call_provider_runtime"
+        ],
+        "humanReviewQuestions": [
+          "Confirm the exact calendar date, time, duration, title, and attendee context."
+        ],
+        "confirmationRequired": true,
+        "humanReview": {
+          "required": true,
+          "finalAuthority": "HUMAN",
+          "approvalStatus": "NOT_APPROVED",
+          "allowedNextStep": "HUMAN_REVIEW_ONLY"
+        },
+        "voice": {
+          "voiceCaptureSupportedByContract": true,
+          "transcriptionPreviewOnly": true,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "transcriptionRequiresReview": true
+        },
+        "safety": {
+          "previewOnly": true,
+          "reviewOnly": true,
+          "notApproved": true,
+          "notSendable": true,
+          "createsTruth": false,
+          "executesRuntime": false,
+          "requiresHumanConfirmation": true,
+          "sendsMessage": false,
+          "writesCrm": false,
+          "createsCalendarEvent": false,
+          "createsTask": false,
+          "createsRevenueTruth": false,
+          "createsCompensationTruth": false,
+          "createsPayoutTruth": false,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "liveSearchEnabled": false,
+          "providerRuntimeEnabled": false,
+          "memoryWriteRequiresReview": true,
+          "calendarCreateRequiresConfirmation": true,
+          "crmWriteRequiresConfirmation": true,
+          "sendMessageRequiresConfirmation": true,
+          "transcriptionPreviewOnly": true
+        },
+        "finalAuthority": "HUMAN"
+      }
+    },
+    {
+      "caseId": "create_event_maria_friday_11_packet",
+      "command": "/Crear evento con Maria el viernes a las 11 para revisar su plan de proteccion.",
+      "options": {},
+      "packetId": "ALFRED_REVIEW_PACKET_50e4b009",
+      "packetType": "CALENDAR_EVENT_DRAFT_REVIEW_PACKET",
+      "sourceCommand": "/Crear evento",
+      "routeFamily": "ALFRED_CALENDAR_PREP",
+      "actionsCount": 2,
+      "actionTypes": [
+        "prepare_calendar_event",
+        "prepare_follow_up"
+      ],
+      "uncertaintyCount": 0,
+      "reviewPurpose": "Review event draft packet with explicit confirmation required before calendar write.",
+      "decision": "PASS_REVIEW_ONLY_NO_EXECUTION",
+      "packet": {
+        "packetId": "ALFRED_REVIEW_PACKET_50e4b009",
+        "packetType": "CALENDAR_EVENT_DRAFT_REVIEW_PACKET",
+        "source": "ALFRED_REVIEW_ACTION_PACKET_READ_MODEL",
+        "sourcePhase": "054M_ALFRED_REVIEW_ACTION_PACKET_READ_MODEL_IMPLEMENTATION",
+        "sourceReadModel": "ALFRED_UNIVERSAL_COMMAND_MEMORY_READ_MODEL",
+        "rawInput": "/Crear evento con Maria el viernes a las 11 para revisar su plan de proteccion.",
+        "sourceCommand": "/Crear evento",
+        "normalizedCommand": "/Crear evento",
+        "intentFamily": "calendar_event_prep",
+        "routeFamily": "ALFRED_CALENDAR_PREP",
+        "primaryEntity": "Maria",
+        "relatedEntities": [],
+        "productInterests": [],
+        "calendarCandidate": {
+          "day": "viernes",
+          "time": "11:00",
+          "eventCandidate": true,
+          "reviewRequired": true,
+          "createsCalendarEvent": false
+        },
+        "referralCandidate": {
+          "referralName": "",
+          "sourceName": "",
+          "relationship": "",
+          "hasReferralSignal": false,
+          "reviewRequired": true,
+          "writesCrm": false
+        },
+        "messageDraftCandidate": {
+          "rawText": "",
+          "reviewRequired": false,
+          "sendsMessage": false,
+          "notSendable": true
+        },
+        "followUpCandidate": {
+          "reviewRequired": true,
+          "createsTask": false
+        },
+        "extractedFacts": [
+          {
+            "factType": "person_candidate",
+            "value": "Maria",
+            "reviewRequired": true
+          },
+          {
+            "factType": "calendar_day_candidate",
+            "value": "viernes",
+            "reviewRequired": true
+          },
+          {
+            "factType": "calendar_time_candidate",
+            "value": "11:00",
+            "reviewRequired": true
+          },
+          {
+            "factType": "memory_signal",
+            "value": "follow_up_signal",
+            "reviewRequired": true
+          }
+        ],
+        "uncertainty": [
+          "Calendar year and exact date require confirmation."
+        ],
+        "reviewSummary": "Alfred prepared a calendar event draft review packet from /Crear evento for Maria. Human review is required before any write, send, calendar, CRM, or truth action.",
+        "proposedActions": [
+          {
+            "actionId": "ALFRED_ACTION_01",
+            "actionType": "prepare_calendar_event",
+            "label": "Prepare calendar event draft for human review",
+            "status": "PREPARED_FOR_HUMAN_REVIEW",
+            "executionState": "NOT_EXECUTED",
+            "requiresHumanConfirmation": true,
+            "previewOnly": true,
+            "reviewOnly": true,
+            "notApproved": true,
+            "notSendable": true,
+            "createsTruth": false,
+            "executesRuntime": false,
+            "sendsMessage": false,
+            "writesCrm": false,
+            "createsCalendarEvent": false,
+            "createsTask": false,
+            "createsRevenueTruth": false,
+            "createsCompensationTruth": false,
+            "createsPayoutTruth": false
+          },
+          {
+            "actionId": "ALFRED_ACTION_02",
+            "actionType": "prepare_follow_up",
+            "label": "Prepare follow-up candidate for human review",
+            "status": "PREPARED_FOR_HUMAN_REVIEW",
+            "executionState": "NOT_EXECUTED",
+            "requiresHumanConfirmation": true,
+            "previewOnly": true,
+            "reviewOnly": true,
+            "notApproved": true,
+            "notSendable": true,
+            "createsTruth": false,
+            "executesRuntime": false,
+            "sendsMessage": false,
+            "writesCrm": false,
+            "createsCalendarEvent": false,
+            "createsTask": false,
+            "createsRevenueTruth": false,
+            "createsCompensationTruth": false,
+            "createsPayoutTruth": false
+          }
+        ],
+        "forbiddenActions": [
+          "approve_without_human",
+          "send_message",
+          "write_crm",
+          "create_calendar_event",
+          "create_task",
+          "create_revenue_truth",
+          "create_commission_truth",
+          "create_payout_truth",
+          "execute_audio_runtime",
+          "execute_speech_engine",
+          "call_live_search",
+          "call_provider_runtime"
+        ],
+        "humanReviewQuestions": [
+          "Confirm the exact calendar date, time, duration, title, and attendee context."
+        ],
+        "confirmationRequired": true,
+        "humanReview": {
+          "required": true,
+          "finalAuthority": "HUMAN",
+          "approvalStatus": "NOT_APPROVED",
+          "allowedNextStep": "HUMAN_REVIEW_ONLY"
+        },
+        "voice": {
+          "voiceCaptureSupportedByContract": true,
+          "transcriptionPreviewOnly": true,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "transcriptionRequiresReview": true
+        },
+        "safety": {
+          "previewOnly": true,
+          "reviewOnly": true,
+          "notApproved": true,
+          "notSendable": true,
+          "createsTruth": false,
+          "executesRuntime": false,
+          "requiresHumanConfirmation": true,
+          "sendsMessage": false,
+          "writesCrm": false,
+          "createsCalendarEvent": false,
+          "createsTask": false,
+          "createsRevenueTruth": false,
+          "createsCompensationTruth": false,
+          "createsPayoutTruth": false,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "liveSearchEnabled": false,
+          "providerRuntimeEnabled": false,
+          "memoryWriteRequiresReview": true,
+          "calendarCreateRequiresConfirmation": true,
+          "crmWriteRequiresConfirmation": true,
+          "sendMessageRequiresConfirmation": true,
+          "transcriptionPreviewOnly": true
+        },
+        "finalAuthority": "HUMAN"
+      }
+    },
+    {
+      "caseId": "quote_lariza_partner_packet",
+      "command": "/Cotizar Lariza y su novio retiro y Vida Mujer.",
+      "options": {},
+      "packetId": "ALFRED_REVIEW_PACKET_9f9a9c40",
+      "packetType": "PRODUCT_INTELLIGENCE_REVIEW_PACKET",
+      "sourceCommand": "/Cotizar",
+      "routeFamily": "ALFRED_PRODUCT_INTELLIGENCE",
+      "actionsCount": 1,
+      "actionTypes": [
+        "prepare_product_intelligence_artifact"
+      ],
+      "uncertaintyCount": 0,
+      "reviewPurpose": "Review product-intelligence packet without approval, sale, or product execution.",
+      "decision": "PASS_REVIEW_ONLY_NO_EXECUTION",
+      "packet": {
+        "packetId": "ALFRED_REVIEW_PACKET_9f9a9c40",
+        "packetType": "PRODUCT_INTELLIGENCE_REVIEW_PACKET",
+        "source": "ALFRED_REVIEW_ACTION_PACKET_READ_MODEL",
+        "sourcePhase": "054M_ALFRED_REVIEW_ACTION_PACKET_READ_MODEL_IMPLEMENTATION",
+        "sourceReadModel": "ALFRED_UNIVERSAL_COMMAND_MEMORY_READ_MODEL",
+        "rawInput": "/Cotizar Lariza y su novio retiro y Vida Mujer.",
+        "sourceCommand": "/Cotizar",
+        "normalizedCommand": "/Cotizar",
+        "intentFamily": "quote_prep",
+        "routeFamily": "ALFRED_PRODUCT_INTELLIGENCE",
+        "primaryEntity": "Lariza",
+        "relatedEntities": [
+          {
+            "type": "person_candidate",
+            "value": "Vida Mujer",
+            "reviewRequired": true
+          }
+        ],
+        "productInterests": [
+          "retiro",
+          "Vida Mujer",
+          "vida"
+        ],
+        "calendarCandidate": {
+          "day": "",
+          "time": "",
+          "eventCandidate": false,
+          "reviewRequired": true,
+          "createsCalendarEvent": false
+        },
+        "referralCandidate": {
+          "referralName": "",
+          "sourceName": "",
+          "relationship": "",
+          "hasReferralSignal": false,
+          "reviewRequired": true,
+          "writesCrm": false
+        },
+        "messageDraftCandidate": {
+          "rawText": "",
+          "reviewRequired": false,
+          "sendsMessage": false,
+          "notSendable": true
+        },
+        "followUpCandidate": {
+          "reviewRequired": false,
+          "createsTask": false
+        },
+        "extractedFacts": [
+          {
+            "factType": "person_candidate",
+            "value": "Lariza",
+            "reviewRequired": true
+          },
+          {
+            "factType": "person_candidate",
+            "value": "Vida Mujer",
+            "reviewRequired": true
+          },
+          {
+            "factType": "product_interest",
+            "value": "retiro",
+            "reviewRequired": true
+          },
+          {
+            "factType": "product_interest",
+            "value": "Vida Mujer",
+            "reviewRequired": true
+          },
+          {
+            "factType": "product_interest",
+            "value": "vida",
+            "reviewRequired": true
+          },
+          {
+            "factType": "memory_signal",
+            "value": "relationship_context",
+            "reviewRequired": true
+          }
+        ],
+        "uncertainty": [
+          "All extracted fields remain reviewable candidates, not source truth."
+        ],
+        "reviewSummary": "Alfred prepared a product intelligence review packet from /Cotizar for Lariza. Human review is required before any write, send, calendar, CRM, or truth action.",
+        "proposedActions": [
+          {
+            "actionId": "ALFRED_ACTION_01",
+            "actionType": "prepare_product_intelligence_artifact",
+            "label": "Prepare product intelligence artifact for human review",
+            "status": "PREPARED_FOR_HUMAN_REVIEW",
+            "executionState": "NOT_EXECUTED",
+            "requiresHumanConfirmation": true,
+            "previewOnly": true,
+            "reviewOnly": true,
+            "notApproved": true,
+            "notSendable": true,
+            "createsTruth": false,
+            "executesRuntime": false,
+            "sendsMessage": false,
+            "writesCrm": false,
+            "createsCalendarEvent": false,
+            "createsTask": false,
+            "createsRevenueTruth": false,
+            "createsCompensationTruth": false,
+            "createsPayoutTruth": false
+          }
+        ],
+        "forbiddenActions": [
+          "approve_without_human",
+          "send_message",
+          "write_crm",
+          "create_calendar_event",
+          "create_task",
+          "create_revenue_truth",
+          "create_commission_truth",
+          "create_payout_truth",
+          "execute_audio_runtime",
+          "execute_speech_engine",
+          "call_live_search",
+          "call_provider_runtime"
+        ],
+        "humanReviewQuestions": [
+          "Confirm product interest, client context, and whether a review artifact should be prepared."
+        ],
+        "confirmationRequired": true,
+        "humanReview": {
+          "required": true,
+          "finalAuthority": "HUMAN",
+          "approvalStatus": "NOT_APPROVED",
+          "allowedNextStep": "HUMAN_REVIEW_ONLY"
+        },
+        "voice": {
+          "voiceCaptureSupportedByContract": true,
+          "transcriptionPreviewOnly": true,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "transcriptionRequiresReview": true
+        },
+        "safety": {
+          "previewOnly": true,
+          "reviewOnly": true,
+          "notApproved": true,
+          "notSendable": true,
+          "createsTruth": false,
+          "executesRuntime": false,
+          "requiresHumanConfirmation": true,
+          "sendsMessage": false,
+          "writesCrm": false,
+          "createsCalendarEvent": false,
+          "createsTask": false,
+          "createsRevenueTruth": false,
+          "createsCompensationTruth": false,
+          "createsPayoutTruth": false,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "liveSearchEnabled": false,
+          "providerRuntimeEnabled": false,
+          "memoryWriteRequiresReview": true,
+          "calendarCreateRequiresConfirmation": true,
+          "crmWriteRequiresConfirmation": true,
+          "sendMessageRequiresConfirmation": true,
+          "transcriptionPreviewOnly": true
+        },
+        "finalAuthority": "HUMAN"
+      }
+    },
+    {
+      "caseId": "projection_juan_commission_packet",
+      "command": "/Proyectar comision de Juan",
+      "options": {},
+      "packetId": "ALFRED_REVIEW_PACKET_907786c7",
+      "packetType": "PRODUCT_INTELLIGENCE_REVIEW_PACKET",
+      "sourceCommand": "/Proyectar",
+      "routeFamily": "ALFRED_PRODUCT_INTELLIGENCE",
+      "actionsCount": 1,
+      "actionTypes": [
+        "prepare_product_intelligence_artifact"
+      ],
+      "uncertaintyCount": 0,
+      "reviewPurpose": "Review projection packet while preserving no compensation, commission, payout, or revenue truth.",
+      "decision": "PASS_REVIEW_ONLY_NO_EXECUTION",
+      "packet": {
+        "packetId": "ALFRED_REVIEW_PACKET_907786c7",
+        "packetType": "PRODUCT_INTELLIGENCE_REVIEW_PACKET",
+        "source": "ALFRED_REVIEW_ACTION_PACKET_READ_MODEL",
+        "sourcePhase": "054M_ALFRED_REVIEW_ACTION_PACKET_READ_MODEL_IMPLEMENTATION",
+        "sourceReadModel": "ALFRED_UNIVERSAL_COMMAND_MEMORY_READ_MODEL",
+        "rawInput": "/Proyectar comision de Juan",
+        "sourceCommand": "/Proyectar",
+        "normalizedCommand": "/Proyectar",
+        "intentFamily": "projection_prep",
+        "routeFamily": "ALFRED_PRODUCT_INTELLIGENCE",
+        "primaryEntity": "Juan",
+        "relatedEntities": [],
+        "productInterests": [],
+        "calendarCandidate": {
+          "day": "",
+          "time": "",
+          "eventCandidate": false,
+          "reviewRequired": true,
+          "createsCalendarEvent": false
+        },
+        "referralCandidate": {
+          "referralName": "",
+          "sourceName": "",
+          "relationship": "",
+          "hasReferralSignal": false,
+          "reviewRequired": true,
+          "writesCrm": false
+        },
+        "messageDraftCandidate": {
+          "rawText": "",
+          "reviewRequired": false,
+          "sendsMessage": false,
+          "notSendable": true
+        },
+        "followUpCandidate": {
+          "reviewRequired": false,
+          "createsTask": false
+        },
+        "extractedFacts": [
+          {
+            "factType": "person_candidate",
+            "value": "Juan",
+            "reviewRequired": true
+          }
+        ],
+        "uncertainty": [
+          "Product interest requires confirmation."
+        ],
+        "reviewSummary": "Alfred prepared a product intelligence review packet from /Proyectar for Juan. Human review is required before any write, send, calendar, CRM, or truth action.",
+        "proposedActions": [
+          {
+            "actionId": "ALFRED_ACTION_01",
+            "actionType": "prepare_product_intelligence_artifact",
+            "label": "Prepare product intelligence artifact for human review",
+            "status": "PREPARED_FOR_HUMAN_REVIEW",
+            "executionState": "NOT_EXECUTED",
+            "requiresHumanConfirmation": true,
+            "previewOnly": true,
+            "reviewOnly": true,
+            "notApproved": true,
+            "notSendable": true,
+            "createsTruth": false,
+            "executesRuntime": false,
+            "sendsMessage": false,
+            "writesCrm": false,
+            "createsCalendarEvent": false,
+            "createsTask": false,
+            "createsRevenueTruth": false,
+            "createsCompensationTruth": false,
+            "createsPayoutTruth": false
+          }
+        ],
+        "forbiddenActions": [
+          "approve_without_human",
+          "send_message",
+          "write_crm",
+          "create_calendar_event",
+          "create_task",
+          "create_revenue_truth",
+          "create_commission_truth",
+          "create_payout_truth",
+          "execute_audio_runtime",
+          "execute_speech_engine",
+          "call_live_search",
+          "call_provider_runtime"
+        ],
+        "humanReviewQuestions": [
+          "Confirm product interest, client context, and whether a review artifact should be prepared."
+        ],
+        "confirmationRequired": true,
+        "humanReview": {
+          "required": true,
+          "finalAuthority": "HUMAN",
+          "approvalStatus": "NOT_APPROVED",
+          "allowedNextStep": "HUMAN_REVIEW_ONLY"
+        },
+        "voice": {
+          "voiceCaptureSupportedByContract": true,
+          "transcriptionPreviewOnly": true,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "transcriptionRequiresReview": true
+        },
+        "safety": {
+          "previewOnly": true,
+          "reviewOnly": true,
+          "notApproved": true,
+          "notSendable": true,
+          "createsTruth": false,
+          "executesRuntime": false,
+          "requiresHumanConfirmation": true,
+          "sendsMessage": false,
+          "writesCrm": false,
+          "createsCalendarEvent": false,
+          "createsTask": false,
+          "createsRevenueTruth": false,
+          "createsCompensationTruth": false,
+          "createsPayoutTruth": false,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "liveSearchEnabled": false,
+          "providerRuntimeEnabled": false,
+          "memoryWriteRequiresReview": true,
+          "calendarCreateRequiresConfirmation": true,
+          "crmWriteRequiresConfirmation": true,
+          "sendMessageRequiresConfirmation": true,
+          "transcriptionPreviewOnly": true
+        },
+        "finalAuthority": "HUMAN"
+      }
+    },
+    {
+      "caseId": "sales_presentation_maria_packet",
+      "command": "/Presentación de venta para Maria",
+      "options": {},
+      "packetId": "ALFRED_REVIEW_PACKET_6cd60252",
+      "packetType": "PRODUCT_INTELLIGENCE_REVIEW_PACKET",
+      "sourceCommand": "/Presentación",
+      "routeFamily": "ALFRED_PRODUCT_INTELLIGENCE",
+      "actionsCount": 1,
+      "actionTypes": [
+        "prepare_product_intelligence_artifact"
+      ],
+      "uncertaintyCount": 0,
+      "reviewPurpose": "Review sales presentation packet as artifact preparation only.",
+      "decision": "PASS_REVIEW_ONLY_NO_EXECUTION",
+      "packet": {
+        "packetId": "ALFRED_REVIEW_PACKET_6cd60252",
+        "packetType": "PRODUCT_INTELLIGENCE_REVIEW_PACKET",
+        "source": "ALFRED_REVIEW_ACTION_PACKET_READ_MODEL",
+        "sourcePhase": "054M_ALFRED_REVIEW_ACTION_PACKET_READ_MODEL_IMPLEMENTATION",
+        "sourceReadModel": "ALFRED_UNIVERSAL_COMMAND_MEMORY_READ_MODEL",
+        "rawInput": "/Presentación de venta para Maria",
+        "sourceCommand": "/Presentación",
+        "normalizedCommand": "/Presentación",
+        "intentFamily": "sales_presentation_prep",
+        "routeFamily": "ALFRED_PRODUCT_INTELLIGENCE",
+        "primaryEntity": "Maria",
+        "relatedEntities": [],
+        "productInterests": [],
+        "calendarCandidate": {
+          "day": "",
+          "time": "",
+          "eventCandidate": false,
+          "reviewRequired": true,
+          "createsCalendarEvent": false
+        },
+        "referralCandidate": {
+          "referralName": "",
+          "sourceName": "",
+          "relationship": "",
+          "hasReferralSignal": false,
+          "reviewRequired": true,
+          "writesCrm": false
+        },
+        "messageDraftCandidate": {
+          "rawText": "",
+          "reviewRequired": false,
+          "sendsMessage": false,
+          "notSendable": true
+        },
+        "followUpCandidate": {
+          "reviewRequired": false,
+          "createsTask": false
+        },
+        "extractedFacts": [
+          {
+            "factType": "person_candidate",
+            "value": "Maria",
+            "reviewRequired": true
+          }
+        ],
+        "uncertainty": [
+          "Product interest requires confirmation."
+        ],
+        "reviewSummary": "Alfred prepared a product intelligence review packet from /Presentación for Maria. Human review is required before any write, send, calendar, CRM, or truth action.",
+        "proposedActions": [
+          {
+            "actionId": "ALFRED_ACTION_01",
+            "actionType": "prepare_product_intelligence_artifact",
+            "label": "Prepare product intelligence artifact for human review",
+            "status": "PREPARED_FOR_HUMAN_REVIEW",
+            "executionState": "NOT_EXECUTED",
+            "requiresHumanConfirmation": true,
+            "previewOnly": true,
+            "reviewOnly": true,
+            "notApproved": true,
+            "notSendable": true,
+            "createsTruth": false,
+            "executesRuntime": false,
+            "sendsMessage": false,
+            "writesCrm": false,
+            "createsCalendarEvent": false,
+            "createsTask": false,
+            "createsRevenueTruth": false,
+            "createsCompensationTruth": false,
+            "createsPayoutTruth": false
+          }
+        ],
+        "forbiddenActions": [
+          "approve_without_human",
+          "send_message",
+          "write_crm",
+          "create_calendar_event",
+          "create_task",
+          "create_revenue_truth",
+          "create_commission_truth",
+          "create_payout_truth",
+          "execute_audio_runtime",
+          "execute_speech_engine",
+          "call_live_search",
+          "call_provider_runtime"
+        ],
+        "humanReviewQuestions": [
+          "Confirm product interest, client context, and whether a review artifact should be prepared."
+        ],
+        "confirmationRequired": true,
+        "humanReview": {
+          "required": true,
+          "finalAuthority": "HUMAN",
+          "approvalStatus": "NOT_APPROVED",
+          "allowedNextStep": "HUMAN_REVIEW_ONLY"
+        },
+        "voice": {
+          "voiceCaptureSupportedByContract": true,
+          "transcriptionPreviewOnly": true,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "transcriptionRequiresReview": true
+        },
+        "safety": {
+          "previewOnly": true,
+          "reviewOnly": true,
+          "notApproved": true,
+          "notSendable": true,
+          "createsTruth": false,
+          "executesRuntime": false,
+          "requiresHumanConfirmation": true,
+          "sendsMessage": false,
+          "writesCrm": false,
+          "createsCalendarEvent": false,
+          "createsTask": false,
+          "createsRevenueTruth": false,
+          "createsCompensationTruth": false,
+          "createsPayoutTruth": false,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "liveSearchEnabled": false,
+          "providerRuntimeEnabled": false,
+          "memoryWriteRequiresReview": true,
+          "calendarCreateRequiresConfirmation": true,
+          "crmWriteRequiresConfirmation": true,
+          "sendMessageRequiresConfirmation": true,
+          "transcriptionPreviewOnly": true
+        },
+        "finalAuthority": "HUMAN"
+      }
+    },
+    {
+      "caseId": "message_draft_juan_packet",
+      "command": "/Mejora este mensaje Hola Juan te busco para hablar de retiro y ver cuando podemos agendar.",
+      "options": {},
+      "packetId": "ALFRED_REVIEW_PACKET_7e76cd83",
+      "packetType": "MESSAGE_DRAFT_REVIEW_PACKET",
+      "sourceCommand": "/Mejora este mensaje",
+      "routeFamily": "ALFRED_MESSAGE_DRAFT",
+      "actionsCount": 1,
+      "actionTypes": [
+        "prepare_message_draft"
+      ],
+      "uncertaintyCount": 0,
+      "reviewPurpose": "Review message draft packet without sending or making it sendable.",
+      "decision": "PASS_REVIEW_ONLY_NO_EXECUTION",
+      "packet": {
+        "packetId": "ALFRED_REVIEW_PACKET_7e76cd83",
+        "packetType": "MESSAGE_DRAFT_REVIEW_PACKET",
+        "source": "ALFRED_REVIEW_ACTION_PACKET_READ_MODEL",
+        "sourcePhase": "054M_ALFRED_REVIEW_ACTION_PACKET_READ_MODEL_IMPLEMENTATION",
+        "sourceReadModel": "ALFRED_UNIVERSAL_COMMAND_MEMORY_READ_MODEL",
+        "rawInput": "/Mejora este mensaje Hola Juan te busco para hablar de retiro y ver cuando podemos agendar.",
+        "sourceCommand": "/Mejora este mensaje",
+        "normalizedCommand": "/Mejora este mensaje",
+        "intentFamily": "message_draft_prep",
+        "routeFamily": "ALFRED_MESSAGE_DRAFT",
+        "primaryEntity": "Hola Juan",
+        "relatedEntities": [],
+        "productInterests": [
+          "retiro"
+        ],
+        "calendarCandidate": {
+          "day": "",
+          "time": "",
+          "eventCandidate": false,
+          "reviewRequired": true,
+          "createsCalendarEvent": false
+        },
+        "referralCandidate": {
+          "referralName": "",
+          "sourceName": "",
+          "relationship": "",
+          "hasReferralSignal": false,
+          "reviewRequired": true,
+          "writesCrm": false
+        },
+        "messageDraftCandidate": {
+          "rawText": "Hola Juan te busco para hablar de retiro y ver cuando podemos agendar.",
+          "reviewRequired": true,
+          "sendsMessage": false,
+          "notSendable": true
+        },
+        "followUpCandidate": {
+          "reviewRequired": false,
+          "createsTask": false
+        },
+        "extractedFacts": [
+          {
+            "factType": "person_candidate",
+            "value": "Hola Juan",
+            "reviewRequired": true
+          },
+          {
+            "factType": "product_interest",
+            "value": "retiro",
+            "reviewRequired": true
+          }
+        ],
+        "uncertainty": [
+          "Message content must be reviewed before any delivery preparation."
+        ],
+        "reviewSummary": "Alfred prepared a message draft review packet from /Mejora este mensaje for Hola Juan. Human review is required before any write, send, calendar, CRM, or truth action.",
+        "proposedActions": [
+          {
+            "actionId": "ALFRED_ACTION_01",
+            "actionType": "prepare_message_draft",
+            "label": "Prepare message draft for human review",
+            "status": "PREPARED_FOR_HUMAN_REVIEW",
+            "executionState": "NOT_EXECUTED",
+            "requiresHumanConfirmation": true,
+            "previewOnly": true,
+            "reviewOnly": true,
+            "notApproved": true,
+            "notSendable": true,
+            "createsTruth": false,
+            "executesRuntime": false,
+            "sendsMessage": false,
+            "writesCrm": false,
+            "createsCalendarEvent": false,
+            "createsTask": false,
+            "createsRevenueTruth": false,
+            "createsCompensationTruth": false,
+            "createsPayoutTruth": false
+          }
+        ],
+        "forbiddenActions": [
+          "approve_without_human",
+          "send_message",
+          "write_crm",
+          "create_calendar_event",
+          "create_task",
+          "create_revenue_truth",
+          "create_commission_truth",
+          "create_payout_truth",
+          "execute_audio_runtime",
+          "execute_speech_engine",
+          "call_live_search",
+          "call_provider_runtime"
+        ],
+        "humanReviewQuestions": [
+          "Confirm tone, recipient, and content before delivery preparation."
+        ],
+        "confirmationRequired": true,
+        "humanReview": {
+          "required": true,
+          "finalAuthority": "HUMAN",
+          "approvalStatus": "NOT_APPROVED",
+          "allowedNextStep": "HUMAN_REVIEW_ONLY"
+        },
+        "voice": {
+          "voiceCaptureSupportedByContract": true,
+          "transcriptionPreviewOnly": true,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "transcriptionRequiresReview": true
+        },
+        "safety": {
+          "previewOnly": true,
+          "reviewOnly": true,
+          "notApproved": true,
+          "notSendable": true,
+          "createsTruth": false,
+          "executesRuntime": false,
+          "requiresHumanConfirmation": true,
+          "sendsMessage": false,
+          "writesCrm": false,
+          "createsCalendarEvent": false,
+          "createsTask": false,
+          "createsRevenueTruth": false,
+          "createsCompensationTruth": false,
+          "createsPayoutTruth": false,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "liveSearchEnabled": false,
+          "providerRuntimeEnabled": false,
+          "memoryWriteRequiresReview": true,
+          "calendarCreateRequiresConfirmation": true,
+          "crmWriteRequiresConfirmation": true,
+          "sendMessageRequiresConfirmation": true,
+          "transcriptionPreviewOnly": true
+        },
+        "finalAuthority": "HUMAN"
+      }
+    },
+    {
+      "caseId": "follow_up_juan_packet",
+      "command": "/Follow Juan retiro proxima semana",
+      "options": {},
+      "packetId": "ALFRED_REVIEW_PACKET_4b7db626",
+      "packetType": "FOLLOW_UP_REVIEW_PACKET",
+      "sourceCommand": "/Follow",
+      "routeFamily": "ALFRED_FOLLOW_UP_PREP",
+      "actionsCount": 1,
+      "actionTypes": [
+        "prepare_follow_up"
+      ],
+      "uncertaintyCount": 0,
+      "reviewPurpose": "Review follow-up packet without task creation.",
+      "decision": "PASS_REVIEW_ONLY_NO_EXECUTION",
+      "packet": {
+        "packetId": "ALFRED_REVIEW_PACKET_4b7db626",
+        "packetType": "FOLLOW_UP_REVIEW_PACKET",
+        "source": "ALFRED_REVIEW_ACTION_PACKET_READ_MODEL",
+        "sourcePhase": "054M_ALFRED_REVIEW_ACTION_PACKET_READ_MODEL_IMPLEMENTATION",
+        "sourceReadModel": "ALFRED_UNIVERSAL_COMMAND_MEMORY_READ_MODEL",
+        "rawInput": "/Follow Juan retiro proxima semana",
+        "sourceCommand": "/Follow",
+        "normalizedCommand": "/Follow",
+        "intentFamily": "follow_up_search",
+        "routeFamily": "ALFRED_FOLLOW_UP_PREP",
+        "primaryEntity": "Juan",
+        "relatedEntities": [],
+        "productInterests": [
+          "retiro"
+        ],
+        "calendarCandidate": {
+          "day": "",
+          "time": "",
+          "eventCandidate": false,
+          "reviewRequired": true,
+          "createsCalendarEvent": false
+        },
+        "referralCandidate": {
+          "referralName": "",
+          "sourceName": "",
+          "relationship": "",
+          "hasReferralSignal": false,
+          "reviewRequired": true,
+          "writesCrm": false
+        },
+        "messageDraftCandidate": {
+          "rawText": "",
+          "reviewRequired": false,
+          "sendsMessage": false,
+          "notSendable": true
+        },
+        "followUpCandidate": {
+          "reviewRequired": true,
+          "createsTask": false
+        },
+        "extractedFacts": [
+          {
+            "factType": "person_candidate",
+            "value": "Juan",
+            "reviewRequired": true
+          },
+          {
+            "factType": "product_interest",
+            "value": "retiro",
+            "reviewRequired": true
+          },
+          {
+            "factType": "memory_signal",
+            "value": "follow_up_signal",
+            "reviewRequired": true
+          }
+        ],
+        "uncertainty": [
+          "All extracted fields remain reviewable candidates, not source truth."
+        ],
+        "reviewSummary": "Alfred prepared a follow up review packet from /Follow for Juan. Human review is required before any write, send, calendar, CRM, or truth action.",
+        "proposedActions": [
+          {
+            "actionId": "ALFRED_ACTION_01",
+            "actionType": "prepare_follow_up",
+            "label": "Prepare follow-up candidate for human review",
+            "status": "PREPARED_FOR_HUMAN_REVIEW",
+            "executionState": "NOT_EXECUTED",
+            "requiresHumanConfirmation": true,
+            "previewOnly": true,
+            "reviewOnly": true,
+            "notApproved": true,
+            "notSendable": true,
+            "createsTruth": false,
+            "executesRuntime": false,
+            "sendsMessage": false,
+            "writesCrm": false,
+            "createsCalendarEvent": false,
+            "createsTask": false,
+            "createsRevenueTruth": false,
+            "createsCompensationTruth": false,
+            "createsPayoutTruth": false
+          }
+        ],
+        "forbiddenActions": [
+          "approve_without_human",
+          "send_message",
+          "write_crm",
+          "create_calendar_event",
+          "create_task",
+          "create_revenue_truth",
+          "create_commission_truth",
+          "create_payout_truth",
+          "execute_audio_runtime",
+          "execute_speech_engine",
+          "call_live_search",
+          "call_provider_runtime"
+        ],
+        "humanReviewQuestions": [
+          "Confirm follow-up timing, channel, and objective."
+        ],
+        "confirmationRequired": true,
+        "humanReview": {
+          "required": true,
+          "finalAuthority": "HUMAN",
+          "approvalStatus": "NOT_APPROVED",
+          "allowedNextStep": "HUMAN_REVIEW_ONLY"
+        },
+        "voice": {
+          "voiceCaptureSupportedByContract": true,
+          "transcriptionPreviewOnly": true,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "transcriptionRequiresReview": true
+        },
+        "safety": {
+          "previewOnly": true,
+          "reviewOnly": true,
+          "notApproved": true,
+          "notSendable": true,
+          "createsTruth": false,
+          "executesRuntime": false,
+          "requiresHumanConfirmation": true,
+          "sendsMessage": false,
+          "writesCrm": false,
+          "createsCalendarEvent": false,
+          "createsTask": false,
+          "createsRevenueTruth": false,
+          "createsCompensationTruth": false,
+          "createsPayoutTruth": false,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "liveSearchEnabled": false,
+          "providerRuntimeEnabled": false,
+          "memoryWriteRequiresReview": true,
+          "calendarCreateRequiresConfirmation": true,
+          "crmWriteRequiresConfirmation": true,
+          "sendMessageRequiresConfirmation": true,
+          "transcriptionPreviewOnly": true
+        },
+        "finalAuthority": "HUMAN"
+      }
+    },
+    {
+      "caseId": "chatbot_context_maria_packet",
+      "command": "/Chatbot ayudame a preparar una cita de retiro con Maria",
+      "options": {},
+      "packetId": "ALFRED_REVIEW_PACKET_0367f4f3",
+      "packetType": "CHATBOT_CONTEXT_REVIEW_PACKET",
+      "sourceCommand": "/Chatbot",
+      "routeFamily": "ALFRED_CHATBOT_ENTRY",
+      "actionsCount": 1,
+      "actionTypes": [
+        "open_review_context"
+      ],
+      "uncertaintyCount": 0,
+      "reviewPurpose": "Review chatbot context packet without runtime execution.",
+      "decision": "PASS_REVIEW_ONLY_NO_EXECUTION",
+      "packet": {
+        "packetId": "ALFRED_REVIEW_PACKET_0367f4f3",
+        "packetType": "CHATBOT_CONTEXT_REVIEW_PACKET",
+        "source": "ALFRED_REVIEW_ACTION_PACKET_READ_MODEL",
+        "sourcePhase": "054M_ALFRED_REVIEW_ACTION_PACKET_READ_MODEL_IMPLEMENTATION",
+        "sourceReadModel": "ALFRED_UNIVERSAL_COMMAND_MEMORY_READ_MODEL",
+        "rawInput": "/Chatbot ayudame a preparar una cita de retiro con Maria",
+        "sourceCommand": "/Chatbot",
+        "normalizedCommand": "/Chatbot",
+        "intentFamily": "chatbot_entry",
+        "routeFamily": "ALFRED_CHATBOT_ENTRY",
+        "primaryEntity": "Maria",
+        "relatedEntities": [],
+        "productInterests": [
+          "retiro"
+        ],
+        "calendarCandidate": {
+          "day": "",
+          "time": "",
+          "eventCandidate": false,
+          "reviewRequired": true,
+          "createsCalendarEvent": false
+        },
+        "referralCandidate": {
+          "referralName": "",
+          "sourceName": "",
+          "relationship": "",
+          "hasReferralSignal": false,
+          "reviewRequired": true,
+          "writesCrm": false
+        },
+        "messageDraftCandidate": {
+          "rawText": "",
+          "reviewRequired": false,
+          "sendsMessage": false,
+          "notSendable": true
+        },
+        "followUpCandidate": {
+          "reviewRequired": false,
+          "createsTask": false
+        },
+        "extractedFacts": [
+          {
+            "factType": "person_candidate",
+            "value": "Maria",
+            "reviewRequired": true
+          },
+          {
+            "factType": "product_interest",
+            "value": "retiro",
+            "reviewRequired": true
+          },
+          {
+            "factType": "memory_signal",
+            "value": "appointment_signal",
+            "reviewRequired": true
+          }
+        ],
+        "uncertainty": [
+          "All extracted fields remain reviewable candidates, not source truth."
+        ],
+        "reviewSummary": "Alfred prepared a chatbot context review packet from /Chatbot for Maria. Human review is required before any write, send, calendar, CRM, or truth action.",
+        "proposedActions": [
+          {
+            "actionId": "ALFRED_ACTION_01",
+            "actionType": "open_review_context",
+            "label": "Open review context without execution",
+            "status": "PREPARED_FOR_HUMAN_REVIEW",
+            "executionState": "NOT_EXECUTED",
+            "requiresHumanConfirmation": true,
+            "previewOnly": true,
+            "reviewOnly": true,
+            "notApproved": true,
+            "notSendable": true,
+            "createsTruth": false,
+            "executesRuntime": false,
+            "sendsMessage": false,
+            "writesCrm": false,
+            "createsCalendarEvent": false,
+            "createsTask": false,
+            "createsRevenueTruth": false,
+            "createsCompensationTruth": false,
+            "createsPayoutTruth": false
+          }
+        ],
+        "forbiddenActions": [
+          "approve_without_human",
+          "send_message",
+          "write_crm",
+          "create_calendar_event",
+          "create_task",
+          "create_revenue_truth",
+          "create_commission_truth",
+          "create_payout_truth",
+          "execute_audio_runtime",
+          "execute_speech_engine",
+          "call_live_search",
+          "call_provider_runtime"
+        ],
+        "humanReviewQuestions": [
+          "Confirm the intended route before opening any downstream review surface."
+        ],
+        "confirmationRequired": true,
+        "humanReview": {
+          "required": true,
+          "finalAuthority": "HUMAN",
+          "approvalStatus": "NOT_APPROVED",
+          "allowedNextStep": "HUMAN_REVIEW_ONLY"
+        },
+        "voice": {
+          "voiceCaptureSupportedByContract": true,
+          "transcriptionPreviewOnly": true,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "transcriptionRequiresReview": true
+        },
+        "safety": {
+          "previewOnly": true,
+          "reviewOnly": true,
+          "notApproved": true,
+          "notSendable": true,
+          "createsTruth": false,
+          "executesRuntime": false,
+          "requiresHumanConfirmation": true,
+          "sendsMessage": false,
+          "writesCrm": false,
+          "createsCalendarEvent": false,
+          "createsTask": false,
+          "createsRevenueTruth": false,
+          "createsCompensationTruth": false,
+          "createsPayoutTruth": false,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "liveSearchEnabled": false,
+          "providerRuntimeEnabled": false,
+          "memoryWriteRequiresReview": true,
+          "calendarCreateRequiresConfirmation": true,
+          "crmWriteRequiresConfirmation": true,
+          "sendMessageRequiresConfirmation": true,
+          "transcriptionPreviewOnly": true
+        },
+        "finalAuthority": "HUMAN"
+      }
+    },
+    {
+      "caseId": "voice_transcription_memory_packet",
+      "command": "/Memoria Tengo cita con Maria el viernes a las 11",
+      "options": {
+        "voiceTranscriptionPreview": true
+      },
+      "packetId": "ALFRED_REVIEW_PACKET_73e8ebfc",
+      "packetType": "VOICE_TRANSCRIPTION_REVIEW_PACKET",
+      "sourceCommand": "/Memoria",
+      "routeFamily": "ALFRED_MEMORY",
+      "actionsCount": 3,
+      "actionTypes": [
+        "prepare_memory_entry",
+        "prepare_calendar_event",
+        "prepare_follow_up"
+      ],
+      "uncertaintyCount": 0,
+      "reviewPurpose": "Review voice transcription preview packet without audio runtime or speech engine.",
+      "decision": "PASS_REVIEW_ONLY_NO_EXECUTION",
+      "packet": {
+        "packetId": "ALFRED_REVIEW_PACKET_73e8ebfc",
+        "packetType": "VOICE_TRANSCRIPTION_REVIEW_PACKET",
+        "source": "ALFRED_REVIEW_ACTION_PACKET_READ_MODEL",
+        "sourcePhase": "054M_ALFRED_REVIEW_ACTION_PACKET_READ_MODEL_IMPLEMENTATION",
+        "sourceReadModel": "ALFRED_UNIVERSAL_COMMAND_MEMORY_READ_MODEL",
+        "rawInput": "/Memoria Tengo cita con Maria el viernes a las 11",
+        "sourceCommand": "/Memoria",
+        "normalizedCommand": "/Memoria",
+        "intentFamily": "memory_capture_prep",
+        "routeFamily": "ALFRED_MEMORY",
+        "primaryEntity": "Maria",
+        "relatedEntities": [],
+        "productInterests": [],
+        "calendarCandidate": {
+          "day": "viernes",
+          "time": "11:00",
+          "eventCandidate": true,
+          "reviewRequired": true,
+          "createsCalendarEvent": false
+        },
+        "referralCandidate": {
+          "referralName": "",
+          "sourceName": "",
+          "relationship": "",
+          "hasReferralSignal": false,
+          "reviewRequired": true,
+          "writesCrm": false
+        },
+        "messageDraftCandidate": {
+          "rawText": "",
+          "reviewRequired": false,
+          "sendsMessage": false,
+          "notSendable": true
+        },
+        "followUpCandidate": {
+          "reviewRequired": true,
+          "createsTask": false
+        },
+        "extractedFacts": [
+          {
+            "factType": "person_candidate",
+            "value": "Maria",
+            "reviewRequired": true
+          },
+          {
+            "factType": "calendar_day_candidate",
+            "value": "viernes",
+            "reviewRequired": true
+          },
+          {
+            "factType": "calendar_time_candidate",
+            "value": "11:00",
+            "reviewRequired": true
+          },
+          {
+            "factType": "memory_signal",
+            "value": "follow_up_signal",
+            "reviewRequired": true
+          },
+          {
+            "factType": "memory_signal",
+            "value": "appointment_signal",
+            "reviewRequired": true
+          }
+        ],
+        "uncertainty": [
+          "Voice transcription is preview-only and must be reviewed before memory preparation."
+        ],
+        "reviewSummary": "Alfred prepared a voice transcription review packet from /Memoria for Maria. Human review is required before any write, send, calendar, CRM, or truth action.",
+        "proposedActions": [
+          {
+            "actionId": "ALFRED_ACTION_01",
+            "actionType": "prepare_memory_entry",
+            "label": "Prepare memory entry for human review",
+            "status": "PREPARED_FOR_HUMAN_REVIEW",
+            "executionState": "NOT_EXECUTED",
+            "requiresHumanConfirmation": true,
+            "previewOnly": true,
+            "reviewOnly": true,
+            "notApproved": true,
+            "notSendable": true,
+            "createsTruth": false,
+            "executesRuntime": false,
+            "sendsMessage": false,
+            "writesCrm": false,
+            "createsCalendarEvent": false,
+            "createsTask": false,
+            "createsRevenueTruth": false,
+            "createsCompensationTruth": false,
+            "createsPayoutTruth": false
+          },
+          {
+            "actionId": "ALFRED_ACTION_02",
+            "actionType": "prepare_calendar_event",
+            "label": "Prepare calendar event draft for human review",
+            "status": "PREPARED_FOR_HUMAN_REVIEW",
+            "executionState": "NOT_EXECUTED",
+            "requiresHumanConfirmation": true,
+            "previewOnly": true,
+            "reviewOnly": true,
+            "notApproved": true,
+            "notSendable": true,
+            "createsTruth": false,
+            "executesRuntime": false,
+            "sendsMessage": false,
+            "writesCrm": false,
+            "createsCalendarEvent": false,
+            "createsTask": false,
+            "createsRevenueTruth": false,
+            "createsCompensationTruth": false,
+            "createsPayoutTruth": false
+          },
+          {
+            "actionId": "ALFRED_ACTION_03",
+            "actionType": "prepare_follow_up",
+            "label": "Prepare follow-up candidate for human review",
+            "status": "PREPARED_FOR_HUMAN_REVIEW",
+            "executionState": "NOT_EXECUTED",
+            "requiresHumanConfirmation": true,
+            "previewOnly": true,
+            "reviewOnly": true,
+            "notApproved": true,
+            "notSendable": true,
+            "createsTruth": false,
+            "executesRuntime": false,
+            "sendsMessage": false,
+            "writesCrm": false,
+            "createsCalendarEvent": false,
+            "createsTask": false,
+            "createsRevenueTruth": false,
+            "createsCompensationTruth": false,
+            "createsPayoutTruth": false
+          }
+        ],
+        "forbiddenActions": [
+          "approve_without_human",
+          "send_message",
+          "write_crm",
+          "create_calendar_event",
+          "create_task",
+          "create_revenue_truth",
+          "create_commission_truth",
+          "create_payout_truth",
+          "execute_audio_runtime",
+          "execute_speech_engine",
+          "call_live_search",
+          "call_provider_runtime"
+        ],
+        "humanReviewQuestions": [],
+        "confirmationRequired": true,
+        "humanReview": {
+          "required": true,
+          "finalAuthority": "HUMAN",
+          "approvalStatus": "NOT_APPROVED",
+          "allowedNextStep": "HUMAN_REVIEW_ONLY"
+        },
+        "voice": {
+          "voiceCaptureSupportedByContract": true,
+          "transcriptionPreviewOnly": true,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "transcriptionRequiresReview": true
+        },
+        "safety": {
+          "previewOnly": true,
+          "reviewOnly": true,
+          "notApproved": true,
+          "notSendable": true,
+          "createsTruth": false,
+          "executesRuntime": false,
+          "requiresHumanConfirmation": true,
+          "sendsMessage": false,
+          "writesCrm": false,
+          "createsCalendarEvent": false,
+          "createsTask": false,
+          "createsRevenueTruth": false,
+          "createsCompensationTruth": false,
+          "createsPayoutTruth": false,
+          "audioRuntimeEnabled": false,
+          "speechEngineEnabled": false,
+          "liveSearchEnabled": false,
+          "providerRuntimeEnabled": false,
+          "memoryWriteRequiresReview": true,
+          "calendarCreateRequiresConfirmation": true,
+          "crmWriteRequiresConfirmation": true,
+          "sendMessageRequiresConfirmation": true,
+          "transcriptionPreviewOnly": true
+        },
+        "finalAuthority": "HUMAN"
+      }
+    }
+  ],
+  "decision": "PASS_054N_ALFRED_REVIEW_ACTION_PACKET_OUTPUT_REVIEW_SNAPSHOTS_GENERATED",
+  "next": "054O_ALFRED_REVIEW_ACTION_PACKET_UI_BINDING_SCOPE"
+}
