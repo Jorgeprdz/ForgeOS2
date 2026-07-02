@@ -541,7 +541,7 @@ section#genesis-cards.genesis-cards-stack .article-zero-reminder.compact {
   overflow-wrap: anywhere;
 }
 
-/* FORGEOS:SMART_WIDGET_STACK_SWIPE_CAROUSEL_053G:START */
+/* FORGEOS:SMART_WIDGET_STACK_DOT_GLIDE_053H:START */
 #smart-widget-stack,
 .smart-widget-stack {
   display: grid;
@@ -748,24 +748,62 @@ section#genesis-cards.genesis-cards-stack .article-zero-reminder.compact {
 }
 
 #smart-widget-stack .smart-widget-dots {
+  --dot-index: 0;
+  --dot-size: 6px;
+  --dot-gap: 7px;
+  --dot-step: calc(var(--dot-size) + var(--dot-gap));
+  position: relative;
   display: flex;
   justify-content: center;
-  gap: 7px;
+  gap: var(--dot-gap);
+  width: max-content;
+  margin: 0 auto;
   padding: 0 0 2px;
 }
 
-#smart-widget-stack .smart-widget-dots span {
-  width: 6px;
-  height: 6px;
+#smart-widget-stack .smart-widget-dot {
+  width: var(--dot-size);
+  height: var(--dot-size);
   border-radius: 999px;
-  background: rgba(238, 242, 255, 0.24);
+  background: rgba(238, 242, 255, 0.22);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04);
-  transition: width 160ms ease, background 160ms ease, box-shadow 160ms ease;
+  transition: background 180ms ease, opacity 180ms ease;
 }
 
-#smart-widget-stack .smart-widget-dots span.active {
-  width: 18px;
-  background: #ffe4a5;
-  box-shadow: 0 0 14px rgba(224, 183, 96, 0.35);
+#smart-widget-stack .smart-widget-dot.active {
+  background: rgba(255, 228, 165, 0.42);
 }
-/* FORGEOS:SMART_WIDGET_STACK_SWIPE_CAROUSEL_053G:END */
+
+#smart-widget-stack .smart-widget-dot-glider {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: var(--dot-size);
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffe9b1, #d29a3d);
+  box-shadow: 0 0 14px rgba(224, 183, 96, 0.38);
+  transform: translateX(calc(var(--dot-index) * var(--dot-step)));
+  transform-origin: center;
+  transition:
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    width 180ms ease,
+    border-radius 180ms ease;
+  z-index: 2;
+}
+
+#smart-widget-stack .smart-widget-dots.is-moving .smart-widget-dot-glider {
+  width: 24px;
+  border-radius: 999px 14px 14px 999px;
+}
+
+#smart-widget-stack .smart-widget-dots.moving-left .smart-widget-dot-glider {
+  border-radius: 14px 999px 999px 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #smart-widget-stack .smart-widget-dot-glider {
+    transition: none;
+  }
+}
+/* FORGEOS:SMART_WIDGET_STACK_DOT_GLIDE_053H:END */

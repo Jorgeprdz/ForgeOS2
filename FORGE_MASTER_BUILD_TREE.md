@@ -3523,3 +3523,27 @@ Evidence:
 - docs/architecture/source-truth/FORGE_ALIVE_SMART_WIDGET_STACK_SWIPE_CAROUSEL_TUNING_CLOSURE_053G.md
 - docs/evidence/FORGE_ALIVE_SMART_WIDGET_STACK_SWIPE_CAROUSEL_TUNING_CERTIFICATE_053G.md
 <!-- FORGEOS:SMART_WIDGET_STACK_SWIPE_CAROUSEL_TUNING_053G:END -->
+
+<!-- FORGEOS:SMART_WIDGET_STACK_DOT_GLIDE_ANIMATION_053H:START -->
+## Forge Alive Smart Widget Stack Dot Glide Animation 053H
+
+Status: CLOSED / STATIC_PREVIEW_MICRO_INTERACTION_TUNED.
+
+053H adds a stretched golden dot glide animation to the Smart Widget Stack carousel indicators.
+
+Boundary:
+- static preview micro-interaction only
+- Preview v053H visible
+- dot glider animation
+- reduced-motion support
+- no approval/send/runtime/truth mutation
+- Article 0 unchanged
+- Skynet unchanged
+
+Evidence:
+- docs/static-preview/forge-alive/index.html
+- docs/static-preview/forge-alive/styles.css
+- docs/static-preview/forge-alive/smart-widget-stack.js
+- docs/architecture/source-truth/FORGE_ALIVE_SMART_WIDGET_STACK_DOT_GLIDE_ANIMATION_CLOSURE_053H.md
+- docs/evidence/FORGE_ALIVE_SMART_WIDGET_STACK_DOT_GLIDE_ANIMATION_CERTIFICATE_053H.md
+<!-- FORGEOS:SMART_WIDGET_STACK_DOT_GLIDE_ANIMATION_053H:END -->

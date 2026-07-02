@@ -964,3 +964,13 @@ The Smart Widget Stack static preview now uses a swipe carousel with dot indicat
 
 Next:
 - 053H_SMART_WIDGET_STACK_CAROUSEL_OUTPUT_REVIEW.
+
+
+# Forge Alive Smart Widget Stack Dot Glide Animation
+
+053H_SMART_WIDGET_STACK_DOT_GLIDE_ANIMATION: GREEN / CLOSED.
+
+The Smart Widget Stack carousel indicators now include a stretched golden dot glide animation.
+
+Next:
+- 053I_SMART_WIDGET_STACK_DOT_GLIDE_OUTPUT_REVIEW.

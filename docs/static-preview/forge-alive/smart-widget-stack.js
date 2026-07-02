@@ -1,4 +1,4 @@
-import { forgeAliveSmartWidgetStackPreview } from "./smart-widget-stack-data.js?v=053G";
+import { forgeAliveSmartWidgetStackPreview } from "./smart-widget-stack-data.js?v=053H";
 
 const params = new URLSearchParams(window.location.search);
 
@@ -39,9 +39,15 @@ function renderChip(text, tone) {
 function renderDots(count, activeIndex) {
   const dots = el("div", "smart-widget-dots");
   dots.setAttribute("aria-label", "Smart widget position");
+  dots.style.setProperty("--dot-index", String(activeIndex));
+  dots.style.setProperty("--dot-count", String(count));
+
+  const glider = el("span", "smart-widget-dot-glider");
+  glider.setAttribute("aria-hidden", "true");
+  dots.appendChild(glider);
 
   for (let index = 0; index < count; index += 1) {
-    const dot = el("span", index === activeIndex ? "active" : "");
+    const dot = el("span", index === activeIndex ? "smart-widget-dot active" : "smart-widget-dot");
     dot.setAttribute("aria-hidden", "true");
     dots.appendChild(dot);
   }
@@ -50,7 +56,20 @@ function renderDots(count, activeIndex) {
 }
 
 function updateDots(root, activeIndex) {
-  const dots = [...root.querySelectorAll(".smart-widget-dots span")];
+  const dotsRoot = root.querySelector(".smart-widget-dots");
+  if (!dotsRoot) return;
+
+  const previousIndex = Number(dotsRoot.style.getPropertyValue("--dot-index") || "0");
+  dotsRoot.style.setProperty("--dot-index", String(activeIndex));
+  dotsRoot.classList.remove("moving-left", "moving-right", "is-moving");
+  dotsRoot.classList.add(activeIndex >= previousIndex ? "moving-right" : "moving-left", "is-moving");
+
+  window.clearTimeout(dotsRoot._glideTimer);
+  dotsRoot._glideTimer = window.setTimeout(() => {
+    dotsRoot.classList.remove("moving-left", "moving-right", "is-moving");
+  }, 320);
+
+  const dots = [...dotsRoot.querySelectorAll(".smart-widget-dot")];
   dots.forEach((dot, index) => dot.classList.toggle("active", index === activeIndex));
 }
 
