@@ -1,4 +1,4 @@
-import { forgeAliveSmartWidgetStackPreview } from "./smart-widget-stack-data.js";
+import { forgeAliveSmartWidgetStackPreview } from "./smart-widget-stack-data.js?v=053E";
 
 const params = new URLSearchParams(window.location.search);
 
@@ -9,13 +9,12 @@ function el(tag, className, text) {
   return node;
 }
 
-function list(title, items) {
-  const wrap = el("div", "smart-widget-list");
-  wrap.appendChild(el("h4", "", title));
-  const ul = el("ul");
-  for (const item of items || []) ul.appendChild(el("li", "", item));
-  wrap.appendChild(ul);
-  return wrap;
+function familyLabel(value) {
+  return String(value || "")
+    .replace(/_WIDGET_FAMILY$/, "")
+    .replace(/_WIDGET$/, "")
+    .replace(/_/g, " ")
+    .toLowerCase();
 }
 
 function pickContext() {
@@ -38,11 +37,42 @@ function renderChip(text, tone) {
   return chip;
 }
 
+function renderContextNav(activeContext) {
+  const nav = el("nav", "smart-widget-contexts");
+  nav.setAttribute("aria-label", "Smart widget preview contexts");
+
+  for (const context of forgeAliveSmartWidgetStackPreview.contexts) {
+    const item = el("a", context.id === activeContext.id ? "active" : "", context.label);
+    item.href = `?context=${encodeURIComponent(context.id)}`;
+    item.setAttribute("aria-label", `Preview context ${context.label}`);
+    nav.appendChild(item);
+  }
+
+  return nav;
+}
+
+function renderEvidence(items) {
+  const wrap = el("div", "smart-widget-evidence");
+  wrap.appendChild(el("span", "smart-widget-mini-label", "Evidence"));
+  wrap.appendChild(el("p", "", (items || []).join(" · ")));
+  return wrap;
+}
+
 function renderWidget(widget, index) {
   const card = el("article", "smart-widget-card glass");
-  card.appendChild(el("p", "smart-widget-eyebrow", widget.family));
-  card.appendChild(el("h3", "", widget.title));
-  card.appendChild(el("p", "smart-widget-subtitle", widget.subtitle));
+
+  const top = el("div", "smart-widget-card-top");
+  const titleBlock = el("div", "smart-widget-title-block");
+  titleBlock.appendChild(el("p", "smart-widget-eyebrow", familyLabel(widget.family)));
+  titleBlock.appendChild(el("h3", "", widget.title));
+  titleBlock.appendChild(el("p", "smart-widget-subtitle", widget.subtitle));
+  top.appendChild(titleBlock);
+
+  const priority = el("div", "smart-widget-priority");
+  priority.appendChild(el("span", "", String(widget.priority)));
+  priority.appendChild(el("small", "", index === 0 ? "TOP" : "CTX"));
+  top.appendChild(priority);
+  card.appendChild(top);
 
   const chips = el("div", "smart-widget-chips");
   chips.appendChild(renderChip("Human final authority", "gold"));
@@ -52,29 +82,13 @@ function renderWidget(widget, index) {
   chips.appendChild(renderChip("Delivery locked", ""));
   card.appendChild(chips);
 
-  const meta = el("div", "smart-widget-meta");
-  meta.appendChild(el("span", "", `Priority ${widget.priority}`));
-  meta.appendChild(el("span", "", index === 0 ? "Top context" : "Contextual"));
-  card.appendChild(meta);
-
   card.appendChild(el("p", "smart-widget-why", `Why now: ${widget.whyNow}`));
-  card.appendChild(list("Evidence", widget.evidence));
+  card.appendChild(renderEvidence(widget.evidence));
   card.appendChild(el("p", "smart-widget-uncertainty", `Uncertainty: ${widget.uncertainty}`));
   card.appendChild(el("p", "article-zero-reminder compact", forgeAliveSmartWidgetStackPreview.article0));
   card.appendChild(el("p", "smart-widget-prompt", widget.prompt));
 
   return card;
-}
-
-function renderContextNav(activeContext) {
-  const nav = el("div", "smart-widget-contexts");
-  for (const context of forgeAliveSmartWidgetStackPreview.contexts) {
-    const item = el("a", context.id === activeContext.id ? "active" : "", context.label);
-    item.href = `?context=${encodeURIComponent(context.id)}`;
-    item.setAttribute("aria-label", `Preview context ${context.label}`);
-    nav.appendChild(item);
-  }
-  return nav;
 }
 
 function main() {
@@ -84,7 +98,7 @@ function main() {
   const context = pickContext();
   target.innerHTML = "";
 
-  const header = el("header", "smart-widget-header");
+  const header = el("header", "smart-widget-header glass");
   header.appendChild(el("p", "smart-widget-eyebrow", forgeAliveSmartWidgetStackPreview.version));
   header.appendChild(el("h2", "", "Smart Widget Stack"));
   header.appendChild(el("p", "smart-widget-subtitle", context.selectedWhen));
