@@ -3427,3 +3427,26 @@ Next phase: 053A Smart Widget Stack Output Review.
 
 Phase id: `053A_SMART_WIDGET_STACK_OUTPUT_REVIEW`.
 <!-- FORGEOS:FORGE_ALIVE_SMART_WIDGET_STACK_READ_MODEL_052Z:END -->
+
+<!-- FORGEOS:SMART_WIDGET_STACK_STATIC_PREVIEW_SCOPE_053B:START -->
+## Forge Alive Smart Widget Stack Static Preview Scope 053B
+
+Status: SCOPED / DOCS_ONLY / NOT_IMPLEMENTED.
+
+053B scopes the Forge Alive static preview migration from fixed Genesis cards to a contextual Smart Widget Stack.
+
+Boundary:
+- no code
+- no UI implementation
+- no engine/schema changes
+- Genesis is contextual, not permanent
+- Article 0 preserved
+- Human final authority preserved
+- no approval/send/runtime/truth mutation
+
+Next: 053C Forge Alive Smart Widget Stack Static Preview Implementation.
+
+Evidence:
+- docs/architecture/source-truth/FORGE_ALIVE_SMART_WIDGET_STACK_STATIC_PREVIEW_SCOPE_053B.md
+- docs/evidence/FORGE_ALIVE_SMART_WIDGET_STACK_STATIC_PREVIEW_SCOPE_CERTIFICATE_053B.md
+<!-- FORGEOS:SMART_WIDGET_STACK_STATIC_PREVIEW_SCOPE_053B:END -->
