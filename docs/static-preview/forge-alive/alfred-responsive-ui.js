@@ -1985,3 +1985,105 @@
   window.addEventListener("resize", scheduleLandscapeLanguage056M, { passive: true });
   window.addEventListener("orientationchange", scheduleLandscapeLanguage056M, { passive: true });
 })();
+
+
+/* FORGEOS:ALFRED_LANDSCAPE_FINAL_CONTROLS_056M2 */
+(function () {
+  "use strict";
+
+  function isLandscape056M2() {
+    return window.matchMedia("(max-width: 900px) and (orientation: landscape)").matches;
+  }
+
+  function hideNode056M2(node) {
+    if (!node || node.closest(".forge-nav-root-056k7")) return;
+    if (node.closest(".alfred-command-root-056k5")) return;
+    if (node.closest(".forge-smart-widget-pager-root-056l3")) return;
+    node.classList.add("forge-landscape-hidden-056m2");
+    node.setAttribute("aria-hidden", "true");
+  }
+
+  function compactText056M2(node) {
+    return String(node && node.textContent || "").replace(/\s+/g, " ").trim().toLowerCase();
+  }
+
+  function looksLikeHamburger056M2(node) {
+    var text = compactText056M2(node);
+    var aria = String(node.getAttribute && (node.getAttribute("aria-label") || node.getAttribute("title") || "") || "").toLowerCase();
+    if (text === "☰" || text === "≡" || text === "☷") return true;
+    if (aria.indexOf("menu") !== -1 || aria.indexOf("menú") !== -1 || aria.indexOf("navigation") !== -1) return true;
+    if (node.matches && node.matches("button, [role='button'], .hamburger, .menu, .menu-button, .menu-pill")) {
+      var rect = node.getBoundingClientRect();
+      return rect.left < 240 && rect.width <= 96 && rect.height <= 96;
+    }
+    return false;
+  }
+
+  function looksLikeContextChip056M2(node) {
+    var text = compactText056M2(node);
+    if (text !== "contexto vivo" && text !== "contexto vivo 3") return false;
+    var rect = node.getBoundingClientRect();
+    if (rect.width > 340 || rect.height > 90) return false;
+    if (node.closest("#smart-widget-stack")) return false;
+    return true;
+  }
+
+  function hideResidualLandscapeControls056M2() {
+    if (!isLandscape056M2()) return;
+    Array.prototype.forEach.call(document.querySelectorAll(
+      ".alfred-desktop-menu-pill, .alfred-desktop-menu-button, .alfred-desktop-menu-panel, .context-rail, .context-drawer, [data-desktop-menu], [data-desktop-sidebar], .hamburger, .menu-button, .menu-pill"
+    ), hideNode056M2);
+
+    Array.prototype.forEach.call(document.querySelectorAll("button, [role='button'], nav, aside, section, div, span"), function (node) {
+      if (looksLikeHamburger056M2(node) || looksLikeContextChip056M2(node)) hideNode056M2(node);
+    });
+  }
+
+  function updateKeyboardOffset056M2() {
+    var root = document.documentElement;
+    if (!isLandscape056M2()) {
+      root.classList.remove("forge-mobile-landscape-056m2", "forge-keyboard-open-056m2");
+      root.style.removeProperty("--forge-keyboard-offset-056m2");
+      return;
+    }
+
+    root.classList.add("forge-mobile-landscape-056m2");
+    var offset = 0;
+    if (window.visualViewport) {
+      offset = Math.max(0, window.innerHeight - window.visualViewport.height - window.visualViewport.offsetTop);
+    }
+    if (offset > 80) {
+      root.classList.add("forge-keyboard-open-056m2");
+    } else {
+      root.classList.remove("forge-keyboard-open-056m2");
+      offset = 0;
+    }
+    root.style.setProperty("--forge-keyboard-offset-056m2", Math.round(offset) + "px");
+    hideResidualLandscapeControls056M2();
+  }
+
+  function schedule056M2() {
+    [30, 180, 500, 1100, 2200].forEach(function (delay) {
+      window.setTimeout(updateKeyboardOffset056M2, delay);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", schedule056M2);
+  window.addEventListener("load", schedule056M2);
+  window.addEventListener("resize", schedule056M2, { passive: true });
+  window.addEventListener("orientationchange", schedule056M2, { passive: true });
+
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", updateKeyboardOffset056M2, { passive: true });
+    window.visualViewport.addEventListener("scroll", updateKeyboardOffset056M2, { passive: true });
+  }
+
+  document.addEventListener("focusin", function () {
+    window.setTimeout(updateKeyboardOffset056M2, 80);
+    window.setTimeout(updateKeyboardOffset056M2, 260);
+  });
+  document.addEventListener("focusout", function () {
+    window.setTimeout(updateKeyboardOffset056M2, 120);
+    window.setTimeout(updateKeyboardOffset056M2, 380);
+  });
+})();
