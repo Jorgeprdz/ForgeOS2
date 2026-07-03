@@ -57,6 +57,7 @@ function renderResults(value) {
 
 if (layer) {
   const orb = layer.querySelector(".command-orb");
+  const pill = layer.querySelector(".command-pill");
   const close = layer.querySelector(".command-pill-close");
   const input = layer.querySelector(".command-pill-input");
 
@@ -64,11 +65,22 @@ if (layer) {
     orb.addEventListener("click", openLayer);
   }
 
+  if (pill) {
+    pill.addEventListener("click", (event) => {
+      if (close && close.contains(event.target)) return;
+      openLayer();
+    });
+  }
+
   if (close) {
-    close.addEventListener("click", closeLayer);
+    close.addEventListener("click", (event) => {
+      event.stopPropagation();
+      closeLayer();
+    });
   }
 
   if (input) {
+    input.addEventListener("focus", openLayer);
     input.addEventListener("input", (event) => renderResults(event.target.value));
     input.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {

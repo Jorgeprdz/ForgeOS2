@@ -4,97 +4,139 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Forge Alive Vista Estática</title>
-  <link rel="stylesheet" href="./styles.css?v=054F">
+  <link rel="stylesheet" href="./styles.css?v=056H">
 </head>
 <body>
   <main class="phone-shell" aria-label="Forge Alive vista estática">
 
-  <!-- FORGEOS:DESKTOP_INTERACTIVE_DASHBOARD_056G7:START -->
-  <section class="alfred-desktop-app-056g7" aria-label="Alfred desktop dashboard preview">
-    <aside class="alfred-sidebar-056g7" aria-label="Navegación Alfred">
-      <div class="alfred-brand-056g7">
-        <span class="alfred-mark-056g7">A</span>
-        <strong>Alfred</strong>
-      </div>
-      <nav class="alfred-nav-056g7" aria-label="Navegación principal">
-        <button class="active" type="button" data-section="inicio">Inicio</button>
-        <button type="button" data-section="pipeline">Pipeline</button>
-        <button type="button" data-section="clientes">Clientes</button>
-        <button type="button" data-section="alfred">Alfred</button>
-        <button type="button" data-section="reportes">Reportes</button>
-        <button type="button" data-section="mas">Más</button>
+  <!-- FORGEOS:ALFRED_DESKTOP_DASHBOARD_CONSOLIDATED:START -->
+  <section class="alfred-desktop-app-056g7 alfred-desktop-dashboard" aria-label="Alfred desktop dashboard preview">
+    <aside class="alfred-sidebar-056g7 alfred-desktop-sidebar" aria-label="Navegación Alfred">
+      <button class="alfred-menu-pill-056h" type="button" aria-label="Abrir menú Alfred">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+      <nav class="alfred-nav-056g7 alfred-desktop-nav" aria-label="Navegación principal">
+        <button class="active" type="button" data-section="inicio"><span aria-hidden="true">⌂</span>Inicio</button>
+        <button type="button" data-section="pipeline"><span aria-hidden="true">◇</span>Pipeline</button>
+        <button type="button" data-section="clientes"><span aria-hidden="true">◎</span>Clientes</button>
+        <button type="button" data-section="alfred"><span aria-hidden="true">⌘</span>Alfred</button>
+        <button type="button" data-section="reportes"><span aria-hidden="true">▥</span>Reportes</button>
+        <button type="button" data-section="mas"><span aria-hidden="true">•••</span>Más</button>
       </nav>
-      <div class="alfred-profile-056g7">
+      <div class="alfred-profile-056g7 alfred-desktop-profile">
         <span>J</span>
         <div>
           <strong>Jorge</strong>
-          <small>Vista estática local</small>
+          <small>Ver perfil</small>
         </div>
       </div>
     </aside>
 
-    <main class="alfred-stage-056g7">
-      <header class="alfred-topbar-056g7">
+    <main class="alfred-stage-056g7 alfred-desktop-main">
+      <header class="alfred-topbar-056g7 alfred-desktop-header">
         <div>
           <span>Buenos días, Jorge</span>
           <h1>Mi día</h1>
         </div>
-        <button class="alfred-spark-056g7" type="button" aria-label="Cambiar énfasis visual">✦</button>
+        <div class="alfred-header-actions-056h">
+          <div data-command-desktop-slot>
+            <section class="command-orb-layer" data-command-orb-layer aria-label="Forge Alive command bar">
+              <button class="command-orb" type="button" aria-label="Abrir command bar">
+                <span class="command-orb-core" aria-hidden="true">/</span>
+              </button>
+              <div class="command-pill" aria-label="Forge Alive command bar">
+                <span class="command-pill-slash" aria-hidden="true">/</span>
+                <input
+                  class="command-pill-input"
+                  type="text"
+                  value=""
+                  placeholder="Buscar o pedir a Alfred..."
+                  autocomplete="off"
+                  autocapitalize="none"
+                  spellcheck="false"
+                />
+                <button class="command-pill-mic" type="button" aria-label="Micrófono bloqueado en preview">⌕</button>
+                <button class="command-pill-send" type="button" aria-label="Enviar bloqueado en preview">↗</button>
+              </div>
+              <div class="command-orb-results" hidden aria-label="Resultados locales de Alfred">
+                <article>
+                  <strong>Juan Orozco</strong>
+                  <span>Poliza ABC · revisión</span>
+                </article>
+                <article>
+                  <strong>Juan Martinez</strong>
+                  <span>Prospecto · review</span>
+                </article>
+                <article>
+                  <strong>Juan Perez</strong>
+                  <span>Ultimo contacto hace 76 dias · seguimiento</span>
+                </article>
+              </div>
+            </section>
+          </div>
+          <button class="alfred-spark-056g7 alfred-desktop-spark" type="button" aria-label="Cambiar énfasis visual">✦</button>
+        </div>
       </header>
 
-      <section class="alfred-brief-056g7" aria-label="Brief Alfred">
-        <div class="alfred-portrait-056g7" aria-hidden="true">
-          <span>A</span>
+      <section class="alfred-brief-056g7 alfred-desktop-hero" aria-label="Brief Alfred">
+        <div class="alfred-portrait-056g7 alfred-desktop-portrait" aria-hidden="true">
+          <span class="alfred-intelligence-mark-056h"><i></i><b></b><i></i></span>
         </div>
-        <div class="alfred-brief-copy-056g7">
-          <p>Alfred</p>
+        <div class="alfred-brief-copy-056g7 alfred-desktop-hero-copy">
+          <p>Alfred Intelligence</p>
           <h2>Hoy tu cuello de botella es seguimiento.</h2>
           <strong>Empieza por Lariza antes de las 11:00.</strong>
         </div>
-        <button class="alfred-primary-056g7" type="button" data-command="plan">Iniciar plan de hoy</button>
+        <button class="alfred-primary-056g7 alfred-desktop-primary" type="button" data-command="plan">Iniciar plan de hoy <span aria-hidden="true">›</span></button>
       </section>
 
-      <section class="alfred-kpis-056g7" aria-label="Indicadores principales">
-        <button class="alfred-kpi-056g7 active" type="button" data-kpi="meta">
+      <section class="alfred-kpis-056g7 alfred-desktop-kpis" aria-label="Indicadores principales">
+        <button class="alfred-kpi-056g7 alfred-desktop-kpi active" type="button" data-kpi="meta">
+          <span class="alfred-kpi-icon" aria-hidden="true">◎</span>
           <span>Probabilidad meta mensual</span>
           <strong>78%</strong>
           <i><b style="width:78%"></b></i>
         </button>
-        <button class="alfred-kpi-056g7" type="button" data-kpi="produccion">
+        <button class="alfred-kpi-056g7 alfred-desktop-kpi" type="button" data-kpi="produccion">
+          <span class="alfred-kpi-icon" aria-hidden="true">⌁</span>
           <span>Producción esperada</span>
           <strong class="ok">$142,000</strong>
-          <small>+12% vs semana anterior</small>
+          <small>escenario de muestra</small>
         </button>
-        <button class="alfred-kpi-056g7" type="button" data-kpi="gap">
+        <button class="alfred-kpi-056g7 alfred-desktop-kpi" type="button" data-kpi="gap">
+          <span class="alfred-kpi-icon" aria-hidden="true">△</span>
           <span>Gap</span>
           <strong class="danger">$58,000</strong>
           <small>revisar 3 conversaciones</small>
         </button>
-        <button class="alfred-kpi-056g7" type="button" data-kpi="riesgo">
+        <button class="alfred-kpi-056g7 alfred-desktop-kpi" type="button" data-kpi="riesgo">
+          <span class="alfred-kpi-icon" aria-hidden="true">!</span>
           <span>Riesgo principal</span>
           <strong class="gold">3 clientes</strong>
           <small>sin seguimiento</small>
         </button>
       </section>
 
-      <section class="alfred-grid-056g7" aria-label="Tablero de decisión">
-        <article class="alfred-card-056g7 opportunities" tabindex="0">
+      <section class="alfred-grid-056g7 alfred-desktop-grid" aria-label="Tablero de decisión">
+        <article class="alfred-card-056g7 alfred-desktop-card opportunities" tabindex="0">
           <header>
-            <h2>Oportunidades</h2>
+            <h2><span aria-hidden="true">▧</span>Oportunidades</h2>
             <span>probabilidad</span>
           </header>
           <div class="alfred-opportunity-list-056g7">
-            <button type="button" data-client="Lariza"><span>L</span><strong>Lariza</strong><b>72%</b></button>
+            <button class="active" type="button" data-client="Lariza"><span>L</span><strong>Lariza</strong><b>72%</b></button>
             <button type="button" data-client="Octavio"><span>O</span><strong>Octavio</strong><b>65%</b></button>
             <button type="button" data-client="María"><span>M</span><strong>María</strong><b>40%</b></button>
             <button type="button" data-client="José"><span>J</span><strong>José</strong><b>15%</b></button>
           </div>
-          <small>Ver todas las oportunidades</small>
+          <small>Ver todas las oportunidades ›</small>
         </article>
 
-        <article class="alfred-card-056g7 follow-engine" tabindex="0">
+        <article class="alfred-card-056g7 alfred-desktop-card follow-engine" tabindex="0">
           <header>
-            <h2>Motor de seguimiento</h2>
+            <h2><span aria-hidden="true">◈</span>Motor de seguimiento</h2>
             <span>prioridad</span>
           </header>
           <div class="alfred-engine-box-056g7">
@@ -103,12 +145,12 @@
             <p>Probabilidad de rescate: <b>64%</b></p>
             <p>Sugerencia: <b>Enviar mensaje de reconexión</b></p>
           </div>
-          <small>Contexto de revisión; no envío automático</small>
+          <small>Ver detalles del motor ›</small>
         </article>
 
-        <article class="alfred-card-056g7 agenda" tabindex="0">
+        <article class="alfred-card-056g7 alfred-desktop-card agenda" tabindex="0">
           <header>
-            <h2>Agenda de hoy</h2>
+            <h2><span aria-hidden="true">▣</span>Agenda de hoy</h2>
             <span>3 acciones</span>
           </header>
           <ol>
@@ -116,38 +158,62 @@
             <li><span>2</span>Rescatar a Marlene</li>
             <li><span>3</span>Agendar 2 citas</li>
           </ol>
-          <small>Acciones visibles, no calendario creado</small>
+          <small>Ver agenda completa ›</small>
         </article>
+
       </section>
 
-      <section class="alfred-context-row-056g7" aria-label="Contexto vivo">
-        <article>
-          <span>Seguimiento</span>
-          <strong>Hay riesgo alto de enfriamiento</strong>
-          <p>Revisar tono antes de sugerir una acción.</p>
-        </article>
-        <article>
-          <span>Comisiones</span>
-          <strong>Revisión disponible</strong>
-          <p>Estimación candidata; no es verdad de pago.</p>
-        </article>
-        <article>
-          <span>Juicio</span>
-          <strong>Falta contexto</strong>
-          <p>Primero mejora el juicio; luego decide.</p>
-        </article>
+      <section class="alfred-live-context-056h" aria-label="Contexto vivo Alfred">
+        <div data-smart-widget-desktop-slot>
+          <section class="smart-widget-stack" id="smart-widget-stack" aria-label="Contexto vivo Forge Alive">
+            <header class="smart-widget-header glass">
+              <p class="smart-widget-eyebrow">Contexto vivo</p>
+              <h2>Señales para decidir</h2>
+              <p class="smart-widget-subtitle">Forge muestra contexto; el humano decide.</p>
+            </header>
+            <section class="smart-widget-carousel card-level" aria-label="Tarjetas de contexto vivo">
+              <section class="smart-widget-slide" aria-label="Seguimiento: Seguimiento prioritario">
+                <article class="smart-widget-card glass">
+                  <div class="smart-widget-card-top">
+                    <div class="smart-widget-title-block">
+                      <p class="smart-widget-eyebrow">SEGUIMIENTO</p>
+                      <h3>Seguimiento prioritario</h3>
+                      <p class="smart-widget-subtitle">Relación abierta con riesgo de enfriarse.</p>
+                    </div>
+                    <div class="smart-widget-priority">
+                      <span>86</span>
+                      <small>SEÑAL</small>
+                    </div>
+                  </div>
+                  <div class="smart-widget-chips">
+                    <span class="smart-widget-chip gold">Autoridad humana</span>
+                    <span class="smart-widget-chip">Solo revisión</span>
+                  </div>
+                  <p class="smart-widget-why">Por qué ahora: hay señales de seguimiento pendiente.</p>
+                  <p class="smart-widget-uncertainty">Incertidumbre: el humano decide tono y momento.</p>
+                </article>
+              </section>
+            </section>
+          </section>
+        </div>
       </section>
 
-      <section class="alfred-command-dock-056g7" aria-label="Comando local Alfred">
-        <span class="alfred-mark-056g7">A</span>
-        <input aria-label="Comando local de Alfred" value="" placeholder="Pídele a Alfred qué hacer ahora">
-        <button type="button" data-command="voice" aria-label="Vista de voz">Mic</button>
-        <button type="button" data-command="send" aria-label="Vista de envío bloqueado">Enviar</button>
-      </section>
-      <p class="alfred-command-examples-056g7">Ejemplos: “Muéstrame clientes en riesgo” · “Qué debo hacer hoy” · “Dame resumen de mi pipeline”</p>
+      <article class="alfred-card-056g7 alfred-desktop-card activity alfred-activity-card-056h" tabindex="0">
+        <header>
+          <h2><span aria-hidden="true">✦</span>Actividad reciente</h2>
+          <span>Ver todo</span>
+        </header>
+        <div class="alfred-activity-list-056h">
+          <p><b>08:10</b> Lariza abrió el correo <span>Hace 2 h</span></p>
+          <p><b>09:25</b> Marlene visitó la propuesta <span>Hace 4 h</span></p>
+          <p><b>10:40</b> Octavio respondió <span>Hace 1 día</span></p>
+        </div>
+        <small>Solo lectura · sin mutación ›</small>
+      </article>
+
     </main>
   </section>
-  <!-- FORGEOS:DESKTOP_INTERACTIVE_DASHBOARD_056G7:END -->
+  <!-- FORGEOS:ALFRED_DESKTOP_DASHBOARD_CONSOLIDATED:END -->
 
     <button class="desktop-menu-toggle" type="button" aria-label="Abrir navegacion">
       <span></span>
@@ -222,7 +288,7 @@
       <div class="fake-cta">Iniciar revisión del día</div>
     </section>
 
-    <section class="smart-widget-stack" id="smart-widget-stack" aria-label="Contexto vivo Forge Alive"></section>
+    <div data-smart-widget-mobile-slot></div>
 
     <section class="grid">
       <article class="mini-card glass">
@@ -268,38 +334,7 @@
       </ul>
     </section>
 
-    <section class="command-orb-layer" data-command-orb-layer aria-label="Forge Alive command orb">
-      <button class="command-orb" type="button" aria-label="Abrir command bar">
-        <span class="command-orb-core" aria-hidden="true">/</span>
-      </button>
-      <div class="command-pill" aria-label="Forge Alive command bar">
-        <span class="command-pill-slash" aria-hidden="true">/</span>
-        <input
-          class="command-pill-input"
-          type="text"
-          value=""
-          placeholder="Busca o escribe un comando"
-          autocomplete="off"
-          autocapitalize="none"
-          spellcheck="false"
-        />
-        <button class="command-pill-close" type="button" aria-label="Cerrar command bar">x</button>
-      </div>
-      <div class="command-orb-results" hidden aria-label="Resultados locales de Alfred">
-        <article>
-          <strong>Juan Orozco</strong>
-          <span>Poliza ABC · revisión</span>
-        </article>
-        <article>
-          <strong>Juan Martinez</strong>
-          <span>Prospecto · review</span>
-        </article>
-        <article>
-          <strong>Juan Perez</strong>
-          <span>Ultimo contacto hace 76 dias · seguimiento</span>
-        </article>
-      </div>
-    </section>
+    <div data-command-mobile-slot></div>
 
     <nav class="bottom-nav" aria-label="navegación estática">
       <span>Inicio</span>
@@ -311,8 +346,8 @@
   </main>
 
   <script src="./sample-data.js"></script>
-
+  <script src="./alfred-desktop-dashboard.js?v=056H"></script>
   <script src="./smart-widget-stack.js?v=054F" type="module"></script>
-  <script src="./command-bar-orb.js?v=054F" type="module"></script>
+  <script src="./command-bar-orb.js?v=056H" type="module"></script>
 </body>
 </html>

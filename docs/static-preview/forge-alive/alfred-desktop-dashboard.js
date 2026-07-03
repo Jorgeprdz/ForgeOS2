@@ -1,4 +1,7 @@
 const app = document.querySelector(".alfred-desktop-app-056g7");
+const desktopQuery = window.matchMedia
+  ? window.matchMedia("(min-width: 900px)")
+  : { matches: window.innerWidth >= 900 };
 
 function setActiveButton(buttons, selected) {
   buttons.forEach((button) => {
@@ -6,8 +9,66 @@ function setActiveButton(buttons, selected) {
   });
 }
 
+function syncSmartWidgetSlot() {
+  const stack = document.getElementById("smart-widget-stack");
+  const desktopSlot = document.querySelector("[data-smart-widget-desktop-slot]");
+  const mobileSlot = document.querySelector("[data-smart-widget-mobile-slot]");
+  if (!stack || !desktopSlot || !mobileSlot) return;
+
+  const targetSlot = desktopQuery.matches ? desktopSlot : mobileSlot;
+  if (stack.parentElement !== targetSlot) {
+    targetSlot.appendChild(stack);
+  }
+  stack.dataset.smartWidgetSlot = desktopQuery.matches ? "desktop" : "mobile";
+}
+
+function syncCommandSlot() {
+  const commandLayer = document.querySelector("[data-command-orb-layer]");
+  const desktopSlot = document.querySelector("[data-command-desktop-slot]");
+  const mobileSlot = document.querySelector("[data-command-mobile-slot]");
+  if (!commandLayer || !desktopSlot || !mobileSlot) return;
+
+  const targetSlot = desktopQuery.matches ? desktopSlot : mobileSlot;
+  if (commandLayer.parentElement !== targetSlot) {
+    targetSlot.appendChild(commandLayer);
+  }
+}
+
+function syncResponsiveSlots() {
+  syncSmartWidgetSlot();
+  syncCommandSlot();
+}
+
+function hydrateFromSampleData() {
+  const sample = window.FORGE_SAMPLE_DATA;
+  if (!app || !sample) return;
+
+  const greeting = app.querySelector(".alfred-topbar-056g7 span");
+  const dayTitle = app.querySelector(".alfred-topbar-056g7 h1");
+  const production = app.querySelector('[data-kpi="produccion"] strong');
+  const opportunities = [...app.querySelectorAll(".alfred-opportunity-list-056g7 button")];
+
+  if (greeting && sample.greeting) greeting.textContent = sample.greeting;
+  if (dayTitle && sample.dayTitle) dayTitle.textContent = sample.dayTitle;
+  if (production && sample.monthlyGoal && sample.monthlyGoal.sampleAmount) {
+    production.textContent = sample.monthlyGoal.sampleAmount;
+  }
+
+  if (Array.isArray(sample.opportunities)) {
+    opportunities.forEach((button, index) => {
+      const item = sample.opportunities[index];
+      if (!item) return;
+      const name = button.querySelector("strong");
+      if (name) name.textContent = item.name;
+      button.dataset.client = item.name;
+    });
+  }
+}
+
 function initAlfredDesktopDashboard056G7() {
+  syncResponsiveSlots();
   if (!app) return;
+  hydrateFromSampleData();
 
   const navButtons = [...app.querySelectorAll(".alfred-nav-056g7 button")];
   navButtons.forEach((button) => {
@@ -34,21 +95,36 @@ function initAlfredDesktopDashboard056G7() {
     });
   });
 
-  const commandInput = app.querySelector(".alfred-command-dock-056g7 input");
   app.querySelectorAll("[data-command]").forEach((button) => {
     button.addEventListener("click", () => {
       const command = button.dataset.command || "";
-      if (!commandInput) return;
-      if (command === "plan") commandInput.value = "Preparar plan de seguimiento de hoy";
-      if (command === "voice") commandInput.value = "Vista de voz bloqueada: solo revisión";
-      if (command === "send") commandInput.value = "Envío bloqueado hasta aprobación humana";
-      commandInput.focus();
+      const commandLayer = document.querySelector("[data-command-orb-layer]");
+      const orb = commandLayer && commandLayer.querySelector(".command-orb");
+      const input = commandLayer && commandLayer.querySelector(".command-pill-input");
+      if (orb) orb.click();
+      if (!input) return;
+      if (command === "plan") input.value = "follow";
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+      input.focus();
     });
   });
+}
+
+if (desktopQuery.addEventListener) {
+  desktopQuery.addEventListener("change", syncResponsiveSlots);
+} else if (desktopQuery.addListener) {
+  desktopQuery.addListener(syncResponsiveSlots);
 }
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initAlfredDesktopDashboard056G7);
 } else {
   initAlfredDesktopDashboard056G7();
+}
+
+window.addEventListener("load", syncResponsiveSlots, { once: true });
+if (window.requestAnimationFrame) {
+  window.requestAnimationFrame(syncResponsiveSlots);
+} else {
+  window.setTimeout(syncResponsiveSlots, 0);
 }
