@@ -1907,3 +1907,81 @@
   document.addEventListener("DOMContentLoaded", schedule056L3);
   window.addEventListener("load", schedule056L3);
 })();
+
+
+/* FORGEOS:ALFRED_MOBILE_LANDSCAPE_SAME_LANGUAGE_056M */
+(function () {
+  "use strict";
+
+  function isPhoneLandscape056M() {
+    return window.matchMedia("(max-width: 900px) and (orientation: landscape)").matches;
+  }
+
+  function textLooksLikeDesktopDrawer056M(text) {
+    var compact = String(text || "").replace(/\s+/g, " ").trim().toLowerCase();
+    return compact.indexOf("forge alive") !== -1 &&
+      compact.indexOf("inicio") !== -1 &&
+      compact.indexOf("pipeline") !== -1 &&
+      compact.indexOf("clientes") !== -1 &&
+      compact.indexOf("alfred") !== -1 &&
+      compact.indexOf("mas") !== -1;
+  }
+
+  function hideLandscapeDrawerHeuristics056M() {
+    var selectors = [
+      ".alfred-desktop-menu-pill",
+      ".alfred-desktop-menu-button",
+      ".alfred-desktop-menu-panel",
+      ".alfred-desktop-sidebar",
+      ".alfred-desktop-nav",
+      ".desktop-sidebar",
+      ".desktop-nav",
+      ".side-nav",
+      ".context-rail",
+      ".context-drawer",
+      "[data-desktop-menu]",
+      "[data-desktop-sidebar]"
+    ];
+
+    selectors.forEach(function (selector) {
+      Array.prototype.forEach.call(document.querySelectorAll(selector), function (node) {
+        if (node.closest(".forge-nav-root-056k7")) return;
+        node.classList.add("forge-landscape-side-menu-hidden-056m");
+        node.setAttribute("aria-hidden", "true");
+      });
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll("aside, nav, section, div"), function (node) {
+      if (node.closest(".forge-nav-root-056k7")) return;
+      if (node.closest(".alfred-command-root-056k5")) return;
+      if (node.closest("#smart-widget-stack")) return;
+      if (!textLooksLikeDesktopDrawer056M(node.textContent)) return;
+      var rect = node.getBoundingClientRect();
+      if (rect.left <= 180 && rect.width <= 360 && rect.height >= 120) {
+        node.classList.add("forge-landscape-side-menu-hidden-056m");
+        node.setAttribute("aria-hidden", "true");
+      }
+    });
+  }
+
+  function applyLandscapeLanguage056M() {
+    var root = document.documentElement;
+    if (!isPhoneLandscape056M()) {
+      root.classList.remove("forge-mobile-landscape-056m");
+      return;
+    }
+    root.classList.add("forge-mobile-landscape-056m");
+    hideLandscapeDrawerHeuristics056M();
+  }
+
+  function scheduleLandscapeLanguage056M() {
+    [40, 220, 700, 1400, 2400].forEach(function (delay) {
+      window.setTimeout(applyLandscapeLanguage056M, delay);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", scheduleLandscapeLanguage056M);
+  window.addEventListener("load", scheduleLandscapeLanguage056M);
+  window.addEventListener("resize", scheduleLandscapeLanguage056M, { passive: true });
+  window.addEventListener("orientationchange", scheduleLandscapeLanguage056M, { passive: true });
+})();
