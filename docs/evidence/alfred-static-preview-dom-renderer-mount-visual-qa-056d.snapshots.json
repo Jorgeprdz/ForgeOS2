@@ -1,0 +1,97 @@
+{
+  "phase": "056D_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_VISUAL_QA",
+  "source": "ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT",
+  "generatedAt": "2026-07-03T02:49:22Z",
+  "targetPreviewRoot": "docs/static-preview/forge-alive",
+  "tooling": {
+    "browser": "firefox",
+    "mode": "headless",
+    "dependencyAdded": false,
+    "playwrightAvailable": false,
+    "capturePath": "file:///storage/emulated/0/Forge%20OS/docs/static-preview/forge-alive/index.html"
+  },
+  "screenshots": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "path": "docs/evidence/alfred-static-preview-dom-renderer-mount-visual-qa-056d-desktop.png",
+      "result": "PASS",
+      "observations": [
+        "Alfred mount appears in the first viewport.",
+        "Alfred mount is separate from the assistant card and primary plan card.",
+        "Safety lock chips are visible.",
+        "Command bar does not overlap Alfred mount.",
+        "No broken layout observed."
+      ]
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "path": "docs/evidence/alfred-static-preview-dom-renderer-mount-visual-qa-056d-mobile.png",
+      "result": "PASS",
+      "observations": [
+        "Alfred mount appears fully before the plan card.",
+        "Static mount body stacks cleanly.",
+        "Safety lock chips remain visible.",
+        "No Alfred text overflow observed.",
+        "No Alfred overlap with command orb observed."
+      ]
+    }
+  ],
+  "boundary": {
+    "staticPreviewOnly": true,
+    "sampleDataOnly": true,
+    "visualQaOnly": true,
+    "htmlCssJsChanged": false,
+    "newEventListeners": false,
+    "providerRuntime": false,
+    "crmWrite": false,
+    "calendarCreate": false,
+    "send": false,
+    "approvalMutation": false,
+    "truthMutation": false,
+    "audioRuntime": false,
+    "speechEngine": false,
+    "liveSearch": false,
+    "networkCalls": false,
+    "browserStorage": false,
+    "externalDependencies": false
+  },
+  "validation": {
+    "desktopVisualQa": "PASS",
+    "mobileVisualQa": "PASS",
+    "alfredIntegrationMasterTest": "PASS 20/20",
+    "forbiddenApiScan": "PASS",
+    "screenshotDimensionCheck": "PASS",
+    "gitDiffCheck": "PASS"
+  },
+  "autocopy_report": {
+    "phase": "056D_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_VISUAL_QA",
+    "status": "PASS",
+    "desktopVisualQa": "PASS",
+    "mobileVisualQa": "PASS",
+    "mountVisible": true,
+    "layoutBroken": false,
+    "visualAdjustmentRequired": false,
+    "providerRuntime": false,
+    "crmWrite": false,
+    "calendarCreate": false,
+    "send": false,
+    "approvalMutation": false,
+    "truthMutation": false,
+    "audioRuntime": false,
+    "speechEngine": false,
+    "liveSearch": false,
+    "networkCalls": false,
+    "browserStorage": false,
+    "externalDependencies": false
+  },
+  "decision": "PASS_056D_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_VISUAL_QA_SNAPSHOTS_GENERATED",
+  "next": "056E_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_ACCESSIBILITY_QA"
+}
