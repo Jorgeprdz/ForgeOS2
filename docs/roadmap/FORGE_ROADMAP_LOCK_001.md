@@ -1524,3 +1524,15 @@ Boundary remains static preview local carousel interaction only: no provider run
 Next:
 
 - 056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW.
+
+# Alfred Static Preview Smart Widget Responsive Layout Fix Roadmap Status
+
+056G4_ALFRED_STATIC_PREVIEW_SMART_WIDGET_RESPONSIVE_LAYOUT_FIX: GREEN / FIXED.
+
+Smart Widget Stack now uses responsive whole-card sizing, avoids overlap with Alfred content, shows one card on mobile, and shows two cards when tablet/desktop width allows.
+
+Boundary remains static preview responsive layout/local carousel interaction only: no provider runtime, no CRM write, no calendar create, no send, no approval mutation, no truth mutation, no audio runtime, no speech engine, no live search, no network calls, and no browser storage.
+
+Next:
+
+- 056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW.

@@ -4701,3 +4701,26 @@ NEXT: `056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW`
 - no browser storage
 
 NEXT: `056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW`
+
+## Alfred Static Preview Smart Widget Responsive Layout Fix 056G4
+
+056G4 fixes Smart Widget Stack responsive layout overlap and fractional-card sizing.
+
+- Smart Widget Stack returned to normal responsive page flow
+- header and carousel no longer overlap Alfred card
+- mobile shows one whole card per viewport
+- tablet/desktop show two whole cards when width allows
+- landscape width scales to available screen
+- no provider runtime
+- no CRM write
+- no calendar create
+- no send
+- no approval mutation
+- no truth mutation
+- no audio runtime
+- no speech engine
+- no live search
+- no network calls
+- no browser storage
+
+NEXT: `056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW`

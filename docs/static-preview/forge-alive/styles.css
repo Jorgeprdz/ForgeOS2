@@ -2290,3 +2290,122 @@ section#genesis-cards.genesis-cards-stack .article-zero-reminder.compact {
   }
 }
 /* FORGEOS:SMART_WIDGET_MOUSE_MOBILE_FIX_056G3:END */
+
+/* FORGEOS:SMART_WIDGET_RESPONSIVE_LAYOUT_FIX_056G4:START */
+.smart-widget-stack {
+  clear: both !important;
+  display: block !important;
+  grid-column: 1 / -1 !important;
+  inset: auto !important;
+  margin: clamp(24px, 4vw, 44px) 0 0 !important;
+  max-width: min(100%, 980px) !important;
+  min-width: 0 !important;
+  opacity: 1 !important;
+  order: 20 !important;
+  position: relative !important;
+  transform: none !important;
+  visibility: visible !important;
+  width: 100% !important;
+  z-index: 1 !important;
+}
+
+.smart-widget-stack,
+.smart-widget-stack * {
+  box-sizing: border-box;
+}
+
+.smart-widget-stack > header,
+.smart-widget-header {
+  margin: 0 0 14px !important;
+  max-width: none !important;
+  position: relative !important;
+  transform: none !important;
+  width: 100% !important;
+  z-index: 1 !important;
+}
+
+.smart-widget-mouse-controls {
+  align-items: center !important;
+  display: flex !important;
+  gap: 10px !important;
+  justify-content: flex-end !important;
+  margin: 0 0 14px !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.smart-widget-carousel,
+.smart-widget-carousel.card-level {
+  display: grid !important;
+  gap: clamp(12px, 1.6vw, 18px) !important;
+  grid-auto-flow: column !important;
+  grid-auto-columns: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding: 0 0 8px !important;
+  scroll-behavior: smooth;
+  scroll-padding-inline: 0;
+  scroll-snap-type: x mandatory;
+  width: 100% !important;
+}
+
+.smart-widget-carousel > * {
+  min-width: 0 !important;
+  scroll-snap-align: start;
+  width: 100% !important;
+}
+
+@media (min-width: 720px) {
+  .smart-widget-carousel,
+  .smart-widget-carousel.card-level {
+    grid-auto-columns: calc((100% - clamp(12px, 1.6vw, 18px)) / 2) !important;
+  }
+}
+
+@media (min-width: 1180px) {
+  .smart-widget-stack {
+    max-width: min(100%, 1040px) !important;
+  }
+
+  .smart-widget-carousel,
+  .smart-widget-carousel.card-level {
+    grid-auto-columns: calc((100% - 18px) / 2) !important;
+  }
+}
+
+@media (max-width: 719px) {
+  .smart-widget-stack {
+    margin-top: 24px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .smart-widget-mouse-controls {
+    justify-content: space-between !important;
+  }
+
+  .smart-widget-control {
+    flex: 1 1 0 !important;
+  }
+
+  .smart-widget-carousel,
+  .smart-widget-carousel.card-level {
+    grid-auto-columns: 100% !important;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 1180px) {
+  .smart-widget-stack {
+    margin-top: 28px !important;
+    max-width: min(100%, calc(100vw - 56px)) !important;
+    width: 100% !important;
+  }
+
+  .smart-widget-carousel,
+  .smart-widget-carousel.card-level {
+    grid-auto-columns: calc((100% - 14px) / 2) !important;
+  }
+}
+/* FORGEOS:SMART_WIDGET_RESPONSIVE_LAYOUT_FIX_056G4:END */
