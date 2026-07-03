@@ -1,6 +1,6 @@
 window.FORGE_SAMPLE_DATA = Object.freeze({
-  label: 'SAMPLE DATA / READ-ONLY / NOT PRODUCTION',
-  product: 'Forge Alive Static Preview',
+  label: 'MUESTRA SEGURA / SOLO LECTURA',
+  product: 'Forge Alive Vista Estática',
   greeting: 'Buenos días, Jorge',
   dayTitle: 'Mi día',
   assistantName: 'Alfred / Forge',
@@ -20,17 +20,17 @@ window.FORGE_SAMPLE_DATA = Object.freeze({
   opportunities: [
     { name: 'Lariza', status: 'Interesada', signal: 'Pidió revisar opciones', age: '2 días' },
     { name: 'Octavio', status: 'Pendiente', signal: 'Falta confirmar cita', age: '5 días' },
-    { name: 'María', status: 'Seguimiento', signal: 'Necesita reason why claro', age: '8 días' },
+    { name: 'María', status: 'Seguimiento', signal: 'Necesita razón clara', age: '8 días' },
   ],
   followUpEngine: {
     title: 'Motor de seguimiento',
     health: '78%',
     longestGap: '18 días',
-    sampleNote: 'Datos ficticios para preview visual.',
+    sampleNote: 'Datos ficticios para vista visual.',
   },
   recommendations: [
     'Prioriza personas con conversación abierta.',
-    'Usa reason why antes de proponer acción.',
+    'Usa una razón clara antes de proponer acción.',
     'Mantén advertencias y limitaciones visibles.',
   ],
 });

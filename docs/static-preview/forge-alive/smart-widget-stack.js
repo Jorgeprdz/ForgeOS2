@@ -104,7 +104,7 @@ function syncDotsFromScroll(root, carousel, cards) {
 
 function renderEvidence(items) {
   const wrap = el("div", "smart-widget-evidence");
-  wrap.appendChild(el("span", "smart-widget-mini-label", "Evidence"));
+  wrap.appendChild(el("span", "smart-widget-mini-label", "Evidencia"));
   wrap.appendChild(el("p", "", (items || []).join(" · ")));
   return wrap;
 }
@@ -130,21 +130,21 @@ function renderWidget(card, index) {
 
   const priority = el("div", "smart-widget-priority");
   priority.appendChild(el("span", "", String(card.priority)));
-  priority.appendChild(el("small", "", index === 0 ? "TOP" : "CARD"));
+  priority.appendChild(el("small", "", index === 0 ? "PRIORIDAD" : "SEÑAL"));
   top.appendChild(priority);
   article.appendChild(top);
 
   const chips = el("div", "smart-widget-chips");
-  chips.appendChild(renderChip("Human final authority", "gold"));
-  chips.appendChild(renderChip("Review only", ""));
-  chips.appendChild(renderChip("Not approved", ""));
-  chips.appendChild(renderChip("Not sendable", ""));
-  chips.appendChild(renderChip("Delivery locked", ""));
+  chips.appendChild(renderChip("Autoridad humana", "gold"));
+  chips.appendChild(renderChip("Solo revisión", ""));
+  chips.appendChild(renderChip("No aprobado", ""));
+  chips.appendChild(renderChip("No enviable", ""));
+  chips.appendChild(renderChip("Entrega bloqueada", ""));
   article.appendChild(chips);
 
-  article.appendChild(el("p", "smart-widget-why", `Why now: ${card.whyNow}`));
+  article.appendChild(el("p", "smart-widget-why", `Por qué ahora: ${card.whyNow}`));
   article.appendChild(renderEvidence(card.evidence));
-  article.appendChild(el("p", "smart-widget-uncertainty", `Uncertainty: ${card.uncertainty}`));
+  article.appendChild(el("p", "smart-widget-uncertainty", `Incertidumbre: ${card.uncertainty}`));
   article.appendChild(el("p", "article-zero-reminder compact", forgeAliveSmartWidgetStackPreview.article0));
   article.appendChild(el("p", "smart-widget-prompt", card.prompt));
 
@@ -163,12 +163,12 @@ function main() {
 
   const header = el("header", "smart-widget-header glass");
   header.appendChild(el("p", "smart-widget-eyebrow", forgeAliveSmartWidgetStackPreview.version));
-  header.appendChild(el("h2", "", "Smart Widget Stack"));
+  header.appendChild(el("h2", "", "Contexto vivo"));
   header.appendChild(el("p", "smart-widget-subtitle", "Desliza una tarjeta. Forge muestra contexto; el humano decide."));
   target.appendChild(header);
 
   const carousel = el("section", "smart-widget-carousel card-level");
-  carousel.setAttribute("aria-label", "Swipe smart widget cards");
+  carousel.setAttribute("aria-label", "Tarjetas de contexto vivo");
   cards.forEach((card, index) => carousel.appendChild(renderWidget(card, index)));
   target.appendChild(carousel);
 

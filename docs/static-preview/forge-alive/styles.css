@@ -175,12 +175,15 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  list-style: none;
   margin-top: 6px;
+  margin-bottom: 0;
   max-width: 100%;
   min-width: 0;
+  padding: 0;
 }
 
-.alfred-static-mount span {
+.alfred-static-mount li {
   border: 1px solid rgba(103, 232, 197, 0.18);
   border-radius: 999px;
   color: var(--muted);
@@ -2041,3 +2044,53 @@ section#genesis-cards.genesis-cards-stack .article-zero-reminder.compact {
   }
 }
 /* FORGEOS:DESKTOP_CONTEXT_DRAWER_054F:END */
+
+/* FORGEOS:ALFRED_PRODUCT_POLISH_056F:START */
+.safety-ribbon {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(214, 173, 98, 0.2);
+  color: rgba(243, 214, 155, 0.82);
+  font-size: 10px;
+  letter-spacing: 0.11em;
+  margin-bottom: 14px;
+  padding: 6px 10px;
+}
+
+.preview-version-badge {
+  display: none !important;
+}
+
+@media (min-width: 900px), (orientation: landscape) {
+  .command-orb-layer {
+    top: 30px !important;
+    right: 28px !important;
+    width: min(360px, 30vw) !important;
+    opacity: 0.82;
+  }
+
+  .command-pill {
+    min-height: 44px !important;
+    border-width: 1px !important;
+    box-shadow:
+      0 0 10px rgba(110, 217, 255, 0.26),
+      0 0 22px rgba(226, 180, 86, 0.14),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.06) !important;
+  }
+
+  .command-pill-slash,
+  .command-pill-close {
+    height: 28px !important;
+    width: 28px !important;
+  }
+
+  .command-pill-input {
+    font-size: 0.82rem !important;
+  }
+
+  .smart-widget-carousel.card-level,
+  .smart-widget-carousel {
+    grid-auto-columns: minmax(360px, 1fr) !important;
+    overflow-x: hidden !important;
+  }
+}
+/* FORGEOS:ALFRED_PRODUCT_POLISH_056F:END */

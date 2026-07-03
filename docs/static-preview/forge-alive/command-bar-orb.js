@@ -2,18 +2,18 @@ const layer = document.querySelector("[data-command-orb-layer]");
 
 const localCommandResults = {
   juan: [
-    ["Juan Orozco", "Poliza ABC · preview"],
-    ["Juan Martinez", "Prospecto · review"],
-    ["Juan Perez", "Ultimo contacto hace 76 dias · follow-up"],
+    ["Juan Orozco", "Poliza ABC · revisión"],
+    ["Juan Martinez", "Prospecto · revisar"],
+    ["Juan Perez", "Ultimo contacto hace 76 dias · seguimiento"],
   ],
   follow: [
-    ["Seguimiento prioritario", "Review only · no send"],
-    ["Maria", "Necesita reason why claro · 8 dias"],
+    ["Seguimiento prioritario", "Solo revisión · sin envío"],
+    ["Maria", "Necesita razón clara · 8 dias"],
     ["Octavio", "Falta confirmar cita · 5 dias"],
   ],
   agenda: [
-    ["Agenda de la mañana", "Preview only"],
-    ["Revision 16:00", "Review checkpoint"],
+    ["Agenda de la mañana", "Solo revisión"],
+    ["Revision 16:00", "Punto de revisión"],
   ],
 };
 

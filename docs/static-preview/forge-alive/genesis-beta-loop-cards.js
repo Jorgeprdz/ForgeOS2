@@ -1,27 +1,27 @@
 const cards = [
   {
     title: "Jorge / Maria",
-    context: "Follow-up 15 dias",
-    subtitle: "relationship follow-up context, not send approval",
+    context: "Seguimiento 15 dias",
+    subtitle: "contexto relacional, no aprobación de envío",
     draft: "Retomar la conversacion con calma y revisar si hace sentido avanzar.",
-    evidence: ["previous conversation", "15-day follow-up", "pending follow-up"],
-    boundary: "Delivery locked"
+    evidence: ["conversación previa", "seguimiento 15 días", "seguimiento pendiente"],
+    boundary: "Entrega bloqueada"
   },
   {
     title: "Andres / Juan",
-    context: "Bonus proximity",
-    subtitle: "motivational context / candidate estimate, not payout truth",
+    context: "Cercanía a bono",
+    subtitle: "contexto motivacional / estimación candidata, no payout truth",
     draft: "Revisar la oportunidad como contexto, sin prometer pago ni resultado.",
-    evidence: ["bonus proximity", "relative signal", "consultative message"],
-    boundary: "Not payout truth"
+    evidence: ["cercanía a bono", "señal relativa", "mensaje consultivo"],
+    boundary: "No es payout truth"
   },
   {
     title: "Lupita / Maria",
-    context: "Car goal",
-    subtitle: "motivation context, not compensation truth",
+    context: "Meta de coche",
+    subtitle: "contexto motivacional, no verdad de compensación",
     draft: "Usar la meta como referencia motivacional, sin convertirla en presion.",
-    evidence: ["car goal", "advancement signal", "consistency signal"],
-    boundary: "Not compensation truth"
+    evidence: ["meta de coche", "señal de avance", "señal de consistencia"],
+    boundary: "No es verdad de compensación"
   }
 ];
 
@@ -48,11 +48,11 @@ function renderCard(card) {
   article.appendChild(el("p", "genesis-subtitle", card.subtitle));
 
   const labels = el("div", "genesis-label-stack");
-  labels.appendChild(labelRow("Authority", "Human final authority"));
-  labels.appendChild(labelRow("Boundary", "Review only"));
-  labels.appendChild(labelRow("Approval", "Not approved"));
-  labels.appendChild(labelRow("Send", "Not sendable"));
-  labels.appendChild(labelRow("Lock", card.boundary));
+  labels.appendChild(labelRow("Autoridad", "Autoridad humana"));
+  labels.appendChild(labelRow("Límite", "Solo revisión"));
+  labels.appendChild(labelRow("Aprobación", "No aprobado"));
+  labels.appendChild(labelRow("Envío", "No enviable"));
+  labels.appendChild(labelRow("Bloqueo", card.boundary));
   article.appendChild(labels);
 
   article.appendChild(el("p", "genesis-draft-preview compact", card.draft));
@@ -61,7 +61,7 @@ function renderCard(card) {
   card.evidence.forEach((item) => evidence.appendChild(el("span", "forge-chip soft", item)));
   article.appendChild(evidence);
 
-  article.appendChild(el("p", "article-zero-reminder compact", "Article 0: strengthen judgment, not replace it."));
+  article.appendChild(el("p", "article-zero-reminder compact", "Artículo 0: fortalecer el juicio, no reemplazarlo."));
 
   return article;
 }

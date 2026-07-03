@@ -4583,4 +4583,31 @@ NEXT: `056E_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_PLACEMENT_TUNING`
 - no browser storage
 - no external dependencies
 
-NEXT: `056F_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_ACCESSIBILITY_QA`
+NEXT: `056F_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_PRODUCT_POLISH`
+
+## Alfred Static Preview DOM Renderer Mount Product Polish 056F
+
+056F polishes Forge Alive and Alfred so the static preview reads as premium product UI instead of technical evidence UI.
+
+- internal preview version badge removed from visible UI
+- safety ribbon reduced to subtle product copy
+- Smart Widget Stack copy translated to Spanish
+- `High follow-up risk exists.` translated to Spanish
+- command bar desktop presence reduced so it does not dominate the hero
+- Alfred remains integrated inside existing `ALFRED / FORGE` card
+- no separate `ALFRED STATIC MOUNT` card
+- no visible `056B` or `056E` mount metadata
+- no provider runtime
+- no CRM write
+- no calendar create
+- no send
+- no approval mutation
+- no truth mutation
+- no audio runtime
+- no speech engine
+- no live search
+- no network calls
+- no browser storage
+- no external dependencies
+
+NEXT: `056G_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_ACCESSIBILITY_QA`
