@@ -2487,3 +2487,10 @@ GREEN FORGE ALIVE STATIC PREVIEW MILESTONE CLOSURE / IMPLEMENTED
 |   |-- GREEN Alfred remains integrated into existing ALFRED / FORGE card
 |   |-- RED no provider runtime, CRM write, calendar create, send, approval mutation, truth mutation, audio, speech, live search, network, browser storage, or external dependency
 |   |-- NEXT 056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW
+
+|-- GREEN 056G1 Alfred Static Preview DOM Renderer Mount Floating Action Fix
+|   |-- GREEN mobile slash control anchored near bottom navigation
+|   |-- GREEN mobile bottom padding protects content from fixed control overlap
+|   |-- GREEN no content card overlap in screenshot evidence
+|   |-- RED no provider runtime, CRM write, calendar create, send, approval mutation, truth mutation, audio, speech, live search, network, browser storage, or external dependency
+|   |-- NEXT 056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW

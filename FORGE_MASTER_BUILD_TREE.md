@@ -4636,3 +4636,24 @@ NEXT: `056G_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_ACCESSIBILITY_QA`
 - no browser storage
 
 NEXT: `056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW`
+
+## Alfred Static Preview DOM Renderer Mount Floating Action Fix 056G1
+
+056G1 fixes the mobile floating slash control overlap found after 056G accessibility QA.
+
+- mobile slash control anchored near bottom navigation
+- mobile bottom padding added so fixed controls do not cover content
+- collapsed mobile command input/live context hidden
+- no provider runtime
+- no CRM write
+- no calendar create
+- no send
+- no approval mutation
+- no truth mutation
+- no audio runtime
+- no speech engine
+- no live search
+- no network calls
+- no browser storage
+
+NEXT: `056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW`

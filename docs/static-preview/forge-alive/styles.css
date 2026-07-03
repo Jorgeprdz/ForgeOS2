@@ -2124,3 +2124,44 @@ section#genesis-cards.genesis-cards-stack .article-zero-reminder.compact {
   }
 }
 /* FORGEOS:ALFRED_ACCESSIBILITY_MICROCOPY_056G:END */
+
+/* FORGEOS:ALFRED_FLOATING_ACTION_FIX_056G1:START */
+@media (max-width: 640px) {
+  .phone-shell {
+    padding-bottom: 126px !important;
+  }
+
+  .command-orb-layer {
+    bottom: 18px !important;
+    right: 74px !important;
+    top: auto !important;
+    width: auto !important;
+    z-index: 55 !important;
+    pointer-events: auto;
+  }
+
+  .command-pill {
+    min-height: 44px !important;
+    padding: 0 !important;
+    border-radius: 999px !important;
+    box-shadow:
+      0 0 8px rgba(110, 217, 255, 0.22),
+      0 0 18px rgba(226, 180, 86, 0.12) !important;
+  }
+
+  .command-pill-slash {
+    height: 42px !important;
+    width: 42px !important;
+  }
+
+  .command-pill-input,
+  .command-pill-close,
+  .command-live-context {
+    display: none !important;
+  }
+
+  .bottom-nav {
+    z-index: 50 !important;
+  }
+}
+/* FORGEOS:ALFRED_FLOATING_ACTION_FIX_056G1:END */
