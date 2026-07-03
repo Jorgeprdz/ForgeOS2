@@ -4210,3 +4210,33 @@ Reviewed:
 Boundary remains no DOM UI implementation, no HTML/CSS/JS mutation, no audio runtime, no speech engine, no live search, no provider runtime, no CRM write, no calendar create, no send, and no approval/send/runtime/truth mutation.
 
 NEXT: `054X_ALFRED_REVIEW_ACTION_PACKET_STATIC_PREVIEW_DOM_SURFACE_BINDING_SCOPE`
+
+## Alfred Static Preview DOM Surface Binding Scope 054X
+
+054X scopes `ALFRED_REVIEW_ACTION_PACKET_STATIC_PREVIEW_DOM_SURFACE_BINDING` as the docs-only bridge from Alfred's static preview surface binding into a future browser-facing DOM surface adapter.
+
+Human explanation: Alfred already knows what the preview should contain and what surface regions it belongs to. 054X defines how those regions may later map into DOM targets without actually touching HTML, CSS, JavaScript, or the live browser. This is the blueprint, not the construction crew.
+
+Scoped future fields:
+
+- `domSurfaceBindingId`
+- `sourceSurfaceBindingId`
+- `domTarget`
+- `domMountMode`
+- `domState`
+- `domRegionMap`
+- `domSlotMap`
+- `domTextMap`
+- `domClassContract`
+- `domA11yContract`
+- `domEventBoundary`
+- `domDisabledActionMap`
+- `domReviewNavigationMap`
+- `domVoicePreviewMap`
+- `domResponsiveContract`
+- `domRenderBoundary`
+- `staticPreviewIntegrationBoundary`
+
+Boundary remains docs-only: no code mutation, no DOM UI implementation, no HTML/CSS/JS edits, no event listeners, no browser storage, no audio runtime, no speech engine, no live search, no provider runtime, no CRM write, no calendar create, no send, and no approval/send/runtime/truth mutation.
+
+NEXT: `054Y_ALFRED_REVIEW_ACTION_PACKET_STATIC_PREVIEW_DOM_SURFACE_BINDING_IMPLEMENTATION`
