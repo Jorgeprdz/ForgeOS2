@@ -4724,3 +4724,26 @@ NEXT: `056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW`
 - no browser storage
 
 NEXT: `056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW`
+
+## Alfred Static Preview Landscape Flow Fix 056G5
+
+056G5 fixes landscape/desktop flow for Forge Alive static preview.
+
+- content sections forced into stable responsive flow
+- sidebar and command bar remain fixed chrome
+- Smart Widget Stack is normal block, not overlay
+- carousel uses whole-card sizing
+- mobile keeps one-card layout
+- no provider runtime
+- no CRM write
+- no calendar create
+- no send
+- no approval mutation
+- no truth mutation
+- no audio runtime
+- no speech engine
+- no live search
+- no network calls
+- no browser storage
+
+NEXT: `056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW`

@@ -2518,3 +2518,11 @@ GREEN FORGE ALIVE STATIC PREVIEW MILESTONE CLOSURE / IMPLEMENTED
 |   |-- GREEN tablet/desktop two-card layout when width allows
 |   |-- RED no provider runtime, CRM write, calendar create, send, approval mutation, truth mutation, audio, speech, live search, network, browser storage, or external dependency
 |   |-- NEXT 056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW
+
+|-- GREEN 056G5 Alfred Static Preview Landscape Flow Fix
+|   |-- GREEN stable desktop/tablet section flow
+|   |-- GREEN Smart Widget Stack no longer overlays content
+|   |-- GREEN whole-card carousel sizing
+|   |-- GREEN sidebar and command bar remain fixed chrome
+|   |-- RED no provider runtime, CRM write, calendar create, send, approval mutation, truth mutation, audio, speech, live search, network, browser storage, or external dependency
+|   |-- NEXT 056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW
