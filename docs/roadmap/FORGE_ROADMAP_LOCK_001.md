@@ -1596,3 +1596,15 @@ Boundary remains static preview UI only: no provider runtime, no CRM write, no c
 Next:
 
 - 056I_ALFRED_STATIC_PREVIEW_DASHBOARD_FINAL_REVIEW.
+
+# Alfred Static Preview Responsive CSS Split Mobile Restore Roadmap Status
+
+056I_ALFRED_STATIC_PREVIEW_RESPONSIVE_CSS_SPLIT_MOBILE_RESTORE: GREEN / RESTORED.
+
+Responsive overrides are split into mobile and desktop files. Mobile restores the floating Alfred orb, command bar open/close transition, blurred halo/glow, stronger crystal bottom pill, visible Smart Widgets, and liquid widget dots.
+
+Boundary remains static preview UI only: no provider runtime, no CRM write, no calendar create, no send, no approval mutation, no truth mutation, no audio runtime, no speech engine, no live search, no network calls, and no browser storage.
+
+Next:
+
+- 056J_ALFRED_STATIC_PREVIEW_RESPONSIVE_VISUAL_QA.

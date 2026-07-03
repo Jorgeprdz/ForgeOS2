@@ -2560,3 +2560,12 @@ GREEN FORGE ALIVE STATIC PREVIEW MILESTONE CLOSURE / IMPLEMENTED
 |   |-- GREEN Smart Widgets visible on mobile
 |   |-- RED no provider runtime, CRM write, calendar create, send, approval mutation, truth mutation, audio, speech, live search, network, browser storage, or external dependency
 |   |-- NEXT 056I_ALFRED_STATIC_PREVIEW_DASHBOARD_FINAL_REVIEW
+
+|-- GREEN 056I Alfred Static Preview Responsive CSS Split Mobile Restore
+|   |-- GREEN mobile and desktop CSS overrides split
+|   |-- GREEN mobile floating orb restored
+|   |-- GREEN mobile Smart Widgets visible
+|   |-- GREEN command bar open/close local static affordance
+|   |-- GREEN liquid Smart Widget dots added
+|   |-- RED no provider runtime, CRM write, calendar create, send, approval mutation, truth mutation, audio, speech, live search, network, browser storage, or external dependency
+|   |-- NEXT 056J_ALFRED_STATIC_PREVIEW_RESPONSIVE_VISUAL_QA

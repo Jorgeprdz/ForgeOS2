@@ -4839,3 +4839,29 @@ NEXT: `056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW`
 - no browser storage
 
 NEXT: `056I_ALFRED_STATIC_PREVIEW_DASHBOARD_FINAL_REVIEW`
+
+## Alfred Static Preview Responsive CSS Split Mobile Restore 056I
+
+056I separates responsive CSS so desktop dashboard rules stop regressing mobile.
+
+- adds `styles-mobile.css`
+- adds `styles-desktop.css`
+- adds `alfred-responsive-ui.js` for local static UI affordances
+- restores mobile floating Alfred orb behavior
+- restores mobile Smart Widget visibility
+- adds liquid Smart Widget dots
+- adds blurred halo/glow for orb and command bar
+- strengthens bottom navigation as crystal/blur pill
+- no provider runtime
+- no CRM write
+- no calendar create
+- no send
+- no approval mutation
+- no truth mutation
+- no audio runtime
+- no speech engine
+- no live search
+- no network calls
+- no browser storage
+
+NEXT: `056J_ALFRED_STATIC_PREVIEW_RESPONSIVE_VISUAL_QA`
