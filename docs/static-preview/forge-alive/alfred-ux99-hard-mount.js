@@ -3,10 +3,10 @@
   "use strict";
 
   var widgets = [
-    ["Seguimiento", "86", "Seguimiento prioritario", "Relacion abierta con riesgo de enfriarse.", "El humano decide tono y momento."],
-    ["Decision", "78", "Senales para decidir", "Forge ordena contexto antes de sugerir accion.", "Senal no es decision. Contexto no es verdad."],
+    ["Seguimiento", "86", "Por qué ahora", "Juan necesita revisión antes de que se enfríe.", "Hay señales de seguimiento pendiente. El humano decide tono y momento."],
+    ["Decisión", "78", "Señales para decidir", "Forge ordena contexto antes de sugerir acción.", "Señal no es decisión. Contexto no es verdad."],
     ["Juicio", "92", "Falta contexto", "Primero mejora el juicio; luego decide.", "Unknown no es cero."],
-    ["Revision", "80", "Abrir plan de accion", "Usa Alfred para revisar /Follow Juan.", "Preview only. Requiere aprobacion."]
+    ["Revisión", "80", "Abrir plan de acción", "Usa Alfred para revisar /Follow Juan.", "Preview only. Requiere aprobación."]
   ];
 
   function isMobile() {
@@ -101,8 +101,8 @@
     hero.appendChild(mark);
     var copy = el("div");
     copy.appendChild(el("div", "forge-ux99-eyebrow-056q", "Alfred Concierge"));
-    copy.appendChild(el("h2", "forge-ux99-title-056q", "Haz esto ahora"));
-    copy.appendChild(el("div", "forge-ux99-subtitle-056q", "Revisa seguimiento prioritario antes de que se enfrie."));
+    copy.appendChild(el("h2", "forge-ux99-title-056q", "Seguimiento prioritario"));
+    copy.appendChild(el("div", "forge-ux99-subtitle-056q", "Juan necesita revisión antes de que se enfríe."));
     hero.appendChild(copy);
     root.appendChild(hero);
 
