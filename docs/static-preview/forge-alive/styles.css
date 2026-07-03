@@ -2203,3 +2203,90 @@ section#genesis-cards.genesis-cards-stack .article-zero-reminder.compact {
   }
 }
 /* FORGEOS:ALFRED_FAB_PLACEMENT_TUNING_056G2:END */
+
+/* FORGEOS:SMART_WIDGET_MOUSE_MOBILE_FIX_056G3:START */
+.smart-widget-stack {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.smart-widget-mouse-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 10px 0 14px;
+}
+
+.smart-widget-control {
+  appearance: none;
+  border: 1px solid rgba(116, 217, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(9, 17, 34, 0.72);
+  color: rgba(239, 247, 255, 0.92);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  min-height: 38px;
+  padding: 0 14px;
+  transition: border-color 160ms ease, opacity 160ms ease, transform 160ms ease;
+}
+
+.smart-widget-control:hover:not(:disabled),
+.smart-widget-control:focus-visible:not(:disabled) {
+  border-color: rgba(246, 199, 104, 0.74);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.smart-widget-control:disabled {
+  cursor: default;
+  opacity: 0.42;
+}
+
+.smart-widget-carousel,
+.smart-widget-carousel.card-level {
+  display: grid !important;
+  grid-auto-flow: column !important;
+  grid-auto-columns: minmax(320px, min(460px, 82vw)) !important;
+  gap: 16px !important;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.smart-widget-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.smart-widget-carousel > * {
+  scroll-snap-align: start;
+}
+
+@media (max-width: 640px) {
+  .smart-widget-stack {
+    display: block !important;
+    margin-top: 24px !important;
+  }
+
+  .smart-widget-mouse-controls {
+    justify-content: space-between;
+    margin: 8px 0 12px;
+  }
+
+  .smart-widget-control {
+    flex: 1 1 0;
+    min-height: 42px;
+  }
+
+  .smart-widget-carousel,
+  .smart-widget-carousel.card-level {
+    grid-auto-columns: minmax(286px, 88vw) !important;
+    overflow-x: auto !important;
+  }
+}
+/* FORGEOS:SMART_WIDGET_MOUSE_MOBILE_FIX_056G3:END */

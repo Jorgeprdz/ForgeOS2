@@ -4678,3 +4678,26 @@ NEXT: `056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW`
 - no browser storage
 
 NEXT: `056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW`
+
+## Alfred Static Preview Smart Widget Mouse/Mobile Fix 056G3
+
+056G3 fixes Smart Widget Stack desktop mouse controls and mobile visibility.
+
+- Smart Widgets visible on mobile
+- previous/next controls added for mouse users
+- keyboard left/right carousel support added
+- gesture scrolling preserved
+- local static preview event listeners allowed for carousel controls only
+- no provider runtime
+- no CRM write
+- no calendar create
+- no send
+- no approval mutation
+- no truth mutation
+- no audio runtime
+- no speech engine
+- no live search
+- no network calls
+- no browser storage
+
+NEXT: `056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW`

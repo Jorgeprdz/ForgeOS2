@@ -2501,3 +2501,11 @@ GREEN FORGE ALIVE STATIC PREVIEW MILESTONE CLOSURE / IMPLEMENTED
 |   |-- GREEN local rollback backup produced
 |   |-- RED no provider runtime, CRM write, calendar create, send, approval mutation, truth mutation, audio, speech, live search, network, browser storage, or external dependency
 |   |-- NEXT 056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW
+
+|-- GREEN 056G3 Alfred Static Preview Smart Widget Mouse/Mobile Fix
+|   |-- GREEN Smart Widgets visible on mobile
+|   |-- GREEN previous/next controls available for mouse users
+|   |-- GREEN keyboard left/right carousel support
+|   |-- GREEN local static preview event listeners only
+|   |-- RED no provider runtime, CRM write, calendar create, send, approval mutation, truth mutation, audio, speech, live search, network, browser storage, or external dependency
+|   |-- NEXT 056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW

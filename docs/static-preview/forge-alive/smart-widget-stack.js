@@ -209,3 +209,80 @@ if (document.readyState === "loading") {
 } else {
   main();
 }
+
+/* FORGEOS:SMART_WIDGET_MOUSE_CONTROLS_056G3:START */
+function initSmartWidgetMouseControls056G3() {
+  const root = document.getElementById("smart-widget-stack");
+  if (!root || root.dataset.mouseControls056g3 === "ready") return;
+
+  const carousel = root.querySelector(".smart-widget-carousel");
+  if (!carousel) return;
+
+  root.dataset.mouseControls056g3 = "ready";
+  carousel.setAttribute("tabindex", "0");
+  carousel.setAttribute("aria-roledescription", "carousel");
+
+  const controls = document.createElement("div");
+  controls.className = "smart-widget-mouse-controls";
+  controls.setAttribute("aria-label", "Controles de tarjetas de contexto");
+
+  const previous = document.createElement("button");
+  previous.type = "button";
+  previous.className = "smart-widget-control smart-widget-control-previous";
+  previous.setAttribute("aria-label", "Ver tarjeta anterior");
+  previous.textContent = "Anterior";
+
+  const next = document.createElement("button");
+  next.type = "button";
+  next.className = "smart-widget-control smart-widget-control-next";
+  next.setAttribute("aria-label", "Ver tarjeta siguiente");
+  next.textContent = "Siguiente";
+
+  controls.appendChild(previous);
+  controls.appendChild(next);
+  carousel.insertAdjacentElement("beforebegin", controls);
+
+  const getStep = () => {
+    const firstCard = carousel.firstElementChild;
+    if (!firstCard) return Math.max(280, Math.round(carousel.clientWidth * 0.82));
+    const cardBox = firstCard.getBoundingClientRect();
+    return Math.max(260, Math.round(cardBox.width + 18));
+  };
+
+  const updateButtons = () => {
+    const maxScroll = Math.max(0, carousel.scrollWidth - carousel.clientWidth - 2);
+    previous.disabled = carousel.scrollLeft <= 2;
+    next.disabled = carousel.scrollLeft >= maxScroll;
+  };
+
+  previous.addEventListener("click", () => {
+    carousel.scrollBy({ left: -getStep(), behavior: "smooth" });
+  });
+
+  next.addEventListener("click", () => {
+    carousel.scrollBy({ left: getStep(), behavior: "smooth" });
+  });
+
+  carousel.addEventListener("scroll", updateButtons, { passive: true });
+  window.addEventListener("resize", updateButtons);
+
+  carousel.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      previous.click();
+    }
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      next.click();
+    }
+  });
+
+  updateButtons();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initSmartWidgetMouseControls056G3);
+} else {
+  initSmartWidgetMouseControls056G3();
+}
+/* FORGEOS:SMART_WIDGET_MOUSE_CONTROLS_056G3:END */
