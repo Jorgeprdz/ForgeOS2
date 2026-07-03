@@ -2087,3 +2087,124 @@
     window.setTimeout(updateKeyboardOffset056M2, 380);
   });
 })();
+
+
+/* FORGEOS:ALFRED_MOBILE_UX85_DENSITY_HIERARCHY_056N */
+(function () {
+  "use strict";
+
+  function isMobile056N() {
+    return window.matchMedia("(max-width: 767px), (max-width: 900px) and (orientation: landscape)").matches;
+  }
+
+  function cleanText056N(value) {
+    return String(value || "").replace(/\s+/g, " ").trim();
+  }
+
+  function findTextNode056N(needles) {
+    var lowerNeedles = needles.map(function (needle) { return needle.toLowerCase(); });
+    var nodes = Array.prototype.slice.call(document.querySelectorAll("h1,h2,h3,h4,p,span,div,section,article"));
+    return nodes.find(function (node) {
+      var text = cleanText056N(node.textContent).toLowerCase();
+      if (!text || text.length > 500) return false;
+      return lowerNeedles.some(function (needle) { return text.indexOf(needle) !== -1; });
+    }) || null;
+  }
+
+  function nearestCard056N(node) {
+    if (!node) return null;
+    var current = node;
+    var best = node;
+    var hops = 0;
+    while (current && current !== document.body && hops < 8) {
+      if (current.matches && current.matches("article, section, .card, [class*='card'], [class*='panel'], [class*='widget']")) {
+        best = current;
+        var textLength = cleanText056N(current.textContent).length;
+        if (textLength > 80 && textLength < 1600) return current;
+      }
+      current = current.parentElement;
+      hops += 1;
+    }
+    return best && best !== document.body ? best : null;
+  }
+
+  function addClassByText056N(needles, className) {
+    var node = findTextNode056N(needles);
+    var card = nearestCard056N(node);
+    if (!card) return null;
+    card.classList.add(className);
+    return card;
+  }
+
+  function ensureDecisionCue056N(planCard) {
+    if (!planCard || planCard.querySelector(".forge-ux85-decision-cue-056n")) return;
+    var cue = document.createElement("div");
+    cue.className = "forge-ux85-decision-cue-056n";
+    var strong = document.createElement("strong");
+    strong.textContent = "Siguiente mejor accion";
+    var span = document.createElement("span");
+    span.textContent = "revisar dia";
+    cue.appendChild(strong);
+    cue.appendChild(span);
+    planCard.insertBefore(cue, planCard.firstElementChild || null);
+  }
+
+  function labelSecondarySection056N(card, label) {
+    if (!card || card.querySelector(".forge-ux85-section-label-056n")) return;
+    var marker = document.createElement("div");
+    marker.className = "forge-ux85-section-label-056n";
+    marker.textContent = label;
+    card.insertBefore(marker, card.firstElementChild || null);
+  }
+
+  function buildMetricBlock056N() {
+    var metaNode = findTextNode056N(["Meta mensual"]);
+    var followNode = findTextNode056N(["Seguimiento"]);
+    var meta = nearestCard056N(metaNode);
+    var follow = nearestCard056N(followNode);
+    if (!meta || !follow || meta === follow) return;
+    if (meta.parentElement && meta.parentElement.classList.contains("forge-ux85-metric-block-056n")) return;
+
+    var wrapper = document.createElement("section");
+    wrapper.className = "forge-ux85-metric-block-056n forge-ux85-secondary-056n";
+    meta.parentElement.insertBefore(wrapper, meta);
+    wrapper.appendChild(meta);
+    wrapper.appendChild(follow);
+  }
+
+  function applyUx85Polish056N() {
+    if (!isMobile056N()) return;
+    document.documentElement.classList.add("forge-ux85-mobile-056n");
+
+    var alfred = addClassByText056N(["Detecte un cuello", "Detecté un cuello"], "forge-ux85-alfred-card-056n");
+    var plan = addClassByText056N(["Plan de hoy"], "forge-ux85-plan-056n");
+    var opportunities = addClassByText056N(["Oportunidades"], "forge-ux85-opportunities-056n");
+    var recommendations = addClassByText056N(["Recomendaciones"], "forge-ux85-recommendations-056n");
+
+    if (alfred) alfred.classList.remove("forge-ux85-secondary-056n");
+    if (plan) {
+      plan.classList.remove("forge-ux85-secondary-056n");
+      ensureDecisionCue056N(plan);
+    }
+    if (opportunities) {
+      opportunities.classList.add("forge-ux85-secondary-056n");
+      labelSecondarySection056N(opportunities, "Despues de decidir");
+    }
+    if (recommendations) {
+      recommendations.classList.add("forge-ux85-secondary-056n");
+      labelSecondarySection056N(recommendations, "Notas de apoyo");
+    }
+    buildMetricBlock056N();
+  }
+
+  function scheduleUx85Polish056N() {
+    [80, 360, 900, 1600, 2600].forEach(function (delay) {
+      window.setTimeout(applyUx85Polish056N, delay);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", scheduleUx85Polish056N);
+  window.addEventListener("load", scheduleUx85Polish056N);
+  window.addEventListener("resize", scheduleUx85Polish056N, { passive: true });
+  window.addEventListener("orientationchange", scheduleUx85Polish056N, { passive: true });
+})();
