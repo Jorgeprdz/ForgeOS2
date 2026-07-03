@@ -302,3 +302,19 @@ Una nueva pantalla mobile pasa si:
 ## Decisión
 
 `DECISION=FORGE_MOBILE_DESIGN_SYSTEM_TEMPLATE_001_CREATED`
+
+## Template visual source-of-truth note
+
+The mobile template at:
+
+```text
+docs/static-preview/templates/forge-mobile/
+```
+
+must mirror the approved Forge Alive mobile visual surface from `056U`.
+
+It is not a separate redesign surface.
+
+If the template diverges visually from the approved mobile closure, the approved Forge Alive mobile view wins.
+
+`DECISION=FORGE_MOBILE_TEMPLATE_MUST_MIRROR_APPROVED_ALIVE_056U`
