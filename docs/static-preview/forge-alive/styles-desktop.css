@@ -110,3 +110,15 @@
   }
 }
 /* FORGEOS:ALFRED_RESPONSIVE_CSS_SPLIT_DESKTOP_056I:END */
+
+/* FORGEOS:ALFRED_DESKTOP_BREAKPOINT_GUARD_056J:START */
+@media (min-width: 768px) and (max-width: 900px) and (orientation: landscape) {
+  .alfred-desktop-app-056g7 {
+    display: none !important;
+  }
+
+  .phone-shell > :not(.alfred-desktop-app-056g7) {
+    display: revert !important;
+  }
+}
+/* FORGEOS:ALFRED_DESKTOP_BREAKPOINT_GUARD_056J:END */
