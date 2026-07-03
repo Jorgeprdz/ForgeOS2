@@ -2544,3 +2544,10 @@ GREEN FORGE ALIVE STATIC PREVIEW MILESTONE CLOSURE / IMPLEMENTED
 |   |-- GREEN mobile static preview preserved
 |   |-- RED no provider runtime, CRM write, calendar create, send, approval mutation, truth mutation, audio, speech, live search, network, browser storage, or external dependency
 |   |-- NEXT 056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW
+
+|-- GREEN 056G8 Alfred Static Preview Desktop Blank CSS Cascade Fix
+|   |-- GREEN 056G7 dashboard forced visible
+|   |-- GREEN 056G6 canvas forced hidden
+|   |-- GREEN local static UI behavior preserved
+|   |-- RED no provider runtime, CRM write, calendar create, send, approval mutation, truth mutation, audio, speech, live search, network, browser storage, or external dependency
+|   |-- NEXT 056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW

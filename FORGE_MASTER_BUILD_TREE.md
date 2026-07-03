@@ -4793,3 +4793,24 @@ NEXT: `056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW`
 - no browser storage
 
 NEXT: `056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW`
+
+## Alfred Static Preview Desktop Blank CSS Cascade Fix 056G8
+
+056G8 fixes the blank desktop preview caused by 056G6 CSS hiding the 056G7 dashboard layer.
+
+- 056G7 desktop dashboard forced visible
+- 056G6 desktop canvas forced hidden
+- local static UI behavior preserved
+- no provider runtime
+- no CRM write
+- no calendar create
+- no send
+- no approval mutation
+- no truth mutation
+- no audio runtime
+- no speech engine
+- no live search
+- no network calls
+- no browser storage
+
+NEXT: `056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW`

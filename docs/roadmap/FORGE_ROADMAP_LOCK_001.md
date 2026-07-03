@@ -1572,3 +1572,15 @@ Boundary remains static preview UI only: local UI event listeners are allowed; n
 Next:
 
 - 056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW.
+
+# Alfred Static Preview Desktop Blank CSS Cascade Fix Roadmap Status
+
+056G8_ALFRED_STATIC_PREVIEW_DESKTOP_BLANK_CSS_CASCADE_FIX: GREEN / FIXED.
+
+The desktop preview blank-screen regression is fixed by making the 056G7 dashboard layer outrank the older 056G6 canvas hiding rule.
+
+Boundary remains CSS visibility fix only: no provider runtime, CRM write, calendar create, send, approval mutation, truth mutation, audio runtime, speech engine, live search, network calls, or browser storage.
+
+Next:
+
+- 056H_ALFRED_STATIC_PREVIEW_DOM_RENDERER_MOUNT_FINAL_REVIEW.

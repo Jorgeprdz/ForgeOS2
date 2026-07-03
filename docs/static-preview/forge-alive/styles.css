@@ -3565,3 +3565,21 @@ section#genesis-cards.genesis-cards-stack .article-zero-reminder.compact {
   }
 }
 /* FORGEOS:DESKTOP_INTERACTIVE_DASHBOARD_056G7:END */
+
+/* FORGEOS:DESKTOP_BLANK_CSS_CASCADE_FIX_056G8:START */
+@media (min-width: 900px) {
+  .phone-shell > .alfred-desktop-app-056g7 {
+    display: grid !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .phone-shell > .alfred-desktop-canvas-056g6,
+  .alfred-desktop-canvas-056g6 {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+  }
+}
+/* FORGEOS:DESKTOP_BLANK_CSS_CASCADE_FIX_056G8:END */
