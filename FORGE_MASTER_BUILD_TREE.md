@@ -4410,3 +4410,38 @@ NEXT: `055C_ALFRED_REVIEW_ACTION_PACKET_STATIC_PREVIEW_DOM_RENDERER_OUTPUT_REVIE
 - no approval/send/runtime/truth mutation
 
 NEXT: `055D_ALFRED_STATIC_PREVIEW_DOM_RENDERER_INTEGRATION_SCOPE`
+
+## Alfred Static Preview DOM Renderer Integration Scope 055D
+
+055D scopes `ALFRED_STATIC_PREVIEW_DOM_RENDERER_INTEGRATION` as the docs-only bridge from Alfred's inert static preview DOM renderer output into a future Forge Alive static preview integration adapter.
+
+- `integrationId` scoped
+- `sourceDomRendererId` scoped
+- `sourceDomSurfaceBindingId` scoped
+- `targetPreviewApp` scoped
+- `targetPreviewRoot` scoped
+- `staticMountPlan` scoped
+- `rendererAssetPlan` scoped
+- `safeMarkupTransport` scoped as inert string transport only
+- `staticSlotProjection` scoped
+- `commandBarProjection` scoped
+- `reviewPanelProjection` scoped
+- `voicePreviewProjection` scoped as transcript preview only
+- `disabledActionProjection` scoped as disabled metadata
+- `responsiveProjection` scoped without layout mutation
+- `styleTokenProjection` scoped without CSS mutation
+- `a11yProjection` scoped without event listeners
+- `integrationBoundary` scoped
+- no code mutation
+- no DOM UI implementation
+- no HTML/CSS/JS edits
+- no real browser APIs
+- no event listeners
+- no browser storage
+- no network calls
+- no audio runtime
+- no speech engine
+- no live search
+- no approval/send/runtime/truth mutation
+
+NEXT: `055E_ALFRED_STATIC_PREVIEW_DOM_RENDERER_INTEGRATION_IMPLEMENTATION`
