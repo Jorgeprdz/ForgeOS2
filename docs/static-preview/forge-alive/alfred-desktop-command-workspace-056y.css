@@ -622,3 +622,23 @@
     }
   }
 }
+
+
+/* FORGEOS:DESKTOP_COMMAND_WORKSPACE_VISIBILITY_HOTFIX_056Y2 */
+@media (min-width: 901px) {
+  .phone-shell > .forge-desktop-workspace-056y,
+  .forge-desktop-workspace-056y {
+    display: grid !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .forge-desktop-workspace-056y[style] {
+    display: grid !important;
+  }
+
+  .forge-desktop-workspace-056y * {
+    visibility: visible;
+  }
+}

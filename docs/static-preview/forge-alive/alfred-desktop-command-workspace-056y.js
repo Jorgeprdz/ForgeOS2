@@ -119,3 +119,22 @@
   window.addEventListener("load", boot);
   window.addEventListener("resize", boot, { passive: true });
 })();
+
+
+/* FORGEOS:DESKTOP_COMMAND_WORKSPACE_VISIBILITY_HOTFIX_056Y2 */
+(function () {
+  "use strict";
+  function revealDesktopWorkspace056Y2() {
+    if (!window.matchMedia("(min-width: 901px)").matches) return;
+    Array.prototype.forEach.call(document.querySelectorAll(".forge-desktop-workspace-056y"), function (node) {
+      node.style.display = "grid";
+      node.style.visibility = "visible";
+      node.style.opacity = "1";
+      node.removeAttribute("hidden");
+      node.removeAttribute("aria-hidden");
+    });
+  }
+  document.addEventListener("DOMContentLoaded", revealDesktopWorkspace056Y2);
+  window.addEventListener("load", revealDesktopWorkspace056Y2);
+  window.addEventListener("resize", revealDesktopWorkspace056Y2, { passive: true });
+})();
