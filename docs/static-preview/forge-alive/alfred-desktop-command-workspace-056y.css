@@ -642,3 +642,310 @@
     visibility: visible;
   }
 }
+
+/* FORGEOS:DESKTOP_LAYOUT_FIT_HOTFIX_056Y3 */
+@media (min-width: 901px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  .forge-desktop-workspace-056y {
+    grid-template-columns: 196px minmax(0, 1fr) 280px !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    overflow: hidden !important;
+  }
+
+  .dw-sidebar-056y {
+    padding: 16px 10px !important;
+    gap: 16px !important;
+  }
+
+  .dw-brand-056y {
+    gap: 9px !important;
+    min-height: 38px !important;
+    padding: 0 4px !important;
+  }
+
+  .dw-brand-056y strong {
+    font-size: 15px !important;
+  }
+
+  .dw-brand-056y span {
+    font-size: 10px !important;
+  }
+
+  .dw-bowtie-056y {
+    width: 28px !important;
+    height: 18px !important;
+  }
+
+  .dw-bowtie-056y::before,
+  .dw-bowtie-056y::after {
+    width: 13px !important;
+    height: 14px !important;
+  }
+
+  .dw-nav-056y {
+    gap: 7px !important;
+  }
+
+  .dw-nav-056y button {
+    grid-template-columns: 20px 1fr !important;
+    min-height: 38px !important;
+    gap: 9px !important;
+    padding: 0 10px !important;
+    border-radius: 11px !important;
+    font-size: 12px !important;
+  }
+
+  .dw-nav-icon-056y {
+    font-size: 13px !important;
+  }
+
+  .dw-sidebar-profile-056y {
+    grid-template-columns: 30px 1fr auto !important;
+    gap: 8px !important;
+    font-size: 11px !important;
+  }
+
+  .dw-sidebar-profile-056y .dw-avatar-056y {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  .dw-main-056y {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 16px 16px 24px !important;
+    overflow-x: hidden !important;
+  }
+
+  .dw-topbar-056y {
+    min-height: 34px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .dw-heading-056y {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: start !important;
+    margin-bottom: 10px !important;
+  }
+
+  .dw-heading-056y h1 {
+    font-size: clamp(32px, 3vw, 42px) !important;
+  }
+
+  .dw-heading-056y p {
+    margin-top: 4px !important;
+    font-size: 13px !important;
+  }
+
+  .dw-command-zone-056y {
+    max-width: 760px !important;
+    margin: 0 0 12px !important;
+  }
+
+  .dw-command-row-056y {
+    grid-template-columns: 34px minmax(0, 1fr) 90px !important;
+    min-height: 50px !important;
+    padding: 6px 10px !important;
+  }
+
+  .dw-command-row-056y input {
+    font-size: 15px !important;
+  }
+
+  .dw-command-submit-056y {
+    min-width: 82px !important;
+    height: 34px !important;
+  }
+
+  .dw-command-result-056y {
+    grid-template-columns: 78px minmax(0, 1fr) 108px !important;
+    min-height: 38px !important;
+    font-size: 12px !important;
+  }
+
+  .dw-quick-056y {
+    gap: 8px !important;
+    margin-top: 8px !important;
+  }
+
+  .dw-quick-056y button {
+    min-height: 31px !important;
+    padding: 0 10px !important;
+    font-size: 12px !important;
+  }
+
+  .dw-lock-note-056y {
+    font-size: 11px !important;
+  }
+
+  .dw-kpi-strip-056y {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .dw-kpi-056y {
+    min-height: 76px !important;
+    padding: 11px !important;
+  }
+
+  .dw-kpi-056y span {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+  }
+
+  .dw-kpi-056y strong {
+    margin-top: 6px !important;
+    font-size: 24px !important;
+  }
+
+  .dw-kpi-056y p {
+    margin-top: 5px !important;
+    font-size: 10px !important;
+  }
+
+  .dw-grid-056y {
+    grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.76fr) !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .dw-panel-header-056y {
+    min-height: 42px !important;
+    padding: 0 12px !important;
+  }
+
+  .dw-panel-header-056y h2 {
+    font-size: 14px !important;
+  }
+
+  .dw-table-056y {
+    table-layout: fixed !important;
+    font-size: 11px !important;
+  }
+
+  .dw-table-056y th,
+  .dw-table-056y td {
+    padding: 9px 10px !important;
+  }
+
+  .dw-table-056y th:nth-child(4),
+  .dw-table-056y td:nth-child(4),
+  .dw-table-056y th:nth-child(5),
+  .dw-table-056y td:nth-child(5) {
+    display: none !important;
+  }
+
+  .dw-client-056y {
+    grid-template-columns: 28px 1fr !important;
+    gap: 8px !important;
+  }
+
+  .dw-client-056y span {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .dw-chip-056y {
+    min-height: 21px !important;
+    padding: 0 7px !important;
+    font-size: 10px !important;
+  }
+
+  .dw-inline-actions-056y {
+    gap: 4px !important;
+  }
+
+  .dw-inline-action-056y {
+    min-height: 24px !important;
+    padding: 0 7px !important;
+    font-size: 10px !important;
+  }
+
+  .dw-risk-list-056y {
+    gap: 8px !important;
+    padding: 11px !important;
+  }
+
+  .dw-risk-card-056y {
+    padding: 10px !important;
+  }
+
+  .dw-risk-card-056y strong {
+    font-size: 12px !important;
+  }
+
+  .dw-risk-card-056y p {
+    font-size: 11px !important;
+  }
+
+  .dw-docs-056y {
+    margin-top: 12px !important;
+  }
+
+  .dw-docs-056y .dw-table-056y th:nth-child(5),
+  .dw-docs-056y .dw-table-056y td:nth-child(5),
+  .dw-docs-056y .dw-table-056y th:nth-child(6),
+  .dw-docs-056y .dw-table-056y td:nth-child(6) {
+    display: none !important;
+  }
+
+  .dw-rail-056y {
+    width: 280px !important;
+    min-width: 0 !important;
+    padding: 14px !important;
+    gap: 10px !important;
+    overflow-x: hidden !important;
+  }
+
+  .dw-rail-title-056y {
+    font-size: 14px !important;
+  }
+
+  .dw-alfred-card-056y {
+    padding: 11px !important;
+    border-radius: 13px !important;
+  }
+
+  .dw-alfred-card-056y h3 {
+    font-size: 13px !important;
+    margin-bottom: 7px !important;
+  }
+
+  .dw-alfred-card-056y p,
+  .dw-alfred-card-056y li {
+    font-size: 11px !important;
+  }
+
+  .dw-recommended-command-056y {
+    gap: 8px !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1280px) {
+  .forge-desktop-workspace-056y {
+    grid-template-columns: 176px minmax(0, 1fr) 248px !important;
+  }
+
+  .dw-rail-056y {
+    width: 248px !important;
+  }
+
+  .dw-command-zone-056y {
+    max-width: 620px !important;
+  }
+
+  .dw-kpi-strip-056y {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
