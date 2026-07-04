@@ -2578,3 +2578,30 @@ GREEN FORGE ALIVE STATIC PREVIEW MILESTONE CLOSURE / IMPLEMENTED
 |   |-- GREEN Smart Widgets and liquid dots restored on mobile
 |   |-- RED no provider runtime, CRM write, calendar create, send, approval mutation, truth mutation, audio, speech, live search, network, browser storage, or external dependency
 |   |-- NEXT 056K_ALFRED_STATIC_PREVIEW_FINAL_VISUAL_REVIEW
+
+<!-- BEGIN FORGEOS:UI_ACTION_CONTRACT_ROADMAP_SYNC_059A1 -->
+
+## 059A1 UI Action Contract Roadmap Sync
+
+Status: SYNCED
+
+Context:
+
+- Mobile and desktop visual/template baselines are closed enough for action-contract work.
+- 058J locked the desktop template system and handed off to UI action contracts.
+- Historical roadmap NEXT tokens remain preserved as history.
+- Current product lane now continues with 059A.
+
+Current next:
+
+- `059A_UI_ACTION_CONTRACT_SCOPE`: NEXT
+- `059B_STATIC_ACTION_PACKET_BRIDGE`: PLANNED
+- `059C_ENGINE_ADAPTER_RECONNECT`: PLANNED
+
+Decision:
+
+DECISION=PASS_059A1_ROADMAP_BUILD_TREE_SYNC_FOR_UI_ACTION_CONTRACT
+
+NEXT=059A_UI_ACTION_CONTRACT_SCOPE
+
+<!-- END FORGEOS:UI_ACTION_CONTRACT_ROADMAP_SYNC_059A1 -->
