@@ -5517,3 +5517,34 @@ DECISION=PASS_061G_PREMIUM_FINAL_VISUAL_REPAIR_IMPLEMENTATION
 
 NEXT=061H_PREMIUM_FINAL_VISUAL_REPAIR_QA_LOCK
 <!-- FORGEOS:PREMIUM_FINAL_VISUAL_REPAIR_IMPLEMENTATION_061G:END -->
+
+<!-- FORGEOS:PREMIUM_FINAL_VISUAL_REPAIR_QA_LOCK_061H:START -->
+## 061H Premium Final Visual Repair QA Lock
+
+Status: PASS / CERTIFIED.
+
+061H locks public Pages evidence for the 061G visual repair.
+
+Certified rating:
+
+`9.0 / 10`
+
+Validated:
+
+- Table action clipping repaired at 1366 and 1440.
+- Command CTA clipping repaired.
+- Tablet landscape overflow repaired.
+- Public smart widget syntax error no longer present.
+- Topbar, profile menu, command bar, 1920 layout, and mobile preserved.
+
+Evidence:
+
+- `docs/evidence/forge-premium-final-visual-repair-qa-audit-061h.json`
+- `docs/evidence/FORGE_PREMIUM_FINAL_VISUAL_REPAIR_QA_LOCK_061H.md`
+- `docs/evidence/FORGE_PREMIUM_FINAL_VISUAL_REPAIR_QA_LOCK_CERTIFICATE_061H.md`
+- `docs/architecture/source-truth/FORGE_PREMIUM_FINAL_VISUAL_REPAIR_QA_LOCK_CLOSURE_061H.md`
+
+DECISION=PASS_061H_PREMIUM_FINAL_VISUAL_REPAIR_QA_LOCK
+
+NEXT=061I_PREMIUM_FINAL_DECISION_LOCK
+<!-- FORGEOS:PREMIUM_FINAL_VISUAL_REPAIR_QA_LOCK_061H:END -->
