@@ -1,0 +1,31 @@
+{
+  "phase": "062B_READ_MODEL_UNIFICATION_SCOPE",
+  "status": "PASS",
+  "modelName": "forge.alive.workspace.read_model.v1",
+  "basePhase": "062A_ACTION_CONTRACTS_SCOPE",
+  "sectionsScoped": [
+    "workspace",
+    "previewPolicy",
+    "metrics",
+    "riskSummary",
+    "opportunities",
+    "actionRegistry",
+    "commandCatalog",
+    "capabilities",
+    "blockedReasons",
+    "sourceEvidence"
+  ],
+  "actionsCovered": [
+    "command.quick_actions",
+    "report.prepare_preview",
+    "opportunity.review",
+    "client.follow_preview",
+    "quote.prepare_preview",
+    "record.open_preview"
+  ],
+  "scopeOnly": true,
+  "uiMutation": false,
+  "moduleConnection": false,
+  "realActionExecution": false,
+  "next": "062C_COMMAND_BAR_ACTION_CONTRACT_IMPLEMENTATION"
+}

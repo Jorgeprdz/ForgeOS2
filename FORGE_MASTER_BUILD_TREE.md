@@ -5631,3 +5631,32 @@ DECISION=PASS_062A_ACTION_CONTRACTS_SCOPE
 
 NEXT=062B_READ_MODEL_UNIFICATION_SCOPE
 <!-- FORGEOS:ACTION_CONTRACTS_SCOPE_062A:END -->
+
+<!-- FORGEOS:READ_MODEL_UNIFICATION_SCOPE_062B:START -->
+## 062B Read Model Unification Scope
+
+Status: PASS / SCOPED.
+
+062B defines `forge.alive.workspace.read_model.v1` as the single source shape for Forge Alive command workspace data after 062A action contracts.
+
+Scoped sections:
+
+- `workspace`
+- `previewPolicy`
+- `metrics`
+- `riskSummary`
+- `opportunities`
+- `actionRegistry`
+- `commandCatalog`
+- `capabilities`
+- `blockedReasons`
+- `sourceEvidence`
+
+Boundary:
+
+Scope/decision only. No UI, module, external-system, auth, provider, browser persistence, browser request, or real engine behavior is modified.
+
+DECISION=PASS_062B_READ_MODEL_UNIFICATION_SCOPE
+
+NEXT=062C_COMMAND_BAR_ACTION_CONTRACT_IMPLEMENTATION
+<!-- FORGEOS:READ_MODEL_UNIFICATION_SCOPE_062B:END -->
