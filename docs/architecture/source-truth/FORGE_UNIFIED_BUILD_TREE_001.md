@@ -3356,3 +3356,29 @@ DECISION=PASS_062C_COMMAND_BAR_ACTION_CONTRACT_IMPLEMENTATION
 
 NEXT=062D_COMMAND_BAR_ACTION_CONTRACT_QA_LOCK
 <!-- FORGEOS:COMMAND_BAR_ACTION_CONTRACT_IMPLEMENTATION_062C:END -->
+
+<!-- FORGEOS:COMMAND_BAR_CONTRACT_RESULT_VISUAL_REPAIR_062C1:START -->
+## 062C1 Command Bar Contract Result Visual Repair
+
+Status: PASS / IMPLEMENTED.
+
+062C1 repairs the contract-backed command result layout after manual review of 062C.
+
+Repairs:
+
+- title/subtitle visual separation;
+- status pill alignment;
+- stronger overlay treatment;
+- command-input anchored panel geometry.
+
+Public cache:
+`062c1`
+
+Boundary:
+
+Visual/layout repair only. No action contract, module, external-system, auth, provider, browser persistence, browser request, or real engine behavior is changed.
+
+DECISION=PASS_062C1_COMMAND_BAR_CONTRACT_RESULT_VISUAL_REPAIR
+
+NEXT=062D_COMMAND_BAR_ACTION_CONTRACT_QA_LOCK
+<!-- FORGEOS:COMMAND_BAR_CONTRACT_RESULT_VISUAL_REPAIR_062C1:END -->

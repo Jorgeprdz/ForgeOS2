@@ -1182,3 +1182,71 @@
   }
 }
 /* FORGEOS:COMMAND_BAR_ACTION_CONTRACT_IMPLEMENTATION_062C:END */
+
+/* FORGEOS:COMMAND_BAR_CONTRACT_RESULT_VISUAL_REPAIR_062C1:START */
+@media (min-width: 901px) {
+  [data-forge-contract-result-visual-repair-062c1="true"] {
+    position: relative !important;
+    overflow: visible !important;
+    z-index: 70;
+  }
+
+  [data-forge-contract-result-visual-repair-062c1="true"][data-forge-contract-panel-active-062c="true"] {
+    z-index: 130;
+  }
+
+  [data-forge-contract-result-visual-repair-062c1="true"] .forge-contract-results-062c {
+    top: var(--forge-contract-panel-top-062c1, 76px) !important;
+    left: var(--forge-contract-panel-left-062c1, 28px) !important;
+    right: var(--forge-contract-panel-right-062c1, 28px) !important;
+    gap: 9px !important;
+    padding: 10px !important;
+    max-height: min(330px, 42vh) !important;
+    border-radius: 18px !important;
+    background: linear-gradient(180deg, rgba(7, 19, 33, 0.985), rgba(4, 10, 18, 0.965)) !important;
+    box-shadow:
+      0 34px 92px rgba(0, 0, 0, 0.54),
+      0 0 0 1px rgba(139, 232, 255, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  }
+
+  [data-forge-contract-result-visual-repair-062c1="true"] .forge-contract-result-062c {
+    grid-template-columns: minmax(0, 1fr) max-content !important;
+    align-items: center !important;
+    min-height: 62px;
+    padding: 12px 14px !important;
+    border-radius: 14px !important;
+  }
+
+  [data-forge-contract-result-visual-repair-062c1="true"] .forge-contract-result-062c > span:first-child {
+    display: block;
+    min-width: 0;
+  }
+
+  [data-forge-contract-result-visual-repair-062c1="true"] .forge-contract-result-062c__title {
+    display: block !important;
+    max-width: 100%;
+    overflow: hidden;
+    color: rgba(248, 251, 255, 0.96);
+    line-height: 1.18;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  [data-forge-contract-result-visual-repair-062c1="true"] .forge-contract-result-062c__subtitle {
+    display: block !important;
+    max-width: 100%;
+    margin-top: 5px !important;
+    overflow: hidden;
+    color: rgba(214, 226, 238, 0.74);
+    line-height: 1.28;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  [data-forge-contract-result-visual-repair-062c1="true"] .forge-contract-result-062c__status {
+    align-self: center;
+    white-space: nowrap;
+  }
+}
+/* FORGEOS:COMMAND_BAR_CONTRACT_RESULT_VISUAL_REPAIR_062C1:END */

@@ -1627,3 +1627,53 @@
   window.__forgeRunCommandBarActionContracts062C = run;
 })();
 /* FORGEOS:COMMAND_BAR_ACTION_CONTRACT_IMPLEMENTATION_062C:END */
+
+/* FORGEOS:COMMAND_BAR_CONTRACT_RESULT_VISUAL_REPAIR_062C1:START */
+(function () {
+  "use strict";
+
+  function findInput() {
+    return document.querySelector(".dw-command-input-056y, .command-pill-input");
+  }
+
+  function findRoot(input) {
+    return input && (input.closest(".dw-command-zone-056y") || input.closest(".dw-command-shell-056y") || input.parentElement);
+  }
+
+  function updateGeometry() {
+    var input = findInput();
+    var root = findRoot(input);
+    if (!input || !root) {
+      return;
+    }
+    root.setAttribute("data-forge-contract-result-visual-repair-062c1", "true");
+    var inputRect = input.getBoundingClientRect();
+    var rootRect = root.getBoundingClientRect();
+    var top = Math.max(68, Math.round(inputRect.bottom - rootRect.top + 12));
+    root.style.setProperty("--forge-contract-panel-top-062c1", top + "px");
+    root.style.setProperty("--forge-contract-panel-left-062c1", "28px");
+    root.style.setProperty("--forge-contract-panel-right-062c1", "28px");
+  }
+
+  function runRepair() {
+    updateGeometry();
+    var input = findInput();
+    if (!input || input.getAttribute("data-forge-contract-visual-repair-bound-062c1") === "true") {
+      return;
+    }
+    input.setAttribute("data-forge-contract-visual-repair-bound-062c1", "true");
+    input.addEventListener("input", updateGeometry);
+    input.addEventListener("focus", updateGeometry);
+    window.addEventListener("resize", updateGeometry);
+    document.documentElement.setAttribute("data-forge-contract-result-visual-repair-ready-062c1", "true");
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", runRepair, { once: true });
+  } else {
+    runRepair();
+  }
+  window.addEventListener("load", runRepair);
+  window.__forgeRunCommandBarContractResultVisualRepair062C1 = runRepair;
+})();
+/* FORGEOS:COMMAND_BAR_CONTRACT_RESULT_VISUAL_REPAIR_062C1:END */

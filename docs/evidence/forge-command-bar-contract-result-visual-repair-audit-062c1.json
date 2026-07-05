@@ -1,0 +1,14 @@
+{
+  "phase": "062C1_COMMAND_BAR_CONTRACT_RESULT_VISUAL_REPAIR",
+  "status": "PASS",
+  "cacheVersion": "062c1",
+  "visualRepairs": {
+    "titleSubtitleSeparated": true,
+    "statusPillPreserved": true,
+    "overlayTreatmentStrengthened": true,
+    "inputAnchoredGeometry": true
+  },
+  "contractBehaviorChanged": false,
+  "realEffectsEnabled": false,
+  "next": "062D_COMMAND_BAR_ACTION_CONTRACT_QA_LOCK"
+}
