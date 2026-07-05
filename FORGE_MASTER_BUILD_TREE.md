@@ -5266,3 +5266,19 @@ DECISION=PASS_060S_COMMAND_BAR_SEARCH_OVERLAY_POLISH_IMPLEMENTATION
 
 NEXT=060T_COMMAND_BAR_SEARCH_OVERLAY_VISUAL_QA_LOCK
 <!-- FORGEOS:COMMAND_BAR_SEARCH_OVERLAY_POLISH_IMPLEMENTATION_060S:END -->
+
+<!-- FORGEOS:COMMAND_BAR_SEARCH_OVERLAY_VISUAL_QA_LOCK_060T:START -->
+060T locks read-only structural visual QA evidence for the 060S command bar search overlay polish.
+
+Evidence artifact:
+
+`docs/evidence/forge-command-bar-search-overlay-visual-qa-audit-060t.json`
+
+The audit confirms 060s cache-bust, floating overlay markers, real static suggestion collapse, focus cleanup, and closed runtime/action/storage boundaries.
+
+Manual screenshot QA remains required for Pages render.
+
+DECISION=PASS_060T_COMMAND_BAR_SEARCH_OVERLAY_VISUAL_QA_LOCK
+
+NEXT=060U_COMMAND_BAR_PUBLIC_MANUAL_REVIEW_DECISION
+<!-- FORGEOS:COMMAND_BAR_SEARCH_OVERLAY_VISUAL_QA_LOCK_060T:END -->

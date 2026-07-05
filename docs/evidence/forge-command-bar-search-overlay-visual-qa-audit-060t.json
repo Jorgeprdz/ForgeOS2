@@ -1,0 +1,68 @@
+{
+  "phase": "060T_COMMAND_BAR_SEARCH_OVERLAY_VISUAL_QA_LOCK",
+  "status": "PASS",
+  "expectedPublicUrl": "https://jorgeprdz.github.io/ForgeOS/static-preview/forge-alive/?v=060s",
+  "indexChecks": {
+    "interactionLayerCache060sCss": true,
+    "interactionLayerCache060sJs": true,
+    "focusCleanupPresent": true
+  },
+  "overlayCssChecks": {
+    "overlayRootRelative": true,
+    "overlayActiveZIndex": true,
+    "suggestionsCollapseHeightZero": true,
+    "suggestionsCollapseMarginZero": true,
+    "resultsPanelAbsolute": true,
+    "resultsPanelPremiumShadow": true,
+    "inactivePanelHidden": true
+  },
+  "overlayJsChecks": {
+    "overlayRunnerPresent": true,
+    "inputValueRequiredForActive": true,
+    "geometryVarsSet": true,
+    "resultsPanelMarked": true,
+    "staticSuggestionsMarked": true,
+    "staticSuggestionsCollapsed": true
+  },
+  "focusVisualChecks": {
+    "focusOutlineSuppressed": true,
+    "focusRectangleSuppressed": true
+  },
+  "forbiddenRuntimeTokensDetected": {
+    "browserLocalStoreToken": false,
+    "browserSessionStoreToken": false,
+    "networkRequestToken": false,
+    "xhrToken": false,
+    "mediaToken": false,
+    "speechToken": false
+  },
+  "manualScreenshotQaRequired": true,
+  "manualScreenshotTargets": [
+    "closed 1366x768",
+    "open /cot 1366x768",
+    "closed 1440x1000",
+    "open /cot 1440x1000",
+    "closed 1536x864",
+    "open /cot 1536x864",
+    "closed 1920x1080",
+    "open /cot 1920x1080"
+  ],
+  "manualReviewChecklist": [
+    "Open state should feel like a floating premium overlay.",
+    "No dead vertical gap should remain below the command bar.",
+    "Static suggestions should not overlap active results.",
+    "First click on empty input should not open a panel.",
+    "Typing /cot should open floating results.",
+    "No focus rectangle should appear.",
+    "No real action should execute."
+  ],
+  "safety": {
+    "providerExecution": false,
+    "realEngineExecution": false,
+    "messageSend": false,
+    "crmWrite": false,
+    "calendarCreate": false,
+    "browserStorageMutation": false,
+    "liveExternalData": false
+  }
+}
