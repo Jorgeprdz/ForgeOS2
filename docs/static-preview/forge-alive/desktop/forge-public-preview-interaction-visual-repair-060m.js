@@ -721,3 +721,127 @@
   window.__forgeRunCommandBarRestoreInputRepair060V = repairCommandBar;
 })();
 /* FORGEOS:COMMAND_BAR_RESTORE_INPUT_REPAIR_060V:END */
+
+/* FORGEOS:COMMAND_BAR_EMPTY_IDLE_INPUT_REPAIR_060W:START */
+(function () {
+  "use strict";
+
+  var DESKTOP_QUERY = "(min-width: 901px)";
+  var PLACEHOLDER = "Buscar o pedir a Alfred: /cotizar, /follow Juan, /llamar Lariza...";
+  var userTouched = false;
+
+  function isDesktop() {
+    return !window.matchMedia || window.matchMedia(DESKTOP_QUERY).matches;
+  }
+
+  function commandInput() {
+    return document.querySelector(".dw-command-input-056y, .command-pill-input, input[aria-controls='forge-command-results-060m'], [role='textbox'][aria-controls='forge-command-results-060m']");
+  }
+
+  function valueOf(input) {
+    if (!input) {
+      return "";
+    }
+    if ("value" in input) {
+      return String(input.value || "");
+    }
+    return String(input.textContent || "");
+  }
+
+  function setValue(input, value) {
+    if (!input) {
+      return;
+    }
+    if ("value" in input) {
+      input.value = value;
+    } else {
+      input.textContent = value;
+    }
+  }
+
+  function looksLikeStaticPrefill(value) {
+    var text = String(value || "").trim().toLowerCase();
+    if (!text || text.charAt(0) !== "/") {
+      return false;
+    }
+    return text.indexOf("lariza") !== -1 ||
+      text.indexOf("gmm") !== -1 ||
+      text.indexOf("/cotizar") !== -1 ||
+      text.indexOf("/follow") !== -1 ||
+      text.indexOf("/llamar") !== -1 ||
+      text.indexOf("/buscar") !== -1 ||
+      text.indexOf("/mandar") !== -1 ||
+      text.indexOf("/subir") !== -1;
+  }
+
+  function hideResultPanel(input) {
+    if (!input) {
+      return;
+    }
+    var panel = document.getElementById(input.getAttribute("aria-controls") || "forge-command-results-060m");
+    if (panel) {
+      panel.hidden = true;
+      panel.setAttribute("aria-hidden", "true");
+    }
+    input.removeAttribute("aria-activedescendant");
+    var root = input.closest(".dw-command-zone-056y, .dw-command-shell-056y, .dw-command-card-056y, .command-shell");
+    if (root) {
+      root.removeAttribute("data-forge-command-overlay-active-060s");
+    }
+  }
+
+  function clearStaticPrefill() {
+    if (!isDesktop() || userTouched) {
+      return;
+    }
+    var input = commandInput();
+    if (!input) {
+      return;
+    }
+    input.setAttribute("placeholder", PLACEHOLDER);
+    input.setAttribute("inputmode", "text");
+    input.removeAttribute("aria-readonly");
+    if ("readOnly" in input) {
+      input.readOnly = false;
+    }
+    if (!looksLikeStaticPrefill(valueOf(input))) {
+      return;
+    }
+    setValue(input, "");
+    hideResultPanel(input);
+    input.dispatchEvent(new Event("input", { bubbles: true }));
+    document.documentElement.setAttribute("data-forge-command-idle-input-empty-060w", "true");
+  }
+
+  function markTouched() {
+    userTouched = true;
+  }
+
+  function bindInteractionGuard() {
+    var input = commandInput();
+    if (!input || input.getAttribute("data-forge-command-empty-idle-bound-060w") === "true") {
+      return;
+    }
+    input.setAttribute("data-forge-command-empty-idle-bound-060w", "true");
+    input.addEventListener("keydown", markTouched, { once: true });
+    input.addEventListener("input", markTouched, { once: true });
+    input.addEventListener("paste", markTouched, { once: true });
+  }
+
+  function scheduleClear() {
+    bindInteractionGuard();
+    clearStaticPrefill();
+    window.setTimeout(clearStaticPrefill, 0);
+    window.setTimeout(clearStaticPrefill, 80);
+    window.setTimeout(clearStaticPrefill, 220);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", scheduleClear, { once: true });
+  } else {
+    scheduleClear();
+  }
+  window.addEventListener("load", scheduleClear);
+  window.__forgeRunCommandBarEmptyIdleInputRepair060W = clearStaticPrefill;
+})();
+/* FORGEOS:COMMAND_BAR_EMPTY_IDLE_INPUT_REPAIR_060W:END */
