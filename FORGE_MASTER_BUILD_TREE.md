@@ -5251,6 +5251,35 @@ DECISION=PASS_060R_COMMAND_BAR_SEARCH_QA_LOCK
 NEXT=061A_NEXT_FORGE_ALIVE_SCOPE
 <!-- FORGEOS:COMMAND_BAR_SEARCH_QA_LOCK_060R:END -->
 
+<!-- FORGEOS:TOPBAR_PROFILE_ICON_CLEANUP_VISUAL_QA_LOCK_061A:START -->
+## 061A Topbar Profile Icon Cleanup Visual QA Lock
+
+Status: PASS / LOCKED
+
+061A locks read-only visual QA evidence for the public Forge Alive `060z` topbar profile cleanup.
+
+Accepted behavior:
+
+- top-right visual surface shows only the J profile anchor
+- redundant adjacent topbar icons are visually removed
+- clicking J opens the profile menu
+- profile menu shows `Cambiar tema`, `Opciones`, and logout action
+- sidebar profile footer is hidden
+- command bar remains visible with `/quick actions`
+- static preview boundary remains intact
+
+Evidence:
+
+- `docs/evidence/forge-topbar-profile-cleanup-visual-qa-audit-061a.json`
+- `docs/evidence/FORGE_TOPBAR_PROFILE_ICON_CLEANUP_VISUAL_QA_LOCK_061A.md`
+- `docs/evidence/FORGE_TOPBAR_PROFILE_ICON_CLEANUP_VISUAL_QA_LOCK_CERTIFICATE_061A.md`
+- `docs/architecture/source-truth/FORGE_TOPBAR_PROFILE_ICON_CLEANUP_VISUAL_QA_LOCK_CLOSURE_061A.md`
+
+DECISION=PASS_061A_TOPBAR_PROFILE_ICON_CLEANUP_VISUAL_QA_LOCK
+
+NEXT=061B_NEXT_FORGE_ALIVE_SCOPE
+<!-- FORGEOS:TOPBAR_PROFILE_ICON_CLEANUP_VISUAL_QA_LOCK_061A:END -->
+
 <!-- FORGEOS:COMMAND_BAR_SEARCH_OVERLAY_POLISH_IMPLEMENTATION_060S:START -->
 060S polishes the 060Q command bar search open state.
 
