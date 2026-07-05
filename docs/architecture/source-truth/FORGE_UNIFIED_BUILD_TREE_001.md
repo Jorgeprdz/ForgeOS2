@@ -2887,3 +2887,22 @@ DECISION=PASS_060L_LOCAL_READ_MODEL_PREVIEW_UI_BINDING_IMPLEMENTATION
 
 NEXT=060M_LOCAL_READ_MODEL_PREVIEW_UI_BINDING_VISUAL_QA_LOCK
 <!-- FORGEOS:LOCAL_READ_MODEL_PREVIEW_UI_BINDING_IMPLEMENTATION_060L:END -->
+
+<!-- FORGEOS:PUBLIC_PREVIEW_INTERACTION_VISUAL_REPAIR_IMPLEMENTATION_060M:START -->
+060M implements targeted public preview interaction visual repair after browser screenshots showed:
+
+- command bar click exposed a textbox frame and browser input surface
+- quote preview labels overlapped
+- the 060L local preview card appeared as a misplaced white block
+
+Repair files:
+
+- `docs/static-preview/forge-alive/desktop/forge-public-preview-interaction-visual-repair-060m.css`
+- `docs/static-preview/forge-alive/desktop/forge-public-preview-interaction-visual-repair-060m.js`
+
+Boundary remains static preview visual repair only: no provider runtime, no CRM write, no calendar create, no send, no browser storage, no network calls, and no real engine execution.
+
+DECISION=PASS_060M_PUBLIC_PREVIEW_INTERACTION_VISUAL_REPAIR_IMPLEMENTATION
+
+NEXT=060N_PUBLIC_PREVIEW_INTERACTION_VISUAL_REPAIR_QA_LOCK
+<!-- FORGEOS:PUBLIC_PREVIEW_INTERACTION_VISUAL_REPAIR_IMPLEMENTATION_060M:END -->

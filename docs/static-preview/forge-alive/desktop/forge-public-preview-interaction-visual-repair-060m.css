@@ -1,0 +1,67 @@
+/* FORGEOS:PUBLIC_PREVIEW_INTERACTION_VISUAL_REPAIR_060M:START */
+@media (min-width: 901px) {
+  [data-forge-command-static-060m="true"],
+  [data-forge-command-static-060m="true"]:focus,
+  [data-forge-command-static-060m="true"]:focus-visible {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    outline: 0 !important;
+  }
+
+  [data-forge-command-static-wrap-060m="true"] {
+    box-shadow: none !important;
+  }
+
+  .forge-visual-repair-060m-quote-card {
+    min-height: 86px !important;
+    display: grid !important;
+    align-content: start !important;
+    gap: 8px !important;
+    overflow: hidden !important;
+  }
+
+  .forge-visual-repair-060m-quote-card * {
+    min-width: 0 !important;
+    line-height: 1.22 !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .forge-local-read-model-preview-060l {
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 18px 16px 0 !important;
+    border-color: rgba(126, 211, 255, 0.2) !important;
+    background: linear-gradient(180deg, rgba(13, 28, 43, 0.96), rgba(7, 17, 28, 0.96)) !important;
+    color: #f8fafc !important;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22) !important;
+  }
+
+  .forge-local-read-model-preview-060l__title,
+  .forge-local-read-model-preview-060l__value {
+    color: #f8fafc !important;
+  }
+
+  .forge-local-read-model-preview-060l__summary,
+  .forge-local-read-model-preview-060l__label,
+  .forge-local-read-model-preview-060l__evidence {
+    color: rgba(226, 232, 240, 0.78) !important;
+  }
+
+  .forge-local-read-model-preview-060l__header,
+  .forge-local-read-model-preview-060l__evidence {
+    border-color: rgba(148, 163, 184, 0.16) !important;
+  }
+
+  .forge-local-read-model-preview-060l__row,
+  .forge-local-read-model-preview-060l__guard {
+    background: rgba(15, 36, 52, 0.86) !important;
+    color: rgba(248, 250, 252, 0.9) !important;
+  }
+
+  .forge-local-read-model-preview-060l__status {
+    background: rgba(126, 211, 255, 0.14) !important;
+    color: #a7e7ff !important;
+  }
+}
+/* FORGEOS:PUBLIC_PREVIEW_INTERACTION_VISUAL_REPAIR_060M:END */
