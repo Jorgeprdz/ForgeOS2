@@ -2121,3 +2121,32 @@ DECISION=PASS_061B_PROFILE_MENU_COPY_AND_SPACING_POLISH_IMPLEMENTATION
 
 NEXT=061C_PROFILE_MENU_COPY_AND_SPACING_VISUAL_QA_LOCK
 <!-- FORGEOS:PROFILE_MENU_COPY_AND_SPACING_POLISH_061B:END -->
+
+<!-- FORGEOS:PREMIUM_FINAL_POLISH_SCOPE_061D:START -->
+## 061D Premium Final Polish Scope
+
+061D_PREMIUM_FINAL_POLISH_SCOPE: PASS / SCOPED.
+
+061D converts the 061C visual QA result into a narrow premium polish implementation scope for 061E.
+
+061E implementation should focus only on:
+
+- Desktop command/risk/KPI rhythm.
+- Primary card hierarchy.
+- Command bar product-final feel.
+- Profile menu overlay polish.
+- Wide desktop balance.
+- Table/action density.
+- Quiet static-preview safety presentation.
+- Mobile/tablet guardrails.
+
+Artifacts:
+
+- `docs/architecture/source-truth/FORGE_PREMIUM_FINAL_POLISH_SCOPE_061D.md`
+- `docs/evidence/FORGE_PREMIUM_FINAL_POLISH_SCOPE_061D.md`
+- `docs/evidence/FORGE_PREMIUM_FINAL_POLISH_SCOPE_CERTIFICATE_061D.md`
+
+DECISION=PASS_061D_PREMIUM_FINAL_POLISH_SCOPE
+
+NEXT=061E_PREMIUM_FINAL_POLISH_IMPLEMENTATION
+<!-- FORGEOS:PREMIUM_FINAL_POLISH_SCOPE_061D:END -->

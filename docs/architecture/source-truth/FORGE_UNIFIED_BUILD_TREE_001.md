@@ -3109,3 +3109,41 @@ DECISION=PASS_061B_PROFILE_MENU_COPY_AND_SPACING_POLISH_IMPLEMENTATION
 
 NEXT=061C_PROFILE_MENU_COPY_AND_SPACING_VISUAL_QA_LOCK
 <!-- FORGEOS:PROFILE_MENU_COPY_AND_SPACING_POLISH_061B:END -->
+
+<!-- FORGEOS:PREMIUM_FINAL_POLISH_SCOPE_061D:START -->
+## 061D Premium Final Polish Scope
+
+Status: PASS / SCOPED.
+
+061D records the final premium polish scope for Forge Alive desktop preview after 061C profile menu QA lock.
+
+Target rating path:
+
+- Current visual rating after 061C: `8.6 / 10`
+- Target after 061E implementation: `9 / 10`
+
+061E scope candidates:
+
+- Command/risk/KPI vertical rhythm.
+- Primary decision card hierarchy.
+- Product-final command bar visual state.
+- Profile menu overlay confidence.
+- Wide desktop right-rail balance.
+- Table/action density.
+- Preview-safety copy quieting.
+- Tablet/mobile overlay guard.
+
+Evidence and source-truth artifacts:
+
+- `docs/architecture/source-truth/FORGE_PREMIUM_FINAL_POLISH_SCOPE_061D.md`
+- `docs/evidence/FORGE_PREMIUM_FINAL_POLISH_SCOPE_061D.md`
+- `docs/evidence/FORGE_PREMIUM_FINAL_POLISH_SCOPE_CERTIFICATE_061D.md`
+
+Boundary:
+
+061D is documentation-only scope. It authorizes no UI implementation until 061E.
+
+DECISION=PASS_061D_PREMIUM_FINAL_POLISH_SCOPE
+
+NEXT=061E_PREMIUM_FINAL_POLISH_IMPLEMENTATION
+<!-- FORGEOS:PREMIUM_FINAL_POLISH_SCOPE_061D:END -->

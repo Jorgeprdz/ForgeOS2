@@ -5423,3 +5423,30 @@ DECISION=PASS_061B_PROFILE_MENU_COPY_AND_SPACING_POLISH_IMPLEMENTATION
 
 NEXT=061C_PROFILE_MENU_COPY_AND_SPACING_VISUAL_QA_LOCK
 <!-- FORGEOS:PROFILE_MENU_COPY_AND_SPACING_POLISH_061B:END -->
+
+<!-- FORGEOS:PREMIUM_FINAL_POLISH_SCOPE_061D:START -->
+## 061D Premium Final Polish Scope
+
+Status: PASS / SCOPED.
+
+061D defines the final high-impact polish scope needed to move Forge Alive desktop preview from 061C QA-pass quality toward a 9/10 premium command workspace.
+
+Base evidence:
+
+- `docs/evidence/forge-profile-menu-copy-spacing-visual-qa-audit-061c.json`
+- 061C closed/menu-open desktop screenshots at 1366, 1440, and 1920 widths
+
+Scope artifacts:
+
+- `docs/architecture/source-truth/FORGE_PREMIUM_FINAL_POLISH_SCOPE_061D.md`
+- `docs/evidence/FORGE_PREMIUM_FINAL_POLISH_SCOPE_061D.md`
+- `docs/evidence/FORGE_PREMIUM_FINAL_POLISH_SCOPE_CERTIFICATE_061D.md`
+
+Boundary:
+
+Scope/decision only. No static preview, CSS, JavaScript, HTML, runtime, provider, CRM, calendar, send, browser persistence, browser request, authentication, or real engine mutation.
+
+DECISION=PASS_061D_PREMIUM_FINAL_POLISH_SCOPE
+
+NEXT=061E_PREMIUM_FINAL_POLISH_IMPLEMENTATION
+<!-- FORGEOS:PREMIUM_FINAL_POLISH_SCOPE_061D:END -->
