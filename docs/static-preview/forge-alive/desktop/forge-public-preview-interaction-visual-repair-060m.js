@@ -529,3 +529,58 @@
   window.__forgeRunCommandBarSearchOverlayPolish060S = runOverlayPolish;
 })();
 /* FORGEOS:COMMAND_BAR_SEARCH_OVERLAY_POLISH_060S:END */
+
+/* FORGEOS:COMMAND_BAR_INPUT_ONLY_CLEANUP_060U:START */
+(function () {
+  "use strict";
+
+  var DESKTOP_QUERY = "(min-width: 901px)";
+
+  function isDesktop() {
+    return !window.matchMedia || window.matchMedia(DESKTOP_QUERY).matches;
+  }
+
+  function textOf(node) {
+    if (!node) {
+      return "";
+    }
+    return String(node.value || node.textContent || node.getAttribute("aria-label") || "").trim();
+  }
+
+  function hideStaticSuggestions() {
+    if (!isDesktop()) {
+      return;
+    }
+    var selectors = [
+      ".dw-command-suggestions-058e",
+      ".dw-command-suggestions-056y",
+      ".command-suggestions"
+    ];
+    var nodes = Array.prototype.slice.call(document.querySelectorAll(selectors.join(",")));
+    var commandRoot = document.querySelector(".dw-command-zone-056y, .dw-command-shell-056y, .dw-command-card-056y");
+    if (commandRoot) {
+      Array.prototype.slice.call(commandRoot.querySelectorAll("div, section, article, li, button")).forEach(function (node) {
+        var content = textOf(node).toLowerCase();
+        if (content.indexOf("/cotizar") !== -1 || content.indexOf("/follow") !== -1 || content.indexOf("/llamar") !== -1 || content.indexOf("/buscar") !== -1 || content.indexOf("/mandar") !== -1 || content.indexOf("/subir") !== -1) {
+          if (!node.hasAttribute("data-forge-command-results-panel-060s") && !node.closest("[data-forge-command-results-panel-060s='true']")) {
+            nodes.push(node);
+          }
+        }
+      });
+    }
+    nodes.forEach(function (node) {
+      node.setAttribute("data-forge-command-static-suggestion-060u", "true");
+      node.setAttribute("aria-hidden", "true");
+    });
+    document.documentElement.setAttribute("data-forge-command-input-only-cleanup-060u", "true");
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", hideStaticSuggestions, { once: true });
+  } else {
+    hideStaticSuggestions();
+  }
+  window.addEventListener("load", hideStaticSuggestions);
+  window.__forgeRunCommandBarInputOnlyCleanup060U = hideStaticSuggestions;
+})();
+/* FORGEOS:COMMAND_BAR_INPUT_ONLY_CLEANUP_060U:END */

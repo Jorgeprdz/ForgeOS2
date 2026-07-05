@@ -215,3 +215,33 @@
   }
 }
 /* FORGEOS:COMMAND_BAR_SEARCH_OVERLAY_POLISH_060S:END */
+
+/* FORGEOS:COMMAND_BAR_INPUT_ONLY_CLEANUP_060U:START */
+@media (min-width: 901px) {
+  .dw-command-suggestions-058e,
+  .dw-command-suggestions-056y,
+  .command-suggestions,
+  [data-forge-command-static-suggestion-060u="true"] {
+    display: none !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+  }
+
+  .dw-command-zone-056y,
+  .dw-command-shell-056y,
+  .dw-command-card-056y {
+    overflow: visible !important;
+  }
+
+  [data-forge-command-overlay-root-060s="true"] [data-forge-command-results-panel-060s="true"] {
+    margin-top: 0 !important;
+  }
+}
+/* FORGEOS:COMMAND_BAR_INPUT_ONLY_CLEANUP_060U:END */

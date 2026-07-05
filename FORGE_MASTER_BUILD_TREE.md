@@ -5282,3 +5282,19 @@ DECISION=PASS_060T_COMMAND_BAR_SEARCH_OVERLAY_VISUAL_QA_LOCK
 
 NEXT=060U_COMMAND_BAR_PUBLIC_MANUAL_REVIEW_DECISION
 <!-- FORGEOS:COMMAND_BAR_SEARCH_OVERLAY_VISUAL_QA_LOCK_060T:END -->
+
+<!-- FORGEOS:COMMAND_BAR_INPUT_ONLY_CLEANUP_IMPLEMENTATION_060U:START -->
+060U removes static command suggestions from the command bar closed state.
+
+The command bar is now scoped as the text entry surface only; result cards appear only through the floating results panel after input interaction.
+
+Cache-bust:
+
+`060u`
+
+Boundary remains static preview visual cleanup only: no provider runtime, no CRM write, no calendar create, no send, no browser storage, no network calls, and no real engine execution.
+
+DECISION=PASS_060U_COMMAND_BAR_INPUT_ONLY_CLEANUP_IMPLEMENTATION
+
+NEXT=060V_COMMAND_BAR_INPUT_ONLY_VISUAL_QA_LOCK
+<!-- FORGEOS:COMMAND_BAR_INPUT_ONLY_CLEANUP_IMPLEMENTATION_060U:END -->
