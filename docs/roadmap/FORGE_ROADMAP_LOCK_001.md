@@ -2378,3 +2378,28 @@ DECISION=PASS_062C1_COMMAND_BAR_CONTRACT_RESULT_VISUAL_REPAIR
 
 NEXT=062D_COMMAND_BAR_ACTION_CONTRACT_QA_LOCK
 <!-- FORGEOS:COMMAND_BAR_CONTRACT_RESULT_VISUAL_REPAIR_062C1:END -->
+
+<!-- FORGEOS:COMMAND_BAR_ACTION_CONTRACT_QA_LOCK_062D:START -->
+## 062D Command Bar Action Contract QA Lock
+
+Status: PASS / QA LOCKED.
+
+062D validates the 062C command-bar action contract implementation plus 062C1 result visual repair against public Pages `?v=062c1`.
+
+Validated:
+
+- `/quick actions` results;
+- `revisar` result with separated subtitle;
+- `follow` result with separated subtitle;
+- `/cotizar` result with separated subtitle;
+- visible `APPROVAL` and `PREVIEW ONLY` pills;
+- preview-safe no-effect behavior.
+
+Boundary:
+
+Read-only QA lock. No UI source, module, external-system, auth, provider, browser persistence, browser request, or real engine behavior is modified.
+
+DECISION=PASS_062D_COMMAND_BAR_ACTION_CONTRACT_QA_LOCK
+
+NEXT=062E_ACTION_CONTRACT_READ_MODEL_PREVIEW_BINDING
+<!-- FORGEOS:COMMAND_BAR_ACTION_CONTRACT_QA_LOCK_062D:END -->

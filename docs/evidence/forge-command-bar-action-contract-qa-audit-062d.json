@@ -1,0 +1,49 @@
+{
+  "phase": "062D_COMMAND_BAR_ACTION_CONTRACT_QA_LOCK",
+  "status": "PASS",
+  "publicUrl": "https://jorgeprdz.github.io/ForgeOS/static-preview/forge-alive/?v=062c1",
+  "cacheChecks": {
+    "css062c1": true,
+    "js062c1": true
+  },
+  "sourceChecks": {
+    "readModelPresent": true,
+    "actionRegistryPresent": true,
+    "commandCatalogPresent": true,
+    "contractPreviewEventPresent": true,
+    "visualRepairPresent": true
+  },
+  "manualPublicReview": {
+    "performedBeforeLock": true,
+    "quickActionsPanelLegible": true,
+    "resultTitleSubtitleSeparated": true,
+    "approvalAndPreviewOnlyPillsVisible": true,
+    "noStaticSuggestionsUnderCommandBar": true,
+    "noRealEffectsObserved": true
+  },
+  "contractsVerified": [
+    "command.quick_actions",
+    "report.prepare_preview",
+    "opportunity.review",
+    "client.follow_preview",
+    "quote.prepare_preview",
+    "record.open_preview"
+  ],
+  "keyboardChecklistRequiredForRegression": [
+    "ArrowDown navigates result rows",
+    "ArrowUp navigates result rows",
+    "Enter selects a result into preview-only status",
+    "Escape closes the result panel"
+  ],
+  "safety": {
+    "crmWrite": false,
+    "calendarCreate": false,
+    "messageSend": false,
+    "authReal": false,
+    "providerRuntime": false,
+    "browserPersistence": false,
+    "browserNetworkRequest": false,
+    "realEngineExecution": false
+  },
+  "next": "062E_ACTION_CONTRACT_READ_MODEL_PREVIEW_BINDING"
+}
