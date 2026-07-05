@@ -6,7 +6,7 @@
     return window.matchMedia("(min-width: 901px)").matches;
   }
 
-  function setPreview(root, button) {
+  function setPreview(root, button, shouldFillInput) {
     var title = root.querySelector("[data-command-preview-title-058e]");
     var copy = root.querySelector("[data-command-preview-copy-058e]");
     var input = root.querySelector(".dw-command-input-056y");
@@ -14,7 +14,7 @@
     var value = button.getAttribute("data-command-value") || "";
     title.textContent = button.getAttribute("data-preview-title") || value || "/llamar Lariza ahora";
     copy.textContent = button.getAttribute("data-preview-copy") || "Alfred prepara un preview seguro con contexto y aprobacion humana.";
-    if (input && value) input.value = value;
+    if (input && value && shouldFillInput) input.value = value;
   }
 
   function bootWorkspace(root) {
@@ -27,15 +27,15 @@
         buttons.forEach(function (item) {
           item.classList.toggle("is-selected", item === button);
         });
-        setPreview(root, button);
+        setPreview(root, button, true);
       });
       button.addEventListener("focus", function () {
-        setPreview(root, button);
+        setPreview(root, button, false);
       });
     });
 
     var selected = root.querySelector(".dw-command-suggestions-058e .is-selected") || buttons[0];
-    if (selected) setPreview(root, selected);
+    if (selected) setPreview(root, selected, false);
   }
 
   function boot() {

@@ -1,36 +1,114 @@
 /* FORGEOS:PUBLIC_PREVIEW_INTERACTION_VISUAL_REPAIR_060M:START */
 @media (min-width: 901px) {
-  [data-forge-command-static-060m="true"],
-  [data-forge-command-static-060m="true"]:focus,
-  [data-forge-command-static-060m="true"]:focus-visible {
-    background: transparent !important;
-    border-color: transparent !important;
-    box-shadow: none !important;
-    outline: 0 !important;
+  .dw-command-shell-056y {
+    isolation: isolate !important;
   }
 
-  [data-forge-command-static-wrap-060m="true"] {
-    box-shadow: none !important;
+  .dw-command-row-056y {
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  .dw-command-input-056y {
+    cursor: text !important;
+    caret-color: #f6d674 !important;
+    user-select: text !important;
+    pointer-events: auto !important;
+  }
+
+  .dw-command-input-056y:focus {
+    background: rgba(4, 12, 22, 0.28) !important;
+    box-shadow:
+      inset 0 -1px 0 rgba(246, 214, 116, 0.24),
+      0 0 0 1px rgba(126, 231, 223, 0.12) !important;
+  }
+
+  .dw-command-results-056y {
+    position: absolute !important;
+    left: 58px !important;
+    right: 16px !important;
+    top: calc(100% - 4px) !important;
+    z-index: 40 !important;
+    display: grid !important;
+    gap: 8px !important;
+    max-height: min(280px, 38vh) !important;
+    overflow: auto !important;
+    padding: 10px !important;
+    border: 1px solid rgba(126, 231, 223, 0.16) !important;
+    border-radius: 18px !important;
+    background:
+      linear-gradient(180deg, rgba(8, 19, 33, 0.98), rgba(5, 12, 22, 0.98)) !important;
+    box-shadow:
+      0 22px 48px rgba(0, 0, 0, 0.34),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+  }
+
+  .dw-command-results-056y[hidden] {
+    display: none !important;
+  }
+
+  .dw-command-results-056y button {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    gap: 12px !important;
+    min-height: 42px !important;
+    padding: 9px 11px !important;
+    border: 1px solid rgba(223, 240, 255, 0.08) !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.035) !important;
+    color: #f8fafc !important;
+    text-align: left !important;
+    cursor: pointer !important;
+  }
+
+  .dw-command-results-056y button:hover,
+  .dw-command-results-056y button:focus-visible {
+    border-color: rgba(246, 214, 116, 0.26) !important;
+    background: linear-gradient(135deg, rgba(246, 214, 116, 0.12), rgba(126, 231, 223, 0.07)) !important;
+  }
+
+  .dw-command-results-056y span,
+  .dw-command-results-056y strong {
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  .dw-command-results-056y span {
+    font-size: 12px !important;
+    font-weight: 800 !important;
+  }
+
+  .dw-command-results-056y strong {
+    color: rgba(226, 232, 240, 0.64) !important;
+    font-size: 11px !important;
+    font-weight: 760 !important;
+  }
+
+  .dw-command-zone-056y:not(.is-command-active-060m) .dw-command-results-056y {
+    display: none !important;
   }
 
   .forge-visual-repair-060m-quote-card {
-    min-height: 86px !important;
+    min-height: 0 !important;
     display: grid !important;
     align-content: start !important;
-    gap: 8px !important;
-    overflow: hidden !important;
+    gap: 4px !important;
+    overflow: visible !important;
   }
 
   .forge-visual-repair-060m-quote-card * {
     min-width: 0 !important;
     line-height: 1.22 !important;
-    overflow-wrap: anywhere !important;
+    overflow-wrap: normal !important;
   }
 
   .forge-local-read-model-preview-060l {
     width: auto !important;
     max-width: 100% !important;
-    margin: 18px 16px 0 !important;
+    margin: 16px 0 0 !important;
     border-color: rgba(126, 211, 255, 0.2) !important;
     background: linear-gradient(180deg, rgba(13, 28, 43, 0.96), rgba(7, 17, 28, 0.96)) !important;
     color: #f8fafc !important;

@@ -27,52 +27,167 @@
     return rect;
   }
 
-  function markStaticCommandInputs() {
+  function restoreCommandInputs() {
     var candidates = Array.prototype.slice.call(
-      document.querySelectorAll("input, textarea, [contenteditable='true'], [role='textbox']")
+      document.querySelectorAll(".dw-command-input-056y, .command-pill-input")
     );
 
     candidates.forEach(function (node) {
-      var content = textOf(node).toLowerCase();
-      var parentText = textOf(node.parentElement).toLowerCase();
-      var looksCommand = content.indexOf("/cotizar") !== -1 ||
-        parentText.indexOf("preparar preview") !== -1 ||
-        parentText.indexOf("preview seguro") !== -1;
-
-      if (!looksCommand) {
-        return;
-      }
-
-      node.setAttribute("data-forge-command-static-060m", "true");
-      node.setAttribute("inputmode", "none");
+      node.removeAttribute("data-forge-command-static-060m");
+      node.removeAttribute("aria-readonly");
+      node.removeAttribute("tabindex");
+      node.setAttribute("inputmode", "text");
       node.setAttribute("autocomplete", "off");
-      node.setAttribute("aria-readonly", "true");
-      node.setAttribute("tabindex", "-1");
       if ("readOnly" in node) {
-        node.readOnly = true;
+        node.readOnly = false;
       }
-      if (node.getAttribute("contenteditable") === "true") {
-        node.setAttribute("contenteditable", "false");
-      }
-
       if (node.parentElement) {
-        node.parentElement.setAttribute("data-forge-command-static-wrap-060m", "true");
+        node.parentElement.removeAttribute("data-forge-command-static-wrap-060m");
       }
-
-      node.addEventListener("pointerdown", function (event) {
-        event.preventDefault();
-        node.blur();
-      });
-      node.addEventListener("focus", function () {
-        window.setTimeout(function () {
-          node.blur();
-        }, 0);
-      });
     });
   }
 
+  function commandRows(root) {
+    var buttons = Array.prototype.slice.call(
+      root.querySelectorAll(".dw-command-suggestions-058e [data-command-value], .dw-decision-strip-058e [data-command-value]")
+    );
+
+    return buttons.map(function (button) {
+      return {
+        value: button.getAttribute("data-command-value") || "",
+        title: button.getAttribute("data-preview-title") || button.getAttribute("data-command-value") || textOf(button),
+        copy: button.getAttribute("data-preview-copy") || "Preview seguro. Requiere aprobacion humana antes de cualquier accion."
+      };
+    }).filter(function (row) {
+      return row.value;
+    });
+  }
+
+  function setPreview(root, row) {
+    var title = root.querySelector("[data-command-preview-title-058e]");
+    var copy = root.querySelector("[data-command-preview-copy-058e]");
+    if (title && row && row.title) {
+      title.textContent = row.title;
+    }
+    if (copy && row && row.copy) {
+      copy.textContent = row.copy;
+    }
+  }
+
+  function renderCommandResults(root, rows) {
+    var results = root.querySelector(".dw-command-results-056y");
+    if (!results) {
+      return;
+    }
+
+    if (!rows.length) {
+      results.hidden = true;
+      results.innerHTML = "";
+      root.classList.remove("is-command-active-060m");
+      return;
+    }
+
+    results.innerHTML = rows.map(function (row) {
+      return (
+        '<button type="button" role="option" data-command-result-value="' + row.value.replace(/"/g, "&quot;") + '">' +
+          '<span>' + row.title.replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</span>' +
+          '<strong>' + row.value.replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</strong>' +
+        '</button>'
+      );
+    }).join("");
+    results.hidden = false;
+    root.classList.add("is-command-active-060m");
+  }
+
+  function filterRows(rows, value) {
+    var query = String(value || "").trim().toLowerCase();
+    if (!query) {
+      return rows.slice(0, 3);
+    }
+    return rows.filter(function (row) {
+      return (row.value + " " + row.title + " " + row.copy).toLowerCase().indexOf(query.replace(/^\//, "")) !== -1 ||
+        row.value.toLowerCase().indexOf(query) !== -1;
+    }).slice(0, 5);
+  }
+
+  function setupDesktopCommandBar(root) {
+    if (!root || root.dataset.ready060m === "true") {
+      return;
+    }
+    root.dataset.ready060m = "true";
+
+    var input = root.querySelector(".dw-command-input-056y");
+    var results = root.querySelector(".dw-command-results-056y");
+    var rows = commandRows(root);
+    var submit = root.querySelector(".dw-command-submit-056y");
+    var suggestionButtons = Array.prototype.slice.call(root.querySelectorAll(".dw-command-suggestions-058e [data-command-value], .dw-decision-strip-058e [data-command-value]"));
+
+    if (!input || !results) {
+      return;
+    }
+
+    results.hidden = true;
+
+    function updateResults() {
+      renderCommandResults(root, filterRows(rows, input.value));
+    }
+
+    function applyValue(value) {
+      var row = rows.filter(function (item) {
+        return item.value === value;
+      })[0] || { value: value, title: value, copy: "Preview seguro. Requiere aprobacion humana antes de cualquier accion." };
+      input.value = row.value;
+      setPreview(root, row);
+      renderCommandResults(root, [row]);
+      input.focus();
+    }
+
+    input.addEventListener("focus", updateResults);
+    input.addEventListener("input", updateResults);
+    input.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        results.hidden = true;
+        root.classList.remove("is-command-active-060m");
+      }
+    });
+    input.addEventListener("blur", function () {
+      window.setTimeout(function () {
+        if (!root.matches(":focus-within")) {
+          results.hidden = true;
+          root.classList.remove("is-command-active-060m");
+        }
+      }, 140);
+    });
+
+    results.addEventListener("pointerdown", function (event) {
+      event.preventDefault();
+    });
+    results.addEventListener("click", function (event) {
+      var button = event.target.closest ? event.target.closest("[data-command-result-value]") : null;
+      if (!button) {
+        return;
+      }
+      applyValue(button.getAttribute("data-command-result-value") || "");
+    });
+
+    suggestionButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        applyValue(button.getAttribute("data-command-value") || "");
+      });
+    });
+
+    if (submit) {
+      submit.addEventListener("click", function () {
+        var value = input.value.trim() || (rows[0] && rows[0].value) || "";
+        if (value) {
+          applyValue(value);
+        }
+      });
+    }
+  }
+
   function markQuoteCards() {
-    var nodes = Array.prototype.slice.call(document.querySelectorAll("div, article, section, li, button"));
+    var nodes = Array.prototype.slice.call(document.querySelectorAll(".dw-command-suggestions-058e button, .dw-table-056y td, .dw-table-056y th"));
     nodes.forEach(function (node) {
       var rect = visibleRect(node);
       if (!rect || rect.width < 120 || rect.height < 36 || rect.height > 180) {
@@ -144,7 +259,8 @@
     if (!isDesktop()) {
       return;
     }
-    markStaticCommandInputs();
+    restoreCommandInputs();
+    Array.prototype.forEach.call(document.querySelectorAll(".forge-desktop-workspace-056y"), setupDesktopCommandBar);
     markQuoteCards();
     repairPreviewCardMount();
   }

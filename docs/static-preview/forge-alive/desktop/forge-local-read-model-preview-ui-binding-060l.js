@@ -132,10 +132,6 @@
   function boot() {
     window.addEventListener(EVENT_NAME, onLocalReadModel);
     window.__forgeRenderLocalReadModelPreview060L = render;
-
-    if (typeof window.__forgeRunLocalReadModelSourceAdapter060I === "function") {
-      render(window.__forgeRunLocalReadModelSourceAdapter060I());
-    }
   }
 
   if (document.readyState === "loading") {
