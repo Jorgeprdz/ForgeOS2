@@ -1,0 +1,138 @@
+{
+  "phase": "060E_SELECTED_ENGINE_DRY_RUN_EVIDENCE_LOCK",
+  "status": "PASS",
+  "adapter": "forge-report-read-model-dry-run-adapter-060d.js",
+  "acceptedPacket": {
+    "packetVersion": "059B.static.preview",
+    "packetId": "forge-report-preview-060e",
+    "actionId": "report.open.preview",
+    "sourceSurface": "desktop.command_workspace",
+    "sourcePlatform": "desktop",
+    "sourceModule": "reportes",
+    "humanLabel": "Ver preview de reporte",
+    "previewMode": true,
+    "requiresHumanApproval": true,
+    "selectedCandidate": "selected.report_read_model_preview"
+  },
+  "accepted": {
+    "dryRunStatus": "DRY_RUN_ACCEPTED",
+    "actionId": "report.open.preview",
+    "adapterCandidate": "report_read_model_dry_run",
+    "selectedCandidate": "selected.report_read_model_preview",
+    "previewMode": true,
+    "requiresHumanApproval": true,
+    "executionAllowed": false,
+    "writesAllowed": false,
+    "sendAllowed": false,
+    "calendarAllowed": false,
+    "crmAllowed": false,
+    "evidence": {
+      "source": "060D static report read-model dry-run adapter",
+      "decision": "accepted_preview_only"
+    },
+    "reportPreview": {
+      "title": "Preview de reporte",
+      "summary": "Lectura segura preparada para revision humana.",
+      "sourceModule": "reportes",
+      "sourceSurface": "desktop.command_workspace",
+      "rows": [
+        {
+          "label": "Estado",
+          "value": "Preview sin ejecucion"
+        },
+        {
+          "label": "Motor",
+          "value": "Dry-run estatico"
+        },
+        {
+          "label": "Aprobacion",
+          "value": "Humana requerida"
+        }
+      ]
+    }
+  },
+  "refusedPacket": {
+    "packetVersion": "059B.static.preview",
+    "packetId": "forge-report-refusal-060e",
+    "actionId": "client.follow.preview",
+    "sourceSurface": "desktop.command_workspace",
+    "sourcePlatform": "desktop",
+    "sourceModule": "clientes",
+    "humanLabel": "Follow preview",
+    "previewMode": true,
+    "requiresHumanApproval": true,
+    "selectedCandidate": "selected.report_read_model_preview"
+  },
+  "refused": {
+    "dryRunStatus": "DRY_RUN_REFUSED",
+    "actionId": "client.follow.preview",
+    "adapterCandidate": "report_read_model_dry_run",
+    "selectedCandidate": "selected.report_read_model_preview",
+    "previewMode": true,
+    "requiresHumanApproval": true,
+    "executionAllowed": false,
+    "writesAllowed": false,
+    "sendAllowed": false,
+    "calendarAllowed": false,
+    "crmAllowed": false,
+    "evidence": {
+      "source": "060D static report read-model dry-run adapter",
+      "decision": "refused_preview_only"
+    },
+    "refusal": {
+      "reason": "UNKNOWN_ACTION_ID",
+      "message": "Only report.open.preview is accepted."
+    }
+  },
+  "dispatched": [
+    {
+      "type": "forge:report-read-model-dry-run:060d",
+      "detail": {
+        "dryRunStatus": "DRY_RUN_ACCEPTED",
+        "actionId": "report.open.preview",
+        "adapterCandidate": "report_read_model_dry_run",
+        "selectedCandidate": "selected.report_read_model_preview",
+        "previewMode": true,
+        "requiresHumanApproval": true,
+        "executionAllowed": false,
+        "writesAllowed": false,
+        "sendAllowed": false,
+        "calendarAllowed": false,
+        "crmAllowed": false,
+        "evidence": {
+          "source": "060D static report read-model dry-run adapter",
+          "decision": "accepted_preview_only"
+        },
+        "reportPreview": {
+          "title": "Preview de reporte",
+          "summary": "Lectura segura preparada para revision humana.",
+          "sourceModule": "reportes",
+          "sourceSurface": "desktop.command_workspace",
+          "rows": [
+            {
+              "label": "Estado",
+              "value": "Preview sin ejecucion"
+            },
+            {
+              "label": "Motor",
+              "value": "Dry-run estatico"
+            },
+            {
+              "label": "Aprobacion",
+              "value": "Humana requerida"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "safety": {
+    "providerExecution": false,
+    "realEngineExecution": false,
+    "messageSend": false,
+    "crmWrite": false,
+    "calendarCreate": false,
+    "browserStorageMutation": false,
+    "liveExternalData": false
+  }
+}
