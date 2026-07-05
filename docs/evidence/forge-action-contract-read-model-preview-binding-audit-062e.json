@@ -1,0 +1,28 @@
+{
+  "phase": "062E_ACTION_CONTRACT_READ_MODEL_PREVIEW_BINDING",
+  "status": "PASS",
+  "cacheVersion": "062e",
+  "payloadBinding": {
+    "lastPayloadGlobal": "__forgeLastActionPreviewPayload062E",
+    "payloadEvent": "forge:action-preview-payload:062e",
+    "sourceEvent": "forge:action-contract-preview:062c",
+    "panelRendered": true
+  },
+  "payloadFields": [
+    "modelName",
+    "actionId",
+    "commandId",
+    "targetType",
+    "targetId",
+    "status",
+    "sourceModule",
+    "previewSummary",
+    "blockedReasons",
+    "requiresHumanApproval",
+    "realEffectsAllowed",
+    "previewOnly",
+    "policy"
+  ],
+  "realEffectsEnabled": false,
+  "next": "062F_ACTION_CONTRACT_READ_MODEL_PREVIEW_QA_LOCK"
+}

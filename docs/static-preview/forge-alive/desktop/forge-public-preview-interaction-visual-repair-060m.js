@@ -1677,3 +1677,136 @@
   window.__forgeRunCommandBarContractResultVisualRepair062C1 = runRepair;
 })();
 /* FORGEOS:COMMAND_BAR_CONTRACT_RESULT_VISUAL_REPAIR_062C1:END */
+
+/* FORGEOS:ACTION_CONTRACT_READ_MODEL_PREVIEW_BINDING_062E:START */
+(function () {
+  "use strict";
+
+  function findInput() {
+    return document.querySelector(".dw-command-input-056y, .command-pill-input");
+  }
+
+  function findRoot(input) {
+    return input && (input.closest(".dw-command-zone-056y") || input.closest(".dw-command-shell-056y") || input.parentElement);
+  }
+
+  function ensurePayloadPanel(root) {
+    var panel = root.querySelector(".forge-action-preview-payload-062e");
+    if (!panel) {
+      panel = document.createElement("section");
+      panel.className = "forge-action-preview-payload-062e";
+      panel.setAttribute("aria-live", "polite");
+      panel.setAttribute("data-forge-action-preview-payload-panel-062e", "true");
+      panel.hidden = true;
+      root.appendChild(panel);
+    }
+    return panel;
+  }
+
+  function getReadModel() {
+    return window.__forgeAliveWorkspaceReadModel062C || null;
+  }
+
+  function findAction(model, actionId) {
+    if (!model || !model.actionRegistry) {
+      return null;
+    }
+    return model.actionRegistry.filter(function (action) {
+      return action.actionId === actionId;
+    })[0] || null;
+  }
+
+  function findCommand(model, commandId) {
+    if (!model || !model.commandCatalog) {
+      return null;
+    }
+    return model.commandCatalog.filter(function (command) {
+      return command.commandId === commandId;
+    })[0] || null;
+  }
+
+  function blockedReasons(model, action) {
+    var ids = action && action.blockedReasonIds ? action.blockedReasonIds : ["preview_only_boundary"];
+    var reasons = model && model.blockedReasons ? model.blockedReasons : [];
+    return ids.map(function (id) {
+      var found = reasons.filter(function (reason) {
+        return reason.reasonId === id;
+      })[0];
+      return found ? found.message : id;
+    });
+  }
+
+  function buildPayload(detail) {
+    var model = getReadModel();
+    var action = findAction(model, detail.actionId);
+    var command = findCommand(model, detail.commandId);
+    var policy = model && model.previewPolicy ? model.previewPolicy : {};
+    var status = action ? action.contractStatus : "blocked";
+    return {
+      modelName: model ? model.modelName : "forge.alive.workspace.read_model.v1",
+      actionId: detail.actionId,
+      commandId: detail.commandId,
+      targetType: detail.targetType,
+      targetId: detail.targetId,
+      status: status,
+      sourceModule: action ? action.sourceModule : "unknown",
+      previewSummary: command ? command.subtitle : "Preview preparado sin efectos reales.",
+      blockedReasons: blockedReasons(model, action),
+      requiresHumanApproval: action ? !!action.requiresHumanApproval : true,
+      realEffectsAllowed: false,
+      previewOnly: true,
+      policy: {
+        externalEffectsAllowed: !!policy.externalEffectsAllowed,
+        recordMutationAllowed: !!policy.recordMutationAllowed,
+        scheduleMutationAllowed: !!policy.scheduleMutationAllowed,
+        messageDeliveryAllowed: !!policy.messageDeliveryAllowed,
+        providerExecutionAllowed: !!policy.providerExecutionAllowed
+      }
+    };
+  }
+
+  function renderPayload(payload) {
+    var input = findInput();
+    var root = findRoot(input);
+    if (!root) {
+      return;
+    }
+    var panel = ensurePayloadPanel(root);
+    panel.hidden = false;
+    panel.innerHTML =
+      '<div class="forge-action-preview-payload-062e__head">' +
+        '<div class="forge-action-preview-payload-062e__title">' + payload.actionId + '</div>' +
+        '<div class="forge-action-preview-payload-062e__status">' + payload.status.replace("_", " ") + '</div>' +
+      '</div>' +
+      '<p class="forge-action-preview-payload-062e__body">' +
+        payload.previewSummary + ' Fuente: ' + payload.sourceModule + '. ' +
+        'Bloqueos: ' + payload.blockedReasons.join("; ") + '. ' +
+        'Efectos reales: desactivados.' +
+      '</p>';
+  }
+
+  function handlePreview(event) {
+    var payload = buildPayload(event.detail || {});
+    window.__forgeLastActionPreviewPayload062E = payload;
+    document.documentElement.setAttribute("data-forge-action-preview-payload-ready-062e", "true");
+    renderPayload(payload);
+    window.dispatchEvent(new CustomEvent("forge:action-preview-payload:062e", {
+      detail: payload
+    }));
+  }
+
+  function run() {
+    window.removeEventListener("forge:action-contract-preview:062c", handlePreview);
+    window.addEventListener("forge:action-contract-preview:062c", handlePreview);
+    document.documentElement.setAttribute("data-forge-action-preview-binding-062e", "true");
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run, { once: true });
+  } else {
+    run();
+  }
+  window.addEventListener("load", run);
+  window.__forgeRunActionContractReadModelPreviewBinding062E = run;
+})();
+/* FORGEOS:ACTION_CONTRACT_READ_MODEL_PREVIEW_BINDING_062E:END */

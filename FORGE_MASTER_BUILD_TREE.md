@@ -5739,3 +5739,30 @@ DECISION=PASS_062D_COMMAND_BAR_ACTION_CONTRACT_QA_LOCK
 
 NEXT=062E_ACTION_CONTRACT_READ_MODEL_PREVIEW_BINDING
 <!-- FORGEOS:COMMAND_BAR_ACTION_CONTRACT_QA_LOCK_062D:END -->
+
+<!-- FORGEOS:ACTION_CONTRACT_READ_MODEL_PREVIEW_BINDING_062E:START -->
+## 062E Action Contract Read Model Preview Binding
+
+Status: PASS / IMPLEMENTED.
+
+062E binds selected command-bar action contracts to structured local preview payloads derived from `forge.alive.workspace.read_model.v1`.
+
+Implemented:
+
+- local preview payload object;
+- `window.__forgeLastActionPreviewPayload062E`;
+- `forge:action-preview-payload:062e` event;
+- compact preview payload panel;
+- explicit no-effect policy.
+
+Public cache:
+`062e`
+
+Boundary:
+
+Static preview payload binding only. No module connection, external effect, auth behavior, provider execution, browser persistence, browser request, or real engine behavior is enabled.
+
+DECISION=PASS_062E_ACTION_CONTRACT_READ_MODEL_PREVIEW_BINDING
+
+NEXT=062F_ACTION_CONTRACT_READ_MODEL_PREVIEW_QA_LOCK
+<!-- FORGEOS:ACTION_CONTRACT_READ_MODEL_PREVIEW_BINDING_062E:END -->
