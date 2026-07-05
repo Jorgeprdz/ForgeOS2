@@ -2261,3 +2261,37 @@ FINAL_STATE=PREMIUM_STATIC_COMMAND_PREVIEW_LOCKED
 
 NEXT=062A_ACTION_CONTRACTS_SCOPE
 <!-- FORGEOS:PREMIUM_FINAL_DECISION_LOCK_061I:END -->
+
+<!-- FORGEOS:ACTION_CONTRACTS_SCOPE_062A:START -->
+## 062A Action Contracts Scope
+
+Status: PASS / SCOPED.
+
+062A defines the preview-safe action contract layer after `PREMIUM_STATIC_COMMAND_PREVIEW_LOCKED`.
+
+Scoped contracts:
+
+- `command.quick_actions`
+- `report.prepare_preview`
+- `opportunity.review`
+- `client.follow_preview`
+- `quote.prepare_preview`
+- `record.open_preview`
+
+Shared statuses:
+
+- `idle`
+- `preview_only`
+- `prepared`
+- `needs_approval`
+- `blocked`
+- `failed`
+
+Boundary:
+
+Scope/decision only. No UI, module, external-system, auth, provider, browser persistence, browser request, or real engine behavior is modified.
+
+DECISION=PASS_062A_ACTION_CONTRACTS_SCOPE
+
+NEXT=062B_READ_MODEL_UNIFICATION_SCOPE
+<!-- FORGEOS:ACTION_CONTRACTS_SCOPE_062A:END -->
