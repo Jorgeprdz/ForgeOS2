@@ -16,6 +16,15 @@
     return String(node.value || node.textContent || node.getAttribute("aria-label") || "").trim();
   }
 
+  function escapeHtml(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
   function visibleRect(node) {
     if (!node || typeof node.getBoundingClientRect !== "function") {
       return null;
@@ -53,10 +62,14 @@
     );
 
     return buttons.map(function (button) {
+      var value = button.getAttribute("data-command-value") || "";
+      var title = button.getAttribute("data-preview-title") || value || textOf(button);
+      var copy = button.getAttribute("data-preview-copy") || "Preview seguro. Requiere aprobacion humana antes de cualquier accion.";
       return {
-        value: button.getAttribute("data-command-value") || "",
-        title: button.getAttribute("data-preview-title") || button.getAttribute("data-command-value") || textOf(button),
-        copy: button.getAttribute("data-preview-copy") || "Preview seguro. Requiere aprobacion humana antes de cualquier accion."
+        value: value,
+        title: title,
+        copy: copy,
+        searchText: (value + " " + title + " " + copy + " " + textOf(button)).toLowerCase()
       };
     }).filter(function (row) {
       return row.value;
@@ -74,8 +87,9 @@
     }
   }
 
-  function renderCommandResults(root, rows) {
+  function renderCommandResults(root, rows, query, activeIndex) {
     var results = root.querySelector(".dw-command-results-056y");
+    var zone = results && results.closest ? results.closest(".dw-command-zone-056y") : null;
     if (!results) {
       return;
     }
@@ -84,30 +98,63 @@
       results.hidden = true;
       results.innerHTML = "";
       root.classList.remove("is-command-active-060m");
+      if (zone) {
+        zone.classList.remove("is-command-active-060m");
+      }
       return;
     }
 
-    results.innerHTML = rows.map(function (row) {
+    results.innerHTML = rows.map(function (row, index) {
+      var isActive = index === activeIndex;
+      var title = row.title || row.value;
+      var copy = row.copy || "Preview seguro. Requiere aprobacion humana antes de cualquier accion.";
+      var value = row.value || query || "";
       return (
-        '<button type="button" role="option" data-command-result-value="' + row.value.replace(/"/g, "&quot;") + '">' +
-          '<span>' + row.title.replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</span>' +
-          '<strong>' + row.value.replace(/</g, "&lt;").replace(/>/g, "&gt;") + '</strong>' +
+        '<button id="forge-command-result-060m-' + index + '" type="button" role="option" aria-selected="' + (isActive ? "true" : "false") + '" data-command-result-value="' + escapeHtml(value) + '">' +
+          '<span>' + escapeHtml(title) + '</span>' +
+          '<strong>' + escapeHtml(value) + '</strong>' +
+          '<small>' + escapeHtml(copy) + '</small>' +
         '</button>'
       );
     }).join("");
     results.hidden = false;
+    results.setAttribute("aria-expanded", "true");
     root.classList.add("is-command-active-060m");
+    if (zone) {
+      zone.classList.add("is-command-active-060m");
+    }
   }
 
   function filterRows(rows, value) {
     var query = String(value || "").trim().toLowerCase();
     if (!query) {
-      return rows.slice(0, 3);
+      return rows.slice(0, 4);
     }
-    return rows.filter(function (row) {
-      return (row.value + " " + row.title + " " + row.copy).toLowerCase().indexOf(query.replace(/^\//, "")) !== -1 ||
+    var cleanedQuery = query.replace(/^\//, "");
+    var matches = rows.filter(function (row) {
+      return row.searchText.indexOf(cleanedQuery) !== -1 ||
         row.value.toLowerCase().indexOf(query) !== -1;
     }).slice(0, 5);
+
+    return matches;
+  }
+
+  function hideResults(root) {
+    var results = root.querySelector(".dw-command-results-056y");
+    var input = root.querySelector(".dw-command-input-056y");
+    var zone = results && results.closest ? results.closest(".dw-command-zone-056y") : null;
+    if (results) {
+      results.hidden = true;
+      results.innerHTML = "";
+      results.setAttribute("aria-expanded", "false");
+    }
+    if (input) {
+      input.removeAttribute("aria-activedescendant");
+    }
+    root.classList.remove("is-command-active-060m");
+    if (zone) {
+      zone.classList.remove("is-command-active-060m");
+    }
   }
 
   function setupDesktopCommandBar(root) {
@@ -121,40 +168,103 @@
     var rows = commandRows(root);
     var submit = root.querySelector(".dw-command-submit-056y");
     var suggestionButtons = Array.prototype.slice.call(root.querySelectorAll(".dw-command-suggestions-058e [data-command-value], .dw-decision-strip-058e [data-command-value]"));
+    var activeIndex = -1;
+    var visibleRows = [];
 
     if (!input || !results) {
       return;
     }
 
     results.hidden = true;
-
-    function updateResults() {
-      renderCommandResults(root, filterRows(rows, input.value));
+    results.setAttribute("aria-expanded", "false");
+    input.setAttribute("aria-autocomplete", "list");
+    input.setAttribute("aria-controls", results.id || "forge-command-results-060m");
+    if (!results.id) {
+      results.id = "forge-command-results-060m";
     }
 
-    function applyValue(value) {
+    function updateResults() {
+      if (!input.value.trim()) {
+        activeIndex = -1;
+        visibleRows = [];
+        hideResults(root);
+        return;
+      }
+      visibleRows = filterRows(rows, input.value);
+      if (activeIndex >= visibleRows.length) {
+        activeIndex = visibleRows.length - 1;
+      }
+      renderCommandResults(root, visibleRows, input.value, activeIndex);
+      if (activeIndex >= 0) {
+        input.setAttribute("aria-activedescendant", "forge-command-result-060m-" + activeIndex);
+      } else {
+        input.removeAttribute("aria-activedescendant");
+      }
+    }
+
+    function applyValue(value, keepOpen) {
       var row = rows.filter(function (item) {
         return item.value === value;
       })[0] || { value: value, title: value, copy: "Preview seguro. Requiere aprobacion humana antes de cualquier accion." };
       input.value = row.value;
       setPreview(root, row);
-      renderCommandResults(root, [row]);
+      if (keepOpen) {
+        activeIndex = 0;
+        visibleRows = [row];
+        renderCommandResults(root, visibleRows, input.value, activeIndex);
+      } else {
+        activeIndex = -1;
+        visibleRows = [];
+        hideResults(root);
+      }
       input.focus();
     }
 
-    input.addEventListener("focus", updateResults);
-    input.addEventListener("input", updateResults);
+    input.addEventListener("focus", function () {
+      activeIndex = -1;
+      updateResults();
+    });
+    input.addEventListener("input", function () {
+      activeIndex = 0;
+      updateResults();
+    });
     input.addEventListener("keydown", function (event) {
       if (event.key === "Escape") {
-        results.hidden = true;
-        root.classList.remove("is-command-active-060m");
+        hideResults(root);
+        return;
+      }
+
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        if (!visibleRows.length || results.hidden) {
+          updateResults();
+          return;
+        }
+        activeIndex = Math.min(visibleRows.length - 1, activeIndex + 1);
+        updateResults();
+        return;
+      }
+
+      if (event.key === "ArrowUp") {
+        event.preventDefault();
+        if (!visibleRows.length || results.hidden) {
+          updateResults();
+          return;
+        }
+        activeIndex = Math.max(0, activeIndex - 1);
+        updateResults();
+        return;
+      }
+
+      if (event.key === "Enter" && visibleRows.length && activeIndex >= 0) {
+        event.preventDefault();
+        applyValue(visibleRows[activeIndex].value, false);
       }
     });
     input.addEventListener("blur", function () {
       window.setTimeout(function () {
         if (!root.matches(":focus-within")) {
-          results.hidden = true;
-          root.classList.remove("is-command-active-060m");
+          hideResults(root);
         }
       }, 140);
     });
@@ -167,12 +277,12 @@
       if (!button) {
         return;
       }
-      applyValue(button.getAttribute("data-command-result-value") || "");
+      applyValue(button.getAttribute("data-command-result-value") || "", false);
     });
 
     suggestionButtons.forEach(function (button) {
       button.addEventListener("click", function () {
-        applyValue(button.getAttribute("data-command-value") || "");
+        applyValue(button.getAttribute("data-command-value") || "", false);
       });
     });
 
@@ -180,7 +290,7 @@
       submit.addEventListener("click", function () {
         var value = input.value.trim() || (rows[0] && rows[0].value) || "";
         if (value) {
-          applyValue(value);
+          applyValue(value, false);
         }
       });
     }

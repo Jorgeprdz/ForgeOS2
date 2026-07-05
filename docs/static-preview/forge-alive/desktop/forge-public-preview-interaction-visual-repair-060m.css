@@ -17,30 +17,31 @@
   }
 
   .dw-command-input-056y:focus {
-    background: rgba(4, 12, 22, 0.28) !important;
-    box-shadow:
-      inset 0 -1px 0 rgba(246, 214, 116, 0.24),
-      0 0 0 1px rgba(126, 231, 223, 0.12) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: 0 !important;
   }
 
   .dw-command-results-056y {
     position: absolute !important;
-    left: 58px !important;
-    right: 16px !important;
-    top: calc(100% - 4px) !important;
+    left: 12px !important;
+    right: 12px !important;
+    top: 74px !important;
     z-index: 40 !important;
     display: grid !important;
     gap: 8px !important;
-    max-height: min(280px, 38vh) !important;
+    max-height: min(330px, 42vh) !important;
     overflow: auto !important;
-    padding: 10px !important;
-    border: 1px solid rgba(126, 231, 223, 0.16) !important;
-    border-radius: 18px !important;
+    padding: 9px !important;
+    border: 1px solid rgba(126, 231, 223, 0.18) !important;
+    border-radius: 22px !important;
     background:
-      linear-gradient(180deg, rgba(8, 19, 33, 0.98), rgba(5, 12, 22, 0.98)) !important;
+      linear-gradient(180deg, rgba(8, 19, 33, 0.99), rgba(5, 12, 22, 0.99)) !important;
     box-shadow:
-      0 22px 48px rgba(0, 0, 0, 0.34),
-      inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+      0 26px 64px rgba(0, 0, 0, 0.44),
+      0 0 0 1px rgba(255, 255, 255, 0.025),
+      inset 0 1px 0 rgba(255, 255, 255, 0.055) !important;
+    backdrop-filter: blur(14px) !important;
   }
 
   .dw-command-results-056y[hidden] {
@@ -51,25 +52,33 @@
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) auto !important;
     align-items: center !important;
-    gap: 12px !important;
-    min-height: 42px !important;
-    padding: 9px 11px !important;
+    column-gap: 12px !important;
+    row-gap: 3px !important;
+    min-height: 50px !important;
+    padding: 10px 12px !important;
     border: 1px solid rgba(223, 240, 255, 0.08) !important;
-    border-radius: 12px !important;
-    background: rgba(255, 255, 255, 0.035) !important;
+    border-radius: 15px !important;
+    background: rgba(255, 255, 255, 0.03) !important;
     color: #f8fafc !important;
     text-align: left !important;
     cursor: pointer !important;
+    transition:
+      border-color 160ms ease,
+      background 160ms ease,
+      transform 160ms ease !important;
   }
 
   .dw-command-results-056y button:hover,
-  .dw-command-results-056y button:focus-visible {
+  .dw-command-results-056y button:focus-visible,
+  .dw-command-results-056y button[aria-selected="true"] {
     border-color: rgba(246, 214, 116, 0.26) !important;
     background: linear-gradient(135deg, rgba(246, 214, 116, 0.12), rgba(126, 231, 223, 0.07)) !important;
+    transform: translateY(-1px) !important;
   }
 
   .dw-command-results-056y span,
-  .dw-command-results-056y strong {
+  .dw-command-results-056y strong,
+  .dw-command-results-056y small {
     min-width: 0 !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
@@ -87,8 +96,21 @@
     font-weight: 760 !important;
   }
 
+  .dw-command-results-056y small {
+    grid-column: 1 / -1 !important;
+    color: rgba(226, 232, 240, 0.56) !important;
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+  }
+
   .dw-command-zone-056y:not(.is-command-active-060m) .dw-command-results-056y {
     display: none !important;
+  }
+
+  .dw-command-zone-056y.is-command-active-060m .dw-command-suggestions-058e {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
   }
 
   .forge-visual-repair-060m-quote-card {

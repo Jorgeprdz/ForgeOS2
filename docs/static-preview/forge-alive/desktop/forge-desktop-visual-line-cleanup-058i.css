@@ -45,6 +45,14 @@
     outline: 0 !important;
   }
 
+  .forge-desktop-workspace-056y .dw-command-input-056y:focus,
+  .forge-desktop-workspace-056y .dw-command-input-056y:focus-visible {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    outline: 0 !important;
+  }
+
   .dw-command-preview-058e {
     border-color: rgba(100, 218, 255, 0.08) !important;
     background:
