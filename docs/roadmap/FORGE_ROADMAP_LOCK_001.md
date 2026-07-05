@@ -1911,3 +1911,21 @@ DECISION=PASS_060K_LOCAL_READ_MODEL_PREVIEW_UI_BINDING_SCOPE
 
 NEXT=060L_LOCAL_READ_MODEL_PREVIEW_UI_BINDING_IMPLEMENTATION
 <!-- END FORGEOS:LOCAL_READ_MODEL_PREVIEW_UI_BINDING_SCOPE_060K -->
+
+<!-- FORGEOS:LOCAL_READ_MODEL_PREVIEW_UI_BINDING_IMPLEMENTATION_060L:START -->
+060L implements the desktop static preview UI binding for `forge:local-read-model-source:060i`.
+
+Visible output:
+
+- `Preview local`
+- report read-model title, summary, and rows
+- review-required label
+- no-send / no-CRM / no-calendar guards
+- local evidence source label
+
+Boundary remains static preview UI binding only: no provider runtime, no CRM write, no calendar create, no send, no browser storage, no network calls, and no real engine execution.
+
+DECISION=PASS_060L_LOCAL_READ_MODEL_PREVIEW_UI_BINDING_IMPLEMENTATION
+
+NEXT=060M_LOCAL_READ_MODEL_PREVIEW_UI_BINDING_VISUAL_QA_LOCK
+<!-- FORGEOS:LOCAL_READ_MODEL_PREVIEW_UI_BINDING_IMPLEMENTATION_060L:END -->
