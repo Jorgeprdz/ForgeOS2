@@ -965,9 +965,9 @@
       '<div class="forge-profile-menu-060y__actions">' +
         '<button class="forge-profile-menu-060y__action" type="button" role="menuitem" data-forge-profile-action-060y="theme">Cambiar tema</button>' +
         '<button class="forge-profile-menu-060y__action" type="button" role="menuitem" data-forge-profile-action-060y="options">Opciones</button>' +
-        '<button class="forge-profile-menu-060y__action" type="button" role="menuitem" data-forge-profile-action-060y="logout">Cerrar sesion</button>' +
+        '<button class="forge-profile-menu-060y__action" type="button" role="menuitem" data-forge-profile-action-060y="logout">Cerrar sesión</button>' +
       '</div>' +
-      '<div class="forge-profile-menu-060y__status" aria-live="polite">Vista estatica segura</div>';
+      '<div class="forge-profile-menu-060y__status" aria-live="polite">Vista estática segura</div>';
     document.body.appendChild(menu);
     return menu;
   }
@@ -978,7 +978,7 @@
       return;
     }
     var right = Math.max(18, Math.round(window.innerWidth - rect.right));
-    var top = Math.round(rect.bottom + 12);
+    var top = Math.round(rect.bottom + 18);
     menu.style.setProperty("--forge-profile-menu-right-060y", right + "px");
     menu.style.setProperty("--forge-profile-menu-top-060y", top + "px");
   }
@@ -1063,7 +1063,7 @@
         } else if (action === "options") {
           setStatus(menu, "Opciones preparadas para cuenta.");
         } else if (action === "logout") {
-          setStatus(menu, "Cerrar sesion requiere autenticacion real.");
+          setStatus(menu, "Cerrar sesión requiere autenticación real.");
         }
       });
     });
@@ -1190,3 +1190,33 @@
   window.__forgeRunTopbarProfileIconCleanup060Z = cleanupTopbarIcons;
 })();
 /* FORGEOS:TOPBAR_PROFILE_ICON_CLEANUP_060Z:END */
+
+/* FORGEOS:PROFILE_MENU_COPY_AND_SPACING_POLISH_061B:START */
+(function () {
+  "use strict";
+
+  function polishProfileMenuCopy() {
+    var menu = document.getElementById("forge-profile-menu-060y");
+    if (!menu) {
+      return;
+    }
+    menu.querySelectorAll("button, div, span").forEach(function (node) {
+      if (node.textContent === "Cerrar sesion") {
+        node.textContent = "Cerrar sesión";
+      }
+      if (node.textContent === "Vista estatica segura") {
+        node.textContent = "Vista estática segura";
+      }
+    });
+    document.documentElement.setAttribute("data-forge-profile-menu-polished-061b", "true");
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", polishProfileMenuCopy, { once: true });
+  } else {
+    polishProfileMenuCopy();
+  }
+  window.addEventListener("load", polishProfileMenuCopy);
+  window.__forgePolishProfileMenuCopyAndSpacing061B = polishProfileMenuCopy;
+})();
+/* FORGEOS:PROFILE_MENU_COPY_AND_SPACING_POLISH_061B:END */
