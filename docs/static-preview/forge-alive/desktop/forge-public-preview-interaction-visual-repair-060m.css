@@ -316,3 +316,14 @@
   }
 }
 /* FORGEOS:COMMAND_BAR_EMPTY_IDLE_INPUT_REPAIR_060W:END */
+
+/* FORGEOS:COMMAND_BAR_QUICK_ACTIONS_PLACEHOLDER_060X:START */
+@media (min-width: 901px) {
+  .dw-command-input-056y::placeholder,
+  .command-pill-input::placeholder,
+  input[aria-controls="forge-command-results-060m"]::placeholder {
+    color: rgba(245, 247, 255, 0.78) !important;
+    opacity: 1 !important;
+  }
+}
+/* FORGEOS:COMMAND_BAR_QUICK_ACTIONS_PLACEHOLDER_060X:END */

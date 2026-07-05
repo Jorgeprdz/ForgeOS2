@@ -727,7 +727,7 @@
   "use strict";
 
   var DESKTOP_QUERY = "(min-width: 901px)";
-  var PLACEHOLDER = "Buscar o pedir a Alfred: /cotizar, /follow Juan, /llamar Lariza...";
+  var PLACEHOLDER = "/quick actions";
   var userTouched = false;
 
   function isDesktop() {
@@ -845,3 +845,32 @@
   window.__forgeRunCommandBarEmptyIdleInputRepair060W = clearStaticPrefill;
 })();
 /* FORGEOS:COMMAND_BAR_EMPTY_IDLE_INPUT_REPAIR_060W:END */
+
+/* FORGEOS:COMMAND_BAR_QUICK_ACTIONS_PLACEHOLDER_060X:START */
+(function () {
+  "use strict";
+
+  var PLACEHOLDER = "/quick actions";
+
+  function commandInput() {
+    return document.querySelector(".dw-command-input-056y, .command-pill-input, input[aria-controls='forge-command-results-060m'], [role='textbox'][aria-controls='forge-command-results-060m']");
+  }
+
+  function applyPlaceholder() {
+    var input = commandInput();
+    if (!input) {
+      return;
+    }
+    input.setAttribute("placeholder", PLACEHOLDER);
+    document.documentElement.setAttribute("data-forge-command-quick-actions-placeholder-060x", "true");
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", applyPlaceholder, { once: true });
+  } else {
+    applyPlaceholder();
+  }
+  window.addEventListener("load", applyPlaceholder);
+  window.__forgeApplyCommandBarQuickActionsPlaceholder060X = applyPlaceholder;
+})();
+/* FORGEOS:COMMAND_BAR_QUICK_ACTIONS_PLACEHOLDER_060X:END */
