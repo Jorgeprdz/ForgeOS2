@@ -1,0 +1,143 @@
+{
+  "phase": "064G_READ_ONLY_BACKEND_ADAPTER_DRY_RUN",
+  "status": "PASS",
+  "dryRunId": "forge.backend.read_only.dry_run.064g",
+  "route": {
+    "routeId": "forge.api.read.client_crm.summary.preview_dry_run.v1",
+    "routeClass": "read_only",
+    "domainId": "client_crm",
+    "actionId": "record.open_preview",
+    "dryRun": true,
+    "previewOnly": true
+  },
+  "adapter": {
+    "adapterId": "forge.local.static.client_crm.read_only.v1",
+    "adapterType": "local_static_fixture",
+    "mode": "read_only",
+    "sourceOfTruth": "preview_fixture_only",
+    "providerRuntime": false,
+    "secretAccess": false,
+    "realEffectsAllowed": false
+  },
+  "requestEnvelope": {
+    "requestId": "req_064g_read_only_dry_run",
+    "schemaVersion": "forge.backend.api.envelope.v1",
+    "routeId": "forge.api.read.client_crm.summary.preview_dry_run.v1",
+    "routeClass": "read_only",
+    "domainId": "client_crm",
+    "actionId": "record.open_preview",
+    "actor": "static_preview_operator",
+    "tenant": "forge_static_preview",
+    "capabilities": [
+      "client.read.preview"
+    ],
+    "readModelSnapshotId": "read_064g_client_crm_preview_static",
+    "approvalRequestId": null,
+    "idempotencyKey": "idem_064g_read_only_dry_run",
+    "dryRun": true,
+    "previewOnly": true,
+    "payload": {
+      "targetType": "client",
+      "targetId": "client_preview_lariza"
+    },
+    "sourceEvidence": [
+      "064F_BACKEND_API_AND_ADAPTER_BOUNDARY_SCOPE"
+    ],
+    "clientContext": {
+      "surface": "termux_script",
+      "networkRequired": false
+    }
+  },
+  "responseEnvelope": {
+    "requestId": "req_064g_read_only_dry_run",
+    "schemaVersion": "forge.backend.api.response.v1",
+    "routeId": "forge.api.read.client_crm.summary.preview_dry_run.v1",
+    "status": "preview_static",
+    "result": {
+      "summary": "Read-only dry run returned a static client CRM preview envelope.",
+      "recordsReturned": 1
+    },
+    "readModelDelta": null,
+    "auditEventId": "audit_064g_read_model_used",
+    "approvalRequestId": null,
+    "blockedReasons": [
+      "real_backend_not_connected",
+      "provider_runtime_disabled",
+      "write_effects_blocked"
+    ],
+    "errors": [],
+    "freshness": {
+      "status": "preview_static",
+      "generatedAt": "2026-07-06T00:00:00-06:00",
+      "sourceUnavailable": false
+    },
+    "sourceEvidence": [
+      "docs/architecture/source-truth/FORGE_BACKEND_API_AND_ADAPTER_BOUNDARY_SCOPE_064F.md"
+    ],
+    "realEffectsAllowed": false
+  },
+  "readModelEnvelope": {
+    "readModelId": "forge.backend.client_crm.read_model.preview_static.064g",
+    "schemaVersion": "forge.backend.read_model.v1",
+    "domainId": "client_crm",
+    "sourceOfTruth": "preview_fixture_only",
+    "sourceEvidence": [
+      "064G dry-run fixture"
+    ],
+    "generatedAt": "2026-07-06T00:00:00-06:00",
+    "freshness": {
+      "status": "preview_static"
+    },
+    "capabilities": [
+      "client.read.preview"
+    ],
+    "approvalContext": {
+      "requiresApproval": false,
+      "reason": "read_only_no_effect"
+    },
+    "entities": [
+      {
+        "entityType": "client",
+        "entityId": "client_preview_lariza",
+        "displayName": "Lariza",
+        "mode": "preview_static"
+      }
+    ],
+    "relationships": [],
+    "metrics": {},
+    "emptyState": null,
+    "errors": [],
+    "blockedEffects": [
+      "client_write",
+      "calendar_create",
+      "message_send",
+      "provider_call"
+    ],
+    "audit": {
+      "auditEventId": "audit_064g_read_model_used"
+    },
+    "uiProjection": {
+      "title": "Lariza",
+      "subtitle": "Preview static read-only backend adapter dry run"
+    }
+  },
+  "auditEvent": {
+    "auditEventId": "audit_064g_read_model_used",
+    "eventType": "read_model_used",
+    "domainId": "client_crm",
+    "routeId": "forge.api.read.client_crm.summary.preview_dry_run.v1",
+    "adapterId": "forge.local.static.client_crm.read_only.v1",
+    "realEffectsAllowed": false,
+    "providerRuntime": false,
+    "createdAt": "2026-07-06T00:00:00-06:00"
+  },
+  "safety": {
+    "crmWrite": false,
+    "calendarCreate": false,
+    "messageSend": false,
+    "authReal": false,
+    "providerRuntime": false,
+    "browserPersistence": false,
+    "realEngineExecution": false
+  }
+}

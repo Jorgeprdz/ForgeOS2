@@ -4009,3 +4009,24 @@ DECISION=PASS_064F_BACKEND_API_AND_ADAPTER_BOUNDARY_SCOPE
 
 NEXT=064G_READ_ONLY_BACKEND_ADAPTER_DRY_RUN
 <!-- FORGE:064F_BACKEND_API_AND_ADAPTER_BOUNDARY_SCOPE:END -->
+
+<!-- FORGE:064G_READ_ONLY_BACKEND_ADAPTER_DRY_RUN:START -->
+## 064G Read-Only Backend Adapter Dry Run
+
+064G performs the first local/static no-effect backend adapter dry run.
+
+Dry run:
+
+- route: `forge.api.read.client_crm.summary.preview_dry_run.v1`;
+- route class: `read_only`;
+- adapter: `forge.local.static.client_crm.read_only.v1`;
+- adapter mode: `read_only`;
+- domain: `client_crm`;
+- output: request envelope, response envelope, read model envelope, audit-shaped event, safety flags.
+
+No backend, CRM, calendar, communication delivery, auth, provider, storage, or real engine execution occurred.
+
+DECISION=PASS_064G_READ_ONLY_BACKEND_ADAPTER_DRY_RUN
+
+NEXT=064H_READ_ONLY_BACKEND_ADAPTER_DRY_RUN_QA_LOCK
+<!-- FORGE:064G_READ_ONLY_BACKEND_ADAPTER_DRY_RUN:END -->

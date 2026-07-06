@@ -1,0 +1,25 @@
+{
+  "phase": "064G_READ_ONLY_BACKEND_ADAPTER_DRY_RUN",
+  "status": "PASS",
+  "basePhase": "064F_BACKEND_API_AND_ADAPTER_BOUNDARY_SCOPE",
+  "dryRunId": "forge.backend.read_only.dry_run.064g",
+  "routeId": "forge.api.read.client_crm.summary.preview_dry_run.v1",
+  "routeClass": "read_only",
+  "adapterId": "forge.local.static.client_crm.read_only.v1",
+  "adapterMode": "read_only",
+  "domainId": "client_crm",
+  "outputs": [
+    "requestEnvelope",
+    "responseEnvelope",
+    "readModelEnvelope",
+    "auditEvent",
+    "safety"
+  ],
+  "outputFile": "docs/evidence/forge-read-only-backend-adapter-dry-run-output-064g.json",
+  "scopeOnly": false,
+  "localStaticDryRun": true,
+  "uiMutation": false,
+  "backendConnection": false,
+  "realEffectsEnabled": false,
+  "next": "064H_READ_ONLY_BACKEND_ADAPTER_DRY_RUN_QA_LOCK"
+}
