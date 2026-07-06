@@ -4030,3 +4030,24 @@ DECISION=PASS_064G_READ_ONLY_BACKEND_ADAPTER_DRY_RUN
 
 NEXT=064H_READ_ONLY_BACKEND_ADAPTER_DRY_RUN_QA_LOCK
 <!-- FORGE:064G_READ_ONLY_BACKEND_ADAPTER_DRY_RUN:END -->
+
+<!-- FORGE:064H_READ_ONLY_BACKEND_ADAPTER_DRY_RUN_QA_LOCK:START -->
+## 064H Read-Only Backend Adapter Dry Run QA Lock
+
+064H locks QA for the 064G local/static read-only backend adapter dry run.
+
+Verified:
+
+- route class `read_only`;
+- adapter mode `read_only`;
+- local static fixture only;
+- dry run and preview-only request;
+- `realEffectsAllowed=false`;
+- freshness `preview_static`;
+- audit event `read_model_used`;
+- all safety flags false.
+
+DECISION=PASS_064H_READ_ONLY_BACKEND_ADAPTER_DRY_RUN_QA_LOCK
+
+NEXT=064I_READ_ONLY_BACKEND_ADAPTER_DECISION_LOCK
+<!-- FORGE:064H_READ_ONLY_BACKEND_ADAPTER_DRY_RUN_QA_LOCK:END -->
