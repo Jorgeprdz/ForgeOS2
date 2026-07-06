@@ -6315,3 +6315,40 @@ DECISION=PASS_064D_BACKEND_READ_MODEL_CONTRACTS_SCOPE
 
 NEXT=064E_BACKEND_APPROVAL_AND_AUDIT_CONTRACTS_SCOPE
 <!-- FORGEOS:BACKEND_READ_MODEL_CONTRACTS_SCOPE_064D:END -->
+
+<!-- FORGEOS:BACKEND_APPROVAL_AND_AUDIT_CONTRACTS_SCOPE_064E:START -->
+## 064E Backend Approval And Audit Contracts Scope
+
+Status: PASS / SCOPED.
+
+064E defines the approval and audit contract layer required before Forge can connect any write-capable or external-effect backend adapter.
+
+Contracts scoped:
+
+- approval request
+- approval artifact
+- audit event
+- idempotency
+- capability evaluation
+- domain approval matrix
+- audit storage requirement
+
+Global rule:
+
+Any real effect requires both capability and approval when approval is required. Approval is explicit and cannot be inferred from viewing, clicking, hovering, or opening a preview.
+
+Artifacts:
+
+- `docs/architecture/source-truth/FORGE_BACKEND_APPROVAL_AND_AUDIT_CONTRACTS_SCOPE_064E.md`
+- `docs/evidence/FORGE_BACKEND_APPROVAL_AND_AUDIT_CONTRACTS_SCOPE_064E.md`
+- `docs/evidence/FORGE_BACKEND_APPROVAL_AND_AUDIT_CONTRACTS_SCOPE_CERTIFICATE_064E.md`
+- `docs/evidence/forge-backend-approval-and-audit-contracts-scope-audit-064e.json`
+
+Boundary:
+
+Documentation-only scope. No UI, backend connection, CRM, calendar, message, auth, provider, browser persistence, browser request, or real engine behavior is changed.
+
+DECISION=PASS_064E_BACKEND_APPROVAL_AND_AUDIT_CONTRACTS_SCOPE
+
+NEXT=064F_BACKEND_API_AND_ADAPTER_BOUNDARY_SCOPE
+<!-- FORGEOS:BACKEND_APPROVAL_AND_AUDIT_CONTRACTS_SCOPE_064E:END -->
