@@ -2566,3 +2566,27 @@ RESULT=PASS_062G_ACTION_CONTRACT_READ_MODEL_PREVIEW_DECISION_LOCK
 
 NEXT=063A_STATIC_PREVIEW_RELEASE_GUARD_SCOPE
 <!-- FORGEOS:ACTION_CONTRACT_READ_MODEL_PREVIEW_DECISION_LOCK_062G:END -->
+
+<!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_SCOPE_063A:START -->
+## 063A Static Preview Release Guard Scope
+
+063A_STATIC_PREVIEW_RELEASE_GUARD_SCOPE: PASS / SCOPE LOCKED.
+
+The static preview release guard is scoped as the next required quality-control layer before future public PASS decisions.
+
+Future implementation target:
+`tools/termux/forge_static_preview_release_guard.sh`
+
+The guard must enforce cache version consistency, local QA, public Pages QA, screenshot evidence, command contracts when applicable, and no real effects.
+
+Evidence:
+
+- `docs/architecture/source-truth/FORGE_STATIC_PREVIEW_RELEASE_GUARD_SCOPE_063A.md`
+- `docs/evidence/FORGE_STATIC_PREVIEW_RELEASE_GUARD_SCOPE_063A.md`
+- `docs/evidence/FORGE_STATIC_PREVIEW_RELEASE_GUARD_SCOPE_CERTIFICATE_063A.md`
+- `docs/evidence/forge-static-preview-release-guard-scope-audit-063a.json`
+
+DECISION=PASS_063A_STATIC_PREVIEW_RELEASE_GUARD_SCOPE
+
+NEXT=063B_STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION
+<!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_SCOPE_063A:END -->

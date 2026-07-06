@@ -5972,3 +5972,44 @@ RESULT=PASS_062G_ACTION_CONTRACT_READ_MODEL_PREVIEW_DECISION_LOCK
 
 NEXT=063A_STATIC_PREVIEW_RELEASE_GUARD_SCOPE
 <!-- FORGEOS:ACTION_CONTRACT_READ_MODEL_PREVIEW_DECISION_LOCK_062G:END -->
+
+<!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_SCOPE_063A:START -->
+## 063A Static Preview Release Guard Scope
+
+Status: PASS / SCOPE LOCKED.
+
+063A scopes the mandatory release guard for future static preview phases.
+
+Future script:
+`tools/termux/forge_static_preview_release_guard.sh`
+
+Required guard areas:
+
+- tracked git state;
+- unique cache bust;
+- `index.html` CSS/JS cache-version consistency;
+- phase markers in JS/CSS;
+- syntax and diff checks;
+- prohibited-token safety scan;
+- local server QA before Pages;
+- public Pages QA after deploy;
+- public HTML and JS/CSS verification;
+- desktop/tablet/mobile screenshots;
+- command contract tests when applicable;
+- no real effects.
+
+Boundary:
+
+Docs/scope only. No UI, CSS, JS, HTML, CRM, calendar, send, auth, runtime/storage, provider execution, or real engine behavior was changed.
+
+Evidence:
+
+- `docs/architecture/source-truth/FORGE_STATIC_PREVIEW_RELEASE_GUARD_SCOPE_063A.md`
+- `docs/evidence/FORGE_STATIC_PREVIEW_RELEASE_GUARD_SCOPE_063A.md`
+- `docs/evidence/FORGE_STATIC_PREVIEW_RELEASE_GUARD_SCOPE_CERTIFICATE_063A.md`
+- `docs/evidence/forge-static-preview-release-guard-scope-audit-063a.json`
+
+DECISION=PASS_063A_STATIC_PREVIEW_RELEASE_GUARD_SCOPE
+
+NEXT=063B_STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION
+<!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_SCOPE_063A:END -->
