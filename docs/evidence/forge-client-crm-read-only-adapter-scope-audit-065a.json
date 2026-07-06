@@ -1,0 +1,54 @@
+{
+  "phase": "065A_CLIENT_CRM_READ_ONLY_ADAPTER_SCOPE",
+  "status": "PASS",
+  "basePhase": "064I_READ_ONLY_BACKEND_ADAPTER_DECISION_LOCK",
+  "adapter": {
+    "adapterId": "forge.client_crm.read_only.adapter.v1",
+    "adapterMode": "read_only",
+    "routeClass": "read_only",
+    "domainId": "client_crm"
+  },
+  "routesScoped": [
+    "forge.api.read.client_crm.list.v1",
+    "forge.api.read.client_crm.detail.v1"
+  ],
+  "allowedReads": [
+    "client_id",
+    "display_name",
+    "segment",
+    "relationship_owner",
+    "contact_readiness",
+    "last_interaction_date",
+    "followup_risk",
+    "policy_summary_refs",
+    "opportunity_summary_refs",
+    "source_evidence_ids",
+    "freshness_metadata"
+  ],
+  "forbiddenEffects": [
+    "client_create",
+    "client_update",
+    "client_delete",
+    "client_merge",
+    "task_create",
+    "calendar_create",
+    "message_send",
+    "quote_create",
+    "policy_update",
+    "provider_call",
+    "browser_persistence",
+    "action_execution"
+  ],
+  "firstImplementationConstraint": [
+    "local_static_fixture",
+    "non_sensitive_sample_fixture",
+    "generated_fixture",
+    "read_only_adapter_mock"
+  ],
+  "scopeOnly": true,
+  "uiMutation": false,
+  "backendConnection": false,
+  "crmWrite": false,
+  "realEffectsEnabled": false,
+  "next": "065B_CLIENT_CRM_READ_ONLY_ADAPTER_IMPLEMENTATION"
+}

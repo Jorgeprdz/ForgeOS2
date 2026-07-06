@@ -6444,3 +6444,33 @@ DECISION=PASS_064I_READ_ONLY_BACKEND_ADAPTER_DECISION_LOCK
 
 NEXT=065A_CLIENT_CRM_READ_ONLY_ADAPTER_SCOPE
 <!-- FORGE:064I_READ_ONLY_BACKEND_ADAPTER_DECISION_LOCK:END -->
+
+<!-- FORGE:065A_CLIENT_CRM_READ_ONLY_ADAPTER_SCOPE:START -->
+## 065A Client CRM Read-Only Adapter Scope
+
+065A scopes the first Client CRM read-only adapter boundary after the read-only backend adapter decision lock.
+
+Adapter:
+`forge.client_crm.read_only.adapter.v1`
+
+Mode:
+`read_only`
+
+Scoped:
+
+- allowed client summary/detail reads;
+- forbidden sensitive fields;
+- forbidden effects;
+- canonical read envelope;
+- client entity shape;
+- empty states;
+- safe error model;
+- capabilities;
+- audit events;
+- freshness policy;
+- first implementation constraint.
+
+DECISION=PASS_065A_CLIENT_CRM_READ_ONLY_ADAPTER_SCOPE
+
+NEXT=065B_CLIENT_CRM_READ_ONLY_ADAPTER_IMPLEMENTATION
+<!-- FORGE:065A_CLIENT_CRM_READ_ONLY_ADAPTER_SCOPE:END -->
