@@ -6057,3 +6057,35 @@ DECISION=PASS_063B_STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION
 
 NEXT=063C_STATIC_PREVIEW_RELEASE_GUARD_DRY_RUN_QA
 <!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION_063B:END -->
+
+<!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_MARKER_PARSING_REPAIR_063B1:START -->
+## 063B1 Static Preview Release Guard Marker Parsing Repair
+
+Status: PASS / REPAIRED.
+
+063B1 repairs the release guard marker parsing defect found during the 063C dry-run.
+
+Repair:
+
+- `REQUIRED_MARKERS` now supports spaces, commas, newlines, and pipes.
+- `REQUIRED_COMMAND_TESTS` keeps separate checklist parsing and is not split by pipe.
+- Public marker validation checks required markers across the downloaded critical asset set.
+- Multiline marker input is normalized before audit JSON generation.
+
+Boundary:
+
+Tooling repair only. No Forge Alive UI behavior, CSS, JS, HTML preview behavior, CRM, calendar, send, auth, provider execution, or real engine execution changed.
+
+Evidence:
+
+- `tools/termux/forge_static_preview_release_guard.sh`
+- `docs/architecture/source-truth/FORGE_STATIC_PREVIEW_RELEASE_GUARD_USAGE_063B.md`
+- `docs/evidence/forge-static-preview-release-guard-marker-parsing-repair-audit-063b1.json`
+- `docs/evidence/FORGE_STATIC_PREVIEW_RELEASE_GUARD_MARKER_PARSING_REPAIR_063B1.md`
+- `docs/evidence/FORGE_STATIC_PREVIEW_RELEASE_GUARD_MARKER_PARSING_REPAIR_CERTIFICATE_063B1.md`
+- `docs/architecture/source-truth/FORGE_STATIC_PREVIEW_RELEASE_GUARD_MARKER_PARSING_REPAIR_CLOSURE_063B1.md`
+
+DECISION=PASS_063B1_STATIC_PREVIEW_RELEASE_GUARD_MARKER_PARSING_REPAIR
+
+NEXT=063C_STATIC_PREVIEW_RELEASE_GUARD_DRY_RUN_QA_RETRY
+<!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_MARKER_PARSING_REPAIR_063B1:END -->

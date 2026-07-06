@@ -32,11 +32,22 @@ CACHE_VERSION="062f3c"
 PUBLIC_URL="https://jorgeprdz.github.io/ForgeOS/static-preview/forge-alive/?v=062f3c"
 LOCAL_URL="http://127.0.0.1:8080/docs/static-preview/forge-alive/?v=062f3c"
 NEXT_PHASE="063D_NEXT_PHASE"
-REQUIRED_MARKERS="MOBILE_COMMAND_CONTRACT_BINDING_REPAIR_062F3C"
+REQUIRED_MARKERS="MOBILE_COMMAND_CONTRACT_BINDING_REPAIR_062F3C QUICK_ACTIONS_PANEL_ACTIVE_STATE_REPAIR_062F1 ACTION_CONTRACT_READ_MODEL_PREVIEW_BINDING_062E"
 REQUIRED_VIEWPORTS="1366x768,1024x768,390x844"
 REQUIRED_COMMAND_TESTS="/quick actions,/cotizar GMM Lariza,Follow Juan,Revisar Lariza,Abrir Octavio"
 AUTHORIZED_FILES="docs/evidence/,docs/architecture/source-truth/,FORGE_MASTER_BUILD_TREE.md,docs/roadmap/FORGE_ROADMAP_LOCK_001.md"
 ```
+
+Marker parsing:
+
+- `REQUIRED_MARKERS` accepts spaces, commas, newlines, or pipes as separators.
+- Each marker is validated independently.
+- Public marker validation checks the downloaded critical asset set as a whole.
+
+Command-test parsing:
+
+- `REQUIRED_COMMAND_TESTS` remains checklist text and supports comma or newline splitting.
+- A pipe inside `REQUIRED_COMMAND_TESTS` may still be used as visual checklist text when the caller wants a single printed command checklist line.
 
 Then run:
 

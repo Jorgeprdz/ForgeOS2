@@ -1,0 +1,113 @@
+{
+  "phase": "063B1_STATIC_PREVIEW_RELEASE_GUARD_MARKER_PARSING_REPAIR",
+  "mode": "scoped release guard marker parsing repair",
+  "status": "PASS",
+  "basePhase": "063B_STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION",
+  "failedDryRunContext": {
+    "phase": "063C_STATIC_PREVIEW_RELEASE_GUARD_DRY_RUN_QA",
+    "failureCause": "REQUIRED_MARKERS was parsed as one long marker when markers were separated by spaces.",
+    "failedChecks": [
+      "marker:<combined marker string>",
+      "publicMarker:<combined marker string>"
+    ],
+    "passChecksPreserved": [
+      "CACHE_VERSION=062f3c",
+      "index.html uses 062f3c",
+      "node --check",
+      "git diff --check",
+      "restricted action token scan",
+      "Pages contains 062f3c",
+      "manual checklist printed"
+    ],
+    "raw063cEvidenceCommittedAsPass": false
+  },
+  "repair": {
+    "script": "tools/termux/forge_static_preview_release_guard.sh",
+    "changes": [
+      "Added marker-specific split_required_markers helper.",
+      "REQUIRED_MARKERS now supports space, comma, newline, and pipe separators.",
+      "REQUIRED_COMMAND_TESTS remains on the existing comma/newline checklist parser.",
+      "Public marker validation now searches each required marker across the downloaded critical asset set.",
+      "Check details are normalized before audit JSON generation so multiline marker input remains JSON-safe."
+    ],
+    "uiMutation": false,
+    "previewBehaviorMutation": false,
+    "realEffectsEnabled": false
+  },
+  "splitValidation": {
+    "spaceSeparated": {
+      "status": "PASS",
+      "markersParsed": 3,
+      "markers": [
+        "MOBILE_COMMAND_CONTRACT_BINDING_REPAIR_062F3C",
+        "QUICK_ACTIONS_PANEL_ACTIVE_STATE_REPAIR_062F1",
+        "ACTION_CONTRACT_READ_MODEL_PREVIEW_BINDING_062E"
+      ]
+    },
+    "commaSeparated": {
+      "status": "PASS",
+      "markersParsed": 3,
+      "markers": [
+        "MOBILE_COMMAND_CONTRACT_BINDING_REPAIR_062F3C",
+        "QUICK_ACTIONS_PANEL_ACTIVE_STATE_REPAIR_062F1",
+        "ACTION_CONTRACT_READ_MODEL_PREVIEW_BINDING_062E"
+      ]
+    },
+    "newlineSeparated": {
+      "status": "PASS",
+      "markersParsed": 3,
+      "markers": [
+        "MOBILE_COMMAND_CONTRACT_BINDING_REPAIR_062F3C",
+        "QUICK_ACTIONS_PANEL_ACTIVE_STATE_REPAIR_062F1",
+        "ACTION_CONTRACT_READ_MODEL_PREVIEW_BINDING_062E"
+      ]
+    }
+  },
+  "basicDryRun": {
+    "status": "PASS",
+    "cacheVersion": "062f3c",
+    "publicUrl": "https://jorgeprdz.github.io/ForgeOS/static-preview/forge-alive/?v=062f3c",
+    "localUrl": "http://127.0.0.1:8080/docs/static-preview/forge-alive/?v=062f3c",
+    "requiredMarkersFormat": "space-separated",
+    "publicHtmlCache": "PASS",
+    "publicCriticalAssets": "PASS",
+    "publicMarkers": "PASS",
+    "manualChecklistPrinted": true
+  },
+  "validations": [
+    {
+      "command": "bash -n tools/termux/forge_static_preview_release_guard.sh",
+      "status": "PASS"
+    },
+    {
+      "command": "Guard dry-run with space-separated REQUIRED_MARKERS",
+      "status": "PASS"
+    },
+    {
+      "command": "Guard dry-run with comma-separated REQUIRED_MARKERS",
+      "status": "PASS"
+    },
+    {
+      "command": "Guard dry-run with newline-separated REQUIRED_MARKERS",
+      "status": "PASS"
+    },
+    {
+      "command": "python3 -m json.tool docs/evidence/forge-static-preview-release-guard-marker-parsing-repair-audit-063b1.json",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "restricted action token scan",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --cached --check",
+      "status": "PASS"
+    }
+  ],
+  "decision": "PASS_063B1_STATIC_PREVIEW_RELEASE_GUARD_MARKER_PARSING_REPAIR",
+  "next": "063C_STATIC_PREVIEW_RELEASE_GUARD_DRY_RUN_QA_RETRY"
+}

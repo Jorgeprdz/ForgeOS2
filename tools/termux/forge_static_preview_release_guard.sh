@@ -51,33 +51,48 @@ declare -a FAILS=()
 declare -a WARNS=()
 declare -a HOLDS=()
 
+clean_check_detail() {
+  local detail="$1"
+  detail="${detail//$'\r'/ }"
+  detail="${detail//$'\n'/ }"
+  printf '%s' "$detail"
+}
+
 stage() {
   printf '\n%s== %s ==%s\n' "$BLUE" "$1" "$RESET"
 }
 
 pass_check() {
-  CHECKS+=("PASS|$1|$2")
-  printf '%sPASS%s %s %s\n' "$GREEN" "$RESET" "$1" "$2"
+  local detail
+  detail="$(clean_check_detail "$2")"
+  CHECKS+=("PASS|$1|$detail")
+  printf '%sPASS%s %s %s\n' "$GREEN" "$RESET" "$1" "$detail"
 }
 
 warn_check() {
-  CHECKS+=("WARN|$1|$2")
-  WARNS+=("$1: $2")
-  printf '%sWARN%s %s %s\n' "$YELLOW" "$RESET" "$1" "$2"
+  local detail
+  detail="$(clean_check_detail "$2")"
+  CHECKS+=("WARN|$1|$detail")
+  WARNS+=("$1: $detail")
+  printf '%sWARN%s %s %s\n' "$YELLOW" "$RESET" "$1" "$detail"
 }
 
 fail_check() {
-  CHECKS+=("FAIL|$1|$2")
-  FAILS+=("$1: $2")
+  local detail
+  detail="$(clean_check_detail "$2")"
+  CHECKS+=("FAIL|$1|$detail")
+  FAILS+=("$1: $detail")
   STATUS="FAIL"
-  printf '%sFAIL%s %s %s\n' "$RED" "$RESET" "$1" "$2"
+  printf '%sFAIL%s %s %s\n' "$RED" "$RESET" "$1" "$detail"
 }
 
 hold_check() {
-  CHECKS+=("HOLD|$1|$2")
-  HOLDS+=("$1: $2")
+  local detail
+  detail="$(clean_check_detail "$2")"
+  CHECKS+=("HOLD|$1|$detail")
+  HOLDS+=("$1: $detail")
   [[ "$STATUS" != "FAIL" ]] && STATUS="HOLD"
-  printf '%sHOLD%s %s %s\n' "$YELLOW" "$RESET" "$1" "$2"
+  printf '%sHOLD%s %s %s\n' "$YELLOW" "$RESET" "$1" "$detail"
 }
 
 json_array_py() {
@@ -90,6 +105,10 @@ PY
 
 split_csv_or_lines() {
   printf '%s\n' "$1" | tr ',' '\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | sed '/^$/d'
+}
+
+split_required_markers() {
+  printf '%s\n' "$1" | tr ',|' '\n' | tr '[:space:]' '\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | sed '/^$/d'
 }
 
 is_authorized_path() {
@@ -195,7 +214,7 @@ if [[ -n "$REQUIRED_MARKERS" ]]; then
       fail_check "marker:$marker" "missing locally"
       marker_fail=1
     fi
-  done < <(split_csv_or_lines "$REQUIRED_MARKERS")
+  done < <(split_required_markers "$REQUIRED_MARKERS")
 fi
 
 stage "Syntax And Diff Checks"
@@ -261,21 +280,31 @@ for match in re.findall(r'(?:src|href)="([^"]+)"', html):
 PY
 )"
     if [[ -n "$asset_urls" && -n "$REQUIRED_MARKERS" ]]; then
+      public_assets_bundle="$(mktemp)"
+      public_asset_count=0
       while IFS= read -r asset_url; do
         [[ -z "$asset_url" ]] && continue
         asset_file="$(mktemp)"
         if curl -fsSL --max-time 20 -H 'Cache-Control: no-cache' "$asset_url" -o "$asset_file"; then
-          while IFS= read -r marker; do
-            if grep -Fq "$marker" "$asset_file"; then
-              pass_check "publicMarker:$marker" "found in $asset_url"
-            else
-              fail_check "publicMarker:$marker" "missing in $asset_url"
-            fi
-          done < <(split_csv_or_lines "$REQUIRED_MARKERS")
+          cat "$asset_file" >> "$public_assets_bundle"
+          printf '\n' >> "$public_assets_bundle"
+          public_asset_count=$((public_asset_count + 1))
+          pass_check "publicAssetDownload" "downloaded $asset_url"
         else
           warn_check "publicAssetDownload" "could not download $asset_url"
         fi
       done <<< "$asset_urls"
+      if [[ "$public_asset_count" -gt 0 ]]; then
+        while IFS= read -r marker; do
+          if grep -Fq "$marker" "$public_assets_bundle"; then
+            pass_check "publicMarker:$marker" "found in downloaded critical assets"
+          else
+            fail_check "publicMarker:$marker" "missing in downloaded critical assets"
+          fi
+        done < <(split_required_markers "$REQUIRED_MARKERS")
+      else
+        warn_check "publicAssetMarkers" "no public critical assets downloaded"
+      fi
     else
       warn_check "publicAssetMarkers" "no public critical asset URLs or markers to validate"
     fi
@@ -308,7 +337,7 @@ warns_json="$(json_array_py "${WARNS[@]}")"
 holds_json="$(json_array_py "${HOLDS[@]}")"
 viewports_json="$(split_csv_or_lines "$REQUIRED_VIEWPORTS" | python3 -c 'import json,sys; print(json.dumps([line.strip() for line in sys.stdin if line.strip()], ensure_ascii=False))')"
 commands_json="$(split_csv_or_lines "$REQUIRED_COMMAND_TESTS" | python3 -c 'import json,sys; print(json.dumps([line.strip() for line in sys.stdin if line.strip()], ensure_ascii=False))')"
-markers_json="$(split_csv_or_lines "$REQUIRED_MARKERS" | python3 -c 'import json,sys; print(json.dumps([line.strip() for line in sys.stdin if line.strip()], ensure_ascii=False))')"
+markers_json="$(split_required_markers "$REQUIRED_MARKERS" | python3 -c 'import json,sys; print(json.dumps([line.strip() for line in sys.stdin if line.strip()], ensure_ascii=False))')"
 
 python3 - "$AUDIT_PATH" <<PY
 import json
