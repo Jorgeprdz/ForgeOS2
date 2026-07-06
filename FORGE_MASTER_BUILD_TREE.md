@@ -6013,3 +6013,47 @@ DECISION=PASS_063A_STATIC_PREVIEW_RELEASE_GUARD_SCOPE
 
 NEXT=063B_STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION
 <!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_SCOPE_063A:END -->
+
+<!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION_063B:START -->
+## 063B Static Preview Release Guard Implementation
+
+Status: PASS / IMPLEMENTED.
+
+063B implements the reusable static preview release guard scoped in 063A.
+
+Script:
+`tools/termux/forge_static_preview_release_guard.sh`
+
+Implemented:
+
+- strict Bash mode;
+- staged color output;
+- tee report generation;
+- optional Termux clipboard copy;
+- PASS/FAIL/HOLD result handling;
+- tracked git-state classification;
+- cache-version validation;
+- required marker validation;
+- JS syntax and diff checks;
+- prohibited-token safety scan;
+- public Pages probe when network is available;
+- manual viewport/command checklist output;
+- audit/evidence/certificate/closure generation.
+
+Boundary:
+
+Tooling implementation only. No Forge Alive UI behavior, CSS, JS, HTML preview behavior, CRM, calendar, send, auth, provider execution, or real engine execution is changed.
+
+Evidence:
+
+- `tools/termux/forge_static_preview_release_guard.sh`
+- `docs/architecture/source-truth/FORGE_STATIC_PREVIEW_RELEASE_GUARD_USAGE_063B.md`
+- `docs/evidence/forge-static-preview-release-guard-audit-063b.json`
+- `docs/evidence/FORGE_STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION_063B.md`
+- `docs/evidence/FORGE_STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION_CERTIFICATE_063B.md`
+- `docs/architecture/source-truth/FORGE_STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION_CLOSURE_063B.md`
+
+DECISION=PASS_063B_STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION
+
+NEXT=063C_STATIC_PREVIEW_RELEASE_GUARD_DRY_RUN_QA
+<!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION_063B:END -->

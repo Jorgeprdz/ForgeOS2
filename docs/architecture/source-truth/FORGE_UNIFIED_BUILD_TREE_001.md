@@ -3649,3 +3649,42 @@ DECISION=PASS_063A_STATIC_PREVIEW_RELEASE_GUARD_SCOPE
 
 NEXT=063B_STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION
 <!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_SCOPE_063A:END -->
+
+<!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION_063B:START -->
+## 063B Static Preview Release Guard Implementation
+
+Status: PASS / IMPLEMENTED.
+
+063B adds the reusable release guard for static preview phases.
+
+Script:
+`tools/termux/forge_static_preview_release_guard.sh`
+
+The guard is read-only verification tooling. It does not replace screenshot QA and does not commit or push.
+
+Validated implementation features:
+
+- cache-version and marker checks;
+- local source checks;
+- public Pages probe;
+- safety scan;
+- manual QA checklist;
+- generated audit/evidence/certificate/closure.
+
+Boundary:
+
+Tooling implementation only. No Forge Alive UI behavior, CSS, JS, HTML preview behavior, CRM, calendar, send, auth, provider execution, or real engine execution is changed.
+
+Evidence:
+
+- `tools/termux/forge_static_preview_release_guard.sh`
+- `docs/architecture/source-truth/FORGE_STATIC_PREVIEW_RELEASE_GUARD_USAGE_063B.md`
+- `docs/evidence/forge-static-preview-release-guard-audit-063b.json`
+- `docs/evidence/FORGE_STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION_063B.md`
+- `docs/evidence/FORGE_STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION_CERTIFICATE_063B.md`
+- `docs/architecture/source-truth/FORGE_STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION_CLOSURE_063B.md`
+
+DECISION=PASS_063B_STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION
+
+NEXT=063C_STATIC_PREVIEW_RELEASE_GUARD_DRY_RUN_QA
+<!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_IMPLEMENTATION_063B:END -->
