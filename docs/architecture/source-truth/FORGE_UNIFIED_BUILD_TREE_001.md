@@ -3983,3 +3983,29 @@ DECISION=PASS_064E_BACKEND_APPROVAL_AND_AUDIT_CONTRACTS_SCOPE
 
 NEXT=064F_BACKEND_API_AND_ADAPTER_BOUNDARY_SCOPE
 <!-- FORGEOS:BACKEND_APPROVAL_AND_AUDIT_CONTRACTS_SCOPE_064E:END -->
+
+<!-- FORGE:064F_BACKEND_API_AND_ADAPTER_BOUNDARY_SCOPE:START -->
+## 064F Backend API And Adapter Boundary Scope
+
+064F scopes the backend API and adapter boundary required before Forge can connect real modules.
+
+Contracts scoped:
+
+- backend API envelope;
+- route boundary;
+- adapter boundary;
+- provider boundary;
+- secret boundary;
+- auth boundary;
+- retry and idempotency;
+- no-effect dry run;
+- domain route matrix.
+
+Default adapter mode is `disabled`.
+
+First future dry run must be read-only or preview-only with all real effects disabled.
+
+DECISION=PASS_064F_BACKEND_API_AND_ADAPTER_BOUNDARY_SCOPE
+
+NEXT=064G_READ_ONLY_BACKEND_ADAPTER_DRY_RUN
+<!-- FORGE:064F_BACKEND_API_AND_ADAPTER_BOUNDARY_SCOPE:END -->
