@@ -6214,3 +6214,49 @@ DECISION=PASS_064B_BACKEND_MODULE_OWNERSHIP_MAP
 
 NEXT=064C_BACKEND_DOMAIN_CONTRACTS_SCOPE
 <!-- FORGEOS:BACKEND_MODULE_OWNERSHIP_MAP_064B:END -->
+
+<!-- FORGEOS:BACKEND_DOMAIN_CONTRACTS_SCOPE_064C:START -->
+## 064C Backend Domain Contracts Scope
+
+Status: PASS / SCOPED.
+
+064C converts the 064B backend module ownership map into a domain contract inventory before any real module connection.
+
+Domains scoped:
+
+- Client / CRM
+- Opportunity / Pipeline
+- Quote / Cotizacion
+- Policy / Poliza
+- Document / Evidence
+- Follow-up / Task
+- Calendar Intent
+- Communication
+- Profile / Auth
+- Settings / Preferences
+- Command / Action Router
+- Approval / Audit
+- Capability / Permission
+- Backend API Boundary
+- Error / Empty State
+- Sync / Freshness
+
+Global rule:
+
+No real backend module connection is allowed until a domain has canonical entities, read model envelope, write model envelope, action contracts, approval policy, audit events, capabilities, error handling, empty-state semantics, freshness policy, adapter boundary, blocked effects, and QA evidence.
+
+Artifacts:
+
+- `docs/architecture/source-truth/FORGE_BACKEND_DOMAIN_CONTRACTS_SCOPE_064C.md`
+- `docs/evidence/FORGE_BACKEND_DOMAIN_CONTRACTS_SCOPE_064C.md`
+- `docs/evidence/FORGE_BACKEND_DOMAIN_CONTRACTS_SCOPE_CERTIFICATE_064C.md`
+- `docs/evidence/forge-backend-domain-contracts-scope-audit-064c.json`
+
+Boundary:
+
+Documentation-only scope. No UI, backend connection, CRM, calendar, message, auth, provider, browser persistence, browser request, or real engine behavior is changed.
+
+DECISION=PASS_064C_BACKEND_DOMAIN_CONTRACTS_SCOPE
+
+NEXT=064D_BACKEND_READ_MODEL_CONTRACTS_SCOPE
+<!-- FORGEOS:BACKEND_DOMAIN_CONTRACTS_SCOPE_064C:END -->
