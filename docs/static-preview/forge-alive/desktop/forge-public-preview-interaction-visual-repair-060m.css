@@ -1301,3 +1301,20 @@
   }
 }
 /* FORGEOS:ACTION_CONTRACT_READ_MODEL_PREVIEW_BINDING_062E:END */
+
+/* FORGEOS:QUICK_ACTIONS_PANEL_ACTIVE_STATE_REPAIR_062F1:START */
+@media (min-width: 901px) {
+  .dw-command-zone-056y[data-forge-quick-actions-panel-active-062f1="true"] .dw-command-results-056y,
+  .dw-command-zone-056y[data-forge-quick-actions-panel-active-062f1="true"] .forge-contract-results-062c {
+    display: grid !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .dw-command-zone-056y[data-forge-quick-actions-panel-active-062f1="true"] .dw-command-results-056y[hidden],
+  .dw-command-zone-056y[data-forge-quick-actions-panel-active-062f1="true"] .forge-contract-results-062c[hidden] {
+    display: grid !important;
+  }
+}
+/* FORGEOS:QUICK_ACTIONS_PANEL_ACTIVE_STATE_REPAIR_062F1:END */

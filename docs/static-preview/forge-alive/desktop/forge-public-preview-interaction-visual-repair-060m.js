@@ -1810,3 +1810,81 @@
   window.__forgeRunActionContractReadModelPreviewBinding062E = run;
 })();
 /* FORGEOS:ACTION_CONTRACT_READ_MODEL_PREVIEW_BINDING_062E:END */
+
+/* FORGEOS:QUICK_ACTIONS_PANEL_ACTIVE_STATE_REPAIR_062F1:START */
+(function () {
+  "use strict";
+
+  function findInput() {
+    return document.querySelector(".dw-command-input-056y, .command-pill-input");
+  }
+
+  function findRoot(input) {
+    return input && (input.closest(".dw-command-zone-056y") || input.closest(".dw-command-shell-056y") || input.parentElement);
+  }
+
+  function normalize(value) {
+    return String(value || "").trim().toLowerCase().replace(/\s+/g, " ");
+  }
+
+  function isQuickActions(value) {
+    var query = normalize(value);
+    return query === "/quick actions" || query === "quick actions";
+  }
+
+  function revealResults(root) {
+    var panels = root.querySelectorAll(".dw-command-results-056y, .forge-contract-results-062c");
+    panels.forEach(function (panel) {
+      panel.hidden = false;
+      panel.removeAttribute("hidden");
+      panel.style.removeProperty("display");
+      panel.style.removeProperty("visibility");
+      panel.style.removeProperty("opacity");
+    });
+  }
+
+  function updateQuickActionsPanelState() {
+    var input = findInput();
+    var root = findRoot(input);
+    if (!input || !root) {
+      return;
+    }
+    root.setAttribute("data-forge-quick-actions-panel-repair-ready-062f1", "true");
+    if (isQuickActions(input.value || input.textContent)) {
+      root.classList.add("is-command-active-060m");
+      root.classList.add("is-command-active");
+      root.setAttribute("data-forge-quick-actions-panel-active-062f1", "true");
+      root.setAttribute("data-forge-contract-panel-active-062c", "true");
+      revealResults(root);
+    } else {
+      root.removeAttribute("data-forge-quick-actions-panel-active-062f1");
+    }
+  }
+
+  function bind() {
+    var input = findInput();
+    if (!input) {
+      return;
+    }
+    if (input.getAttribute("data-forge-quick-actions-panel-repair-bound-062f1") !== "true") {
+      input.setAttribute("data-forge-quick-actions-panel-repair-bound-062f1", "true");
+      input.addEventListener("input", updateQuickActionsPanelState);
+      input.addEventListener("keyup", updateQuickActionsPanelState);
+      input.addEventListener("focus", updateQuickActionsPanelState);
+      input.addEventListener("blur", function () {
+        setTimeout(updateQuickActionsPanelState, 80);
+      });
+    }
+    updateQuickActionsPanelState();
+    document.documentElement.setAttribute("data-forge-quick-actions-panel-active-state-repair-062f1", "true");
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", bind, { once: true });
+  } else {
+    bind();
+  }
+  window.addEventListener("load", bind);
+  window.__forgeRunQuickActionsPanelActiveStateRepair062F1 = bind;
+})();
+/* FORGEOS:QUICK_ACTIONS_PANEL_ACTIVE_STATE_REPAIR_062F1:END */

@@ -2430,3 +2430,28 @@ DECISION=PASS_062E_ACTION_CONTRACT_READ_MODEL_PREVIEW_BINDING
 
 NEXT=062F_ACTION_CONTRACT_READ_MODEL_PREVIEW_QA_LOCK
 <!-- FORGEOS:ACTION_CONTRACT_READ_MODEL_PREVIEW_BINDING_062E:END -->
+
+<!-- FORGEOS:QUICK_ACTIONS_PANEL_ACTIVE_STATE_REPAIR_062F1:START -->
+## 062F1 Quick Actions Panel Active State Repair
+
+Status: PASS / IMPLEMENTED.
+
+062F1 repairs the 062F public QA blocker where `/quick actions` kept results in the DOM but visually hidden because the command zone did not carry the active state expected by existing CSS.
+
+Repair:
+
+- `/quick actions` activates the command zone;
+- the existing result panel becomes visible;
+- command catalog, action contracts, preview payloads, and no-effect policy remain unchanged.
+
+Public cache:
+`062f1`
+
+Boundary:
+
+Visual active-state repair only. No CRM, calendar, message, auth, module, provider, browser persistence, browser request, or real engine behavior is changed.
+
+DECISION=PASS_062F1_QUICK_ACTIONS_PANEL_ACTIVE_STATE_REPAIR
+
+NEXT=062F2_ACTION_CONTRACT_READ_MODEL_PREVIEW_QA_LOCK
+<!-- FORGEOS:QUICK_ACTIONS_PANEL_ACTIVE_STATE_REPAIR_062F1:END -->

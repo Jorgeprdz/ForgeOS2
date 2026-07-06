@@ -1,0 +1,15 @@
+{
+  "phase": "062F1_QUICK_ACTIONS_PANEL_ACTIVE_STATE_REPAIR",
+  "status": "PASS",
+  "cacheVersion": "062f1",
+  "failedBasePhase": "062F_ACTION_CONTRACT_READ_MODEL_PREVIEW_QA_LOCK",
+  "repairedBlocker": "/quick actions results were present in DOM but visually hidden by inactive command-zone state",
+  "repair": {
+    "quickActionsInputActivatesCommandZone": true,
+    "resultPanelForcedVisibleOnlyForQuickActions": true,
+    "contractBehaviorChanged": false,
+    "payloadBindingChanged": false
+  },
+  "realEffectsEnabled": false,
+  "next": "062F2_ACTION_CONTRACT_READ_MODEL_PREVIEW_QA_LOCK"
+}
