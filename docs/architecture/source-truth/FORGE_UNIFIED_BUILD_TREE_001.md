@@ -4136,3 +4136,27 @@ DECISION=PASS_065B_CLIENT_CRM_READ_ONLY_ADAPTER_IMPLEMENTATION
 
 NEXT=065C_CLIENT_CRM_READ_ONLY_ADAPTER_QA_LOCK
 <!-- FORGE:065B_CLIENT_CRM_READ_ONLY_ADAPTER_IMPLEMENTATION:END -->
+
+<!-- FORGE:065C_CLIENT_CRM_READ_ONLY_ADAPTER_QA_LOCK:START -->
+## 065C Client CRM Read-Only Adapter QA Lock
+
+065C locks QA for the 065B Client CRM read-only adapter.
+
+Verified:
+
+- syntax check;
+- adapter unit test;
+- semantic envelope QA;
+- adapter id `forge.client_crm.read_only.adapter.v1`;
+- local static fixture;
+- read-only mode;
+- Lariza and Octavio list fixtures;
+- Lariza detail fixture;
+- safe missing-client empty state;
+- `CLIENT_CRM_NOT_MODELED`;
+- all safety flags false.
+
+DECISION=PASS_065C_CLIENT_CRM_READ_ONLY_ADAPTER_QA_LOCK
+
+NEXT=065D_CLIENT_CRM_READ_ONLY_ADAPTER_DECISION_LOCK
+<!-- FORGE:065C_CLIENT_CRM_READ_ONLY_ADAPTER_QA_LOCK:END -->
