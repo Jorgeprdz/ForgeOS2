@@ -2668,3 +2668,27 @@ DECISION=PASS_063C_STATIC_PREVIEW_RELEASE_GUARD_DRY_RUN_QA_RETRY
 
 NEXT=063D_STATIC_PREVIEW_RELEASE_GUARD_DECISION_LOCK
 <!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_DRY_RUN_QA_RETRY_063C:END -->
+
+<!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_DECISION_LOCK_063D:START -->
+## 063D Static Preview Release Guard Decision Lock
+
+063D_STATIC_PREVIEW_RELEASE_GUARD_DECISION_LOCK: PASS / DECISION LOCKED.
+
+Decision:
+`STATIC_PREVIEW_RELEASE_GUARD_LOCKED`
+
+The release guard is locked as a reusable preflight/release gate for future static preview phases.
+
+The guard does not replace visual QA, does not capture screenshots, does not commit/push, and does not mutate UI. Visual QA remains a separate phase.
+
+Evidence:
+
+- `docs/architecture/source-truth/FORGE_STATIC_PREVIEW_RELEASE_GUARD_DECISION_LOCK_063D.md`
+- `docs/evidence/FORGE_STATIC_PREVIEW_RELEASE_GUARD_DECISION_LOCK_063D.md`
+- `docs/evidence/FORGE_STATIC_PREVIEW_RELEASE_GUARD_DECISION_LOCK_CERTIFICATE_063D.md`
+- `docs/evidence/forge-static-preview-release-guard-decision-audit-063d.json`
+
+DECISION=PASS_063D_STATIC_PREVIEW_RELEASE_GUARD_DECISION_LOCK
+
+NEXT=064A_REAL_MODULE_CONNECTION_SCOPE
+<!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_DECISION_LOCK_063D:END -->

@@ -3760,3 +3760,48 @@ DECISION=PASS_063C_STATIC_PREVIEW_RELEASE_GUARD_DRY_RUN_QA_RETRY
 
 NEXT=063D_STATIC_PREVIEW_RELEASE_GUARD_DECISION_LOCK
 <!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_DRY_RUN_QA_RETRY_063C:END -->
+
+<!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_DECISION_LOCK_063D:START -->
+## 063D Static Preview Release Guard Decision Lock
+
+Status: PASS / DECISION LOCKED.
+
+Decision:
+`STATIC_PREVIEW_RELEASE_GUARD_LOCKED`
+
+The reusable static preview release guard is approved as the required preflight/release gate for future static preview phases.
+
+Closed base:
+
+- 063A scope;
+- 063B implementation;
+- 063B1 marker parsing repair;
+- 063C dry-run QA retry.
+
+Locked capabilities:
+
+- cache bust local/public;
+- markers local/public;
+- JS syntax;
+- safety scan;
+- git diff check;
+- Pages HTML/asset freshness when network is available;
+- manual viewport and command-test checklist;
+- PASS/FAIL/HOLD with report;
+- Termux autocopy when available.
+
+Explicit boundary:
+
+The guard does not replace visual QA, does not capture screenshots, does not commit/push, does not mutate UI, and remains a preflight/release gate. Visual QA remains a separate phase.
+
+Evidence:
+
+- `docs/architecture/source-truth/FORGE_STATIC_PREVIEW_RELEASE_GUARD_DECISION_LOCK_063D.md`
+- `docs/evidence/FORGE_STATIC_PREVIEW_RELEASE_GUARD_DECISION_LOCK_063D.md`
+- `docs/evidence/FORGE_STATIC_PREVIEW_RELEASE_GUARD_DECISION_LOCK_CERTIFICATE_063D.md`
+- `docs/evidence/forge-static-preview-release-guard-decision-audit-063d.json`
+
+DECISION=PASS_063D_STATIC_PREVIEW_RELEASE_GUARD_DECISION_LOCK
+
+NEXT=064A_REAL_MODULE_CONNECTION_SCOPE
+<!-- FORGEOS:STATIC_PREVIEW_RELEASE_GUARD_DECISION_LOCK_063D:END -->
