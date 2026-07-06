@@ -4051,3 +4051,27 @@ DECISION=PASS_064H_READ_ONLY_BACKEND_ADAPTER_DRY_RUN_QA_LOCK
 
 NEXT=064I_READ_ONLY_BACKEND_ADAPTER_DECISION_LOCK
 <!-- FORGE:064H_READ_ONLY_BACKEND_ADAPTER_DRY_RUN_QA_LOCK:END -->
+
+<!-- FORGE:064I_READ_ONLY_BACKEND_ADAPTER_DECISION_LOCK:START -->
+## 064I Read-Only Backend Adapter Decision Lock
+
+064I locks the 064G/064H local/static read-only backend adapter dry run as accepted architecture proof.
+
+Decision:
+`READ_ONLY_BACKEND_ADAPTER_DRY_RUN_LOCKED`
+
+Locked proof:
+
+- route `forge.api.read.client_crm.summary.preview_dry_run.v1`;
+- route class `read_only`;
+- adapter `forge.local.static.client_crm.read_only.v1`;
+- adapter mode `read_only`;
+- domain `client_crm`;
+- freshness `preview_static`;
+- audit event `read_model_used`;
+- all real-effect flags false.
+
+DECISION=PASS_064I_READ_ONLY_BACKEND_ADAPTER_DECISION_LOCK
+
+NEXT=065A_CLIENT_CRM_READ_ONLY_ADAPTER_SCOPE
+<!-- FORGE:064I_READ_ONLY_BACKEND_ADAPTER_DECISION_LOCK:END -->
