@@ -1,0 +1,30 @@
+{
+  "phase": "066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK",
+  "status": "PASS",
+  "basePhase": "066B_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_IMPLEMENTATION",
+  "adapterFile": "platform/adapters/opportunity-pipeline/opportunity-pipeline-read-only-adapter-066b.js",
+  "testFile": "tests/opportunity-pipeline-read-only-adapter-066b-test.js",
+  "checks": {
+    "syntaxCheck": true,
+    "unitTest": true,
+    "semanticEnvelopeQa": true,
+    "adapterId": "forge.opportunity_pipeline.read_only.adapter.v1",
+    "adapterType": "local_static_fixture",
+    "adapterMode": "read_only",
+    "routeClass": "read_only",
+    "listReturnsTwoFixtures": true,
+    "detailReturnsLarizaReview": true,
+    "missingReturnsSafeEmptyState": true,
+    "missingError": "OPPORTUNITY_PIPELINE_NOT_MODELED",
+    "readModelEnvelopeVersion": "forge.backend.read_model.v1",
+    "freshnessPreviewStatic": true,
+    "auditEventReadModelUsed": true,
+    "allSafetyFlagsFalse": true
+  },
+  "uiMutation": false,
+  "backendConnection": false,
+  "crmWrite": false,
+  "pipelineWrite": false,
+  "realEffectsEnabled": false,
+  "next": "066D_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_DECISION_LOCK"
+}
