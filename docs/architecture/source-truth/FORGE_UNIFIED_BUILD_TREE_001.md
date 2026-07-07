@@ -4857,3 +4857,34 @@ LOCKED_DECISION=QUOTE_READ_MODEL_LOCKED_AS_TEMPORARY_LOCAL_STATIC_EXISTING_ENGIN
 
 NEXT=070A_APPROVAL_GATE_ACTION_EXECUTION_BOUNDARY_SCOPE
 <!-- FORGE:069E_QUOTE_READ_MODEL_ADAPTER_DECISION_LOCK:END -->
+
+<!-- FORGE:070A_APPROVAL_GATE_ACTION_EXECUTION_BOUNDARY_SCOPE:START -->
+## 070A Approval Gate Action Execution Boundary Scope
+
+070A scopes the constitutional boundary between read/preview/recommend/draft/prepare behavior and real action execution.
+
+Locked decision:
+`APPROVAL_GATE_ACTION_EXECUTION_BOUNDARY_SCOPED`
+
+Boundary:
+
+- no real effect may occur without explicit human approval;
+- AI output is never approval;
+- safety validation is not approval;
+- preview payloads, recommendations, drafts, prepared candidates, validation reports, blocked effects, and audit preview events may exist without approval only when no-effect;
+- quote creation, quote persistence, real proposal/PDF generation, quote send, CRM write, pipeline stage mutation, policy update, task creation, calendar creation, message send, provider call, backend write, and any state change outside preview require approval;
+- approval must bind to the exact payload approved and any material change requires reapproval.
+
+Safe errors:
+
+- `ACTION_EXECUTION_REQUIRES_APPROVAL`
+- `ACTION_CONTRACT_NOT_MODELED`
+- `ACTION_EXECUTION_BLOCKED_BY_POLICY`
+- `ACTION_PAYLOAD_CHANGED_AFTER_APPROVAL`
+
+DECISION=PASS_070A_APPROVAL_GATE_ACTION_EXECUTION_BOUNDARY_SCOPE
+
+LOCKED_DECISION=APPROVAL_GATE_ACTION_EXECUTION_BOUNDARY_SCOPED
+
+NEXT=070B_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_SCOPE
+<!-- FORGE:070A_APPROVAL_GATE_ACTION_EXECUTION_BOUNDARY_SCOPE:END -->
