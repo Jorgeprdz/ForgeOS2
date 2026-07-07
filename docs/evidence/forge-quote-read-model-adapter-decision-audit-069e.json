@@ -1,0 +1,140 @@
+{
+  "phase": "069E_QUOTE_READ_MODEL_ADAPTER_DECISION_LOCK",
+  "status": "PASS",
+  "decision": "PASS_069E_QUOTE_READ_MODEL_ADAPTER_DECISION_LOCK",
+  "lockedDecision": "QUOTE_READ_MODEL_LOCKED_AS_TEMPORARY_LOCAL_STATIC_EXISTING_ENGINE_WRAPPER",
+  "basePhases": [
+    "069C_QUOTE_READ_MODEL_ADAPTER_IMPLEMENTATION",
+    "069D_QUOTE_READ_MODEL_ADAPTER_QA_LOCK"
+  ],
+  "baseCommits": {
+    "069C": "a173cd2",
+    "069D": "ccdd5b1"
+  },
+  "next": "070A_APPROVAL_GATE_ACTION_EXECUTION_BOUNDARY_SCOPE",
+  "adapter": "platform/adapters/quote-read-model/quote-read-model-adapter-069c.js",
+  "test": "tests/quote-read-model-adapter-069c-test.js",
+  "upstreamLocks": {
+    "implementationStatus": "PASS",
+    "implementationLockedDecision": "QUOTE_READ_MODEL_LOCAL_STATIC_EXISTING_ENGINE_WRAPPER_IMPLEMENTED",
+    "qaStatus": "PASS",
+    "qaLockedDecision": "QUOTE_READ_MODEL_ADAPTER_QA_LOCKED"
+  },
+  "manifest": {
+    "adapterId": "forge.quote.read_model.adapter.v1",
+    "adapterType": "local_static_existing_engine_wrapper",
+    "adapterMode": "read_only",
+    "routeClass": "read_only",
+    "domainId": "quote",
+    "schemaVersion": "forge.backend.read_model.v1",
+    "sourceEngineRef": "gmm-quote-summary-engine.js",
+    "safeErrorCode": "QUOTE_READ_MODEL_NOT_MODELED",
+    "canonicalQuoteTruthClaimed": false,
+    "newQuoteEngineCreated": false,
+    "newProductDatabaseCreated": false
+  },
+  "decisionMeaning": {
+    "approvedOnlyAsLocalStaticReadOnlyQuoteReadModelAdapter": true,
+    "wrapsExistingQuoteEngineParserSurfaces": true,
+    "createsNewQuoteEngine": false,
+    "createsNewProductDatabase": false,
+    "createsBindingQuoteTruth": false,
+    "callsProvider": false,
+    "savesSendsOrGeneratesRealQuoteProposalPdf": false,
+    "bypassesApproval": false,
+    "outputsPreviewSafeEvidenceFreshnessBackedRecords": true,
+    "quoteActionContractRemainsFutureWork": true
+  },
+  "requiredBlockedEffects": {
+    "quote_create": true,
+    "quote_update": true,
+    "quote_send": true,
+    "provider_call": true,
+    "policy_write": true,
+    "crm_write": true,
+    "real_engine_execution": true
+  },
+  "safetyFlags": {
+    "crmWrite": false,
+    "pipelineWrite": false,
+    "policyWrite": false,
+    "quoteWrite": false,
+    "taskCreate": false,
+    "calendarCreate": false,
+    "messageSend": false,
+    "authReal": false,
+    "providerRuntime": false,
+    "secretAccess": false,
+    "browserPersistence": false,
+    "realEngineExecution": false,
+    "realEffectsAllowed": false,
+    "realEffectsEnabled": false,
+    "backendConnection": false
+  },
+  "notAuthorized": [
+    "new_quote_engine",
+    "new_product_database",
+    "canonical_quote_truth",
+    "binding_premium_truth",
+    "provider_quote_creation",
+    "provider_call",
+    "quote_save_send_generate",
+    "proposal_or_pdf_generation",
+    "approval_bypass",
+    "crm_write",
+    "policy_write",
+    "quote_write",
+    "pipeline_write",
+    "task_creation",
+    "calendar_creation",
+    "message_send",
+    "auth",
+    "secret_access",
+    "browser_persistence",
+    "backend_connection",
+    "real_engine_execution_with_effects",
+    "invented_quote_truth"
+  ],
+  "validationResults": [
+    {
+      "command": "explicit 069E audit prerequisite assertions",
+      "status": "PASS"
+    },
+    {
+      "command": "node --check platform/adapters/quote-read-model/quote-read-model-adapter-069c.js",
+      "status": "PASS"
+    },
+    {
+      "command": "node --check tests/quote-read-model-adapter-069c-test.js",
+      "status": "PASS"
+    },
+    {
+      "command": "node tests/quote-read-model-adapter-069c-test.js",
+      "status": "PASS_WITH_NON_BLOCKING_MODULE_TYPE_WARNING"
+    },
+    {
+      "command": "python3 -m json.tool docs/evidence/forge-quote-read-model-adapter-decision-audit-069e.json",
+      "status": "PASS"
+    },
+    {
+      "command": "rg markers",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "status": "PASS"
+    },
+    {
+      "command": "scoped safety scan",
+      "status": "PASS"
+    },
+    {
+      "command": "git diff --cached --check",
+      "status": "PASS"
+    }
+  ],
+  "notes": [
+    "069D manifest and behavior data are validated from nested audit.manifest and audit.behaviorQa fields.",
+    "Node emitted the existing ESM module-type warning because package.json does not declare type module; 069E does not change package metadata."
+  ]
+}

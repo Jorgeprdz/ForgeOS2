@@ -3823,3 +3823,32 @@ LOCKED_DECISION=QUOTE_READ_MODEL_ADAPTER_QA_LOCKED
 
 NEXT=069E_QUOTE_READ_MODEL_ADAPTER_DECISION_LOCK
 <!-- FORGE:069D_QUOTE_READ_MODEL_ADAPTER_QA_LOCK:END -->
+
+<!-- FORGE:069E_QUOTE_READ_MODEL_ADAPTER_DECISION_LOCK:START -->
+## 069E Quote Read Model Adapter Decision Lock
+
+069E locks the 069C Quote Read Model adapter after 069D QA.
+
+Locked decision:
+`QUOTE_READ_MODEL_LOCKED_AS_TEMPORARY_LOCAL_STATIC_EXISTING_ENGINE_WRAPPER`
+
+Meaning:
+
+- approved only as a local/static/read-only quote read-model adapter;
+- wraps existing quote engine/parser surfaces;
+- uses `gmm-quote-summary-engine.js` as source engine reference;
+- does not create a new quote engine;
+- does not create a new product database;
+- does not create binding quote truth;
+- does not call provider;
+- does not save, send, or generate real quote, proposal, or PDF;
+- does not bypass approval;
+- outputs are preview-safe and evidence/freshness-backed;
+- Quote Action Contract remains future work.
+
+DECISION=PASS_069E_QUOTE_READ_MODEL_ADAPTER_DECISION_LOCK
+
+LOCKED_DECISION=QUOTE_READ_MODEL_LOCKED_AS_TEMPORARY_LOCAL_STATIC_EXISTING_ENGINE_WRAPPER
+
+NEXT=070A_APPROVAL_GATE_ACTION_EXECUTION_BOUNDARY_SCOPE
+<!-- FORGE:069E_QUOTE_READ_MODEL_ADAPTER_DECISION_LOCK:END -->
