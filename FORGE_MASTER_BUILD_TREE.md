@@ -6766,3 +6766,20 @@ Next: 066D_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_DECISION_LOCK
 066B remains a temporary local/static/read-only shim until canonical source mapping is scoped.
 No backend connection, writes, provider runtime, auth, secrets, browser persistence or real engine execution were enabled.
 <!-- FORGE:066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK:END -->
+
+<!-- FORGE:066D_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_DECISION_LOCK:START -->
+## 066D Opportunity Pipeline Read-only Adapter Decision Lock
+
+Status: PASS
+Decision: PASS_066D_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_DECISION_LOCK
+Decision lock: OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_LOCKED_AS_TEMPORARY_LOCAL_STATIC_SHIM
+Next: 067A_OPPORTUNITY_PIPELINE_CANONICAL_SOURCE_MAPPING_SCOPE
+
+066D locks the 066B Opportunity Pipeline adapter as a temporary local/static/read-only shim after 066B1 reconciliation and 066C QA.
+
+The adapter is allowed for preview-safe read model continuity only. It is not authorized as canonical backend source truth and does not connect backend, CRM, pipeline write, task, calendar, message, auth, provider, secret, storage, or real engine surfaces.
+
+DECISION=PASS_066D_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_DECISION_LOCK
+
+NEXT=067A_OPPORTUNITY_PIPELINE_CANONICAL_SOURCE_MAPPING_SCOPE
+<!-- FORGE:066D_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_DECISION_LOCK:END -->
