@@ -3608,3 +3608,33 @@ LOCKED_DECISION=POLICY_READ_MODEL_SCOPED
 
 NEXT=068B_POLICY_READ_MODEL_IMPLEMENTATION
 <!-- FORGE:068A_POLICY_READ_MODEL_SCOPE:END -->
+
+<!-- FORGE:068B_POLICY_READ_MODEL_IMPLEMENTATION:START -->
+## 068B Policy Read Model Implementation
+
+Status: PASS
+
+Locked decision:
+
+`POLICY_READ_MODEL_LOCAL_STATIC_READ_ONLY_IMPLEMENTED`
+
+Implemented:
+- `platform/adapters/policy-read-model/policy-read-model-adapter-068b.js`
+- `tests/policy-read-model-adapter-068b-test.js`
+
+Boundary:
+- local/static/read-only only;
+- no canonical policy truth;
+- no policy issuance or mutation;
+- no backend/provider/auth/secrets/browser persistence;
+- no CRM/pipeline/policy/quote writes;
+- safe error `POLICY_READ_MODEL_NOT_MODELED`;
+- schema `forge.backend.read_model.v1`;
+- all safety flags false.
+
+DECISION=PASS_068B_POLICY_READ_MODEL_IMPLEMENTATION
+
+LOCKED_DECISION=POLICY_READ_MODEL_LOCAL_STATIC_READ_ONLY_IMPLEMENTED
+
+NEXT=068C_POLICY_READ_MODEL_QA_LOCK
+<!-- FORGE:068B_POLICY_READ_MODEL_IMPLEMENTATION:END -->
