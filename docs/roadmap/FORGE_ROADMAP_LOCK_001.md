@@ -3526,3 +3526,28 @@ LOCKED_DECISION=OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_IMPLEMENTED
 
 NEXT=067E_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_QA_LOCK
 <!-- FORGE:067D_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_IMPLEMENTATION:END -->
+
+<!-- FORGE:067E_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_QA_LOCK:START -->
+## 067E Opportunity Pipeline Read Model Normalization QA Lock
+
+067E locks QA evidence for the 067D local/static/candidate-only Opportunity Pipeline read model normalizer.
+
+Locked decision:
+`OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_QA_LOCKED`
+
+Validated:
+
+- manifest contract for `forge.opportunity_pipeline.read_model.normalizer.v1`;
+- fixture and semantic normalization behavior;
+- candidate-only output with no canonical opportunity truth;
+- evidence and freshness on non-empty candidates;
+- safe empty/error path `OPPORTUNITY_PIPELINE_NORMALIZATION_NOT_MODELED`;
+- all safety flags false;
+- no backend, CRM, pipeline, task, calendar, message, auth, provider, storage, secret, or real engine effects.
+
+DECISION=PASS_067E_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_QA_LOCK
+
+LOCKED_DECISION=OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_QA_LOCKED
+
+NEXT=067F_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_DECISION_LOCK
+<!-- FORGE:067E_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_QA_LOCK:END -->
