@@ -4586,3 +4586,30 @@ LOCKED_DECISION=OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_LOCKED_AS_CANDIDAT
 
 NEXT=068A_POLICY_READ_MODEL_SCOPE
 <!-- FORGE:067F_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_DECISION_LOCK:END -->
+
+<!-- FORGE:068A_POLICY_READ_MODEL_SCOPE:START -->
+## 068A Policy Read Model Scope
+
+068A opens the Policy Read Model branch after Opportunity Pipeline normalization was locked as candidate-only preview.
+
+Locked decision:
+`POLICY_READ_MODEL_SCOPED`
+
+Scope:
+
+- read-only and preview-safe policy read model;
+- no policy issuance or mutation;
+- no canonical policy truth claim;
+- no provider runtime or backend connection;
+- no invented premium, coverage, status, carrier, payment, renewal, or recommendation facts;
+- safe error `POLICY_READ_MODEL_NOT_MODELED`;
+- schema `forge.backend.read_model.v1`;
+- mode `read_only`;
+- all safety flags false.
+
+DECISION=PASS_068A_POLICY_READ_MODEL_SCOPE
+
+LOCKED_DECISION=POLICY_READ_MODEL_SCOPED
+
+NEXT=068B_POLICY_READ_MODEL_IMPLEMENTATION
+<!-- FORGE:068A_POLICY_READ_MODEL_SCOPE:END -->
