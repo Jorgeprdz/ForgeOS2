@@ -5441,3 +5441,30 @@ LOCKED_DECISION=PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_LOCAL_STATIC_READ_ONLY_I
 
 NEXT=073E_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_QA_LOCK
 <!-- FORGE:073D_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_IMPLEMENTATION:END -->
+
+<!-- FORGE:073E_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_QA_LOCK:START -->
+## 073E Product Intelligence Unified Read Model QA Lock
+
+073E QA locks the local/static/read-only Product Intelligence Unified Read Model adapter implemented in 073D.
+
+Locked decision:
+`PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_QA_LOCKED`
+
+QA confirmed:
+
+- all scoped product families are present: GMM, Vida Mujer, AVE, Imagina Ser, ORVI, SeguBeca;
+- every entry uses `forge.product_intelligence.read_model.v1`;
+- every entry is `product_intelligence`, `read_only`, and `preview_safe`;
+- every entry has all required 073C fields;
+- all safety flags remain false;
+- missing family returns `PRODUCT_INTELLIGENCE_READ_MODEL_NOT_MODELED`;
+- Quote PDF preview remains consumer/reference only;
+- Imagina Ser remains a proven case, not universal architecture;
+- parser, calculator, Banxico, PDF, provider, backend, and real engine execution remain disabled.
+
+DECISION=PASS_073E_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_QA_LOCK
+
+LOCKED_DECISION=PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_QA_LOCKED
+
+NEXT=073F_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_DECISION_LOCK
+<!-- FORGE:073E_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_QA_LOCK:END -->
