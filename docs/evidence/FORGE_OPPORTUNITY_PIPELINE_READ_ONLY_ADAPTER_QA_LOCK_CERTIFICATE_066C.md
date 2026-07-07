@@ -1,21 +1,11 @@
-# Forge Opportunity Pipeline Read-Only Adapter QA Lock Certificate 066C
+# FORGE OPPORTUNITY PIPELINE READ ONLY ADAPTER QA LOCK CERTIFICATE 066C
 
-DECISION=PASS_066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK
+Certificate: PASS_066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK
+Phase: 066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK
+Next: 066D_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_DECISION_LOCK
 
-NEXT=066D_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_DECISION_LOCK
+This certificate confirms that 066C completed QA lock for the 066B Opportunity Pipeline read-only adapter while preserving the 066B1 reconciliation decision.
 
-Certified:
+066B remains a temporary local/static/read-only shim until canonical source mapping is scoped.
 
-- QA lock only;
-- no UI mutation;
-- no backend connection;
-- no CRM write;
-- no pipeline write;
-- no task creation;
-- no calendar creation;
-- no message send;
-- no auth implementation;
-- no provider runtime;
-- no secret access;
-- no browser persistence;
-- no real engine execution.
+Real effects remain blocked.

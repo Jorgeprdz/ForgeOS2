@@ -4346,28 +4346,6 @@ DECISION=PASS_066B_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_IMPLEMENTATION
 NEXT=066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK
 <!-- FORGE:066B_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_IMPLEMENTATION:END -->
 
-<!-- FORGE:066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK:START -->
-## 066C Opportunity Pipeline Read-Only Adapter QA Lock
-
-066C locks QA for the Opportunity Pipeline read-only adapter implemented in 066B.
-
-Verified:
-
-- adapter id `forge.opportunity_pipeline.read_only.adapter.v1`;
-- adapter type `local_static_fixture`;
-- adapter mode `read_only`;
-- route class `read_only`;
-- list returns two fixtures;
-- detail returns `opp_preview_lariza_review`;
-- missing detail returns `OPPORTUNITY_PIPELINE_NOT_MODELED`;
-- audit event `read_model_used`;
-- all safety flags false.
-
-DECISION=PASS_066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK
-
-NEXT=066D_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_DECISION_LOCK
-<!-- FORGE:066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK:END -->
-
 <!-- FORGE:066B1_OPPORTUNITY_PIPELINE_EXISTING_MODULE_RECONCILIATION:START -->
 ## 066B1 Opportunity Pipeline Existing Module Reconciliation
 
@@ -4407,3 +4385,15 @@ DECISION=PASS_066B1_OPPORTUNITY_PIPELINE_EXISTING_MODULE_RECONCILIATION
 
 NEXT=066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK_OR_REPAIR
 <!-- FORGE:066B1_OPPORTUNITY_PIPELINE_EXISTING_MODULE_RECONCILIATION:END -->
+
+<!-- FORGE:066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK:START -->
+## 066C Opportunity Pipeline Read-only Adapter QA Lock
+
+Status: PASS
+Decision: PASS_066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK
+Next: 066D_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_DECISION_LOCK
+
+066C validates the 066B Opportunity Pipeline read-only adapter using the 066B1 reconciliation decision.
+066B remains a temporary local/static/read-only shim until canonical source mapping is scoped.
+No backend connection, writes, provider runtime, auth, secrets, browser persistence or real engine execution were enabled.
+<!-- FORGE:066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK:END -->

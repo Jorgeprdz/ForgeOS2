@@ -1,28 +1,50 @@
-# Forge Opportunity Pipeline Read-Only Adapter QA Lock Evidence 066C
+# FORGE OPPORTUNITY PIPELINE READ ONLY ADAPTER QA LOCK 066C
 
-Phase:
-`066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK`
+Status: PASS
+Phase: 066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK
+Decision: PASS_066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK
+Next: 066D_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_DECISION_LOCK
 
-Status:
-PASS
+## Evidence Summary
 
-Base:
-`066B_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_IMPLEMENTATION`
+Validated 066B implementation files and 066B1 reconciliation files.
 
-## QA Summary
+066B1 audit acceptance is robust but strict where it matters:
 
-066C verifies the Opportunity Pipeline adapter implementation from 066B through syntax checks, unit tests, semantic envelope checks, safety flag checks, and documentation lock evidence.
+- phase must equal `066B1_OPPORTUNITY_PIPELINE_EXISTING_MODULE_RECONCILIATION`
+- shim decision must equal `KEEP_066B_AS_TEMPORARY_LOCAL_STATIC_SHIM` using `reconciliationDecision` when present
+- explicit `realEffectsEnabled` must be false when present; historical audits without that exact key are accepted only if no real-effect marker is true
+- status may be `PASS` or any string starting with `PASS`
 
-Verified:
+Validated adapter semantics:
 
-- adapter manifest is stable;
-- read-only mode is preserved;
-- local static fixture behavior is preserved;
-- safe empty state is returned for missing opportunity fixture ids;
-- all real-effect surfaces stay blocked.
+- adapterId: `forge.opportunity_pipeline.read_only.adapter.v1`
+- adapterType: `local_static_fixture`
+- adapterMode: `read_only`
+- routeClass: `read_only`
+- domainId: `opportunity_pipeline`
+- providerRuntime: false
+- secretAccess: false
+- realEffectsAllowed: false
+- list returns two fixtures
+- Lariza detail resolves with `client_preview_lariza` and `priority=high`
+- missing opportunity returns `OPPORTUNITY_PIPELINE_NOT_MODELED` and `filter_no_match`
+- audit event: `read_model_used`
+- schemaVersion: `forge.backend.read_model.v1`
+- freshness status: `preview_static`
+- safety flags remain false
 
-## Result
+## Boundary Confirmation
 
-DECISION=PASS_066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK
-
-NEXT=066D_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_DECISION_LOCK
+No UI mutation.
+No backend connection.
+No CRM write.
+No pipeline write.
+No task creation.
+No calendar creation.
+No send.
+No auth.
+No provider execution.
+No secret access.
+No browser persistence.
+No real engine execution.

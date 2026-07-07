@@ -1,30 +1,55 @@
 {
   "phase": "066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK",
   "status": "PASS",
-  "basePhase": "066B_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_IMPLEMENTATION",
-  "adapterFile": "platform/adapters/opportunity-pipeline/opportunity-pipeline-read-only-adapter-066b.js",
-  "testFile": "tests/opportunity-pipeline-read-only-adapter-066b-test.js",
-  "checks": {
-    "syntaxCheck": true,
-    "unitTest": true,
-    "semanticEnvelopeQa": true,
+  "decision": "PASS_066C_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_QA_LOCK",
+  "next": "066D_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_DECISION_LOCK",
+  "reconciliationDependency": {
+    "phase": "066B1_OPPORTUNITY_PIPELINE_EXISTING_MODULE_RECONCILIATION",
+    "requiredDecision": "KEEP_066B_AS_TEMPORARY_LOCAL_STATIC_SHIM",
+    "statusAccepted": "PASS_OR_PASS_PREFIX",
+    "realEffectsEnabled": false
+  },
+  "adapter": {
+    "path": "platform/adapters/opportunity-pipeline/opportunity-pipeline-read-only-adapter-066b.js",
     "adapterId": "forge.opportunity_pipeline.read_only.adapter.v1",
     "adapterType": "local_static_fixture",
     "adapterMode": "read_only",
     "routeClass": "read_only",
-    "listReturnsTwoFixtures": true,
-    "detailReturnsLarizaReview": true,
-    "missingReturnsSafeEmptyState": true,
-    "missingError": "OPPORTUNITY_PIPELINE_NOT_MODELED",
-    "readModelEnvelopeVersion": "forge.backend.read_model.v1",
-    "freshnessPreviewStatic": true,
-    "auditEventReadModelUsed": true,
-    "allSafetyFlagsFalse": true
+    "domainId": "opportunity_pipeline",
+    "schemaVersion": "forge.backend.read_model.v1",
+    "freshnessStatus": "preview_static",
+    "auditEvent": "read_model_used",
+    "safeErrorCode": "OPPORTUNITY_PIPELINE_NOT_MODELED",
+    "fixtureCount": 2,
+    "temporaryShimDecision": "KEEP_066B_AS_TEMPORARY_LOCAL_STATIC_SHIM"
   },
-  "uiMutation": false,
-  "backendConnection": false,
-  "crmWrite": false,
-  "pipelineWrite": false,
-  "realEffectsEnabled": false,
-  "next": "066D_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_DECISION_LOCK"
+  "safety": {
+    "crmWrite": false,
+    "pipelineWrite": false,
+    "taskCreate": false,
+    "calendarCreate": false,
+    "messageSend": false,
+    "authReal": false,
+    "providerRuntime": false,
+    "secretAccess": false,
+    "browserPersistence": false,
+    "realEngineExecution": false,
+    "realEffectsAllowed": false,
+    "realEffectsEnabled": false,
+    "backendConnection": false
+  },
+  "boundary": {
+    "uiMutation": false,
+    "backendConnection": false,
+    "crmWrite": false,
+    "pipelineWrite": false,
+    "taskCreation": false,
+    "calendarCreation": false,
+    "messageSend": false,
+    "auth": false,
+    "providerExecution": false,
+    "secretAccess": false,
+    "browserPersistence": false,
+    "realEngineExecution": false
+  }
 }
