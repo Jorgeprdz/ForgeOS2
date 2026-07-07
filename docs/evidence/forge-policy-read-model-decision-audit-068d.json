@@ -1,0 +1,50 @@
+{
+  "phase": "068D_POLICY_READ_MODEL_DECISION_LOCK",
+  "status": "PASS",
+  "decision": "PASS_068D_POLICY_READ_MODEL_DECISION_LOCK",
+  "lockedDecision": "POLICY_READ_MODEL_LOCKED_AS_TEMPORARY_LOCAL_STATIC_READ_ONLY_ADAPTER",
+  "basePhases": [
+    "068A_POLICY_READ_MODEL_SCOPE",
+    "068B_POLICY_READ_MODEL_IMPLEMENTATION",
+    "068C_POLICY_READ_MODEL_QA_LOCK"
+  ],
+  "adapter": "platform/adapters/policy-read-model/policy-read-model-adapter-068b.js",
+  "test": "tests/policy-read-model-adapter-068b-test.js",
+  "authorizedUse": [
+    "local_static_policy_read_model_preview",
+    "read_only_fixture_records",
+    "evidence_and_freshness_backed_preview_fields",
+    "safe_empty_and_error_behavior"
+  ],
+  "notAuthorizedUse": [
+    "canonical_policy_truth",
+    "policy_issuance",
+    "policy_mutation",
+    "provider_runtime",
+    "backend_connection",
+    "crm_pipeline_policy_quote_writes",
+    "task_calendar_message_creation",
+    "auth_secret_access",
+    "browser_persistence",
+    "real_engine_execution"
+  ],
+  "safeErrorCode": "POLICY_READ_MODEL_NOT_MODELED",
+  "canonicalPolicyTruthClaimed": false,
+  "temporaryLocalStaticAdapter": true,
+  "policyWrite": false,
+  "crmWrite": false,
+  "pipelineWrite": false,
+  "quoteWrite": false,
+  "taskCreate": false,
+  "calendarCreate": false,
+  "messageSend": false,
+  "authReal": false,
+  "providerRuntime": false,
+  "secretAccess": false,
+  "browserPersistence": false,
+  "realEngineExecution": false,
+  "realEffectsAllowed": false,
+  "realEffectsEnabled": false,
+  "backendConnection": false,
+  "next": "069A_QUOTE_READ_MODEL_SCOPE"
+}

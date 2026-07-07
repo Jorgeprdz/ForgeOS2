@@ -3673,3 +3673,32 @@ LOCKED_DECISION=POLICY_READ_MODEL_QA_LOCKED
 
 NEXT=068D_POLICY_READ_MODEL_DECISION_LOCK
 <!-- FORGE:068C_POLICY_READ_MODEL_QA_LOCK:END -->
+
+<!-- FORGE:068D_POLICY_READ_MODEL_DECISION_LOCK:START -->
+## 068D Policy Read Model Decision Lock
+
+Status: PASS
+
+Locked decision:
+
+`POLICY_READ_MODEL_LOCKED_AS_TEMPORARY_LOCAL_STATIC_READ_ONLY_ADAPTER`
+
+068D locks the 068B Policy Read Model adapter after 068C QA.
+
+Meaning:
+- local/static/read-only preview adapter only;
+- no canonical policy truth;
+- no policy issuance or mutation;
+- no provider runtime;
+- no backend connection;
+- no CRM/pipeline/policy/quote writes;
+- no task/calendar/message actions;
+- safe error `POLICY_READ_MODEL_NOT_MODELED`;
+- all safety flags false.
+
+DECISION=PASS_068D_POLICY_READ_MODEL_DECISION_LOCK
+
+LOCKED_DECISION=POLICY_READ_MODEL_LOCKED_AS_TEMPORARY_LOCAL_STATIC_READ_ONLY_ADAPTER
+
+NEXT=069A_QUOTE_READ_MODEL_SCOPE
+<!-- FORGE:068D_POLICY_READ_MODEL_DECISION_LOCK:END -->
