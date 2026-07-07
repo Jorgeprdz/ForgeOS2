@@ -3441,3 +3441,34 @@ LOCKED_DECISION=OPPORTUNITY_PIPELINE_CANONICAL_SOURCE_MAPPING_SCOPED
 
 NEXT=067B_RELATIONSHIP_OPPORTUNITY_SIGNAL_ADAPTER_SCOPE
 <!-- FORGE:067A_OPPORTUNITY_PIPELINE_CANONICAL_SOURCE_MAPPING_SCOPE:END -->
+
+<!-- FORGE:067B_RELATIONSHIP_OPPORTUNITY_SIGNAL_ADAPTER_SCOPE:START -->
+## 067B Relationship Opportunity Signal Adapter Scope
+
+067B scopes the relationship opportunity signal adapter lane selected by 067A.
+
+Decision:
+`RELATIONSHIP_OPPORTUNITY_SIGNAL_ADAPTER_SCOPED`
+
+Source candidate:
+`relationship-opportunity-engine.js`
+
+Scope:
+
+- relationship-derived opportunity signal source candidate;
+- no canonical opportunity truth claim;
+- no adapter implementation yet;
+- no CRM write;
+- no pipeline write or stage mutation;
+- no task, calendar, or message action;
+- no provider, auth, secret, storage, or real engine execution.
+
+Required signal envelope:
+`signal_id`, `source_module`, `source_signal_type`, `client_ref`, `opportunity_candidate_ref`, `confidence_preview`, `priority_hint`, `next_action_hint`, `risk_flags`, `source_evidence_ids`, `freshness_metadata`, `audit_event`, `blocked_effects`, and `safety_flags`.
+
+DECISION=PASS_067B_RELATIONSHIP_OPPORTUNITY_SIGNAL_ADAPTER_SCOPE
+
+LOCKED_DECISION=RELATIONSHIP_OPPORTUNITY_SIGNAL_ADAPTER_SCOPED
+
+NEXT=067C_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_SCOPE
+<!-- FORGE:067B_RELATIONSHIP_OPPORTUNITY_SIGNAL_ADAPTER_SCOPE:END -->
