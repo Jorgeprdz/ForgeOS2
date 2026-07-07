@@ -7837,3 +7837,31 @@ LOCKED_DECISION=PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_QA_LOCKED
 
 NEXT=073F_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_DECISION_LOCK
 <!-- FORGE:073E_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_QA_LOCK:END -->
+
+<!-- FORGE:073F_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_DECISION_LOCK:START -->
+## 073F Product Intelligence Unified Read Model Decision Lock
+
+073F decision-locks the Product Intelligence Unified Read Model as a local/static/read-only reference catalog.
+
+Locked decision:
+`PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_CATALOG`
+
+Confirmed:
+
+- adapter remains local/static/read-only;
+- adapter remains a reference catalog only;
+- no parser/calculator execution occurs;
+- no Banxico call occurs;
+- no PDF read occurs;
+- no product, premium, coverage, projection, or quote truth is created;
+- product families covered: GMM, Vida Mujer, AVE, Imagina Ser, ORVI, SeguBeca;
+- Imagina Ser is not universal architecture;
+- Quote PDF Preview is consumer/reference only;
+- Quote promotion must bind to Product Intelligence before using quote-specific preview engines.
+
+DECISION=PASS_073F_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_DECISION_LOCK
+
+LOCKED_DECISION=PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_CATALOG
+
+NEXT=074A_QUOTE_PREVIEW_PRODUCT_INTELLIGENCE_BINDING_SCOPE
+<!-- FORGE:073F_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_DECISION_LOCK:END -->
