@@ -5117,3 +5117,40 @@ LOCKED_DECISION=QUOTE_ACTION_CONTRACT_QA_LOCKED
 
 NEXT=071D_QUOTE_ACTION_CONTRACT_DECISION_LOCK
 <!-- FORGE:071C_QUOTE_ACTION_CONTRACT_QA_LOCK:END -->
+
+<!-- FORGE:071D_QUOTE_ACTION_CONTRACT_DECISION_LOCK:START -->
+## 071D Quote Action Contract Decision Lock
+
+071D locks the Quote Action Contract as local/static/no-effect infrastructure.
+
+Locked decision:
+`QUOTE_ACTION_CONTRACT_LOCKED_AS_LOCAL_STATIC_NO_EFFECT_CONTRACT`
+
+Authorized:
+
+- local/static quote action contract construction;
+- preview-safe quote action validation;
+- deterministic payload hashing;
+- approval requirement detection;
+- payload integrity detection;
+- evidence, freshness, and rollback requirement detection;
+- safe error construction;
+- future approval gate integration planning.
+
+Not authorized:
+
+- new quote engine;
+- quote execution;
+- quote approval;
+- provider runtime;
+- backend connection;
+- quote document generation, send, save, or bind;
+- CRM, policy, pipeline, task, calendar, or message effects;
+- auth, secret, browser, approval bypass, or invented truth.
+
+DECISION=PASS_071D_QUOTE_ACTION_CONTRACT_DECISION_LOCK
+
+LOCKED_DECISION=QUOTE_ACTION_CONTRACT_LOCKED_AS_LOCAL_STATIC_NO_EFFECT_CONTRACT
+
+NEXT=072A_QUOTE_APPROVAL_GATE_INTEGRATION_SCOPE
+<!-- FORGE:071D_QUOTE_ACTION_CONTRACT_DECISION_LOCK:END -->
