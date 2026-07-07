@@ -4888,3 +4888,42 @@ LOCKED_DECISION=APPROVAL_GATE_ACTION_EXECUTION_BOUNDARY_SCOPED
 
 NEXT=070B_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_SCOPE
 <!-- FORGE:070A_APPROVAL_GATE_ACTION_EXECUTION_BOUNDARY_SCOPE:END -->
+
+<!-- FORGE:070B_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_SCOPE:START -->
+## 070B Action Contract Approval Gate Schema Scope
+
+070B scopes the formal schema layer that future action contracts must satisfy before any Approval Gate implementation.
+
+Locked decision:
+`ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_SCOPED`
+
+Schemas scoped:
+
+- `forge.action_contract.v1`
+- `forge.approval_gate.v1`
+
+Schema scope includes:
+
+- action contract required fields;
+- approval gate required fields;
+- action states;
+- approval statuses;
+- initial action families;
+- approval rules;
+- payload integrity rules;
+- default false safety flags;
+- safe error model.
+
+Safe errors include:
+
+- `ACTION_EXECUTION_REQUIRES_APPROVAL`
+- `ACTION_PAYLOAD_CHANGED_AFTER_APPROVAL`
+- `ACTION_APPROVAL_EXPIRED`
+- `ACTION_SOURCE_EVIDENCE_REQUIRED`
+
+DECISION=PASS_070B_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_SCOPE
+
+LOCKED_DECISION=ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_SCOPED
+
+NEXT=070C_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_IMPLEMENTATION
+<!-- FORGE:070B_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_SCOPE:END -->
