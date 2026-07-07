@@ -5251,3 +5251,39 @@ LOCKED_DECISION=QUOTE_APPROVAL_GATE_INTEGRATION_QA_LOCKED
 
 NEXT=072D_QUOTE_APPROVAL_GATE_INTEGRATION_DECISION_LOCK
 <!-- FORGE:072C_QUOTE_APPROVAL_GATE_INTEGRATION_QA_LOCK:END -->
+
+<!-- FORGE:072D_QUOTE_APPROVAL_GATE_INTEGRATION_DECISION_LOCK:START -->
+## 072D Quote Approval Gate Integration Decision Lock
+
+072D locks the Quote Approval Gate Integration as local/static/no-effect validation infrastructure.
+
+Locked decision:
+`QUOTE_APPROVAL_GATE_INTEGRATION_LOCKED_AS_LOCAL_STATIC_NO_EFFECT_VALIDATOR`
+
+Authorized:
+
+- local/static approval gate integration validation;
+- preview-safe approval requirement detection;
+- deterministic payload integrity checks;
+- payload changed after approval detection;
+- source evidence, freshness, and rollback requirement checks;
+- safe error mapping;
+- blocked effects reporting;
+- default false safety flag verification.
+
+Not authorized:
+
+- quote execution;
+- quote approval;
+- provider runtime;
+- backend connection;
+- quote document generation, send, save, or bind;
+- CRM, policy, pipeline, task, calendar, or message effects;
+- auth, secret, browser, approval bypass, or invented truth.
+
+DECISION=PASS_072D_QUOTE_APPROVAL_GATE_INTEGRATION_DECISION_LOCK
+
+LOCKED_DECISION=QUOTE_APPROVAL_GATE_INTEGRATION_LOCKED_AS_LOCAL_STATIC_NO_EFFECT_VALIDATOR
+
+NEXT=073A_QUOTE_PDF_PREVIEW_ENGINE_REPO_PROMOTION_SCOPE
+<!-- FORGE:072D_QUOTE_APPROVAL_GATE_INTEGRATION_DECISION_LOCK:END -->
