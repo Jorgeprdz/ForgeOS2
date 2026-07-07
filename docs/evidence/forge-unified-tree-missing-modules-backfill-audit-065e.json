@@ -1,0 +1,24 @@
+{
+  "phase": "065E_UNIFIED_BUILD_TREE_MISSING_MODULES_BACKFILL",
+  "status": "PASS",
+  "basePhase": "065D_CLIENT_CRM_READ_ONLY_ADAPTER_DECISION_LOCK",
+  "modulesBackfilled": [
+    "Bitacora / Notes System",
+    "Real-Time Conversation Copilot",
+    "Lead Generation Boost",
+    "Sales Presentation System",
+    "Oye Alfred Wake Voice System"
+  ],
+  "treeOnly": true,
+  "uiMutation": false,
+  "backendConnection": false,
+  "crmWrite": false,
+  "pipelineWrite": false,
+  "calendarCreate": false,
+  "messageSend": false,
+  "authReal": false,
+  "providerRuntime": false,
+  "recordingEnabled": false,
+  "realEffectsEnabled": false,
+  "next": "066A_OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_SCOPE"
+}
