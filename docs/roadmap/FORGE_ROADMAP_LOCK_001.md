@@ -4178,3 +4178,39 @@ LOCKED_DECISION=QUOTE_APPROVAL_GATE_INTEGRATION_SCOPED
 
 NEXT=072B_QUOTE_APPROVAL_GATE_INTEGRATION_IMPLEMENTATION
 <!-- FORGE:072A_QUOTE_APPROVAL_GATE_INTEGRATION_SCOPE:END -->
+
+<!-- FORGE:072B_QUOTE_APPROVAL_GATE_INTEGRATION_IMPLEMENTATION:START -->
+## 072B Quote Approval Gate Integration Implementation
+
+072B implements the local/static/no-effect integration validator between Quote Action Contract and Approval Gate schema.
+
+Locked decision:
+`QUOTE_APPROVAL_GATE_INTEGRATION_LOCAL_STATIC_NO_EFFECT_IMPLEMENTED`
+
+Implemented:
+
+- `platform/action-contracts/quote-approval-gate-integration-072b.js`
+- `tests/quote-approval-gate-integration-072b-test.js`
+
+Behavior:
+
+- integrated approval gate envelope build;
+- no-effect preview validation;
+- approval-required real-effect detection;
+- payload integrity validation;
+- payload changed after approval blocked;
+- source evidence required;
+- freshness required;
+- rollback plan required;
+- real-effect flags blocked;
+- AI/safety validation cannot approve;
+- quote execution unauthorized;
+- quote approval unauthorized;
+- provider/backend unauthorized.
+
+DECISION=PASS_072B_QUOTE_APPROVAL_GATE_INTEGRATION_IMPLEMENTATION
+
+LOCKED_DECISION=QUOTE_APPROVAL_GATE_INTEGRATION_LOCAL_STATIC_NO_EFFECT_IMPLEMENTED
+
+NEXT=072C_QUOTE_APPROVAL_GATE_INTEGRATION_QA_LOCK
+<!-- FORGE:072B_QUOTE_APPROVAL_GATE_INTEGRATION_IMPLEMENTATION:END -->
