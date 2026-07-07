@@ -3498,3 +3498,31 @@ LOCKED_DECISION=OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_SCOPED
 
 NEXT=067D_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_IMPLEMENTATION
 <!-- FORGE:067C_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_SCOPE:END -->
+
+<!-- FORGE:067D_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_IMPLEMENTATION:START -->
+## 067D Opportunity Pipeline Read Model Normalization Implementation
+
+067D implements the local/static/candidate-only Opportunity Pipeline read model normalizer scoped in 067C.
+
+Implemented files:
+
+- `platform/adapters/opportunity-pipeline/opportunity-pipeline-read-model-normalizer-067d.js`
+- `tests/opportunity-pipeline-read-model-normalization-067d-test.js`
+
+Locked decision:
+`OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_IMPLEMENTED`
+
+Boundary:
+
+- candidate-only normalization;
+- no canonical opportunity truth;
+- 066B temporary shim preserved;
+- safe empty state and `OPPORTUNITY_PIPELINE_NORMALIZATION_NOT_MODELED`;
+- all safety flags false.
+
+DECISION=PASS_067D_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_IMPLEMENTATION
+
+LOCKED_DECISION=OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_IMPLEMENTED
+
+NEXT=067E_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_QA_LOCK
+<!-- FORGE:067D_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_IMPLEMENTATION:END -->
