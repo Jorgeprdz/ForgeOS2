@@ -7780,3 +7780,33 @@ LOCKED_DECISION=PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_SCOPED
 
 NEXT=073D_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_IMPLEMENTATION
 <!-- FORGE:073C_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_SCOPE:END -->
+
+<!-- FORGE:073D_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_IMPLEMENTATION:START -->
+## 073D Product Intelligence Unified Read Model Implementation
+
+073D implements the local/static/read-only Product Intelligence Unified Read Model adapter.
+
+Locked decision:
+`PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_LOCAL_STATIC_READ_ONLY_IMPLEMENTED`
+
+Implemented surfaces:
+
+- `platform/adapters/product-intelligence/product-intelligence-read-model-adapter-073d.js`
+- `tests/product-intelligence-read-model-adapter-073d-test.js`
+
+The adapter:
+
+- exposes `forge.product_intelligence.read_model.v1`;
+- covers GMM, Vida Mujer, AVE, Imagina Ser, ORVI, and SeguBeca;
+- references existing parsers, calculators, projection engines, currency engines, and Quote PDF preview by string path only;
+- does not import or execute real engines;
+- keeps Imagina Ser as a proven case, not universal architecture;
+- keeps Quote PDF preview as consumer/reference only;
+- preserves all safety flags as false.
+
+DECISION=PASS_073D_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_IMPLEMENTATION
+
+LOCKED_DECISION=PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_LOCAL_STATIC_READ_ONLY_IMPLEMENTED
+
+NEXT=073E_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_QA_LOCK
+<!-- FORGE:073D_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_IMPLEMENTATION:END -->

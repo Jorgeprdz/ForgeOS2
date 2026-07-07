@@ -1,0 +1,91 @@
+{
+  "phase": "073D_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_IMPLEMENTATION",
+  "status": "PASS",
+  "decision": "PASS_073D_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_IMPLEMENTATION",
+  "lockedDecision": "PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_LOCAL_STATIC_READ_ONLY_IMPLEMENTED",
+  "next": "073E_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_QA_LOCK",
+  "base": {
+    "phase": "073C_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_SCOPE",
+    "confirmed": true,
+    "lockedDecision": "PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_SCOPED"
+  },
+  "implementation": {
+    "adapterPath": "platform/adapters/product-intelligence/product-intelligence-read-model-adapter-073d.js",
+    "testPath": "tests/product-intelligence-read-model-adapter-073d-test.js",
+    "adapterId": "forge.product_intelligence.read_model.adapter.v1",
+    "schemaVersion": "forge.product_intelligence.read_model.v1",
+    "domainId": "product_intelligence",
+    "mode": "read_only",
+    "routeClass": "preview_safe",
+    "adapterType": "local_static_read_only_reference_catalog",
+    "importsExistingEngines": false,
+    "executesExistingEngines": false,
+    "duplicatesParsersOrCalculators": false,
+    "quotePdfPreviewRole": "consumer_reference_only"
+  },
+  "productFamilies": [
+    "GMM",
+    "Vida Mujer",
+    "AVE",
+    "Imagina Ser",
+    "ORVI",
+    "SeguBeca"
+  ],
+  "safeErrors": [
+    "PRODUCT_INTELLIGENCE_READ_MODEL_NOT_MODELED",
+    "PRODUCT_INTELLIGENCE_SOURCE_EVIDENCE_REQUIRED",
+    "PRODUCT_INTELLIGENCE_FRESHNESS_REQUIRED",
+    "PRODUCT_INTELLIGENCE_PRODUCT_FAMILY_NOT_MAPPED",
+    "PRODUCT_INTELLIGENCE_CALCULATOR_NOT_MAPPED"
+  ],
+  "safetyFlags": {
+    "crmWrite": false,
+    "pipelineWrite": false,
+    "policyWrite": false,
+    "quoteWrite": false,
+    "taskCreate": false,
+    "calendarCreate": false,
+    "messageSend": false,
+    "authReal": false,
+    "providerRuntime": false,
+    "secretAccess": false,
+    "browserPersistence": false,
+    "realEngineExecution": false,
+    "realEffectsAllowed": false,
+    "realEffectsEnabled": false,
+    "backendConnection": false
+  },
+  "blockedEffects": [
+    "product_truth_create",
+    "premium_calculate_real",
+    "coverage_truth_claim",
+    "projection_execute_real",
+    "quote_create",
+    "quote_update",
+    "quote_send",
+    "policy_write",
+    "crm_write",
+    "pipeline_write",
+    "task_create",
+    "calendar_create",
+    "message_send",
+    "provider_call",
+    "banxico_call",
+    "pdf_read",
+    "secret_access",
+    "browser_persistence",
+    "backend_connection",
+    "real_engine_execution"
+  ],
+  "validations": {
+    "nodeCheckAdapter": "PASS",
+    "nodeCheckTest": "PASS",
+    "nodeTest": "PASS",
+    "jsonTool": "PASS",
+    "markerScan": "PASS",
+    "gitDiffCheck": "PASS",
+    "scopedSafetyScan": "PASS",
+    "stagedDiffCheck": "PASS"
+  },
+  "finalToken": "PASS_073D_PRODUCT_INTELLIGENCE_UNIFIED_READ_MODEL_IMPLEMENTATION"
+}
