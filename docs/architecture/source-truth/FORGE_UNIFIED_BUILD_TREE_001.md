@@ -5219,3 +5219,35 @@ LOCKED_DECISION=QUOTE_APPROVAL_GATE_INTEGRATION_LOCAL_STATIC_NO_EFFECT_IMPLEMENT
 
 NEXT=072C_QUOTE_APPROVAL_GATE_INTEGRATION_QA_LOCK
 <!-- FORGE:072B_QUOTE_APPROVAL_GATE_INTEGRATION_IMPLEMENTATION:END -->
+
+<!-- FORGE:072C_QUOTE_APPROVAL_GATE_INTEGRATION_QA_LOCK:START -->
+## 072C Quote Approval Gate Integration QA Lock
+
+072C locks QA for the local/static/no-effect Quote Approval Gate Integration implementation.
+
+Locked decision:
+`QUOTE_APPROVAL_GATE_INTEGRATION_QA_LOCKED`
+
+QA confirms:
+
+- `forge.quote.approval_gate.integration.v1`;
+- preview quote actions remain no-effect;
+- real-effect quote actions require approval;
+- payload integrity enforced;
+- payload changed after approval blocked;
+- source evidence required;
+- freshness required;
+- rollback plan required;
+- AI/safety validation cannot approve;
+- approval cannot be inferred from preview;
+- quote execution unauthorized;
+- quote approval unauthorized;
+- provider/backend unauthorized;
+- all default safety flags false.
+
+DECISION=PASS_072C_QUOTE_APPROVAL_GATE_INTEGRATION_QA_LOCK
+
+LOCKED_DECISION=QUOTE_APPROVAL_GATE_INTEGRATION_QA_LOCKED
+
+NEXT=072D_QUOTE_APPROVAL_GATE_INTEGRATION_DECISION_LOCK
+<!-- FORGE:072C_QUOTE_APPROVAL_GATE_INTEGRATION_QA_LOCK:END -->
