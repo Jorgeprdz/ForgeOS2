@@ -3922,3 +3922,39 @@ LOCKED_DECISION=ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_SCOPED
 
 NEXT=070C_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_IMPLEMENTATION
 <!-- FORGE:070B_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_SCOPE:END -->
+
+<!-- FORGE:070C_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_IMPLEMENTATION:START -->
+## 070C Action Contract Approval Gate Schema Implementation
+
+070C implements the local/static/no-effect schema layer for action contracts and approval gates.
+
+Locked decision:
+`ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_IMPLEMENTED`
+
+Implemented:
+
+- `platform/action-contracts/action-contract-approval-gate-schema-070c.js`
+- `tests/action-contract-approval-gate-schema-070c-test.js`
+
+Validates:
+
+- `forge.action_contract.v1`
+- `forge.approval_gate.v1`
+- required action contract fields
+- required approval gate fields
+- payload integrity
+- approval required
+- payload changed after approval
+- source evidence required
+- freshness required
+- rollback plan required
+- no `execution_result` before `execute` or `executed`
+- AI/safety validation cannot approve
+- all default safety flags false
+
+DECISION=PASS_070C_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_IMPLEMENTATION
+
+LOCKED_DECISION=ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_IMPLEMENTED
+
+NEXT=070D_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_QA_LOCK
+<!-- FORGE:070C_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_IMPLEMENTATION:END -->
