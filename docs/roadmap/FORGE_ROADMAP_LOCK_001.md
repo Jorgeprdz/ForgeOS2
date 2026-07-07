@@ -3472,3 +3472,29 @@ LOCKED_DECISION=RELATIONSHIP_OPPORTUNITY_SIGNAL_ADAPTER_SCOPED
 
 NEXT=067C_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_SCOPE
 <!-- FORGE:067B_RELATIONSHIP_OPPORTUNITY_SIGNAL_ADAPTER_SCOPE:END -->
+
+<!-- FORGE:067C_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_SCOPE:START -->
+## 067C Opportunity Pipeline Read Model Normalization Scope
+
+067C scopes candidate-only normalization from future 067B relationship opportunity signal envelopes into Opportunity Pipeline read model candidate rows.
+
+Locked decision:
+`OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_SCOPED`
+
+Scope:
+
+- candidate-only normalization;
+- no canonical opportunity truth;
+- 066B remains temporary local/static/read-only shim;
+- relationship signals do not create real opportunities;
+- every non-empty field requires evidence and freshness;
+- safe empty state required;
+- safe error `OPPORTUNITY_PIPELINE_NORMALIZATION_NOT_MODELED`;
+- all safety flags false.
+
+DECISION=PASS_067C_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_SCOPE
+
+LOCKED_DECISION=OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_SCOPED
+
+NEXT=067D_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_IMPLEMENTATION
+<!-- FORGE:067C_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_SCOPE:END -->
