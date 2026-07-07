@@ -3987,3 +3987,37 @@ LOCKED_DECISION=ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_QA_LOCKED
 
 NEXT=070E_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_DECISION_LOCK
 <!-- FORGE:070D_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_QA_LOCK:END -->
+
+<!-- FORGE:070E_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_DECISION_LOCK:START -->
+## 070E Action Contract Approval Gate Schema Decision Lock
+
+070E locks the Action Contract and Approval Gate schema layer as local/static/no-effect infrastructure.
+
+Locked decision:
+`ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_LOCKED_AS_LOCAL_STATIC_NO_EFFECT_SCHEMA`
+
+Authorized:
+
+- local schema constants;
+- required field inspection;
+- deterministic shape validation;
+- deterministic payload integrity validation;
+- safe error construction;
+- future action-contract planning.
+
+Not authorized:
+
+- action execution;
+- action approval;
+- approval bypass;
+- UI/backend mutation;
+- CRM, policy, quote, pipeline, task, calendar, or message writes;
+- provider, auth, secret, browser, or real engine effects;
+- invented truth.
+
+DECISION=PASS_070E_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_DECISION_LOCK
+
+LOCKED_DECISION=ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_LOCKED_AS_LOCAL_STATIC_NO_EFFECT_SCHEMA
+
+NEXT=071A_QUOTE_ACTION_CONTRACT_SCOPE
+<!-- FORGE:070E_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_DECISION_LOCK:END -->
