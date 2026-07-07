@@ -4963,3 +4963,32 @@ LOCKED_DECISION=ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_IMPLEMENTED
 
 NEXT=070D_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_QA_LOCK
 <!-- FORGE:070C_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_IMPLEMENTATION:END -->
+
+<!-- FORGE:070D_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_QA_LOCK:START -->
+## 070D Action Contract Approval Gate Schema QA Lock
+
+070D locks QA for the local/static/no-effect Action Contract and Approval Gate schema implementation.
+
+Locked decision:
+`ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_QA_LOCKED`
+
+QA confirms:
+
+- `forge.action_contract.v1`;
+- `forge.approval_gate.v1`;
+- required fields modeled;
+- approval required behavior;
+- payload changed after approval blocked;
+- source evidence required;
+- freshness required;
+- rollback plan required;
+- execution result timing enforced;
+- AI/safety validation cannot approve;
+- all default safety flags false.
+
+DECISION=PASS_070D_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_QA_LOCK
+
+LOCKED_DECISION=ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_QA_LOCKED
+
+NEXT=070E_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_DECISION_LOCK
+<!-- FORGE:070D_ACTION_CONTRACT_APPROVAL_GATE_SCHEMA_QA_LOCK:END -->
