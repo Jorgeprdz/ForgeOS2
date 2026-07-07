@@ -5052,3 +5052,39 @@ LOCKED_DECISION=QUOTE_ACTION_CONTRACT_SCOPED
 
 NEXT=071B_QUOTE_ACTION_CONTRACT_IMPLEMENTATION
 <!-- FORGE:071A_QUOTE_ACTION_CONTRACT_SCOPE:END -->
+
+<!-- FORGE:071B_QUOTE_ACTION_CONTRACT_IMPLEMENTATION:START -->
+## 071B Quote Action Contract Implementation
+
+071B implements the local/static/no-effect Quote Action Contract builder and validator.
+
+Locked decision:
+`QUOTE_ACTION_CONTRACT_LOCAL_STATIC_NO_EFFECT_IMPLEMENTED`
+
+Implemented:
+
+- `platform/action-contracts/quote-action-contract-071b.js`
+- `tests/quote-action-contract-071b-test.js`
+
+Behavior:
+
+- no-effect preview contract creation;
+- approval-required contract creation;
+- deterministic payload hashing;
+- required field validation;
+- approval required blocking;
+- payload changed after approval blocking;
+- source evidence required;
+- freshness required;
+- rollback plan required;
+- execution result timing block;
+- all default safety flags false;
+- no new quote engine;
+- no quote execution.
+
+DECISION=PASS_071B_QUOTE_ACTION_CONTRACT_IMPLEMENTATION
+
+LOCKED_DECISION=QUOTE_ACTION_CONTRACT_LOCAL_STATIC_NO_EFFECT_IMPLEMENTED
+
+NEXT=071C_QUOTE_ACTION_CONTRACT_QA_LOCK
+<!-- FORGE:071B_QUOTE_ACTION_CONTRACT_IMPLEMENTATION:END -->
