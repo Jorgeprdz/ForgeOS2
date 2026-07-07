@@ -1,0 +1,49 @@
+{
+  "phase": "067F_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_DECISION_LOCK",
+  "status": "PASS",
+  "decision": "PASS_067F_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_DECISION_LOCK",
+  "lockedDecision": "OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_LOCKED_AS_CANDIDATE_ONLY_PREVIEW_NORMALIZER",
+  "basePhases": [
+    "067C_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_SCOPE",
+    "067D_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_IMPLEMENTATION",
+    "067E_OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZATION_QA_LOCK"
+  ],
+  "normalizer": "platform/adapters/opportunity-pipeline/opportunity-pipeline-read-model-normalizer-067d.js",
+  "canonicalTruthClaimed": false,
+  "candidateOnly": true,
+  "temporaryShimPreserved": true,
+  "safeErrorCode": "OPPORTUNITY_PIPELINE_NORMALIZATION_NOT_MODELED",
+  "authorizedUse": [
+    "local_static_candidate_normalization",
+    "preview_safe_read_model_candidate_envelope",
+    "evidence_and_freshness_required_for_non_empty_candidate_fields"
+  ],
+  "notAuthorizedUse": [
+    "canonical_opportunity_truth",
+    "backend_connection",
+    "crm_write",
+    "pipeline_write",
+    "stage_mutation",
+    "task_calendar_message_creation",
+    "provider_runtime_execution",
+    "secret_access",
+    "browser_persistence",
+    "real_engine_execution",
+    "real_effects"
+  ],
+  "uiMutation": false,
+  "backendConnection": false,
+  "crmWrite": false,
+  "pipelineWrite": false,
+  "taskCreate": false,
+  "calendarCreate": false,
+  "messageSend": false,
+  "authReal": false,
+  "providerRuntime": false,
+  "secretAccess": false,
+  "browserPersistence": false,
+  "realEngineExecution": false,
+  "realEffectsAllowed": false,
+  "realEffectsEnabled": false,
+  "next": "068A_POLICY_READ_MODEL_SCOPE"
+}
