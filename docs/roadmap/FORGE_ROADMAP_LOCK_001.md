@@ -4738,3 +4738,35 @@ LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_SCOPED
 
 NEXT=076B_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_IMPLEMENTATION
 <!-- FORGE:076A_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_SCOPE:END -->
+
+<!-- FORGE:076B_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_IMPLEMENTATION:START -->
+## 076B Quote Preview PDF Engine Repo Promotion Implementation
+
+076B implements the local/static/read-only Quote Preview PDF Engine repo promotion adapter.
+
+Locked decision:
+`QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_LOCAL_STATIC_READ_ONLY_IMPLEMENTED`
+
+Implemented surfaces:
+
+- `platform/adapters/quote-preview/quote-preview-pdf-engine-repo-promotion-adapter-076b.js`
+- `tests/quote-preview-pdf-engine-repo-promotion-adapter-076b-test.js`
+
+The adapter:
+
+- exposes `forge.quote_preview.pdf_engine.repo_promotion.v1`;
+- prepares Product Intelligence-bound promotion records;
+- preserves Product Intelligence as upstream semantic authority;
+- keeps Quote Preview PDF Engine as downstream consumer/reference only;
+- maps GMM, Vida Mujer, AVE, Imagina Ser, ORVI, and SeguBeca;
+- keeps Imagina Ser as a proven case, not universal architecture;
+- references 073D, 074B, 075B, and the PDF preview engine by path;
+- does not read PDFs, execute parsers, execute calculators, call Banxico, call providers, write quotes, connect backend, or create quote truth;
+- preserves all safety flags as false.
+
+DECISION=PASS_076B_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_IMPLEMENTATION
+
+LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_LOCAL_STATIC_READ_ONLY_IMPLEMENTED
+
+NEXT=076C_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_QA_LOCK
+<!-- FORGE:076B_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_IMPLEMENTATION:END -->
