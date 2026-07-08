@@ -6273,3 +6273,40 @@ LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_PROVENANCE_QA_L
 
 NEXT=079D_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_PROVENANCE_DECISION_LOCK
 <!-- FORGE:079C_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_PROVENANCE_QA_LOCK:END -->
+
+<!-- FORGE:079D_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_PROVENANCE_DECISION_LOCK:START -->
+## 079D Quote Preview PDF Engine Canonical Test Evidence Provenance Decision Lock
+
+079D decision-locks the 079B/079C canonical test evidence provenance registry as a local/static/read-only reference registry.
+
+Locked decision:
+`QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_PROVENANCE_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_REGISTRY`
+
+Confirmed:
+
+- provenance registry is locked as read-only reference registry;
+- real PDF file provenance requires file path or hash;
+- fixture text provenance remains fixture-only;
+- governance assertion provenance remains governance-only;
+- fixture-as-real-PDF claims are blocked;
+- governance-as-extraction-proof claims are blocked;
+- expected financial values require source trace;
+- deterministic projection inputs require traceable source;
+- Banxico/provider metadata requires future runtime gate;
+- existing engine references are required;
+- duplicate engine, parser, provider, and calculator creation is blocked;
+- Product Intelligence remains upstream;
+- Quote Preview remains downstream;
+- all safety flags remain false;
+- no test/PDF/OCR/parser/calculator/Banxico/provider execution is authorized.
+
+Next:
+
+- `080A_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_EXECUTION_READINESS_REVIEW_SCOPE` is an architecture review scope, not execution.
+
+DECISION=PASS_079D_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_PROVENANCE_DECISION_LOCK
+
+LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_PROVENANCE_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_REGISTRY
+
+NEXT=080A_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_EXECUTION_READINESS_REVIEW_SCOPE
+<!-- FORGE:079D_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_PROVENANCE_DECISION_LOCK:END -->
