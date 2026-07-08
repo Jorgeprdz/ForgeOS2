@@ -6405,3 +6405,38 @@ LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_EXECUTION_READINESS_REVIEW_LO
 
 NEXT=080C_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_EXECUTION_READINESS_REVIEW_QA_LOCK
 <!-- FORGE:080B_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_EXECUTION_READINESS_REVIEW_IMPLEMENTATION:END -->
+
+<!-- FORGE:080C_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_EXECUTION_READINESS_REVIEW_QA_LOCK:START -->
+## 080C Quote Preview PDF Engine Canonical Execution Readiness Review QA Lock
+
+080C QA locks the local/static/read-only execution readiness review matrix implemented in 080B.
+
+Locked decision:
+`QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_EXECUTION_READINESS_REVIEW_QA_LOCKED`
+
+QA validated:
+
+- adapter identity and schema are valid;
+- mode `read_only`;
+- route class `preview_safe`;
+- matrix shape validates;
+- required gate fields are present;
+- overall readiness remains `not_ready_for_execution`;
+- real PDF file/hash gate blocks execution;
+- expected-value source trace gate blocks execution;
+- deterministic input source trace gate blocks execution;
+- parser ownership gate remains decision-required;
+- Banxico/provider runtime gate blocks runtime;
+- preview-vs-quote-truth boundary blocks quote truth;
+- fixture-as-real-PDF guard is satisfied;
+- governance-as-extraction-proof guard is satisfied;
+- duplicate engine/parser/calculator creation guard is satisfied;
+- missing gates return safe errors;
+- all safety flags remain false.
+
+DECISION=PASS_080C_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_EXECUTION_READINESS_REVIEW_QA_LOCK
+
+LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_EXECUTION_READINESS_REVIEW_QA_LOCKED
+
+NEXT=080D_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_EXECUTION_READINESS_REVIEW_DECISION_LOCK
+<!-- FORGE:080C_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_EXECUTION_READINESS_REVIEW_QA_LOCK:END -->
