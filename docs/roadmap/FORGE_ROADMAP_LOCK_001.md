@@ -6364,3 +6364,35 @@ LOCKED_DECISION=QUOTE_PREVIEW_SAFE_UX_COMPONENT_CONTRACT_QA_LOCKED
 
 NEXT=087D_QUOTE_PREVIEW_SAFE_UX_COMPONENT_CONTRACT_DECISION_LOCK
 <!-- FORGE:087C_QUOTE_PREVIEW_SAFE_UX_COMPONENT_CONTRACT_QA_LOCK:END -->
+
+<!-- FORGE:087D_QUOTE_PREVIEW_SAFE_UX_COMPONENT_CONTRACT_DECISION_LOCK:START -->
+## 087D Quote Preview Safe UX Component Contract Decision Lock
+
+087D decision-locks the 087B/087C safe UX component contract registry as a local/static/read-only reference registry.
+
+Locked decision:
+`QUOTE_PREVIEW_SAFE_UX_COMPONENT_CONTRACT_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_REGISTRY`
+
+Confirmed:
+
+- eight component contracts exist;
+- every component blocks rendering;
+- every component blocks UI mutation;
+- every component blocks quote truth;
+- every component blocks execution;
+- every component blocks writes;
+- value table is read-only;
+- action bar exposes safe actions only;
+- human review contract exists.
+
+Next:
+
+- `088A_QUOTE_PREVIEW_SAFE_SCREEN_COMPOSITION_SCOPE` may scope safe screen composition.
+- No component rendering, UI mutation, or execution is authorized.
+
+DECISION=PASS_087D_QUOTE_PREVIEW_SAFE_UX_COMPONENT_CONTRACT_DECISION_LOCK
+
+LOCKED_DECISION=QUOTE_PREVIEW_SAFE_UX_COMPONENT_CONTRACT_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_REGISTRY
+
+NEXT=088A_QUOTE_PREVIEW_SAFE_SCREEN_COMPOSITION_SCOPE
+<!-- FORGE:087D_QUOTE_PREVIEW_SAFE_UX_COMPONENT_CONTRACT_DECISION_LOCK:END -->
