@@ -5718,3 +5718,28 @@ LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_PRODUCT_INTELLIGENCE_INTEGRATION_LOCKED
 
 NEXT=076A_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_SCOPE
 <!-- FORGE:075D_QUOTE_PREVIEW_PDF_ENGINE_PRODUCT_INTELLIGENCE_INTEGRATION_DECISION_LOCK:END -->
+
+<!-- FORGE:076A_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_SCOPE:START -->
+## 076A Quote Preview PDF Engine Repo Promotion Scope
+
+076A scopes Quote Preview PDF Engine repo promotion after Product Intelligence integration was decision-locked.
+
+Locked decision:
+`QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_SCOPED`
+
+Scope confirmed:
+
+- future repo promotion must bind through Product Intelligence;
+- Product Intelligence remains upstream semantic authority;
+- Quote Preview Product Intelligence binding is required;
+- Quote Preview PDF Engine remains downstream consumer/reference only;
+- future 076B may implement only a local/static/read-only promotion adapter;
+- evidence, freshness, safe errors, blocked effects, and safety flags are required;
+- no PDF read, parser execution, calculator execution, Banxico call, provider call, quote write, backend connection, or real engine execution is authorized.
+
+DECISION=PASS_076A_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_SCOPE
+
+LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_SCOPED
+
+NEXT=076B_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_IMPLEMENTATION
+<!-- FORGE:076A_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_SCOPE:END -->
