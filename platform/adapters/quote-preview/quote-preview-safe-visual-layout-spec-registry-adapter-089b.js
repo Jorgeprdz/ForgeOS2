@@ -32,6 +32,49 @@ const SAFE_ERROR_CODES = Object.freeze({
   PREVIEW_LABEL_REQUIRED: 'QUOTE_PREVIEW_VISUAL_LAYOUT_PREVIEW_LABEL_REQUIRED',
 });
 
+
+const DESIGN_TEMPLATE_SOURCE_REFS = Object.freeze([
+  'docs/design/forge-ui/FORGE_UI_DESIGN_LINE_001.md',
+  'docs/design/forge-ui/FORGE_UI_TOKENS_001.md',
+  'docs/design/forge-ui/FORGE_INTERACTION_RULES_001.md',
+]);
+
+const DESKTOP_TEMPLATE_SOURCE_REFS = Object.freeze([
+  'docs/design/FORGE_DESKTOP_DESIGN_SYSTEM_DRAFT_001.md',
+  'docs/design/FORGE_DESKTOP_COMMAND_WORKSPACE_BLUEPRINT_001.md',
+  'docs/design/forge-ui/FORGE_DESKTOP_TEMPLATE_SYSTEM_058I.md',
+  'docs/design/forge-ui/FORGE_DESKTOP_WORKSPACE_COMPOSITION_CONTRACT_058C.md',
+  'docs/design/forge-ui/FORGE_DESKTOP_COMPONENT_SYSTEM_001.md',
+  'docs/design/forge-ui/FORGE_DESKTOP_MODULE_TEMPLATE_MAPPING_058J.md',
+  'docs/design/forge-ui/FORGE_DESKTOP_TEMPLATE_IMPLEMENTATION_CHECKLIST_058J.md',
+]);
+
+const MOBILE_TEMPLATE_SOURCE_REFS = Object.freeze([
+  'docs/design/FORGE_MOBILE_DESIGN_SYSTEM_001.md',
+  'docs/static-preview/templates/forge-mobile/TEMPLATE_SOURCE_OF_TRUTH.md',
+  'docs/design/forge-ui/FORGE_MOBILE_COMPONENT_SYSTEM_001.md',
+  'docs/design/forge-ui/FORGE_MOBILE_NAVIGATION_AND_SMART_WIDGET_PATTERN_057C.md',
+  'docs/design/forge-ui/FORGE_MOBILE_WIDGET_GRID_SYSTEM_057I.md',
+]);
+
+const LAYOUT_CONTRACT_SOURCE_REFS = Object.freeze([
+  'docs/design/forge-ui/FORGE_DESKTOP_MOBILE_LAYER_BOUNDARY_CONTRACT_058A.md',
+  'docs/architecture/source-truth/FORGE_QUOTE_PREVIEW_SAFE_UX_STATE_MODEL_DECISION_LOCK_086D.md',
+  'docs/architecture/source-truth/FORGE_QUOTE_PREVIEW_SAFE_UX_COMPONENT_CONTRACT_DECISION_LOCK_087D.md',
+  'docs/architecture/source-truth/FORGE_QUOTE_PREVIEW_SAFE_SCREEN_COMPOSITION_DECISION_LOCK_088D.md',
+]);
+
+const TEMPLATE_RECONCILIATION_DECISIONS = Object.freeze({
+  desktop_hero_treatment: 'compact_alfred_decision_strip_not_oversized_hero',
+  desktop_metrics_treatment: 'compact_kpi_strip_cards_not_decorative_widget_grid',
+  desktop_table_treatment: 'operational_table_is_primary_workspace',
+  mobile_table_treatment: 'priority_list_cards_not_raw_table',
+  mobile_navigation_treatment: 'persistent_bottom_nav_with_gold_active_state',
+  command_bar_treatment: 'above_fold_preview_safe_command_workspace',
+  safety_copy_treatment: 'preview_read_only_human_review_no_quote_no_send_no_crm_no_calendar',
+  layer_boundary: 'desktop_and_mobile_patterns_must_not_contaminate_each_other',
+});
+
 const DEFAULT_SAFETY_FLAGS = Object.freeze({
   crmWrite: false,
   pipelineWrite: false,
@@ -151,8 +194,8 @@ const VISUAL_STYLE_TOKENS = Object.freeze({
   surfaces: 'dark_glass_cards_soft_borders_subtle_glow',
   borders: 'thin_blue_gray_borders_with_gold_focus_state',
   typography: 'large_clear_page_title_medium_weight_labels_compact_operational_text',
-  cta: 'warm_gold_primary_buttons',
-  safety_labels: 'muted_cyan_preview_not_quote_pills_always_visible',
+  cta: 'warm_gold_primary_buttons_preview_only',
+  safety_labels: 'muted_cyan_preview_read_only_no_quote_pills_always_visible',
   metrics: 'blue_green_red_yellow_metric_semantics',
   mobile_navigation: 'bottom_tab_bar_with_active_gold_icon',
 });
@@ -165,7 +208,7 @@ const VISUAL_LAYOUT_SPECS = Object.freeze([
     intendedScreenRefs: ['QuotePreviewIntakeScreen', 'QuotePreviewBlockedScreen', 'QuotePreviewReferenceScreen', 'QuotePreviewHumanReviewScreen'],
     navigationPattern: 'fixed_left_sidebar',
     mainGrid: 'content_max_width_1180_two_column',
-    visualHierarchy: ['breadcrumb', 'page_title', 'approval_pill', 'command_bar', 'hero_risk_card', 'metric_card_grid', 'priority_table'],
+    visualHierarchy: ['breadcrumb', 'page_title', 'approval_pill', 'command_bar', 'compact_alfred_decision_strip', 'compact_kpi_strip', 'priority_table'],
     cardDensity: 'comfortable',
     primaryCtaTreatment: 'warm_gold_rounded_button',
     safetyBadgeTreatment: 'muted_cyan_pill_with_shield',
@@ -179,7 +222,7 @@ const VISUAL_LAYOUT_SPECS = Object.freeze([
     intendedScreenRefs: ['QuotePreviewIntakeScreen', 'QuotePreviewReferenceScreen'],
     navigationPattern: 'compact_left_sidebar_or_bottom_nav',
     mainGrid: 'content_fluid_two_column_collapsible',
-    visualHierarchy: ['page_title', 'approval_pill', 'command_bar', 'hero_risk_card', 'metric_card_grid', 'priority_table'],
+    visualHierarchy: ['page_title', 'approval_pill', 'command_bar', 'compact_alfred_decision_strip', 'compact_kpi_strip', 'priority_table'],
     cardDensity: 'medium',
     primaryCtaTreatment: 'warm_gold_rounded_button',
     safetyBadgeTreatment: 'muted_cyan_pill_with_shield',
@@ -193,7 +236,7 @@ const VISUAL_LAYOUT_SPECS = Object.freeze([
     intendedScreenRefs: ['QuotePreviewEmptyScreen', 'QuotePreviewIntakeScreen', 'QuotePreviewBlockedScreen', 'QuotePreviewReferenceScreen', 'QuotePreviewHumanReviewScreen'],
     navigationPattern: 'bottom_tab_bar',
     mainGrid: 'single_column_stacked_cards',
-    visualHierarchy: ['mobile_header', 'approval_pill', 'command_bar', 'hero_risk_card', 'metric_card_grid_two_columns', 'priority_list_cards', 'bottom_nav'],
+    visualHierarchy: ['mobile_header', 'approval_pill', 'command_bar', 'compact_alfred_decision_strip', 'compact_kpi_strip_two_columns', 'priority_list_cards', 'bottom_nav'],
     cardDensity: 'compact_but_readable',
     primaryCtaTreatment: 'warm_gold_full_width_or_inline_button',
     safetyBadgeTreatment: 'muted_cyan_pill_with_shield',
@@ -244,6 +287,11 @@ function getQuotePreviewSafeVisualLayoutSpecRegistryCatalog() {
     safe_errors: Object.values(SAFE_ERROR_CODES),
     safety_flags: clone(DEFAULT_SAFETY_FLAGS),
     source_refs: getSourceRefs(),
+    design_template_source_refs: [...DESIGN_TEMPLATE_SOURCE_REFS],
+    desktop_template_source_refs: [...DESKTOP_TEMPLATE_SOURCE_REFS],
+    mobile_template_source_refs: [...MOBILE_TEMPLATE_SOURCE_REFS],
+    layout_contract_source_refs: [...LAYOUT_CONTRACT_SOURCE_REFS],
+    template_reconciliation_decisions: clone(TEMPLATE_RECONCILIATION_DECISIONS),
     visual_layout_specs: clone(VISUAL_LAYOUT_SPECS),
   };
 }
@@ -398,6 +446,11 @@ module.exports = {
   REQUIRED_VISUAL_LAYOUT_SPEC_FIELDS,
   VISUAL_STYLE_TOKENS,
   VISUAL_LAYOUT_SPECS,
+  DESIGN_TEMPLATE_SOURCE_REFS,
+  DESKTOP_TEMPLATE_SOURCE_REFS,
+  MOBILE_TEMPLATE_SOURCE_REFS,
+  LAYOUT_CONTRACT_SOURCE_REFS,
+  TEMPLATE_RECONCILIATION_DECISIONS,
   getQuotePreviewSafeVisualLayoutSpecRegistryCatalog,
   getVisualLayoutSpecById,
   getVisualLayoutSpecsByViewportClass,

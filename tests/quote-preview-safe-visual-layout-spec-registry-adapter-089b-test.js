@@ -40,7 +40,20 @@ for (const flag of [
 
 assert.equal(catalog.visual_style_tokens.color_system, 'midnight_navy_with_warm_gold_and_cyan_safety_accents');
 assert(catalog.visual_style_tokens.cta.includes('gold'));
-assert(catalog.visual_style_tokens.safety_labels.includes('preview_not_quote'));
+assert(catalog.visual_style_tokens.safety_labels.includes('preview'));
+assert(Array.isArray(catalog.design_template_source_refs));
+assert(Array.isArray(catalog.desktop_template_source_refs));
+assert(Array.isArray(catalog.mobile_template_source_refs));
+assert(Array.isArray(catalog.layout_contract_source_refs));
+assert(catalog.design_template_source_refs.includes('docs/design/forge-ui/FORGE_UI_TOKENS_001.md'));
+assert(catalog.desktop_template_source_refs.includes('docs/design/FORGE_DESKTOP_COMMAND_WORKSPACE_BLUEPRINT_001.md'));
+assert(catalog.mobile_template_source_refs.includes('docs/design/FORGE_MOBILE_DESIGN_SYSTEM_001.md'));
+assert(catalog.mobile_template_source_refs.includes('docs/static-preview/templates/forge-mobile/TEMPLATE_SOURCE_OF_TRUTH.md'));
+assert(catalog.layout_contract_source_refs.includes('docs/design/forge-ui/FORGE_DESKTOP_MOBILE_LAYER_BOUNDARY_CONTRACT_058A.md'));
+assert.equal(catalog.template_reconciliation_decisions.desktop_hero_treatment, 'compact_alfred_decision_strip_not_oversized_hero');
+assert.equal(catalog.template_reconciliation_decisions.desktop_metrics_treatment, 'compact_kpi_strip_cards_not_decorative_widget_grid');
+assert.equal(catalog.template_reconciliation_decisions.mobile_table_treatment, 'priority_list_cards_not_raw_table');
+
 
 for (const spec of catalog.visual_layout_specs) {
   for (const field of adapter.REQUIRED_VISUAL_LAYOUT_SPEC_FIELDS) assert(field in spec, `${spec.layout_spec_id} missing ${field}`);
