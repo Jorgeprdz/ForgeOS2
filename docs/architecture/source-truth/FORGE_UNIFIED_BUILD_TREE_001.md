@@ -6606,3 +6606,55 @@ LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_REAL_PDF_FILE_HASH_PROVENANCE_LOCKED_AS
 
 NEXT=082A_QUOTE_PREVIEW_PDF_ENGINE_EXPECTED_VALUE_SOURCE_TRACE_SCOPE
 <!-- FORGE:081D_QUOTE_PREVIEW_PDF_ENGINE_REAL_PDF_FILE_HASH_PROVENANCE_DECISION_LOCK:END -->
+
+<!-- FORGE:082A_QUOTE_PREVIEW_PDF_ENGINE_EXPECTED_VALUE_SOURCE_TRACE_SCOPE:START -->
+## 082A Quote Preview PDF Engine Expected Value Source Trace Scope
+
+082A scopes expected-value source trace for the Quote Preview PDF Engine path.
+
+Locked decision:
+`QUOTE_PREVIEW_PDF_ENGINE_EXPECTED_VALUE_SOURCE_TRACE_SCOPED`
+
+Base:
+
+- 081D locked real PDF file/hash provenance as a local/static/read-only not-verified reference registry.
+
+Active blocking gate:
+
+- `expected_value_source_trace_ready`
+
+Scoped trace candidates:
+
+- `gmm_out_of_pocket_candidate`
+- `real_retirement_mxn_scenario_candidate`
+- `retirement_future_udi_projection_smoke_candidate`
+
+082B must implement a local/static/read-only expected-value source trace registry.
+
+082B must preserve:
+
+- `source_trace_status=not_bound`
+- `verification_status=not_verified`
+- `execution_allowed=false`
+- no PDF read;
+- no parser execution;
+- no calculator execution;
+- no Banxico/provider call;
+- no expected-value verification.
+
+Blocked misuse:
+
+- invented expected values;
+- hardcoded financial truth without source;
+- fixture-as-real-PDF;
+- governance-as-extraction-proof;
+- untraceable projection;
+- invented UDI growth/current UDI;
+- calculator/parser/Banxico execution disguised as trace.
+
+DECISION=PASS_082A_QUOTE_PREVIEW_PDF_ENGINE_EXPECTED_VALUE_SOURCE_TRACE_SCOPE
+
+LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_EXPECTED_VALUE_SOURCE_TRACE_SCOPED
+
+NEXT=082B_QUOTE_PREVIEW_PDF_ENGINE_EXPECTED_VALUE_SOURCE_TRACE_IMPLEMENTATION
+<!-- FORGE:082A_QUOTE_PREVIEW_PDF_ENGINE_EXPECTED_VALUE_SOURCE_TRACE_SCOPE:END -->
