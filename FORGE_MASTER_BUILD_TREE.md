@@ -9494,3 +9494,41 @@ LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_PREVIEW_VS_QUOTE_TRUTH_BOUNDARY_LOCKED_
 
 NEXT=086A_QUOTE_PREVIEW_SAFE_UX_STATE_MODEL_SCOPE
 <!-- FORGE:085D_QUOTE_PREVIEW_PDF_ENGINE_PREVIEW_VS_QUOTE_TRUTH_BOUNDARY_DECISION_LOCK:END -->
+
+<!-- FORGE:086A_QUOTE_PREVIEW_SAFE_UX_STATE_MODEL_SCOPE:START -->
+## 086A Quote Preview Safe UX State Model Scope
+
+086A scopes the safe UX state model for Quote Preview.
+
+Locked decision:
+`QUOTE_PREVIEW_SAFE_UX_STATE_MODEL_SCOPED`
+
+Scoped safe UX states:
+
+- `empty`
+- `pdf_candidate_detected`
+- `file_hash_not_verified`
+- `source_trace_not_bound`
+- `parser_owner_decision_required`
+- `deterministic_inputs_not_verified`
+- `preview_reference_available`
+- `quote_truth_blocked`
+- `ready_for_human_review`
+
+086B must implement a local/static/read-only safe UX state model registry.
+
+Boundaries:
+
+- no UI mutation;
+- no quote truth creation;
+- no quote write/send;
+- no CRM/policy/pipeline writes;
+- no provider/backend connection;
+- no parser/calculator/Banxico execution.
+
+DECISION=PASS_086A_QUOTE_PREVIEW_SAFE_UX_STATE_MODEL_SCOPE
+
+LOCKED_DECISION=QUOTE_PREVIEW_SAFE_UX_STATE_MODEL_SCOPED
+
+NEXT=086B_QUOTE_PREVIEW_SAFE_UX_STATE_MODEL_IMPLEMENTATION
+<!-- FORGE:086A_QUOTE_PREVIEW_SAFE_UX_STATE_MODEL_SCOPE:END -->
