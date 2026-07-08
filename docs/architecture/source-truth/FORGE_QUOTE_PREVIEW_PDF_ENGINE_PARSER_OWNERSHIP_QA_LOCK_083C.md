@@ -1,0 +1,32 @@
+# Forge Quote Preview PDF Engine Parser Ownership QA Lock 083C
+
+PHASE=083C_QUOTE_PREVIEW_PDF_ENGINE_PARSER_OWNERSHIP_QA_LOCK
+
+STATUS=PASS
+
+DECISION=PASS_083C_QUOTE_PREVIEW_PDF_ENGINE_PARSER_OWNERSHIP_QA_LOCK
+
+LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_PARSER_OWNERSHIP_QA_LOCKED
+
+NEXT=083D_QUOTE_PREVIEW_PDF_ENGINE_PARSER_OWNERSHIP_DECISION_LOCK
+
+## Purpose
+
+083C QA locks the 083B parser ownership registry.
+
+## QA Validated
+
+- registry shape validates;
+- four ownership entries exist;
+- two parser entries remain decision-required;
+- preview engine remains not parser truth;
+- every execution remains false;
+- all safety flags remain false.
+
+## Final Decision
+
+DECISION=PASS_083C_QUOTE_PREVIEW_PDF_ENGINE_PARSER_OWNERSHIP_QA_LOCK
+
+LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_PARSER_OWNERSHIP_QA_LOCKED
+
+NEXT=083D_QUOTE_PREVIEW_PDF_ENGINE_PARSER_OWNERSHIP_DECISION_LOCK
