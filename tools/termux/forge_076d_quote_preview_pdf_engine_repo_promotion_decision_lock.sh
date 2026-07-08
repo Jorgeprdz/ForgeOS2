@@ -4,7 +4,7 @@ set -euo pipefail
 PHASE="076D_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_DECISION_LOCK"
 DECISION="PASS_076D_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_DECISION_LOCK"
 LOCKED_DECISION="QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_ADAPTER"
-NEXT="077A_QUOTE_PREVIEW_PDF_ENGINE_TEXT_EVIDENCE_EXTRACTION_SCOPE"
+NEXT="077A_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_EXTRACTOR_RECONCILIATION_SCOPE"
 MODE="docs/decision lock only"
 BOUNDARY="no UI mutation; no backend real; no CRM/policy/quote/pipeline writes; no task/calendar/message; no provider execution with effects; no auth/secrets/browser persistence; no real engine execution; no parser/calculator/Banxico/PDF execution; no invented product/premium/coverage/projection/quote truth"
 REPO="${REPO:-/storage/emulated/0/Forge OS}"
@@ -335,7 +335,7 @@ The Quote Preview PDF Engine repo promotion adapter is locked as:
 
 ## Next Architectural Unlock
 
-077A may scope text/evidence extraction only after this decision lock. Any future text extraction scope must preserve Product Intelligence binding, evidence/freshness metadata, safe errors, blocked effects, and no-effect defaults until separately implemented and locked.
+077A may scope existing extractor reconciliation only after this decision lock. Any future extractor reconciliation must reuse existing repo extractor surfaces, preserve Product Intelligence binding, evidence/freshness metadata, safe errors, blocked effects, and no-effect defaults until separately promoted and locked.
 
 ## Final Decision
 
@@ -641,7 +641,7 @@ run node --check "$TEST"
 run node "$TEST"
 run python3 -m json.tool "$AUDIT_JSON"
 
-run rg -n "$PHASE|$DECISION|$LOCKED_DECISION|$NEXT|QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_ADAPTER|077A_QUOTE_PREVIEW_PDF_ENGINE_TEXT_EVIDENCE_EXTRACTION_SCOPE" \
+run rg -n "$PHASE|$DECISION|$LOCKED_DECISION|$NEXT|QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_ADAPTER|077A_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_EXTRACTOR_RECONCILIATION_SCOPE" \
   FORGE_MASTER_BUILD_TREE.md \
   docs/architecture/source-truth/FORGE_UNIFIED_BUILD_TREE_001.md \
   docs/roadmap/FORGE_ROADMAP_LOCK_001.md \

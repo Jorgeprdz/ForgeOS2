@@ -8,7 +8,7 @@
     "confirmed": true,
     "lockedDecision": "QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_QA_LOCKED"
   },
-  "next": "077A_QUOTE_PREVIEW_PDF_ENGINE_TEXT_EVIDENCE_EXTRACTION_SCOPE",
+  "next": "077A_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_EXTRACTOR_RECONCILIATION_SCOPE",
   "adapter": "platform/adapters/quote-preview/quote-preview-pdf-engine-repo-promotion-adapter-076b.js",
   "test": "tests/quote-preview-pdf-engine-repo-promotion-adapter-076b-test.js",
   "lockedAs": "local_static_read_only_reference_adapter",
