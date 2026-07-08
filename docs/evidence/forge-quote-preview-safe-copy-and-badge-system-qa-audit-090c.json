@@ -1,0 +1,59 @@
+{
+  "phase": "090C_QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_QA_LOCK",
+  "status": "PASS",
+  "decision": "PASS_090C_QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_QA_LOCK",
+  "lockedDecision": "QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_QA_LOCKED",
+  "base": {
+    "phase": "090B_QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_IMPLEMENTATION",
+    "confirmed": true,
+    "lockedDecision": "QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_LOCAL_STATIC_READ_ONLY_IMPLEMENTED"
+  },
+  "next": "090D_QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_DECISION_LOCK",
+  "semanticQa": {
+  "status": "PASS",
+  "catalogValidated": true,
+  "badgeCount": 10,
+  "copyBlockCount": 7,
+  "previewBadgePresent": true,
+  "readOnlyBadgePresent": true,
+  "humanReviewBadgePresent": true,
+  "notOfficialQuoteBadgePresent": true,
+  "noSendBadgePresent": true,
+  "noCrmBadgePresent": true,
+  "noCalendarBadgePresent": true,
+  "forbiddenCopyLanguageBlocked": true,
+  "allEffectsBlocked": true,
+  "allSafetyFlagsFalse": true
+},
+  "qaValidated": {
+    "badgeCount": 10,
+    "copyBlockCount": 7,
+    "requiredBadgesPresent": true,
+    "forbiddenCopyLanguageBlocked": true,
+    "allEffectsBlocked": true,
+    "allSafetyFlagsFalse": true
+  },
+  "safetyFlags": {
+    "crmWrite": false,
+    "pipelineWrite": false,
+    "policyWrite": false,
+    "quoteWrite": false,
+    "taskCreate": false,
+    "calendarCreate": false,
+    "messageSend": false,
+    "authReal": false,
+    "providerRuntime": false,
+    "secretAccess": false,
+    "browserPersistence": false,
+    "realEngineExecution": false,
+    "realEffectsAllowed": false,
+    "realEffectsEnabled": false,
+    "backendConnection": false,
+    "pdfRead": false,
+    "ocrExecution": false,
+    "parserExecution": false,
+    "calculatorExecution": false,
+    "banxicoCall": false,
+    "testExecution": false
+  }
+}

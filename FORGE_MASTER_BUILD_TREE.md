@@ -10167,3 +10167,28 @@ LOCKED_DECISION=QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_LOCAL_STATIC_READ_ONLY_
 
 NEXT=090C_QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_QA_LOCK
 <!-- FORGE:090B_QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_IMPLEMENTATION:END -->
+
+<!-- FORGE:090C_QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_QA_LOCK:START -->
+## 090C Quote Preview Safe Copy and Badge System QA Lock
+
+090C QA locks the 090B safe copy and badge system registry.
+
+Locked decision:
+`QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_QA_LOCKED`
+
+QA validated:
+
+- ten safe badges exist;
+- seven safe copy blocks exist;
+- Preview / Solo lectura / Revisión humana badges exist;
+- No cotización oficial / Sin envío / Sin CRM / Sin calendario badges exist;
+- forbidden official quote/send/CRM/calendar language is blocked;
+- copy blocks do not imply quote truth or real effects;
+- all safety flags remain false.
+
+DECISION=PASS_090C_QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_QA_LOCK
+
+LOCKED_DECISION=QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_QA_LOCKED
+
+NEXT=090D_QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_DECISION_LOCK
+<!-- FORGE:090C_QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_QA_LOCK:END -->
