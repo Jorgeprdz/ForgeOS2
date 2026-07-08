@@ -14,19 +14,7 @@ NEXT=081C_QUOTE_PREVIEW_PDF_ENGINE_REAL_PDF_FILE_HASH_PROVENANCE_QA_LOCK
 
 081B implements a local/static/read-only real PDF file/hash provenance registry.
 
-It creates metadata-only bindings for real PDF candidates. The bindings are not verified and do not allow execution.
-
 ## Discovery Evidence
-
-Discovery JSON:
-
-`/data/data/com.termux/files/home/forge-discovery-20260707_212348/DISCOVERY_077A_PRECHECK_EXISTING_QUOTE_PDF_TESTS_AND_ENGINES_REPORT_20260707_212348.json`
-
-Discovery report:
-
-`/data/data/com.termux/files/home/forge-discovery-20260707_212348/DISCOVERY_077A_PRECHECK_EXISTING_QUOTE_PDF_TESTS_AND_ENGINES_REPORT_20260707_212348.md`
-
-Discovery digest:
 
 ```json
 {
@@ -146,25 +134,6 @@ Discovery digest:
   }
 }
 ```
-
-## Test Evidence
-
-The focused test validates:
-
-- adapter identity and schema;
-- registry shape;
-- required binding fields;
-- all four real PDF candidate bindings exist;
-- candidate file path is null;
-- declared sha256 is null;
-- declared file size is null;
-- hash verification remains `not_verified`;
-- file read status remains `not_read`;
-- execution remains false;
-- missing binding returns safe error;
-- all safety flags remain false.
-
-## Final
 
 DECISION=PASS_081B_QUOTE_PREVIEW_PDF_ENGINE_REAL_PDF_FILE_HASH_PROVENANCE_IMPLEMENTATION
 

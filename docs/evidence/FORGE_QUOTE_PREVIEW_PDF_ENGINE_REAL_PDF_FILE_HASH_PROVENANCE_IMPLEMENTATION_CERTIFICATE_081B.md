@@ -10,21 +10,6 @@ LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_REAL_PDF_FILE_HASH_PROVENANCE_LOCAL_STA
 
 NEXT=081C_QUOTE_PREVIEW_PDF_ENGINE_REAL_PDF_FILE_HASH_PROVENANCE_QA_LOCK
 
-## Certificate
-
-081B certifies that Forge now has a local/static/read-only real PDF file/hash provenance registry.
-
-Certified statements:
-
-- registry is read-only;
-- real PDF candidate bindings exist;
-- bindings remain unbound and not verified;
-- PDF reads are blocked;
-- hash computation is blocked;
-- OCR/parser/test execution is blocked;
-- backend/quote writes are blocked;
-- all safety flags remain false.
-
-## Final Token
+081B certifies that all real PDF candidate bindings are metadata-only, unbound, not verified, not read, and not executable.
 
 PASS_081B_QUOTE_PREVIEW_PDF_ENGINE_REAL_PDF_FILE_HASH_PROVENANCE_IMPLEMENTATION
