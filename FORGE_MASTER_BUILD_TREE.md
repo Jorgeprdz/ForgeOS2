@@ -8003,3 +8003,34 @@ LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_PRODUCT_INTELLIGENCE_INTEGRATION_SCOPED
 
 NEXT=075B_QUOTE_PREVIEW_PDF_ENGINE_PRODUCT_INTELLIGENCE_INTEGRATION_IMPLEMENTATION
 <!-- FORGE:075A_QUOTE_PREVIEW_PDF_ENGINE_PRODUCT_INTELLIGENCE_INTEGRATION_SCOPE:END -->
+
+<!-- FORGE:075B_QUOTE_PREVIEW_PDF_ENGINE_PRODUCT_INTELLIGENCE_INTEGRATION_IMPLEMENTATION:START -->
+## 075B Quote Preview PDF Engine Product Intelligence Integration Implementation
+
+075B implements the local/static/read-only integration adapter between Quote Preview PDF Engine and Product Intelligence binding.
+
+Locked decision:
+`QUOTE_PREVIEW_PDF_ENGINE_PRODUCT_INTELLIGENCE_INTEGRATION_LOCAL_STATIC_READ_ONLY_IMPLEMENTED`
+
+Implemented surfaces:
+
+- `platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js`
+- `tests/quote-preview-pdf-product-intelligence-integration-adapter-075b-test.js`
+
+The adapter:
+
+- integrates Quote Preview PDF Engine with Product Intelligence binding by reference;
+- keeps Product Intelligence as upstream semantic authority;
+- keeps Quote Preview PDF Engine as downstream consumer/reference only;
+- creates only a reference extraction plan;
+- validates GMM and Imagina Ser integration paths;
+- keeps Imagina Ser as a proven case, not universal architecture;
+- blocks PDF read, parser execution, calculator execution, Banxico call, provider call, backend connection, quote write, and real engine execution;
+- preserves all safety flags as false.
+
+DECISION=PASS_075B_QUOTE_PREVIEW_PDF_ENGINE_PRODUCT_INTELLIGENCE_INTEGRATION_IMPLEMENTATION
+
+LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_PRODUCT_INTELLIGENCE_INTEGRATION_LOCAL_STATIC_READ_ONLY_IMPLEMENTED
+
+NEXT=075C_QUOTE_PREVIEW_PDF_ENGINE_PRODUCT_INTELLIGENCE_INTEGRATION_QA_LOCK
+<!-- FORGE:075B_QUOTE_PREVIEW_PDF_ENGINE_PRODUCT_INTELLIGENCE_INTEGRATION_IMPLEMENTATION:END -->
