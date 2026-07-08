@@ -5860,3 +5860,40 @@ LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_PARSER_OWNERSHIP_LOCKED_AS_LOCAL_STATIC
 
 NEXT=084A_QUOTE_PREVIEW_PDF_ENGINE_DETERMINISTIC_INPUT_SOURCE_TRACE_SCOPE
 <!-- FORGE:083D_QUOTE_PREVIEW_PDF_ENGINE_PARSER_OWNERSHIP_DECISION_LOCK:END -->
+
+<!-- FORGE:084A_QUOTE_PREVIEW_PDF_ENGINE_DETERMINISTIC_INPUT_SOURCE_TRACE_SCOPE:START -->
+## 084A Quote Preview PDF Engine Deterministic Input Source Trace Scope
+
+084A scopes deterministic input source trace for the Quote Preview PDF Engine path.
+
+Locked decision:
+`QUOTE_PREVIEW_PDF_ENGINE_DETERMINISTIC_INPUT_SOURCE_TRACE_SCOPED`
+
+Active blocking gate:
+
+- `deterministic_input_source_trace_ready`
+
+Scoped deterministic inputs:
+
+- `current_udi_value`
+- `udi_growth_assumption`
+- `projection_horizon`
+- `projection_formula`
+
+084B must implement a local/static/read-only deterministic input source trace registry.
+
+Boundaries:
+
+- no deterministic calculation;
+- no calculator execution;
+- no Banxico/provider call;
+- no PDF/parser/OCR/test execution;
+- no duplicate calculator creation;
+- no projection truth without source trace.
+
+DECISION=PASS_084A_QUOTE_PREVIEW_PDF_ENGINE_DETERMINISTIC_INPUT_SOURCE_TRACE_SCOPE
+
+LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_DETERMINISTIC_INPUT_SOURCE_TRACE_SCOPED
+
+NEXT=084B_QUOTE_PREVIEW_PDF_ENGINE_DETERMINISTIC_INPUT_SOURCE_TRACE_IMPLEMENTATION
+<!-- FORGE:084A_QUOTE_PREVIEW_PDF_ENGINE_DETERMINISTIC_INPUT_SOURCE_TRACE_SCOPE:END -->
