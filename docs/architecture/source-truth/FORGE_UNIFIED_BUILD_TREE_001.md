@@ -5925,3 +5925,39 @@ LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_EXISTING_SURFACES_CANONICAL_MAPPING_LOC
 
 NEXT=077C_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_SURFACES_CANONICAL_MAPPING_QA_LOCK
 <!-- FORGE:077B_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_SURFACES_CANONICAL_MAPPING_IMPLEMENTATION:END -->
+
+<!-- FORGE:077C_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_SURFACES_CANONICAL_MAPPING_QA_LOCK:START -->
+## 077C Quote Preview PDF Engine Existing Surfaces Canonical Mapping QA Lock
+
+077C QA locks the local/static/read-only canonical mapping adapter implemented in 077B.
+
+Locked decision:
+`QUOTE_PREVIEW_PDF_ENGINE_EXISTING_SURFACES_CANONICAL_MAPPING_QA_LOCKED`
+
+QA validated:
+
+- adapter identity and schema are valid;
+- mode `read_only`;
+- route class `preview_safe`;
+- catalog shape validates;
+- required mapping fields are present;
+- no-new-extractor, no-new-parser, and no-new-calculator gates are true;
+- Product Intelligence remains upstream;
+- Quote Preview remains downstream;
+- PDF extraction candidate maps to `policy-operations/evidence/policy-ocr-engine.js`;
+- PDF preview/orchestration candidate maps to `product-intelligence/evidence/forge-quote-pdf-preview-engine.js`;
+- Solucionline parser remains `canonical_decision_required`;
+- GMM parser and GMM summary are separated;
+- UDI projection and Imagina Ser bridge are mapped;
+- Banxico/rate cache surfaces are mapped;
+- 076B promotion adapter is blocked from extraction/parser/calculation growth;
+- missing surface returns safe error;
+- all safety flags remain false;
+- no PDF/OCR/parser/calculator/Banxico/provider/backend/quote execution is introduced.
+
+DECISION=PASS_077C_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_SURFACES_CANONICAL_MAPPING_QA_LOCK
+
+LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_EXISTING_SURFACES_CANONICAL_MAPPING_QA_LOCKED
+
+NEXT=077D_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_SURFACES_CANONICAL_MAPPING_DECISION_LOCK
+<!-- FORGE:077C_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_SURFACES_CANONICAL_MAPPING_QA_LOCK:END -->
