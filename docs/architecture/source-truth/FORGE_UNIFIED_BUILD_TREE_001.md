@@ -5961,3 +5961,40 @@ LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_EXISTING_SURFACES_CANONICAL_MAPPING_QA_
 
 NEXT=077D_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_SURFACES_CANONICAL_MAPPING_DECISION_LOCK
 <!-- FORGE:077C_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_SURFACES_CANONICAL_MAPPING_QA_LOCK:END -->
+
+<!-- FORGE:077D_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_SURFACES_CANONICAL_MAPPING_DECISION_LOCK:START -->
+## 077D Quote Preview PDF Engine Existing Surfaces Canonical Mapping Decision Lock
+
+077D decision-locks the existing quote/PDF surfaces canonical mapping as a local/static/read-only reference catalog.
+
+Locked decision:
+`QUOTE_PREVIEW_PDF_ENGINE_EXISTING_SURFACES_CANONICAL_MAPPING_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_CATALOG`
+
+Confirmed:
+
+- 077B/077C mapping is locked as a reference catalog;
+- no new PDF extractor is authorized before reconciliation locks;
+- no new parser is authorized before reconciliation locks;
+- no new calculator is authorized before reconciliation locks;
+- Product Intelligence remains upstream;
+- Quote Preview remains downstream;
+- PDF extraction candidate remains `policy-operations/evidence/policy-ocr-engine.js`;
+- PDF preview/orchestration candidate remains `product-intelligence/evidence/forge-quote-pdf-preview-engine.js`;
+- Solucionline parser boundary remains decision-required;
+- GMM parser and GMM summary remain separated;
+- UDI projection and Imagina Ser bridge remain mapped;
+- Banxico/rate surfaces remain mapped without runtime authorization;
+- 076B promotion adapter remains blocked from extraction/parser/calculation growth;
+- missing surfaces return safe errors;
+- all safety flags remain false.
+
+Next:
+
+- `078A_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_SCOPE` may scope canonical test evidence only, with no execution.
+
+DECISION=PASS_077D_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_SURFACES_CANONICAL_MAPPING_DECISION_LOCK
+
+LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_EXISTING_SURFACES_CANONICAL_MAPPING_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_CATALOG
+
+NEXT=078A_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_SCOPE
+<!-- FORGE:077D_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_SURFACES_CANONICAL_MAPPING_DECISION_LOCK:END -->
