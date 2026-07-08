@@ -8,7 +8,7 @@ DECISION=PASS_076D_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_DECISION_LOCK
 
 LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_ADAPTER
 
-NEXT=077A_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_EXTRACTOR_RECONCILIATION_SCOPE
+NEXT=077A_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_TESTS_AND_ENGINES_RECONCILIATION_SCOPE
 
 ## Certificate
 
@@ -25,7 +25,8 @@ Certified statements:
 - Imagina Ser is not universal architecture;
 - missing/unmapped product families return safe errors;
 - all safety flags remain false;
-- no PDF/parser/calculator/Banxico/provider/backend/quote execution is authorized.
+- no PDF/parser/calculator/Banxico/provider/backend/quote execution is authorized;
+- next work must reconcile existing quote/PDF tests and engines before any extractor promotion.
 
 ## No-Effect Boundary
 

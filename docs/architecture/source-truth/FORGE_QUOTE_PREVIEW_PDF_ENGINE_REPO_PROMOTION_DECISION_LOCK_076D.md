@@ -8,13 +8,13 @@ DECISION=PASS_076D_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_DECISION_LOCK
 
 LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_ADAPTER
 
-NEXT=077A_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_EXTRACTOR_RECONCILIATION_SCOPE
+NEXT=077A_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_TESTS_AND_ENGINES_RECONCILIATION_SCOPE
 
 ## Purpose
 
 076D decision-locks the Quote Preview PDF Engine repo promotion adapter as a local/static/read-only reference adapter.
 
-The lock confirms that the promoted repo adapter is approved only as Product Intelligence-bound, reference-only, preview-safe, and no-effect.
+This decision is discovery-aware: the next phase is not a new extractor. It is reconciliation of existing quote/PDF tests and engines discovered in the repo.
 
 ## Base Confirmed
 
@@ -23,6 +23,23 @@ The lock confirms that the promoted repo adapter is approved only as Product Int
 - `PASS_076C_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_QA_LOCK`
 - `QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_QA_LOCKED`
 - `NEXT=076D_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_DECISION_LOCK`
+
+## Discovery Evidence
+
+Discovery JSON:
+
+`/data/data/com.termux/files/home/forge-discovery-20260707_212348/DISCOVERY_077A_PRECHECK_EXISTING_QUOTE_PDF_TESTS_AND_ENGINES_REPORT_20260707_212348.json`
+
+Discovery report:
+
+`/data/data/com.termux/files/home/forge-discovery-20260707_212348/DISCOVERY_077A_PRECHECK_EXISTING_QUOTE_PDF_TESTS_AND_ENGINES_REPORT_20260707_212348.md`
+
+Discovery confirmed:
+
+- existing tests were found;
+- existing quote/PDF/preview/parser/engine candidates were inventoried;
+- new PDF extractor creation must not proceed before reconciliation;
+- next phase must be `077A_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_TESTS_AND_ENGINES_RECONCILIATION_SCOPE`.
 
 ## Locked Meaning
 
@@ -67,7 +84,17 @@ The Quote Preview PDF Engine repo promotion adapter is locked as:
 
 ## Next Architectural Unlock
 
-077A may scope existing extractor reconciliation only after this decision lock. Any future extractor reconciliation must reuse existing repo extractor surfaces, preserve Product Intelligence binding, evidence/freshness metadata, safe errors, blocked effects, and no-effect defaults until separately promoted and locked.
+077A may scope reconciliation of existing quote/PDF tests and engines only.
+
+077A must not create a new extractor. It must inventory and reconcile:
+
+- existing quote/PDF tests;
+- real quote fixtures;
+- existing PDF preview/extractor surfaces;
+- existing parser/engine/calculator surfaces;
+- Product Intelligence binding requirements;
+- evidence/freshness requirements;
+- safety boundaries and no-effect defaults.
 
 ## Final Decision
 
@@ -75,4 +102,4 @@ DECISION=PASS_076D_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_DECISION_LOCK
 
 LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_ADAPTER
 
-NEXT=077A_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_EXTRACTOR_RECONCILIATION_SCOPE
+NEXT=077A_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_TESTS_AND_ENGINES_RECONCILIATION_SCOPE

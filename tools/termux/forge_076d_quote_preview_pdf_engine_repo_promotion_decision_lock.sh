@@ -4,8 +4,8 @@ set -euo pipefail
 PHASE="076D_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_DECISION_LOCK"
 DECISION="PASS_076D_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_DECISION_LOCK"
 LOCKED_DECISION="QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_ADAPTER"
-NEXT="077A_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_EXTRACTOR_RECONCILIATION_SCOPE"
-MODE="docs/decision lock only"
+NEXT="077A_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_TESTS_AND_ENGINES_RECONCILIATION_SCOPE"
+MODE="docs/decision lock only; discovery-aware next"
 BOUNDARY="no UI mutation; no backend real; no CRM/policy/quote/pipeline writes; no task/calendar/message; no provider execution with effects; no auth/secrets/browser persistence; no real engine execution; no parser/calculator/Banxico/PDF execution; no invented product/premium/coverage/projection/quote truth"
 REPO="${REPO:-/storage/emulated/0/Forge OS}"
 STAMP="$(date +%Y%m%d_%H%M%S)"
@@ -43,6 +43,16 @@ run(){
   "$@"
 }
 
+find_latest_discovery_json(){
+  if [ -n "${DISCOVERY_JSON:-}" ] && [ -f "$DISCOVERY_JSON" ]; then
+    printf "%s\n" "$DISCOVERY_JSON"
+    return 0
+  fi
+
+  find /data/data/com.termux/files/home -path "*/forge-discovery-*/*DISCOVERY_077A_PRECHECK_EXISTING_QUOTE_PDF_TESTS_AND_ENGINES_REPORT_*.json" \
+    -type f 2>/dev/null | sort | tail -1
+}
+
 mkdir -p "$(dirname "$REPORT")"
 touch "$REPORT"
 exec > >(tee -a "$REPORT") 2>&1
@@ -52,7 +62,7 @@ echo "PHASE=$PHASE"
 echo "MODE=$MODE"
 echo "BOUNDARY=$BOUNDARY"
 echo "REPORT=$REPORT"
-echo "ROBOCOP_GATE=Article 0; 076C QA closed; decision lock only"
+echo "ROBOCOP_GATE=Article 0; 076C QA closed; 077A redirected to existing tests/engines reconciliation"
 
 cd "$REPO" || fail "No existe repo: $REPO"
 
@@ -81,7 +91,46 @@ else
   warn "076C audit file not found; relying on git log/tree markers"
 fi
 
-stage "STAGE 3 REQUIRED FILES"
+stage "STAGE 3 DISCOVERY EVIDENCE"
+DISCOVERY_JSON_FOUND="$(find_latest_discovery_json || true)"
+if [ -z "$DISCOVERY_JSON_FOUND" ] || [ ! -f "$DISCOVERY_JSON_FOUND" ]; then
+  fail "Discovery JSON not found. Run forge_discovery_077a_precheck_existing_quote_pdf_tests_and_engines.sh first, or set DISCOVERY_JSON=/path/report.json"
+fi
+
+DISCOVERY_DIR="$(dirname "$DISCOVERY_JSON_FOUND")"
+DISCOVERY_REPORT_MD="$(find "$DISCOVERY_DIR" -maxdepth 1 -type f -name '*DISCOVERY_077A_PRECHECK_EXISTING_QUOTE_PDF_TESTS_AND_ENGINES_REPORT_*.md' | sort | tail -1 || true)"
+
+echo "DISCOVERY_JSON=$DISCOVERY_JSON_FOUND"
+echo "DISCOVERY_DIR=$DISCOVERY_DIR"
+echo "DISCOVERY_REPORT_MD=${DISCOVERY_REPORT_MD:-not_found}"
+
+run python3 -m json.tool "$DISCOVERY_JSON_FOUND"
+
+python3 - <<'PY' "$DISCOVERY_JSON_FOUND"
+import json, sys
+from pathlib import Path
+
+p = Path(sys.argv[1])
+data = json.loads(p.read_text())
+rec = data.get("recommendation", {})
+counts = data.get("counts", {})
+if rec.get("do_not_create_new_pdf_extractor") is not True:
+    raise SystemExit("Discovery recommendation does not explicitly block new extractor creation")
+if rec.get("next_should_be_reconciliation_scope") != "077A_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_TESTS_AND_ENGINES_RECONCILIATION_SCOPE":
+    raise SystemExit("Discovery next does not match existing tests/engines reconciliation scope")
+if counts.get("test_files_total", 0) < 1:
+    raise SystemExit("Discovery did not find tests")
+print("DISCOVERY_EVIDENCE_VALID")
+print(json.dumps({
+    "counts": counts,
+    "known_surfaces_present": data.get("known_surfaces_present", []),
+    "next": rec.get("next_should_be_reconciliation_scope")
+}, indent=2, ensure_ascii=False))
+PY
+
+pass "discovery evidence confirmed"
+
+stage "STAGE 4 REQUIRED FILES"
 REQUIRED_FILES=(
   "FORGE_MASTER_BUILD_TREE.md"
   "docs/architecture/source-truth/FORGE_UNIFIED_BUILD_TREE_001.md"
@@ -98,7 +147,7 @@ for f in "${REQUIRED_FILES[@]}"; do
   pass "$f"
 done
 
-stage "STAGE 4 BACKUP"
+stage "STAGE 5 BACKUP"
 mkdir -p "$BACKUP_DIR"
 cp FORGE_MASTER_BUILD_TREE.md "$BACKUP_DIR/FORGE_MASTER_BUILD_TREE.md"
 cp docs/architecture/source-truth/FORGE_UNIFIED_BUILD_TREE_001.md "$BACKUP_DIR/FORGE_UNIFIED_BUILD_TREE_001.md"
@@ -121,12 +170,12 @@ chmod +x "$BACKUP_DIR/rollback-076d.sh"
 pass "backup created"
 pass "rollback created: $BACKUP_DIR/rollback-076d.sh"
 
-stage "STAGE 5 REVALIDATE 076B/076C AS BASIS"
+stage "STAGE 6 REVALIDATE 076B/076C AS BASIS"
 run node --check "$ADAPTER"
 run node --check "$TEST"
 run node "$TEST"
 
-stage "STAGE 6 DECISION ASSERTIONS"
+stage "STAGE 7 DECISION ASSERTIONS"
 DECISION_QA_JSON="$(mktemp)"
 node <<'NODE' > "$DECISION_QA_JSON"
 const assert = require("node:assert/strict");
@@ -249,6 +298,7 @@ console.log(JSON.stringify({
   promotionShapeValidates: true,
   allSafetyFlagsFalse: true,
   referenceChainPresent: true,
+  discoveryAwareNext: "077A_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_TESTS_AND_ENGINES_RECONCILIATION_SCOPE",
   noPdfRead: true,
   noParserExecution: true,
   noCalculatorExecution: true,
@@ -263,7 +313,27 @@ NODE
 cat "$DECISION_QA_JSON"
 pass "decision assertions passed"
 
-stage "STAGE 7 WRITE DOCS / EVIDENCE"
+stage "STAGE 8 PREPARE DISCOVERY DIGEST"
+DISCOVERY_DIGEST_JSON="$(mktemp)"
+python3 - <<'PY' "$DISCOVERY_JSON_FOUND" "$DISCOVERY_DIGEST_JSON"
+import json, sys
+from pathlib import Path
+
+source = Path(sys.argv[1])
+target = Path(sys.argv[2])
+data = json.loads(source.read_text())
+digest = {
+    "discoveryJson": str(source),
+    "counts": data.get("counts", {}),
+    "knownSurfacesPresent": data.get("known_surfaces_present", []),
+    "recommendation": data.get("recommendation", {}),
+    "artifacts": data.get("artifacts", {}),
+}
+target.write_text(json.dumps(digest, indent=2, ensure_ascii=False) + "\n")
+PY
+cat "$DISCOVERY_DIGEST_JSON"
+
+stage "STAGE 9 WRITE DOCS / EVIDENCE"
 
 cat > "$ARCH_DOC" <<EOF
 # Forge Quote Preview PDF Engine Repo Promotion Decision Lock 076D
@@ -282,7 +352,7 @@ NEXT=$NEXT
 
 076D decision-locks the Quote Preview PDF Engine repo promotion adapter as a local/static/read-only reference adapter.
 
-The lock confirms that the promoted repo adapter is approved only as Product Intelligence-bound, reference-only, preview-safe, and no-effect.
+This decision is discovery-aware: the next phase is not a new extractor. It is reconciliation of existing quote/PDF tests and engines discovered in the repo.
 
 ## Base Confirmed
 
@@ -291,6 +361,23 @@ The lock confirms that the promoted repo adapter is approved only as Product Int
 - \`PASS_076C_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_QA_LOCK\`
 - \`QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_QA_LOCKED\`
 - \`NEXT=076D_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_DECISION_LOCK\`
+
+## Discovery Evidence
+
+Discovery JSON:
+
+\`$DISCOVERY_JSON_FOUND\`
+
+Discovery report:
+
+\`${DISCOVERY_REPORT_MD:-not_found}\`
+
+Discovery confirmed:
+
+- existing tests were found;
+- existing quote/PDF/preview/parser/engine candidates were inventoried;
+- new PDF extractor creation must not proceed before reconciliation;
+- next phase must be \`$NEXT\`.
 
 ## Locked Meaning
 
@@ -335,7 +422,17 @@ The Quote Preview PDF Engine repo promotion adapter is locked as:
 
 ## Next Architectural Unlock
 
-077A may scope existing extractor reconciliation only after this decision lock. Any future extractor reconciliation must reuse existing repo extractor surfaces, preserve Product Intelligence binding, evidence/freshness metadata, safe errors, blocked effects, and no-effect defaults until separately promoted and locked.
+077A may scope reconciliation of existing quote/PDF tests and engines only.
+
+077A must not create a new extractor. It must inventory and reconcile:
+
+- existing quote/PDF tests;
+- real quote fixtures;
+- existing PDF preview/extractor surfaces;
+- existing parser/engine/calculator surfaces;
+- Product Intelligence binding requirements;
+- evidence/freshness requirements;
+- safety boundaries and no-effect defaults.
 
 ## Final Decision
 
@@ -363,7 +460,18 @@ NEXT=$NEXT
 
 076D locks the 076B/076C repo promotion adapter as local/static/read-only and Product Intelligence-bound.
 
-The adapter is approved only as a reference promotion layer. It does not read PDFs, execute parsers, execute calculators, call Banxico, call providers, write quotes, connect backend, or create quote truth.
+This decision is based on both 076C QA and the 077A precheck discovery showing that the repo already contains existing quote/PDF tests and engine candidates. Therefore, the next phase must reconcile existing surfaces rather than create a new extractor.
+
+## Discovery Evidence
+
+- Discovery JSON: \`$DISCOVERY_JSON_FOUND\`
+- Discovery report: \`${DISCOVERY_REPORT_MD:-not_found}\`
+
+Digest:
+
+\`\`\`json
+$(cat "$DISCOVERY_DIGEST_JSON")
+\`\`\`
 
 ## Decision Evidence
 
@@ -384,9 +492,11 @@ Validated:
 - Safety flags false.
 - Reference chain present.
 - No execution true flags.
+- Discovery redirects next work to existing tests/engines reconciliation.
 
 ## Commands
 
+- \`python3 -m json.tool "$DISCOVERY_JSON_FOUND"\`
 - \`node --check $ADAPTER\`
 - \`node --check $TEST\`
 - \`node $TEST\`
@@ -434,7 +544,8 @@ Certified statements:
 - Imagina Ser is not universal architecture;
 - missing/unmapped product families return safe errors;
 - all safety flags remain false;
-- no PDF/parser/calculator/Banxico/provider/backend/quote execution is authorized.
+- no PDF/parser/calculator/Banxico/provider/backend/quote execution is authorized;
+- next work must reconcile existing quote/PDF tests and engines before any extractor promotion.
 
 ## No-Effect Boundary
 
@@ -461,6 +572,7 @@ cat > "$AUDIT_JSON" <<EOF
   "test": "$TEST",
   "lockedAs": "local_static_read_only_reference_adapter",
   "decisionAssertions": $(cat "$DECISION_QA_JSON"),
+  "discoveryEvidence": $(cat "$DISCOVERY_DIGEST_JSON"),
   "confirmed": {
     "manifestValid": true,
     "schemaVersion": "forge.quote_preview.pdf_engine.repo_promotion.v1",
@@ -474,7 +586,9 @@ cat > "$AUDIT_JSON" <<EOF
     "missingFamilySafeError": true,
     "promotionShapeValidates": true,
     "allSafetyFlagsFalse": true,
-    "referenceChainPresent": true
+    "referenceChainPresent": true,
+    "existingTestsAndEnginesReconciliationRequiredNext": true,
+    "newPdfExtractorCreationAllowedNext": false
   },
   "productFamilies": [
     "GMM",
@@ -535,6 +649,7 @@ cat > "$AUDIT_JSON" <<EOF
     "banxicoCall": false
   },
   "validations": {
+    "discoveryJson": "PASS",
     "nodeCheckAdapter": "PASS",
     "nodeCheckTest": "PASS",
     "nodeTest": "PASS",
@@ -550,7 +665,7 @@ EOF
 
 pass "docs/evidence written"
 
-stage "STAGE 8 UPDATE BUILD TREE / ROADMAP"
+stage "STAGE 10 UPDATE BUILD TREE / ROADMAP"
 
 TREE_BLOCK=$(cat <<EOF
 
@@ -561,6 +676,13 @@ TREE_BLOCK=$(cat <<EOF
 
 Locked decision:
 \`$LOCKED_DECISION\`
+
+Discovery-aware redirect:
+
+- discovery report: \`$DISCOVERY_JSON_FOUND\`;
+- the repo already has quote/PDF tests and engine candidates;
+- no new PDF extractor may be created before reconciliation;
+- next phase is \`$NEXT\`.
 
 Confirmed:
 
@@ -614,7 +736,7 @@ PY
 
 pass "build tree / roadmap updated"
 
-stage "STAGE 8B TRIM TREE EOF BLANKS"
+stage "STAGE 10B TRIM TREE EOF BLANKS"
 python3 - <<'PYTRIM'
 from pathlib import Path
 
@@ -628,20 +750,20 @@ for path in [
     print(f"trimmed EOF blanks: {path}")
 PYTRIM
 
-stage "STAGE 9 SAVE SCRIPT IN REPO"
+stage "STAGE 11 SAVE SCRIPT IN REPO"
 mkdir -p "$(dirname "$SCRIPT_IN_REPO")"
 cp "$0" "$SCRIPT_IN_REPO"
 chmod +x "$SCRIPT_IN_REPO"
 pass "$SCRIPT_IN_REPO"
 
-stage "STAGE 10 VALIDATION"
+stage "STAGE 12 VALIDATION"
 run bash -n "$SCRIPT_IN_REPO"
 run node --check "$ADAPTER"
 run node --check "$TEST"
 run node "$TEST"
 run python3 -m json.tool "$AUDIT_JSON"
 
-run rg -n "$PHASE|$DECISION|$LOCKED_DECISION|$NEXT|QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_ADAPTER|077A_QUOTE_PREVIEW_PDF_ENGINE_EXISTING_EXTRACTOR_RECONCILIATION_SCOPE" \
+run rg -n "$PHASE|$DECISION|$LOCKED_DECISION|$NEXT|QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_ADAPTER|existing quote/PDF tests and engines|no new PDF extractor" \
   FORGE_MASTER_BUILD_TREE.md \
   docs/architecture/source-truth/FORGE_UNIFIED_BUILD_TREE_001.md \
   docs/roadmap/FORGE_ROADMAP_LOCK_001.md \
@@ -649,7 +771,7 @@ run rg -n "$PHASE|$DECISION|$LOCKED_DECISION|$NEXT|QUOTE_PREVIEW_PDF_ENGINE_REPO
 
 run git diff --check
 
-stage "STAGE 11 SAFETY SCAN"
+stage "STAGE 13 SAFETY SCAN"
 SCOPED_FILES=(
   "FORGE_MASTER_BUILD_TREE.md"
   "docs/architecture/source-truth/FORGE_UNIFIED_BUILD_TREE_001.md"
@@ -670,7 +792,7 @@ fi
 
 pass "safety scan clean"
 
-stage "STAGE 12 STAGE AUTHORIZED FILES"
+stage "STAGE 14 STAGE AUTHORIZED FILES"
 AUTHORIZED_FILES=(
   "FORGE_MASTER_BUILD_TREE.md"
   "docs/architecture/source-truth/FORGE_UNIFIED_BUILD_TREE_001.md"
@@ -698,11 +820,11 @@ fi
 
 pass "only authorized files staged"
 
-stage "STAGE 13 COMMIT PUSH"
+stage "STAGE 15 COMMIT PUSH"
 run git commit -m "docs: lock quote preview pdf engine repo promotion decision"
 run git push origin HEAD:main
 
-stage "STAGE 14 FINAL CHECKPOINT"
+stage "STAGE 16 FINAL CHECKPOINT"
 run git status --short --branch
 run git log --oneline -10
 
@@ -711,6 +833,7 @@ PASS_076D_QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_DECISION_LOCK_COMMIT_PUSH_COMP
 DECISION=$DECISION
 LOCKED_DECISION=$LOCKED_DECISION
 NEXT=$NEXT
+DISCOVERY_JSON=$DISCOVERY_JSON_FOUND
 BACKUP=$BACKUP_DIR
 REPORT=$REPORT
 EOF
