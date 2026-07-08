@@ -6090,3 +6090,33 @@ LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_PREVIEW_VS_QUOTE_TRUTH_BOUNDARY_QA_LOCK
 
 NEXT=085D_QUOTE_PREVIEW_PDF_ENGINE_PREVIEW_VS_QUOTE_TRUTH_BOUNDARY_DECISION_LOCK
 <!-- FORGE:085C_QUOTE_PREVIEW_PDF_ENGINE_PREVIEW_VS_QUOTE_TRUTH_BOUNDARY_QA_LOCK:END -->
+
+<!-- FORGE:085D_QUOTE_PREVIEW_PDF_ENGINE_PREVIEW_VS_QUOTE_TRUTH_BOUNDARY_DECISION_LOCK:START -->
+## 085D Quote Preview PDF Engine Preview vs Quote Truth Boundary Decision Lock
+
+085D decision-locks the 085B/085C Preview vs Quote Truth boundary registry as a local/static/read-only reference registry.
+
+Locked decision:
+`QUOTE_PREVIEW_PDF_ENGINE_PREVIEW_VS_QUOTE_TRUTH_BOUNDARY_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_REGISTRY`
+
+Confirmed:
+
+- four boundary entries exist;
+- preview references may be shown only as preview;
+- quote truth remains blocked for every surface;
+- provider/runtime/backend quote truth remains blocked;
+- quote write/send remains blocked;
+- user-visible preview requires preview label;
+- every execution remains false.
+
+Next:
+
+- `086A_QUOTE_PREVIEW_SAFE_UX_STATE_MODEL_SCOPE` may scope safe Quote Preview UX state model.
+- No execution is authorized.
+
+DECISION=PASS_085D_QUOTE_PREVIEW_PDF_ENGINE_PREVIEW_VS_QUOTE_TRUTH_BOUNDARY_DECISION_LOCK
+
+LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_PREVIEW_VS_QUOTE_TRUTH_BOUNDARY_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_REGISTRY
+
+NEXT=086A_QUOTE_PREVIEW_SAFE_UX_STATE_MODEL_SCOPE
+<!-- FORGE:085D_QUOTE_PREVIEW_PDF_ENGINE_PREVIEW_VS_QUOTE_TRUTH_BOUNDARY_DECISION_LOCK:END -->
