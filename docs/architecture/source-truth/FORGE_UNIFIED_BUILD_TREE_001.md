@@ -7725,3 +7725,39 @@ LOCKED_DECISION=QUOTE_PREVIEW_SAFE_VISUAL_LAYOUT_SPEC_RECONCILED_WITH_DESIGN_TEM
 
 NEXT=090A_QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_SCOPE
 <!-- FORGE:089R_QUOTE_PREVIEW_SAFE_VISUAL_LAYOUT_SPEC_TEMPLATE_RECONCILIATION:END -->
+
+<!-- FORGE:090A_QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_SCOPE:START -->
+## 090A Quote Preview Safe Copy and Badge System Scope
+
+090A scopes the safe copy and badge system for Quote Preview.
+
+Locked decision:
+`QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_SCOPED`
+
+Required badges:
+
+- Preview
+- Solo lectura
+- Revisión humana
+- No cotización oficial
+- Sin envío
+- Sin CRM
+- Sin calendario
+- Fuente no vinculada
+- Hash no verificado
+- Quote truth bloqueado
+
+Required copy rules:
+
+- never imply official quote;
+- never imply send;
+- never imply CRM write;
+- never imply calendar creation;
+- always preserve preview/read-only/human-review boundary.
+
+DECISION=PASS_090A_QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_SCOPE
+
+LOCKED_DECISION=QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_SCOPED
+
+NEXT=090B_QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_IMPLEMENTATION
+<!-- FORGE:090A_QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_SCOPE:END -->
