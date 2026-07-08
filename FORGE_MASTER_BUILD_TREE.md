@@ -8941,15 +8941,10 @@ Locked decision:
 
 QA validated:
 
-- registry shape validates;
-- all four real PDF candidate bindings exist;
-- every binding remains unbound;
-- every hash remains `not_verified`;
-- every file remains `not_read`;
-- every execution remains `false`;
-- missing binding returns safe error;
-- all safety flags remain false;
-- no PDF read/hash computation/OCR/parser/test execution is authorized.
+- all bindings remain unbound;
+- all hashes remain `not_verified`;
+- all files remain `not_read`;
+- all executions remain `false`.
 
 DECISION=PASS_081C_QUOTE_PREVIEW_PDF_ENGINE_REAL_PDF_FILE_HASH_PROVENANCE_QA_LOCK
 
