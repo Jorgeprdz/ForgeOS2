@@ -5072,3 +5072,41 @@ LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_LOCAL_STATIC_RE
 
 NEXT=078C_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_QA_LOCK
 <!-- FORGE:078B_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_IMPLEMENTATION:END -->
+
+<!-- FORGE:078C_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_QA_LOCK:START -->
+## 078C Quote Preview PDF Engine Canonical Test Evidence QA Lock
+
+078C QA locks the local/static/read-only canonical test evidence registry implemented in 078B.
+
+Locked decision:
+`QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_QA_LOCKED`
+
+QA validated:
+
+- adapter identity and schema are valid;
+- mode `read_only`;
+- route class `preview_safe`;
+- registry shape validates;
+- required evidence fields are present;
+- no test execution is allowed;
+- no real PDF tests are executed;
+- no parser tests are executed;
+- no calculator tests are executed;
+- no Banxico/provider tests are executed;
+- real PDF/OCR evidence candidate is classified;
+- GMM parser evidence candidate is classified;
+- GMM expected-value provenance gate is present;
+- retirement/Solucionline parser evidence remains decision-required;
+- retirement MXN projection evidence requires provenance review;
+- Banxico/cache metadata candidate requires future runtime gate;
+- preview fixture evidence is not real PDF evidence;
+- governance guardrail evidence is not extraction proof;
+- missing evidence returns safe error;
+- all safety flags remain false.
+
+DECISION=PASS_078C_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_QA_LOCK
+
+LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_QA_LOCKED
+
+NEXT=078D_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_DECISION_LOCK
+<!-- FORGE:078C_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_QA_LOCK:END -->
