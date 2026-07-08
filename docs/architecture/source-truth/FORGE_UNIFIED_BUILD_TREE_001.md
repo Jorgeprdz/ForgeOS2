@@ -6902,3 +6902,47 @@ LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_DETERMINISTIC_INPUT_SOURCE_TRACE_SCOPED
 
 NEXT=084B_QUOTE_PREVIEW_PDF_ENGINE_DETERMINISTIC_INPUT_SOURCE_TRACE_IMPLEMENTATION
 <!-- FORGE:084A_QUOTE_PREVIEW_PDF_ENGINE_DETERMINISTIC_INPUT_SOURCE_TRACE_SCOPE:END -->
+
+<!-- FORGE:084B_QUOTE_PREVIEW_PDF_ENGINE_DETERMINISTIC_INPUT_SOURCE_TRACE_IMPLEMENTATION:START -->
+## 084B Quote Preview PDF Engine Deterministic Input Source Trace Implementation
+
+084B implements a local/static/read-only deterministic input source trace registry.
+
+Locked decision:
+`QUOTE_PREVIEW_PDF_ENGINE_DETERMINISTIC_INPUT_SOURCE_TRACE_LOCAL_STATIC_READ_ONLY_IMPLEMENTED`
+
+Implemented:
+
+- `platform/adapters/quote-preview/quote-preview-pdf-engine-deterministic-input-source-trace-registry-adapter-084b.js`
+- `tests/quote-preview-pdf-engine-deterministic-input-source-trace-registry-adapter-084b-test.js`
+
+Registry status:
+
+- `not_bound_not_verified_not_ready`
+
+Input traces:
+
+- `input_current_udi_value_source_trace`
+- `input_udi_growth_assumption_source_trace`
+- `input_projection_horizon_source_trace`
+- `input_projection_formula_source_trace`
+
+Every trace remains:
+
+- `source_trace_status=not_bound`
+- `verification_status=not_verified`
+- `execution_allowed=false`
+
+Boundaries:
+
+- no deterministic calculation;
+- no calculator execution;
+- no Banxico/provider call;
+- no duplicate calculator creation.
+
+DECISION=PASS_084B_QUOTE_PREVIEW_PDF_ENGINE_DETERMINISTIC_INPUT_SOURCE_TRACE_IMPLEMENTATION
+
+LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_DETERMINISTIC_INPUT_SOURCE_TRACE_LOCAL_STATIC_READ_ONLY_IMPLEMENTED
+
+NEXT=084C_QUOTE_PREVIEW_PDF_ENGINE_DETERMINISTIC_INPUT_SOURCE_TRACE_QA_LOCK
+<!-- FORGE:084B_QUOTE_PREVIEW_PDF_ENGINE_DETERMINISTIC_INPUT_SOURCE_TRACE_IMPLEMENTATION:END -->
