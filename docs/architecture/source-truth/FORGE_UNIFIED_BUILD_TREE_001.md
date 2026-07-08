@@ -7401,3 +7401,37 @@ LOCKED_DECISION=QUOTE_PREVIEW_SAFE_UX_COMPONENT_CONTRACT_LOCKED_AS_LOCAL_STATIC_
 
 NEXT=088A_QUOTE_PREVIEW_SAFE_SCREEN_COMPOSITION_SCOPE
 <!-- FORGE:087D_QUOTE_PREVIEW_SAFE_UX_COMPONENT_CONTRACT_DECISION_LOCK:END -->
+
+<!-- FORGE:088A_QUOTE_PREVIEW_SAFE_SCREEN_COMPOSITION_SCOPE:START -->
+## 088A Quote Preview Safe Screen Composition Scope
+
+088A scopes safe screen composition for Quote Preview.
+
+Locked decision:
+`QUOTE_PREVIEW_SAFE_SCREEN_COMPOSITION_SCOPED`
+
+Scoped screen compositions:
+
+- `QuotePreviewEmptyScreen`
+- `QuotePreviewIntakeScreen`
+- `QuotePreviewBlockedScreen`
+- `QuotePreviewReferenceScreen`
+- `QuotePreviewHumanReviewScreen`
+
+088B must implement a local/static/read-only safe screen composition registry.
+
+Boundaries:
+
+- no screen rendering;
+- no component rendering;
+- no UI mutation;
+- no quote truth creation;
+- no quote write/send;
+- no provider/backend connection.
+
+DECISION=PASS_088A_QUOTE_PREVIEW_SAFE_SCREEN_COMPOSITION_SCOPE
+
+LOCKED_DECISION=QUOTE_PREVIEW_SAFE_SCREEN_COMPOSITION_SCOPED
+
+NEXT=088B_QUOTE_PREVIEW_SAFE_SCREEN_COMPOSITION_IMPLEMENTATION
+<!-- FORGE:088A_QUOTE_PREVIEW_SAFE_SCREEN_COMPOSITION_SCOPE:END -->
