@@ -7951,3 +7951,32 @@ LOCKED_DECISION=QUOTE_PREVIEW_PRODUCT_INTELLIGENCE_BINDING_QA_LOCKED
 
 NEXT=074D_QUOTE_PREVIEW_PRODUCT_INTELLIGENCE_BINDING_DECISION_LOCK
 <!-- FORGE:074C_QUOTE_PREVIEW_PRODUCT_INTELLIGENCE_BINDING_QA_LOCK:END -->
+
+<!-- FORGE:074D_QUOTE_PREVIEW_PRODUCT_INTELLIGENCE_BINDING_DECISION_LOCK:START -->
+## 074D Quote Preview Product Intelligence Binding Decision Lock
+
+074D decision-locks the Quote Preview Product Intelligence Binding adapter as a local/static/read-only reference binding layer.
+
+Locked decision:
+`QUOTE_PREVIEW_PRODUCT_INTELLIGENCE_BINDING_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_BINDING`
+
+Decision meaning:
+
+- Product Intelligence is upstream semantic authority.
+- Quote Preview is downstream consumer.
+- Quote PDF Preview remains consumer/reference only.
+- GMM and Imagina Ser bindings are validated.
+- Imagina Ser remains a proven case, not universal architecture.
+- Missing or unmapped product family returns safe error.
+- No PDF, parser, calculator, Banxico, provider, backend, quote write, or real engine execution is authorized.
+
+Next unlock:
+
+075A may scope Quote Preview PDF Engine Product Intelligence integration, but only after Product Intelligence binding and without real effects.
+
+DECISION=PASS_074D_QUOTE_PREVIEW_PRODUCT_INTELLIGENCE_BINDING_DECISION_LOCK
+
+LOCKED_DECISION=QUOTE_PREVIEW_PRODUCT_INTELLIGENCE_BINDING_LOCKED_AS_LOCAL_STATIC_READ_ONLY_REFERENCE_BINDING
+
+NEXT=075A_QUOTE_PREVIEW_PDF_ENGINE_PRODUCT_INTELLIGENCE_INTEGRATION_SCOPE
+<!-- FORGE:074D_QUOTE_PREVIEW_PRODUCT_INTELLIGENCE_BINDING_DECISION_LOCK:END -->
