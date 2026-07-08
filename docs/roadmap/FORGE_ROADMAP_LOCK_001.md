@@ -5028,3 +5028,47 @@ LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_SCOPED
 
 NEXT=078B_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_IMPLEMENTATION
 <!-- FORGE:078A_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_SCOPE:END -->
+
+<!-- FORGE:078B_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_IMPLEMENTATION:START -->
+## 078B Quote Preview PDF Engine Canonical Test Evidence Implementation
+
+078B implements a local/static/read-only canonical test evidence registry for the Quote Preview PDF Engine path.
+
+Locked decision:
+`QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_LOCAL_STATIC_READ_ONLY_IMPLEMENTED`
+
+Implemented:
+
+- `platform/adapters/quote-preview/quote-preview-pdf-engine-canonical-test-evidence-registry-adapter-078b.js`
+- `tests/quote-preview-pdf-engine-canonical-test-evidence-registry-adapter-078b-test.js`
+
+The registry classifies existing/candidate tests without executing them.
+
+Classified evidence types:
+
+- real PDF/OCR evidence candidates;
+- real GMM parser evidence candidates;
+- GMM cost summary candidates;
+- real retirement/Solucionline parser candidates;
+- real retirement MXN projection candidates;
+- Imagina Ser flow candidates;
+- Banxico/cache metadata candidates;
+- deterministic UDI projection smoke candidates;
+- preview fixture evidence;
+- governance guardrail evidence.
+
+Boundaries:
+
+- fixture tests are not real PDF evidence;
+- governance tests are not extraction proof;
+- provider integration candidates require later runtime gate;
+- preview summaries are not quote truth;
+- expected financial values require provenance review;
+- no PDF/OCR/parser/calculator/Banxico/provider/test execution is authorized.
+
+DECISION=PASS_078B_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_IMPLEMENTATION
+
+LOCKED_DECISION=QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_LOCAL_STATIC_READ_ONLY_IMPLEMENTED
+
+NEXT=078C_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_QA_LOCK
+<!-- FORGE:078B_QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_IMPLEMENTATION:END -->
