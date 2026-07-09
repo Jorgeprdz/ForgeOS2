@@ -8496,3 +8496,33 @@ LOCKED_DECISION=NEW_QUOTE_PAGE_REPAIRED_WITH_CLEAR_PDF_UPLOAD_SEND_AND_SUMMARY_O
 
 NEXT=105E_QUOTE_PREVIEW_NEW_QUOTE_PAGE_VISUAL_QA_WITH_SCREENSHOTS
 <!-- FORGE:105DR5_QUOTE_PREVIEW_NEW_QUOTE_UPLOAD_SEND_SUMMARY_REPAIR:END -->
+
+<!-- FORGE:105F_QUOTE_PREVIEW_NEW_QUOTE_PAGE_HUMAN_VISUAL_CONFIRMATION:START -->
+## 105F Quote Preview New Quote Page Human Visual Confirmation
+
+105F records human visual confirmation for the 105DR5 upload-send-summary Nueva cotización workflow.
+
+Locked decision:
+`NEW_QUOTE_PAGE_UPLOAD_SEND_SUMMARY_WORKFLOW_VISUALLY_CONFIRMED_BY_HUMAN`
+
+Confirmed:
+
+- clear PDF select visually accepted;
+- Enviar PDF para extracción visually accepted as disabled;
+- checklist card removed;
+- quote summary accepted;
+- print summary accepted;
+- sales presentation CTA accepted as disabled;
+- PDF submit/read/parser remain disabled;
+- screenshot evidence exists;
+- source UI was not changed in 105F;
+- all safety flags remain false.
+
+TEST_URL=https://jorgeprdz.github.io/ForgeOS/static-preview/forge-alive/nueva-cotizacion/?v=105dr5
+
+DECISION=PASS_105F_QUOTE_PREVIEW_NEW_QUOTE_PAGE_HUMAN_VISUAL_CONFIRMATION
+
+LOCKED_DECISION=NEW_QUOTE_PAGE_UPLOAD_SEND_SUMMARY_WORKFLOW_VISUALLY_CONFIRMED_BY_HUMAN
+
+NEXT=106A_QUOTE_PREVIEW_PDF_EXTRACTION_GATE_DISCOVERY
+<!-- FORGE:105F_QUOTE_PREVIEW_NEW_QUOTE_PAGE_HUMAN_VISUAL_CONFIRMATION:END -->
