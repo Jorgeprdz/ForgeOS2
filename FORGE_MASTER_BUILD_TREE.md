@@ -11214,3 +11214,33 @@ LOCKED_DECISION=QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_
 
 NEXT=100A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_REGRESSION_SCOPE
 <!-- FORGE:099BCD_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_FAST_TRACK:END -->
+
+<!-- FORGE:100ABCDEFG_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_REGRESSION_FAST_TRACK:START -->
+## 100ABCDEFG Quote Preview Safe Module Entry Navigation Binding Source Patch Regression Fast Track
+
+100ABCDEFG validates and locks regression for the 099BCD safe static navigation metadata patch.
+
+Locked decision:
+`QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_REGRESSION_LOCKED_AS_VALIDATED`
+
+Confirmed:
+
+- regression scope, plan, QA, decision, static validation, QA, and final decision are locked;
+- validated file is `docs/static-preview/forge-alive/index.html`;
+- required 099B static fragments remain present;
+- 099B patch markers remain present;
+- forbidden true safety attributes are absent;
+- no script tag, inline handler, JavaScript listener, route trigger, or navigation trigger exists inside the 099B patch block;
+- no source edits performed in 100ABCDEFG;
+- no navigation executed;
+- no UI rendering performed;
+- no runtime execution performed;
+- no real effects performed;
+- all safety flags remain false.
+
+DECISION=PASS_100ABCDEFG_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_REGRESSION_FAST_TRACK
+
+LOCKED_DECISION=QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_REGRESSION_LOCKED_AS_VALIDATED
+
+NEXT=101A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SAFE_LOCAL_HASH_NAVIGATION_SCOPE
+<!-- FORGE:100ABCDEFG_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_REGRESSION_FAST_TRACK:END -->
