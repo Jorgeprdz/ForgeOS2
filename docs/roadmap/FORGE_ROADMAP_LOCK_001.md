@@ -8702,3 +8702,34 @@ LOCKED_DECISION=PARSER_ADAPTER_SCOPE_LOCKED_WITH_NO_PDF_READ_NO_OCR_NO_PARSER_EX
 
 NEXT=106F_QUOTE_PREVIEW_REAL_PDF_LOCAL_DRY_RUN_PREP
 <!-- FORGE:106E_QUOTE_PREVIEW_PARSER_ADAPTER_SCOPE:END -->
+
+<!-- FORGE:106F_QUOTE_PREVIEW_REAL_PDF_LOCAL_DRY_RUN_PREP:START -->
+## 106F Quote Preview Real PDF Local Dry Run Prep
+
+106F prepares a real PDF local reference outside the repo.
+
+Locked decision:
+`REAL_PDF_LOCAL_REFERENCE_PREPARED_OUTSIDE_REPO_WITH_NO_CONTENT_READ`
+
+Confirmed:
+
+- real PDF reference prepared outside repo;
+- actual PDF path is not committed;
+- local manifest exists outside repo;
+- raw PDF was not copied to repo;
+- raw PDF was not committed;
+- PDF content was not read;
+- PDF text was not extracted;
+- OCR execution remains disabled;
+- parser execution remains disabled;
+- calculator execution remains disabled;
+- quote truth remains disabled;
+- source UI was not changed;
+- all safety flags remain false.
+
+DECISION=PASS_106F_QUOTE_PREVIEW_REAL_PDF_LOCAL_DRY_RUN_PREP
+
+LOCKED_DECISION=REAL_PDF_LOCAL_REFERENCE_PREPARED_OUTSIDE_REPO_WITH_NO_CONTENT_READ
+
+NEXT=106G_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_GATE
+<!-- FORGE:106F_QUOTE_PREVIEW_REAL_PDF_LOCAL_DRY_RUN_PREP:END -->

@@ -1,0 +1,22 @@
+{
+  "phase": "106F_QUOTE_PREVIEW_REAL_PDF_LOCAL_DRY_RUN_PREP",
+  "status": "PASS",
+  "decision": "PASS_106F_QUOTE_PREVIEW_REAL_PDF_LOCAL_DRY_RUN_PREP",
+  "lockedDecision": "REAL_PDF_LOCAL_REFERENCE_PREPARED_OUTSIDE_REPO_WITH_NO_CONTENT_READ",
+  "realPdfReferencePrepared": true,
+  "actualPdfPathRedactedFromRepo": true,
+  "localManifestCreatedOutsideRepo": true,
+  "rawPdfCopiedToRepo": false,
+  "rawPdfCommittedToRepo": false,
+  "rawPdfPathCommittedToRepo": false,
+  "rawPdfContentRead": false,
+  "rawPdfTextExtracted": false,
+  "ocrExecuted": false,
+  "parserExecuted": false,
+  "calculatorExecuted": false,
+  "quoteTruthCreated": false,
+  "sourceUiChanged": false,
+  "allSafetyFlagsFalse": true,
+  "next": "106G_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_GATE",
+  "errors": []
+}
