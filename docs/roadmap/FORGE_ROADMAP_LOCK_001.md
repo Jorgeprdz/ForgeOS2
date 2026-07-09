@@ -7498,3 +7498,32 @@ LOCKED_DECISION=QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_LOCKED_AS_SAFE_STAT
 
 NEXT=097A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_REGRESSION_SCOPE
 <!-- FORGE:096BCD_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_FAST_TRACK:END -->
+
+<!-- FORGE:097A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_REGRESSION_SCOPE:START -->
+## 097A Quote Preview Safe Module Entry Source Patch Regression Scope
+
+097A scopes regression verification for the Quote Preview / Cotizaciones safe module entry source patch.
+
+Locked decision:
+`QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_REGRESSION_SCOPED`
+
+Confirmed:
+
+- regression scope only;
+- source patch under regression recorded;
+- patched file: `docs/static-preview/forge-alive/index.html`;
+- no source edits authorized in 097A;
+- no regression execution authorized in 097A;
+- no route or navigation execution authorized in 097A;
+- no UI rendering authorized in 097A;
+- no runtime execution authorized in 097A;
+- no real effects authorized in 097A;
+- 097B must remain static plan only;
+- all safety flags remain false.
+
+DECISION=PASS_097A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_REGRESSION_SCOPE
+
+LOCKED_DECISION=QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_REGRESSION_SCOPED
+
+NEXT=097B_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_REGRESSION_PLAN
+<!-- FORGE:097A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_REGRESSION_SCOPE:END -->
