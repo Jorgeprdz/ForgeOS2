@@ -1,0 +1,21 @@
+{
+  "phase": "106D_QUOTE_PREVIEW_SAMPLE_EXTRACTION_DRY_RUN_REPORT",
+  "status": "PASS",
+  "decision": "PASS_106D_QUOTE_PREVIEW_SAMPLE_EXTRACTION_DRY_RUN_REPORT",
+  "lockedDecision": "SAMPLE_EXTRACTION_DRY_RUN_REPORT_LOCKED_WITH_REDACTED_CANDIDATES_ONLY",
+  "schemaVersion": "106C.1",
+  "reportType": "sample_redacted_dry_run_report_no_real_pdf",
+  "candidateCount": 15,
+  "schemaFieldCount": 15,
+  "realPdfUsed": false,
+  "rawPdfTouched": false,
+  "pdfReadEnabled": false,
+  "ocrExecutionEnabled": false,
+  "parserExecutionEnabled": false,
+  "calculatorExecutionEnabled": false,
+  "quoteTruthAllowed": false,
+  "sourceUiChanged": false,
+  "allSafetyFlagsFalse": true,
+  "next": "106E_QUOTE_PREVIEW_PARSER_ADAPTER_SCOPE",
+  "errors": []
+}

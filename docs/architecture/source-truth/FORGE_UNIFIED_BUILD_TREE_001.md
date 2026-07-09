@@ -9636,3 +9636,39 @@ LOCKED_DECISION=PDF_EXTRACTION_SCHEMA_LOCKED_FOR_REDACTED_DRY_RUN_CANDIDATES_ONL
 
 NEXT=106D_QUOTE_PREVIEW_SAMPLE_EXTRACTION_DRY_RUN_REPORT
 <!-- FORGE:106C_QUOTE_PREVIEW_EXTRACTION_SCHEMA_LOCK:END -->
+
+<!-- FORGE:106D_QUOTE_PREVIEW_SAMPLE_EXTRACTION_DRY_RUN_REPORT:START -->
+## 106D Quote Preview Sample Extraction Dry Run Report
+
+106D creates the first redacted dry-run extraction report from the locked 106C schema.
+
+Locked decision:
+`SAMPLE_EXTRACTION_DRY_RUN_REPORT_LOCKED_WITH_REDACTED_CANDIDATES_ONLY`
+
+Confirmed:
+
+- sample report created;
+- no real PDF was used;
+- raw PDF was not touched;
+- candidate records match 106C schema;
+- field presence matrix created;
+- confidence report created;
+- missing fields report created;
+- parser gap report created;
+- human review required;
+- PDF read remains disabled;
+- parser execution remains disabled;
+- OCR execution remains disabled;
+- calculator execution remains disabled;
+- quote truth remains disabled;
+- source UI was not changed;
+- all safety flags remain false.
+
+LOCAL_RUN_DIR=/storage/emulated/0/Forge Gemini/pdf-dry-run-local
+
+DECISION=PASS_106D_QUOTE_PREVIEW_SAMPLE_EXTRACTION_DRY_RUN_REPORT
+
+LOCKED_DECISION=SAMPLE_EXTRACTION_DRY_RUN_REPORT_LOCKED_WITH_REDACTED_CANDIDATES_ONLY
+
+NEXT=106E_QUOTE_PREVIEW_PARSER_ADAPTER_SCOPE
+<!-- FORGE:106D_QUOTE_PREVIEW_SAMPLE_EXTRACTION_DRY_RUN_REPORT:END -->
