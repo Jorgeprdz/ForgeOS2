@@ -10109,3 +10109,48 @@ LOCKED_DECISION=FIELD_CANDIDATE_EXTRACTION_GATE_LOCKED_FOR_REDACTED_CANDIDATES_O
 
 NEXT=106Q_QUOTE_PREVIEW_FIELD_CANDIDATE_EXTRACTION_DRY_RUN
 <!-- FORGE:106P_QUOTE_PREVIEW_FIELD_CANDIDATE_EXTRACTION_GATE:END -->
+
+<!-- FORGE:106Q_QUOTE_PREVIEW_FIELD_CANDIDATE_EXTRACTION_DRY_RUN:START -->
+## 106Q Quote Preview Field Candidate Extraction Dry Run
+
+106Q creates redacted field candidate records from committed redacted anchor windows.
+
+Locked decision:
+`FIELD_CANDIDATE_EXTRACTION_DRY_RUN_COMPLETE_WITH_REDACTED_PLACEHOLDERS_ONLY_NO_REAL_VALUES_NO_TRUTH`
+
+Confirmed:
+
+- manual operator token not required;
+- internal dry-run guard accepted;
+- candidate records created;
+- only committed redacted anchor windows used;
+- redacted placeholder candidates only;
+- candidate records are not truth;
+- human review required;
+- raw PDF not accessed;
+- raw text not accessed;
+- raw value not extracted;
+- real value not extracted;
+- OCR execution remains disabled;
+- parser execution remains disabled;
+- calculator execution remains disabled;
+- quote truth remains disabled;
+- UI was not populated;
+- presentation was not generated;
+- source UI was not changed;
+- all safety flags remain false.
+
+CANDIDATE_RECORD_COUNT=28
+
+COVERED_CRITICAL_TARGET_COUNT=6
+
+CRITICAL_TARGET_COUNT=6
+
+CANDIDATE_COVERAGE_STATUS=all_critical_targets_have_redacted_placeholder_candidates
+
+DECISION=PASS_106Q_QUOTE_PREVIEW_FIELD_CANDIDATE_EXTRACTION_DRY_RUN
+
+LOCKED_DECISION=FIELD_CANDIDATE_EXTRACTION_DRY_RUN_COMPLETE_WITH_REDACTED_PLACEHOLDERS_ONLY_NO_REAL_VALUES_NO_TRUTH
+
+NEXT=106R_QUOTE_PREVIEW_CANDIDATE_REVIEW_PACKET_GATE
+<!-- FORGE:106Q_QUOTE_PREVIEW_FIELD_CANDIDATE_EXTRACTION_DRY_RUN:END -->
