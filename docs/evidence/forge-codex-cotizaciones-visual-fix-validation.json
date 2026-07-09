@@ -1,0 +1,66 @@
+{
+  "phase": "CODEX_QUOTE_PREVIEW_COTIZACIONES_VISUAL_FIX",
+  "decision": "PASS_CODEX_QUOTE_PREVIEW_COTIZACIONES_VISUAL_FIX",
+  "lockedDecision": "COTIZACIONES_NAV_AND_CTA_VISUALLY_CONFIRMED_BY_SCREENSHOT",
+  "testUrl": "http://127.0.0.1:8090/docs/static-preview/forge-alive/?v=codex-visual-fix#cotizaciones",
+  "publicTestUrl": "https://jorgeprdz.github.io/ForgeOS/static-preview/forge-alive/?v=codex-visual-fix#cotizaciones",
+  "designGuidelinesRead": [
+    "docs/design/FORGE_MOBILE_DESIGN_SYSTEM_001.md",
+    "docs/static-preview/templates/forge-mobile/TEMPLATE_SOURCE_OF_TRUTH.md",
+    "docs/design/FORGE_DESKTOP_DESIGN_SYSTEM_DRAFT_001.md",
+    "docs/design/FORGE_DESKTOP_COMMAND_WORKSPACE_BLUEPRINT_001.md",
+    "docs/design/forge-ui/FORGE_UI_DESIGN_LINE_001.md",
+    "docs/design/forge-ui/FORGE_UI_TOKENS_001.md",
+    "docs/design/forge-ui/FORGE_INTERACTION_RULES_001.md",
+    "docs/design/forge-ui/FORGE_DESKTOP_TEMPLATE_SYSTEM_058I.md",
+    "docs/design/forge-ui/FORGE_DESKTOP_COMPONENT_SYSTEM_001.md",
+    "docs/design/forge-ui/FORGE_DESKTOP_WORKSPACE_COMPOSITION_CONTRACT_058C.md",
+    "docs/design/forge-ui/FORGE_MOBILE_COMPONENT_SYSTEM_001.md",
+    "docs/design/forge-ui/FORGE_MOBILE_NAVIGATION_AND_SMART_WIDGET_PATTERN_057C.md",
+    "docs/design/forge-ui/FORGE_MOBILE_WIDGET_GRID_SYSTEM_057I.md",
+    "docs/design/forge-ui/FORGE_DESKTOP_MOBILE_LAYER_BOUNDARY_CONTRACT_058A.md",
+    "docs/design/forge-ui/FORGE_DESKTOP_MODULE_TEMPLATE_MAPPING_058J.md",
+    "docs/design/forge-ui/FORGE_DESKTOP_TEMPLATE_IMPLEMENTATION_CHECKLIST_058J.md",
+    "docs/architecture/source-truth/FORGE_QUOTE_PREVIEW_SAFE_UX_STATE_MODEL_086D.md",
+    "docs/architecture/source-truth/FORGE_QUOTE_PREVIEW_SAFE_UX_COMPONENT_CONTRACT_087D.md",
+    "docs/architecture/source-truth/FORGE_QUOTE_PREVIEW_SAFE_SCREEN_COMPOSITION_DECISION_LOCK_088D.md",
+    "docs/architecture/source-truth/FORGE_QUOTE_PREVIEW_SAFE_VISUAL_LAYOUT_SPEC_DECISION_LOCK_089D.md"
+  ],
+  "designSystemDecision": {
+    "sidebar": "Reused dw-nav-056y structure with dw-nav-link-056y anchor styled through the same selectors as sibling buttons and the existing dw-nav-icon-056y icon class.",
+    "cardHeader": "Reused dw-panel-header-056y flex header. The cotizaciones hash target is kept but removed from flex flow with dw-hash-target-056y.",
+    "cta": "Added dw-static-new-quote-cta-056y using existing Forge cyan/green palette tokens for preview-safe contextual action, with disabled and aria-disabled=true."
+  },
+  "screenshots": {
+    "top": "docs/evidence/forge-codex-cotizaciones-visual-fix-top-1440x1000.png",
+    "cotizaciones": "docs/evidence/forge-codex-cotizaciones-visual-fix-cotizaciones-1440x2200.png",
+    "tablet": "docs/evidence/forge-codex-cotizaciones-visual-fix-tablet-1024x768.png"
+  },
+  "validation": {
+    "idCotizacionesCount": 1,
+    "hrefCotizacionesCount": 1,
+    "ctaLabelCount": 1,
+    "ctaDisabledOrAriaDisabled": "PASS",
+    "forbiddenVisibleStringsAbsent": "PASS",
+    "noVisibleDebugCommentText": "PASS",
+    "noSafetyFlagsTrue": "PASS",
+    "screenshotReview": "PASS",
+    "firefoxHeadlessScreenshot": "PASS_WITH_EXISTING_JS_WARNINGS"
+  },
+  "firefoxWarningsObserved": [
+    "alfred-desktop-command-workspace-056y.js?v=056y5 redeclaration of const FORGE_QUOTE_PREVIEW_SAFE_STATIC_BOUNDARY_093B",
+    "alfred-responsive-ui.js?v=056q2 redeclaration of const FORGE_QUOTE_PREVIEW_SAFE_STATIC_BOUNDARY_093B"
+  ],
+  "safetyBoundary": {
+    "realQuoteFunctionality": false,
+    "backendConnection": false,
+    "send": false,
+    "crmWrite": false,
+    "calendarCreate": false,
+    "parserExecution": false,
+    "calculatorExecution": false,
+    "banxicoCall": false,
+    "pdfOrOcrExecution": false
+  },
+  "next": "READY_FOR_HUMAN_VISUAL_CONFIRMATION"
+}

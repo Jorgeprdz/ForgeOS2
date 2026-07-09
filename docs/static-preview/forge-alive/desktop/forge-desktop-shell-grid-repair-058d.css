@@ -363,7 +363,8 @@
     font-size: 11px !important;
   }
 
-  .dw-nav-056y button {
+  .dw-nav-056y button,
+  .dw-nav-056y .dw-nav-link-056y {
     grid-template-columns: 22px minmax(0, 1fr) !important;
     min-height: 40px !important;
     gap: 9px !important;
