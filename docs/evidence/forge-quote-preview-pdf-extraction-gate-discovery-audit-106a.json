@@ -1,0 +1,220 @@
+{
+  "phase": "106A_QUOTE_PREVIEW_PDF_EXTRACTION_GATE_DISCOVERY",
+  "status": "PASS",
+  "decision": "PASS_106A_QUOTE_PREVIEW_PDF_EXTRACTION_GATE_DISCOVERY",
+  "lockedDecision": "PDF_EXTRACTION_GATE_DEFINED_AS_DRY_RUN_ONLY_WITH_NO_PDF_READ_OR_PARSER_EXECUTION",
+  "confirmed": {
+    "pdfExtractionGateDefined": true,
+    "realPdfHandlingPolicyDefined": true,
+    "rawPdfGitCommitForbidden": true,
+    "extractionContractDefined": true,
+    "quoteSummaryMappingDefined": true,
+    "pdfReadStillDisabled": true,
+    "parserStillDisabled": true,
+    "quoteTruthStillDisabled": true,
+    "sourceUiChanged": false,
+    "allSafetyFlagsFalse": true,
+    "nextIs106B": true
+  },
+  "discovery": {
+    "phase": "106A_QUOTE_PREVIEW_PDF_EXTRACTION_GATE_DISCOVERY",
+    "status": "PASS",
+    "decision": "PASS_106A_QUOTE_PREVIEW_PDF_EXTRACTION_GATE_DISCOVERY",
+    "lockedDecision": "PDF_EXTRACTION_GATE_DEFINED_AS_DRY_RUN_ONLY_WITH_NO_PDF_READ_OR_PARSER_EXECUTION",
+    "sourceWorkflow": "105DR5_upload_send_summary_static_preview",
+    "testUrl": "https://jorgeprdz.github.io/ForgeOS/static-preview/forge-alive/nueva-cotizacion/?v=105dr5",
+    "purpose": "Define the safe gate for future PDF extraction from Solucion Online quote PDFs.",
+    "currentState": {
+      "pdfPickerVisible": "yes",
+      "sendPdfButtonVisible": "yes_disabled",
+      "pdfSubmitAllowed": false,
+      "pdfReadEnabled": false,
+      "parserExecutionEnabled": false,
+      "ocrExecutionEnabled": false,
+      "calculatorExecutionEnabled": false,
+      "quoteTruthAllowed": false,
+      "officialQuoteAllowed": false,
+      "presentationGenerationEnabled": false,
+      "backendConnectionEnabled": false,
+      "sourceUiChangedIn106A": false
+    },
+    "pdfHandlingPolicy": {
+      "rawPdfShouldBeCommittedToRepo": "no",
+      "rawPdfShouldBeStoredInEvidence": "no",
+      "realPdfTestingMode": "local_or_uploaded_dry_run_only",
+      "redactionRequiredForEvidence": "yes",
+      "allowedEvidenceFromRealPdf": [
+        "redacted extraction report",
+        "field map without sensitive raw document payload",
+        "parser gaps",
+        "confidence report",
+        "human review checklist"
+      ],
+      "forbiddenEvidenceFromRealPdf": [
+        "raw PDF committed to git",
+        "unredacted personal data committed to git",
+        "unredacted quote screenshots committed to git",
+        "calculated values not present in PDF",
+        "official quote truth claims"
+      ]
+    },
+    "extractionContract": {
+      "sourceSystemCandidate": "Solucion Online",
+      "documentTypeCandidate": "quote_pdf",
+      "sourceOfTruthRule": "Only values actually present in the PDF may be extracted. Missing values remain pending.",
+      "noInventedDataRule": "Forge must not infer premiums, sums, totals, recoveries, benefits or product details that are not present in the PDF or an explicitly authorized engine.",
+      "fieldStatusEnum": [
+        "not_attempted",
+        "extracted_from_pdf_candidate",
+        "not_found_in_pdf",
+        "ambiguous_needs_review",
+        "manual_input_required",
+        "blocked_until_parser_gate",
+        "blocked_until_human_review"
+      ],
+      "confidenceEnum": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "human_verified"
+      ],
+      "fieldGroups": {
+        "documentMetadata": [
+          "document_id_or_quote_reference",
+          "quote_date",
+          "validity_date_or_period",
+          "source_system",
+          "currency",
+          "payment_frequency"
+        ],
+        "clientContextAutofillCandidates": [
+          "client_name",
+          "age_if_present",
+          "sex_if_present",
+          "smoker_status_if_present",
+          "advisor_or_agent_if_present"
+        ],
+        "productContextAutofillCandidates": [
+          "product_family",
+          "product_name_or_plan",
+          "coverage_type",
+          "riders_or_additional_benefits_if_present"
+        ],
+        "quoteSummaryCandidates": [
+          "plan_sum_insured_and_premium",
+          "payment_form_currency_and_validity",
+          "total_aportado",
+          "total_recuperacion",
+          "values_benefits_or_scenarios_relevant_to_plan",
+          "missing_items_before_presentation"
+        ],
+        "presentationContextCandidates": [
+          "commercial_angle_from_user_notes",
+          "objections_from_user_notes",
+          "client_objective_from_user_notes",
+          "quote_highlights_extracted_from_pdf",
+          "human_review_notes"
+        ]
+      },
+      "summaryMapping": {
+        "Plan, suma asegurada y prima": "extract only if present or authorized engine later provides it",
+        "Forma de pago, moneda y vigencia": "extract only if present",
+        "Total aportado": "extract only if present",
+        "Total recuperación": "extract only if present",
+        "Valores, beneficios o escenarios relevantes": "extract only if present and label as plan dependent",
+        "Faltantes antes de presentar": "derive only as missing-field status, not as financial truth"
+      }
+    },
+    "futureGateSequence": [
+      {
+        "phase": "106B_QUOTE_PREVIEW_REAL_PDF_DRY_RUN_SCOPE",
+        "purpose": "Define how to run a real PDF dry-run without committing raw PDFs or enabling production parser.",
+        "status": "next"
+      },
+      {
+        "phase": "106C_QUOTE_PREVIEW_EXTRACTION_SCHEMA_LOCK",
+        "purpose": "Lock the extraction schema, statuses, confidence rules and redaction contract.",
+        "status": "future"
+      },
+      {
+        "phase": "106D_QUOTE_PREVIEW_SAMPLE_EXTRACTION_DRY_RUN_REPORT",
+        "purpose": "Produce a redacted dry-run extraction report from a sample PDF, without quote truth.",
+        "status": "future"
+      },
+      {
+        "phase": "106E_QUOTE_PREVIEW_PARSER_ADAPTER_SCOPE",
+        "purpose": "Scope parser adapter boundaries before any parser execution is enabled.",
+        "status": "future"
+      }
+    ],
+    "gatesThatRemainClosed": [
+      "pdf_submit",
+      "pdf_read",
+      "ocr_execution",
+      "parser_execution",
+      "calculator_execution",
+      "quote_truth",
+      "official_quote",
+      "backend_connection",
+      "crm_write",
+      "presentation_generation",
+      "prompt_generation",
+      "real_effects"
+    ],
+    "safetyFlags": {
+      "crmWrite": false,
+      "pipelineWrite": false,
+      "policyWrite": false,
+      "quoteWrite": false,
+      "taskCreate": false,
+      "calendarCreate": false,
+      "messageSend": false,
+      "authReal": false,
+      "providerRuntime": false,
+      "secretAccess": false,
+      "browserPersistence": false,
+      "realEngineExecution": false,
+      "realEffectsAllowed": false,
+      "realEffectsEnabled": false,
+      "backendConnection": false,
+      "pdfRead": false,
+      "ocrExecution": false,
+      "parserExecution": false,
+      "calculatorExecution": false,
+      "banxicoCall": false,
+      "testExecution": false,
+      "officialQuoteAllowed": false,
+      "providerRuntimeAllowed": false,
+      "calculatorExecutionAllowed": false,
+      "parserExecutionAllowed": false,
+      "backendConnectionAllowed": false,
+      "quoteTruthAllowed": false,
+      "presentationGenerationAllowed": false,
+      "promptGenerationAllowed": false,
+      "pdfSubmitAllowed": false,
+      "printAutomation": false
+    },
+    "sourceUiChanged": false,
+    "next": "106B_QUOTE_PREVIEW_REAL_PDF_DRY_RUN_SCOPE"
+  },
+  "validation": {
+    "phase": "106A_QUOTE_PREVIEW_PDF_EXTRACTION_GATE_DISCOVERY",
+    "status": "PASS",
+    "decision": "PASS_106A_QUOTE_PREVIEW_PDF_EXTRACTION_GATE_DISCOVERY",
+    "lockedDecision": "PDF_EXTRACTION_GATE_DEFINED_AS_DRY_RUN_ONLY_WITH_NO_PDF_READ_OR_PARSER_EXECUTION",
+    "pdfReadEnabled": false,
+    "parserExecutionEnabled": false,
+    "ocrExecutionEnabled": false,
+    "calculatorExecutionEnabled": false,
+    "quoteTruthAllowed": false,
+    "rawPdfCommitForbidden": "yes",
+    "redactedEvidenceRequired": "yes",
+    "sourceUiChanged": false,
+    "allSafetyFlagsFalse": true,
+    "next": "106B_QUOTE_PREVIEW_REAL_PDF_DRY_RUN_SCOPE",
+    "errors": []
+  },
+  "next": "106B_QUOTE_PREVIEW_REAL_PDF_DRY_RUN_SCOPE",
+  "errors": []
+}

@@ -9531,3 +9531,37 @@ LOCKED_DECISION=NEW_QUOTE_PAGE_UPLOAD_SEND_SUMMARY_WORKFLOW_VISUALLY_CONFIRMED_B
 
 NEXT=106A_QUOTE_PREVIEW_PDF_EXTRACTION_GATE_DISCOVERY
 <!-- FORGE:105F_QUOTE_PREVIEW_NEW_QUOTE_PAGE_HUMAN_VISUAL_CONFIRMATION:END -->
+
+<!-- FORGE:106A_QUOTE_PREVIEW_PDF_EXTRACTION_GATE_DISCOVERY:START -->
+## 106A Quote Preview PDF Extraction Gate Discovery
+
+106A defines the safe gate for future Solución Online PDF extraction.
+
+Locked decision:
+`PDF_EXTRACTION_GATE_DEFINED_AS_DRY_RUN_ONLY_WITH_NO_PDF_READ_OR_PARSER_EXECUTION`
+
+Confirmed:
+
+- 105DR5 visual workflow is the base;
+- PDF extraction gate is discovery-only;
+- PDF submit remains disabled;
+- PDF read remains disabled;
+- OCR execution remains disabled;
+- parser execution remains disabled;
+- calculator execution remains disabled;
+- quote truth remains disabled;
+- raw PDF files must not be committed to git;
+- real PDF tests must use local or uploaded dry-run handling;
+- only redacted extraction evidence may be committed;
+- quote summary field mapping is defined;
+- source UI was not changed in 106A;
+- all safety flags remain false.
+
+TEST_URL=https://jorgeprdz.github.io/ForgeOS/static-preview/forge-alive/nueva-cotizacion/?v=105dr5
+
+DECISION=PASS_106A_QUOTE_PREVIEW_PDF_EXTRACTION_GATE_DISCOVERY
+
+LOCKED_DECISION=PDF_EXTRACTION_GATE_DEFINED_AS_DRY_RUN_ONLY_WITH_NO_PDF_READ_OR_PARSER_EXECUTION
+
+NEXT=106B_QUOTE_PREVIEW_REAL_PDF_DRY_RUN_SCOPE
+<!-- FORGE:106A_QUOTE_PREVIEW_PDF_EXTRACTION_GATE_DISCOVERY:END -->
