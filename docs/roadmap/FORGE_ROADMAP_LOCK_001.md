@@ -7745,3 +7745,35 @@ LOCKED_DECISION=QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SCOPED
 
 NEXT=098B_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_PLAN
 <!-- FORGE:098A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SCOPE:END -->
+
+<!-- FORGE:098BCD_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_FAST_TRACK:START -->
+## 098BCD Quote Preview Safe Module Entry Navigation Binding Fast Track
+
+098BCD locks the safe navigation binding plan for Quote Preview / Cotizaciones.
+
+Locked decision:
+`QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_LOCKED_AS_SOURCE_PATCH_SCOPE_PREREQUISITE`
+
+Confirmed:
+
+- navigation binding plan locked;
+- navigation binding QA locked;
+- navigation binding decision locked;
+- candidate route hash: `#cotizaciones`;
+- target panel id: `forge-quote-preview-safe-entry-panel-096b`;
+- 099A may scope source patch only;
+- no source edits authorized in 098BCD;
+- no navigation binding execution authorized in 098BCD;
+- no route binding execution authorized in 098BCD;
+- no navigation execution authorized in 098BCD;
+- no UI rendering authorized in 098BCD;
+- no runtime execution authorized in 098BCD;
+- no real effects authorized in 098BCD;
+- all safety flags remain false.
+
+DECISION=PASS_098BCD_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_FAST_TRACK
+
+LOCKED_DECISION=QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_LOCKED_AS_SOURCE_PATCH_SCOPE_PREREQUISITE
+
+NEXT=099A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_SCOPE
+<!-- FORGE:098BCD_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_FAST_TRACK:END -->
