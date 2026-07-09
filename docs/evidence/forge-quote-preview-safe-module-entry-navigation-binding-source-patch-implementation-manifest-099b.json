@@ -1,0 +1,30 @@
+{
+  "phase": "099B_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_IMPLEMENTATION",
+  "status": "PASS",
+  "patchedFiles": [
+    {
+      "path": "docs/static-preview/forge-alive/index.html",
+      "patchKind": "safe_static_navigation_binding_metadata_and_accessibility_attributes_only",
+      "operations": [
+        "added 099B static navigation binding attributes to existing module entry",
+        "added 099B static navigation binding attributes to existing command entry",
+        "added 099B static target attributes to existing panel",
+        "inserted 099B static hidden metadata block inside existing safe 096B patch block"
+      ]
+    }
+  ],
+  "patchedFileCount": 1,
+  "onlyAuthorizedFileEdited": true,
+  "scriptTagCreated": false,
+  "inlineEventHandlerCreated": false,
+  "javascriptListenerCreated": false,
+  "javascriptSourceEdited": false,
+  "cssSourceEdited": false,
+  "routeBindingExecuted": false,
+  "navigationExecuted": false,
+  "uiRenderingPerformed": false,
+  "runtimeExecutionPerformed": false,
+  "realEffectsPerformed": false,
+  "errors": [],
+  "next": "099C_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_QA_LOCK"
+}

@@ -8814,3 +8814,34 @@ LOCKED_DECISION=QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_
 
 NEXT=099B_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_IMPLEMENTATION
 <!-- FORGE:099A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_SCOPE:END -->
+
+<!-- FORGE:099BCD_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_FAST_TRACK:START -->
+## 099BCD Quote Preview Safe Module Entry Navigation Binding Source Patch Fast Track
+
+099BCD implements and locks safe static navigation metadata for Quote Preview / Cotizaciones.
+
+Locked decision:
+`QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_LOCKED_AS_SAFE_STATIC_NAVIGATION_METADATA`
+
+Confirmed:
+
+- patched file: `docs/static-preview/forge-alive/index.html`;
+- only authorized file edited;
+- patch kind: static navigation-binding metadata and accessibility attributes only;
+- no script tag, inline handler, or JavaScript listener created;
+- no JavaScript or CSS source edited;
+- no route binding or navigation executed;
+- no UI rendering or runtime execution performed;
+- no backend/provider/parser/calculator/Banxico call performed;
+- no official quote or quote truth created;
+- no send, CRM, or calendar effect performed;
+- no business logic or data flow changed;
+- no real effects performed;
+- all safety flags remain false.
+
+DECISION=PASS_099BCD_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_FAST_TRACK
+
+LOCKED_DECISION=QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_LOCKED_AS_SAFE_STATIC_NAVIGATION_METADATA
+
+NEXT=100A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_REGRESSION_SCOPE
+<!-- FORGE:099BCD_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SOURCE_PATCH_FAST_TRACK:END -->
