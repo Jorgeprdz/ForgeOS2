@@ -1,0 +1,61 @@
+{
+  "phase": "094D_QUOTE_PREVIEW_SAFE_STATIC_UI_SOURCE_PATCH_REGRESSION_PLAN_DECISION_LOCK",
+  "status": "PASS",
+  "decision": "PASS_094D_QUOTE_PREVIEW_SAFE_STATIC_UI_SOURCE_PATCH_REGRESSION_PLAN_DECISION_LOCK",
+  "lockedDecision": "QUOTE_PREVIEW_SAFE_STATIC_UI_SOURCE_PATCH_REGRESSION_PLAN_LOCKED_AS_STATIC_REGRESSION_PREREQUISITE",
+  "base": {
+    "phase": "094C_QUOTE_PREVIEW_SAFE_STATIC_UI_SOURCE_PATCH_REGRESSION_PLAN_QA_LOCK",
+    "confirmed": true,
+    "lockedDecision": "QUOTE_PREVIEW_SAFE_STATIC_UI_SOURCE_PATCH_REGRESSION_PLAN_QA_LOCKED"
+  },
+  "next": "094E_QUOTE_PREVIEW_SAFE_STATIC_UI_SOURCE_PATCH_REGRESSION_STATIC_VALIDATION",
+  "decisionQa": {
+  "status": "PASS",
+  "decisionLockValidated": true,
+  "errors": [],
+  "qaLockConfirmed": true,
+  "planLockedConfirmed": true,
+  "plannedRegressionCheckCount": 6,
+  "patchedFileCount": 3,
+  "allChecksExecutionAuthorizedFalse": true,
+  "sourceEditsAuthorizedIn094D": false,
+  "regressionExecutionAuthorizedIn094D": false,
+  "runtimeExecutionAuthorizedIn094D": false,
+  "allSafetyFlagsFalse": true,
+  "lockedAs": "static_regression_prerequisite",
+  "next": "094E_QUOTE_PREVIEW_SAFE_STATIC_UI_SOURCE_PATCH_REGRESSION_STATIC_VALIDATION"
+},
+  "confirmed": {
+    "decisionLockOnly": true,
+    "regressionPlanQaLockValidated": true,
+    "regressionPlanLockedAsStaticPrerequisite": true,
+    "sourceEditsAuthorizedIn094D": false,
+    "regressionExecutionAuthorizedIn094D": false,
+    "runtimeExecutionAuthorizedIn094D": false,
+    "094EMayPerformStaticValidationOnly": true,
+    "allSafetyFlagsFalse": true
+  },
+  "safetyFlags": {
+    "crmWrite": false,
+    "pipelineWrite": false,
+    "policyWrite": false,
+    "quoteWrite": false,
+    "taskCreate": false,
+    "calendarCreate": false,
+    "messageSend": false,
+    "authReal": false,
+    "providerRuntime": false,
+    "secretAccess": false,
+    "browserPersistence": false,
+    "realEngineExecution": false,
+    "realEffectsAllowed": false,
+    "realEffectsEnabled": false,
+    "backendConnection": false,
+    "pdfRead": false,
+    "ocrExecution": false,
+    "parserExecution": false,
+    "calculatorExecution": false,
+    "banxicoCall": false,
+    "testExecution": false
+  }
+}
