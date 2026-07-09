@@ -9466,3 +9466,32 @@ LOCKED_DECISION=NEW_QUOTE_PAGE_SUMMARY_REPAIRED_WITH_NON_DUPLICATED_QUOTE_DETAIL
 
 NEXT=105E_QUOTE_PREVIEW_NEW_QUOTE_PAGE_VISUAL_QA_WITH_SCREENSHOTS
 <!-- FORGE:105DR4_QUOTE_PREVIEW_NEW_QUOTE_SUMMARY_DETAIL_REPAIR:END -->
+
+<!-- FORGE:105DR5_QUOTE_PREVIEW_NEW_QUOTE_UPLOAD_SEND_SUMMARY_REPAIR:START -->
+## 105DR5 Quote Preview New Quote Upload Send Summary Repair
+
+105DR5 makes the PDF upload workflow explicit and removes any remaining checklist card.
+
+Locked decision:
+`NEW_QUOTE_PAGE_REPAIRED_WITH_CLEAR_PDF_UPLOAD_SEND_AND_SUMMARY_ONLY`
+
+Confirmed:
+
+- clear PDF select control visible;
+- Enviar PDF para extracción button visible;
+- send PDF button remains disabled;
+- PDF submit/read/parser remain disabled;
+- checklist extraction/context card removed;
+- quote summary detail remains visible;
+- print summary remains local browser dialog only;
+- sales presentation CTA remains visible and disabled;
+- all safety flags remain false.
+
+TEST_URL=https://jorgeprdz.github.io/ForgeOS/static-preview/forge-alive/nueva-cotizacion/?v=105dr5
+
+DECISION=PASS_105DR5_QUOTE_PREVIEW_NEW_QUOTE_UPLOAD_SEND_SUMMARY_REPAIR
+
+LOCKED_DECISION=NEW_QUOTE_PAGE_REPAIRED_WITH_CLEAR_PDF_UPLOAD_SEND_AND_SUMMARY_ONLY
+
+NEXT=105E_QUOTE_PREVIEW_NEW_QUOTE_PAGE_VISUAL_QA_WITH_SCREENSHOTS
+<!-- FORGE:105DR5_QUOTE_PREVIEW_NEW_QUOTE_UPLOAD_SEND_SUMMARY_REPAIR:END -->

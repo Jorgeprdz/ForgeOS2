@@ -202,6 +202,61 @@
       color: var(--forge-muted);
     }
 
+
+    .fq-file-native-105dr {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      opacity: 0.001;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .fq-upload-controls-105dr {
+      display: grid;
+      grid-template-columns: auto auto minmax(180px, 1fr);
+      gap: 12px;
+      align-items: center;
+      border: 1px dashed rgba(125, 249, 255, 0.36);
+      border-radius: 20px;
+      background: rgba(2, 6, 23, 0.32);
+      padding: 1rem;
+      margin-top: 12px;
+    }
+
+    .fq-file-label-105dr,
+    .fq-send-pdf-105dr {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      border-radius: 999px;
+      padding: 0.82rem 1rem;
+      font: inherit;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .fq-file-label-105dr {
+      border: 1px solid rgba(125, 249, 255, 0.38);
+      background: rgba(125, 249, 255, 0.13);
+      color: rgba(235, 250, 255, 0.96);
+      cursor: pointer;
+    }
+
+    .fq-send-pdf-105dr {
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: rgba(148, 163, 184, 0.12);
+      color: rgba(226, 232, 240, 0.56);
+      cursor: not-allowed;
+    }
+
+    .fq-file-status-105dr {
+      color: rgba(203, 213, 225, 0.6);
+      font-size: 0.84rem;
+      line-height: 1.35;
+    }
+
     .fq-grid-105dr {
       display: grid;
       grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.72fr);
@@ -408,7 +463,62 @@
         color: #111827;
       }
 
-      .fq-grid-105dr {
+
+    .fq-file-native-105dr {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      opacity: 0.001;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .fq-upload-controls-105dr {
+      display: grid;
+      grid-template-columns: auto auto minmax(180px, 1fr);
+      gap: 12px;
+      align-items: center;
+      border: 1px dashed rgba(125, 249, 255, 0.36);
+      border-radius: 20px;
+      background: rgba(2, 6, 23, 0.32);
+      padding: 1rem;
+      margin-top: 12px;
+    }
+
+    .fq-file-label-105dr,
+    .fq-send-pdf-105dr {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      border-radius: 999px;
+      padding: 0.82rem 1rem;
+      font: inherit;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .fq-file-label-105dr {
+      border: 1px solid rgba(125, 249, 255, 0.38);
+      background: rgba(125, 249, 255, 0.13);
+      color: rgba(235, 250, 255, 0.96);
+      cursor: pointer;
+    }
+
+    .fq-send-pdf-105dr {
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      background: rgba(148, 163, 184, 0.12);
+      color: rgba(226, 232, 240, 0.56);
+      cursor: not-allowed;
+    }
+
+    .fq-file-status-105dr {
+      color: rgba(203, 213, 225, 0.6);
+      font-size: 0.84rem;
+      line-height: 1.35;
+    }
+
+    .fq-grid-105dr {
         grid-template-columns: 1fr;
       }
 
@@ -475,7 +585,7 @@
   >
     <nav class="fq-top-105dr" aria-label="Navegación segura">
       <div class="fq-brand-105dr"><span class="fq-orb-105dr" aria-hidden="true"></span> Forge Alive · Nueva cotización</div>
-      <a class="fq-back-105dr" href="../?v=105dr4#cotizaciones" data-forge-local-navigation-only="true">← Volver a Cotizaciones</a>
+      <a class="fq-back-105dr" href="../?v=105dr5#cotizaciones" data-forge-local-navigation-only="true">← Volver a Cotizaciones</a>
     </nav>
 
     <section class="fq-shell-105dr" aria-labelledby="nueva-cotizacion-title">
@@ -500,20 +610,36 @@
           </div>
           <span class="fq-upload-pill-105dr">Primer paso recomendado</span>
         </div>
-        <input
-          id="fq-solution-online-pdf-105dr"
-          class="fq-file-105dr"
-          type="file"
-          accept="application/pdf,.pdf"
-          data-forge-local-file-picker-only="true"
-          data-forge-pdf-read-allowed="false"
-          data-forge-parser-execution-allowed="false"
-          data-forge-real-effects-allowed="false"
-        >
-        <p class="fq-help-105dr">Selector local visible para el flujo. En esta vista no se lee, no se sube y no se procesa el PDF.</p>
+
+        <div class="fq-upload-controls-105dr">
+          <label class="fq-file-label-105dr" for="fq-solution-online-pdf-105dr">Seleccionar PDF</label>
+          <input
+            id="fq-solution-online-pdf-105dr"
+            class="fq-file-native-105dr"
+            type="file"
+            accept="application/pdf,.pdf"
+            data-forge-local-file-picker-only="true"
+            data-forge-pdf-read-allowed="false"
+            data-forge-parser-execution-allowed="false"
+            data-forge-real-effects-allowed="false"
+          >
+          <button
+            class="fq-send-pdf-105dr"
+            type="button"
+            disabled
+            aria-disabled="true"
+            data-forge-pdf-submit-allowed="false"
+            data-forge-pdf-read-allowed="false"
+            data-forge-parser-execution-allowed="false"
+            data-forge-real-effects-allowed="false"
+          >Enviar PDF para extracción</button>
+          <span class="fq-file-status-105dr">Sin PDF enviado. La extracción queda bloqueada hasta 106A.</span>
+        </div>
+
+        <p class="fq-help-105dr">En esta vista el selector abre sólo el file picker local. No se sube, no se lee y no se procesa el PDF.</p>
       </section>
 
-      <div class="fq-grid-105dr">
+<div class="fq-grid-105dr">
         <div>
           <section class="fq-card-105dr" aria-label="Campos de preparación">
             <h2>Datos autocompletables por Forge</h2>
