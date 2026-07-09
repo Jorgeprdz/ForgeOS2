@@ -8044,3 +8044,32 @@ LOCKED_DECISION=QUOTE_PREVIEW_SAFE_STATIC_UI_PATCH_PLAN_LOCKED
 
 NEXT=092C_QUOTE_PREVIEW_SAFE_STATIC_UI_PATCH_PLAN_QA_LOCK
 <!-- FORGE:092B_QUOTE_PREVIEW_SAFE_STATIC_UI_PATCH_PLAN:END -->
+
+<!-- FORGE:092C_QUOTE_PREVIEW_SAFE_STATIC_UI_PATCH_PLAN_QA_LOCK:START -->
+## 092C Quote Preview Safe Static UI Patch Plan QA Lock
+
+092C QA locks the 092B safe static UI patch plan.
+
+Locked decision:
+`QUOTE_PREVIEW_SAFE_STATIC_UI_PATCH_PLAN_QA_LOCKED`
+
+QA validated:
+
+- 092B patch plan shape validates;
+- required visible safety copy is present;
+- forbidden patch effects are present;
+- patch constraints are present;
+- planned operations do not authorize source edits;
+- 092C gate is required before decision;
+- 092D decision gate is required before source patch scope;
+- all effects remain blocked;
+- all safety flags remain false.
+
+092C does not edit UI source files.
+
+DECISION=PASS_092C_QUOTE_PREVIEW_SAFE_STATIC_UI_PATCH_PLAN_QA_LOCK
+
+LOCKED_DECISION=QUOTE_PREVIEW_SAFE_STATIC_UI_PATCH_PLAN_QA_LOCKED
+
+NEXT=092D_QUOTE_PREVIEW_SAFE_STATIC_UI_PATCH_PLAN_DECISION_LOCK
+<!-- FORGE:092C_QUOTE_PREVIEW_SAFE_STATIC_UI_PATCH_PLAN_QA_LOCK:END -->
