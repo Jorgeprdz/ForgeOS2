@@ -7621,3 +7621,34 @@ LOCKED_DECISION=QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_REGRESSION_PLAN_LOC
 
 NEXT=097E_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_REGRESSION_STATIC_VALIDATION
 <!-- FORGE:097D_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_REGRESSION_PLAN_DECISION_LOCK:END -->
+
+<!-- FORGE:097E_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_REGRESSION_STATIC_VALIDATION:START -->
+## 097E Quote Preview Safe Module Entry Source Patch Regression Static Validation
+
+097E executes static validation for the Quote Preview / Cotizaciones safe module entry source patch.
+
+Locked decision:
+`QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_STATIC_REGRESSION_VALIDATED`
+
+Confirmed:
+
+- static validation performed;
+- validated file is `docs/static-preview/forge-alive/index.html`;
+- required fragments remain present;
+- 096B markers remain present;
+- 096B patch block is extractable;
+- required false safety attributes remain present;
+- forbidden true safety attributes are absent;
+- no script tag, inline event handler, JavaScript listener, route trigger, or navigation trigger exists inside the 096B patch block;
+- no source edits performed in 097E;
+- no UI rendering performed in 097E;
+- no runtime execution performed in 097E;
+- no real effects performed in 097E;
+- all safety flags remain false.
+
+DECISION=PASS_097E_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_REGRESSION_STATIC_VALIDATION
+
+LOCKED_DECISION=QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_STATIC_REGRESSION_VALIDATED
+
+NEXT=097F_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_REGRESSION_STATIC_VALIDATION_QA_LOCK
+<!-- FORGE:097E_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_REGRESSION_STATIC_VALIDATION:END -->
