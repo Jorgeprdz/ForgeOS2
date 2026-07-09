@@ -11088,3 +11088,34 @@ LOCKED_DECISION=QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_STATIC_REGRESSION_L
 
 NEXT=098A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SCOPE
 <!-- FORGE:097G_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_REGRESSION_STATIC_VALIDATION_DECISION_LOCK:END -->
+
+<!-- FORGE:098A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SCOPE:START -->
+## 098A Quote Preview Safe Module Entry Navigation Binding Scope
+
+098A scopes safe navigation binding for the Quote Preview / Cotizaciones entry.
+
+Locked decision:
+`QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SCOPED`
+
+Confirmed:
+
+- scope only;
+- navigation binding candidate discovered;
+- candidate route hash: `#cotizaciones`;
+- target panel id: `forge-quote-preview-safe-entry-panel-096b`;
+- 098B must remain plan-only;
+- no source edits authorized in 098A;
+- no navigation binding performed in 098A;
+- no route binding performed in 098A;
+- no navigation execution performed in 098A;
+- no UI rendering performed in 098A;
+- no runtime execution performed in 098A;
+- no real effects performed in 098A;
+- all safety flags remain false.
+
+DECISION=PASS_098A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SCOPE
+
+LOCKED_DECISION=QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SCOPED
+
+NEXT=098B_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_PLAN
+<!-- FORGE:098A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SCOPE:END -->

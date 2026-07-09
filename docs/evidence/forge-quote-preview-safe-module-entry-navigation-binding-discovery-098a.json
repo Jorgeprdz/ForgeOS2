@@ -1,0 +1,42 @@
+{
+  "phase": "098A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_SCOPE",
+  "status": "PASS",
+  "source": "docs/static-preview/forge-alive/index.html",
+  "discoveryType": "static_navigation_binding_candidate_discovery_only",
+  "signals": {
+    "indexExists": true,
+    "quotePreviewEntryAttributePresent": true,
+    "quotePreviewPanelAttributePresent": true,
+    "quotePreviewCommandAttributePresent": true,
+    "candidateRouteHashPresent": true,
+    "candidateCommandPresent": true,
+    "panelIdPresent": true,
+    "noteIdPresent": true,
+    "previewOnlyAttributePresent": true,
+    "humanReviewRequiredAttributePresent": true,
+    "navigationExecutionDisabledAttributePresent": true,
+    "routeExecutionDisabledAttributePresent": true,
+    "safeBoundaryCopyPresent": true
+  },
+  "candidateNavigationTarget": {
+    "moduleKey": "quote-preview-safe-entry",
+    "candidateRouteHash": "#cotizaciones",
+    "panelId": "forge-quote-preview-safe-entry-panel-096b",
+    "noteId": "forge-quote-preview-safe-entry-note-096b",
+    "candidateCommand": "/cotizar"
+  },
+  "forbiddenRuntimeSignalsInside096BPatchBlock": {
+    "scriptInsidePatchBlock": false,
+    "inlineHandlerInsidePatchBlock": false,
+    "routeTriggerInsidePatchBlock": false
+  },
+  "sourceEditsPerformedIn098A": false,
+  "navigationBindingPerformedIn098A": false,
+  "routeBindingPerformedIn098A": false,
+  "navigationExecutionPerformedIn098A": false,
+  "uiRenderingPerformedIn098A": false,
+  "runtimeExecutionPerformedIn098A": false,
+  "realEffectsPerformedIn098A": false,
+  "errors": [],
+  "next": "098B_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_NAVIGATION_BINDING_PLAN"
+}
