@@ -8443,3 +8443,31 @@ LOCKED_DECISION=QUOTE_PREVIEW_SAFE_MODULE_ENTRY_LOCKED_AS_SOURCE_PATCH_SCOPE_PRE
 
 NEXT=096A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_SCOPE
 <!-- FORGE:095ABCD_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_FAST_TRACK:END -->
+
+<!-- FORGE:096A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_SCOPE:START -->
+## 096A Quote Preview Safe Module Entry Source Patch Scope
+
+096A scopes the safe source patch for the Quote Preview / Cotizaciones module entry.
+
+Locked decision:
+`QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_SCOPED`
+
+Confirmed:
+
+- source patch scope only;
+- authorized 096B file: `docs/static-preview/forge-alive/index.html`;
+- authorized patch kind: static HTML metadata and safe entry attributes only;
+- no source edits performed in 096A;
+- no route execution performed in 096A;
+- no navigation execution performed in 096A;
+- no UI rendering performed in 096A;
+- no runtime execution performed in 096A;
+- no real effects performed in 096A;
+- all safety flags remain false.
+
+DECISION=PASS_096A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_SCOPE
+
+LOCKED_DECISION=QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_SCOPED
+
+NEXT=096B_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_IMPLEMENTATION
+<!-- FORGE:096A_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SOURCE_PATCH_SCOPE:END -->
