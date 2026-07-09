@@ -12702,3 +12702,53 @@ LOCKED_DECISION=HUMAN_REVIEW_DECISION_DRY_RUN_COMPLETE_AS_PENDING_LOCATION_DECIS
 
 NEXT=106V_QUOTE_PREVIEW_LOCATION_DECISION_ROUTER_GATE
 <!-- FORGE:106U_QUOTE_PREVIEW_HUMAN_REVIEW_DECISION_DRY_RUN:END -->
+
+<!-- FORGE:106V_QUOTE_PREVIEW_LOCATION_DECISION_ROUTER_GATE:START -->
+## 106V Quote Preview Location Decision Router Gate
+
+106V routes pending location decisions to the manual PDF lookup gate.
+
+Locked decision:
+`LOCATION_DECISION_ROUTER_GATE_LOCKED_TO_MANUAL_PDF_LOOKUP_GATE_NO_VALUES_NO_TRUTH`
+
+Confirmed:
+
+- manual operator token not required;
+- selected route created;
+- next phase is 106W;
+- all dry-run dispositions remain keep_pending;
+- manual PDF lookup recommended later;
+- manual PDF lookup was not executed now;
+- human decision was not executed;
+- actual human review was not completed;
+- raw PDF not accessed;
+- raw text not accessed;
+- raw value not extracted;
+- real value not extracted;
+- real value approval not executed;
+- candidate truth forbidden;
+- OCR execution forbidden;
+- parser execution forbidden;
+- calculator execution forbidden;
+- quote truth forbidden;
+- UI population forbidden;
+- presentation generation forbidden;
+- source UI was not changed;
+- all safety flags remain false.
+
+DECISION_RECORD_COUNT=28
+
+KEEP_PENDING_DECISION_COUNT=28
+
+RECOMMENDED_MANUAL_PDF_LOOKUP_COUNT=27
+
+RECOMMENDED_BLOCKED_AMBIGUOUS_COUNT=1
+
+SELECTED_ROUTE=manual_pdf_lookup_gate_with_pending_location_decisions
+
+DECISION=PASS_106V_QUOTE_PREVIEW_LOCATION_DECISION_ROUTER_GATE
+
+LOCKED_DECISION=LOCATION_DECISION_ROUTER_GATE_LOCKED_TO_MANUAL_PDF_LOOKUP_GATE_NO_VALUES_NO_TRUTH
+
+NEXT=106W_QUOTE_PREVIEW_MANUAL_PDF_LOOKUP_GATE
+<!-- FORGE:106V_QUOTE_PREVIEW_LOCATION_DECISION_ROUTER_GATE:END -->
