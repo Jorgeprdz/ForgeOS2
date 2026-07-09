@@ -9203,3 +9203,31 @@ LOCKED_DECISION=COTIZACIONES_NAV_AND_CTA_VISUALLY_CONFIRMED_BY_CODEX_AND_HUMAN
 
 NEXT=105A_QUOTE_PREVIEW_SAFE_MODULE_VIEW_ACTIVATION_SCOPE
 <!-- FORGE:104E_QUOTE_PREVIEW_COTIZACIONES_VISUAL_CONFIRMATION_RESULT:END -->
+
+<!-- FORGE:105AR_QUOTE_PREVIEW_NEW_QUOTE_PAGE_DISCOVERY_SAFETY_REPAIR:START -->
+## 105AR Quote Preview New Quote Page Discovery Safety Repair
+
+105AR sanitizes the 105A discovery before 105B design planning.
+
+Locked decision:
+`NEW_QUOTE_PAGE_DISCOVERY_SANITIZED_READY_FOR_DESIGN_PLAN`
+
+Confirmed:
+
+- 105A discovery remains scoped to `#nueva-cotizacion`;
+- recommended pattern remains `hash-toggled-embedded-panel`;
+- safe data schema now uses placeholders only;
+- no product candidate is asserted;
+- no premium, coverage, projection, rate, or quote output is asserted;
+- Product Intelligence remains upstream readiness context only;
+- Quote Preview remains downstream preview shell only;
+- human review remains required;
+- no source UI implementation occurred;
+- all safety flags remain false.
+
+DECISION=PASS_105AR_QUOTE_PREVIEW_NEW_QUOTE_PAGE_DISCOVERY_SAFETY_REPAIR
+
+LOCKED_DECISION=NEW_QUOTE_PAGE_DISCOVERY_SANITIZED_READY_FOR_DESIGN_PLAN
+
+NEXT=105B_QUOTE_PREVIEW_NEW_QUOTE_PAGE_DESIGN_PLAN
+<!-- FORGE:105AR_QUOTE_PREVIEW_NEW_QUOTE_PAGE_DISCOVERY_SAFETY_REPAIR:END -->

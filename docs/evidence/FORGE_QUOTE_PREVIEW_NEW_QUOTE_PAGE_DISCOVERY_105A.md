@@ -1,36 +1,41 @@
 # Forge Quote Preview New Quote Page Discovery Evidence 105A
 
 PHASE=105A_QUOTE_PREVIEW_SAFE_MODULE_VIEW_ACTIVATION_SCOPE
-STATUS=PASS
+STATUS=PASS_SANITIZED
 DECISION=PASS_105A_QUOTE_PREVIEW_SAFE_MODULE_VIEW_ACTIVATION_SCOPE
 LOCKED_DECISION=NEW_QUOTE_PAGE_DISCOVERY_READY_FOR_DESIGN_PLAN
-COMMIT_MODE=COMMIT_PUSH
+SAFETY_REPAIR=105AR_QUOTE_PREVIEW_NEW_QUOTE_PAGE_DISCOVERY_SAFETY_REPAIR
 NEXT=105B_QUOTE_PREVIEW_NEW_QUOTE_PAGE_DESIGN_PLAN
 
 ## Basis
 
-105A scopes the discovery and product strategy for the **+ Nueva cotización** CTA target inside Forge OS.
+105A scopes the discovery and product strategy for the + Nueva cotización CTA target inside Forge OS.
+
+105AR sanitizes the discovery so it does not include concrete mock data that could be mistaken for quote truth, product truth, provider truth, or financial truth.
 
 ## Source Truth References
 
-- Discovery Report: [FORGE_QUOTE_PREVIEW_NEW_QUOTE_PAGE_DISCOVERY_105A.md](file:///storage/emulated/0/Forge%20OS/docs/architecture/source-truth/FORGE_QUOTE_PREVIEW_NEW_QUOTE_PAGE_DISCOVERY_105A.md)
-- Evidence JSON: [forge-quote-preview-new-quote-page-discovery-105a.json](file:///storage/emulated/0/Forge%20OS/docs/evidence/forge-quote-preview-new-quote-page-discovery-105a.json)
+- Discovery Report: docs/architecture/source-truth/FORGE_QUOTE_PREVIEW_NEW_QUOTE_PAGE_DISCOVERY_105A.md
+- Evidence JSON: docs/evidence/forge-quote-preview-new-quote-page-discovery-105a.json
+- Safety Repair Audit: docs/evidence/forge-quote-preview-new-quote-page-discovery-safety-repair-105ar.json
 
 ## Discovery Results Summary
 
-1. **Recommended Destination**: `#nueva-cotizacion` hash target in desktop layout.
-2. **Page Concept**: Toggled intake/workspace panel embedded inside `dw-main-056y` in the static preview environment.
-3. **Safety boundaries**: No calculator execution, no CRM writes, no message send, no persisted browser storage, and no backend connection allowed. All safety flags remain false.
-4. **Data model**: Proposed safe data schema defined in evidence JSON.
+1. Recommended Destination: #nueva-cotizacion
+2. Page Concept: hash-toggled embedded panel inside the static preview environment.
+3. Safety boundaries: no calculations, no provider calls, no CRM writes, no messages, no official quote outputs, no persisted browser storage, and no backend connection.
+4. Data model: placeholder-safe schema only.
+5. Product Intelligence: upstream readiness signal only, not an official decision engine.
+6. Quote Preview: downstream preview shell only, not quote truth.
 
 ## Design Guidelines Read
 
-- [FORGE_DESKTOP_DESIGN_SYSTEM_DRAFT_001.md](file:///storage/emulated/0/Forge%20OS/docs/design/FORGE_DESKTOP_DESIGN_SYSTEM_DRAFT_001.md)
-- [FORGE_MOBILE_DESIGN_SYSTEM_001.md](file:///storage/emulated/0/Forge%20OS/docs/design/FORGE_MOBILE_DESIGN_SYSTEM_001.md)
-- [FORGE_UI_DESIGN_LINE_001.md](file:///storage/emulated/0/Forge%20OS/docs/design/forge-ui/FORGE_UI_DESIGN_LINE_001.md)
-- [FORGE_UI_TOKENS_001.md](file:///storage/emulated/0/Forge%20OS/docs/design/forge-ui/FORGE_UI_TOKENS_001.md)
-- [FORGE_LOCAL_READ_MODEL_PREVIEW_UI_BINDING_CONTRACT_060K.md](file:///storage/emulated/0/Forge%20OS/docs/design/forge-ui/FORGE_LOCAL_READ_MODEL_PREVIEW_UI_BINDING_CONTRACT_060K.md)
+- docs/design/FORGE_DESKTOP_DESIGN_SYSTEM_DRAFT_001.md
+- docs/design/FORGE_MOBILE_DESIGN_SYSTEM_001.md
+- docs/design/forge-ui/FORGE_UI_DESIGN_LINE_001.md
+- docs/design/forge-ui/FORGE_UI_TOKENS_001.md
+- docs/design/forge-ui/FORGE_LOCAL_READ_MODEL_PREVIEW_UI_BINDING_CONTRACT_060K.md
 
 ## Next Phase
 
-`105B_QUOTE_PREVIEW_NEW_QUOTE_PAGE_DESIGN_PLAN`
+105B_QUOTE_PREVIEW_NEW_QUOTE_PAGE_DESIGN_PLAN

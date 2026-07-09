@@ -1,13 +1,16 @@
 {
   "phase": "105A_QUOTE_PREVIEW_SAFE_MODULE_VIEW_ACTIVATION_SCOPE",
-  "status": "PASS",
+  "status": "PASS_SANITIZED",
   "decision": "PASS_105A_QUOTE_PREVIEW_SAFE_MODULE_VIEW_ACTIVATION_SCOPE",
   "lockedDecision": "NEW_QUOTE_PAGE_DISCOVERY_READY_FOR_DESIGN_PLAN",
+  "safetyRepair": "105AR_QUOTE_PREVIEW_NEW_QUOTE_PAGE_DISCOVERY_SAFETY_REPAIR",
   "next": "105B_QUOTE_PREVIEW_NEW_QUOTE_PAGE_DESIGN_PLAN",
   "discovery": {
     "recommendedDestination": "#nueva-cotizacion",
     "recommendedPattern": "hash-toggled-embedded-panel",
     "destinationTitle": "Nuevo borrador de cotización",
+    "concept": "preview_only_quote_preparation_desk",
+    "implementationOccurredIn105A": false,
     "designGuidelinesRead": [
       "docs/design/FORGE_DESKTOP_DESIGN_SYSTEM_DRAFT_001.md",
       "docs/design/FORGE_MOBILE_DESIGN_SYSTEM_001.md",
@@ -22,43 +25,37 @@
       "docs/architecture/source-truth/FORGE_QUOTE_PREVIEW_SAFE_VISUAL_LAYOUT_SPEC_SCOPE_089A.md",
       "docs/architecture/source-truth/FORGE_QUOTE_PREVIEW_SAFE_COPY_AND_BADGE_SYSTEM_SCOPE_090A.md",
       "docs/evidence/FORGE_QUOTE_PREVIEW_SAFE_UI_IMPLEMENTATION_PLAN_091B.md"
-    ]
+    ],
+    "productPositioning": {
+      "productIntelligenceRole": "upstream_readiness_context_only",
+      "quotePreviewRole": "downstream_preview_shell_only",
+      "humanReviewRequired": true,
+      "forgeDecisionAuthority": "Forge organizes readiness and flags missing context; human review remains required."
+    }
   },
   "safeDataSchema": {
-    "quoteDraftId": "COT-2025-TEMP-05",
-    "clientId": "client-lariza-056y",
-    "clientName": "Lariza",
-    "clientStatus": "Propuesta GMM",
-    "productLine": "GMM SMNYL",
-    "productCandidate": "Alfa Médica Líder",
-    "objective": "Cobertura médica integral con deducible optimizado",
-    "quoteIntent": "pre-cotizar",
-    "requiredInputs": [
-      {
-        "field": "edad",
-        "provided": true,
-        "value": 34
-      },
-      {
-        "field": "genero",
-        "provided": true,
-        "value": "Femenino"
-      },
-      {
-        "field": "cuestionario_medico",
-        "provided": false
-      }
-    ],
-    "missingInputs": [
-      "cuestionario_medico"
-    ],
-    "assumptions": {
-      "inflationIndexed": true,
-      "basePremiumEstimated": true
-    },
-    "productIntelligenceStatus": "verified_rule_pack_loaded",
-    "previewReadiness": "incomplete_missing_inputs",
-    "humanReviewRequired": true
+    "quoteDraftId": "preview-draft-placeholder",
+    "clientId": null,
+    "clientName": "pending_client_selection",
+    "clientStatus": "pending",
+    "productLine": "pending_product_family_selection",
+    "productCandidate": null,
+    "objective": "pending_advisor_input",
+    "quoteIntent": "prepare_preview_only",
+    "requiredInputs": [],
+    "missingInputs": [],
+    "assumptions": [],
+    "productIntelligenceStatus": "not_loaded_in_static_preview",
+    "previewReadiness": "not_ready_missing_required_context",
+    "humanReviewRequired": true,
+    "mockDataOnly": true,
+    "quoteTruthAllowed": false,
+    "officialQuoteAllowed": false,
+    "providerRuntimeAllowed": false,
+    "calculatorExecutionAllowed": false,
+    "parserExecutionAllowed": false,
+    "backendConnectionAllowed": false,
+    "realEffectsAllowed": false
   },
   "safetyFlags": {
     "crmWrite": false,
@@ -86,6 +83,16 @@
     "providerRuntimeAllowed": false,
     "calculatorExecutionAllowed": false,
     "parserExecutionAllowed": false,
-    "backendConnectionAllowed": false
+    "backendConnectionAllowed": false,
+    "quoteTruthAllowed": false
+  },
+  "passHoldCriteria": {
+    "designGuidelinesRead": true,
+    "recommendedDestinationExplicit": true,
+    "recommendedPatternExplicit": true,
+    "sourceImplementationOccurred": false,
+    "allSafetyFlagsFalse": true,
+    "schemaPlaceholderSafe": true,
+    "nextPhase": "105B_QUOTE_PREVIEW_NEW_QUOTE_PAGE_DESIGN_PLAN"
   }
 }
