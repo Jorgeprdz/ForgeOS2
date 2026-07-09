@@ -11275,3 +11275,34 @@ LOCKED_DECISION=QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_LOCKED_AS_SOURCE_PATCH_
 
 NEXT=102A_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_SOURCE_PATCH_SCOPE
 <!-- FORGE:101ABCD_QUOTE_PREVIEW_SAFE_MODULE_ENTRY_SAFE_LOCAL_HASH_NAVIGATION_FAST_TRACK:END -->
+
+<!-- FORGE:102A_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_SOURCE_PATCH_SCOPE:START -->
+## 102A Quote Preview Safe Local Hash Navigation Source Patch Scope
+
+102A scopes the source patch for safe local hash navigation to Quote Preview / Cotizaciones.
+
+Locked decision:
+`QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_SOURCE_PATCH_SCOPED`
+
+Confirmed:
+
+- scope only;
+- authorized file count is one;
+- authorized file is `docs/static-preview/forge-alive/index.html`;
+- 102B may edit only the authorized file;
+- 102B may add only static local hash anchor and accessibility semantics;
+- 102B may not create scripts, inline handlers, or runtime listeners;
+- no source edits performed in 102A;
+- no local hash anchor created in 102A;
+- no navigation execution performed in 102A;
+- no UI rendering performed in 102A;
+- no runtime execution performed in 102A;
+- no real effects performed in 102A;
+- all safety flags remain false.
+
+DECISION=PASS_102A_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_SOURCE_PATCH_SCOPE
+
+LOCKED_DECISION=QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_SOURCE_PATCH_SCOPED
+
+NEXT=102B_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_SOURCE_PATCH_IMPLEMENTATION
+<!-- FORGE:102A_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_SOURCE_PATCH_SCOPE:END -->
