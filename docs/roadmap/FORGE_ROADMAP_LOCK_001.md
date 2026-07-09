@@ -8560,3 +8560,37 @@ LOCKED_DECISION=PDF_EXTRACTION_GATE_DEFINED_AS_DRY_RUN_ONLY_WITH_NO_PDF_READ_OR_
 
 NEXT=106B_QUOTE_PREVIEW_REAL_PDF_DRY_RUN_SCOPE
 <!-- FORGE:106A_QUOTE_PREVIEW_PDF_EXTRACTION_GATE_DISCOVERY:END -->
+
+<!-- FORGE:106B_QUOTE_PREVIEW_REAL_PDF_DRY_RUN_SCOPE:START -->
+## 106B Quote Preview Real PDF Dry Run Scope
+
+106B scopes how a real Solución Online PDF may be tested later in dry-run mode.
+
+Locked decision:
+`REAL_PDF_DRY_RUN_SCOPE_LOCKED_WITH_REDACTION_AND_NO_RAW_PDF_COMMIT`
+
+Confirmed:
+
+- scope is dry-run only;
+- local dry-run directory is outside repo;
+- raw PDF commit is forbidden;
+- unredacted evidence commit is forbidden;
+- redacted evidence only;
+- target field groups are defined;
+- human review rules are defined;
+- PDF read remains disabled;
+- parser execution remains disabled;
+- OCR execution remains disabled;
+- calculator execution remains disabled;
+- quote truth remains disabled;
+- source UI was not changed;
+- all safety flags remain false.
+
+LOCAL_RUN_DIR=/storage/emulated/0/Forge Gemini/pdf-dry-run-local
+
+DECISION=PASS_106B_QUOTE_PREVIEW_REAL_PDF_DRY_RUN_SCOPE
+
+LOCKED_DECISION=REAL_PDF_DRY_RUN_SCOPE_LOCKED_WITH_REDACTION_AND_NO_RAW_PDF_COMMIT
+
+NEXT=106C_QUOTE_PREVIEW_EXTRACTION_SCHEMA_LOCK
+<!-- FORGE:106B_QUOTE_PREVIEW_REAL_PDF_DRY_RUN_SCOPE:END -->
