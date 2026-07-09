@@ -9099,3 +9099,36 @@ LOCKED_DECISION=QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_REPAIRED_TO_STYLED_ANCH
 
 NEXT=104A_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_VISUAL_CONFIRMATION_SCOPE
 <!-- FORGE:104R2R_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_NAV_ITEM_CLASS_REPAIR:END -->
+
+<!-- FORGE:104R3_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_NAV_ITEM_SIZE_REPAIR:START -->
+## 104R3 Quote Preview Safe Local Hash Navigation Nav Item Size Repair
+
+104R3 repairs the size mismatch detected during manual review.
+
+Locked decision:
+`QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_REPAIRED_TO_MATCH_SIDEBAR_ITEM_SIZE`
+
+Confirmed:
+
+- Cotizaciones nav item has compact pill styling;
+- Cotizaciones label uses 16px;
+- Cotizaciones pill height is 54px;
+- Cotizaciones nav item preserves `href="#cotizaciones"`;
+- target `id="cotizaciones"` preserved exactly once;
+- standalone 102B link removed;
+- no script tag created;
+- no inline event handler created;
+- no JavaScript listener created;
+- no imperative navigation created;
+- no runtime execution performed;
+- no real effects performed;
+- all safety flags remain false.
+
+TEST_URL=https://jorgeprdz.github.io/ForgeOS/static-preview/forge-alive/?v=104r3#cotizaciones
+
+DECISION=PASS_104R3_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_NAV_ITEM_SIZE_REPAIR
+
+LOCKED_DECISION=QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_REPAIRED_TO_MATCH_SIDEBAR_ITEM_SIZE
+
+NEXT=104A_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_VISUAL_CONFIRMATION_SCOPE
+<!-- FORGE:104R3_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_NAV_ITEM_SIZE_REPAIR:END -->

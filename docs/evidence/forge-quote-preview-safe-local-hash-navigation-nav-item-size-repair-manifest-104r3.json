@@ -1,0 +1,33 @@
+{
+  "phase": "104R3_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_NAV_ITEM_SIZE_REPAIR",
+  "status": "PASS",
+  "patchedFiles": [
+    {
+      "path": "docs/static-preview/forge-alive/index.html",
+      "operations": [
+        "removed standalone 102B link block if present",
+        "compacted Cotizaciones nav pill height to 54px",
+        "compacted Cotizaciones label font-size to 16px",
+        "preserved static href #cotizaciones",
+        "preserved target id cotizaciones",
+        "added 104R3 safety metadata"
+      ]
+    }
+  ],
+  "patchedFileCount": 1,
+  "onlyIndexHtmlEdited": true,
+  "standaloneVisible102BLinkRemoved": true,
+  "cotizacionesNavHasClass": true,
+  "cotizacionesNavHasCompactPillStyle": true,
+  "cotizacionesNavHrefCotizaciones": true,
+  "scriptTagCreated": false,
+  "inlineEventHandlerCreated": false,
+  "javascriptListenerCreated": false,
+  "imperativeNavigationCreated": false,
+  "javascriptSourceEdited": false,
+  "cssSourceEdited": false,
+  "runtimeExecutionPerformed": false,
+  "realEffectsPerformed": false,
+  "errors": [],
+  "next": "104A_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_VISUAL_CONFIRMATION_SCOPE"
+}
