@@ -10257,3 +10257,31 @@ LOCKED_DECISION=QUOTE_PREVIEW_SAFE_UI_IMPLEMENTATION_SCOPED
 
 NEXT=091B_QUOTE_PREVIEW_SAFE_UI_IMPLEMENTATION_PLAN
 <!-- FORGE:091A_QUOTE_PREVIEW_SAFE_UI_IMPLEMENTATION_SCOPE:END -->
+
+<!-- FORGE:091B_QUOTE_PREVIEW_SAFE_UI_IMPLEMENTATION_PLAN:START -->
+## 091B Quote Preview Safe UI Implementation Plan
+
+091B creates a safe UI implementation plan from the 091A surface discovery.
+
+Locked decision:
+`QUOTE_PREVIEW_SAFE_UI_IMPLEMENTATION_PLAN_LOCKED`
+
+Outputs:
+
+- `docs/architecture/source-truth/FORGE_QUOTE_PREVIEW_SAFE_UI_IMPLEMENTATION_PLAN_091B.md`
+- `docs/evidence/FORGE_QUOTE_PREVIEW_SAFE_UI_IMPLEMENTATION_PLAN_091B.md`
+- `docs/evidence/forge-quote-preview-safe-ui-implementation-plan-091b.json`
+- `docs/evidence/forge-quote-preview-safe-ui-implementation-plan-audit-091b.json`
+
+091B does not edit UI source files.
+
+091C must QA lock this plan before 091D can decision-lock it.
+
+No UI patch is authorized until after explicit safe static UI patch scope.
+
+DECISION=PASS_091B_QUOTE_PREVIEW_SAFE_UI_IMPLEMENTATION_PLAN
+
+LOCKED_DECISION=QUOTE_PREVIEW_SAFE_UI_IMPLEMENTATION_PLAN_LOCKED
+
+NEXT=091C_QUOTE_PREVIEW_SAFE_UI_IMPLEMENTATION_PLAN_QA_LOCK
+<!-- FORGE:091B_QUOTE_PREVIEW_SAFE_UI_IMPLEMENTATION_PLAN:END -->
