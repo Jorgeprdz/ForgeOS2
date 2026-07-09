@@ -8031,3 +8031,34 @@ LOCKED_DECISION=QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_VISUAL_CONFIRMATION_LOC
 
 NEXT=104E_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_MANUAL_VISUAL_CONFIRMATION_RESULT
 <!-- FORGE:104ABCD_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_VISUAL_CONFIRMATION_FAST_TRACK:END -->
+
+<!-- FORGE:104R_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_VISIBLE_LINK_UI_REPAIR:START -->
+## 104R Quote Preview Safe Local Hash Navigation Visible Link UI Repair
+
+104R repairs the visual issue detected during manual review.
+
+Locked decision:
+`QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_REPAIRED_TO_EXISTING_NAV_ITEM`
+
+Confirmed:
+
+- standalone visible `Abrir Cotizaciones` link removed;
+- existing Cotizaciones nav item repaired as static anchor;
+- existing Cotizaciones nav item uses `href="#cotizaciones"`;
+- target `id="cotizaciones"` preserved exactly once;
+- no script tag created;
+- no inline event handler created;
+- no JavaScript listener created;
+- no imperative navigation created;
+- no runtime execution performed;
+- no real effects performed;
+- all safety flags remain false.
+
+TEST_URL=https://jorgeprdz.github.io/ForgeOS/static-preview/forge-alive/#cotizaciones
+
+DECISION=PASS_104R_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_VISIBLE_LINK_UI_REPAIR
+
+LOCKED_DECISION=QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_REPAIRED_TO_EXISTING_NAV_ITEM
+
+NEXT=104A_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_VISUAL_CONFIRMATION_SCOPE
+<!-- FORGE:104R_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_VISIBLE_LINK_UI_REPAIR:END -->

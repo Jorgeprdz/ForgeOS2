@@ -1,0 +1,30 @@
+{
+  "phase": "104R_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_VISIBLE_LINK_UI_REPAIR",
+  "status": "PASS",
+  "patchedFiles": [
+    {
+      "path": "docs/static-preview/forge-alive/index.html",
+      "operations": [
+        "removed standalone visible 102B anchor block",
+        "converted existing Cotizaciones nav entry into static local hash anchor when needed",
+        "preserved static target id cotizaciones",
+        "preserved preview-only and human-review-required boundaries",
+        "added 104R safety metadata to existing nav entry"
+      ]
+    }
+  ],
+  "patchedFileCount": 1,
+  "onlyIndexHtmlEdited": true,
+  "standaloneVisible102BLinkRemoved": true,
+  "existingNavEntryHrefCotizaciones": true,
+  "scriptTagCreated": false,
+  "inlineEventHandlerCreated": false,
+  "javascriptListenerCreated": false,
+  "imperativeNavigationCreated": false,
+  "javascriptSourceEdited": false,
+  "cssSourceEdited": false,
+  "runtimeExecutionPerformed": false,
+  "realEffectsPerformed": false,
+  "errors": [],
+  "next": "104A_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_VISUAL_CONFIRMATION_SCOPE"
+}
