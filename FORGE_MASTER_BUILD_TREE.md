@@ -12107,3 +12107,34 @@ LOCKED_DECISION=REAL_PDF_LOCAL_REFERENCE_PREPARED_OUTSIDE_REPO_WITH_NO_CONTENT_R
 
 NEXT=106G_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_GATE
 <!-- FORGE:106F_QUOTE_PREVIEW_REAL_PDF_LOCAL_DRY_RUN_PREP:END -->
+
+<!-- FORGE:106G_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_GATE:START -->
+## 106G Quote Preview Real PDF Text Layer Probe Gate
+
+106G locks the gate for a future text layer probe against the real PDF reference prepared in 106F.
+
+Locked decision:
+`TEXT_LAYER_PROBE_GATE_LOCKED_WITH_NO_CONTENT_READ_AND_NO_RAW_TEXT_COMMIT`
+
+Confirmed:
+
+- text layer probe gate locked;
+- explicit 106H operator token required;
+- no PDF content was read;
+- text layer probe was not executed;
+- raw PDF text was not extracted;
+- OCR execution remains disabled;
+- parser execution remains disabled;
+- calculator execution remains disabled;
+- quote truth remains disabled;
+- actual PDF path was not committed;
+- redaction policy is defined;
+- source UI was not changed;
+- all safety flags remain false.
+
+DECISION=PASS_106G_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_GATE
+
+LOCKED_DECISION=TEXT_LAYER_PROBE_GATE_LOCKED_WITH_NO_CONTENT_READ_AND_NO_RAW_TEXT_COMMIT
+
+NEXT=106H_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_DRY_RUN
+<!-- FORGE:106G_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_GATE:END -->

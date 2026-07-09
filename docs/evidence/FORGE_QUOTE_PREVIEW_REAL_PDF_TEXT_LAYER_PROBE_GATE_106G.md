@@ -1,0 +1,186 @@
+# Forge Quote Preview Real PDF Text Layer Probe Gate Evidence 106G
+
+PHASE=106G_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_GATE
+STATUS=PASS
+DECISION=PASS_106G_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_GATE
+LOCKED_DECISION=TEXT_LAYER_PROBE_GATE_LOCKED_WITH_NO_CONTENT_READ_AND_NO_RAW_TEXT_COMMIT
+NEXT=106H_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_DRY_RUN
+
+## Gate JSON
+
+{
+  "phase": "106G_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_GATE",
+  "status": "PASS",
+  "decision": "PASS_106G_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_GATE",
+  "lockedDecision": "TEXT_LAYER_PROBE_GATE_LOCKED_WITH_NO_CONTENT_READ_AND_NO_RAW_TEXT_COMMIT",
+  "basePhase": "106F_QUOTE_PREVIEW_REAL_PDF_LOCAL_DRY_RUN_PREP",
+  "schemaVersion": "106C.1",
+  "testUrl": "https://jorgeprdz.github.io/ForgeOS/static-preview/forge-alive/nueva-cotizacion/?v=105dr5",
+  "localRunDirectoryOutsideRepo": "/storage/emulated/0/Forge Gemini/pdf-dry-run-local",
+  "gateType": "text_layer_probe_gate_only",
+  "sourceUiChanged": false,
+  "realPdfReferenceAlreadyPrepared": true,
+  "actualPdfPathCommittedToRepo": false,
+  "actualPdfPathStoredInThisArtifact": false,
+  "executionState": {
+    "realPdfUsedForContentRead": false,
+    "rawPdfTouchedForContent": false,
+    "rawPdfCopiedToRepo": false,
+    "rawPdfCommittedToRepo": false,
+    "rawPdfPathCommittedToRepo": false,
+    "pdfContentRead": false,
+    "textLayerProbeExecuted": false,
+    "rawPdfTextExtracted": false,
+    "ocrExecuted": false,
+    "parserExecuted": false,
+    "calculatorExecuted": false,
+    "quoteTruthCreated": false,
+    "officialQuoteCreated": false,
+    "uiPopulated": false,
+    "presentationGenerated": false,
+    "backendConnectionUsed": false,
+    "crmWriteUsed": false
+  },
+  "probeDefinitionForNextPhase": {
+    "nextPhase": "106H_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_DRY_RUN",
+    "purpose": "Determine whether the prepared local PDF has a selectable text layer, without committing raw text or raw PDF content.",
+    "explicitOperatorTokenRequired": "PROBE_TEXT_LAYER_ONLY",
+    "allowedProbeOutputsIf106HIsApproved": [
+      "redacted_pdf_reference_present",
+      "text_layer_presence_candidate",
+      "page_count_candidate_if_available_without_raw_text_commit",
+      "probe_method_redacted",
+      "raw_text_committed_false",
+      "ocr_needed_candidate",
+      "human_review_required"
+    ],
+    "forbiddenProbeOutputs": [
+      "raw_pdf",
+      "raw_pdf_text",
+      "raw_page_text",
+      "unredacted_client_identity",
+      "unredacted_quote_identifier",
+      "unredacted_financial_values",
+      "screenshots_of_raw_pdf",
+      "official_quote_truth"
+    ],
+    "probeMustNotDo": [
+      "ocr",
+      "parser_execution",
+      "financial_calculation",
+      "field_mapping",
+      "ui_population",
+      "presentation_generation",
+      "backend_call",
+      "crm_write"
+    ]
+  },
+  "localManifestPolicyForNextPhase": {
+    "mayDiscoverLatestLocalManifestOutsideRepo": true,
+    "mayReadLocalManifestOutsideRepo": true,
+    "mayCommitActualManifestPath": false,
+    "mayCommitActualPdfPath": false,
+    "mayCommitOnlyRedactedReference": true,
+    "manifestPattern": "forge-real-pdf-local-reference-106f-*.json",
+    "manifestDirectory": "[LOCAL_RUN_DIR_OUTSIDE_REPO_REDACTED]"
+  },
+  "redactionPolicyForProbeReport": {
+    "rawTextCommitAllowed": false,
+    "rawPdfCommitAllowed": false,
+    "unredactedEvidenceCommitAllowed": false,
+    "redactedEvidenceCommitAllowed": true,
+    "commitSafeMarkers": [
+      "[LOCAL_PDF_PATH_REDACTED_OUTSIDE_REPO]",
+      "[LOCAL_MANIFEST_PATH_OUTSIDE_REPO_REDACTED]",
+      "[TEXT_LAYER_PRESENT_CANDIDATE]",
+      "[TEXT_LAYER_ABSENT_CANDIDATE]",
+      "[PAGE_COUNT_REDACTED_OR_NON_PERSONAL]"
+    ]
+  },
+  "handoffTo106H": {
+    "requiredBeforeProbe": [
+      "explicit token PROBE_TEXT_LAYER_ONLY",
+      "latest local manifest exists outside repo",
+      "actual PDF path remains outside repo",
+      "probe output target is redacted report only",
+      "no raw text commit confirmation",
+      "no quote truth confirmation"
+    ],
+    "ifProbeFindsTextLayer": "next gate may scope redacted text candidate sampling",
+    "ifProbeFindsNoTextLayer": "next gate may scope OCR fallback separately, still disabled until authorized"
+  },
+  "safetyFlags": {
+    "crmWrite": false,
+    "pipelineWrite": false,
+    "policyWrite": false,
+    "quoteWrite": false,
+    "taskCreate": false,
+    "calendarCreate": false,
+    "messageSend": false,
+    "authReal": false,
+    "providerRuntime": false,
+    "secretAccess": false,
+    "browserPersistence": false,
+    "realEngineExecution": false,
+    "realEffectsAllowed": false,
+    "realEffectsEnabled": false,
+    "backendConnection": false,
+    "pdfRead": false,
+    "ocrExecution": false,
+    "parserExecution": false,
+    "calculatorExecution": false,
+    "banxicoCall": false,
+    "testExecution": false,
+    "officialQuoteAllowed": false,
+    "providerRuntimeAllowed": false,
+    "calculatorExecutionAllowed": false,
+    "parserExecutionAllowed": false,
+    "backendConnectionAllowed": false,
+    "quoteTruthAllowed": false,
+    "presentationGenerationAllowed": false,
+    "promptGenerationAllowed": false,
+    "pdfSubmitAllowed": false,
+    "printAutomation": false
+  },
+  "next": "106H_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_DRY_RUN"
+}
+
+## Validation JSON
+
+{
+  "phase": "106G_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_GATE",
+  "status": "PASS",
+  "decision": "PASS_106G_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_GATE",
+  "lockedDecision": "TEXT_LAYER_PROBE_GATE_LOCKED_WITH_NO_CONTENT_READ_AND_NO_RAW_TEXT_COMMIT",
+  "gateType": "text_layer_probe_gate_only",
+  "schemaVersion": "106C.1",
+  "realPdfReferenceAlreadyPrepared": true,
+  "actualPdfPathCommittedToRepo": false,
+  "actualPdfPathStoredInThisArtifact": false,
+  "pdfContentRead": false,
+  "textLayerProbeExecuted": false,
+  "rawPdfTextExtracted": false,
+  "ocrExecuted": false,
+  "parserExecuted": false,
+  "calculatorExecuted": false,
+  "quoteTruthCreated": false,
+  "sourceUiChanged": false,
+  "explicitOperatorTokenRequiredFor106H": "PROBE_TEXT_LAYER_ONLY",
+  "allSafetyFlagsFalse": true,
+  "next": "106H_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_DRY_RUN",
+  "errors": []
+}
+
+## Confirmed
+
+- Text layer probe gate locked.
+- No PDF content was read.
+- Text layer probe was not executed.
+- Raw text was not extracted.
+- OCR was not executed.
+- Parser was not executed.
+- Quote truth was not created.
+- Actual PDF path was not committed.
+- Redaction policy is defined.
+- Explicit operator token required for 106H.
+- Source UI was not changed.

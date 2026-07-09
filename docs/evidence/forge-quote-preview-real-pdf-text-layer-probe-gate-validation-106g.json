@@ -1,0 +1,23 @@
+{
+  "phase": "106G_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_GATE",
+  "status": "PASS",
+  "decision": "PASS_106G_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_GATE",
+  "lockedDecision": "TEXT_LAYER_PROBE_GATE_LOCKED_WITH_NO_CONTENT_READ_AND_NO_RAW_TEXT_COMMIT",
+  "gateType": "text_layer_probe_gate_only",
+  "schemaVersion": "106C.1",
+  "realPdfReferenceAlreadyPrepared": true,
+  "actualPdfPathCommittedToRepo": false,
+  "actualPdfPathStoredInThisArtifact": false,
+  "pdfContentRead": false,
+  "textLayerProbeExecuted": false,
+  "rawPdfTextExtracted": false,
+  "ocrExecuted": false,
+  "parserExecuted": false,
+  "calculatorExecuted": false,
+  "quoteTruthCreated": false,
+  "sourceUiChanged": false,
+  "explicitOperatorTokenRequiredFor106H": "PROBE_TEXT_LAYER_ONLY",
+  "allSafetyFlagsFalse": true,
+  "next": "106H_QUOTE_PREVIEW_REAL_PDF_TEXT_LAYER_PROBE_DRY_RUN",
+  "errors": []
+}
