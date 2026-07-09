@@ -9378,3 +9378,48 @@ LOCKED_DECISION=LOCATION_DECISION_ROUTER_GATE_LOCKED_TO_MANUAL_PDF_LOOKUP_GATE_N
 
 NEXT=106W_QUOTE_PREVIEW_MANUAL_PDF_LOOKUP_GATE
 <!-- FORGE:106V_QUOTE_PREVIEW_LOCATION_DECISION_ROUTER_GATE:END -->
+
+<!-- FORGE:106W_QUOTE_PREVIEW_MANUAL_PDF_LOOKUP_GATE:START -->
+## 106W Quote Preview Manual PDF Lookup Gate
+
+106W locks the gate for manual PDF lookup preparation only.
+
+Locked decision:
+`MANUAL_PDF_LOOKUP_GATE_LOCKED_AS_PREP_ONLY_NO_PDF_ACCESS_NO_VALUES_NO_TRUTH`
+
+Confirmed:
+
+- manual operator token not required;
+- manual lookup packet contract created;
+- manual lookup was not executed now;
+- raw PDF access forbidden now;
+- raw text access forbidden now;
+- raw value extraction forbidden now;
+- real value extraction forbidden now;
+- real value approval forbidden now;
+- candidate truth forbidden;
+- quote truth forbidden;
+- UI population forbidden;
+- presentation generation forbidden;
+- OCR execution forbidden;
+- parser execution forbidden;
+- calculator execution forbidden;
+- future actual PDF lookup requires explicit gate;
+- future actual PDF lookup requires manual operator confirmation;
+- source UI was not changed;
+- all safety flags remain false.
+
+DECISION_RECORD_COUNT=28
+
+RECOMMENDED_MANUAL_PDF_LOOKUP_COUNT=27
+
+RECOMMENDED_BLOCKED_AMBIGUOUS_COUNT=1
+
+MANUAL_LOOKUP_ELIGIBLE_FIELD_COUNT=6
+
+DECISION=PASS_106W_QUOTE_PREVIEW_MANUAL_PDF_LOOKUP_GATE
+
+LOCKED_DECISION=MANUAL_PDF_LOOKUP_GATE_LOCKED_AS_PREP_ONLY_NO_PDF_ACCESS_NO_VALUES_NO_TRUTH
+
+NEXT=106X_QUOTE_PREVIEW_MANUAL_PDF_LOOKUP_PACKET_DRY_RUN
+<!-- FORGE:106W_QUOTE_PREVIEW_MANUAL_PDF_LOOKUP_GATE:END -->
