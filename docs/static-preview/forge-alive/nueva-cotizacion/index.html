@@ -320,6 +320,103 @@
       color: rgba(235, 250, 255, 0.58);
     }
 
+
+    .fq-summary-grid-105dr {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .fq-summary-row-105dr {
+      display: grid;
+      grid-template-columns: minmax(180px, 0.42fr) minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 18px;
+      padding: 0.86rem 0.95rem;
+      background: rgba(2, 6, 23, 0.28);
+    }
+
+    .fq-summary-label-105dr {
+      color: rgba(226, 232, 240, 0.74);
+      font-weight: 900;
+    }
+
+    .fq-summary-value-105dr {
+      color: var(--forge-gold);
+      font-weight: 950;
+    }
+
+    .fq-summary-actions-105dr {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 16px;
+    }
+
+    .fq-print-cta-105dr {
+      border: 1px solid rgba(125, 249, 255, 0.3);
+      border-radius: 999px;
+      padding: 0.86rem 1rem;
+      background: rgba(125, 249, 255, 0.12);
+      color: rgba(235, 250, 255, 0.94);
+      font: inherit;
+      font-weight: 950;
+      cursor: pointer;
+    }
+
+    .fq-print-cta-105dr:hover,
+    .fq-print-cta-105dr:focus {
+      border-color: rgba(125, 249, 255, 0.58);
+      box-shadow: 0 0 0 4px rgba(125, 249, 255, 0.09);
+      outline: none;
+    }
+
+    .fq-print-note-105dr {
+      color: rgba(203, 213, 225, 0.56);
+      font-size: 0.78rem;
+      line-height: 1.45;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        color: #111827;
+      }
+
+      .fq-top-105dr,
+      .fq-upload-105dr,
+      .fq-badges-105dr,
+      .fq-safe-stack-105dr,
+      .fq-print-cta-105dr,
+      .fq-print-note-105dr {
+        display: none !important;
+      }
+
+      .fq-page-105dr {
+        width: 100%;
+        padding: 0;
+      }
+
+      .fq-shell-105dr,
+      .fq-card-105dr {
+        border: 1px solid #9ca3af;
+        box-shadow: none;
+        background: #ffffff;
+        color: #111827;
+      }
+
+      .fq-grid-105dr {
+        grid-template-columns: 1fr;
+      }
+
+      .fq-summary-value-105dr {
+        color: #111827;
+      }
+    }
+
     .fq-safe-stack-105dr {
       display: grid;
       gap: 16px;
@@ -378,7 +475,7 @@
   >
     <nav class="fq-top-105dr" aria-label="Navegación segura">
       <div class="fq-brand-105dr"><span class="fq-orb-105dr" aria-hidden="true"></span> Forge Alive · Nueva cotización</div>
-      <a class="fq-back-105dr" href="../?v=105dr2#cotizaciones" data-forge-local-navigation-only="true">← Volver a Cotizaciones</a>
+      <a class="fq-back-105dr" href="../?v=105dr3#cotizaciones" data-forge-local-navigation-only="true">← Volver a Cotizaciones</a>
     </nav>
 
     <section class="fq-shell-105dr" aria-labelledby="nueva-cotizacion-title">
@@ -445,16 +542,48 @@
             </div>
           </section>
 
-          <section class="fq-card-105dr" aria-label="Checklist de extracción y contexto">
-            <h2>Checklist de extracción y contexto</h2>
-            <ul class="fq-list-105dr">
-              <li><span>PDF de Solución Online</span><strong class="fq-state-105dr">Pendiente</strong></li>
-              <li><span>Datos extraíbles del PDF</span><strong class="fq-state-105dr">Bloqueados hasta parser</strong></li>
-              <li><span>Contexto del prospecto</span><strong class="fq-state-105dr">Editable</strong></li>
-              <li><span>Revisión humana</span><strong class="fq-state-105dr">Obligatoria</strong></li>
-            </ul>
+          <section class="fq-card-105dr fq-quote-summary-105dr" aria-label="Resumen de la cotización para revisión">
+            <h2>Resumen de la cotización</h2>
+            <p class="fq-note-105dr">Cuando el parser esté autorizado, Forge llenará este resumen con datos extraídos del PDF de Solución Online. Por ahora queda como vista previa segura, sin inventar números ni crear verdad de cotización.</p>
+
+            <div class="fq-summary-grid-105dr">
+              <div class="fq-summary-row-105dr">
+                <span class="fq-summary-label-105dr">Cliente</span>
+                <strong class="fq-summary-value-105dr">Pendiente de PDF</strong>
+              </div>
+              <div class="fq-summary-row-105dr">
+                <span class="fq-summary-label-105dr">Producto o familia</span>
+                <strong class="fq-summary-value-105dr">Pendiente de extracción</strong>
+              </div>
+              <div class="fq-summary-row-105dr">
+                <span class="fq-summary-label-105dr">Plan, suma asegurada y prima</span>
+                <strong class="fq-summary-value-105dr">Pendiente de parser autorizado</strong>
+              </div>
+              <div class="fq-summary-row-105dr">
+                <span class="fq-summary-label-105dr">Forma de pago, moneda y vigencia</span>
+                <strong class="fq-summary-value-105dr">Pendiente de revisión</strong>
+              </div>
+              <div class="fq-summary-row-105dr">
+                <span class="fq-summary-label-105dr">Faltantes antes de presentar</span>
+                <strong class="fq-summary-value-105dr">Revisión humana requerida</strong>
+              </div>
+            </div>
+
+            <div class="fq-summary-actions-105dr">
+              <button
+                class="fq-print-cta-105dr"
+                type="button"
+                onclick="window.print()"
+                data-forge-local-print-dialog-only="true"
+                data-forge-real-effects-allowed="false"
+                data-forge-pdf-read-allowed="false"
+                data-forge-parser-execution-allowed="false"
+              >Imprimir resumen</button>
+              <span class="fq-print-note-105dr">Abre el diálogo local del navegador para revisar como PDF o papel. No procesa datos, no guarda y no envía información.</span>
+            </div>
           </section>
-        </div>
+
+</div>
 
         <aside class="fq-safe-stack-105dr" aria-label="Estado seguro">
           <section class="fq-card-105dr">

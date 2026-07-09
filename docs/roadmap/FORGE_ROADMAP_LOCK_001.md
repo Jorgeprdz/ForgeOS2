@@ -8400,3 +8400,33 @@ LOCKED_DECISION=NEW_QUOTE_PAGE_PDF_FIRST_SCREENSHOT_EVIDENCE_READY_FOR_HUMAN_VIS
 
 NEXT=105F_QUOTE_PREVIEW_NEW_QUOTE_PAGE_HUMAN_VISUAL_CONFIRMATION
 <!-- FORGE:105E_QUOTE_PREVIEW_NEW_QUOTE_PAGE_VISUAL_QA_WITH_SCREENSHOTS:END -->
+
+<!-- FORGE:105DR3_QUOTE_PREVIEW_NEW_QUOTE_SUMMARY_PRINT_REPAIR:START -->
+## 105DR3 Quote Preview New Quote Summary Print Repair
+
+105DR3 replaces the checklist card with a quote summary review and local print action.
+
+Locked decision:
+`NEW_QUOTE_PAGE_REPAIRED_WITH_QUOTE_SUMMARY_AND_PRINT_REVIEW`
+
+Confirmed:
+
+- checklist extraction/context card removed;
+- quote summary review card added;
+- local browser print dialog button added;
+- PDF-first upload remains at top;
+- inputs remain editable;
+- sales presentation CTA remains visible and disabled;
+- PDF reading remains disabled;
+- parser execution remains disabled;
+- prompt and presentation generation remain disabled;
+- all safety flags remain false.
+
+TEST_URL=https://jorgeprdz.github.io/ForgeOS/static-preview/forge-alive/nueva-cotizacion/?v=105dr3
+
+DECISION=PASS_105DR3_QUOTE_PREVIEW_NEW_QUOTE_SUMMARY_PRINT_REPAIR
+
+LOCKED_DECISION=NEW_QUOTE_PAGE_REPAIRED_WITH_QUOTE_SUMMARY_AND_PRINT_REVIEW
+
+NEXT=105E_QUOTE_PREVIEW_NEW_QUOTE_PAGE_VISUAL_QA_WITH_SCREENSHOTS
+<!-- FORGE:105DR3_QUOTE_PREVIEW_NEW_QUOTE_SUMMARY_PRINT_REPAIR:END -->
