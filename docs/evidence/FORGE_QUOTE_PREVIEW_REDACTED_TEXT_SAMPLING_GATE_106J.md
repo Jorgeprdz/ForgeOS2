@@ -1,0 +1,189 @@
+# Forge Quote Preview Redacted Text Sampling Gate Evidence 106J
+
+PHASE=106J_QUOTE_PREVIEW_REDACTED_TEXT_SAMPLING_GATE
+STATUS=PASS
+DECISION=PASS_106J_QUOTE_PREVIEW_REDACTED_TEXT_SAMPLING_GATE
+LOCKED_DECISION=REDACTED_TEXT_SAMPLING_GATE_LOCKED_WITH_NO_FIELD_EXTRACTION_NO_PARSER_NO_QUOTE_TRUTH
+NEXT=106K_QUOTE_PREVIEW_REDACTED_TEXT_SAMPLING_DRY_RUN
+
+## Gate JSON
+
+{
+  "phase": "106J_QUOTE_PREVIEW_REDACTED_TEXT_SAMPLING_GATE",
+  "status": "PASS",
+  "decision": "PASS_106J_QUOTE_PREVIEW_REDACTED_TEXT_SAMPLING_GATE",
+  "lockedDecision": "REDACTED_TEXT_SAMPLING_GATE_LOCKED_WITH_NO_FIELD_EXTRACTION_NO_PARSER_NO_QUOTE_TRUTH",
+  "basePhase": "106I_QUOTE_PREVIEW_TEXT_LAYER_RESULT_ROUTER",
+  "schemaVersion": "106C.1",
+  "testUrl": "https://jorgeprdz.github.io/ForgeOS/static-preview/forge-alive/nueva-cotizacion/?v=105dr5",
+  "localRunDirectoryOutsideRepo": "/storage/emulated/0/Forge Gemini/pdf-dry-run-local",
+  "gateType": "redacted_text_sampling_gate_only",
+  "sourceUiChanged": false,
+  "inputResult": {
+    "textLayerPresenceCandidate": "present_candidate",
+    "pageCountCandidate": 2,
+    "ocrNeededCandidate": "no_candidate"
+  },
+  "operatorTokenRequiredFor106K": "SAMPLE_REDACTED_TEXT_ONLY",
+  "samplingDefinitionForNextPhase": {
+    "nextPhase": "106K_QUOTE_PREVIEW_REDACTED_TEXT_SAMPLING_DRY_RUN",
+    "purpose": "Create tiny redacted text samples only to learn document layout. No field extraction or parser execution.",
+    "maxSampleWindows": 6,
+    "maxCharsPerRedactedSample": 160,
+    "redactionRequiredBeforeCommit": true,
+    "rawTextCommitAllowed": false,
+    "rawPdfCommitAllowed": false,
+    "actualPdfPathCommitAllowed": false,
+    "fieldExtractionAllowed": false,
+    "parserExecutionAllowed": false,
+    "calculatorExecutionAllowed": false,
+    "quoteTruthAllowed": false
+  },
+  "allowedRedactedSampleKinds": [
+    "document_header_shape",
+    "section_heading_shape",
+    "table_header_shape",
+    "currency_marker_shape",
+    "date_marker_shape",
+    "product_label_shape",
+    "pagination_shape"
+  ],
+  "forbiddenSampleContent": [
+    "unredacted_client_identity",
+    "unredacted_quote_identifier",
+    "unredacted_policy_or_request_number",
+    "unredacted_phone_or_email",
+    "unredacted_address",
+    "unredacted_financial_amount",
+    "unredacted_sum_insured",
+    "unredacted_premium",
+    "unredacted_total_aportado",
+    "unredacted_total_recuperacion",
+    "raw_pdf_page_text",
+    "raw_pdf_binary",
+    "official_quote_truth"
+  ],
+  "redactionRulesFor106K": {
+    "clientNames": "[CLIENT_REDACTED]",
+    "quoteIds": "[QUOTE_ID_REDACTED]",
+    "currencyAmounts": "[AMOUNT_REDACTED]",
+    "percentages": "[PERCENT_REDACTED]",
+    "dates": "[DATE_REDACTED]",
+    "emails": "[EMAIL_REDACTED]",
+    "phones": "[PHONE_REDACTED]",
+    "addresses": "[ADDRESS_REDACTED]",
+    "longNumbers": "[NUMBER_REDACTED]",
+    "freeTextSensitive": "[TEXT_REDACTED]"
+  },
+  "samplingMustNotDo": [
+    "commit_raw_text",
+    "commit_actual_pdf_path",
+    "extract_fields",
+    "map_fields_to_106c_candidates",
+    "choose_financial_values",
+    "calculate_missing_values",
+    "infer_product_rules",
+    "execute_parser",
+    "execute_ocr",
+    "populate_ui",
+    "generate_prompt",
+    "generate_presentation",
+    "create_quote_truth",
+    "call_backend",
+    "write_crm"
+  ],
+  "commitSafeOutputsFor106K": [
+    "redacted_sample_windows",
+    "redaction_counts",
+    "layout_shape_report",
+    "sample_method_report",
+    "raw_text_committed_false",
+    "human_review_required"
+  ],
+  "closedGatesRemainClosed": [
+    "ocr_execution",
+    "parser_execution",
+    "field_extraction",
+    "calculator_execution",
+    "quote_truth",
+    "official_quote",
+    "ui_population",
+    "backend_connection",
+    "crm_write",
+    "prompt_generation",
+    "presentation_generation",
+    "real_effects"
+  ],
+  "safetyFlags": {
+    "crmWrite": false,
+    "pipelineWrite": false,
+    "policyWrite": false,
+    "quoteWrite": false,
+    "taskCreate": false,
+    "calendarCreate": false,
+    "messageSend": false,
+    "authReal": false,
+    "providerRuntime": false,
+    "secretAccess": false,
+    "browserPersistence": false,
+    "realEngineExecution": false,
+    "realEffectsAllowed": false,
+    "realEffectsEnabled": false,
+    "backendConnection": false,
+    "pdfRead": false,
+    "ocrExecution": false,
+    "parserExecution": false,
+    "calculatorExecution": false,
+    "banxicoCall": false,
+    "testExecution": false,
+    "officialQuoteAllowed": false,
+    "providerRuntimeAllowed": false,
+    "calculatorExecutionAllowed": false,
+    "parserExecutionAllowed": false,
+    "backendConnectionAllowed": false,
+    "quoteTruthAllowed": false,
+    "presentationGenerationAllowed": false,
+    "promptGenerationAllowed": false,
+    "pdfSubmitAllowed": false,
+    "printAutomation": false
+  },
+  "next": "106K_QUOTE_PREVIEW_REDACTED_TEXT_SAMPLING_DRY_RUN"
+}
+
+## Validation JSON
+
+{
+  "phase": "106J_QUOTE_PREVIEW_REDACTED_TEXT_SAMPLING_GATE",
+  "status": "PASS",
+  "decision": "PASS_106J_QUOTE_PREVIEW_REDACTED_TEXT_SAMPLING_GATE",
+  "lockedDecision": "REDACTED_TEXT_SAMPLING_GATE_LOCKED_WITH_NO_FIELD_EXTRACTION_NO_PARSER_NO_QUOTE_TRUTH",
+  "textLayerPresenceCandidate": "present_candidate",
+  "pageCountCandidate": 2,
+  "ocrNeededCandidate": "no_candidate",
+  "gateType": "redacted_text_sampling_gate_only",
+  "operatorTokenRequiredFor106K": "SAMPLE_REDACTED_TEXT_ONLY",
+  "redactionRequiredBeforeCommit": true,
+  "rawTextCommitAllowed": false,
+  "fieldExtractionAllowed": false,
+  "parserExecutionAllowed": false,
+  "ocrExecutionAllowed": false,
+  "calculatorExecutionAllowed": false,
+  "quoteTruthAllowed": false,
+  "sourceUiChanged": false,
+  "allSafetyFlagsFalse": true,
+  "next": "106K_QUOTE_PREVIEW_REDACTED_TEXT_SAMPLING_DRY_RUN",
+  "errors": []
+}
+
+## Confirmed
+
+- Redacted text sampling gate locked.
+- Text layer present route confirmed.
+- Operator token required for 106K.
+- Redaction before commit required.
+- Raw text commit forbidden.
+- Field extraction forbidden.
+- Parser execution forbidden.
+- OCR execution forbidden.
+- Quote truth forbidden.
+- Source UI was not changed.

@@ -12213,3 +12213,39 @@ LOCKED_DECISION=TEXT_LAYER_PRESENT_ROUTE_LOCKED_TO_REDACTED_TEXT_SAMPLING_GATE
 
 NEXT=106J_QUOTE_PREVIEW_REDACTED_TEXT_SAMPLING_GATE
 <!-- FORGE:106I_QUOTE_PREVIEW_TEXT_LAYER_RESULT_ROUTER:END -->
+
+<!-- FORGE:106J_QUOTE_PREVIEW_REDACTED_TEXT_SAMPLING_GATE:START -->
+## 106J Quote Preview Redacted Text Sampling Gate
+
+106J locks the gate for future redacted text sampling from the real PDF text layer.
+
+Locked decision:
+`REDACTED_TEXT_SAMPLING_GATE_LOCKED_WITH_NO_FIELD_EXTRACTION_NO_PARSER_NO_QUOTE_TRUTH`
+
+Confirmed:
+
+- redacted text sampling gate locked;
+- text layer present route confirmed;
+- operator token required for 106K;
+- redaction before commit required;
+- raw text commit forbidden;
+- field extraction forbidden;
+- parser execution forbidden;
+- OCR execution forbidden;
+- calculator execution forbidden;
+- quote truth forbidden;
+- source UI was not changed;
+- all safety flags remain false.
+
+TEXT_LAYER_PRESENCE_CANDIDATE=present_candidate
+
+PAGE_COUNT_CANDIDATE=2
+
+OCR_NEEDED_CANDIDATE=no_candidate
+
+DECISION=PASS_106J_QUOTE_PREVIEW_REDACTED_TEXT_SAMPLING_GATE
+
+LOCKED_DECISION=REDACTED_TEXT_SAMPLING_GATE_LOCKED_WITH_NO_FIELD_EXTRACTION_NO_PARSER_NO_QUOTE_TRUTH
+
+NEXT=106K_QUOTE_PREVIEW_REDACTED_TEXT_SAMPLING_DRY_RUN
+<!-- FORGE:106J_QUOTE_PREVIEW_REDACTED_TEXT_SAMPLING_GATE:END -->
