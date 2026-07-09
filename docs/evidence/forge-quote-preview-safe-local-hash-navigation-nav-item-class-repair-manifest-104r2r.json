@@ -1,0 +1,33 @@
+{
+  "phase": "104R2R_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_NAV_ITEM_CLASS_REPAIR",
+  "status": "PASS",
+  "patchedFiles": [
+    {
+      "path": "docs/static-preview/forge-alive/index.html",
+      "operations": [
+        "removed standalone 102B link block if present",
+        "forced Cotizaciones nav item to styled anchor with class",
+        "added pill-style static HTML attribute to suppress default link rendering",
+        "preserved static href #cotizaciones",
+        "preserved target id cotizaciones",
+        "added 104R2R safety metadata"
+      ]
+    }
+  ],
+  "patchedFileCount": 1,
+  "onlyIndexHtmlEdited": true,
+  "standaloneVisible102BLinkRemoved": true,
+  "cotizacionesNavHasClass": true,
+  "cotizacionesNavHasPillStyle": true,
+  "cotizacionesNavHrefCotizaciones": true,
+  "scriptTagCreated": false,
+  "inlineEventHandlerCreated": false,
+  "javascriptListenerCreated": false,
+  "imperativeNavigationCreated": false,
+  "javascriptSourceEdited": false,
+  "cssSourceEdited": false,
+  "runtimeExecutionPerformed": false,
+  "realEffectsPerformed": false,
+  "errors": [],
+  "next": "104A_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_VISUAL_CONFIRMATION_SCOPE"
+}

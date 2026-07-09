@@ -9067,3 +9067,35 @@ LOCKED_DECISION=QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_REPAIRED_TO_EXISTING_NA
 
 NEXT=104A_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_VISUAL_CONFIRMATION_SCOPE
 <!-- FORGE:104R_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_VISIBLE_LINK_UI_REPAIR:END -->
+
+<!-- FORGE:104R2R_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_NAV_ITEM_CLASS_REPAIR:START -->
+## 104R2R Quote Preview Safe Local Hash Navigation Nav Item Class Repair
+
+104R2R repairs the missing class/plain-link visual issue.
+
+Locked decision:
+`QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_REPAIRED_TO_STYLED_ANCHOR_NAV_ITEM`
+
+Confirmed:
+
+- Cotizaciones nav item has class;
+- Cotizaciones nav item has static pill styling;
+- Cotizaciones nav item preserves `href="#cotizaciones"`;
+- target `id="cotizaciones"` preserved exactly once;
+- standalone 102B link removed;
+- no script tag created;
+- no inline event handler created;
+- no JavaScript listener created;
+- no imperative navigation created;
+- no runtime execution performed;
+- no real effects performed;
+- all safety flags remain false.
+
+TEST_URL=https://jorgeprdz.github.io/ForgeOS/static-preview/forge-alive/?v=104r2r#cotizaciones
+
+DECISION=PASS_104R2R_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_NAV_ITEM_CLASS_REPAIR
+
+LOCKED_DECISION=QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_REPAIRED_TO_STYLED_ANCHOR_NAV_ITEM
+
+NEXT=104A_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_VISUAL_CONFIRMATION_SCOPE
+<!-- FORGE:104R2R_QUOTE_PREVIEW_SAFE_LOCAL_HASH_NAVIGATION_NAV_ITEM_CLASS_REPAIR:END -->
