@@ -1,0 +1,172 @@
+{
+  "chain": "107Z15E8J_DEDICATED_QUOTE_PREVIEW_CONFIRMATION_POPUP_HOST_CREATION_SCOPE_GATE",
+  "scopeId": "QUOTE_PREVIEW_CONFIRMATION_POPUP_HOST_V1",
+  "hostType": "POPUP_MODAL_ONLY",
+  "status": "PASS",
+  "authorizationComplete": true,
+  "previousReconciliationProof": "/storage/emulated/0/ForgeGemini/Reports/107Z15E8I_20260710_163021/107Z15E8I_PROOF_20260710_163021.json",
+  "previousHostDecision": "NO_EXISTING_RUNTIME_HOST_OWNER_FOUND",
+  "decision": "AUTHORIZE_DEDICATED_QUOTE_PREVIEW_CONFIRMATION_POPUP_HOST",
+  "popupOnly": true,
+  "noFurtherDiscovery": true,
+  "sourceChangeAuthorized": true,
+  "allowedSourceFiles": [
+    "platform/ui/quote-preview/quote-preview-confirmation-popup-host.js",
+    "platform/ui/quote-preview/quote-preview-confirmation-popup-host.test.js"
+  ],
+  "authorizedApi": {
+    "exportName": "createQuotePreviewConfirmationPopup",
+    "signature": "function createQuotePreviewConfirmationPopup(options = {})",
+    "requiredOptions": {
+      "documentLike": "injected DOM-like object exposing createElement",
+      "mountTarget": "injected node exposing appendChild and removeChild",
+      "store": "official persistence store interface",
+      "createPreviewResultId": "function returning a non-empty previewResultId",
+      "now": "function returning current epoch milliseconds",
+      "ttlMs": "positive finite lifetime in milliseconds"
+    },
+    "optionalOptions": {
+      "title": "popup title; defaults to Confirmar cotización",
+      "onPersisted": "called after successful accept persistence",
+      "onEditRequested": "called with pending preview after Editar",
+      "onClosed": "called after popup closes",
+      "onError": "called after accept-handler failure",
+      "formatFieldValue": "optional pure formatter for displayed values"
+    },
+    "returnShape": {
+      "open": "open(preview) mounts one popup with the eight canonical fields",
+      "close": "close(reason) unmounts the popup and clears pending preview",
+      "dispose": "idempotent permanent cleanup",
+      "getState": "returns frozen popup state"
+    }
+  },
+  "authorizedUi": {
+    "hostType": "POPUP_MODAL_ONLY",
+    "rootRole": "dialog",
+    "modal": true,
+    "title": "Confirmar cotización",
+    "fieldCount": 8,
+    "canonicalFieldOrder": [
+      "name",
+      "family",
+      "product",
+      "insured",
+      "sumAssured",
+      "annualPremium",
+      "plannedOrAvePremium",
+      "coveragePeriod"
+    ],
+    "buttons": [
+      {
+        "action": "edit",
+        "label": "Editar",
+        "persists": false,
+        "closesPopup": true
+      },
+      {
+        "action": "accept",
+        "label": "Aceptar",
+        "persists": true,
+        "closesAfterSuccess": true
+      }
+    ],
+    "pageNavigation": false,
+    "routeOwnership": false,
+    "dashboardOwnership": false,
+    "fullScreenOwnership": false
+  },
+  "authorizedFlow": [
+    "create popup elements only through injected documentLike",
+    "append one popup root to injected mountTarget only when open(preview) is called",
+    "store exactly one pending preview while the popup is open",
+    "render the eight canonical fields in the approved order",
+    "create exactly two action buttons: Editar and Aceptar",
+    "bind those two created buttons through bindQuotePreviewConfirmationUiSurface",
+    "Aceptar delegates to the completed confirmed-persistence stack",
+    "Aceptar closes the popup only after successful persistence",
+    "Editar performs zero persistence, invokes onEditRequested, and closes the popup",
+    "close clears pending preview and removes popup-owned listeners and nodes",
+    "dispose is idempotent and permanently disables reopening"
+  ],
+  "requiredTests": [
+    "reject invalid documentLike",
+    "reject invalid mountTarget",
+    "reject invalid official store",
+    "create no UI before open(preview)",
+    "open mounts exactly one popup root",
+    "root has dialog semantics and modal state",
+    "render exactly eight canonical fields in approved order",
+    "render exactly two buttons labeled Editar and Aceptar",
+    "opening while already open replaces no node and updates pending preview deterministically",
+    "Aceptar persists through the existing surface binding stack",
+    "Aceptar closes only after successful persistence",
+    "Aceptar failure leaves the popup open and calls onError",
+    "Editar performs zero store writes and zero store reads",
+    "Editar calls onEditRequested with the pending preview",
+    "Editar closes the popup",
+    "close clears pending preview and unmounts the root",
+    "dispose is idempotent",
+    "open after dispose is rejected",
+    "no route, page, dashboard, generic-host, direct localStorage, or backend creation is introduced"
+  ],
+  "forbiddenChanges": [
+    "any runtime source file other than the two allowed files",
+    "the existing UI surface binding",
+    "the existing UI wiring",
+    "the confirmed persistence adapter",
+    "the persistence coordinator",
+    "the persistence contract",
+    "the persistence store",
+    "utils.js",
+    "manager-os/provider-runtime/provider-runtime-boundary-contract.js",
+    "full page, route, screen, dashboard, shell, or application host",
+    "generic UI host or reusable modal framework",
+    "automatic target discovery",
+    "document.querySelector or document.getElementById",
+    "global window or global document lookup",
+    "direct localStorage access",
+    "store or backend creation",
+    "new extraction engine",
+    "generic cross-domain bridge",
+    "hardcoded quote values",
+    "persistence on Editar",
+    "promotion of PDF extraction to official quote truth"
+  ],
+  "dependencyContract": {
+    "surfaceBindingPath": "platform/adapters/quote-preview/quote-preview-controlled-browser-confirmation-ui-surface-binding.js",
+    "surfaceBindingExport": "bindQuotePreviewConfirmationUiSurface",
+    "documentPolicy": "documentLike must be injected; global document lookup is forbidden",
+    "mountPolicy": "popup mounts only into the injected mountTarget",
+    "storePolicy": "official store is injected and forwarded; popup creates no backend"
+  },
+  "lifecycleSemantics": {
+    "startsClosed": true,
+    "onePopupAtATime": true,
+    "onePendingPreviewAtATime": true,
+    "acceptClosesAfterSuccess": true,
+    "acceptFailureKeepsOpen": true,
+    "editPersists": false,
+    "editStoreWrites": 0,
+    "editStoreReads": 0,
+    "editCloses": true,
+    "closeClearsPending": true,
+    "disposeIdempotent": true
+  },
+  "scopeExclusions": {
+    "fullPageAllowed": false,
+    "routingAllowed": false,
+    "dashboardAllowed": false,
+    "genericHostAllowed": false,
+    "automaticTargetDiscoveryAllowed": false,
+    "directLocalStorageAllowed": false,
+    "backendCreationAllowed": false,
+    "furtherDiscoveryAllowed": false
+  },
+  "next": "107Z15E8K_QUOTE_PREVIEW_CONFIRMATION_POPUP_HOST_SCOPED_IMPLEMENTATION_GATE",
+  "sourceCodeWritten": false,
+  "browserExecuted": false,
+  "pdfReadExecuted": false,
+  "localStorageWriteExecuted": false,
+  "backendConnection": false,
+  "quoteTruthAllowed": false
+}
