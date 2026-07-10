@@ -1,0 +1,925 @@
+{
+  "chain": "107Z8S2_ADR_0027_REGISTRY_NORMALIZATION_OR_SOURCE_AUTHORITY_DECISION_GATE",
+  "status": "PASS",
+  "generated_at_local_stamp": "20260709_235147",
+  "classification": {
+    "OUTCOME": "ADR_0027_REGISTRY_GAP_CLASSIFIED",
+    "REGISTRY_NORMALIZATION_REQUIRED": true,
+    "CANONICAL_SOURCE_CREATION_REQUIRED": false,
+    "EXPLICIT_SOURCE_AUTHORITY_DECISION_REQUIRED": false,
+    "RECOMMENDED_AUTHORITY_ACTION": "AUTHORITATIVE_RULE_REVIEW_REQUIRED_BEFORE_SOURCE_NORMALIZATION",
+    "PROPOSED_EXISTING_SOURCE_PATH": "",
+    "RULE_CONSENSUS_PROVEN": false,
+    "RULE_BODY_DOCUMENT_COUNT": 1,
+    "CANDIDATE_DOCUMENT_COUNT": 4,
+    "SOURCE_LIKE_CANDIDATE_COUNT": 0,
+    "ACCEPTED_SOURCE_LIKE_COUNT": 0,
+    "SOURCE_AUTHORITY_PROVEN": false,
+    "SOURCE_AUTHORITY_PATH": "",
+    "SOURCE_AUTHORITY_AMBIGUOUS": true,
+    "NEXT_GATE": "107Z8S3_ADR_0027_SOURCE_AUTHORITY_EXPLICIT_DECISION_GATE"
+  },
+  "classified_candidates": [
+    {
+      "path": "docs/02-adr-candidates/ADR-0027_COMPENSATION_RULE_PACK_BOUNDARY.md",
+      "sha256": "1be9ce09c94bccbfbcf3813ed2061330cb2b30969c9a5fb98147e47db9c07786",
+      "category": "INDIRECT_ADR_REFERENCE",
+      "reasons": [
+        "identifier_or_indirect_reference_only"
+      ],
+      "status": "unknown",
+      "has_adr_0027_id": true,
+      "has_exact_rule_title": false,
+      "has_hidden_latest_rule": false,
+      "has_explicit_contract": true
+    },
+    {
+      "path": "compensation/partner-manager/partner-payment-cadence-engine.js",
+      "sha256": "358b0a3fb58ce20c179babaf04248890afc0e20cc46d0904c9f928a03bdce7e4",
+      "category": "RUNTIME_RULE_REFERENCE",
+      "reasons": [
+        "runtime_source_file"
+      ],
+      "status": "unknown",
+      "has_adr_0027_id": true,
+      "has_exact_rule_title": false,
+      "has_hidden_latest_rule": true,
+      "has_explicit_contract": true
+    },
+    {
+      "path": "docs/06-repository-governance/reports/migration-inventory.json",
+      "sha256": "79f7272027e35647342b3c0f4dc303f8dd2abeeac01dcd5acaf32517273eaeb5",
+      "category": "EVIDENCE_OR_REPORT_REFERENCE",
+      "reasons": [
+        "evidence_or_report_path"
+      ],
+      "status": "unknown",
+      "has_adr_0027_id": true,
+      "has_exact_rule_title": false,
+      "has_hidden_latest_rule": false,
+      "has_explicit_contract": false
+    },
+    {
+      "path": "docs/06-repository-governance/reports/test-output/migration-inventory.json",
+      "sha256": "0a0ac2ecf645d15b993090b5585f73be1184cd97775de9710e5471cc4f600ef6",
+      "category": "EVIDENCE_OR_REPORT_REFERENCE",
+      "reasons": [
+        "evidence_or_report_path"
+      ],
+      "status": "unknown",
+      "has_adr_0027_id": true,
+      "has_exact_rule_title": false,
+      "has_hidden_latest_rule": false,
+      "has_explicit_contract": false
+    }
+  ],
+  "source_like_candidates": [],
+  "authority_candidates": [
+    {
+      "path": "docs/00-governance/FORGE_GOVERNANCE_REGISTRY.md",
+      "score": 60,
+      "reasons": [
+        "governance_path",
+        "registry_path",
+        "authority_language"
+      ],
+      "sha256": "3fe181dff961ee526894d1aa2fa46a291a6a4ba1d5d0ef19a7832e150f0d075b"
+    },
+    {
+      "path": "FORGE_CONSTITUTION_V3.md",
+      "score": 55,
+      "reasons": [
+        "constitutional_path",
+        "authority_language",
+        "adr_entries"
+      ],
+      "sha256": "e8e2a19bb182510bf8d7c5d6b2f8fc874d815d95bb468a62e45f3d4c01b4728c"
+    },
+    {
+      "path": "adr/ADR_CONSTITUTIONAL_PHASE_LOCK_REPORT.txt",
+      "score": 55,
+      "reasons": [
+        "constitutional_path",
+        "authority_language",
+        "adr_entries"
+      ],
+      "sha256": "6789dc3f12fe08cf36e24146a8bd0d4af4136db5ac24180eee15ce038e8cad10"
+    },
+    {
+      "path": "docs/01-constitution/FORGE_CONSTITUTION_DIGEST_001.md",
+      "score": 55,
+      "reasons": [
+        "constitutional_path",
+        "authority_language",
+        "adr_entries"
+      ],
+      "sha256": "9446a7fdf48326665dc0a8c69b60f1088a1c3ea15089bba05c637a3c59e5272f"
+    },
+    {
+      "path": "docs/01-constitution/FORGE_CONSTITUTION_MAP.md",
+      "score": 55,
+      "reasons": [
+        "constitutional_path",
+        "authority_language",
+        "adr_entries"
+      ],
+      "sha256": "f798f06b44ff29dacec607d1027256d541c42aa83c61bc1fb5400b4bb6990771"
+    },
+    {
+      "path": "docs/01-constitution/FORGE_PHASE_TRANSITION_CONSTITUTION_TO_IMPLEMENTATION.txt",
+      "score": 55,
+      "reasons": [
+        "constitutional_path",
+        "authority_language",
+        "adr_entries"
+      ],
+      "sha256": "8f10fe6033b06ee93e90f39c6e3429937f947aa636baefa5b059dc15c90cae54"
+    },
+    {
+      "path": "docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md",
+      "score": 45,
+      "reasons": [
+        "constitutional_path",
+        "authority_language"
+      ],
+      "sha256": "7ac841a69dc408d898750d5020c04f4ee75546c5b0c20b40f94320157d35edcd"
+    },
+    {
+      "path": "docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.txt",
+      "score": 45,
+      "reasons": [
+        "constitutional_path",
+        "authority_language"
+      ],
+      "sha256": "732ed43ec999142851136323a0b0c778810b825647d337deb729b3bfbdfec321"
+    },
+    {
+      "path": "docs/01-constitution/FORGE_CONSTITUTION_CANDIDATES.md",
+      "score": 45,
+      "reasons": [
+        "constitutional_path",
+        "authority_language"
+      ],
+      "sha256": "1da2b3e342a6c2a10104863549572249c0ce389f0818d03c9d53e4bd0225f13c"
+    },
+    {
+      "path": "docs/01-constitution/FORGE_CONSTITUTION_LOCK_PREPARATION.md",
+      "score": 45,
+      "reasons": [
+        "constitutional_path",
+        "authority_language"
+      ],
+      "sha256": "ca3b95e75397b9420ca2e18cbb385f5cf11cbcf959a6dae7a6f1a3cb70d8e499"
+    },
+    {
+      "path": "docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.md",
+      "score": 45,
+      "reasons": [
+        "constitutional_path",
+        "authority_language"
+      ],
+      "sha256": "20896bc1d9ea988fe460741ddeff39ab85236a8cc620b957a692d63be9ee890b"
+    },
+    {
+      "path": "docs/01-constitution/FORGE_RATIFICATION_AND_FOUNDATION_CLOSURE.txt",
+      "score": 45,
+      "reasons": [
+        "constitutional_path",
+        "authority_language"
+      ],
+      "sha256": "0f87dbf821424db51c46bf74be035774fcfa90fba83bf8f7eebc9300f26210c2"
+    },
+    {
+      "path": "docs/01-constitution/FORGE_TRUTH_CLASSIFICATION_MATRIX.md",
+      "score": 45,
+      "reasons": [
+        "constitutional_path",
+        "authority_language"
+      ],
+      "sha256": "0e2d78c3208d71deceaeca5466a2f512674f68302d60a0194ac06a4d47afce89"
+    },
+    {
+      "path": "docs/01-constitution/PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.md",
+      "score": 45,
+      "reasons": [
+        "constitutional_path",
+        "authority_language"
+      ],
+      "sha256": "ede6307822f08a75fd2e6e1ee121edc850b46a9752017ec19465b1663705116f"
+    },
+    {
+      "path": "docs/01-constitution/PAQ-08.5-ARCHITECTURE-RISK-CORRECTION-RATIFICATION.txt",
+      "score": 45,
+      "reasons": [
+        "constitutional_path",
+        "authority_language"
+      ],
+      "sha256": "c42b5a929c5cd4eb08f6944a5e3bcddb1f3719698ac109af92bcaa414dee8d2e"
+    },
+    {
+      "path": "docs/03-discovery/REPO-001_REPOSITORY_GOVERNANCE_DISCOVERY_REPORT.md",
+      "score": 45,
+      "reasons": [
+        "governance_path",
+        "authority_language",
+        "adr_entries"
+      ],
+      "sha256": "5ce2a9e9f263d4e9cd326b3610c3c3b30479c4d490f428a1d3d9b9ef10d4d808"
+    },
+    {
+      "path": "docs/05-truth/RULE_SNAPSHOT_GOVERNANCE_001.md",
+      "score": 45,
+      "reasons": [
+        "governance_path",
+        "authority_language",
+        "adr_entries"
+      ],
+      "sha256": "1bb5f181a69db1b4eb50c7ea8701b9a3069e4b7143390e6b7a1102434a236340"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-018_REPOSITORY_MIGRATION_CLOSURE_REPORT.md",
+      "score": 45,
+      "reasons": [
+        "governance_path",
+        "authority_language",
+        "adr_entries"
+      ],
+      "sha256": "d80e11c96c161c570589396481e44f6e88b1130740e2b0e2d45f3656fadbd8c0"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO_MIGRATION_HARNESS_v1.md",
+      "score": 45,
+      "reasons": [
+        "governance_path",
+        "authority_language",
+        "adr_entries"
+      ],
+      "sha256": "caccc159dbfc9fa879360841ebc63e10a7de32f615d3943a247f0f0407a728db"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/migration-inventory.json",
+      "score": 45,
+      "reasons": [
+        "governance_path",
+        "authority_language",
+        "adr_entries"
+      ],
+      "sha256": "79f7272027e35647342b3c0f4dc303f8dd2abeeac01dcd5acaf32517273eaeb5"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/test-output/migration-inventory.json",
+      "score": 45,
+      "reasons": [
+        "governance_path",
+        "authority_language",
+        "adr_entries"
+      ],
+      "sha256": "0a0ac2ecf645d15b993090b5585f73be1184cd97775de9710e5471cc4f600ef6"
+    },
+    {
+      "path": "docs/99-archive/superseded/FORGE_CONSTITUTION_AMENDMENT_v1.1_ROOT_CONVERSION.md",
+      "score": 45,
+      "reasons": [
+        "constitutional_path",
+        "authority_language"
+      ],
+      "sha256": "de300a72e64a08b3ee096ea7438cd4caf8bf1e1c437d8cfb2342fd614a26b6ef"
+    },
+    {
+      "path": "docs/01-constitution/FORGE_ARCHITECTURAL_CONSTITUTION_v3.md",
+      "score": 40,
+      "reasons": [
+        "constitutional_path",
+        "adr_entries"
+      ],
+      "sha256": "99586bde3a5f219856ebd2da7bad6c01365ef5c495c9a5864c438eb8dee3be5f"
+    },
+    {
+      "path": "docs/00-governance/FORGE_ROBOCOP_DIRECTIVES.md",
+      "score": 35,
+      "reasons": [
+        "governance_path",
+        "authority_language"
+      ],
+      "sha256": "bcf2ff6d006b361efd82ed2cf91b98b3148d15e1f326a603f21f70491b83582b"
+    },
+    {
+      "path": "docs/06-repository-governance/FORGE_CODEBASE_DOMAIN_ASSIGNMENT_SUMMARY.md",
+      "score": 35,
+      "reasons": [
+        "governance_path",
+        "authority_language"
+      ],
+      "sha256": "a42f74f277b87344a4304175c1af2b2961e187345aa2ae2ada9442cf69ccd28d"
+    },
+    {
+      "path": "docs/06-repository-governance/FORGE_CODEBASE_MODULE_INVENTORY_REPORT.txt",
+      "score": 35,
+      "reasons": [
+        "governance_path",
+        "authority_language"
+      ],
+      "sha256": "e1e42dadcfd40af2ec68d68f36e2c251748c216116439b871cea438a6185867a"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-006_DESTINATION_OVERWRITE_RISK_ANALYSIS.md",
+      "score": 35,
+      "reasons": [
+        "governance_path",
+        "authority_language"
+      ],
+      "sha256": "e74a70d135556ff132ef622f390fc09b156de5bf015e7fc303c2acf3b9fcd53b"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-011_ARCHIVE_REFERENCE_ANALYSIS.md",
+      "score": 35,
+      "reasons": [
+        "governance_path",
+        "authority_language"
+      ],
+      "sha256": "d3fcef186a0adb5601f524843c3ff795d361f6c71eb2eb7ecfabbe219167402f"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-012_WAVE_A_REWRITE_MAP.json",
+      "score": 35,
+      "reasons": [
+        "governance_path",
+        "authority_language"
+      ],
+      "sha256": "2d41a477a15200d773f1b35d0b896ee5199901fba985cf468b3a301029c38ffa"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-012_WAVE_A_REWRITE_MAP.md",
+      "score": 35,
+      "reasons": [
+        "governance_path",
+        "authority_language"
+      ],
+      "sha256": "77b0f34061017d8f46413267258f83d8dc8b151cd10b1f0536be6abc28d461ca"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-014_FINAL_7_LINK_RESOLUTION_PLAN.md",
+      "score": 35,
+      "reasons": [
+        "governance_path",
+        "authority_language"
+      ],
+      "sha256": "97d323bf05f845c4dd799876dea0c139c669127c133f661e6bdfb309f3b09c7b"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-014_REMAINING_LINK_GOVERNANCE_REPORT.md",
+      "score": 35,
+      "reasons": [
+        "governance_path",
+        "authority_language"
+      ],
+      "sha256": "eca05ab400537075e25cc98aa057c1c852596cf1f91d24f90446942e46b70150"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-015_EXECUTION_REPORT.md",
+      "score": 35,
+      "reasons": [
+        "governance_path",
+        "authority_language"
+      ],
+      "sha256": "a70e74144f34aa3822383d4757153dacf9b07fab6cdebbc2d07b13c1472aa690"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-016_EXECUTION_READINESS_REPORT.md",
+      "score": 35,
+      "reasons": [
+        "governance_path",
+        "authority_language"
+      ],
+      "sha256": "c673a43a9b6144060db5ad3db1284d554eb59f6141dcae1f3a3f4c0bed61236e"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-016_PROJECTION_EVIDENCE_MOVE_MAP.md",
+      "score": 35,
+      "reasons": [
+        "governance_path",
+        "authority_language"
+      ],
+      "sha256": "c2eb2471affdbb79b2c36018eaf2c05112314a43629662ea4fc13cfeca87a47a"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-016_PROJECTION_EVIDENCE_OWNERSHIP_ANALYSIS.md",
+      "score": 35,
+      "reasons": [
+        "governance_path",
+        "authority_language"
+      ],
+      "sha256": "6ef027f41a1f7b02faa4a2a554e0b091408e870cf7471869fc47932cc69a2505"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-018_EXECUTIVE_SUMMARY.md",
+      "score": 35,
+      "reasons": [
+        "governance_path",
+        "authority_language"
+      ],
+      "sha256": "8e0794c61ad96b33ca0bdb9268e9b74116fc279deacf2f89989f4e1f59ba7ea2"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-019_ROOT_SURFACE_GOVERNANCE_AUDIT.md",
+      "score": 35,
+      "reasons": [
+        "governance_path",
+        "authority_language"
+      ],
+      "sha256": "5a33c66a8ff94cd43e7973fb705fdd866b985a8dff6c2c7d16fdde7ca42725e4"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-019_ROOT_SURFACE_MODEL.md",
+      "score": 35,
+      "reasons": [
+        "governance_path",
+        "authority_language"
+      ],
+      "sha256": "2626e05a1aaf800548d1a4557f3f69cbcecc59ff4f0386f9348d13159b64b889"
+    },
+    {
+      "path": "docs/07-runtime/RUNTIME-006_RUNTIME_GOVERNANCE_REPORT.md",
+      "score": 35,
+      "reasons": [
+        "governance_path",
+        "authority_language"
+      ],
+      "sha256": "fb2299e36a12fc5564b3e0b79f2236e3d901393f9c164787865effed921298e2"
+    },
+    {
+      "path": "docs/01-constitution/FORGE_ARTICLE_0_DISCOVERY.md",
+      "score": 30,
+      "reasons": [
+        "constitutional_path"
+      ],
+      "sha256": "d4eb2e54c81a46a25e0a5e55fe6bcd2f4bd46a7d595fe5c90dea1fba7587d310"
+    },
+    {
+      "path": "docs/01-constitution/FORGE_ARTICLE_0_POSITION_IN_CONSTITUTION.md",
+      "score": 30,
+      "reasons": [
+        "constitutional_path"
+      ],
+      "sha256": "f6649bcb7c3e64bb26614fc40867cc72b4522c24eb276a214fca5af9aa60cb9a"
+    },
+    {
+      "path": "docs/01-constitution/FORGE_ARTICLE_0_SUCCESS_MEASURES.md",
+      "score": 30,
+      "reasons": [
+        "constitutional_path"
+      ],
+      "sha256": "f92fb71a413812dbb890d8df72e3917622f7f481cde45492b79c584820d9ce9e"
+    },
+    {
+      "path": "docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.3.md",
+      "score": 30,
+      "reasons": [
+        "constitutional_path"
+      ],
+      "sha256": "80aef8a0c64c17e394eba3cb57585159c654d5d4ba499e8ca62fc4261d711bb0"
+    },
+    {
+      "path": "docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.4.md",
+      "score": 30,
+      "reasons": [
+        "constitutional_path"
+      ],
+      "sha256": "748dd05e03ce07cab395782e0d2f25e0365d4a45e9b90121bfc087c57373e7fd"
+    },
+    {
+      "path": "docs/01-constitution/FORGE_TRUTH_DEPENDENCY_MAP.md",
+      "score": 30,
+      "reasons": [
+        "constitutional_path"
+      ],
+      "sha256": "060f9e8c0bab58014a65ece208a62c5565b651012b35913ea760706745c6a263"
+    },
+    {
+      "path": "docs/02-adr-candidates/ADR-0021_CANDIDATE_INTELLIGENCE_GOVERNANCE.md",
+      "score": 30,
+      "reasons": [
+        "governance_path",
+        "adr_entries"
+      ],
+      "sha256": "dcea6463e7b0ba6cf0abb8149b695a0eb2d1a71c2c475b615ac3b77098af4c82"
+    },
+    {
+      "path": "docs/00-governance/FORGE_ROBOCOP_AI_INTERPRETATION_ADDENDUM.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "cde12aa0caf1310361035261a79c095f3007840896f110ef4ef63a8ab4bcfdc4"
+    },
+    {
+      "path": "docs/03-discovery/FORGE_SKYNET_GOVERNANCE_MODEL.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "7375cda4e1ab386bc964a8f60032d416d256e7b4da12fe21eac660a64c5a3596"
+    },
+    {
+      "path": "docs/06-repository-governance/FORGE_CODEBASE_BUILD_TREE_UPDATE_REPORT.txt",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "135f829e9bf5378230e38de0df246ade838fa8fcb20976974753b2e25750d8b0"
+    },
+    {
+      "path": "docs/06-repository-governance/FORGE_CODEBASE_CARTOGRAPHY_PHASE_1.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "1d6fbcced82a877940da49c24be1ad03814782f7ea23d76a32dc3c4c94ff0030"
+    },
+    {
+      "path": "docs/06-repository-governance/FORGE_CODEBASE_DOMAIN_ASSIGNMENT_CONCISE.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "542df2c28a80a8be88247f308192f7c4881bacb9175c8a3f2402e26257d4dbe2"
+    },
+    {
+      "path": "docs/06-repository-governance/FORGE_CODEBASE_MODULE_TO_BRANCH_MAP.txt",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "de2f75796eea8827efd7fbe7cc5892e5f4e35c84dc6b8909af7e19ab03aaefa6"
+    },
+    {
+      "path": "docs/06-repository-governance/FORGE_CODEBASE_UNKNOWN_REVIEW_QUEUE.txt",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "ccf932139d57edce537ce488a35f0a30619c3490b72df18913c787c85c40188f"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-005_DOCUMENT_MIGRATION_EXECUTION_PLAN.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "f54e774d167e413bcfc8d13b16f455048f3cf6ad083be007c25e6c5e4b2c7952"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-008_BROKEN_LINK_TRIAGE_REPORT.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "c67ae0b75d119d3a7d72387e529de6b1d8522c5098d03cbcb09eff9315f6351a"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-008_BROKEN_LINK_TRIAGE_SUMMARY.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "a24ccae5f1881f0b2bc65a6f3e209da1c65410e8175560facbf2ffcf0254f151"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-009_AUTO_FIX_REWRITE_MAP.json",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "a0f460c1b11a5367f17fc1fbf6de2ed2242d16efef8afb784b0913f9e90c6d80"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-009_AUTO_FIX_REWRITE_MAP.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "bd248680dc4d419e05fd9a7d0bb18b57a9cf180fceb9c8a4653f9362141ef3ab"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-010_EXECUTION_REPORT.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "ce5ecc378bd179d50420e3b313c56df3dca5b07b29a98a4365dbab4dcf1a3b32"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-011_ARCHIVE_REFERENCE_SUMMARY.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "f60147b15eaa9a003c4f246d3cc7c8d31a5bbf3cde4de68ee461793a35083989"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-011_NEEDS_MOVE_AUDIT.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "cd131e706abb514c5711755f5195c3c734019219b94772bb482a2c2d01ffaae3"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-012_EXECUTION_READINESS_REPORT.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "a3d54e09fa65e4ce3a4cc0282ff8a844ac2c36546e886f0c83bea5e8d0a1363c"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-013_EXECUTION_REPORT.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "45ef09f99aa1c31eb2be22c9a1fe46d734551ed88902952ce2e23410062f6bd1"
+    },
+    {
+      "path": "docs/06-repository-governance/REPO-017_EXECUTION_REPORT.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "93e442830130626e21167bd5aac5eb601e521bb59f374dee4eef3a86f7aed2d4"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/ROOT_DOCS_MIGRATION_BATCH_3_MOVE_MAP.json",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "152b0be7f1052634f84e4dbe768f4e8d7a7d9f2c38c7015cc00751583ad72440"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/ROOT_DOCS_MIGRATION_BATCH_3_MOVE_MAP.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "79003d02aa146db45d5992641aebc5757213d02a069e1ee65a28d424a7307c1f"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/broken-link-report.json",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "a5c33be2c888f8c0781317969d745f7beb661186c155c3d499a324f1189162ad"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/broken-link-report.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "c95e8649fd3e8c7043b6c9a8a70584cad83b93dfffc59d2561a3e10afb04120a"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/duplicate-destination-report.json",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "409be095cf984bd43e3197b1e37729e1daca5653bf9c20e420fddbdd96935364"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/duplicate-destination-report.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "0b9b42dd5d833bb442cc2c460e2c4a8be0fc6bf01eb9e9793a1c571f1a7def0c"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/inventory-schema-validation-report.json",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "d21e0deffa9074128399e79b8aa4c133ed082064e9ff7d321ac4b03e648c867d"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/inventory-schema-validation-report.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "059a2aac24cba055a4c5fe82e6f2238374d7047ce34e64253c2064bb49239633"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/migration-inventory.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "295b3e0d7c7698387bcdac515d1a8465681e434942f600e8d46cb7905fa25d2e"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/migration-validation-report.json",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "23932e7e51e8b5497f512aa433c6abc3941108e632865e1ad22f4a3b5c5ef6ac"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/migration-validation-report.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "93b2eb2fcf8dc7417737a44bf1fd728da2181bd2b3102c4b6b17407164316bbd"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/reference-rewrite-plan.json",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "eec4784f75cd4a6aaf69b7fe34a8c865c225ec8df75d4b03701dc223ac19097c"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/reference-rewrite-plan.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "3c243040296f9bebfb6cd26216479e33dabacdf080aa8767fa9b7f63acce9552"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/repo-010-application-result.json",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "5487e6fb8979d3036ec3c15d20d8f87f59a05c46d27ae6a5b09ebaab79787f3e"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/repo-migration-check-report.json",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "993b79af34860b7541e8318adefa4a81534ece3545c03b8c7d80b002e9b58283"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/repo-migration-check-report.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "ab157bbad4bc117c9782606cdd879cd8590536539d2c34860857646e9a9488e9"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/test-output/broken-link-report.json",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "0e758af3f3e7abb66d55fec9533494b3347d64ed1618843662dce7210ca366a6"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/test-output/broken-link-report.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "c95e8649fd3e8c7043b6c9a8a70584cad83b93dfffc59d2561a3e10afb04120a"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/test-output/duplicate-destination-report.json",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "1ff131993664fc49118e73a9a8d676bc5ebc253b9d4f86b249a05ce0e728a011"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/test-output/duplicate-destination-report.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "0b9b42dd5d833bb442cc2c460e2c4a8be0fc6bf01eb9e9793a1c571f1a7def0c"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/test-output/inventory-schema-validation-report.json",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "4112be1861cfb241171c6f7b05a794142f5eb0428651d65391e844fc1ab25eae"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/test-output/inventory-schema-validation-report.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "059a2aac24cba055a4c5fe82e6f2238374d7047ce34e64253c2064bb49239633"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/test-output/migration-inventory.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "d4485ad282c9ad26bc43c60055423a167ae76808ad8697e22f553903e0bc6e72"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/test-output/migration-validation-report.json",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "96d083366846aec4b23389495eccb841a6aa4d9e5ffc145bf79faf3aa5ac02d5"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/test-output/migration-validation-report.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "93b2eb2fcf8dc7417737a44bf1fd728da2181bd2b3102c4b6b17407164316bbd"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/test-output/reference-rewrite-plan.json",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "e616c30079edabc3ad80967c0f92e98b9ca36444d50862c925977f3d8d38a502"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/test-output/reference-rewrite-plan.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "0ad0f12815334c94d7f0ecf9be29c54aa25d0557e277c1d68a53943c8f3bbd31"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/test-output/repo-migration-check-report.json",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "b5760bb62fc14f3fab283bf5c4b1974550e2a1e2b2f8842cf6f7c5e3b2dc4bce"
+    },
+    {
+      "path": "docs/06-repository-governance/reports/test-output/repo-migration-check-report.md",
+      "score": 20,
+      "reasons": [
+        "governance_path"
+      ],
+      "sha256": "1aa091ddec92b471462cab51a1bc6e30ae2326d969ceffee9b66ba41d939d074"
+    }
+  ],
+  "decision_options": [
+    {
+      "id": "A",
+      "action": "REGISTER_EXISTING_SOURCE",
+      "allowed_when": "One existing tracked document is explicitly selected by the recognized source authority and receives canonical status."
+    },
+    {
+      "id": "B",
+      "action": "CREATE_AND_REGISTER_CANONICAL_ADR_0027",
+      "allowed_when": "No suitable source exists, the rule text is approved, and a recognized authority path is explicitly selected."
+    },
+    {
+      "id": "C",
+      "action": "REMOVE_UNPROVEN_ADR_0027_DEPENDENCY_FROM_REVIEW",
+      "allowed_when": "The rule is governed by another proven constitutional source and ADR-0027 is not a real canonical architecture decision."
+    }
+  ],
+  "authorization": {
+    "SOURCE_AUTHORITY_DECISION_GATE_AUTHORIZED": true,
+    "CANONICAL_SOURCE_CREATED": false,
+    "CANONICAL_SOURCE_REGISTERED": false,
+    "ADR_APPROVED": false,
+    "IMPLEMENTATION_AUTHORIZED": false,
+    "CACHE_CREATION_AUTHORIZED": false,
+    "BRIDGE_CREATION_AUTHORIZED": false,
+    "UI_INTEGRATION_AUTHORIZED": false,
+    "RUNTIME_WRITE_AUTHORIZED": false
+  },
+  "constitutional_flags": {
+    "NEW_ENGINE_CREATED": false,
+    "NEW_CACHE_CREATED": false,
+    "DUPLICATE_BRIDGE_CREATED": false,
+    "PDF_READ_EXECUTED": false,
+    "PARSER_EXECUTED": false,
+    "OCR_EXECUTED": false,
+    "SOURCE_UI_CHANGED": false,
+    "QUOTE_TRUTH_ALLOWED": false,
+    "REAL_ENGINE_EXECUTION": false,
+    "BACKEND_CONNECTION": false,
+    "TEST_EXECUTION": false
+  }
+}
