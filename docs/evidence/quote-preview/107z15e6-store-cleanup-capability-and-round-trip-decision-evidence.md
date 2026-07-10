@@ -1,0 +1,556 @@
+# 107Z15E6 — Store cleanup capability decision evidence
+
+Status: **PASS**
+
+```json
+{
+  "status": "PASS",
+  "decision": {
+    "IMPLEMENTATION_SCOPE_ID": "QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1",
+    "DECISION_ID": "STORE_CLEANUP_CAPABILITY_AND_ROUND_TRIP_DECISION_V1",
+    "DECISION_COMPLETE": true,
+    "STORE_MODULE_LOAD_STATUS": "PASS",
+    "STORE_FROZEN": true,
+    "STORE_EXPORTS_RESOLVED": true,
+    "STORE_FACTORY_EXPORTS": [
+      "createLocalStorageBackend",
+      "createMemoryBackend",
+      "createStore"
+    ],
+    "STORE_WRITE_EXPORTS": [],
+    "STORE_READ_EXPORTS": [],
+    "STORE_DELETE_EXPORTS": [],
+    "PUBLIC_DELETE_CAPABILITY": false,
+    "STORAGE_INJECTION_EVIDENCE": false,
+    "CLOCK_INJECTION_EVIDENCE": true,
+    "TEST_EPHEMERAL_BACKEND_EVIDENCE": false,
+    "TEST_CLEANUP_EVIDENCE": false,
+    "SAFE_EPHEMERAL_ROUND_TRIP": false,
+    "SAFE_PUBLIC_DELETE_ROUND_TRIP": false,
+    "SAFE_CLOCK_PURGE_ROUND_TRIP": false,
+    "SOURCE_CHANGE_REQUIRED": true,
+    "VERDICT": "MINIMAL_PUBLIC_DELETE_OR_EPHEMERAL_ADAPTER_CHANGE_REQUIRED",
+    "AUTHORIZATION_RECOMMENDATION": "Authorize one minimal reversible-store capability. Prefer an injectable ephemeral adapter over production-storage deletion when the store architecture supports dependency injection.",
+    "STORE_WRITE_EXECUTED": false,
+    "SOURCE_CODE_WRITTEN": false,
+    "PDF_READ_EXECUTED": false,
+    "CONTROLLED_BROWSER_EXECUTION": false,
+    "BACKEND_CONNECTION": false,
+    "QUOTE_TRUTH_ALLOWED": false,
+    "NEXT_GATE": "107Z15E6A_STORE_REVERSIBILITY_SOURCE_CHANGE_AUTHORIZATION_GATE"
+  },
+  "storeStaticInspection": {
+    "status": "PASS",
+    "storePath": "platform/runtime/quote-preview/quote-preview-pdf-result-store.js",
+    "sourceSha256": "3f5271c8b66485603051411b84a1260cf2d2590385ff4e34243eb31322b871d5",
+    "sourceBytes": 2297,
+    "moduleExportIdentifiers": [
+      "factory"
+    ],
+    "directExportProperties": [],
+    "objectExportKeys": [],
+    "functionSymbols": [
+      "bad",
+      "create",
+      "key",
+      "local",
+      "memory",
+      "purge",
+      "read",
+      "write"
+    ],
+    "factorySymbols": [
+      "create"
+    ],
+    "writeSymbols": [
+      "write"
+    ],
+    "readSymbols": [
+      "read"
+    ],
+    "deleteSymbols": [
+      "purge"
+    ],
+    "deleteTerms": [],
+    "storageEvidence": {
+      "localStorage": true,
+      "sessionStorage": false,
+      "storageParameter": false,
+      "getItem": true,
+      "setItem": true,
+      "removeItem": true,
+      "clear": false,
+      "mapUsage": true
+    },
+    "clockEvidence": {
+      "DateNow": true,
+      "newDate": false,
+      "clockParameter": true
+    },
+    "rawSourceRecorded": false
+  },
+  "storeRuntimeInspection": {
+    "status": "PASS",
+    "loadError": null,
+    "apiType": "object",
+    "frozen": true,
+    "exports": [
+      {
+        "name": "createMemoryBackend",
+        "type": "function",
+        "arity": 0,
+        "sourceSha256": "9c95f1b08e3f8e3d4a2e17caebd77fc561ccde33d04481ddfc227d71df16e4a6"
+      },
+      {
+        "name": "createLocalStorageBackend",
+        "type": "function",
+        "arity": 1,
+        "sourceSha256": "77278d6c2ca517d689be062f59af6e577bff677c43ba007b86a5177edcbf3c54"
+      },
+      {
+        "name": "createStore",
+        "type": "function",
+        "arity": 1,
+        "sourceSha256": "c0561fab424aae0da3f7ef4cccf5a5481c014a26d61301a31033b521819c8681"
+      }
+    ],
+    "factoryProbeExecuted": false,
+    "storeFunctionCalled": false
+  },
+  "callsites": {
+    "hitCount": 18,
+    "testHitCount": 0,
+    "hits": [
+      {
+        "path": "docs/architecture/quote-preview/107z10-quote-preview-pdf-runtime-persistence-implementation-reconciliation-plan.md",
+        "isTest": false,
+        "matchedPatterns": [
+          "quote-preview-pdf-result-store.js",
+          "quote-preview-pdf-result-store"
+        ],
+        "snippets": [
+          {
+            "line": 23,
+            "text": "- Proposed store path: `platform/runtime/quote-preview/quote-preview-pdf-result-store.js`"
+          }
+        ]
+      },
+      {
+        "path": "docs/architecture/quote-preview/107z11-quote-preview-pdf-runtime-persistence-implementation-authorization.md",
+        "isTest": false,
+        "matchedPatterns": [
+          "quote-preview-pdf-result-store.js",
+          "quote-preview-pdf-result-store"
+        ],
+        "snippets": [
+          {
+            "line": 21,
+            "text": "- `platform/runtime/quote-preview/quote-preview-pdf-result-store.js`"
+          }
+        ]
+      },
+      {
+        "path": "docs/architecture/quote-preview/107z12r-quote-preview-pdf-runtime-persistence-scoped-implementation-repair.md",
+        "isTest": false,
+        "matchedPatterns": [
+          "quote-preview-pdf-result-store.js",
+          "quote-preview-pdf-result-store"
+        ],
+        "snippets": [
+          {
+            "line": 8,
+            "text": "- Store: `platform/runtime/quote-preview/quote-preview-pdf-result-store.js`"
+          }
+        ]
+      },
+      {
+        "path": "docs/architecture/quote-preview/107z15e-repo-wide-canonical-mapper-discovery.md",
+        "isTest": false,
+        "matchedPatterns": [
+          "quote-preview-pdf-result-store.js",
+          "quote-preview-pdf-result-store"
+        ],
+        "snippets": [
+          {
+            "line": 102,
+            "text": "| `platform/adapters/quote-preview/quote-preview-pdf-result-persistence-coordinator.js` | `production_source` | 103 | 0 | 0 | `[]` | `['platform/runtime/quote-preview/quote-preview-pdf-result-store.js', 'platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js']` |"
+          },
+          {
+            "line": 105,
+            "text": "| `platform/runtime/quote-preview/quote-preview-pdf-result-store.js` | `production_source` | 91 | 0 | 0 | `[]` | `['platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js']` |"
+          },
+          {
+            "line": 112,
+            "text": "\"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\""
+          }
+        ]
+      },
+      {
+        "path": "docs/architecture/quote-preview/107z15e0-canonical-contract-origin-and-missing-bridge-review.md",
+        "isTest": false,
+        "matchedPatterns": [
+          "quote-preview-pdf-result-store.js",
+          "quote-preview-pdf-result-store"
+        ],
+        "snippets": [
+          {
+            "line": 29,
+            "text": "| `platform/runtime/quote-preview/quote-preview-pdf-result-store.js` | `PERSISTENCE_OR_CONSUMER` | 0 | 0 | false |"
+          },
+          {
+            "line": 46,
+            "text": "`['platform/adapters/quote-preview/quote-preview-pdf-result-persistence-coordinator.js', 'platform/runtime/quote-preview/quote-preview-pdf-result-store.js']`"
+          }
+        ]
+      },
+      {
+        "path": "docs/evidence/quote-preview/107z10-quote-preview-pdf-runtime-persistence-implementation-reconciliation.json",
+        "isTest": false,
+        "matchedPatterns": [
+          "quote-preview-pdf-result-store.js",
+          "quote-preview-pdf-result-store"
+        ],
+        "snippets": [
+          {
+            "line": 19,
+            "text": "\"PROPOSED_STORE_PATH\": \"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\","
+          },
+          {
+            "line": 11793,
+            "text": "\"target\": \"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\","
+          }
+        ]
+      },
+      {
+        "path": "docs/evidence/quote-preview/107z11-quote-preview-pdf-runtime-persistence-implementation-authorization-evidence.md",
+        "isTest": false,
+        "matchedPatterns": [
+          "quote-preview-pdf-result-store.js",
+          "quote-preview-pdf-result-store"
+        ],
+        "snippets": [
+          {
+            "line": 17,
+            "text": "\"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\","
+          }
+        ]
+      },
+      {
+        "path": "docs/evidence/quote-preview/107z11-quote-preview-pdf-runtime-persistence-implementation-authorization.json",
+        "isTest": false,
+        "matchedPatterns": [
+          "quote-preview-pdf-result-store.js",
+          "quote-preview-pdf-result-store"
+        ],
+        "snippets": [
+          {
+            "line": 16,
+            "text": "\"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\","
+          }
+        ]
+      },
+      {
+        "path": "docs/evidence/quote-preview/107z12r-quote-preview-pdf-runtime-persistence-scoped-implementation-repair-evidence.md",
+        "isTest": false,
+        "matchedPatterns": [
+          "quote-preview-pdf-result-store.js",
+          "quote-preview-pdf-result-store"
+        ],
+        "snippets": [
+          {
+            "line": 34,
+            "text": "\"STORE_PATH\": \"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\","
+          }
+        ]
+      },
+      {
+        "path": "docs/evidence/quote-preview/107z12r-quote-preview-pdf-runtime-persistence-scoped-implementation-repair.json",
+        "isTest": false,
+        "matchedPatterns": [
+          "quote-preview-pdf-result-store.js",
+          "quote-preview-pdf-result-store"
+        ],
+        "snippets": [
+          {
+            "line": 29,
+            "text": "\"STORE_PATH\": \"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\","
+          }
+        ]
+      },
+      {
+        "path": "docs/evidence/quote-preview/107z13-quote-preview-pdf-runtime-persistence-source-validation-and-dry-run-evidence.md",
+        "isTest": false,
+        "matchedPatterns": [
+          "writePreviewResult",
+          "readPreviewResult"
+        ],
+        "snippets": [
+          {
+            "line": 57,
+            "text": "\"evidence\": \"writePreviewResult/readPreviewResult found\""
+          }
+        ]
+      },
+      {
+        "path": "docs/evidence/quote-preview/107z13-quote-preview-pdf-runtime-persistence-source-validation-and-dry-run.json",
+        "isTest": false,
+        "matchedPatterns": [
+          "writePreviewResult",
+          "readPreviewResult"
+        ],
+        "snippets": [
+          {
+            "line": 52,
+            "text": "\"evidence\": \"writePreviewResult/readPreviewResult found\""
+          }
+        ]
+      },
+      {
+        "path": "docs/evidence/quote-preview/107z15e-repo-wide-canonical-mapper-discovery-evidence.md",
+        "isTest": false,
+        "matchedPatterns": [
+          "quote-preview-pdf-result-store.js",
+          "quote-preview-pdf-result-store"
+        ],
+        "snippets": [
+          {
+            "line": 219,
+            "text": "\"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\""
+          },
+          {
+            "line": 350,
+            "text": "\"excerpt\": \"FFECT_EXECUTED\\\": false,\\n    \\\"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-p"
+          },
+          {
+            "line": 355,
+            "text": "\"excerpt\": \"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\\\",\\n    \\"
+          },
+          {
+            "line": 365,
+            "text": "\"excerpt\": \"ED\\\": false,\\n    \\\"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-c"
+          },
+          {
+            "line": 503,
+            "text": "\"excerpt\": \"FFECT_EXECUTED\\\": false,\\n    \\\"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-p"
+          },
+          {
+            "line": 508,
+            "text": "\"excerpt\": \"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\\\",\\n    \\"
+          },
+          {
+            "line": 518,
+            "text": "\"excerpt\": \"ED\\\": false,\\n    \\\"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-c"
+          },
+          {
+            "line": 8834,
+            "text": "\"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\""
+          },
+          {
+            "line": 12997,
+            "text": "\"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\""
+          },
+          {
+            "line": 13128,
+            "text": "\"excerpt\": \"FFECT_EXECUTED\\\": false,\\n    \\\"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-p"
+          },
+          {
+            "line": 13133,
+            "text": "\"excerpt\": \"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\\\",\\n    \\"
+          },
+          {
+            "line": 13143,
+            "text": "\"excerpt\": \"ED\\\": false,\\n    \\\"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-c"
+          }
+        ]
+      },
+      {
+        "path": "docs/evidence/quote-preview/107z15e-repo-wide-canonical-mapper-discovery.json",
+        "isTest": false,
+        "matchedPatterns": [
+          "quote-preview-pdf-result-store.js",
+          "quote-preview-pdf-result-store"
+        ],
+        "snippets": [
+          {
+            "line": 214,
+            "text": "\"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\""
+          },
+          {
+            "line": 345,
+            "text": "\"excerpt\": \"FFECT_EXECUTED\\\": false,\\n    \\\"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-p"
+          },
+          {
+            "line": 350,
+            "text": "\"excerpt\": \"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\\\",\\n    \\"
+          },
+          {
+            "line": 360,
+            "text": "\"excerpt\": \"ED\\\": false,\\n    \\\"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-c"
+          },
+          {
+            "line": 498,
+            "text": "\"excerpt\": \"FFECT_EXECUTED\\\": false,\\n    \\\"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-p"
+          },
+          {
+            "line": 503,
+            "text": "\"excerpt\": \"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\\\",\\n    \\"
+          },
+          {
+            "line": 513,
+            "text": "\"excerpt\": \"ED\\\": false,\\n    \\\"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-c"
+          },
+          {
+            "line": 8829,
+            "text": "\"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\""
+          },
+          {
+            "line": 12992,
+            "text": "\"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\""
+          },
+          {
+            "line": 13123,
+            "text": "\"excerpt\": \"FFECT_EXECUTED\\\": false,\\n    \\\"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-p"
+          },
+          {
+            "line": 13128,
+            "text": "\"excerpt\": \"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\\\",\\n    \\"
+          },
+          {
+            "line": 13138,
+            "text": "\"excerpt\": \"ED\\\": false,\\n    \\\"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-c"
+          }
+        ]
+      },
+      {
+        "path": "docs/evidence/quote-preview/107z15e0-canonical-contract-origin-and-missing-bridge-review-evidence.md",
+        "isTest": false,
+        "matchedPatterns": [
+          "quote-preview-pdf-result-store.js",
+          "quote-preview-pdf-result-store"
+        ],
+        "snippets": [
+          {
+            "line": 18,
+            "text": "\"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\""
+          },
+          {
+            "line": 31,
+            "text": "\"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\""
+          },
+          {
+            "line": 193,
+            "text": "\"path\": \"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\","
+          }
+        ]
+      },
+      {
+        "path": "docs/evidence/quote-preview/107z15e0-canonical-contract-origin-and-missing-bridge-review.json",
+        "isTest": false,
+        "matchedPatterns": [
+          "quote-preview-pdf-result-store.js",
+          "quote-preview-pdf-result-store",
+          "writePreviewResult",
+          "readPreviewResult"
+        ],
+        "snippets": [
+          {
+            "line": 15,
+            "text": "\"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\""
+          },
+          {
+            "line": 28,
+            "text": "\"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\""
+          },
+          {
+            "line": 190,
+            "text": "\"path\": \"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\","
+          },
+          {
+            "line": 2505,
+            "text": "\"excerpt\": \"Z10 plan SHA-256: `70e17b783746a9459ae1613843d3a0446c84bf348fc34957612e795c80c92f89`\\n- 107Z9 approval SHA-256: `45a63fffccaee1a50372ba8406f81d82bc5b1eeb2a3be2d255f7a9a11776c628`\\n\\n## Authorized scope\\n\\n```json\\n{\\n  \\\"IMPLEMENTATION_SCOPE_ID\\\": \\\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\\\",\\n  \\\"ALLOWED_CREATE_PATHS\\\": [\\n    \\\"platform/adapters/quote-preview/quote-preview-pdf-result-"
+          },
+          {
+            "line": 2543,
+            "text": "\"excerpt\": \"  \\\"USER_AUTHORIZATION_INTERPRETATION\\\": \\\"STANDING_AUTHORIZATION_TO_PROCEED_WITH_RECOMMENDED_GATES\\\",\\n    \\\"NEXT_GATE\\\": \\\"107Z12_QUOTE_PREVIEW_PDF_RUNTIME_PERSISTENCE_SCOPED_IMPLEMENTATION_GATE\\\"\\n  },\\n  \\\"scope\\\": {\\n    \\\"IMPLEMENTATION_SCOPE_ID\\\": \\\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\\\",\\n    \\\"ALLOWED_CREATE_PATHS\\\": [\\n      \\\"platform/adapters/quote-preview/quote-preview-"
+          },
+          {
+            "line": 2616,
+            "text": "\"excerpt\": \"UNTIME_PERSISTENCE_EFFECT_EXECUTED\\\": false,\\n    \\\"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-"
+          },
+          {
+            "line": 2621,
+            "text": "\"excerpt\": \"CUTED\\\": false,\\n    \\\"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-persistenc"
+          },
+          {
+            "line": 2679,
+            "text": "\"excerpt\": \"UNTIME_PERSISTENCE_EFFECT_EXECUTED\\\": false,\\n    \\\"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-"
+          },
+          {
+            "line": 2684,
+            "text": "\"excerpt\": \"CUTED\\\": false,\\n    \\\"REQUIRED_CONFIRMATION_FIELD_COUNT\\\": 8,\\n    \\\"REQUIRED_CONFIRMATION_FIELDS\\\": [\\n      \\\"name\\\",\\n      \\\"family\\\",\\n      \\\"product\\\",\\n      \\\"insured\\\",\\n      \\\"sumAssured\\\",\\n      \\\"annualPremium\\\",\\n      \\\"plannedOrAvePremium\\\",\\n      \\\"coveragePeriod\\\"\\n    ],\\n    \\\"CONTRACT_PATH\\\": \\\"platform/adapters/quote-preview/quote-preview-pdf-result-persistenc"
+          },
+          {
+            "line": 2714,
+            "text": "\"excerpt\": \"em or process execution API\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"NO_HIDDEN_LATEST_API\\\",\\n        \\\"passed\\\": true,\\n        \\\"evidence\\\": \\\"No hidden latest/newest/last-written method\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"STORE_HAS_EXACT_WRITER_AND_READER_NAMES\\\",\\n        \\\"passed\\\": true,\\n        \\\"evidence\\\": \\\"writePreviewResult/readPreviewResult found\\\"\\n      },\\n      {\\n"
+          },
+          {
+            "line": 2744,
+            "text": "\"excerpt\": \"em or process execution API\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"NO_HIDDEN_LATEST_API\\\",\\n        \\\"passed\\\": true,\\n        \\\"evidence\\\": \\\"No hidden latest/newest/last-written method\\\"\\n      },\\n      {\\n        \\\"id\\\": \\\"STORE_HAS_EXACT_WRITER_AND_READER_NAMES\\\",\\n        \\\"passed\\\": true,\\n        \\\"evidence\\\": \\\"writePreviewResult/readPreviewResult found\\\"\\n      },\\n      {\\n"
+          }
+        ]
+      },
+      {
+        "path": "docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.js",
+        "isTest": false,
+        "matchedPatterns": [
+          "quote-preview-pdf-result-store.js",
+          "quote-preview-pdf-result-store"
+        ],
+        "snippets": [
+          {
+            "line": 222,
+            "text": "[\"ForgeQuotePreviewPdfResultStore\",\"../../../../platform/runtime/quote-preview/quote-preview-pdf-result-store.js\"],"
+          }
+        ]
+      },
+      {
+        "path": "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-coordinator.js",
+        "isTest": false,
+        "matchedPatterns": [
+          "quote-preview-pdf-result-store.js",
+          "quote-preview-pdf-result-store",
+          "writePreviewResult",
+          "readPreviewResult"
+        ],
+        "snippets": [
+          {
+            "line": 1,
+            "text": "(function(root,factory){var c=root.ForgeQuotePreviewPdfResultPersistenceContract,s=root.ForgeQuotePreviewPdfResultStore;if(typeof module===\"object\"&&module.exports){c=require(\"./quote-preview-pdf-result-persistence-contract.js\");s=require(\"../../runtime/quote-preview/quote-preview-pdf-result-store.js\");module.exports=factory(c,s);}else root.ForgeQuotePreviewPdfResultPersistenceCoordinator=factory("
+          },
+          {
+            "line": 4,
+            "text": "function create(o){o=o||{};var store=o.store||s.createStore(o.storeOptions),now=o.now||function(){return Date.now();},idFactory=o.idFactory||uuid,retention=Number(o.retentionMs);function persist(p,x){p=p||{};x=x||{};c.assertSafePayload(p);var created=x.createdAt?Date.parse(x.createdAt):now();bad(Number.isFinite(created),\"CREATED_AT_INVALID\",\"invalid createdAt\");var ms=Number(x.retentionMs||retenti"
+          }
+        ]
+      }
+    ]
+  },
+  "constitutionalFlags": {
+    "NEW_ENGINE_CREATED": false,
+    "NEW_CACHE_CREATED": false,
+    "DUPLICATE_BRIDGE_CREATED": false,
+    "SCHEMA_CHANGED": false,
+    "SOURCE_UI_CHANGED": false,
+    "SOURCE_CODE_WRITTEN": false,
+    "STORE_WRITE_EXECUTED": false,
+    "STATIC_SOURCE_INSPECTION_EXECUTED": true,
+    "RUNTIME_EXPORT_INSPECTION_EXECUTED": true,
+    "CALLSITE_REVIEW_EXECUTED": true,
+    "PDF_READ_EXECUTED": false,
+    "CONTROLLED_BROWSER_EXECUTION": false,
+    "BACKEND_CONNECTION": false,
+    "QUOTE_TRUTH_ALLOWED": false,
+    "TEST_EXECUTION": true
+  }
+}
+```
