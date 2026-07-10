@@ -9663,3 +9663,58 @@ LOCKED_DECISION=LOCAL_ONLY_ACTUAL_PDF_LOOKUP_EXECUTION_GATE_LOCKED_NO_EXECUTION_
 
 NEXT=107C_QUOTE_PREVIEW_LOCAL_ONLY_ACTUAL_PDF_LOOKUP_DRY_RUN
 <!-- FORGE:107B_QUOTE_PREVIEW_LOCAL_ONLY_ACTUAL_PDF_LOOKUP_EXECUTION_GATE:END -->
+
+<!-- FORGE:107C_QUOTE_PREVIEW_LOCAL_ONLY_ACTUAL_PDF_LOOKUP_DRY_RUN:START -->
+## 107C Quote Preview Local Only Actual PDF Lookup Dry Run
+
+107C executes a local-only PDF lookup dry run and commits redacted signal results only.
+
+Locked decision:
+`LOCAL_ONLY_ACTUAL_PDF_LOOKUP_DRY_RUN_COMPLETE_WITH_REDACTED_RESULTS_ONLY_NO_RAW_TEXT_NO_TRUTH`
+
+Confirmed:
+
+- authorization from 107A accepted;
+- execution gate from 107B accepted;
+- local-only scope used;
+- local PDF path resolved;
+- local PDF path not committed;
+- local PDF read for lookup executed;
+- text layer read in memory only;
+- raw PDF not committed;
+- raw text not committed;
+- raw text window not committed;
+- redacted signal results committed only;
+- raw value not extracted;
+- real value not extracted;
+- real value approval not executed;
+- candidate truth forbidden;
+- OCR execution forbidden;
+- parser execution forbidden;
+- calculator execution forbidden;
+- quote truth not created;
+- UI not populated;
+- presentation not generated;
+- backend connection not used;
+- provider runtime not used;
+- source UI was not changed;
+- all safety flags remain false.
+
+LOOKUP_RESULT_COUNT=27
+
+MATCHED_LOOKUP_RESULT_COUNT=27
+
+NOT_FOUND_LOOKUP_RESULT_COUNT=0
+
+BLOCKED_AMBIGUOUS_ITEM_COUNT=1
+
+PAGE_COUNT_CANDIDATE=3
+
+SOURCE_TEXT_LINE_COUNT_NOT_COMMITTED=93
+
+DECISION=PASS_107C_QUOTE_PREVIEW_LOCAL_ONLY_ACTUAL_PDF_LOOKUP_DRY_RUN
+
+LOCKED_DECISION=LOCAL_ONLY_ACTUAL_PDF_LOOKUP_DRY_RUN_COMPLETE_WITH_REDACTED_RESULTS_ONLY_NO_RAW_TEXT_NO_TRUTH
+
+NEXT=107D_QUOTE_PREVIEW_LOCAL_ONLY_LOOKUP_RESULT_REVIEW_GATE
+<!-- FORGE:107C_QUOTE_PREVIEW_LOCAL_ONLY_ACTUAL_PDF_LOOKUP_DRY_RUN:END -->
