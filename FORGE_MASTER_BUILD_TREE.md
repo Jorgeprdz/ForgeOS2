@@ -13666,3 +13666,41 @@ Confirmed:
 
 NEXT=107X_QUOTE_PREVIEW_BROWSER_PDF_UPLOAD_EXTRACTION_BRIDGE_GATE
 <!-- FORGE:107T_107W_QUOTE_PREVIEW_CONFIRMATION_MODAL_RUNTIME_FAST_TRACK:END -->
+
+<!-- FORGE:107X_QUOTE_PREVIEW_EXISTING_PDF_EXTRACTOR_CACHE_DISCOVERY:START -->
+## 107X Quote Preview Existing PDF Extractor Cache Discovery
+
+107X discovers existing PDF extractor and cache modules before any new bridge is created.
+
+Locked decision:
+`EXISTING_PDF_EXTRACTOR_AND_CACHE_DISCOVERY_REQUIRED_BEFORE_NEW_BRIDGE`
+
+Confirmed:
+
+- discovery only;
+- no PDF read;
+- no parser execution;
+- no OCR execution;
+- no new extractor created;
+- no new cache created;
+- no source snippets committed;
+- paths and counts only;
+- cache-first route required;
+- bridge writes extraction result to cache;
+- popup reads extraction result from cache;
+- UI reads confirmed result from cache;
+- user transcription not required;
+- quote truth forbidden.
+
+PDF_EXTRACTOR_CANDIDATE_COUNT=504
+
+PDF_CACHE_CANDIDATE_COUNT=372
+
+QUOTE_PREVIEW_UI_CANDIDATE_COUNT=1764
+
+HANDOFF_OR_EVENT_CANDIDATE_COUNT=1179
+
+RECOMMENDED_ROUTE=reuse_existing_extractor_and_cache_contract
+
+NEXT=107Y_QUOTE_PREVIEW_EXISTING_PDF_CACHE_CONTRACT_LOCK
+<!-- FORGE:107X_QUOTE_PREVIEW_EXISTING_PDF_EXTRACTOR_CACHE_DISCOVERY:END -->
