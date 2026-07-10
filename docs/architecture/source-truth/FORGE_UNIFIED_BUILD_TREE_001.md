@@ -11249,3 +11249,27 @@ LOCKED_DECISION=AUTO_PDF_VALUE_EXTRACTION_LOCAL_RUN_COMPLETE_VALUES_LOCAL_ONLY_R
 
 NEXT=107P_QUOTE_PREVIEW_EXTRACTION_CONFIRMATION_MODAL_UI_GATE
 <!-- FORGE:107O_QUOTE_PREVIEW_AUTO_PDF_VALUE_EXTRACTION_LOCAL_RUN_GATE:END -->
+
+<!-- FORGE:107P_107S_QUOTE_PREVIEW_CONFIRMATION_MODAL_FAST_TRACK:START -->
+## 107P-107S Quote Preview Confirmation Modal Fast Track
+
+Fast-track phases completed:
+
+- 107P confirmation modal contract;
+- 107Q runtime modal bridge;
+- 107R Sí / No confirmation actions;
+- 107S validation.
+
+Confirmed:
+
+- user does not transcribe PDF values;
+- modal title is ¿Son correctos los datos?;
+- Sí auto-fills UI using runtime extracted payload;
+- No opens editable UI;
+- no raw values hardcoded;
+- no quote truth;
+- no backend;
+- no presentation.
+
+NEXT=107T_QUOTE_PREVIEW_CONFIRMATION_MODAL_LOCAL_RUNTIME_PAYLOAD_TEST
+<!-- FORGE:107P_107S_QUOTE_PREVIEW_CONFIRMATION_MODAL_FAST_TRACK:END -->

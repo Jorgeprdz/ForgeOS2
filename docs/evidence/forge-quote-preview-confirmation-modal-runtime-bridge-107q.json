@@ -1,0 +1,13 @@
+{
+  "phase": "107Q_QUOTE_PREVIEW_CONFIRMATION_MODAL_RUNTIME_BRIDGE",
+  "status": "PASS",
+  "decision": "PASS_107Q_QUOTE_PREVIEW_CONFIRMATION_MODAL_RUNTIME_BRIDGE",
+  "htmlTarget": "docs/static-preview/forge-alive/index.html",
+  "jsOut": "docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.js",
+  "cssOut": "docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.css",
+  "runtimeApi": "window.ForgeQuotePreviewConfirmationModal.open(payload)",
+  "eventApi": "forge:quote-preview:extraction-ready",
+  "rawValuesHardcoded": false,
+  "quoteTruthAllowed": false,
+  "next": "107R_QUOTE_PREVIEW_CONFIRMATION_ACTIONS_YES_NO"
+}

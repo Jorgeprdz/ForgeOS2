@@ -1,0 +1,51 @@
+{
+  "phase": "107P_QUOTE_PREVIEW_EXTRACTION_CONFIRMATION_MODAL_UI_GATE",
+  "status": "PASS",
+  "decision": "PASS_107P_QUOTE_PREVIEW_EXTRACTION_CONFIRMATION_MODAL_UI_GATE",
+  "lockedDecision": "EXTRACTION_CONFIRMATION_MODAL_CONTRACT_LOCKED",
+  "modalTitle": "¿Son correctos los datos?",
+  "fields": [
+    {
+      "fieldKey": "client_name",
+      "label": "Nombre"
+    },
+    {
+      "fieldKey": "product_family",
+      "label": "Familia",
+      "allowedValues": [
+        "Vida",
+        "GMM"
+      ]
+    },
+    {
+      "fieldKey": "product_name",
+      "label": "Producto"
+    },
+    {
+      "fieldKey": "insured_name",
+      "label": "Asegurado"
+    },
+    {
+      "fieldKey": "sum_insured",
+      "label": "Suma Asegurada"
+    },
+    {
+      "fieldKey": "annual_premium",
+      "label": "Prima Anual"
+    },
+    {
+      "fieldKey": "planned_or_ave_premium",
+      "label": "Prima AVE / Prima Planeada"
+    },
+    {
+      "fieldKey": "coverage_period",
+      "label": "Periodo Cobertura"
+    }
+  ],
+  "yesAction": "auto_populate_quote_preview_ui_after_user_confirmation",
+  "noAction": "open_edit_mode_in_quote_preview_ui",
+  "manualTranscriptionByUserAllowed": false,
+  "rawValuesCommittedToRepo": false,
+  "quoteTruthAllowed": false,
+  "next": "107Q_QUOTE_PREVIEW_CONFIRMATION_MODAL_RUNTIME_BRIDGE"
+}
