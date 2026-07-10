@@ -1,0 +1,223 @@
+{
+  "chain": "107Z7R2_QUOTE_PREVIEW_PDF_RUNTIME_PERSISTENCE_ADR_SECOND_REVISION_GATE",
+  "status": "HOLD",
+  "generated_at_local_stamp": "20260709_234018",
+  "diagnosis": {
+    "OUTCOME": "CANONICAL_ADR_0027_SOURCE_NOT_PROVEN",
+    "FAILED_CHECK_ID": "ADR_0027_RULE_ALIGNED",
+    "CANONICAL_ADR_0027_SOURCE_PATH": "",
+    "CANONICAL_SOURCE_PROVEN": false,
+    "CANONICAL_SOURCE_AMBIGUOUS": false,
+    "ADR_ALREADY_CONTAINS_REQUIRED_RULE": true,
+    "REVIEW_SOURCE_RESOLUTION_FALSE_NEGATIVE": false,
+    "SECOND_REVISION_APPLIED": false,
+    "MISSING_CANONICAL_ADR_0027_SOURCE": true,
+    "FRAGMENT_PRESENCE": {
+      "rule_title": true,
+      "explicit_identity": true,
+      "implicit_latest": true,
+      "failure_clause": true
+    },
+    "NEXT_GATE": "107Z8S_TARGETED_CANONICAL_ADR_0027_SOURCE_DISCOVERY_GATE",
+    "HOLD_REASON": "canonical ADR-0027 source is missing or ambiguous; the ADR must not be patched again without source proof"
+  },
+  "canonical_source": null,
+  "candidate_ranking": [
+    {
+      "path": "docs/02-adr-candidates/ADR-0027_COMPENSATION_RULE_PACK_BOUNDARY.md",
+      "score": 22,
+      "reasons": [
+        "adr_0027_filename",
+        "explicit_input_or_identity"
+      ],
+      "sha256": "1be9ce09c94bccbfbcf3813ed2061330cb2b30969c9a5fb98147e47db9c07786",
+      "has_exact_rule_title": false,
+      "has_hidden_latest": false,
+      "has_explicit_contract": true,
+      "relevant_lines": [
+        {
+          "line": 1,
+          "text": "# ADR-0027: Compensation Rule Pack Boundary"
+        },
+        {
+          "line": 36,
+          "text": "- Rule packs JSON translate official evidence into executable structured rules."
+        },
+        {
+          "line": 38,
+          "text": "- Tests prove that engines obey rule packs."
+        },
+        {
+          "line": 43,
+          "text": "Forge OS will establish a Compensation Rule Pack Boundary."
+        },
+        {
+          "line": 45,
+          "text": "Any business rule that can change by official document, carrier, year, contract, product, role, compensation manual, commission statement policy or governance decision must live in versioned JSON rule packs."
+        },
+        {
+          "line": 47,
+          "text": "JavaScript engines must not own variable business rules. Engines must operate as deterministic interpreters that consume rule packs, raw facts and evidence, then produce structured outputs."
+        },
+        {
+          "line": 65,
+          "text": "## The Rule Pack Boundary"
+        },
+        {
+          "line": 67,
+          "text": "### What belongs in JSON rule packs"
+        },
+        {
+          "line": 69,
+          "text": "Rule packs may contain the executable translation of official evidence."
+        },
+        {
+          "line": 71,
+          "text": "Rule packs may define:"
+        },
+        {
+          "line": 75,
+          "text": "- rulePackId"
+        },
+        {
+          "line": 76,
+          "text": "- rulePackVersion"
+        },
+        {
+          "line": 87,
+          "text": "- rule pack hash once official"
+        },
+        {
+          "line": 132,
+          "text": "Rule packs may define official financial buckets used by engines, such as:"
+        },
+        {
+          "line": 150,
+          "text": "Rule packs may define required evidence for:"
+        },
+        {
+          "line": 163,
+          "text": "- Validate rule pack shape"
+        },
+        {
+          "line": 164,
+          "text": "- Resolve aliases using rule packs"
+        },
+        {
+          "line": 168,
+          "text": "- Split amounts according to rule pack instructions"
+        },
+        {
+          "line": 169,
+          "text": "- Move through months according to rule pack anchors"
+        },
+        {
+          "line": 174,
+          "text": "- Preserve hidden_by_scope"
+        },
+        {
+          "line": 179,
+          "text": "- Attach rulePackId, rulePackVersion and rulePackHash to outputs"
+        },
+        {
+          "line": 189,
+          "text": "But engines must not decide which business concept uses which handler. That mapping must come from the rule pack."
+        },
+        {
+          "line": 214,
+          "text": "Those decisions belong in the active rule pack."
+        },
+        {
+          "line": 218,
+          "text": "Rule packs must not contain executable code."
+        },
+        {
+          "line": 220,
+          "text": "Forge OS must never evaluate rule pack strings as code."
+        },
+        {
+          "line": 230,
+          "text": "Rule packs may reference only approved deterministic strategy identifiers."
+        },
+        {
+          "line": 242,
+          "text": "The strategy implementation lives in JS as stable deterministic code. The rule pack only selects the strategy and provides parameters."
+        },
+        {
+          "line": 246,
+          "text": "Every calculation output that depends on a rule pack must include rule pack identity metadata."
+        },
+        {
+          "line": 250,
+          "text": "- rulePackId"
+        },
+        {
+          "line": 251,
+          "text": "- rulePackVersion"
+        },
+        {
+          "line": 252,
+          "text": "- rulePackHash"
+        },
+        {
+          "line": 253,
+          "text": "- rulePackEffectiveDate"
+        },
+        {
+          "line": 256,
+          "text": "The rulePackHash must be generated and sealed during the build pipeline, publication process or official rule pack promotion step. Engines must not recompute the official rulePackHash on every runtime execution as a substitute for artifact governance."
+        },
+        {
+          "line": 267,
+          "text": "If a rule pack changes later, previously generated outputs must remain auditable against the exact rule pack version and hash used at calculation time."
+        },
+        {
+          "line": 269,
+          "text": "Rule pack mutation after official approval is not allowed. Corrections must create a new version."
+        },
+        {
+          "line": 278,
+          "text": "- Hidden by scope is not zero."
+        },
+        {
+          "line": 285,
+          "text": "Engines must never silently coerce unknown, blocked, not_modeled, hidden_by_scope or missing evidence into zero."
+        },
+        {
+          "line": 287,
+          "text": "## Rule Pack Governance"
+        },
+        {
+          "line": 289,
+          "text": "Rule packs must be:"
+        },
+        {
+          "line": 297,
+          "text": "- loaded explicitly by engines or adapters"
+        }
+      ]
+    }
+  ],
+  "authorization": {
+    "SOURCE_RESOLVED_REVIEW_AUTHORIZED": false,
+    "ADR_APPROVED": false,
+    "IMPLEMENTATION_AUTHORIZED": false,
+    "CACHE_CREATION_AUTHORIZED": false,
+    "BRIDGE_CREATION_AUTHORIZED": false,
+    "UI_INTEGRATION_AUTHORIZED": false,
+    "RUNTIME_WRITE_AUTHORIZED": false
+  },
+  "constitutional_flags": {
+    "NEW_ENGINE_CREATED": false,
+    "NEW_CACHE_CREATED": false,
+    "DUPLICATE_BRIDGE_CREATED": false,
+    "PDF_READ_EXECUTED": false,
+    "PARSER_EXECUTED": false,
+    "OCR_EXECUTED": false,
+    "SOURCE_UI_CHANGED": false,
+    "QUOTE_TRUTH_ALLOWED": false,
+    "REAL_ENGINE_EXECUTION": false,
+    "BACKEND_CONNECTION": false,
+    "TEST_EXECUTION": false
+  }
+}
