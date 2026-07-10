@@ -1,0 +1,16656 @@
+# 107Z15E — Repository-wide canonical mapper discovery evidence
+
+Status: **PASS**
+
+```json
+{
+  "chain": "107Z15E_REPO_WIDE_CANONICAL_MAPPER_DISCOVERY_GATE",
+  "status": "PASS",
+  "generated_at_local_stamp": "20260710_133229",
+  "discovery": {
+    "IMPLEMENTATION_SCOPE_ID": "QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1",
+    "DISCOVERY_ID": "REPO_WIDE_CANONICAL_MAPPER_DISCOVERY_V1",
+    "REPO_WIDE_DISCOVERY_COMPLETE": true,
+    "TRACKED_FILE_COUNT": 4082,
+    "TEXT_FILE_COUNT_INSPECTED": 3901,
+    "CANONICAL_FIELD_COUNT": 8,
+    "CANONICAL_SCHEMA_OWNER_RESOLVED": true,
+    "CANONICAL_SCHEMA_OWNER": "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js",
+    "CANONICAL_MAPPER_OWNER_RESOLVED": false,
+    "CANONICAL_MAPPER_OWNER": null,
+    "VALIDATOR_OWNER_RESOLVED": true,
+    "VALIDATOR_OWNER": "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js",
+    "MODAL_CONSUMER_OWNER_RESOLVED": true,
+    "MODAL_CONSUMER_OWNER": "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js",
+    "SCHEMA_CANDIDATE_COUNT": 20,
+    "MAPPER_CANDIDATE_COUNT": 20,
+    "BRIDGE_CANDIDATE_COUNT": 0,
+    "VALIDATOR_CANDIDATE_COUNT": 20,
+    "CONSUMER_CANDIDATE_COUNT": 20,
+    "CONTRACT_REVERSE_IMPORTER_COUNT": 2,
+    "SOURCE_CHANGE_AUTHORIZED": false,
+    "SOURCE_CODE_WRITTEN": false,
+    "REAL_ENGINE_EXECUTION": false,
+    "PARSER_EXECUTED": false,
+    "CONTROLLED_BROWSER_EXECUTION": false,
+    "PDF_READ_EXECUTED": false,
+    "BACKEND_CONNECTION": false,
+    "QUOTE_TRUTH_ALLOWED": false,
+    "NEXT_GATE": "107Z15E0_CANONICAL_CONTRACT_ORIGIN_AND_MISSING_BRIDGE_REVIEW_GATE"
+  },
+  "canonicalFields": [
+    "name",
+    "family",
+    "product",
+    "insured",
+    "sumAssured",
+    "annualPremium",
+    "plannedOrAvePremium",
+    "coveragePeriod"
+  ],
+  "ownerResolution": {
+    "canonicalSchemaOwnerResolved": true,
+    "canonicalSchemaOwner": "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js",
+    "canonicalMapperOwnerResolved": false,
+    "canonicalMapperOwner": null,
+    "validatorOwnerResolved": true,
+    "validatorOwner": "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js",
+    "modalConsumerOwnerResolved": true,
+    "modalConsumerOwner": "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js"
+  },
+  "schemaCandidates": [
+    {
+      "path": "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js",
+      "category": "production_source",
+      "extension": ".js",
+      "size": 3760,
+      "sha256": "e7f5d74b32115c98bbec5f9f8ad7b1e4503fa87a6c668fdf4919c7a0fa29f322",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 1,
+          "positions": [
+            404
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            412
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            422
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            433
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            444
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            458
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            475
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            498
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "hasOwnProperty",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "fields:",
+        "payload:"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 2,
+          "excerpt": ";else root.ForgeQuotePreviewPdfResultPersistenceContract=api;})(typeof globalThis!==\"undefined\"?globalThis:this,function(){\"use strict\";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!"
+        },
+        {
+          "term": "name",
+          "line": 3,
+          "excerpt": "!==\"undefined\"?globalThis:this,function(){\"use strict\";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeo"
+        },
+        {
+          "term": "name",
+          "line": 14,
+          "excerpt": "l(id){return Object.freeze({previewResultIdentity:identity(id),persistenceContractId:CONTRACT_ID,__forgePersistenceIdentityEvent:true});}\nreturn Object.freeze({CONTRACT_ID:CONTRACT_ID,SCHEMA_VERSION:SCHEMA_VERSION,EVENT_NAME:EVENT_NAME,REQUIRED_FIELDS:REQUIRED_FIELDS,normalizeIdentity:identity,assertSafePayload:function(v){scan(v,\"$\");return true;},extractAuthorizedFields:fieldsFrom,createRecord:record,validateRecord:record,createExtraction"
+        },
+        {
+          "term": "name",
+          "line": 14,
+          "excerpt": "n Object.freeze({previewResultIdentity:identity(id),persistenceContractId:CONTRACT_ID,__forgePersistenceIdentityEvent:true});}\nreturn Object.freeze({CONTRACT_ID:CONTRACT_ID,SCHEMA_VERSION:SCHEMA_VERSION,EVENT_NAME:EVENT_NAME,REQUIRED_FIELDS:REQUIRED_FIELDS,normalizeIdentity:identity,assertSafePayload:function(v){scan(v,\"$\");return true;},extractAuthorizedFields:fieldsFrom,createRecord:record,validateRecord:record,createExtractionReadyDetail"
+        },
+        {
+          "term": "family",
+          "line": 3,
+          "excerpt": "fined\"?globalThis:this,function(){\"use strict\";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"obj"
+        },
+        {
+          "term": "product",
+          "line": 3,
+          "excerpt": "balThis:this,function(){\"use strict\";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Arra"
+        },
+        {
+          "term": "insured",
+          "line": 3,
+          "excerpt": "s,function(){\"use strict\";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Array.isArray(v"
+        },
+        {
+          "term": "sumAssured",
+          "line": 3,
+          "excerpt": "){\"use strict\";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Array.isArray(v);}\nfunction c"
+        },
+        {
+          "term": "annualPremium",
+          "line": 3,
+          "excerpt": ";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Array.isArray(v);}\nfunction clone(v){return JS"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 3,
+          "excerpt": "=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Array.isArray(v);}\nfunction clone(v){return JSON.parse(JSON.stringify"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 3,
+          "excerpt": "ULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Array.isArray(v);}\nfunction clone(v){return JSON.parse(JSON.stringify(v));}\nfunction sc"
+        },
+        {
+          "term": "premium",
+          "line": 3,
+          "excerpt": "CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Array.isArray(v);}\nfunction clone(v){return JS"
+        }
+      ],
+      "reverseImporters": [
+        "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-coordinator.js",
+        "platform/runtime/quote-preview/quote-preview-pdf-result-store.js"
+      ],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 271,
+      "mapperScore": 158,
+      "validatorScore": 174,
+      "consumerScore": 109
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z12r-quote-preview-pdf-runtime-persistence-scoped-implementation-repair-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 3676,
+      "sha256": "4a109a0db3ded438eed879c24e567a7a3c4c19420e06f1736d3406727af28c6e",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 1,
+          "positions": [
+            827
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            841
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            857
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            874
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            891
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            911
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            934
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            963
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "required"
+      ],
+      "constructionSignals": [],
+      "consumerSignals": [
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 24,
+          "excerpt": " false,\n    \"SYNTHETIC_TEST_EXECUTED\": true,\n    \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-previ"
+        },
+        {
+          "term": "family",
+          "line": 25,
+          "excerpt": "YNTHETIC_TEST_EXECUTED\": true,\n    \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-pe"
+        },
+        {
+          "term": "product",
+          "line": 26,
+          "excerpt": "ECUTED\": true,\n    \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contrac"
+        },
+        {
+          "term": "insured",
+          "line": 27,
+          "excerpt": "  \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE"
+        },
+        {
+          "term": "sumAssured",
+          "line": 28,
+          "excerpt": "XECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/ru"
+        },
+        {
+          "term": "annualPremium",
+          "line": 29,
+          "excerpt": " \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quo"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 30,
+          "excerpt": "FFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quote-preview-pdf-result-store.j"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 31,
+          "excerpt": "REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\",\n    \"COORDINATOR_PAT"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "IME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quo"
+        },
+        {
+          "term": "premium",
+          "line": 30,
+          "excerpt": "ED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quote-preview-pdf-result-store.j"
+        },
+        {
+          "term": "REQUIRED_CONFIRMATION_FIELDS",
+          "line": 23,
+          "excerpt": "ue,\n    \"SYNTHETIC_TEST_FILE_COMMITTED\": false,\n    \"SYNTHETIC_TEST_EXECUTED\": true,\n    \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-pre"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 265,
+      "mapperScore": 123,
+      "validatorScore": 109,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z12r-quote-preview-pdf-runtime-persistence-scoped-implementation-repair.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 3595,
+      "sha256": "b3263ccc56286a8fbcf09b7d1c3b2fe8da9850e63ad01c3f8f77b2190c890d97",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 1,
+          "positions": [
+            750
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            764
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            780
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            797
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            814
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            834
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            857
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            886
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "required"
+      ],
+      "constructionSignals": [],
+      "consumerSignals": [
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 19,
+          "excerpt": " false,\n    \"SYNTHETIC_TEST_EXECUTED\": true,\n    \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-previ"
+        },
+        {
+          "term": "family",
+          "line": 20,
+          "excerpt": "YNTHETIC_TEST_EXECUTED\": true,\n    \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-pe"
+        },
+        {
+          "term": "product",
+          "line": 21,
+          "excerpt": "ECUTED\": true,\n    \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contrac"
+        },
+        {
+          "term": "insured",
+          "line": 22,
+          "excerpt": "  \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE"
+        },
+        {
+          "term": "sumAssured",
+          "line": 23,
+          "excerpt": "XECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/ru"
+        },
+        {
+          "term": "annualPremium",
+          "line": 24,
+          "excerpt": " \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quo"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 25,
+          "excerpt": "FFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quote-preview-pdf-result-store.j"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 26,
+          "excerpt": "REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\",\n    \"COORDINATOR_PAT"
+        },
+        {
+          "term": "premium",
+          "line": 24,
+          "excerpt": "IME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quo"
+        },
+        {
+          "term": "premium",
+          "line": 25,
+          "excerpt": "ED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quote-preview-pdf-result-store.j"
+        },
+        {
+          "term": "REQUIRED_CONFIRMATION_FIELDS",
+          "line": 18,
+          "excerpt": "ue,\n    \"SYNTHETIC_TEST_FILE_COMMITTED\": false,\n    \"SYNTHETIC_TEST_EXECUTED\": true,\n    \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-pre"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 265,
+      "mapperScore": 123,
+      "validatorScore": 109,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15r3-existing-owner-static-contract-review-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 29462,
+      "sha256": "832a66f6fcbd5dd2da22061c63e396425d0556c9254df112e1ec1d4f295c4cc7",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 12,
+          "positions": [
+            2645,
+            2795,
+            4480,
+            7264,
+            7429,
+            13813,
+            14801,
+            15522,
+            21271,
+            22376,
+            22698,
+            24665
+          ]
+        },
+        "family": {
+          "count": 9,
+          "positions": [
+            2659,
+            2813,
+            4494,
+            7280,
+            7449,
+            21291,
+            22390,
+            22728,
+            24695
+          ]
+        },
+        "product": {
+          "count": 13,
+          "positions": [
+            2003,
+            2537,
+            2548,
+            4510,
+            6345,
+            7150,
+            7161,
+            20654,
+            21166,
+            21177,
+            22406,
+            22760,
+            24727
+          ]
+        },
+        "insured": {
+          "count": 9,
+          "positions": [
+            2675,
+            2833,
+            4527,
+            7298,
+            7471,
+            21313,
+            22423,
+            22793,
+            24760
+          ]
+        },
+        "sumAssured": {
+          "count": 9,
+          "positions": [
+            2692,
+            2882,
+            4544,
+            7317,
+            7526,
+            21368,
+            22440,
+            22826,
+            24793
+          ]
+        },
+        "annualPremium": {
+          "count": 16,
+          "positions": [
+            1470,
+            2565,
+            2582,
+            2967,
+            4564,
+            5764,
+            7180,
+            7197,
+            7619,
+            20073,
+            21196,
+            21213,
+            21461,
+            22460,
+            22858,
+            24825
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 9,
+          "positions": [
+            2712,
+            2934,
+            4587,
+            7339,
+            7584,
+            21426,
+            22483,
+            22893,
+            24860
+          ]
+        },
+        "coveragePeriod": {
+          "count": 9,
+          "positions": [
+            2741,
+            3208,
+            4616,
+            7370,
+            7880,
+            21722,
+            22512,
+            22934,
+            24901
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "policyTerm",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 14,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields",
+        "pdf_text_life_fallback"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "hasOwnProperty",
+        "required",
+        "shape"
+      ],
+      "constructionSignals": [
+        "return {",
+        ".map(",
+        "canonical",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 103,
+          "excerpt": "IELD_MAPPING_CLASS\": \"PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED\",\n    \"DIRECT_CANONICAL_MAPPING\": {\n      \"product\": \"product\",\n      \"annualPremium\": \"annualPremium\"\n    },\n    \"MISSING_CANONICAL_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"insured\",\n      \"sumAssured\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ALIAS_EVIDENCE\": {\n      \"name\": [],\n      \"family\": [],\n      \"insured\": [\n        \"sumInsured\"\n   "
+        },
+        {
+          "term": "name",
+          "line": 111,
+          "excerpt": "ium\": \"annualPremium\"\n    },\n    \"MISSING_CANONICAL_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"insured\",\n      \"sumAssured\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ALIAS_EVIDENCE\": {\n      \"name\": [],\n      \"family\": [],\n      \"insured\": [\n        \"sumInsured\"\n      ],\n      \"sumAssured\": [\n        \"sumInsured\"\n      ],\n      \"plannedOrAvePremium\": [\n        \"annualPremium\",\n        \"baseAnnualPremium\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 142,
+          "excerpt": "ESS_PATH_CANDIDATE_RESOLVED\": true,\n    \"ADAPTER_SUCCESS_PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n "
+        },
+        {
+          "term": "name",
+          "line": 143,
+          "excerpt": " true,\n    \"ADAPTER_SUCCESS_PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": fal"
+        },
+        {
+          "term": "name",
+          "line": 144,
+          "excerpt": "PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\":"
+        },
+        {
+          "term": "name",
+          "line": 145,
+          "excerpt": "QuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\": false,\n    \"REAL_ENGINE_E"
+        },
+        {
+          "term": "name",
+          "line": 147,
+          "excerpt": "CCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\": false,\n    \"REAL_ENGINE_EXECUTION\": false,\n    \"PARSER_EXECUTED\": false,\n    \"CONTROLLED_BROW"
+        },
+        {
+          "term": "name",
+          "line": 166,
+          "excerpt": "H_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15R4_EXISTING_ENGINE_NATIVE_FIELD_MAPPING_AND_TARGETED_INVOCATION_GATE\"\n  },\n  \"static_owner_analysis\": {\n    \"status\": \"PASS\",\n    \"reason\": null,\n    \"requiredFields\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"engine\": {\n      \"callable\": \"extractSolucionlineLifeQuoteFi"
+        },
+        {
+          "term": "name",
+          "line": 281,
+          "excerpt": "        \"solucionline_imagina_ser_economic_scenarios\"\n      ],\n      \"directCanonicalMapping\": {\n        \"product\": \"product\",\n        \"annualPremium\": \"annualPremium\"\n      },\n      \"missingCanonicalFields\": [\n        \"name\",\n        \"family\",\n        \"insured\",\n        \"sumAssured\",\n        \"plannedOrAvePremium\",\n        \"coveragePeriod\"\n      ],\n      \"aliasEvidence\": {\n        \"name\": [],\n        \"family\": [],\n        \"insured\": [\n     "
+        },
+        {
+          "term": "name",
+          "line": 289,
+          "excerpt": "m\"\n      },\n      \"missingCanonicalFields\": [\n        \"name\",\n        \"family\",\n        \"insured\",\n        \"sumAssured\",\n        \"plannedOrAvePremium\",\n        \"coveragePeriod\"\n      ],\n      \"aliasEvidence\": {\n        \"name\": [],\n        \"family\": [],\n        \"insured\": [\n          \"sumInsured\"\n        ],\n        \"sumAssured\": [\n          \"sumInsured\"\n        ],\n        \"plannedOrAvePremium\": [\n          \"annualPremium\",\n          \"baseAnn"
+        },
+        {
+          "term": "name",
+          "line": 325,
+          "excerpt": "lback'\\n  };\\n}\"\n    },\n    \"adapter\": {\n      \"excludedNegativeFunctions\": [\n        \"buildQuotePreviewPdfIntegrationError\",\n        \"extractBindingSafeError\"\n      ],\n      \"positiveCandidates\": [\n        {\n          \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n          \"score\": 140,\n          \"reasons\": [\n            \"name_token:integrat\",\n            \"name_token:preview\",\n            \"name_token:quote\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 328,
+          "excerpt": "     \"extractBindingSafeError\"\n      ],\n      \"positiveCandidates\": [\n        {\n          \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n          \"score\": 140,\n          \"reasons\": [\n            \"name_token:integrat\",\n            \"name_token:preview\",\n            \"name_token:quote\",\n            \"name_token:product\",\n            \"body_token:fields\",\n            \"non_negative_name\"\n          ],\n          \"parameters\": "
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 246,
+      "mapperScore": 302,
+      "validatorScore": 149,
+      "consumerScore": 72
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15r3-existing-owner-static-contract-review.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 29371,
+      "sha256": "b5d5977ef8fd5e3608523fb6203e5934e15e38d1f12bc964e705dcc70ede6ec5",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 12,
+          "positions": [
+            2558,
+            2708,
+            4393,
+            7177,
+            7342,
+            13726,
+            14714,
+            15435,
+            21184,
+            22289,
+            22611,
+            24578
+          ]
+        },
+        "family": {
+          "count": 9,
+          "positions": [
+            2572,
+            2726,
+            4407,
+            7193,
+            7362,
+            21204,
+            22303,
+            22641,
+            24608
+          ]
+        },
+        "product": {
+          "count": 13,
+          "positions": [
+            1916,
+            2450,
+            2461,
+            4423,
+            6258,
+            7063,
+            7074,
+            20567,
+            21079,
+            21090,
+            22319,
+            22673,
+            24640
+          ]
+        },
+        "insured": {
+          "count": 9,
+          "positions": [
+            2588,
+            2746,
+            4440,
+            7211,
+            7384,
+            21226,
+            22336,
+            22706,
+            24673
+          ]
+        },
+        "sumAssured": {
+          "count": 9,
+          "positions": [
+            2605,
+            2795,
+            4457,
+            7230,
+            7439,
+            21281,
+            22353,
+            22739,
+            24706
+          ]
+        },
+        "annualPremium": {
+          "count": 16,
+          "positions": [
+            1383,
+            2478,
+            2495,
+            2880,
+            4477,
+            5677,
+            7093,
+            7110,
+            7532,
+            19986,
+            21109,
+            21126,
+            21374,
+            22373,
+            22771,
+            24738
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 9,
+          "positions": [
+            2625,
+            2847,
+            4500,
+            7252,
+            7497,
+            21339,
+            22396,
+            22806,
+            24773
+          ]
+        },
+        "coveragePeriod": {
+          "count": 9,
+          "positions": [
+            2654,
+            3121,
+            4529,
+            7283,
+            7793,
+            21635,
+            22425,
+            22847,
+            24814
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "policyTerm",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 14,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields",
+        "pdf_text_life_fallback"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "hasOwnProperty",
+        "required",
+        "shape"
+      ],
+      "constructionSignals": [
+        "return {",
+        ".map(",
+        "canonical",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 98,
+          "excerpt": "IELD_MAPPING_CLASS\": \"PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED\",\n    \"DIRECT_CANONICAL_MAPPING\": {\n      \"product\": \"product\",\n      \"annualPremium\": \"annualPremium\"\n    },\n    \"MISSING_CANONICAL_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"insured\",\n      \"sumAssured\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ALIAS_EVIDENCE\": {\n      \"name\": [],\n      \"family\": [],\n      \"insured\": [\n        \"sumInsured\"\n   "
+        },
+        {
+          "term": "name",
+          "line": 106,
+          "excerpt": "ium\": \"annualPremium\"\n    },\n    \"MISSING_CANONICAL_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"insured\",\n      \"sumAssured\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ALIAS_EVIDENCE\": {\n      \"name\": [],\n      \"family\": [],\n      \"insured\": [\n        \"sumInsured\"\n      ],\n      \"sumAssured\": [\n        \"sumInsured\"\n      ],\n      \"plannedOrAvePremium\": [\n        \"annualPremium\",\n        \"baseAnnualPremium\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 137,
+          "excerpt": "ESS_PATH_CANDIDATE_RESOLVED\": true,\n    \"ADAPTER_SUCCESS_PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n "
+        },
+        {
+          "term": "name",
+          "line": 138,
+          "excerpt": " true,\n    \"ADAPTER_SUCCESS_PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": fal"
+        },
+        {
+          "term": "name",
+          "line": 139,
+          "excerpt": "PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\":"
+        },
+        {
+          "term": "name",
+          "line": 140,
+          "excerpt": "QuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\": false,\n    \"REAL_ENGINE_E"
+        },
+        {
+          "term": "name",
+          "line": 142,
+          "excerpt": "CCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\": false,\n    \"REAL_ENGINE_EXECUTION\": false,\n    \"PARSER_EXECUTED\": false,\n    \"CONTROLLED_BROW"
+        },
+        {
+          "term": "name",
+          "line": 161,
+          "excerpt": "H_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15R4_EXISTING_ENGINE_NATIVE_FIELD_MAPPING_AND_TARGETED_INVOCATION_GATE\"\n  },\n  \"static_owner_analysis\": {\n    \"status\": \"PASS\",\n    \"reason\": null,\n    \"requiredFields\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"engine\": {\n      \"callable\": \"extractSolucionlineLifeQuoteFi"
+        },
+        {
+          "term": "name",
+          "line": 276,
+          "excerpt": "        \"solucionline_imagina_ser_economic_scenarios\"\n      ],\n      \"directCanonicalMapping\": {\n        \"product\": \"product\",\n        \"annualPremium\": \"annualPremium\"\n      },\n      \"missingCanonicalFields\": [\n        \"name\",\n        \"family\",\n        \"insured\",\n        \"sumAssured\",\n        \"plannedOrAvePremium\",\n        \"coveragePeriod\"\n      ],\n      \"aliasEvidence\": {\n        \"name\": [],\n        \"family\": [],\n        \"insured\": [\n     "
+        },
+        {
+          "term": "name",
+          "line": 284,
+          "excerpt": "m\"\n      },\n      \"missingCanonicalFields\": [\n        \"name\",\n        \"family\",\n        \"insured\",\n        \"sumAssured\",\n        \"plannedOrAvePremium\",\n        \"coveragePeriod\"\n      ],\n      \"aliasEvidence\": {\n        \"name\": [],\n        \"family\": [],\n        \"insured\": [\n          \"sumInsured\"\n        ],\n        \"sumAssured\": [\n          \"sumInsured\"\n        ],\n        \"plannedOrAvePremium\": [\n          \"annualPremium\",\n          \"baseAnn"
+        },
+        {
+          "term": "name",
+          "line": 320,
+          "excerpt": "lback'\\n  };\\n}\"\n    },\n    \"adapter\": {\n      \"excludedNegativeFunctions\": [\n        \"buildQuotePreviewPdfIntegrationError\",\n        \"extractBindingSafeError\"\n      ],\n      \"positiveCandidates\": [\n        {\n          \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n          \"score\": 140,\n          \"reasons\": [\n            \"name_token:integrat\",\n            \"name_token:preview\",\n            \"name_token:quote\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 323,
+          "excerpt": "     \"extractBindingSafeError\"\n      ],\n      \"positiveCandidates\": [\n        {\n          \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n          \"score\": 140,\n          \"reasons\": [\n            \"name_token:integrat\",\n            \"name_token:preview\",\n            \"name_token:quote\",\n            \"name_token:product\",\n            \"body_token:fields\",\n            \"non_negative_name\"\n          ],\n          \"parameters\": "
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 246,
+      "mapperScore": 302,
+      "validatorScore": 149,
+      "consumerScore": 72
+    },
+    {
+      "path": "docs/architecture/quote-preview/107z15r3-existing-owner-static-contract-review.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 2815,
+      "sha256": "b77d38016de8ff7436e95e9aeb1c0c38d36773cbc126f0575f12d9493bcf7722",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 2,
+          "positions": [
+            1547,
+            1652
+          ]
+        },
+        "family": {
+          "count": 2,
+          "positions": [
+            1555,
+            1664
+          ]
+        },
+        "product": {
+          "count": 2,
+          "positions": [
+            1460,
+            1471
+          ]
+        },
+        "insured": {
+          "count": 2,
+          "positions": [
+            1565,
+            1678
+          ]
+        },
+        "sumAssured": {
+          "count": 2,
+          "positions": [
+            1576,
+            1705
+          ]
+        },
+        "annualPremium": {
+          "count": 4,
+          "positions": [
+            1064,
+            1482,
+            1499,
+            1759
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 2,
+          "positions": [
+            1590,
+            1735
+          ]
+        },
+        "coveragePeriod": {
+          "count": 2,
+          "positions": [
+            1613,
+            1923
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 12,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "required",
+        "shape"
+      ],
+      "constructionSignals": [
+        "fields:",
+        "canonical",
+        "mapping"
+      ],
+      "consumerSignals": [],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 28,
+          "excerpt": "edAnnual']`\n\n## Canonical mapping\n\n- Mapping class: `PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED`\n- Direct canonical mappings: `{'product': 'product', 'annualPremium': 'annualPremium'}`\n- Missing canonical fields: `['name', 'family', 'insured', 'sumAssured', 'plannedOrAvePremium', 'coveragePeriod']`\n- Alias evidence: `{'name': [], 'family': [], 'insured': ['sumInsured'], 'sumAssured': ['sumInsured'], 'plannedOrAvePremium': ['annualPremiu"
+        },
+        {
+          "term": "name",
+          "line": 29,
+          "excerpt": "rect canonical mappings: `{'product': 'product', 'annualPremium': 'annualPremium'}`\n- Missing canonical fields: `['name', 'family', 'insured', 'sumAssured', 'plannedOrAvePremium', 'coveragePeriod']`\n- Alias evidence: `{'name': [], 'family': [], 'insured': ['sumInsured'], 'sumAssured': ['sumInsured'], 'plannedOrAvePremium': ['annualPremium', 'baseAnnualPremium', 'plannedAnnual', 'plannedMonthly', 'plannedQuarterly', 'plannedSemiannual', 'pre"
+        },
+        {
+          "term": "name",
+          "line": 40,
+          "excerpt": "parately so the next execution can validate them.\n\n## Adapter success path\n\nNegative-path callables were excluded.\n\n- Candidate: `validateQuotePreviewPdfProductIntelligenceIntegrationShape`\n- Score: `140`\n- Evidence: `['name_token:integrat', 'name_token:preview', 'name_token:quote', 'name_token:product', 'body_token:fields', 'non_negative_name']`\n\nThis is a static success-path candidate, not yet accepted as runtime truth.\nThe next gate must"
+        },
+        {
+          "term": "name",
+          "line": 40,
+          "excerpt": "ecution can validate them.\n\n## Adapter success path\n\nNegative-path callables were excluded.\n\n- Candidate: `validateQuotePreviewPdfProductIntelligenceIntegrationShape`\n- Score: `140`\n- Evidence: `['name_token:integrat', 'name_token:preview', 'name_token:quote', 'name_token:product', 'body_token:fields', 'non_negative_name']`\n\nThis is a static success-path candidate, not yet accepted as runtime truth.\nThe next gate must execute it and prove t"
+        },
+        {
+          "term": "name",
+          "line": 40,
+          "excerpt": "hem.\n\n## Adapter success path\n\nNegative-path callables were excluded.\n\n- Candidate: `validateQuotePreviewPdfProductIntelligenceIntegrationShape`\n- Score: `140`\n- Evidence: `['name_token:integrat', 'name_token:preview', 'name_token:quote', 'name_token:product', 'body_token:fields', 'non_negative_name']`\n\nThis is a static success-path candidate, not yet accepted as runtime truth.\nThe next gate must execute it and prove the exact eight-field m"
+        },
+        {
+          "term": "name",
+          "line": 40,
+          "excerpt": "cess path\n\nNegative-path callables were excluded.\n\n- Candidate: `validateQuotePreviewPdfProductIntelligenceIntegrationShape`\n- Score: `140`\n- Evidence: `['name_token:integrat', 'name_token:preview', 'name_token:quote', 'name_token:product', 'body_token:fields', 'non_negative_name']`\n\nThis is a static success-path candidate, not yet accepted as runtime truth.\nThe next gate must execute it and prove the exact eight-field mapping.\n\n## Boundari"
+        },
+        {
+          "term": "name",
+          "line": 40,
+          "excerpt": "didate: `validateQuotePreviewPdfProductIntelligenceIntegrationShape`\n- Score: `140`\n- Evidence: `['name_token:integrat', 'name_token:preview', 'name_token:quote', 'name_token:product', 'body_token:fields', 'non_negative_name']`\n\nThis is a static success-path candidate, not yet accepted as runtime truth.\nThe next gate must execute it and prove the exact eight-field mapping.\n\n## Boundaries\n\n- Engine/parser execution: `false`\n- Browser executi"
+        },
+        {
+          "term": "family",
+          "line": 28,
+          "excerpt": "']`\n\n## Canonical mapping\n\n- Mapping class: `PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED`\n- Direct canonical mappings: `{'product': 'product', 'annualPremium': 'annualPremium'}`\n- Missing canonical fields: `['name', 'family', 'insured', 'sumAssured', 'plannedOrAvePremium', 'coveragePeriod']`\n- Alias evidence: `{'name': [], 'family': [], 'insured': ['sumInsured'], 'sumAssured': ['sumInsured'], 'plannedOrAvePremium': ['annualPremium', 'baseA"
+        },
+        {
+          "term": "family",
+          "line": 29,
+          "excerpt": "al mappings: `{'product': 'product', 'annualPremium': 'annualPremium'}`\n- Missing canonical fields: `['name', 'family', 'insured', 'sumAssured', 'plannedOrAvePremium', 'coveragePeriod']`\n- Alias evidence: `{'name': [], 'family': [], 'insured': ['sumInsured'], 'sumAssured': ['sumInsured'], 'plannedOrAvePremium': ['annualPremium', 'baseAnnualPremium', 'plannedAnnual', 'plannedMonthly', 'plannedQuarterly', 'plannedSemiannual', 'premium', 'premiu"
+        },
+        {
+          "term": "product",
+          "line": 20,
+          "excerpt": "i', 'genderLine.match', 'guaranteeLine.match', 'i.test', 'insuredLine.replace', 'line.match', 'line.replace', 'lines.find', 'lines.findIndex', 'liquidationLine.match', 'map', 'match', 'parseNumberList', 'pattern.test', 'productLine.match', 'scenario', 'split', 'studyDateLine.match', 'test', 'trim']`\n- Native output key count: `42`\n- Native output key preview: `['advisor', 'age', 'annual', 'annualPremium', 'baseAnnualPremium', 'birthDate', 'cov"
+        },
+        {
+          "term": "product",
+          "line": 27,
+          "excerpt": ", 'monthlyIncomeUdi', 'optionalCoverages', 'paymentMode', 'paymentTerm', 'plan', 'plannedAnnual']`\n\n## Canonical mapping\n\n- Mapping class: `PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED`\n- Direct canonical mappings: `{'product': 'product', 'annualPremium': 'annualPremium'}`\n- Missing canonical fields: `['name', 'family', 'insured', 'sumAssured', 'plannedOrAvePremium', 'coveragePeriod']`\n- Alias evidence: `{'name': [], 'family': [], 'insured':"
+        },
+        {
+          "term": "product",
+          "line": 27,
+          "excerpt": "ncomeUdi', 'optionalCoverages', 'paymentMode', 'paymentTerm', 'plan', 'plannedAnnual']`\n\n## Canonical mapping\n\n- Mapping class: `PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED`\n- Direct canonical mappings: `{'product': 'product', 'annualPremium': 'annualPremium'}`\n- Missing canonical fields: `['name', 'family', 'insured', 'sumAssured', 'plannedOrAvePremium', 'coveragePeriod']`\n- Alias evidence: `{'name': [], 'family': [], 'insured': ['sumInsur"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 242,
+      "mapperScore": 281,
+      "validatorScore": 139,
+      "consumerScore": 48
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15s-canonical-schema-owner-reconciliation-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 143439,
+      "sha256": "a8ecfaf9f18d56cc1cc9105381a0e668de65e92d2fb8d31296fdd0fd19302415",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 39,
+          "positions": [
+            1171,
+            2157,
+            2673,
+            3189,
+            3705,
+            4219,
+            4732,
+            5279,
+            5804,
+            6328,
+            6828,
+            7394,
+            7821,
+            8354,
+            8884,
+            9414,
+            9944,
+            10475,
+            11006,
+            70207,
+            70825,
+            71907,
+            72433,
+            72959,
+            73485,
+            74009,
+            74532,
+            75093,
+            75628,
+            76162,
+            76672,
+            77254,
+            77691,
+            78234,
+            78774,
+            79314,
+            79854,
+            80395,
+            80936
+          ]
+        },
+        "family": {
+          "count": 31,
+          "positions": [
+            11554,
+            12252,
+            12760,
+            13269,
+            13785,
+            14295,
+            14805,
+            15316,
+            15827,
+            16374,
+            16968,
+            17455,
+            17990,
+            18526,
+            19062,
+            70221,
+            81498,
+            82250,
+            82768,
+            83287,
+            83813,
+            84333,
+            84853,
+            85374,
+            85895,
+            86456,
+            87066,
+            87563,
+            88108,
+            88654,
+            89200
+          ]
+        },
+        "product": {
+          "count": 63,
+          "positions": [
+            19613,
+            19744,
+            19812,
+            19822,
+            19875,
+            19885,
+            20499,
+            21008,
+            21516,
+            22024,
+            22533,
+            23042,
+            23551,
+            24061,
+            24609,
+            24999,
+            25491,
+            26001,
+            26510,
+            27019,
+            27528,
+            28036,
+            28580,
+            29175,
+            29655,
+            30194,
+            30732,
+            31268,
+            31806,
+            32343,
+            32880,
+            70237,
+            89765,
+            89902,
+            89974,
+            89986,
+            90043,
+            90055,
+            90733,
+            91252,
+            91770,
+            92288,
+            92807,
+            93326,
+            93845,
+            94365,
+            94927,
+            95327,
+            95829,
+            96349
+          ]
+        },
+        "insured": {
+          "count": 37,
+          "positions": [
+            33433,
+            34146,
+            34658,
+            35177,
+            35690,
+            36202,
+            36711,
+            37222,
+            37733,
+            38312,
+            38907,
+            39443,
+            39978,
+            40517,
+            41055,
+            41592,
+            42129,
+            42666,
+            70254,
+            103935,
+            104704,
+            105226,
+            105755,
+            106278,
+            106800,
+            107319,
+            107840,
+            108361,
+            108956,
+            109567,
+            110113,
+            110658,
+            111207,
+            111755,
+            112302,
+            112849,
+            113396
+          ]
+        },
+        "sumAssured": {
+          "count": 5,
+          "positions": [
+            43219,
+            48152,
+            70271,
+            113963,
+            119038
+          ]
+        },
+        "annualPremium": {
+          "count": 43,
+          "positions": [
+            48763,
+            48900,
+            48974,
+            48984,
+            49043,
+            49053,
+            49521,
+            50050,
+            50571,
+            51092,
+            51616,
+            52142,
+            52727,
+            53526,
+            53839,
+            54495,
+            55024,
+            55545,
+            56066,
+            56590,
+            57116,
+            70291,
+            119667,
+            119810,
+            119888,
+            119900,
+            119963,
+            119975,
+            120485,
+            121024,
+            121555,
+            122086,
+            122620,
+            123156,
+            123757,
+            124584,
+            124921,
+            125631,
+            126170,
+            126701,
+            127232,
+            127766,
+            128302
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 5,
+          "positions": [
+            53344,
+            61843,
+            70314,
+            124392,
+            133127
+          ]
+        },
+        "coveragePeriod": {
+          "count": 5,
+          "positions": [
+            62472,
+            69528,
+            70343,
+            133774,
+            141018
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "policyTerm",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 14,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "validate",
+        "hasOwnProperty",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "getField(",
+        "fields:",
+        "payload:",
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [
+        "./quote-preview-product-intelligence-binding-adapter-074b.js"
+      ],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 34,
+          "excerpt": "\"PDF_READ_EXECUTED\": false,\n    \"BACKEND_CONNECTION\": false,\n    \"QUOTE_TRUTH_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15S1_CANONICAL_SCHEMA_CORRECTION_AUTHORIZATION_GATE\"\n  },\n  \"fields\": [\n    {\n      \"canonicalField\": \"name\",\n      \"classification\": \"ADAPTER_DERIVED_ONLY\",\n      \"runtimeOwner\": \"adapter\",\n      \"directEngineMapping\": null,\n      \"engineAliases\": [],\n      \"normalizedNativeKeys\": [],\n      \"proposalRankedCandidates\": [],\n  "
+        },
+        {
+          "term": "name",
+          "line": 82,
+          "excerpt": "\n      },\n      \"engineEvidence\": false,\n      \"adapterEvidence\": true,\n      \"persistenceEvidence\": true,\n      \"modalEvidence\": true,\n      \"engineSnippets\": [],\n      \"adapterSnippets\": [\n        {\n          \"term\": \"name\",\n          \"line\": 118,\n          \"excerpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction "
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "e\": 118,\n          \"excerpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationO"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "erpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n "
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": " .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": ", '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"o"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "ace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')"
+        },
+        {
+          "term": "name",
+          "line": 87,
+          "excerpt": " && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names)"
+        },
+        {
+          "term": "name",
+          "line": 89,
+          "excerpt": " \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationO"
+        },
+        {
+          "term": "name",
+          "line": 89,
+          "excerpt": "e\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result) {\\n  if (resu"
+        },
+        {
+          "term": "name",
+          "line": 89,
+          "excerpt": "\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result) {\\n  if (result === t"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 242,
+      "mapperScore": 312,
+      "validatorScore": 139,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15s-canonical-schema-owner-reconciliation.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 143349,
+      "sha256": "612bda54bc9753edafaf391fb9defd94793a3fc61e538cd3d3b7bcca71d3014d",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 39,
+          "positions": [
+            1085,
+            2071,
+            2587,
+            3103,
+            3619,
+            4133,
+            4646,
+            5193,
+            5718,
+            6242,
+            6742,
+            7308,
+            7735,
+            8268,
+            8798,
+            9328,
+            9858,
+            10389,
+            10920,
+            70121,
+            70739,
+            71821,
+            72347,
+            72873,
+            73399,
+            73923,
+            74446,
+            75007,
+            75542,
+            76076,
+            76586,
+            77168,
+            77605,
+            78148,
+            78688,
+            79228,
+            79768,
+            80309,
+            80850
+          ]
+        },
+        "family": {
+          "count": 31,
+          "positions": [
+            11468,
+            12166,
+            12674,
+            13183,
+            13699,
+            14209,
+            14719,
+            15230,
+            15741,
+            16288,
+            16882,
+            17369,
+            17904,
+            18440,
+            18976,
+            70135,
+            81412,
+            82164,
+            82682,
+            83201,
+            83727,
+            84247,
+            84767,
+            85288,
+            85809,
+            86370,
+            86980,
+            87477,
+            88022,
+            88568,
+            89114
+          ]
+        },
+        "product": {
+          "count": 63,
+          "positions": [
+            19527,
+            19658,
+            19726,
+            19736,
+            19789,
+            19799,
+            20413,
+            20922,
+            21430,
+            21938,
+            22447,
+            22956,
+            23465,
+            23975,
+            24523,
+            24913,
+            25405,
+            25915,
+            26424,
+            26933,
+            27442,
+            27950,
+            28494,
+            29089,
+            29569,
+            30108,
+            30646,
+            31182,
+            31720,
+            32257,
+            32794,
+            70151,
+            89679,
+            89816,
+            89888,
+            89900,
+            89957,
+            89969,
+            90647,
+            91166,
+            91684,
+            92202,
+            92721,
+            93240,
+            93759,
+            94279,
+            94841,
+            95241,
+            95743,
+            96263
+          ]
+        },
+        "insured": {
+          "count": 37,
+          "positions": [
+            33347,
+            34060,
+            34572,
+            35091,
+            35604,
+            36116,
+            36625,
+            37136,
+            37647,
+            38226,
+            38821,
+            39357,
+            39892,
+            40431,
+            40969,
+            41506,
+            42043,
+            42580,
+            70168,
+            103849,
+            104618,
+            105140,
+            105669,
+            106192,
+            106714,
+            107233,
+            107754,
+            108275,
+            108870,
+            109481,
+            110027,
+            110572,
+            111121,
+            111669,
+            112216,
+            112763,
+            113310
+          ]
+        },
+        "sumAssured": {
+          "count": 5,
+          "positions": [
+            43133,
+            48066,
+            70185,
+            113877,
+            118952
+          ]
+        },
+        "annualPremium": {
+          "count": 43,
+          "positions": [
+            48677,
+            48814,
+            48888,
+            48898,
+            48957,
+            48967,
+            49435,
+            49964,
+            50485,
+            51006,
+            51530,
+            52056,
+            52641,
+            53440,
+            53753,
+            54409,
+            54938,
+            55459,
+            55980,
+            56504,
+            57030,
+            70205,
+            119581,
+            119724,
+            119802,
+            119814,
+            119877,
+            119889,
+            120399,
+            120938,
+            121469,
+            122000,
+            122534,
+            123070,
+            123671,
+            124498,
+            124835,
+            125545,
+            126084,
+            126615,
+            127146,
+            127680,
+            128216
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 5,
+          "positions": [
+            53258,
+            61757,
+            70228,
+            124306,
+            133041
+          ]
+        },
+        "coveragePeriod": {
+          "count": 5,
+          "positions": [
+            62386,
+            69442,
+            70257,
+            133688,
+            140932
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "policyTerm",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 14,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "validate",
+        "hasOwnProperty",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "getField(",
+        "fields:",
+        "payload:",
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [
+        "./quote-preview-product-intelligence-binding-adapter-074b.js"
+      ],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 29,
+          "excerpt": "\"PDF_READ_EXECUTED\": false,\n    \"BACKEND_CONNECTION\": false,\n    \"QUOTE_TRUTH_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15S1_CANONICAL_SCHEMA_CORRECTION_AUTHORIZATION_GATE\"\n  },\n  \"fields\": [\n    {\n      \"canonicalField\": \"name\",\n      \"classification\": \"ADAPTER_DERIVED_ONLY\",\n      \"runtimeOwner\": \"adapter\",\n      \"directEngineMapping\": null,\n      \"engineAliases\": [],\n      \"normalizedNativeKeys\": [],\n      \"proposalRankedCandidates\": [],\n  "
+        },
+        {
+          "term": "name",
+          "line": 77,
+          "excerpt": "\n      },\n      \"engineEvidence\": false,\n      \"adapterEvidence\": true,\n      \"persistenceEvidence\": true,\n      \"modalEvidence\": true,\n      \"engineSnippets\": [],\n      \"adapterSnippets\": [\n        {\n          \"term\": \"name\",\n          \"line\": 118,\n          \"excerpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction "
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": "e\": 118,\n          \"excerpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationO"
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": "erpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n "
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": " .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {"
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": ", '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"o"
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": "ace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n"
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": "/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')"
+        },
+        {
+          "term": "name",
+          "line": 82,
+          "excerpt": " && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names)"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": " \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationO"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "e\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result) {\\n  if (resu"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result) {\\n  if (result === t"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 242,
+      "mapperScore": 312,
+      "validatorScore": 139,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15r-existing-extractor-api-contract-resolution-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 22185,
+      "sha256": "736bc5eafd7385c57f4d3ca73e99896c302cb57892905fc07db2264c3c4b8428",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 22,
+          "positions": [
+            1897,
+            2423,
+            3063,
+            4158,
+            5047,
+            5977,
+            6824,
+            7577,
+            8884,
+            9570,
+            10863,
+            11836,
+            12793,
+            14386,
+            14659,
+            14817,
+            14957,
+            15097,
+            15236,
+            15432,
+            15641,
+            15833
+          ]
+        },
+        "family": {
+          "count": 4,
+          "positions": [
+            1911,
+            3150,
+            9657,
+            14400
+          ]
+        },
+        "product": {
+          "count": 4,
+          "positions": [
+            1927,
+            3239,
+            9746,
+            14416
+          ]
+        },
+        "insured": {
+          "count": 4,
+          "positions": [
+            1944,
+            3329,
+            9836,
+            14433
+          ]
+        },
+        "sumAssured": {
+          "count": 4,
+          "positions": [
+            1961,
+            3419,
+            9926,
+            14450
+          ]
+        },
+        "annualPremium": {
+          "count": 4,
+          "positions": [
+            1981,
+            3512,
+            10019,
+            14470
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 4,
+          "positions": [
+            2004,
+            3608,
+            10115,
+            14493
+          ]
+        },
+        "coveragePeriod": {
+          "count": 4,
+          "positions": [
+            2033,
+            3710,
+            10217,
+            14522
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "sumInsured",
+        "totalAnnualPremium",
+        "premium",
+        "policyTerm",
+        "paymentTerm",
+        "product"
+      ],
+      "nativeAliasTermCount": 6,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields"
+      ],
+      "validatorSignals": [
+        "validate",
+        "required",
+        "shape"
+      ],
+      "constructionSignals": [
+        "projection"
+      ],
+      "consumerSignals": [
+        "persist"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 63,
+          "excerpt": "QUOTE_TRUTH_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15R2_EXISTING_EXTRACTOR_TARGETED_SYNTHETIC_INVOCATION_GATE\"\n  },\n  \"api_contract_resolution\": {\n    \"status\": \"PASS\",\n    \"reason\": null,\n    \"requiredFields\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"sourceReceipts\": {\n      \"engineFileSha256\": \"d164ce99e24add"
+        },
+        {
+          "term": "name",
+          "line": 81,
+          "excerpt": "0e23cda8585af3a6650f220c724a5c8ea9b9dc04e0ecebd5941e3391fed971d\"\n    },\n    \"engine\": {\n      \"resolved\": true,\n      \"winner\": {\n        \"path\": \"extractSolucionlineLifeQuoteFields\",\n        \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required"
+        },
+        {
+          "term": "name",
+          "line": 85,
+          "excerpt": "r\": {\n        \"path\": \"extractSolucionlineLifeQuoteFields\",\n        \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required_field_mentions:2\",\n          \"practical_arity\"\n        ],\n        \"parameters\": [\n          \"text\"\n        ],\n        \"inpu"
+        },
+        {
+          "term": "name",
+          "line": 86,
+          "excerpt": "lucionlineLifeQuoteFields\",\n        \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required_field_mentions:2\",\n          \"practical_arity\"\n        ],\n        \"parameters\": [\n          \"text\"\n        ],\n        \"inputContract\": {\n          \"kind\": "
+        },
+        {
+          "term": "name",
+          "line": 87,
+          "excerpt": "      \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required_field_mentions:2\",\n          \"practical_arity\"\n        ],\n        \"parameters\": [\n          \"text\"\n        ],\n        \"inputContract\": {\n          \"kind\": \"SINGLE_OBJECT_OR_VALUE\",\n    "
+        },
+        {
+          "term": "name",
+          "line": 105,
+          "excerpt": "ameters\": [\n            \"text\"\n          ],\n          \"textProperties\": [],\n          \"domainProperties\": [],\n          \"allAccessedProperties\": []\n        },\n        \"fieldEvidence\": [\n          {\n            \"field\": \"name\",\n            \"occurrenceCount\": 0\n          },\n          {\n            \"field\": \"family\",\n            \"occurrenceCount\": 0\n          },\n          {\n            \"field\": \"product\",\n            \"occurrenceCount\": 1\n     "
+        },
+        {
+          "term": "name",
+          "line": 148,
+          "excerpt": "{\n          \"strategyId\": \"UNRESOLVED\",\n          \"argumentTemplate\": []\n        }\n      },\n      \"candidates\": [\n        {\n          \"path\": \"extractSolucionlineLifeQuoteFields\",\n          \"ownerPath\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 152,
+          "excerpt": "  \"path\": \"extractSolucionlineLifeQuoteFields\",\n          \"ownerPath\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n            \"required_field_mentions:2\",\n            \"practical_arity\"\n          ],\n          \"parameters\": [\n            \"text\"\n          "
+        },
+        {
+          "term": "name",
+          "line": 153,
+          "excerpt": "QuoteFields\",\n          \"ownerPath\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n            \"required_field_mentions:2\",\n            \"practical_arity\"\n          ],\n          \"parameters\": [\n            \"text\"\n          ],\n          \"inputContract\": {\n  "
+        },
+        {
+          "term": "name",
+          "line": 154,
+          "excerpt": "th\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n            \"required_field_mentions:2\",\n            \"practical_arity\"\n          ],\n          \"parameters\": [\n            \"text\"\n          ],\n          \"inputContract\": {\n            \"kind\": \"SINGLE_OBJECT"
+        },
+        {
+          "term": "name",
+          "line": 177,
+          "excerpt": "rceSha256\": \"8af5104835a02cc62c20a9a9a4d1c9708fc1016b9b48e08a23773b91555d539d\",\n          \"sourceLength\": 5284\n        },\n        {\n          \"path\": \"summarizeForgeQuotePdfText\",\n          \"ownerPath\": null,\n          \"name\": \"summarizeForgeQuotePdfText\",\n          \"arity\": 0,\n          \"score\": 110,\n          \"scoreReasons\": [\n            \"name_token:quote\",\n            \"explicit_text_property\"\n          ],\n          \"parameters\": [\n     "
+        },
+        {
+          "term": "name",
+          "line": 181,
+          "excerpt": "      {\n          \"path\": \"summarizeForgeQuotePdfText\",\n          \"ownerPath\": null,\n          \"name\": \"summarizeForgeQuotePdfText\",\n          \"arity\": 0,\n          \"score\": 110,\n          \"scoreReasons\": [\n            \"name_token:quote\",\n            \"explicit_text_property\"\n          ],\n          \"parameters\": [\n            \"input\"\n          ],\n          \"inputContract\": {\n            \"kind\": \"OBJECT_WITH_TEXT_PROPERTY\",\n            \"param"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 238,
+      "mapperScore": 223,
+      "validatorScore": 129,
+      "consumerScore": 60
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15r-existing-extractor-api-contract-resolution.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 22090,
+      "sha256": "398410bf85dd5b95966c68fc0dcd2e5cc3d2007dd7ea2fb178c77149e997ec42",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 22,
+          "positions": [
+            1806,
+            2332,
+            2972,
+            4067,
+            4956,
+            5886,
+            6733,
+            7486,
+            8793,
+            9479,
+            10772,
+            11745,
+            12702,
+            14295,
+            14568,
+            14726,
+            14866,
+            15006,
+            15145,
+            15341,
+            15550,
+            15742
+          ]
+        },
+        "family": {
+          "count": 4,
+          "positions": [
+            1820,
+            3059,
+            9566,
+            14309
+          ]
+        },
+        "product": {
+          "count": 4,
+          "positions": [
+            1836,
+            3148,
+            9655,
+            14325
+          ]
+        },
+        "insured": {
+          "count": 4,
+          "positions": [
+            1853,
+            3238,
+            9745,
+            14342
+          ]
+        },
+        "sumAssured": {
+          "count": 4,
+          "positions": [
+            1870,
+            3328,
+            9835,
+            14359
+          ]
+        },
+        "annualPremium": {
+          "count": 4,
+          "positions": [
+            1890,
+            3421,
+            9928,
+            14379
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 4,
+          "positions": [
+            1913,
+            3517,
+            10024,
+            14402
+          ]
+        },
+        "coveragePeriod": {
+          "count": 4,
+          "positions": [
+            1942,
+            3619,
+            10126,
+            14431
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "sumInsured",
+        "totalAnnualPremium",
+        "premium",
+        "policyTerm",
+        "paymentTerm",
+        "product"
+      ],
+      "nativeAliasTermCount": 6,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields"
+      ],
+      "validatorSignals": [
+        "validate",
+        "required",
+        "shape"
+      ],
+      "constructionSignals": [
+        "projection"
+      ],
+      "consumerSignals": [
+        "persist"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 58,
+          "excerpt": "QUOTE_TRUTH_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15R2_EXISTING_EXTRACTOR_TARGETED_SYNTHETIC_INVOCATION_GATE\"\n  },\n  \"api_contract_resolution\": {\n    \"status\": \"PASS\",\n    \"reason\": null,\n    \"requiredFields\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"sourceReceipts\": {\n      \"engineFileSha256\": \"d164ce99e24add"
+        },
+        {
+          "term": "name",
+          "line": 76,
+          "excerpt": "0e23cda8585af3a6650f220c724a5c8ea9b9dc04e0ecebd5941e3391fed971d\"\n    },\n    \"engine\": {\n      \"resolved\": true,\n      \"winner\": {\n        \"path\": \"extractSolucionlineLifeQuoteFields\",\n        \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required"
+        },
+        {
+          "term": "name",
+          "line": 80,
+          "excerpt": "r\": {\n        \"path\": \"extractSolucionlineLifeQuoteFields\",\n        \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required_field_mentions:2\",\n          \"practical_arity\"\n        ],\n        \"parameters\": [\n          \"text\"\n        ],\n        \"inpu"
+        },
+        {
+          "term": "name",
+          "line": 81,
+          "excerpt": "lucionlineLifeQuoteFields\",\n        \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required_field_mentions:2\",\n          \"practical_arity\"\n        ],\n        \"parameters\": [\n          \"text\"\n        ],\n        \"inputContract\": {\n          \"kind\": "
+        },
+        {
+          "term": "name",
+          "line": 82,
+          "excerpt": "      \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required_field_mentions:2\",\n          \"practical_arity\"\n        ],\n        \"parameters\": [\n          \"text\"\n        ],\n        \"inputContract\": {\n          \"kind\": \"SINGLE_OBJECT_OR_VALUE\",\n    "
+        },
+        {
+          "term": "name",
+          "line": 100,
+          "excerpt": "ameters\": [\n            \"text\"\n          ],\n          \"textProperties\": [],\n          \"domainProperties\": [],\n          \"allAccessedProperties\": []\n        },\n        \"fieldEvidence\": [\n          {\n            \"field\": \"name\",\n            \"occurrenceCount\": 0\n          },\n          {\n            \"field\": \"family\",\n            \"occurrenceCount\": 0\n          },\n          {\n            \"field\": \"product\",\n            \"occurrenceCount\": 1\n     "
+        },
+        {
+          "term": "name",
+          "line": 143,
+          "excerpt": "{\n          \"strategyId\": \"UNRESOLVED\",\n          \"argumentTemplate\": []\n        }\n      },\n      \"candidates\": [\n        {\n          \"path\": \"extractSolucionlineLifeQuoteFields\",\n          \"ownerPath\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 147,
+          "excerpt": "  \"path\": \"extractSolucionlineLifeQuoteFields\",\n          \"ownerPath\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n            \"required_field_mentions:2\",\n            \"practical_arity\"\n          ],\n          \"parameters\": [\n            \"text\"\n          "
+        },
+        {
+          "term": "name",
+          "line": 148,
+          "excerpt": "QuoteFields\",\n          \"ownerPath\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n            \"required_field_mentions:2\",\n            \"practical_arity\"\n          ],\n          \"parameters\": [\n            \"text\"\n          ],\n          \"inputContract\": {\n  "
+        },
+        {
+          "term": "name",
+          "line": 149,
+          "excerpt": "th\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n            \"required_field_mentions:2\",\n            \"practical_arity\"\n          ],\n          \"parameters\": [\n            \"text\"\n          ],\n          \"inputContract\": {\n            \"kind\": \"SINGLE_OBJECT"
+        },
+        {
+          "term": "name",
+          "line": 172,
+          "excerpt": "rceSha256\": \"8af5104835a02cc62c20a9a9a4d1c9708fc1016b9b48e08a23773b91555d539d\",\n          \"sourceLength\": 5284\n        },\n        {\n          \"path\": \"summarizeForgeQuotePdfText\",\n          \"ownerPath\": null,\n          \"name\": \"summarizeForgeQuotePdfText\",\n          \"arity\": 0,\n          \"score\": 110,\n          \"scoreReasons\": [\n            \"name_token:quote\",\n            \"explicit_text_property\"\n          ],\n          \"parameters\": [\n     "
+        },
+        {
+          "term": "name",
+          "line": 176,
+          "excerpt": "      {\n          \"path\": \"summarizeForgeQuotePdfText\",\n          \"ownerPath\": null,\n          \"name\": \"summarizeForgeQuotePdfText\",\n          \"arity\": 0,\n          \"score\": 110,\n          \"scoreReasons\": [\n            \"name_token:quote\",\n            \"explicit_text_property\"\n          ],\n          \"parameters\": [\n            \"input\"\n          ],\n          \"inputContract\": {\n            \"kind\": \"OBJECT_WITH_TEXT_PROPERTY\",\n            \"param"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 238,
+      "mapperScore": 223,
+      "validatorScore": 129,
+      "consumerScore": 60
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15s1-canonical-schema-correction-authorization-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 10596,
+      "sha256": "c93ee6798540012a5d8b3ef914c9277c66a7955fdc6b648084d9c4f4b3217fc5",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 3,
+          "positions": [
+            1026,
+            2340,
+            2401
+          ]
+        },
+        "family": {
+          "count": 3,
+          "positions": [
+            1040,
+            2354,
+            3274
+          ]
+        },
+        "product": {
+          "count": 8,
+          "positions": [
+            820,
+            2174,
+            3816,
+            3955,
+            4027,
+            4039,
+            4096,
+            4108
+          ]
+        },
+        "insured": {
+          "count": 3,
+          "positions": [
+            837,
+            2191,
+            4606
+          ]
+        },
+        "sumAssured": {
+          "count": 3,
+          "positions": [
+            854,
+            2208,
+            5196
+          ]
+        },
+        "annualPremium": {
+          "count": 10,
+          "positions": [
+            874,
+            2228,
+            5789,
+            5934,
+            6012,
+            6024,
+            6087,
+            6099,
+            6622,
+            6959
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 3,
+          "positions": [
+            897,
+            2251,
+            6428
+          ]
+        },
+        "coveragePeriod": {
+          "count": 3,
+          "positions": [
+            926,
+            2280,
+            7488
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 11,
+      "engineTerms": [],
+      "validatorSignals": [
+        "validate",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 19,
+          "excerpt": "D\": \"RUNTIME_FIELD_OWNERSHIP_AND_ADAPTER_PROJECTION\",\n    \"EIGHT_FIELD_SCHEMA_PRESERVED\": true,\n    \"CANONICAL_FIELD_COUNT\": 8,\n    \"FIELD_ADDITION_AUTHORIZED\": false,\n    \"FIELD_REMOVAL_AUTHORIZED\": false,\n    \"FIELD_RENAME_AUTHORIZED\": false,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ENGINE_OWNED_FIELDS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "DS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n  "
+        },
+        {
+          "term": "name",
+          "line": 68,
+          "excerpt": "\"fieldOwnership\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n   "
+        },
+        {
+          "term": "name",
+          "line": 72,
+          "excerpt": "\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [],\n        \"proposalRankedCandi"
+        },
+        {
+          "term": "name",
+          "line": 320,
+          "excerpt": "e resulting exact eight-field packet with the existing adapter validator.\",\n      \"Emit no official quote, provider write, backend effect or quote truth.\"\n    ],\n    \"forbiddenBehavior\": [\n      \"Do not add, remove or rename canonical fields.\",\n      \"Do not create a new runtime module, engine, cache or bridge.\",\n      \"Do not duplicate mapping logic outside the existing adapter.\",\n      \"Do not use manual field guesses or user-selected ali"
+        },
+        {
+          "term": "family",
+          "line": 32,
+          "excerpt": "product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n    \"EXISTING_ADAP"
+        },
+        {
+          "term": "family",
+          "line": 69,
+          "excerpt": "p\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalized"
+        },
+        {
+          "term": "family",
+          "line": 114,
+          "excerpt": "   30,\n            35,\n            36,\n            41,\n            42,\n            47,\n            48,\n            53,\n            54,\n            55,\n            60,\n            61\n          ]\n        }\n      },\n      \"family\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [],\n        \"proposalRankedCandi"
+        },
+        {
+          "term": "product",
+          "line": 22,
+          "excerpt": "    \"CANONICAL_FIELD_COUNT\": 8,\n    \"FIELD_ADDITION_AUTHORIZED\": false,\n    \"FIELD_REMOVAL_AUTHORIZED\": false,\n    \"FIELD_RENAME_AUTHORIZED\": false,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ENGINE_OWNED_FIELDS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\""
+        },
+        {
+          "term": "product",
+          "line": 36,
+          "excerpt": "IELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n    \"EXISTING_ADAPTER_CANONICAL_PROJECTION_EXPOSURE_AUTHORIZED\": true,\n    \"EXISTING_PROJECTION_REUSE_REQUIRED\": true,\n    \"DUPLICATE_MAPPING_LOGIC_AUTHORIZED\": false,\n  "
+        },
+        {
+          "term": "product",
+          "line": 60,
+          "excerpt": " \"REAL_CUSTOMER_DATA_AUTHORIZED\": false,\n    \"REAL_EFFECTS_AUTHORIZED\": false,\n    \"NEXT_GATE\": \"107Z15S2_EXISTING_ADAPTER_CANONICAL_PROJECTION_EXPOSURE_GATE\"\n  },\n  \"fieldOwnership\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \""
+        },
+        {
+          "term": "product",
+          "line": 135,
+          "excerpt": "   \"engine\": [],\n          \"adapter\": [\n            288\n          ],\n          \"contract\": [\n            3\n          ],\n          \"store\": [],\n          \"coordinator\": [],\n          \"modal\": []\n        }\n      },\n      \"product\": {\n        \"classification\": \"ENGINE_NATIVE_OR_ENGINE_DERIVED\",\n        \"runtimeOwner\": \"engine\",\n        \"directEngineMapping\": \"product\",\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [\n          \"prod"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 238,
+      "mapperScore": 218,
+      "validatorScore": 129,
+      "consumerScore": 96
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15s1-canonical-schema-correction-authorization.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 10501,
+      "sha256": "4432f2278993373babbb669874e0fcf684acde9bc41c0f005f2efc125feb22da",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 3,
+          "positions": [
+            935,
+            2249,
+            2310
+          ]
+        },
+        "family": {
+          "count": 3,
+          "positions": [
+            949,
+            2263,
+            3183
+          ]
+        },
+        "product": {
+          "count": 8,
+          "positions": [
+            729,
+            2083,
+            3725,
+            3864,
+            3936,
+            3948,
+            4005,
+            4017
+          ]
+        },
+        "insured": {
+          "count": 3,
+          "positions": [
+            746,
+            2100,
+            4515
+          ]
+        },
+        "sumAssured": {
+          "count": 3,
+          "positions": [
+            763,
+            2117,
+            5105
+          ]
+        },
+        "annualPremium": {
+          "count": 10,
+          "positions": [
+            783,
+            2137,
+            5698,
+            5843,
+            5921,
+            5933,
+            5996,
+            6008,
+            6531,
+            6868
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 3,
+          "positions": [
+            806,
+            2160,
+            6337
+          ]
+        },
+        "coveragePeriod": {
+          "count": 3,
+          "positions": [
+            835,
+            2189,
+            7397
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 11,
+      "engineTerms": [],
+      "validatorSignals": [
+        "validate",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 14,
+          "excerpt": "D\": \"RUNTIME_FIELD_OWNERSHIP_AND_ADAPTER_PROJECTION\",\n    \"EIGHT_FIELD_SCHEMA_PRESERVED\": true,\n    \"CANONICAL_FIELD_COUNT\": 8,\n    \"FIELD_ADDITION_AUTHORIZED\": false,\n    \"FIELD_REMOVAL_AUTHORIZED\": false,\n    \"FIELD_RENAME_AUTHORIZED\": false,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ENGINE_OWNED_FIELDS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],"
+        },
+        {
+          "term": "name",
+          "line": 26,
+          "excerpt": "DS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n  "
+        },
+        {
+          "term": "name",
+          "line": 63,
+          "excerpt": "\"fieldOwnership\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n   "
+        },
+        {
+          "term": "name",
+          "line": 67,
+          "excerpt": "\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [],\n        \"proposalRankedCandi"
+        },
+        {
+          "term": "name",
+          "line": 315,
+          "excerpt": "e resulting exact eight-field packet with the existing adapter validator.\",\n      \"Emit no official quote, provider write, backend effect or quote truth.\"\n    ],\n    \"forbiddenBehavior\": [\n      \"Do not add, remove or rename canonical fields.\",\n      \"Do not create a new runtime module, engine, cache or bridge.\",\n      \"Do not duplicate mapping logic outside the existing adapter.\",\n      \"Do not use manual field guesses or user-selected ali"
+        },
+        {
+          "term": "family",
+          "line": 27,
+          "excerpt": "product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n    \"EXISTING_ADAP"
+        },
+        {
+          "term": "family",
+          "line": 64,
+          "excerpt": "p\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalized"
+        },
+        {
+          "term": "family",
+          "line": 109,
+          "excerpt": "   30,\n            35,\n            36,\n            41,\n            42,\n            47,\n            48,\n            53,\n            54,\n            55,\n            60,\n            61\n          ]\n        }\n      },\n      \"family\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [],\n        \"proposalRankedCandi"
+        },
+        {
+          "term": "product",
+          "line": 17,
+          "excerpt": "    \"CANONICAL_FIELD_COUNT\": 8,\n    \"FIELD_ADDITION_AUTHORIZED\": false,\n    \"FIELD_REMOVAL_AUTHORIZED\": false,\n    \"FIELD_RENAME_AUTHORIZED\": false,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ENGINE_OWNED_FIELDS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\""
+        },
+        {
+          "term": "product",
+          "line": 31,
+          "excerpt": "IELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n    \"EXISTING_ADAPTER_CANONICAL_PROJECTION_EXPOSURE_AUTHORIZED\": true,\n    \"EXISTING_PROJECTION_REUSE_REQUIRED\": true,\n    \"DUPLICATE_MAPPING_LOGIC_AUTHORIZED\": false,\n  "
+        },
+        {
+          "term": "product",
+          "line": 55,
+          "excerpt": " \"REAL_CUSTOMER_DATA_AUTHORIZED\": false,\n    \"REAL_EFFECTS_AUTHORIZED\": false,\n    \"NEXT_GATE\": \"107Z15S2_EXISTING_ADAPTER_CANONICAL_PROJECTION_EXPOSURE_GATE\"\n  },\n  \"fieldOwnership\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \""
+        },
+        {
+          "term": "product",
+          "line": 130,
+          "excerpt": "   \"engine\": [],\n          \"adapter\": [\n            288\n          ],\n          \"contract\": [\n            3\n          ],\n          \"store\": [],\n          \"coordinator\": [],\n          \"modal\": []\n        }\n      },\n      \"product\": {\n        \"classification\": \"ENGINE_NATIVE_OR_ENGINE_DERIVED\",\n        \"runtimeOwner\": \"engine\",\n        \"directEngineMapping\": \"product\",\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [\n          \"prod"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 238,
+      "mapperScore": 218,
+      "validatorScore": 129,
+      "consumerScore": 96
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z7-quote-preview-pdf-runtime-persistence-adr-draft.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 8456,
+      "sha256": "a1112320a360c41e566b96aa0ed34bbe4e5f296c91cb1eae50a73b132b449954",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 4,
+          "positions": [
+            703,
+            1431,
+            2258,
+            3689
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            3707
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            3727
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            3748
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            3769
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            3793
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            3820
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            3853
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 16,
+          "excerpt": ", writer, reader or complete call chain.\",\n    \"RECOMMENDED_OPTION\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n    \"RECOMMENDATION_STATUS\": \"PENDING_EXPLICIT_APPROVAL\",\n    \"OPTIONS\": [\n      {\n        \"id\": \"A\",\n        \"name\": \"REUSE_EXISTING_GENERIC_RUNTIME\",\n        \"status\": \"REJECTED_PENDING_NEW_EVIDENCE\",\n        \"description\": \"Reuse an existing generic repository, runtime state or cache.\",\n        \"advantages\": [\n          \"Avoids du"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "    ],\n        \"acceptance_condition\": \"New source evidence must prove ownership, writer, reader, identity and downstream call chain before this option can return to review.\"\n      },\n      {\n        \"id\": \"B\",\n        \"name\": \"EPHEMERAL_IN_MEMORY_HANDOFF\",\n        \"status\": \"NOT_RECOMMENDED\",\n        \"description\": \"Pass the extraction result directly in memory from the engine to the confirmation modal without a persistence boundary.\",\n   "
+        },
+        {
+          "term": "name",
+          "line": 48,
+          "excerpt": "t recovery weaker.\"\n        ],\n        \"acceptance_condition\": \"Could only be chosen if the persistence requirement is explicitly revoked by a later constitutional decision.\"\n      },\n      {\n        \"id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence ha"
+        },
+        {
+          "term": "name",
+          "line": 70,
+          "excerpt": "t\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n  "
+        },
+        {
+          "term": "name",
+          "line": 117,
+          "excerpt": "lementation discovery confirms no canonical equivalent exists.\",\n      \"One canonical owner path is approved.\",\n      \"One explicit versioned identity/key contract is approved.\",\n      \"One writer and one reader API are named and documented.\",\n      \"The eight-field schema and metadata contract are approved.\",\n      \"The extraction-ready event carries only an identity/reference.\",\n      \"Yes and No actions consume the same stored preview re"
+        },
+        {
+          "term": "family",
+          "line": 71,
+          "excerpt": "traction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersi"
+        },
+        {
+          "term": "product",
+          "line": 50,
+          "excerpt": "id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence handoff infrastructure and consumed read-only by Quote Preview.\",\n        \"advantages\": [\n          \"Matches the locked PDF → writer → cache → popup/UI flow.\",\n          \"Provides deterministic reload, conf"
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "      \"ownership\": \"A single canonical module must own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n        "
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "st own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n     "
+        },
+        {
+          "term": "product",
+          "line": 72,
+          "excerpt": "uced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersion\",\n          \"sourc"
+        },
+        {
+          "term": "product",
+          "line": 105,
+          "excerpt": "eady extracted.\"\n      },\n      \"retention\": \"Retention and deletion policy must be explicitly selected during implementation design. No indefinite retention is authorized by this draft.\",\n      \"boundaries\": [\n        \"Product Intelligence remains upstream.\",\n        \"Quote Preview remains downstream.\",\n        \"The PDF engine is reference input, never quote truth.\",\n        \"No CRM, backend, provider, policy, pipeline, message or calendar wr"
+        },
+        {
+          "term": "product",
+          "line": 135,
+          "excerpt": "\",\n      \"The implementation would use a hidden latest-record default.\",\n      \"The result could become official quote truth without explicit downstream gates.\"\n    ]\n  },\n  \"canonical_inputs\": {\n    \"PDF_ENGINE_PATH\": \"product-intelligence/evidence/forge-quote-pdf-preview-engine.js\",\n    \"CONFIRMATION_MODAL_PATH\": \"docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.js\",\n    \"QUOTE_PREVIEW_UI_PATH\": \"docs/static"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 234,
+      "mapperScore": 183,
+      "validatorScore": 119,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z7r-quote-preview-pdf-runtime-persistence-adr-revision.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 9158,
+      "sha256": "0577c6ff937027f9b44cfd870812c1a36e0bc45b6fe1dd87c851784c2a9dd367",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 4,
+          "positions": [
+            733,
+            1461,
+            2288,
+            3719
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            3737
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            3757
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            3778
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            3799
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            3823
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            3850
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            3883
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 16,
+          "excerpt": "ader or complete call chain.\",\n    \"RECOMMENDED_OPTION\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n    \"RECOMMENDATION_STATUS\": \"PENDING_REVISED_CONSTITUTIONAL_REVIEW\",\n    \"OPTIONS\": [\n      {\n        \"id\": \"A\",\n        \"name\": \"REUSE_EXISTING_GENERIC_RUNTIME\",\n        \"status\": \"REJECTED_PENDING_NEW_EVIDENCE\",\n        \"description\": \"Reuse an existing generic repository, runtime state or cache.\",\n        \"advantages\": [\n          \"Avoids du"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "    ],\n        \"acceptance_condition\": \"New source evidence must prove ownership, writer, reader, identity and downstream call chain before this option can return to review.\"\n      },\n      {\n        \"id\": \"B\",\n        \"name\": \"EPHEMERAL_IN_MEMORY_HANDOFF\",\n        \"status\": \"NOT_RECOMMENDED\",\n        \"description\": \"Pass the extraction result directly in memory from the engine to the confirmation modal without a persistence boundary.\",\n   "
+        },
+        {
+          "term": "name",
+          "line": 48,
+          "excerpt": "t recovery weaker.\"\n        ],\n        \"acceptance_condition\": \"Could only be chosen if the persistence requirement is explicitly revoked by a later constitutional decision.\"\n      },\n      {\n        \"id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence ha"
+        },
+        {
+          "term": "name",
+          "line": 70,
+          "excerpt": "t\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n  "
+        },
+        {
+          "term": "name",
+          "line": 117,
+          "excerpt": "lementation discovery confirms no canonical equivalent exists.\",\n      \"One canonical owner path is approved.\",\n      \"One explicit versioned identity/key contract is approved.\",\n      \"One writer and one reader API are named and documented.\",\n      \"The eight-field schema and metadata contract are approved.\",\n      \"The extraction-ready event carries only an identity/reference.\",\n      \"Yes and No actions consume the same stored preview re"
+        },
+        {
+          "term": "family",
+          "line": 71,
+          "excerpt": "traction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersi"
+        },
+        {
+          "term": "product",
+          "line": 50,
+          "excerpt": "id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence handoff infrastructure and consumed read-only by Quote Preview.\",\n        \"advantages\": [\n          \"Matches the locked PDF → writer → cache → popup/UI flow.\",\n          \"Provides deterministic reload, conf"
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "      \"ownership\": \"A single canonical module must own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n        "
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "st own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n     "
+        },
+        {
+          "term": "product",
+          "line": 72,
+          "excerpt": "uced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersion\",\n          \"sourc"
+        },
+        {
+          "term": "product",
+          "line": 105,
+          "excerpt": "eady extracted.\"\n      },\n      \"retention\": \"Retention and deletion policy must be explicitly selected during implementation design. No indefinite retention is authorized by this draft.\",\n      \"boundaries\": [\n        \"Product Intelligence remains upstream.\",\n        \"Quote Preview remains downstream.\",\n        \"The PDF engine is reference input, never quote truth.\",\n        \"No CRM, backend, provider, policy, pipeline, message or calendar wr"
+        },
+        {
+          "term": "product",
+          "line": 135,
+          "excerpt": "\",\n      \"The implementation would use a hidden latest-record default.\",\n      \"The result could become official quote truth without explicit downstream gates.\"\n    ]\n  },\n  \"canonical_inputs\": {\n    \"PDF_ENGINE_PATH\": \"product-intelligence/evidence/forge-quote-pdf-preview-engine.js\",\n    \"CONFIRMATION_MODAL_PATH\": \"docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.js\",\n    \"QUOTE_PREVIEW_UI_PATH\": \"docs/static"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 234,
+      "mapperScore": 183,
+      "validatorScore": 119,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z8s3r-source-authority-normalization-validator-repair.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 10239,
+      "sha256": "ce5cf62d58c9ab5198acc4ef1150268e1b373db1de432d222f73ccc3826408be",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 4,
+          "positions": [
+            751,
+            1479,
+            2306,
+            3737
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            3755
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            3775
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            3796
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            3817
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            3841
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            3868
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            3901
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 16,
+          "excerpt": "ete call chain.\",\n    \"RECOMMENDED_OPTION\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n    \"RECOMMENDATION_STATUS\": \"PENDING_AUTHORITY_NORMALIZED_CONSTITUTIONAL_REVIEW\",\n    \"OPTIONS\": [\n      {\n        \"id\": \"A\",\n        \"name\": \"REUSE_EXISTING_GENERIC_RUNTIME\",\n        \"status\": \"REJECTED_PENDING_NEW_EVIDENCE\",\n        \"description\": \"Reuse an existing generic repository, runtime state or cache.\",\n        \"advantages\": [\n          \"Avoids du"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "    ],\n        \"acceptance_condition\": \"New source evidence must prove ownership, writer, reader, identity and downstream call chain before this option can return to review.\"\n      },\n      {\n        \"id\": \"B\",\n        \"name\": \"EPHEMERAL_IN_MEMORY_HANDOFF\",\n        \"status\": \"NOT_RECOMMENDED\",\n        \"description\": \"Pass the extraction result directly in memory from the engine to the confirmation modal without a persistence boundary.\",\n   "
+        },
+        {
+          "term": "name",
+          "line": 48,
+          "excerpt": "t recovery weaker.\"\n        ],\n        \"acceptance_condition\": \"Could only be chosen if the persistence requirement is explicitly revoked by a later constitutional decision.\"\n      },\n      {\n        \"id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence ha"
+        },
+        {
+          "term": "name",
+          "line": 70,
+          "excerpt": "t\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n  "
+        },
+        {
+          "term": "name",
+          "line": 117,
+          "excerpt": "lementation discovery confirms no canonical equivalent exists.\",\n      \"One canonical owner path is approved.\",\n      \"One explicit versioned identity/key contract is approved.\",\n      \"One writer and one reader API are named and documented.\",\n      \"The eight-field schema and metadata contract are approved.\",\n      \"The extraction-ready event carries only an identity/reference.\",\n      \"Yes and No actions consume the same stored preview re"
+        },
+        {
+          "term": "family",
+          "line": 71,
+          "excerpt": "traction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersi"
+        },
+        {
+          "term": "product",
+          "line": 50,
+          "excerpt": "id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence handoff infrastructure and consumed read-only by Quote Preview.\",\n        \"advantages\": [\n          \"Matches the locked PDF → writer → cache → popup/UI flow.\",\n          \"Provides deterministic reload, conf"
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "      \"ownership\": \"A single canonical module must own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n        "
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "st own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n     "
+        },
+        {
+          "term": "product",
+          "line": 72,
+          "excerpt": "uced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersion\",\n          \"sourc"
+        },
+        {
+          "term": "product",
+          "line": 105,
+          "excerpt": "eady extracted.\"\n      },\n      \"retention\": \"Retention and deletion policy must be explicitly selected during implementation design. No indefinite retention is authorized by this draft.\",\n      \"boundaries\": [\n        \"Product Intelligence remains upstream.\",\n        \"Quote Preview remains downstream.\",\n        \"The PDF engine is reference input, never quote truth.\",\n        \"No CRM, backend, provider, policy, pipeline, message or calendar wr"
+        },
+        {
+          "term": "product",
+          "line": 144,
+          "excerpt": "exact_identity\": true,\n      \"event_is_reference_notification_only\": true,\n      \"violation_fails_adr\": true,\n      \"external_unproven_source_dependency\": false\n    }\n  },\n  \"canonical_inputs\": {\n    \"PDF_ENGINE_PATH\": \"product-intelligence/evidence/forge-quote-pdf-preview-engine.js\",\n    \"CONFIRMATION_MODAL_PATH\": \"docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.js\",\n    \"QUOTE_PREVIEW_UI_PATH\": \"docs/static"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 234,
+      "mapperScore": 183,
+      "validatorScore": 119,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z9-quote-preview-pdf-runtime-persistence-adr-approval.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 10990,
+      "sha256": "45a63fffccaee1a50372ba8406f81d82bc5b1eeb2a3be2d255f7a9a11776c628",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 4,
+          "positions": [
+            691,
+            1419,
+            2246,
+            3677
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            3695
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            3715
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            3736
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            3757
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            3781
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            3808
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            3841
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 16,
+          "excerpt": "time owner, cache, writer, reader or complete call chain.\",\n    \"RECOMMENDED_OPTION\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n    \"RECOMMENDATION_STATUS\": \"APPROVED\",\n    \"OPTIONS\": [\n      {\n        \"id\": \"A\",\n        \"name\": \"REUSE_EXISTING_GENERIC_RUNTIME\",\n        \"status\": \"REJECTED_PENDING_NEW_EVIDENCE\",\n        \"description\": \"Reuse an existing generic repository, runtime state or cache.\",\n        \"advantages\": [\n          \"Avoids du"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "    ],\n        \"acceptance_condition\": \"New source evidence must prove ownership, writer, reader, identity and downstream call chain before this option can return to review.\"\n      },\n      {\n        \"id\": \"B\",\n        \"name\": \"EPHEMERAL_IN_MEMORY_HANDOFF\",\n        \"status\": \"NOT_RECOMMENDED\",\n        \"description\": \"Pass the extraction result directly in memory from the engine to the confirmation modal without a persistence boundary.\",\n   "
+        },
+        {
+          "term": "name",
+          "line": 48,
+          "excerpt": "t recovery weaker.\"\n        ],\n        \"acceptance_condition\": \"Could only be chosen if the persistence requirement is explicitly revoked by a later constitutional decision.\"\n      },\n      {\n        \"id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence ha"
+        },
+        {
+          "term": "name",
+          "line": 70,
+          "excerpt": "t\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n  "
+        },
+        {
+          "term": "name",
+          "line": 117,
+          "excerpt": "lementation discovery confirms no canonical equivalent exists.\",\n      \"One canonical owner path is approved.\",\n      \"One explicit versioned identity/key contract is approved.\",\n      \"One writer and one reader API are named and documented.\",\n      \"The eight-field schema and metadata contract are approved.\",\n      \"The extraction-ready event carries only an identity/reference.\",\n      \"Yes and No actions consume the same stored preview re"
+        },
+        {
+          "term": "family",
+          "line": 71,
+          "excerpt": "traction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersi"
+        },
+        {
+          "term": "product",
+          "line": 50,
+          "excerpt": "id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence handoff infrastructure and consumed read-only by Quote Preview.\",\n        \"advantages\": [\n          \"Matches the locked PDF → writer → cache → popup/UI flow.\",\n          \"Provides deterministic reload, conf"
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "      \"ownership\": \"A single canonical module must own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n        "
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "st own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n     "
+        },
+        {
+          "term": "product",
+          "line": 72,
+          "excerpt": "uced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersion\",\n          \"sourc"
+        },
+        {
+          "term": "product",
+          "line": 105,
+          "excerpt": "eady extracted.\"\n      },\n      \"retention\": \"Retention and deletion policy must be explicitly selected during implementation design. No indefinite retention is authorized by this draft.\",\n      \"boundaries\": [\n        \"Product Intelligence remains upstream.\",\n        \"Quote Preview remains downstream.\",\n        \"The PDF engine is reference input, never quote truth.\",\n        \"No CRM, backend, provider, policy, pipeline, message or calendar wr"
+        },
+        {
+          "term": "product",
+          "line": 147,
+          "excerpt": "REVIEW_PDF_RUNTIME_PERSISTENCE\",\n    \"ADR_NUMBER\": null,\n    \"APPROVED_CANONICAL_PATH\": \"docs/architecture/quote-preview/quote-preview-pdf-runtime-persistence-adr.md\"\n  },\n  \"canonical_inputs\": {\n    \"PDF_ENGINE_PATH\": \"product-intelligence/evidence/forge-quote-pdf-preview-engine.js\",\n    \"CONFIRMATION_MODAL_PATH\": \"docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.js\",\n    \"QUOTE_PREVIEW_UI_PATH\": \"docs/static"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 234,
+      "mapperScore": 183,
+      "validatorScore": 119,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/architecture/quote-preview/107z8-quote-preview-pdf-runtime-persistence-adr-review.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 3956,
+      "sha256": "f678699e15d6faa17046d7852b10a9e8cb3ab5e0f25ba6d781d1316f8a925e3b",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 1,
+          "positions": [
+            493
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            501
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            511
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            522
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            533
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            547
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            564
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            587
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "required"
+      ],
+      "constructionSignals": [],
+      "consumerSignals": [
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 29,
+          "excerpt": "ist\n\n### PASS — DRAFT_NOT_SILENTLY_APPROVED\n\nADR remains draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found i"
+        },
+        {
+          "term": "family",
+          "line": 29,
+          "excerpt": " PASS — DRAFT_NOT_SILENTLY_APPROVED\n\nADR remains draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draf"
+        },
+        {
+          "term": "product",
+          "line": 29,
+          "excerpt": "AFT_NOT_SILENTLY_APPROVED\n\nADR remains draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS"
+        },
+        {
+          "term": "product",
+          "line": 31,
+          "excerpt": "false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Boundary text found in ADR draft"
+        },
+        {
+          "term": "product",
+          "line": 33,
+          "excerpt": "IELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — NO_QUOTE_TRUTH\n\nPr"
+        },
+        {
+          "term": "insured",
+          "line": 29,
+          "excerpt": "ENTLY_APPROVED\n\nADR remains draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PR"
+        },
+        {
+          "term": "sumAssured",
+          "line": 29,
+          "excerpt": "VED\n\nADR remains draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTRE"
+        },
+        {
+          "term": "annualPremium",
+          "line": 29,
+          "excerpt": "ns draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 29,
+          "excerpt": "proved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEv"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 29,
+          "excerpt": "TATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Boundary t"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "ft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "ence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEv"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 230,
+      "mapperScore": 123,
+      "validatorScore": 109,
+      "consumerScore": 72
+    },
+    {
+      "path": "docs/architecture/quote-preview/107z8r-quote-preview-pdf-runtime-persistence-adr-revised-review.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 4067,
+      "sha256": "e74979337661fdbb31aa147bd4b82a3cb4f0f229ba88fb0a575a76b5419f21a6",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 1,
+          "positions": [
+            517
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            525
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            535
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            546
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            557
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            571
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            588
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            611
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "required"
+      ],
+      "constructionSignals": [],
+      "consumerSignals": [
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 29,
+          "excerpt": "DRAFT_NOT_SILENTLY_APPROVED\n\nADR remains revised draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found i"
+        },
+        {
+          "term": "family",
+          "line": 29,
+          "excerpt": "T_SILENTLY_APPROVED\n\nADR remains revised draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised "
+        },
+        {
+          "term": "product",
+          "line": 29,
+          "excerpt": "_APPROVED\n\nADR remains revised draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PA"
+        },
+        {
+          "term": "product",
+          "line": 31,
+          "excerpt": "false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Boundary text found in revised"
+        },
+        {
+          "term": "product",
+          "line": 33,
+          "excerpt": "IELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — NO_QUOTE_TRUTH"
+        },
+        {
+          "term": "insured",
+          "line": 29,
+          "excerpt": "ADR remains revised draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_"
+        },
+        {
+          "term": "sumAssured",
+          "line": 29,
+          "excerpt": " revised draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNST"
+        },
+        {
+          "term": "annualPremium",
+          "line": 29,
+          "excerpt": " and unapproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Previ"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 29,
+          "excerpt": "Evidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\n"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 29,
+          "excerpt": "AFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Boundary"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "napproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Previ"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "R_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\n"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 230,
+      "mapperScore": 123,
+      "validatorScore": 109,
+      "consumerScore": 72
+    },
+    {
+      "path": "docs/architecture/quote-preview/107z8r3-quote-preview-pdf-runtime-persistence-authority-normalized-review.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 3239,
+      "sha256": "73a6416d43c8de21e4c34d2b41c71b3d39e97460d2d2f6e947946579e97befd6",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 1,
+          "positions": [
+            559
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            567
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            577
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            588
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            599
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            613
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            630
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            653
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "required"
+      ],
+      "constructionSignals": [],
+      "consumerSignals": [
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 29,
+          "excerpt": "alized draft\n\nEvidence: ADR_STATUS=DRAFT_AUTHORITY_NORMALIZED; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary fou"
+        },
+        {
+          "term": "family",
+          "line": 29,
+          "excerpt": "raft\n\nEvidence: ADR_STATUS=DRAFT_AUTHORITY_NORMALIZED; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in norm"
+        },
+        {
+          "term": "product",
+          "line": 29,
+          "excerpt": "ence: ADR_STATUS=DRAFT_AUTHORITY_NORMALIZED; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n"
+        },
+        {
+          "term": "product",
+          "line": 31,
+          "excerpt": "ACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Downstream boundary fou"
+        },
+        {
+          "term": "product",
+          "line": 33,
+          "excerpt": "Exactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Downstream boundary found in normalized ADR\n\n### PASS "
+        },
+        {
+          "term": "insured",
+          "line": 29,
+          "excerpt": "TATUS=DRAFT_AUTHORITY_NORMALIZED; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS —"
+        },
+        {
+          "term": "sumAssured",
+          "line": 29,
+          "excerpt": "_AUTHORITY_NORMALIZED; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW"
+        },
+        {
+          "term": "annualPremium",
+          "line": 29,
+          "excerpt": "MALIZED; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuot"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 29,
+          "excerpt": "OVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downs"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 29,
+          "excerpt": "ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: D"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "D; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuot"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downs"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 230,
+      "mapperScore": 123,
+      "validatorScore": 109,
+      "consumerScore": 72
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z14r1-controlled-browser-integration-targeted-repair-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 7060,
+      "sha256": "b0a5e58bf610dad66ccbe94de7229686bbb5c9f5b5d3f60a9cfba8ed46745278",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 2,
+          "positions": [
+            4449,
+            4802
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            4484
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            4521
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            4559
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            4597
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            4638
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            4682
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            4732
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "schema"
+      ],
+      "constructionSignals": [],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 89,
+          "excerpt": "on\": \"1\"\n            },\n            \"persistenceContractId\": \"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",\n            \"__forgePersistenceIdentityEvent\": true\n          }\n        }\n      ],\n      \"modalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n"
+        },
+        {
+          "term": "name",
+          "line": 98,
+          "excerpt": "e-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"status\": \"ambiguous\",\n            \"candidates\": [\n              \"browser-a\",\n              \"browser-b\"\n            ]\n          }\n        },\n        \"previewResultIdentity\": {\n          \"previewResultId\""
+        },
+        {
+          "term": "family",
+          "line": 90,
+          "excerpt": " \"persistenceContractId\": \"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",\n            \"__forgePersistenceIdentityEvent\": true\n          }\n        }\n      ],\n      \"modalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"brows"
+        },
+        {
+          "term": "product",
+          "line": 91,
+          "excerpt": "IEW_PDF_RESULT_PERSISTENCE_V1\",\n            \"__forgePersistenceIdentityEvent\": true\n          }\n        }\n      ],\n      \"modalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\":"
+        },
+        {
+          "term": "insured",
+          "line": 92,
+          "excerpt": "      \"__forgePersistenceIdentityEvent\": true\n          }\n        }\n      ],\n      \"modalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity"
+        },
+        {
+          "term": "sumAssured",
+          "line": 93,
+          "excerpt": "\": true\n          }\n        }\n      ],\n      \"modalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"sta"
+        },
+        {
+          "term": "annualPremium",
+          "line": 94,
+          "excerpt": "    \"modalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"status\": \"ambiguous\",\n            \"candidates\":"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 95,
+          "excerpt": "er-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"status\": \"ambiguous\",\n            \"candidates\": [\n              \"browser-a\",\n              \"brows"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 96,
+          "excerpt": "        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"status\": \"ambiguous\",\n            \"candidates\": [\n              \"browser-a\",\n              \"browser-b\"\n            ]\n          }\n        },\n  "
+        },
+        {
+          "term": "premium",
+          "line": 94,
+          "excerpt": "odalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"status\": \"ambiguous\",\n            \"candidates\":"
+        },
+        {
+          "term": "premium",
+          "line": 95,
+          "excerpt": "\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"status\": \"ambiguous\",\n            \"candidates\": [\n              \"browser-a\",\n              \"brows"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 230,
+      "mapperScore": 123,
+      "validatorScore": 109,
+      "consumerScore": 108
+    }
+  ],
+  "mapperCandidates": [
+    {
+      "path": "docs/evidence/quote-preview/107z15s-canonical-schema-owner-reconciliation-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 143439,
+      "sha256": "a8ecfaf9f18d56cc1cc9105381a0e668de65e92d2fb8d31296fdd0fd19302415",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 39,
+          "positions": [
+            1171,
+            2157,
+            2673,
+            3189,
+            3705,
+            4219,
+            4732,
+            5279,
+            5804,
+            6328,
+            6828,
+            7394,
+            7821,
+            8354,
+            8884,
+            9414,
+            9944,
+            10475,
+            11006,
+            70207,
+            70825,
+            71907,
+            72433,
+            72959,
+            73485,
+            74009,
+            74532,
+            75093,
+            75628,
+            76162,
+            76672,
+            77254,
+            77691,
+            78234,
+            78774,
+            79314,
+            79854,
+            80395,
+            80936
+          ]
+        },
+        "family": {
+          "count": 31,
+          "positions": [
+            11554,
+            12252,
+            12760,
+            13269,
+            13785,
+            14295,
+            14805,
+            15316,
+            15827,
+            16374,
+            16968,
+            17455,
+            17990,
+            18526,
+            19062,
+            70221,
+            81498,
+            82250,
+            82768,
+            83287,
+            83813,
+            84333,
+            84853,
+            85374,
+            85895,
+            86456,
+            87066,
+            87563,
+            88108,
+            88654,
+            89200
+          ]
+        },
+        "product": {
+          "count": 63,
+          "positions": [
+            19613,
+            19744,
+            19812,
+            19822,
+            19875,
+            19885,
+            20499,
+            21008,
+            21516,
+            22024,
+            22533,
+            23042,
+            23551,
+            24061,
+            24609,
+            24999,
+            25491,
+            26001,
+            26510,
+            27019,
+            27528,
+            28036,
+            28580,
+            29175,
+            29655,
+            30194,
+            30732,
+            31268,
+            31806,
+            32343,
+            32880,
+            70237,
+            89765,
+            89902,
+            89974,
+            89986,
+            90043,
+            90055,
+            90733,
+            91252,
+            91770,
+            92288,
+            92807,
+            93326,
+            93845,
+            94365,
+            94927,
+            95327,
+            95829,
+            96349
+          ]
+        },
+        "insured": {
+          "count": 37,
+          "positions": [
+            33433,
+            34146,
+            34658,
+            35177,
+            35690,
+            36202,
+            36711,
+            37222,
+            37733,
+            38312,
+            38907,
+            39443,
+            39978,
+            40517,
+            41055,
+            41592,
+            42129,
+            42666,
+            70254,
+            103935,
+            104704,
+            105226,
+            105755,
+            106278,
+            106800,
+            107319,
+            107840,
+            108361,
+            108956,
+            109567,
+            110113,
+            110658,
+            111207,
+            111755,
+            112302,
+            112849,
+            113396
+          ]
+        },
+        "sumAssured": {
+          "count": 5,
+          "positions": [
+            43219,
+            48152,
+            70271,
+            113963,
+            119038
+          ]
+        },
+        "annualPremium": {
+          "count": 43,
+          "positions": [
+            48763,
+            48900,
+            48974,
+            48984,
+            49043,
+            49053,
+            49521,
+            50050,
+            50571,
+            51092,
+            51616,
+            52142,
+            52727,
+            53526,
+            53839,
+            54495,
+            55024,
+            55545,
+            56066,
+            56590,
+            57116,
+            70291,
+            119667,
+            119810,
+            119888,
+            119900,
+            119963,
+            119975,
+            120485,
+            121024,
+            121555,
+            122086,
+            122620,
+            123156,
+            123757,
+            124584,
+            124921,
+            125631,
+            126170,
+            126701,
+            127232,
+            127766,
+            128302
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 5,
+          "positions": [
+            53344,
+            61843,
+            70314,
+            124392,
+            133127
+          ]
+        },
+        "coveragePeriod": {
+          "count": 5,
+          "positions": [
+            62472,
+            69528,
+            70343,
+            133774,
+            141018
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "policyTerm",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 14,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "validate",
+        "hasOwnProperty",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "getField(",
+        "fields:",
+        "payload:",
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [
+        "./quote-preview-product-intelligence-binding-adapter-074b.js"
+      ],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 34,
+          "excerpt": "\"PDF_READ_EXECUTED\": false,\n    \"BACKEND_CONNECTION\": false,\n    \"QUOTE_TRUTH_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15S1_CANONICAL_SCHEMA_CORRECTION_AUTHORIZATION_GATE\"\n  },\n  \"fields\": [\n    {\n      \"canonicalField\": \"name\",\n      \"classification\": \"ADAPTER_DERIVED_ONLY\",\n      \"runtimeOwner\": \"adapter\",\n      \"directEngineMapping\": null,\n      \"engineAliases\": [],\n      \"normalizedNativeKeys\": [],\n      \"proposalRankedCandidates\": [],\n  "
+        },
+        {
+          "term": "name",
+          "line": 82,
+          "excerpt": "\n      },\n      \"engineEvidence\": false,\n      \"adapterEvidence\": true,\n      \"persistenceEvidence\": true,\n      \"modalEvidence\": true,\n      \"engineSnippets\": [],\n      \"adapterSnippets\": [\n        {\n          \"term\": \"name\",\n          \"line\": 118,\n          \"excerpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction "
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "e\": 118,\n          \"excerpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationO"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "erpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n "
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": " .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": ", '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"o"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "ace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')"
+        },
+        {
+          "term": "name",
+          "line": 87,
+          "excerpt": " && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names)"
+        },
+        {
+          "term": "name",
+          "line": 89,
+          "excerpt": " \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationO"
+        },
+        {
+          "term": "name",
+          "line": 89,
+          "excerpt": "e\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result) {\\n  if (resu"
+        },
+        {
+          "term": "name",
+          "line": 89,
+          "excerpt": "\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result) {\\n  if (result === t"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 242,
+      "mapperScore": 312,
+      "validatorScore": 139,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15s-canonical-schema-owner-reconciliation.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 143349,
+      "sha256": "612bda54bc9753edafaf391fb9defd94793a3fc61e538cd3d3b7bcca71d3014d",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 39,
+          "positions": [
+            1085,
+            2071,
+            2587,
+            3103,
+            3619,
+            4133,
+            4646,
+            5193,
+            5718,
+            6242,
+            6742,
+            7308,
+            7735,
+            8268,
+            8798,
+            9328,
+            9858,
+            10389,
+            10920,
+            70121,
+            70739,
+            71821,
+            72347,
+            72873,
+            73399,
+            73923,
+            74446,
+            75007,
+            75542,
+            76076,
+            76586,
+            77168,
+            77605,
+            78148,
+            78688,
+            79228,
+            79768,
+            80309,
+            80850
+          ]
+        },
+        "family": {
+          "count": 31,
+          "positions": [
+            11468,
+            12166,
+            12674,
+            13183,
+            13699,
+            14209,
+            14719,
+            15230,
+            15741,
+            16288,
+            16882,
+            17369,
+            17904,
+            18440,
+            18976,
+            70135,
+            81412,
+            82164,
+            82682,
+            83201,
+            83727,
+            84247,
+            84767,
+            85288,
+            85809,
+            86370,
+            86980,
+            87477,
+            88022,
+            88568,
+            89114
+          ]
+        },
+        "product": {
+          "count": 63,
+          "positions": [
+            19527,
+            19658,
+            19726,
+            19736,
+            19789,
+            19799,
+            20413,
+            20922,
+            21430,
+            21938,
+            22447,
+            22956,
+            23465,
+            23975,
+            24523,
+            24913,
+            25405,
+            25915,
+            26424,
+            26933,
+            27442,
+            27950,
+            28494,
+            29089,
+            29569,
+            30108,
+            30646,
+            31182,
+            31720,
+            32257,
+            32794,
+            70151,
+            89679,
+            89816,
+            89888,
+            89900,
+            89957,
+            89969,
+            90647,
+            91166,
+            91684,
+            92202,
+            92721,
+            93240,
+            93759,
+            94279,
+            94841,
+            95241,
+            95743,
+            96263
+          ]
+        },
+        "insured": {
+          "count": 37,
+          "positions": [
+            33347,
+            34060,
+            34572,
+            35091,
+            35604,
+            36116,
+            36625,
+            37136,
+            37647,
+            38226,
+            38821,
+            39357,
+            39892,
+            40431,
+            40969,
+            41506,
+            42043,
+            42580,
+            70168,
+            103849,
+            104618,
+            105140,
+            105669,
+            106192,
+            106714,
+            107233,
+            107754,
+            108275,
+            108870,
+            109481,
+            110027,
+            110572,
+            111121,
+            111669,
+            112216,
+            112763,
+            113310
+          ]
+        },
+        "sumAssured": {
+          "count": 5,
+          "positions": [
+            43133,
+            48066,
+            70185,
+            113877,
+            118952
+          ]
+        },
+        "annualPremium": {
+          "count": 43,
+          "positions": [
+            48677,
+            48814,
+            48888,
+            48898,
+            48957,
+            48967,
+            49435,
+            49964,
+            50485,
+            51006,
+            51530,
+            52056,
+            52641,
+            53440,
+            53753,
+            54409,
+            54938,
+            55459,
+            55980,
+            56504,
+            57030,
+            70205,
+            119581,
+            119724,
+            119802,
+            119814,
+            119877,
+            119889,
+            120399,
+            120938,
+            121469,
+            122000,
+            122534,
+            123070,
+            123671,
+            124498,
+            124835,
+            125545,
+            126084,
+            126615,
+            127146,
+            127680,
+            128216
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 5,
+          "positions": [
+            53258,
+            61757,
+            70228,
+            124306,
+            133041
+          ]
+        },
+        "coveragePeriod": {
+          "count": 5,
+          "positions": [
+            62386,
+            69442,
+            70257,
+            133688,
+            140932
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "policyTerm",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 14,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "validate",
+        "hasOwnProperty",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "getField(",
+        "fields:",
+        "payload:",
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [
+        "./quote-preview-product-intelligence-binding-adapter-074b.js"
+      ],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 29,
+          "excerpt": "\"PDF_READ_EXECUTED\": false,\n    \"BACKEND_CONNECTION\": false,\n    \"QUOTE_TRUTH_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15S1_CANONICAL_SCHEMA_CORRECTION_AUTHORIZATION_GATE\"\n  },\n  \"fields\": [\n    {\n      \"canonicalField\": \"name\",\n      \"classification\": \"ADAPTER_DERIVED_ONLY\",\n      \"runtimeOwner\": \"adapter\",\n      \"directEngineMapping\": null,\n      \"engineAliases\": [],\n      \"normalizedNativeKeys\": [],\n      \"proposalRankedCandidates\": [],\n  "
+        },
+        {
+          "term": "name",
+          "line": 77,
+          "excerpt": "\n      },\n      \"engineEvidence\": false,\n      \"adapterEvidence\": true,\n      \"persistenceEvidence\": true,\n      \"modalEvidence\": true,\n      \"engineSnippets\": [],\n      \"adapterSnippets\": [\n        {\n          \"term\": \"name\",\n          \"line\": 118,\n          \"excerpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction "
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": "e\": 118,\n          \"excerpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationO"
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": "erpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n "
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": " .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {"
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": ", '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"o"
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": "ace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n"
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": "/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')"
+        },
+        {
+          "term": "name",
+          "line": 82,
+          "excerpt": " && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names)"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": " \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationO"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "e\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result) {\\n  if (resu"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result) {\\n  if (result === t"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 242,
+      "mapperScore": 312,
+      "validatorScore": 139,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15r3-existing-owner-static-contract-review-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 29462,
+      "sha256": "832a66f6fcbd5dd2da22061c63e396425d0556c9254df112e1ec1d4f295c4cc7",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 12,
+          "positions": [
+            2645,
+            2795,
+            4480,
+            7264,
+            7429,
+            13813,
+            14801,
+            15522,
+            21271,
+            22376,
+            22698,
+            24665
+          ]
+        },
+        "family": {
+          "count": 9,
+          "positions": [
+            2659,
+            2813,
+            4494,
+            7280,
+            7449,
+            21291,
+            22390,
+            22728,
+            24695
+          ]
+        },
+        "product": {
+          "count": 13,
+          "positions": [
+            2003,
+            2537,
+            2548,
+            4510,
+            6345,
+            7150,
+            7161,
+            20654,
+            21166,
+            21177,
+            22406,
+            22760,
+            24727
+          ]
+        },
+        "insured": {
+          "count": 9,
+          "positions": [
+            2675,
+            2833,
+            4527,
+            7298,
+            7471,
+            21313,
+            22423,
+            22793,
+            24760
+          ]
+        },
+        "sumAssured": {
+          "count": 9,
+          "positions": [
+            2692,
+            2882,
+            4544,
+            7317,
+            7526,
+            21368,
+            22440,
+            22826,
+            24793
+          ]
+        },
+        "annualPremium": {
+          "count": 16,
+          "positions": [
+            1470,
+            2565,
+            2582,
+            2967,
+            4564,
+            5764,
+            7180,
+            7197,
+            7619,
+            20073,
+            21196,
+            21213,
+            21461,
+            22460,
+            22858,
+            24825
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 9,
+          "positions": [
+            2712,
+            2934,
+            4587,
+            7339,
+            7584,
+            21426,
+            22483,
+            22893,
+            24860
+          ]
+        },
+        "coveragePeriod": {
+          "count": 9,
+          "positions": [
+            2741,
+            3208,
+            4616,
+            7370,
+            7880,
+            21722,
+            22512,
+            22934,
+            24901
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "policyTerm",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 14,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields",
+        "pdf_text_life_fallback"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "hasOwnProperty",
+        "required",
+        "shape"
+      ],
+      "constructionSignals": [
+        "return {",
+        ".map(",
+        "canonical",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 103,
+          "excerpt": "IELD_MAPPING_CLASS\": \"PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED\",\n    \"DIRECT_CANONICAL_MAPPING\": {\n      \"product\": \"product\",\n      \"annualPremium\": \"annualPremium\"\n    },\n    \"MISSING_CANONICAL_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"insured\",\n      \"sumAssured\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ALIAS_EVIDENCE\": {\n      \"name\": [],\n      \"family\": [],\n      \"insured\": [\n        \"sumInsured\"\n   "
+        },
+        {
+          "term": "name",
+          "line": 111,
+          "excerpt": "ium\": \"annualPremium\"\n    },\n    \"MISSING_CANONICAL_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"insured\",\n      \"sumAssured\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ALIAS_EVIDENCE\": {\n      \"name\": [],\n      \"family\": [],\n      \"insured\": [\n        \"sumInsured\"\n      ],\n      \"sumAssured\": [\n        \"sumInsured\"\n      ],\n      \"plannedOrAvePremium\": [\n        \"annualPremium\",\n        \"baseAnnualPremium\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 142,
+          "excerpt": "ESS_PATH_CANDIDATE_RESOLVED\": true,\n    \"ADAPTER_SUCCESS_PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n "
+        },
+        {
+          "term": "name",
+          "line": 143,
+          "excerpt": " true,\n    \"ADAPTER_SUCCESS_PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": fal"
+        },
+        {
+          "term": "name",
+          "line": 144,
+          "excerpt": "PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\":"
+        },
+        {
+          "term": "name",
+          "line": 145,
+          "excerpt": "QuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\": false,\n    \"REAL_ENGINE_E"
+        },
+        {
+          "term": "name",
+          "line": 147,
+          "excerpt": "CCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\": false,\n    \"REAL_ENGINE_EXECUTION\": false,\n    \"PARSER_EXECUTED\": false,\n    \"CONTROLLED_BROW"
+        },
+        {
+          "term": "name",
+          "line": 166,
+          "excerpt": "H_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15R4_EXISTING_ENGINE_NATIVE_FIELD_MAPPING_AND_TARGETED_INVOCATION_GATE\"\n  },\n  \"static_owner_analysis\": {\n    \"status\": \"PASS\",\n    \"reason\": null,\n    \"requiredFields\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"engine\": {\n      \"callable\": \"extractSolucionlineLifeQuoteFi"
+        },
+        {
+          "term": "name",
+          "line": 281,
+          "excerpt": "        \"solucionline_imagina_ser_economic_scenarios\"\n      ],\n      \"directCanonicalMapping\": {\n        \"product\": \"product\",\n        \"annualPremium\": \"annualPremium\"\n      },\n      \"missingCanonicalFields\": [\n        \"name\",\n        \"family\",\n        \"insured\",\n        \"sumAssured\",\n        \"plannedOrAvePremium\",\n        \"coveragePeriod\"\n      ],\n      \"aliasEvidence\": {\n        \"name\": [],\n        \"family\": [],\n        \"insured\": [\n     "
+        },
+        {
+          "term": "name",
+          "line": 289,
+          "excerpt": "m\"\n      },\n      \"missingCanonicalFields\": [\n        \"name\",\n        \"family\",\n        \"insured\",\n        \"sumAssured\",\n        \"plannedOrAvePremium\",\n        \"coveragePeriod\"\n      ],\n      \"aliasEvidence\": {\n        \"name\": [],\n        \"family\": [],\n        \"insured\": [\n          \"sumInsured\"\n        ],\n        \"sumAssured\": [\n          \"sumInsured\"\n        ],\n        \"plannedOrAvePremium\": [\n          \"annualPremium\",\n          \"baseAnn"
+        },
+        {
+          "term": "name",
+          "line": 325,
+          "excerpt": "lback'\\n  };\\n}\"\n    },\n    \"adapter\": {\n      \"excludedNegativeFunctions\": [\n        \"buildQuotePreviewPdfIntegrationError\",\n        \"extractBindingSafeError\"\n      ],\n      \"positiveCandidates\": [\n        {\n          \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n          \"score\": 140,\n          \"reasons\": [\n            \"name_token:integrat\",\n            \"name_token:preview\",\n            \"name_token:quote\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 328,
+          "excerpt": "     \"extractBindingSafeError\"\n      ],\n      \"positiveCandidates\": [\n        {\n          \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n          \"score\": 140,\n          \"reasons\": [\n            \"name_token:integrat\",\n            \"name_token:preview\",\n            \"name_token:quote\",\n            \"name_token:product\",\n            \"body_token:fields\",\n            \"non_negative_name\"\n          ],\n          \"parameters\": "
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 246,
+      "mapperScore": 302,
+      "validatorScore": 149,
+      "consumerScore": 72
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15r3-existing-owner-static-contract-review.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 29371,
+      "sha256": "b5d5977ef8fd5e3608523fb6203e5934e15e38d1f12bc964e705dcc70ede6ec5",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 12,
+          "positions": [
+            2558,
+            2708,
+            4393,
+            7177,
+            7342,
+            13726,
+            14714,
+            15435,
+            21184,
+            22289,
+            22611,
+            24578
+          ]
+        },
+        "family": {
+          "count": 9,
+          "positions": [
+            2572,
+            2726,
+            4407,
+            7193,
+            7362,
+            21204,
+            22303,
+            22641,
+            24608
+          ]
+        },
+        "product": {
+          "count": 13,
+          "positions": [
+            1916,
+            2450,
+            2461,
+            4423,
+            6258,
+            7063,
+            7074,
+            20567,
+            21079,
+            21090,
+            22319,
+            22673,
+            24640
+          ]
+        },
+        "insured": {
+          "count": 9,
+          "positions": [
+            2588,
+            2746,
+            4440,
+            7211,
+            7384,
+            21226,
+            22336,
+            22706,
+            24673
+          ]
+        },
+        "sumAssured": {
+          "count": 9,
+          "positions": [
+            2605,
+            2795,
+            4457,
+            7230,
+            7439,
+            21281,
+            22353,
+            22739,
+            24706
+          ]
+        },
+        "annualPremium": {
+          "count": 16,
+          "positions": [
+            1383,
+            2478,
+            2495,
+            2880,
+            4477,
+            5677,
+            7093,
+            7110,
+            7532,
+            19986,
+            21109,
+            21126,
+            21374,
+            22373,
+            22771,
+            24738
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 9,
+          "positions": [
+            2625,
+            2847,
+            4500,
+            7252,
+            7497,
+            21339,
+            22396,
+            22806,
+            24773
+          ]
+        },
+        "coveragePeriod": {
+          "count": 9,
+          "positions": [
+            2654,
+            3121,
+            4529,
+            7283,
+            7793,
+            21635,
+            22425,
+            22847,
+            24814
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "policyTerm",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 14,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields",
+        "pdf_text_life_fallback"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "hasOwnProperty",
+        "required",
+        "shape"
+      ],
+      "constructionSignals": [
+        "return {",
+        ".map(",
+        "canonical",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 98,
+          "excerpt": "IELD_MAPPING_CLASS\": \"PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED\",\n    \"DIRECT_CANONICAL_MAPPING\": {\n      \"product\": \"product\",\n      \"annualPremium\": \"annualPremium\"\n    },\n    \"MISSING_CANONICAL_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"insured\",\n      \"sumAssured\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ALIAS_EVIDENCE\": {\n      \"name\": [],\n      \"family\": [],\n      \"insured\": [\n        \"sumInsured\"\n   "
+        },
+        {
+          "term": "name",
+          "line": 106,
+          "excerpt": "ium\": \"annualPremium\"\n    },\n    \"MISSING_CANONICAL_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"insured\",\n      \"sumAssured\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ALIAS_EVIDENCE\": {\n      \"name\": [],\n      \"family\": [],\n      \"insured\": [\n        \"sumInsured\"\n      ],\n      \"sumAssured\": [\n        \"sumInsured\"\n      ],\n      \"plannedOrAvePremium\": [\n        \"annualPremium\",\n        \"baseAnnualPremium\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 137,
+          "excerpt": "ESS_PATH_CANDIDATE_RESOLVED\": true,\n    \"ADAPTER_SUCCESS_PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n "
+        },
+        {
+          "term": "name",
+          "line": 138,
+          "excerpt": " true,\n    \"ADAPTER_SUCCESS_PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": fal"
+        },
+        {
+          "term": "name",
+          "line": 139,
+          "excerpt": "PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\":"
+        },
+        {
+          "term": "name",
+          "line": 140,
+          "excerpt": "QuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\": false,\n    \"REAL_ENGINE_E"
+        },
+        {
+          "term": "name",
+          "line": 142,
+          "excerpt": "CCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\": false,\n    \"REAL_ENGINE_EXECUTION\": false,\n    \"PARSER_EXECUTED\": false,\n    \"CONTROLLED_BROW"
+        },
+        {
+          "term": "name",
+          "line": 161,
+          "excerpt": "H_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15R4_EXISTING_ENGINE_NATIVE_FIELD_MAPPING_AND_TARGETED_INVOCATION_GATE\"\n  },\n  \"static_owner_analysis\": {\n    \"status\": \"PASS\",\n    \"reason\": null,\n    \"requiredFields\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"engine\": {\n      \"callable\": \"extractSolucionlineLifeQuoteFi"
+        },
+        {
+          "term": "name",
+          "line": 276,
+          "excerpt": "        \"solucionline_imagina_ser_economic_scenarios\"\n      ],\n      \"directCanonicalMapping\": {\n        \"product\": \"product\",\n        \"annualPremium\": \"annualPremium\"\n      },\n      \"missingCanonicalFields\": [\n        \"name\",\n        \"family\",\n        \"insured\",\n        \"sumAssured\",\n        \"plannedOrAvePremium\",\n        \"coveragePeriod\"\n      ],\n      \"aliasEvidence\": {\n        \"name\": [],\n        \"family\": [],\n        \"insured\": [\n     "
+        },
+        {
+          "term": "name",
+          "line": 284,
+          "excerpt": "m\"\n      },\n      \"missingCanonicalFields\": [\n        \"name\",\n        \"family\",\n        \"insured\",\n        \"sumAssured\",\n        \"plannedOrAvePremium\",\n        \"coveragePeriod\"\n      ],\n      \"aliasEvidence\": {\n        \"name\": [],\n        \"family\": [],\n        \"insured\": [\n          \"sumInsured\"\n        ],\n        \"sumAssured\": [\n          \"sumInsured\"\n        ],\n        \"plannedOrAvePremium\": [\n          \"annualPremium\",\n          \"baseAnn"
+        },
+        {
+          "term": "name",
+          "line": 320,
+          "excerpt": "lback'\\n  };\\n}\"\n    },\n    \"adapter\": {\n      \"excludedNegativeFunctions\": [\n        \"buildQuotePreviewPdfIntegrationError\",\n        \"extractBindingSafeError\"\n      ],\n      \"positiveCandidates\": [\n        {\n          \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n          \"score\": 140,\n          \"reasons\": [\n            \"name_token:integrat\",\n            \"name_token:preview\",\n            \"name_token:quote\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 323,
+          "excerpt": "     \"extractBindingSafeError\"\n      ],\n      \"positiveCandidates\": [\n        {\n          \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n          \"score\": 140,\n          \"reasons\": [\n            \"name_token:integrat\",\n            \"name_token:preview\",\n            \"name_token:quote\",\n            \"name_token:product\",\n            \"body_token:fields\",\n            \"non_negative_name\"\n          ],\n          \"parameters\": "
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 246,
+      "mapperScore": 302,
+      "validatorScore": 149,
+      "consumerScore": 72
+    },
+    {
+      "path": "docs/architecture/quote-preview/107z15r3-existing-owner-static-contract-review.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 2815,
+      "sha256": "b77d38016de8ff7436e95e9aeb1c0c38d36773cbc126f0575f12d9493bcf7722",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 2,
+          "positions": [
+            1547,
+            1652
+          ]
+        },
+        "family": {
+          "count": 2,
+          "positions": [
+            1555,
+            1664
+          ]
+        },
+        "product": {
+          "count": 2,
+          "positions": [
+            1460,
+            1471
+          ]
+        },
+        "insured": {
+          "count": 2,
+          "positions": [
+            1565,
+            1678
+          ]
+        },
+        "sumAssured": {
+          "count": 2,
+          "positions": [
+            1576,
+            1705
+          ]
+        },
+        "annualPremium": {
+          "count": 4,
+          "positions": [
+            1064,
+            1482,
+            1499,
+            1759
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 2,
+          "positions": [
+            1590,
+            1735
+          ]
+        },
+        "coveragePeriod": {
+          "count": 2,
+          "positions": [
+            1613,
+            1923
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 12,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "required",
+        "shape"
+      ],
+      "constructionSignals": [
+        "fields:",
+        "canonical",
+        "mapping"
+      ],
+      "consumerSignals": [],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 28,
+          "excerpt": "edAnnual']`\n\n## Canonical mapping\n\n- Mapping class: `PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED`\n- Direct canonical mappings: `{'product': 'product', 'annualPremium': 'annualPremium'}`\n- Missing canonical fields: `['name', 'family', 'insured', 'sumAssured', 'plannedOrAvePremium', 'coveragePeriod']`\n- Alias evidence: `{'name': [], 'family': [], 'insured': ['sumInsured'], 'sumAssured': ['sumInsured'], 'plannedOrAvePremium': ['annualPremiu"
+        },
+        {
+          "term": "name",
+          "line": 29,
+          "excerpt": "rect canonical mappings: `{'product': 'product', 'annualPremium': 'annualPremium'}`\n- Missing canonical fields: `['name', 'family', 'insured', 'sumAssured', 'plannedOrAvePremium', 'coveragePeriod']`\n- Alias evidence: `{'name': [], 'family': [], 'insured': ['sumInsured'], 'sumAssured': ['sumInsured'], 'plannedOrAvePremium': ['annualPremium', 'baseAnnualPremium', 'plannedAnnual', 'plannedMonthly', 'plannedQuarterly', 'plannedSemiannual', 'pre"
+        },
+        {
+          "term": "name",
+          "line": 40,
+          "excerpt": "parately so the next execution can validate them.\n\n## Adapter success path\n\nNegative-path callables were excluded.\n\n- Candidate: `validateQuotePreviewPdfProductIntelligenceIntegrationShape`\n- Score: `140`\n- Evidence: `['name_token:integrat', 'name_token:preview', 'name_token:quote', 'name_token:product', 'body_token:fields', 'non_negative_name']`\n\nThis is a static success-path candidate, not yet accepted as runtime truth.\nThe next gate must"
+        },
+        {
+          "term": "name",
+          "line": 40,
+          "excerpt": "ecution can validate them.\n\n## Adapter success path\n\nNegative-path callables were excluded.\n\n- Candidate: `validateQuotePreviewPdfProductIntelligenceIntegrationShape`\n- Score: `140`\n- Evidence: `['name_token:integrat', 'name_token:preview', 'name_token:quote', 'name_token:product', 'body_token:fields', 'non_negative_name']`\n\nThis is a static success-path candidate, not yet accepted as runtime truth.\nThe next gate must execute it and prove t"
+        },
+        {
+          "term": "name",
+          "line": 40,
+          "excerpt": "hem.\n\n## Adapter success path\n\nNegative-path callables were excluded.\n\n- Candidate: `validateQuotePreviewPdfProductIntelligenceIntegrationShape`\n- Score: `140`\n- Evidence: `['name_token:integrat', 'name_token:preview', 'name_token:quote', 'name_token:product', 'body_token:fields', 'non_negative_name']`\n\nThis is a static success-path candidate, not yet accepted as runtime truth.\nThe next gate must execute it and prove the exact eight-field m"
+        },
+        {
+          "term": "name",
+          "line": 40,
+          "excerpt": "cess path\n\nNegative-path callables were excluded.\n\n- Candidate: `validateQuotePreviewPdfProductIntelligenceIntegrationShape`\n- Score: `140`\n- Evidence: `['name_token:integrat', 'name_token:preview', 'name_token:quote', 'name_token:product', 'body_token:fields', 'non_negative_name']`\n\nThis is a static success-path candidate, not yet accepted as runtime truth.\nThe next gate must execute it and prove the exact eight-field mapping.\n\n## Boundari"
+        },
+        {
+          "term": "name",
+          "line": 40,
+          "excerpt": "didate: `validateQuotePreviewPdfProductIntelligenceIntegrationShape`\n- Score: `140`\n- Evidence: `['name_token:integrat', 'name_token:preview', 'name_token:quote', 'name_token:product', 'body_token:fields', 'non_negative_name']`\n\nThis is a static success-path candidate, not yet accepted as runtime truth.\nThe next gate must execute it and prove the exact eight-field mapping.\n\n## Boundaries\n\n- Engine/parser execution: `false`\n- Browser executi"
+        },
+        {
+          "term": "family",
+          "line": 28,
+          "excerpt": "']`\n\n## Canonical mapping\n\n- Mapping class: `PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED`\n- Direct canonical mappings: `{'product': 'product', 'annualPremium': 'annualPremium'}`\n- Missing canonical fields: `['name', 'family', 'insured', 'sumAssured', 'plannedOrAvePremium', 'coveragePeriod']`\n- Alias evidence: `{'name': [], 'family': [], 'insured': ['sumInsured'], 'sumAssured': ['sumInsured'], 'plannedOrAvePremium': ['annualPremium', 'baseA"
+        },
+        {
+          "term": "family",
+          "line": 29,
+          "excerpt": "al mappings: `{'product': 'product', 'annualPremium': 'annualPremium'}`\n- Missing canonical fields: `['name', 'family', 'insured', 'sumAssured', 'plannedOrAvePremium', 'coveragePeriod']`\n- Alias evidence: `{'name': [], 'family': [], 'insured': ['sumInsured'], 'sumAssured': ['sumInsured'], 'plannedOrAvePremium': ['annualPremium', 'baseAnnualPremium', 'plannedAnnual', 'plannedMonthly', 'plannedQuarterly', 'plannedSemiannual', 'premium', 'premiu"
+        },
+        {
+          "term": "product",
+          "line": 20,
+          "excerpt": "i', 'genderLine.match', 'guaranteeLine.match', 'i.test', 'insuredLine.replace', 'line.match', 'line.replace', 'lines.find', 'lines.findIndex', 'liquidationLine.match', 'map', 'match', 'parseNumberList', 'pattern.test', 'productLine.match', 'scenario', 'split', 'studyDateLine.match', 'test', 'trim']`\n- Native output key count: `42`\n- Native output key preview: `['advisor', 'age', 'annual', 'annualPremium', 'baseAnnualPremium', 'birthDate', 'cov"
+        },
+        {
+          "term": "product",
+          "line": 27,
+          "excerpt": ", 'monthlyIncomeUdi', 'optionalCoverages', 'paymentMode', 'paymentTerm', 'plan', 'plannedAnnual']`\n\n## Canonical mapping\n\n- Mapping class: `PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED`\n- Direct canonical mappings: `{'product': 'product', 'annualPremium': 'annualPremium'}`\n- Missing canonical fields: `['name', 'family', 'insured', 'sumAssured', 'plannedOrAvePremium', 'coveragePeriod']`\n- Alias evidence: `{'name': [], 'family': [], 'insured':"
+        },
+        {
+          "term": "product",
+          "line": 27,
+          "excerpt": "ncomeUdi', 'optionalCoverages', 'paymentMode', 'paymentTerm', 'plan', 'plannedAnnual']`\n\n## Canonical mapping\n\n- Mapping class: `PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED`\n- Direct canonical mappings: `{'product': 'product', 'annualPremium': 'annualPremium'}`\n- Missing canonical fields: `['name', 'family', 'insured', 'sumAssured', 'plannedOrAvePremium', 'coveragePeriod']`\n- Alias evidence: `{'name': [], 'family': [], 'insured': ['sumInsur"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 242,
+      "mapperScore": 281,
+      "validatorScore": 139,
+      "consumerScore": 48
+    },
+    {
+      "path": "product-intelligence/evidence/forge-quote-pdf-preview-engine.js",
+      "category": "test_or_evidence",
+      "extension": ".js",
+      "size": 12766,
+      "sha256": "d164ce99e24adde28cad3c5e558617eecaa97645f69c888d0ff3ee217e318014",
+      "exactFields": [
+        "product",
+        "annualPremium"
+      ],
+      "exactFieldCount": 2,
+      "fieldEvidence": {
+        "name": {
+          "count": 0,
+          "positions": []
+        },
+        "family": {
+          "count": 0,
+          "positions": []
+        },
+        "product": {
+          "count": 2,
+          "positions": [
+            5074,
+            11793
+          ]
+        },
+        "insured": {
+          "count": 0,
+          "positions": []
+        },
+        "sumAssured": {
+          "count": 0,
+          "positions": []
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            4669
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 0,
+          "positions": []
+        },
+        "coveragePeriod": {
+          "count": 0,
+          "positions": []
+        }
+      },
+      "schemaWindowContainsAllEight": false,
+      "quotedAllEight": false,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "policyTerm",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 14,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields",
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine",
+        "pdf_text_life_fallback"
+      ],
+      "validatorSignals": [
+        "required"
+      ],
+      "constructionSignals": [
+        "return {",
+        ".reduce(",
+        ".map(",
+        "projection"
+      ],
+      "consumerSignals": [],
+      "exports": [
+        "buildCalculation",
+        "buildForgeQuoteExcelTables",
+        "detectQuoteDomain",
+        "extractSolucionlineLifeQuoteFields",
+        "summarizeForgeQuotePdfText"
+      ],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "product",
+          "line": 68,
+          "excerpt": "st insuredLine = findLine(/Asegurado:/i);\n  const birthLine = findLine(/Fecha de nacimiento:/i);\n  const genderLine = findLine(/G[eé]nero:/i);\n  const liquidationLine = findLine(/Opci[oó]n de liquidaci[oó]n:/i);\n  const productIndex = lines.findIndex((line) => /IMAGINA SER/i.test(line));\n  const productLine = productIndex >= 0 ? lines[productIndex] : '';\n  const continuationLine = productIndex >= 0 && /LIMITADOS/i.test(lines[productIndex + 1] "
+        },
+        {
+          "term": "product",
+          "line": 69,
+          "excerpt": " de nacimiento:/i);\n  const genderLine = findLine(/G[eé]nero:/i);\n  const liquidationLine = findLine(/Opci[oó]n de liquidaci[oó]n:/i);\n  const productIndex = lines.findIndex((line) => /IMAGINA SER/i.test(line));\n  const productLine = productIndex >= 0 ? lines[productIndex] : '';\n  const continuationLine = productIndex >= 0 && /LIMITADOS/i.test(lines[productIndex + 1] || '') ? lines[productIndex + 1] : '';\n  const planText = cleanValue(`${(prod"
+        },
+        {
+          "term": "product",
+          "line": 69,
+          "excerpt": ":/i);\n  const genderLine = findLine(/G[eé]nero:/i);\n  const liquidationLine = findLine(/Opci[oó]n de liquidaci[oó]n:/i);\n  const productIndex = lines.findIndex((line) => /IMAGINA SER/i.test(line));\n  const productLine = productIndex >= 0 ? lines[productIndex] : '';\n  const continuationLine = productIndex >= 0 && /LIMITADOS/i.test(lines[productIndex + 1] || '') ? lines[productIndex + 1] : '';\n  const planText = cleanValue(`${(productLine.match("
+        },
+        {
+          "term": "product",
+          "line": 69,
+          "excerpt": " findLine(/G[eé]nero:/i);\n  const liquidationLine = findLine(/Opci[oó]n de liquidaci[oó]n:/i);\n  const productIndex = lines.findIndex((line) => /IMAGINA SER/i.test(line));\n  const productLine = productIndex >= 0 ? lines[productIndex] : '';\n  const continuationLine = productIndex >= 0 && /LIMITADOS/i.test(lines[productIndex + 1] || '') ? lines[productIndex + 1] : '';\n  const planText = cleanValue(`${(productLine.match(/(IMAGINA SER.*?)(?:\\d+\\s+"
+        },
+        {
+          "term": "product",
+          "line": 70,
+          "excerpt": "ne = findLine(/Opci[oó]n de liquidaci[oó]n:/i);\n  const productIndex = lines.findIndex((line) => /IMAGINA SER/i.test(line));\n  const productLine = productIndex >= 0 ? lines[productIndex] : '';\n  const continuationLine = productIndex >= 0 && /LIMITADOS/i.test(lines[productIndex + 1] || '') ? lines[productIndex + 1] : '';\n  const planText = cleanValue(`${(productLine.match(/(IMAGINA SER.*?)(?:\\d+\\s+a[nñ]os|$)/i) || [])[1] || 'IMAGINA SER'} ${con"
+        },
+        {
+          "term": "product",
+          "line": 70,
+          "excerpt": ");\n  const productIndex = lines.findIndex((line) => /IMAGINA SER/i.test(line));\n  const productLine = productIndex >= 0 ? lines[productIndex] : '';\n  const continuationLine = productIndex >= 0 && /LIMITADOS/i.test(lines[productIndex + 1] || '') ? lines[productIndex + 1] : '';\n  const planText = cleanValue(`${(productLine.match(/(IMAGINA SER.*?)(?:\\d+\\s+a[nñ]os|$)/i) || [])[1] || 'IMAGINA SER'} ${continuationLine}`);\n  const productMatch = prod"
+        },
+        {
+          "term": "product",
+          "line": 70,
+          "excerpt": "indIndex((line) => /IMAGINA SER/i.test(line));\n  const productLine = productIndex >= 0 ? lines[productIndex] : '';\n  const continuationLine = productIndex >= 0 && /LIMITADOS/i.test(lines[productIndex + 1] || '') ? lines[productIndex + 1] : '';\n  const planText = cleanValue(`${(productLine.match(/(IMAGINA SER.*?)(?:\\d+\\s+a[nñ]os|$)/i) || [])[1] || 'IMAGINA SER'} ${continuationLine}`);\n  const productMatch = productLine.match(/(IMAGINA SER.*?)\\s"
+        },
+        {
+          "term": "product",
+          "line": 71,
+          "excerpt": "ductLine = productIndex >= 0 ? lines[productIndex] : '';\n  const continuationLine = productIndex >= 0 && /LIMITADOS/i.test(lines[productIndex + 1] || '') ? lines[productIndex + 1] : '';\n  const planText = cleanValue(`${(productLine.match(/(IMAGINA SER.*?)(?:\\d+\\s+a[nñ]os|$)/i) || [])[1] || 'IMAGINA SER'} ${continuationLine}`);\n  const productMatch = productLine.match(/(IMAGINA SER.*?)\\s+([0-9]+\\s+a[nñ]os)\\s+([0-9,]+)\\s+([0-9,.]+)/i);\n  const t"
+        },
+        {
+          "term": "product",
+          "line": 72,
+          "excerpt": ".test(lines[productIndex + 1] || '') ? lines[productIndex + 1] : '';\n  const planText = cleanValue(`${(productLine.match(/(IMAGINA SER.*?)(?:\\d+\\s+a[nñ]os|$)/i) || [])[1] || 'IMAGINA SER'} ${continuationLine}`);\n  const productMatch = productLine.match(/(IMAGINA SER.*?)\\s+([0-9]+\\s+a[nñ]os)\\s+([0-9,]+)\\s+([0-9,.]+)/i);\n  const totalPremiumValues = parseNumberList(findLine(/Prima Total Anual/i));\n  const basicPremiumValues = parseNumberList(fin"
+        },
+        {
+          "term": "product",
+          "line": 72,
+          "excerpt": "ductIndex + 1] || '') ? lines[productIndex + 1] : '';\n  const planText = cleanValue(`${(productLine.match(/(IMAGINA SER.*?)(?:\\d+\\s+a[nñ]os|$)/i) || [])[1] || 'IMAGINA SER'} ${continuationLine}`);\n  const productMatch = productLine.match(/(IMAGINA SER.*?)\\s+([0-9]+\\s+a[nñ]os)\\s+([0-9,]+)\\s+([0-9,.]+)/i);\n  const totalPremiumValues = parseNumberList(findLine(/Prima Total Anual/i));\n  const basicPremiumValues = parseNumberList(findLine(/Prima b["
+        },
+        {
+          "term": "product",
+          "line": 109,
+          "excerpt": "   singlePaymentUdi: scenarioValues[offset],\n    monthlyIncomeUdi: scenarioValues[offset + 1]\n  } : null;\n\n  return {\n    detectedQuoteDomain: 'life',\n    sourceLayout: 'solucionline_imagina_ser_economic_scenarios',\n    product: 'IMAGINA SER',\n    plan: planText || 'IMAGINA SER',\n    prospect: insuredLine ? cleanValue(insuredLine.replace(/Asegurado:/i, '')) : null,\n    age: birthMatch ? birthMatch[2] : null,\n    gender: genderMatch ? genderMat"
+        },
+        {
+          "term": "product",
+          "line": 118,
+          "excerpt": "enderMatch[2] : null,\n    birthDate: birthMatch ? birthMatch[1] : null,\n    liquidationOption: liquidationMatch ? liquidationMatch[1] : null,\n    currency: liquidationMatch ? liquidationMatch[2] : 'UDI',\n    policyTerm: productMatch ? cleanValue(productMatch[2]) : null,\n    paymentTerm: paymentTermMatch ? `${paymentTermMatch[1]} años` : null,\n    sumInsured: productMatch ? formatUdi(productMatch[3]) : null,\n    baseAnnualPremium: productMatch "
+        }
+      ],
+      "reverseImporters": [
+        "tests/product-intelligence/forge-quote-pdf-preview-engine-test.js"
+      ],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 28,
+      "mapperScore": 232,
+      "validatorScore": 46,
+      "consumerScore": 12
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15r-existing-extractor-api-contract-resolution-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 22185,
+      "sha256": "736bc5eafd7385c57f4d3ca73e99896c302cb57892905fc07db2264c3c4b8428",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 22,
+          "positions": [
+            1897,
+            2423,
+            3063,
+            4158,
+            5047,
+            5977,
+            6824,
+            7577,
+            8884,
+            9570,
+            10863,
+            11836,
+            12793,
+            14386,
+            14659,
+            14817,
+            14957,
+            15097,
+            15236,
+            15432,
+            15641,
+            15833
+          ]
+        },
+        "family": {
+          "count": 4,
+          "positions": [
+            1911,
+            3150,
+            9657,
+            14400
+          ]
+        },
+        "product": {
+          "count": 4,
+          "positions": [
+            1927,
+            3239,
+            9746,
+            14416
+          ]
+        },
+        "insured": {
+          "count": 4,
+          "positions": [
+            1944,
+            3329,
+            9836,
+            14433
+          ]
+        },
+        "sumAssured": {
+          "count": 4,
+          "positions": [
+            1961,
+            3419,
+            9926,
+            14450
+          ]
+        },
+        "annualPremium": {
+          "count": 4,
+          "positions": [
+            1981,
+            3512,
+            10019,
+            14470
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 4,
+          "positions": [
+            2004,
+            3608,
+            10115,
+            14493
+          ]
+        },
+        "coveragePeriod": {
+          "count": 4,
+          "positions": [
+            2033,
+            3710,
+            10217,
+            14522
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "sumInsured",
+        "totalAnnualPremium",
+        "premium",
+        "policyTerm",
+        "paymentTerm",
+        "product"
+      ],
+      "nativeAliasTermCount": 6,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields"
+      ],
+      "validatorSignals": [
+        "validate",
+        "required",
+        "shape"
+      ],
+      "constructionSignals": [
+        "projection"
+      ],
+      "consumerSignals": [
+        "persist"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 63,
+          "excerpt": "QUOTE_TRUTH_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15R2_EXISTING_EXTRACTOR_TARGETED_SYNTHETIC_INVOCATION_GATE\"\n  },\n  \"api_contract_resolution\": {\n    \"status\": \"PASS\",\n    \"reason\": null,\n    \"requiredFields\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"sourceReceipts\": {\n      \"engineFileSha256\": \"d164ce99e24add"
+        },
+        {
+          "term": "name",
+          "line": 81,
+          "excerpt": "0e23cda8585af3a6650f220c724a5c8ea9b9dc04e0ecebd5941e3391fed971d\"\n    },\n    \"engine\": {\n      \"resolved\": true,\n      \"winner\": {\n        \"path\": \"extractSolucionlineLifeQuoteFields\",\n        \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required"
+        },
+        {
+          "term": "name",
+          "line": 85,
+          "excerpt": "r\": {\n        \"path\": \"extractSolucionlineLifeQuoteFields\",\n        \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required_field_mentions:2\",\n          \"practical_arity\"\n        ],\n        \"parameters\": [\n          \"text\"\n        ],\n        \"inpu"
+        },
+        {
+          "term": "name",
+          "line": 86,
+          "excerpt": "lucionlineLifeQuoteFields\",\n        \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required_field_mentions:2\",\n          \"practical_arity\"\n        ],\n        \"parameters\": [\n          \"text\"\n        ],\n        \"inputContract\": {\n          \"kind\": "
+        },
+        {
+          "term": "name",
+          "line": 87,
+          "excerpt": "      \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required_field_mentions:2\",\n          \"practical_arity\"\n        ],\n        \"parameters\": [\n          \"text\"\n        ],\n        \"inputContract\": {\n          \"kind\": \"SINGLE_OBJECT_OR_VALUE\",\n    "
+        },
+        {
+          "term": "name",
+          "line": 105,
+          "excerpt": "ameters\": [\n            \"text\"\n          ],\n          \"textProperties\": [],\n          \"domainProperties\": [],\n          \"allAccessedProperties\": []\n        },\n        \"fieldEvidence\": [\n          {\n            \"field\": \"name\",\n            \"occurrenceCount\": 0\n          },\n          {\n            \"field\": \"family\",\n            \"occurrenceCount\": 0\n          },\n          {\n            \"field\": \"product\",\n            \"occurrenceCount\": 1\n     "
+        },
+        {
+          "term": "name",
+          "line": 148,
+          "excerpt": "{\n          \"strategyId\": \"UNRESOLVED\",\n          \"argumentTemplate\": []\n        }\n      },\n      \"candidates\": [\n        {\n          \"path\": \"extractSolucionlineLifeQuoteFields\",\n          \"ownerPath\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 152,
+          "excerpt": "  \"path\": \"extractSolucionlineLifeQuoteFields\",\n          \"ownerPath\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n            \"required_field_mentions:2\",\n            \"practical_arity\"\n          ],\n          \"parameters\": [\n            \"text\"\n          "
+        },
+        {
+          "term": "name",
+          "line": 153,
+          "excerpt": "QuoteFields\",\n          \"ownerPath\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n            \"required_field_mentions:2\",\n            \"practical_arity\"\n          ],\n          \"parameters\": [\n            \"text\"\n          ],\n          \"inputContract\": {\n  "
+        },
+        {
+          "term": "name",
+          "line": 154,
+          "excerpt": "th\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n            \"required_field_mentions:2\",\n            \"practical_arity\"\n          ],\n          \"parameters\": [\n            \"text\"\n          ],\n          \"inputContract\": {\n            \"kind\": \"SINGLE_OBJECT"
+        },
+        {
+          "term": "name",
+          "line": 177,
+          "excerpt": "rceSha256\": \"8af5104835a02cc62c20a9a9a4d1c9708fc1016b9b48e08a23773b91555d539d\",\n          \"sourceLength\": 5284\n        },\n        {\n          \"path\": \"summarizeForgeQuotePdfText\",\n          \"ownerPath\": null,\n          \"name\": \"summarizeForgeQuotePdfText\",\n          \"arity\": 0,\n          \"score\": 110,\n          \"scoreReasons\": [\n            \"name_token:quote\",\n            \"explicit_text_property\"\n          ],\n          \"parameters\": [\n     "
+        },
+        {
+          "term": "name",
+          "line": 181,
+          "excerpt": "      {\n          \"path\": \"summarizeForgeQuotePdfText\",\n          \"ownerPath\": null,\n          \"name\": \"summarizeForgeQuotePdfText\",\n          \"arity\": 0,\n          \"score\": 110,\n          \"scoreReasons\": [\n            \"name_token:quote\",\n            \"explicit_text_property\"\n          ],\n          \"parameters\": [\n            \"input\"\n          ],\n          \"inputContract\": {\n            \"kind\": \"OBJECT_WITH_TEXT_PROPERTY\",\n            \"param"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 238,
+      "mapperScore": 223,
+      "validatorScore": 129,
+      "consumerScore": 60
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15r-existing-extractor-api-contract-resolution.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 22090,
+      "sha256": "398410bf85dd5b95966c68fc0dcd2e5cc3d2007dd7ea2fb178c77149e997ec42",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 22,
+          "positions": [
+            1806,
+            2332,
+            2972,
+            4067,
+            4956,
+            5886,
+            6733,
+            7486,
+            8793,
+            9479,
+            10772,
+            11745,
+            12702,
+            14295,
+            14568,
+            14726,
+            14866,
+            15006,
+            15145,
+            15341,
+            15550,
+            15742
+          ]
+        },
+        "family": {
+          "count": 4,
+          "positions": [
+            1820,
+            3059,
+            9566,
+            14309
+          ]
+        },
+        "product": {
+          "count": 4,
+          "positions": [
+            1836,
+            3148,
+            9655,
+            14325
+          ]
+        },
+        "insured": {
+          "count": 4,
+          "positions": [
+            1853,
+            3238,
+            9745,
+            14342
+          ]
+        },
+        "sumAssured": {
+          "count": 4,
+          "positions": [
+            1870,
+            3328,
+            9835,
+            14359
+          ]
+        },
+        "annualPremium": {
+          "count": 4,
+          "positions": [
+            1890,
+            3421,
+            9928,
+            14379
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 4,
+          "positions": [
+            1913,
+            3517,
+            10024,
+            14402
+          ]
+        },
+        "coveragePeriod": {
+          "count": 4,
+          "positions": [
+            1942,
+            3619,
+            10126,
+            14431
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "sumInsured",
+        "totalAnnualPremium",
+        "premium",
+        "policyTerm",
+        "paymentTerm",
+        "product"
+      ],
+      "nativeAliasTermCount": 6,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields"
+      ],
+      "validatorSignals": [
+        "validate",
+        "required",
+        "shape"
+      ],
+      "constructionSignals": [
+        "projection"
+      ],
+      "consumerSignals": [
+        "persist"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 58,
+          "excerpt": "QUOTE_TRUTH_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15R2_EXISTING_EXTRACTOR_TARGETED_SYNTHETIC_INVOCATION_GATE\"\n  },\n  \"api_contract_resolution\": {\n    \"status\": \"PASS\",\n    \"reason\": null,\n    \"requiredFields\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"sourceReceipts\": {\n      \"engineFileSha256\": \"d164ce99e24add"
+        },
+        {
+          "term": "name",
+          "line": 76,
+          "excerpt": "0e23cda8585af3a6650f220c724a5c8ea9b9dc04e0ecebd5941e3391fed971d\"\n    },\n    \"engine\": {\n      \"resolved\": true,\n      \"winner\": {\n        \"path\": \"extractSolucionlineLifeQuoteFields\",\n        \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required"
+        },
+        {
+          "term": "name",
+          "line": 80,
+          "excerpt": "r\": {\n        \"path\": \"extractSolucionlineLifeQuoteFields\",\n        \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required_field_mentions:2\",\n          \"practical_arity\"\n        ],\n        \"parameters\": [\n          \"text\"\n        ],\n        \"inpu"
+        },
+        {
+          "term": "name",
+          "line": 81,
+          "excerpt": "lucionlineLifeQuoteFields\",\n        \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required_field_mentions:2\",\n          \"practical_arity\"\n        ],\n        \"parameters\": [\n          \"text\"\n        ],\n        \"inputContract\": {\n          \"kind\": "
+        },
+        {
+          "term": "name",
+          "line": 82,
+          "excerpt": "      \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required_field_mentions:2\",\n          \"practical_arity\"\n        ],\n        \"parameters\": [\n          \"text\"\n        ],\n        \"inputContract\": {\n          \"kind\": \"SINGLE_OBJECT_OR_VALUE\",\n    "
+        },
+        {
+          "term": "name",
+          "line": 100,
+          "excerpt": "ameters\": [\n            \"text\"\n          ],\n          \"textProperties\": [],\n          \"domainProperties\": [],\n          \"allAccessedProperties\": []\n        },\n        \"fieldEvidence\": [\n          {\n            \"field\": \"name\",\n            \"occurrenceCount\": 0\n          },\n          {\n            \"field\": \"family\",\n            \"occurrenceCount\": 0\n          },\n          {\n            \"field\": \"product\",\n            \"occurrenceCount\": 1\n     "
+        },
+        {
+          "term": "name",
+          "line": 143,
+          "excerpt": "{\n          \"strategyId\": \"UNRESOLVED\",\n          \"argumentTemplate\": []\n        }\n      },\n      \"candidates\": [\n        {\n          \"path\": \"extractSolucionlineLifeQuoteFields\",\n          \"ownerPath\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 147,
+          "excerpt": "  \"path\": \"extractSolucionlineLifeQuoteFields\",\n          \"ownerPath\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n            \"required_field_mentions:2\",\n            \"practical_arity\"\n          ],\n          \"parameters\": [\n            \"text\"\n          "
+        },
+        {
+          "term": "name",
+          "line": 148,
+          "excerpt": "QuoteFields\",\n          \"ownerPath\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n            \"required_field_mentions:2\",\n            \"practical_arity\"\n          ],\n          \"parameters\": [\n            \"text\"\n          ],\n          \"inputContract\": {\n  "
+        },
+        {
+          "term": "name",
+          "line": 149,
+          "excerpt": "th\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n            \"required_field_mentions:2\",\n            \"practical_arity\"\n          ],\n          \"parameters\": [\n            \"text\"\n          ],\n          \"inputContract\": {\n            \"kind\": \"SINGLE_OBJECT"
+        },
+        {
+          "term": "name",
+          "line": 172,
+          "excerpt": "rceSha256\": \"8af5104835a02cc62c20a9a9a4d1c9708fc1016b9b48e08a23773b91555d539d\",\n          \"sourceLength\": 5284\n        },\n        {\n          \"path\": \"summarizeForgeQuotePdfText\",\n          \"ownerPath\": null,\n          \"name\": \"summarizeForgeQuotePdfText\",\n          \"arity\": 0,\n          \"score\": 110,\n          \"scoreReasons\": [\n            \"name_token:quote\",\n            \"explicit_text_property\"\n          ],\n          \"parameters\": [\n     "
+        },
+        {
+          "term": "name",
+          "line": 176,
+          "excerpt": "      {\n          \"path\": \"summarizeForgeQuotePdfText\",\n          \"ownerPath\": null,\n          \"name\": \"summarizeForgeQuotePdfText\",\n          \"arity\": 0,\n          \"score\": 110,\n          \"scoreReasons\": [\n            \"name_token:quote\",\n            \"explicit_text_property\"\n          ],\n          \"parameters\": [\n            \"input\"\n          ],\n          \"inputContract\": {\n            \"kind\": \"OBJECT_WITH_TEXT_PROPERTY\",\n            \"param"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 238,
+      "mapperScore": 223,
+      "validatorScore": 129,
+      "consumerScore": 60
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15s1-canonical-schema-correction-authorization-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 10596,
+      "sha256": "c93ee6798540012a5d8b3ef914c9277c66a7955fdc6b648084d9c4f4b3217fc5",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 3,
+          "positions": [
+            1026,
+            2340,
+            2401
+          ]
+        },
+        "family": {
+          "count": 3,
+          "positions": [
+            1040,
+            2354,
+            3274
+          ]
+        },
+        "product": {
+          "count": 8,
+          "positions": [
+            820,
+            2174,
+            3816,
+            3955,
+            4027,
+            4039,
+            4096,
+            4108
+          ]
+        },
+        "insured": {
+          "count": 3,
+          "positions": [
+            837,
+            2191,
+            4606
+          ]
+        },
+        "sumAssured": {
+          "count": 3,
+          "positions": [
+            854,
+            2208,
+            5196
+          ]
+        },
+        "annualPremium": {
+          "count": 10,
+          "positions": [
+            874,
+            2228,
+            5789,
+            5934,
+            6012,
+            6024,
+            6087,
+            6099,
+            6622,
+            6959
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 3,
+          "positions": [
+            897,
+            2251,
+            6428
+          ]
+        },
+        "coveragePeriod": {
+          "count": 3,
+          "positions": [
+            926,
+            2280,
+            7488
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 11,
+      "engineTerms": [],
+      "validatorSignals": [
+        "validate",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 19,
+          "excerpt": "D\": \"RUNTIME_FIELD_OWNERSHIP_AND_ADAPTER_PROJECTION\",\n    \"EIGHT_FIELD_SCHEMA_PRESERVED\": true,\n    \"CANONICAL_FIELD_COUNT\": 8,\n    \"FIELD_ADDITION_AUTHORIZED\": false,\n    \"FIELD_REMOVAL_AUTHORIZED\": false,\n    \"FIELD_RENAME_AUTHORIZED\": false,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ENGINE_OWNED_FIELDS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "DS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n  "
+        },
+        {
+          "term": "name",
+          "line": 68,
+          "excerpt": "\"fieldOwnership\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n   "
+        },
+        {
+          "term": "name",
+          "line": 72,
+          "excerpt": "\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [],\n        \"proposalRankedCandi"
+        },
+        {
+          "term": "name",
+          "line": 320,
+          "excerpt": "e resulting exact eight-field packet with the existing adapter validator.\",\n      \"Emit no official quote, provider write, backend effect or quote truth.\"\n    ],\n    \"forbiddenBehavior\": [\n      \"Do not add, remove or rename canonical fields.\",\n      \"Do not create a new runtime module, engine, cache or bridge.\",\n      \"Do not duplicate mapping logic outside the existing adapter.\",\n      \"Do not use manual field guesses or user-selected ali"
+        },
+        {
+          "term": "family",
+          "line": 32,
+          "excerpt": "product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n    \"EXISTING_ADAP"
+        },
+        {
+          "term": "family",
+          "line": 69,
+          "excerpt": "p\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalized"
+        },
+        {
+          "term": "family",
+          "line": 114,
+          "excerpt": "   30,\n            35,\n            36,\n            41,\n            42,\n            47,\n            48,\n            53,\n            54,\n            55,\n            60,\n            61\n          ]\n        }\n      },\n      \"family\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [],\n        \"proposalRankedCandi"
+        },
+        {
+          "term": "product",
+          "line": 22,
+          "excerpt": "    \"CANONICAL_FIELD_COUNT\": 8,\n    \"FIELD_ADDITION_AUTHORIZED\": false,\n    \"FIELD_REMOVAL_AUTHORIZED\": false,\n    \"FIELD_RENAME_AUTHORIZED\": false,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ENGINE_OWNED_FIELDS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\""
+        },
+        {
+          "term": "product",
+          "line": 36,
+          "excerpt": "IELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n    \"EXISTING_ADAPTER_CANONICAL_PROJECTION_EXPOSURE_AUTHORIZED\": true,\n    \"EXISTING_PROJECTION_REUSE_REQUIRED\": true,\n    \"DUPLICATE_MAPPING_LOGIC_AUTHORIZED\": false,\n  "
+        },
+        {
+          "term": "product",
+          "line": 60,
+          "excerpt": " \"REAL_CUSTOMER_DATA_AUTHORIZED\": false,\n    \"REAL_EFFECTS_AUTHORIZED\": false,\n    \"NEXT_GATE\": \"107Z15S2_EXISTING_ADAPTER_CANONICAL_PROJECTION_EXPOSURE_GATE\"\n  },\n  \"fieldOwnership\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \""
+        },
+        {
+          "term": "product",
+          "line": 135,
+          "excerpt": "   \"engine\": [],\n          \"adapter\": [\n            288\n          ],\n          \"contract\": [\n            3\n          ],\n          \"store\": [],\n          \"coordinator\": [],\n          \"modal\": []\n        }\n      },\n      \"product\": {\n        \"classification\": \"ENGINE_NATIVE_OR_ENGINE_DERIVED\",\n        \"runtimeOwner\": \"engine\",\n        \"directEngineMapping\": \"product\",\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [\n          \"prod"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 238,
+      "mapperScore": 218,
+      "validatorScore": 129,
+      "consumerScore": 96
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15s1-canonical-schema-correction-authorization.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 10501,
+      "sha256": "4432f2278993373babbb669874e0fcf684acde9bc41c0f005f2efc125feb22da",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 3,
+          "positions": [
+            935,
+            2249,
+            2310
+          ]
+        },
+        "family": {
+          "count": 3,
+          "positions": [
+            949,
+            2263,
+            3183
+          ]
+        },
+        "product": {
+          "count": 8,
+          "positions": [
+            729,
+            2083,
+            3725,
+            3864,
+            3936,
+            3948,
+            4005,
+            4017
+          ]
+        },
+        "insured": {
+          "count": 3,
+          "positions": [
+            746,
+            2100,
+            4515
+          ]
+        },
+        "sumAssured": {
+          "count": 3,
+          "positions": [
+            763,
+            2117,
+            5105
+          ]
+        },
+        "annualPremium": {
+          "count": 10,
+          "positions": [
+            783,
+            2137,
+            5698,
+            5843,
+            5921,
+            5933,
+            5996,
+            6008,
+            6531,
+            6868
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 3,
+          "positions": [
+            806,
+            2160,
+            6337
+          ]
+        },
+        "coveragePeriod": {
+          "count": 3,
+          "positions": [
+            835,
+            2189,
+            7397
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 11,
+      "engineTerms": [],
+      "validatorSignals": [
+        "validate",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 14,
+          "excerpt": "D\": \"RUNTIME_FIELD_OWNERSHIP_AND_ADAPTER_PROJECTION\",\n    \"EIGHT_FIELD_SCHEMA_PRESERVED\": true,\n    \"CANONICAL_FIELD_COUNT\": 8,\n    \"FIELD_ADDITION_AUTHORIZED\": false,\n    \"FIELD_REMOVAL_AUTHORIZED\": false,\n    \"FIELD_RENAME_AUTHORIZED\": false,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ENGINE_OWNED_FIELDS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],"
+        },
+        {
+          "term": "name",
+          "line": 26,
+          "excerpt": "DS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n  "
+        },
+        {
+          "term": "name",
+          "line": 63,
+          "excerpt": "\"fieldOwnership\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n   "
+        },
+        {
+          "term": "name",
+          "line": 67,
+          "excerpt": "\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [],\n        \"proposalRankedCandi"
+        },
+        {
+          "term": "name",
+          "line": 315,
+          "excerpt": "e resulting exact eight-field packet with the existing adapter validator.\",\n      \"Emit no official quote, provider write, backend effect or quote truth.\"\n    ],\n    \"forbiddenBehavior\": [\n      \"Do not add, remove or rename canonical fields.\",\n      \"Do not create a new runtime module, engine, cache or bridge.\",\n      \"Do not duplicate mapping logic outside the existing adapter.\",\n      \"Do not use manual field guesses or user-selected ali"
+        },
+        {
+          "term": "family",
+          "line": 27,
+          "excerpt": "product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n    \"EXISTING_ADAP"
+        },
+        {
+          "term": "family",
+          "line": 64,
+          "excerpt": "p\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalized"
+        },
+        {
+          "term": "family",
+          "line": 109,
+          "excerpt": "   30,\n            35,\n            36,\n            41,\n            42,\n            47,\n            48,\n            53,\n            54,\n            55,\n            60,\n            61\n          ]\n        }\n      },\n      \"family\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [],\n        \"proposalRankedCandi"
+        },
+        {
+          "term": "product",
+          "line": 17,
+          "excerpt": "    \"CANONICAL_FIELD_COUNT\": 8,\n    \"FIELD_ADDITION_AUTHORIZED\": false,\n    \"FIELD_REMOVAL_AUTHORIZED\": false,\n    \"FIELD_RENAME_AUTHORIZED\": false,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ENGINE_OWNED_FIELDS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\""
+        },
+        {
+          "term": "product",
+          "line": 31,
+          "excerpt": "IELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n    \"EXISTING_ADAPTER_CANONICAL_PROJECTION_EXPOSURE_AUTHORIZED\": true,\n    \"EXISTING_PROJECTION_REUSE_REQUIRED\": true,\n    \"DUPLICATE_MAPPING_LOGIC_AUTHORIZED\": false,\n  "
+        },
+        {
+          "term": "product",
+          "line": 55,
+          "excerpt": " \"REAL_CUSTOMER_DATA_AUTHORIZED\": false,\n    \"REAL_EFFECTS_AUTHORIZED\": false,\n    \"NEXT_GATE\": \"107Z15S2_EXISTING_ADAPTER_CANONICAL_PROJECTION_EXPOSURE_GATE\"\n  },\n  \"fieldOwnership\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \""
+        },
+        {
+          "term": "product",
+          "line": 130,
+          "excerpt": "   \"engine\": [],\n          \"adapter\": [\n            288\n          ],\n          \"contract\": [\n            3\n          ],\n          \"store\": [],\n          \"coordinator\": [],\n          \"modal\": []\n        }\n      },\n      \"product\": {\n        \"classification\": \"ENGINE_NATIVE_OR_ENGINE_DERIVED\",\n        \"runtimeOwner\": \"engine\",\n        \"directEngineMapping\": \"product\",\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [\n          \"prod"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 238,
+      "mapperScore": 218,
+      "validatorScore": 129,
+      "consumerScore": 96
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z3-targeted-canonical-pdf-cache-writer-reader-review-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 179611,
+      "sha256": "d8a13d23cd7013508c22e2697eb753dd75b5532055ae13cf3d18cadb50d8dd6d",
+      "exactFields": [
+        "name",
+        "product"
+      ],
+      "exactFieldCount": 2,
+      "fieldEvidence": {
+        "name": {
+          "count": 169,
+          "positions": [
+            308,
+            383,
+            3628,
+            5588,
+            13037,
+            13813,
+            15065,
+            15972,
+            16040,
+            16115,
+            16186,
+            16259,
+            18263,
+            18338,
+            23474,
+            24045,
+            26684,
+            26784,
+            26890,
+            26980,
+            32523,
+            32663,
+            32749,
+            32826,
+            32942,
+            33022,
+            33107,
+            33194,
+            33259,
+            33343,
+            43140,
+            43299,
+            43374,
+            43476,
+            43580,
+            43695,
+            43791,
+            43911,
+            44003,
+            44212,
+            44325,
+            44449,
+            44551,
+            44655,
+            44770,
+            44866,
+            44986,
+            45051,
+            53925,
+            54052
+          ]
+        },
+        "family": {
+          "count": 0,
+          "positions": []
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            169585
+          ]
+        },
+        "insured": {
+          "count": 0,
+          "positions": []
+        },
+        "sumAssured": {
+          "count": 0,
+          "positions": []
+        },
+        "annualPremium": {
+          "count": 0,
+          "positions": []
+        },
+        "plannedOrAvePremium": {
+          "count": 0,
+          "positions": []
+        },
+        "coveragePeriod": {
+          "count": 0,
+          "positions": []
+        }
+      },
+      "schemaWindowContainsAllEight": false,
+      "quotedAllEight": false,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "totalAnnualPremium",
+        "premium",
+        "product"
+      ],
+      "nativeAliasTermCount": 5,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "required",
+        "schema",
+        "shape"
+      ],
+      "constructionSignals": [
+        "return {",
+        ".map(",
+        "getField(",
+        "fields:",
+        "fields =",
+        "payload =",
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "persist"
+      ],
+      "exports": [
+        "ADAPTER_ID",
+        "QUOTE_READ_MODEL_ADAPTER_ID",
+        "QUOTE_READ_MODEL_SAFE_ERROR",
+        "QUOTE_READ_MODEL_SCHEMA_VERSION",
+        "QUOTE_READ_MODEL_SOURCE_ENGINE",
+        "SCHEMA_VERSION",
+        "bindQuotePreviewToProductIntelligence",
+        "buildQuotePreviewBindingNotBoundError",
+        "construirContextoPresentacionDesdeCotizacion",
+        "crearQuotationExtractionResult",
+        "detectarProductoCotizacion",
+        "getProductIntelligenceReadModelByFamily",
+        "getProductIntelligenceReadModelCatalog",
+        "getQuoteDetail",
+        "getQuoteReadModelManifest",
+        "getVerifiedUdiRateMetadata",
+        "listQuotes",
+        "normalizarCotizacionAMXN",
+        "validateProductIntelligenceReadModelShape",
+        "validateQuotePreviewBindingShape"
+      ],
+      "imports": [
+        "../product-intelligence/product-intelligence-read-model-adapter-073d.js",
+        "./exchange-rate-cache-engine",
+        "./imagina-ser-future-mxn-bridge",
+        "./orvi-guaranteed-value-timeline-engine",
+        "./partner-compensation-statement-match.js",
+        "./quote-preview-pdf-engine-canonical-execution-readiness-review-matrix-adapter-080b.js",
+        "./quote-preview-pdf-engine-canonical-test-evidence-provenance-registry-adapter-079b.js",
+        "./quote-preview-pdf-engine-canonical-test-evidence-registry-adapter-078b.js",
+        "./quote-preview-pdf-engine-deterministic-input-source-trace-registry-adapter-084b.js",
+        "./quote-preview-pdf-engine-existing-surfaces-canonical-mapping-adapter-077b.js",
+        "./quote-preview-pdf-engine-expected-value-source-trace-registry-adapter-082b.js",
+        "./quote-preview-pdf-engine-parser-ownership-registry-adapter-083b.js",
+        "./quote-preview-pdf-engine-preview-vs-quote-truth-boundary-registry-adapter-085b.js",
+        "./quote-preview-pdf-engine-real-pdf-file-hash-provenance-registry-adapter-081b.js",
+        "./quote-preview-product-intelligence-binding-adapter-074b.js",
+        "./quote-preview-safe-screen-composition-registry-adapter-088b.js",
+        "./quote-preview-safe-ux-component-contract-registry-adapter-087b.js",
+        "./quote-preview-safe-ux-state-model-registry-adapter-086b.js",
+        "./quote-preview-safe-visual-layout-spec-registry-adapter-089b.js",
+        "./shared-banxico-edge-provider",
+        "./shared-banxico-rate-engine"
+      ],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 15,
+          "excerpt": " Candidate ranking\n\n### `platform/adapters/quote-read-model/quote-read-model-adapter-069c.js`\n\n- Score: `15`\n- Quote/PDF relevance: `true`\n- Cache/state relevance: `true`\n- Writer functions: `[]`\n- Reader functions: `[{\"name\": \"getQuoteDetail\", \"parameters\": [\"quoteId\"], \"form\": \"function\"}, {\"name\": \"getQuoteReadModelManifest\", \"parameters\": [], \"form\": \"function\"}]`\n- Direct write calls: `0`\n- Direct read calls: `1`\n- Cache keys: `[]`\n- S"
+        },
+        {
+          "term": "name",
+          "line": 15,
+          "excerpt": "l-adapter-069c.js`\n\n- Score: `15`\n- Quote/PDF relevance: `true`\n- Cache/state relevance: `true`\n- Writer functions: `[]`\n- Reader functions: `[{\"name\": \"getQuoteDetail\", \"parameters\": [\"quoteId\"], \"form\": \"function\"}, {\"name\": \"getQuoteReadModelManifest\", \"parameters\": [], \"form\": \"function\"}]`\n- Direct write calls: `0`\n- Direct read calls: `1`\n- Cache keys: `[]`\n- Storage APIs: `[]`\n- Events: `[]`\n- Rejected reasons: `[]`\n\nRelevant lines:\n"
+        },
+        {
+          "term": "name",
+          "line": 89,
+          "excerpt": " L281: `if (!record) {`\n- L285: `return makeOkEnvelope([record]);`\n\n### `supabase/functions/semantic-extract/index.ts`\n\n- Score: `15`\n- Quote/PDF relevance: `true`\n- Cache/state relevance: `true`\n- Writer functions: `[{\"name\": \"computeQuality\", \"parameters\": [\"type: string\", \"owner: string\", \"action: string | null\", \"due: string | null\"], \"form\": \"function\"}]`\n- Reader functions: `[]`\n- Direct write calls: `0`\n- Direct read calls: `1`\n- Cac"
+        },
+        {
+          "term": "name",
+          "line": 130,
+          "excerpt": "rd<string, unknown>,`\n\n### `product-intelligence/evidence/forge-quote-pdf-preview-engine.js`\n\n- Score: `11`\n- Quote/PDF relevance: `true`\n- Cache/state relevance: `false`\n- Writer functions: `[]`\n- Reader functions: `[{\"name\": \"findLine\", \"parameters\": [\"pattern\"], \"form\": \"arrow\"}]`\n- Direct write calls: `0`\n- Direct read calls: `2`\n- Cache keys: `[]`\n- Storage APIs: `[]`\n- Events: `[]`\n- Rejected reasons: `[]`\n\nRelevant lines:\n\n- L61: `co"
+        },
+        {
+          "term": "name",
+          "line": 290,
+          "excerpt": "napshot({`\n- L263: `caseSnapshot,`\n- L285: `caseSnapshot,`\n\n### `gmm-quote-summary-engine.js`\n\n- Score: `8`\n- Quote/PDF relevance: `true`\n- Cache/state relevance: `false`\n- Writer functions: `[]`\n- Reader functions: `[{\"name\": \"findMoneyAfter\", \"parameters\": [\"label\", \"text\"], \"form\": \"function\"}]`\n- Direct write calls: `0`\n- Direct read calls: `0`\n- Cache keys: `[]`\n- Storage APIs: `[]`\n- Events: `[]`\n- Rejected reasons: `[]`\n\nRelevant lin"
+        },
+        {
+          "term": "name",
+          "line": 313,
+          "excerpt": "`\n- L138: `premium: findMoneyAfter('PRIMA ANUAL', clean),`\n\n### `product-detection-engine.js`\n\n- Score: `8`\n- Quote/PDF relevance: `true`\n- Cache/state relevance: `false`\n- Writer functions: `[]`\n- Reader functions: `[{\"name\": \"getProductCandidates\", \"parameters\": [\"product = {}\"], \"form\": \"function\"}]`\n- Direct write calls: `0`\n- Direct read calls: `0`\n- Cache keys: `[]`\n- Storage APIs: `[]`\n- Events: `[]`\n- Rejected reasons: `[]`\n\nRelevan"
+        },
+        {
+          "term": "name",
+          "line": 345,
+          "excerpt": "andidates(product);`\n\n### `product-intelligence/knowledge/ave/shared-ave-portfolio-engine.js`\n\n- Score: `8`\n- Quote/PDF relevance: `true`\n- Cache/state relevance: `false`\n- Writer functions: `[]`\n- Reader functions: `[{\"name\": \"resolveAveType\", \"parameters\": [\"position\"], \"form\": \"function\"}]`\n- Direct write calls: `0`\n- Direct read calls: `0`\n- Cache keys: `[]`\n- Storage APIs: `[]`\n- Events: `[]`\n- Rejected reasons: `[]`\n\nRelevant lines:\n\n"
+        },
+        {
+          "term": "name",
+          "line": 373,
+          "excerpt": "resolveAveType`\n\n### `product-intelligence/knowledge/vida-mujer-client-explanation-report.js`\n\n- Score: `8`\n- Quote/PDF relevance: `true`\n- Cache/state relevance: `false`\n- Writer functions: `[]`\n- Reader functions: `[{\"name\": \"getAnnualPremium\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"getCoverageAmount\", \"parameters\": [\"code\"], \"form\": \"function\"}, {\"name\": \"getGuaranteedValues\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"ge"
+        },
+        {
+          "term": "name",
+          "line": 373,
+          "excerpt": "nt-explanation-report.js`\n\n- Score: `8`\n- Quote/PDF relevance: `true`\n- Cache/state relevance: `false`\n- Writer functions: `[]`\n- Reader functions: `[{\"name\": \"getAnnualPremium\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"getCoverageAmount\", \"parameters\": [\"code\"], \"form\": \"function\"}, {\"name\": \"getGuaranteedValues\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"getRecommendedPremium\", \"parameters\": [], \"form\": \"function\"}, {\"name\""
+        },
+        {
+          "term": "name",
+          "line": 373,
+          "excerpt": "he/state relevance: `false`\n- Writer functions: `[]`\n- Reader functions: `[{\"name\": \"getAnnualPremium\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"getCoverageAmount\", \"parameters\": [\"code\"], \"form\": \"function\"}, {\"name\": \"getGuaranteedValues\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"getRecommendedPremium\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"getSurvivalTotal\", \"parameters\": [], \"form\": \"function\"}]`\n- Direct writ"
+        },
+        {
+          "term": "name",
+          "line": 373,
+          "excerpt": ": `[{\"name\": \"getAnnualPremium\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"getCoverageAmount\", \"parameters\": [\"code\"], \"form\": \"function\"}, {\"name\": \"getGuaranteedValues\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"getRecommendedPremium\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"getSurvivalTotal\", \"parameters\": [], \"form\": \"function\"}]`\n- Direct write calls: `0`\n- Direct read calls: `0`\n- Cache keys: `[]`\n- Storage APIs"
+        },
+        {
+          "term": "name",
+          "line": 373,
+          "excerpt": "\"name\": \"getCoverageAmount\", \"parameters\": [\"code\"], \"form\": \"function\"}, {\"name\": \"getGuaranteedValues\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"getRecommendedPremium\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"getSurvivalTotal\", \"parameters\": [], \"form\": \"function\"}]`\n- Direct write calls: `0`\n- Direct read calls: `0`\n- Cache keys: `[]`\n- Storage APIs: `[]`\n- Events: `[]`\n- Rejected reasons: `[]`\n\nRelevant lines:\n\n- L20: `"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 44,
+      "mapperScore": 185,
+      "validatorScore": 86,
+      "consumerScore": 24
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z3-targeted-canonical-pdf-cache-writer-reader-review.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 363901,
+      "sha256": "3a45e9d1004af0ec603a81ac2d69c511add53cba30c74ea3db43033231da92bf",
+      "exactFields": [
+        "name",
+        "product"
+      ],
+      "exactFieldCount": 2,
+      "fieldEvidence": {
+        "name": {
+          "count": 176,
+          "positions": [
+            6043,
+            6190,
+            12876,
+            24953,
+            28588,
+            28735,
+            35421,
+            45272,
+            45441,
+            45550,
+            45726,
+            45895,
+            46032,
+            54772,
+            60622,
+            71132,
+            71317,
+            71495,
+            71633,
+            80155,
+            80379,
+            80513,
+            80638,
+            80802,
+            80954,
+            81111,
+            81246,
+            81359,
+            81515,
+            98729,
+            98847,
+            98980,
+            99111,
+            99245,
+            99400,
+            99553,
+            99712,
+            99876,
+            111261,
+            111401,
+            111577,
+            111737,
+            111901,
+            112079,
+            112205,
+            112334,
+            112488,
+            123034,
+            123277,
+            123424
+          ]
+        },
+        "family": {
+          "count": 0,
+          "positions": []
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            51959
+          ]
+        },
+        "insured": {
+          "count": 0,
+          "positions": []
+        },
+        "sumAssured": {
+          "count": 0,
+          "positions": []
+        },
+        "annualPremium": {
+          "count": 0,
+          "positions": []
+        },
+        "plannedOrAvePremium": {
+          "count": 0,
+          "positions": []
+        },
+        "coveragePeriod": {
+          "count": 0,
+          "positions": []
+        }
+      },
+      "schemaWindowContainsAllEight": false,
+      "quotedAllEight": false,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "totalAnnualPremium",
+        "premium",
+        "product"
+      ],
+      "nativeAliasTermCount": 5,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "required",
+        "schema",
+        "shape"
+      ],
+      "constructionSignals": [
+        "return {",
+        ".map(",
+        "getField(",
+        "fields:",
+        "fields =",
+        "payload =",
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "persist"
+      ],
+      "exports": [
+        "ADAPTER_ID",
+        "QUOTE_READ_MODEL_ADAPTER_ID",
+        "QUOTE_READ_MODEL_SAFE_ERROR",
+        "QUOTE_READ_MODEL_SCHEMA_VERSION",
+        "QUOTE_READ_MODEL_SOURCE_ENGINE",
+        "SCHEMA_VERSION",
+        "bindQuotePreviewToProductIntelligence",
+        "buildQuotePreviewBindingNotBoundError",
+        "construirContextoPresentacionDesdeCotizacion",
+        "crearQuotationExtractionResult",
+        "detectarProductoCotizacion",
+        "getProductIntelligenceReadModelByFamily",
+        "getProductIntelligenceReadModelCatalog",
+        "getQuoteDetail",
+        "getQuoteReadModelManifest",
+        "getVerifiedUdiRateMetadata",
+        "listQuotes",
+        "normalizarCotizacionAMXN",
+        "validateProductIntelligenceReadModelShape",
+        "validateQuotePreviewBindingShape"
+      ],
+      "imports": [
+        "../product-intelligence/product-intelligence-read-model-adapter-073d.js",
+        "./exchange-rate-cache-engine",
+        "./partner-compensation-statement-match.js",
+        "./quote-preview-pdf-engine-canonical-execution-readiness-review-matrix-adapter-080b.js",
+        "./quote-preview-pdf-engine-canonical-test-evidence-provenance-registry-adapter-079b.js",
+        "./quote-preview-pdf-engine-canonical-test-evidence-registry-adapter-078b.js",
+        "./quote-preview-pdf-engine-deterministic-input-source-trace-registry-adapter-084b.js",
+        "./quote-preview-pdf-engine-existing-surfaces-canonical-mapping-adapter-077b.js",
+        "./quote-preview-pdf-engine-expected-value-source-trace-registry-adapter-082b.js",
+        "./quote-preview-pdf-engine-parser-ownership-registry-adapter-083b.js",
+        "./quote-preview-pdf-engine-preview-vs-quote-truth-boundary-registry-adapter-085b.js",
+        "./quote-preview-pdf-engine-real-pdf-file-hash-provenance-registry-adapter-081b.js",
+        "./quote-preview-product-intelligence-binding-adapter-074b.js",
+        "./quote-preview-safe-screen-composition-registry-adapter-088b.js",
+        "./quote-preview-safe-ux-component-contract-registry-adapter-087b.js",
+        "./quote-preview-safe-ux-state-model-registry-adapter-086b.js",
+        "./quote-preview-safe-visual-layout-spec-registry-adapter-089b.js"
+      ],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 109,
+          "excerpt": "f82b7d51110af\",\n      \"quote_pdf_relevance\": true,\n      \"cache_or_state_relevance\": true,\n      \"storage_apis\": [],\n      \"cache_keys\": [],\n      \"writer_functions\": [],\n      \"reader_functions\": [\n        {\n          \"name\": \"getQuoteDetail\",\n          \"parameters\": [\n            \"quoteId\"\n          ],\n          \"form\": \"function\"\n        },\n        {\n          \"name\": \"getQuoteReadModelManifest\",\n          \"parameters\": [],\n          \"fo"
+        },
+        {
+          "term": "name",
+          "line": 116,
+          "excerpt": "\"writer_functions\": [],\n      \"reader_functions\": [\n        {\n          \"name\": \"getQuoteDetail\",\n          \"parameters\": [\n            \"quoteId\"\n          ],\n          \"form\": \"function\"\n        },\n        {\n          \"name\": \"getQuoteReadModelManifest\",\n          \"parameters\": [],\n          \"form\": \"function\"\n        }\n      ],\n      \"direct_write_call_count\": 0,\n      \"direct_read_call_count\": 1,\n      \"events\": [],\n      \"bridge_signals"
+        },
+        {
+          "term": "name",
+          "line": 372,
+          "excerpt": "0c36828957d0dc236414f5dfd3c9fae01b184c765c4\",\n      \"quote_pdf_relevance\": true,\n      \"cache_or_state_relevance\": true,\n      \"storage_apis\": [],\n      \"cache_keys\": [],\n      \"writer_functions\": [\n        {\n          \"name\": \"computeQuality\",\n          \"parameters\": [\n            \"type: string\",\n            \"owner: string\",\n            \"action: string | null\",\n            \"due: string | null\"\n          ],\n          \"form\": \"function\"\n    "
+        },
+        {
+          "term": "name",
+          "line": 782,
+          "excerpt": "0c36828957d0dc236414f5dfd3c9fae01b184c765c4\",\n      \"quote_pdf_relevance\": true,\n      \"cache_or_state_relevance\": true,\n      \"storage_apis\": [],\n      \"cache_keys\": [],\n      \"writer_functions\": [\n        {\n          \"name\": \"computeQuality\",\n          \"parameters\": [\n            \"type: string\",\n            \"owner: string\",\n            \"action: string | null\",\n            \"due: string | null\"\n          ],\n          \"form\": \"function\"\n    "
+        },
+        {
+          "term": "name",
+          "line": 907,
+          "excerpt": "f82b7d51110af\",\n      \"quote_pdf_relevance\": true,\n      \"cache_or_state_relevance\": true,\n      \"storage_apis\": [],\n      \"cache_keys\": [],\n      \"writer_functions\": [],\n      \"reader_functions\": [\n        {\n          \"name\": \"getQuoteDetail\",\n          \"parameters\": [\n            \"quoteId\"\n          ],\n          \"form\": \"function\"\n        },\n        {\n          \"name\": \"getQuoteReadModelManifest\",\n          \"parameters\": [],\n          \"fo"
+        },
+        {
+          "term": "name",
+          "line": 914,
+          "excerpt": "\"writer_functions\": [],\n      \"reader_functions\": [\n        {\n          \"name\": \"getQuoteDetail\",\n          \"parameters\": [\n            \"quoteId\"\n          ],\n          \"form\": \"function\"\n        },\n        {\n          \"name\": \"getQuoteReadModelManifest\",\n          \"parameters\": [],\n          \"form\": \"function\"\n        }\n      ],\n      \"direct_write_call_count\": 0,\n      \"direct_read_call_count\": 1,\n      \"events\": [],\n      \"bridge_signals"
+        },
+        {
+          "term": "name",
+          "line": 1170,
+          "excerpt": "0c36828957d0dc236414f5dfd3c9fae01b184c765c4\",\n      \"quote_pdf_relevance\": true,\n      \"cache_or_state_relevance\": true,\n      \"storage_apis\": [],\n      \"cache_keys\": [],\n      \"writer_functions\": [\n        {\n          \"name\": \"computeQuality\",\n          \"parameters\": [\n            \"type: string\",\n            \"owner: string\",\n            \"action: string | null\",\n            \"due: string | null\"\n          ],\n          \"form\": \"function\"\n    "
+        },
+        {
+          "term": "name",
+          "line": 1506,
+          "excerpt": "90103f310fb34cd175bfaeaa2ae48a8fcdd82faae5\",\n      \"quote_pdf_relevance\": false,\n      \"cache_or_state_relevance\": true,\n      \"storage_apis\": [],\n      \"cache_keys\": [],\n      \"writer_functions\": [\n        {\n          \"name\": \"getCachedRates\",\n          \"parameters\": [\n            \"{ forceRefresh = false } = {}\"\n          ],\n          \"form\": \"function\"\n        },\n        {\n          \"name\": \"readCache\",\n          \"parameters\": [],\n       "
+        },
+        {
+          "term": "name",
+          "line": 1513,
+          "excerpt": ",\n      \"writer_functions\": [\n        {\n          \"name\": \"getCachedRates\",\n          \"parameters\": [\n            \"{ forceRefresh = false } = {}\"\n          ],\n          \"form\": \"function\"\n        },\n        {\n          \"name\": \"readCache\",\n          \"parameters\": [],\n          \"form\": \"function\"\n        },\n        {\n          \"name\": \"writeCache\",\n          \"parameters\": [\n            \"data\"\n          ],\n          \"form\": \"function\"\n       "
+        },
+        {
+          "term": "name",
+          "line": 1518,
+          "excerpt": "     \"{ forceRefresh = false } = {}\"\n          ],\n          \"form\": \"function\"\n        },\n        {\n          \"name\": \"readCache\",\n          \"parameters\": [],\n          \"form\": \"function\"\n        },\n        {\n          \"name\": \"writeCache\",\n          \"parameters\": [\n            \"data\"\n          ],\n          \"form\": \"function\"\n        }\n      ],\n      \"reader_functions\": [\n        {\n          \"name\": \"getCachedRates\",\n          \"parameters\":"
+        },
+        {
+          "term": "name",
+          "line": 1527,
+          "excerpt": " \"function\"\n        },\n        {\n          \"name\": \"writeCache\",\n          \"parameters\": [\n            \"data\"\n          ],\n          \"form\": \"function\"\n        }\n      ],\n      \"reader_functions\": [\n        {\n          \"name\": \"getCachedRates\",\n          \"parameters\": [\n            \"{ forceRefresh = false } = {}\"\n          ],\n          \"form\": \"function\"\n        },\n        {\n          \"name\": \"getCurrentRatesWithConfiguredProvider\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 1534,
+          "excerpt": ",\n      \"reader_functions\": [\n        {\n          \"name\": \"getCachedRates\",\n          \"parameters\": [\n            \"{ forceRefresh = false } = {}\"\n          ],\n          \"form\": \"function\"\n        },\n        {\n          \"name\": \"getCurrentRatesWithConfiguredProvider\",\n          \"parameters\": [],\n          \"form\": \"function\"\n        },\n        {\n          \"name\": \"readCache\",\n          \"parameters\": [],\n          \"form\": \"function\"\n        }\n"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 44,
+      "mapperScore": 185,
+      "validatorScore": 86,
+      "consumerScore": 24
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z7-quote-preview-pdf-runtime-persistence-adr-draft.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 8456,
+      "sha256": "a1112320a360c41e566b96aa0ed34bbe4e5f296c91cb1eae50a73b132b449954",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 4,
+          "positions": [
+            703,
+            1431,
+            2258,
+            3689
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            3707
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            3727
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            3748
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            3769
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            3793
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            3820
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            3853
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 16,
+          "excerpt": ", writer, reader or complete call chain.\",\n    \"RECOMMENDED_OPTION\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n    \"RECOMMENDATION_STATUS\": \"PENDING_EXPLICIT_APPROVAL\",\n    \"OPTIONS\": [\n      {\n        \"id\": \"A\",\n        \"name\": \"REUSE_EXISTING_GENERIC_RUNTIME\",\n        \"status\": \"REJECTED_PENDING_NEW_EVIDENCE\",\n        \"description\": \"Reuse an existing generic repository, runtime state or cache.\",\n        \"advantages\": [\n          \"Avoids du"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "    ],\n        \"acceptance_condition\": \"New source evidence must prove ownership, writer, reader, identity and downstream call chain before this option can return to review.\"\n      },\n      {\n        \"id\": \"B\",\n        \"name\": \"EPHEMERAL_IN_MEMORY_HANDOFF\",\n        \"status\": \"NOT_RECOMMENDED\",\n        \"description\": \"Pass the extraction result directly in memory from the engine to the confirmation modal without a persistence boundary.\",\n   "
+        },
+        {
+          "term": "name",
+          "line": 48,
+          "excerpt": "t recovery weaker.\"\n        ],\n        \"acceptance_condition\": \"Could only be chosen if the persistence requirement is explicitly revoked by a later constitutional decision.\"\n      },\n      {\n        \"id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence ha"
+        },
+        {
+          "term": "name",
+          "line": 70,
+          "excerpt": "t\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n  "
+        },
+        {
+          "term": "name",
+          "line": 117,
+          "excerpt": "lementation discovery confirms no canonical equivalent exists.\",\n      \"One canonical owner path is approved.\",\n      \"One explicit versioned identity/key contract is approved.\",\n      \"One writer and one reader API are named and documented.\",\n      \"The eight-field schema and metadata contract are approved.\",\n      \"The extraction-ready event carries only an identity/reference.\",\n      \"Yes and No actions consume the same stored preview re"
+        },
+        {
+          "term": "family",
+          "line": 71,
+          "excerpt": "traction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersi"
+        },
+        {
+          "term": "product",
+          "line": 50,
+          "excerpt": "id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence handoff infrastructure and consumed read-only by Quote Preview.\",\n        \"advantages\": [\n          \"Matches the locked PDF → writer → cache → popup/UI flow.\",\n          \"Provides deterministic reload, conf"
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "      \"ownership\": \"A single canonical module must own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n        "
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "st own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n     "
+        },
+        {
+          "term": "product",
+          "line": 72,
+          "excerpt": "uced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersion\",\n          \"sourc"
+        },
+        {
+          "term": "product",
+          "line": 105,
+          "excerpt": "eady extracted.\"\n      },\n      \"retention\": \"Retention and deletion policy must be explicitly selected during implementation design. No indefinite retention is authorized by this draft.\",\n      \"boundaries\": [\n        \"Product Intelligence remains upstream.\",\n        \"Quote Preview remains downstream.\",\n        \"The PDF engine is reference input, never quote truth.\",\n        \"No CRM, backend, provider, policy, pipeline, message or calendar wr"
+        },
+        {
+          "term": "product",
+          "line": 135,
+          "excerpt": "\",\n      \"The implementation would use a hidden latest-record default.\",\n      \"The result could become official quote truth without explicit downstream gates.\"\n    ]\n  },\n  \"canonical_inputs\": {\n    \"PDF_ENGINE_PATH\": \"product-intelligence/evidence/forge-quote-pdf-preview-engine.js\",\n    \"CONFIRMATION_MODAL_PATH\": \"docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.js\",\n    \"QUOTE_PREVIEW_UI_PATH\": \"docs/static"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 234,
+      "mapperScore": 183,
+      "validatorScore": 119,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z7r-quote-preview-pdf-runtime-persistence-adr-revision.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 9158,
+      "sha256": "0577c6ff937027f9b44cfd870812c1a36e0bc45b6fe1dd87c851784c2a9dd367",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 4,
+          "positions": [
+            733,
+            1461,
+            2288,
+            3719
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            3737
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            3757
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            3778
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            3799
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            3823
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            3850
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            3883
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 16,
+          "excerpt": "ader or complete call chain.\",\n    \"RECOMMENDED_OPTION\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n    \"RECOMMENDATION_STATUS\": \"PENDING_REVISED_CONSTITUTIONAL_REVIEW\",\n    \"OPTIONS\": [\n      {\n        \"id\": \"A\",\n        \"name\": \"REUSE_EXISTING_GENERIC_RUNTIME\",\n        \"status\": \"REJECTED_PENDING_NEW_EVIDENCE\",\n        \"description\": \"Reuse an existing generic repository, runtime state or cache.\",\n        \"advantages\": [\n          \"Avoids du"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "    ],\n        \"acceptance_condition\": \"New source evidence must prove ownership, writer, reader, identity and downstream call chain before this option can return to review.\"\n      },\n      {\n        \"id\": \"B\",\n        \"name\": \"EPHEMERAL_IN_MEMORY_HANDOFF\",\n        \"status\": \"NOT_RECOMMENDED\",\n        \"description\": \"Pass the extraction result directly in memory from the engine to the confirmation modal without a persistence boundary.\",\n   "
+        },
+        {
+          "term": "name",
+          "line": 48,
+          "excerpt": "t recovery weaker.\"\n        ],\n        \"acceptance_condition\": \"Could only be chosen if the persistence requirement is explicitly revoked by a later constitutional decision.\"\n      },\n      {\n        \"id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence ha"
+        },
+        {
+          "term": "name",
+          "line": 70,
+          "excerpt": "t\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n  "
+        },
+        {
+          "term": "name",
+          "line": 117,
+          "excerpt": "lementation discovery confirms no canonical equivalent exists.\",\n      \"One canonical owner path is approved.\",\n      \"One explicit versioned identity/key contract is approved.\",\n      \"One writer and one reader API are named and documented.\",\n      \"The eight-field schema and metadata contract are approved.\",\n      \"The extraction-ready event carries only an identity/reference.\",\n      \"Yes and No actions consume the same stored preview re"
+        },
+        {
+          "term": "family",
+          "line": 71,
+          "excerpt": "traction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersi"
+        },
+        {
+          "term": "product",
+          "line": 50,
+          "excerpt": "id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence handoff infrastructure and consumed read-only by Quote Preview.\",\n        \"advantages\": [\n          \"Matches the locked PDF → writer → cache → popup/UI flow.\",\n          \"Provides deterministic reload, conf"
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "      \"ownership\": \"A single canonical module must own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n        "
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "st own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n     "
+        },
+        {
+          "term": "product",
+          "line": 72,
+          "excerpt": "uced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersion\",\n          \"sourc"
+        },
+        {
+          "term": "product",
+          "line": 105,
+          "excerpt": "eady extracted.\"\n      },\n      \"retention\": \"Retention and deletion policy must be explicitly selected during implementation design. No indefinite retention is authorized by this draft.\",\n      \"boundaries\": [\n        \"Product Intelligence remains upstream.\",\n        \"Quote Preview remains downstream.\",\n        \"The PDF engine is reference input, never quote truth.\",\n        \"No CRM, backend, provider, policy, pipeline, message or calendar wr"
+        },
+        {
+          "term": "product",
+          "line": 135,
+          "excerpt": "\",\n      \"The implementation would use a hidden latest-record default.\",\n      \"The result could become official quote truth without explicit downstream gates.\"\n    ]\n  },\n  \"canonical_inputs\": {\n    \"PDF_ENGINE_PATH\": \"product-intelligence/evidence/forge-quote-pdf-preview-engine.js\",\n    \"CONFIRMATION_MODAL_PATH\": \"docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.js\",\n    \"QUOTE_PREVIEW_UI_PATH\": \"docs/static"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 234,
+      "mapperScore": 183,
+      "validatorScore": 119,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z8s3r-source-authority-normalization-validator-repair.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 10239,
+      "sha256": "ce5cf62d58c9ab5198acc4ef1150268e1b373db1de432d222f73ccc3826408be",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 4,
+          "positions": [
+            751,
+            1479,
+            2306,
+            3737
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            3755
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            3775
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            3796
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            3817
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            3841
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            3868
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            3901
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 16,
+          "excerpt": "ete call chain.\",\n    \"RECOMMENDED_OPTION\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n    \"RECOMMENDATION_STATUS\": \"PENDING_AUTHORITY_NORMALIZED_CONSTITUTIONAL_REVIEW\",\n    \"OPTIONS\": [\n      {\n        \"id\": \"A\",\n        \"name\": \"REUSE_EXISTING_GENERIC_RUNTIME\",\n        \"status\": \"REJECTED_PENDING_NEW_EVIDENCE\",\n        \"description\": \"Reuse an existing generic repository, runtime state or cache.\",\n        \"advantages\": [\n          \"Avoids du"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "    ],\n        \"acceptance_condition\": \"New source evidence must prove ownership, writer, reader, identity and downstream call chain before this option can return to review.\"\n      },\n      {\n        \"id\": \"B\",\n        \"name\": \"EPHEMERAL_IN_MEMORY_HANDOFF\",\n        \"status\": \"NOT_RECOMMENDED\",\n        \"description\": \"Pass the extraction result directly in memory from the engine to the confirmation modal without a persistence boundary.\",\n   "
+        },
+        {
+          "term": "name",
+          "line": 48,
+          "excerpt": "t recovery weaker.\"\n        ],\n        \"acceptance_condition\": \"Could only be chosen if the persistence requirement is explicitly revoked by a later constitutional decision.\"\n      },\n      {\n        \"id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence ha"
+        },
+        {
+          "term": "name",
+          "line": 70,
+          "excerpt": "t\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n  "
+        },
+        {
+          "term": "name",
+          "line": 117,
+          "excerpt": "lementation discovery confirms no canonical equivalent exists.\",\n      \"One canonical owner path is approved.\",\n      \"One explicit versioned identity/key contract is approved.\",\n      \"One writer and one reader API are named and documented.\",\n      \"The eight-field schema and metadata contract are approved.\",\n      \"The extraction-ready event carries only an identity/reference.\",\n      \"Yes and No actions consume the same stored preview re"
+        },
+        {
+          "term": "family",
+          "line": 71,
+          "excerpt": "traction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersi"
+        },
+        {
+          "term": "product",
+          "line": 50,
+          "excerpt": "id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence handoff infrastructure and consumed read-only by Quote Preview.\",\n        \"advantages\": [\n          \"Matches the locked PDF → writer → cache → popup/UI flow.\",\n          \"Provides deterministic reload, conf"
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "      \"ownership\": \"A single canonical module must own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n        "
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "st own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n     "
+        },
+        {
+          "term": "product",
+          "line": 72,
+          "excerpt": "uced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersion\",\n          \"sourc"
+        },
+        {
+          "term": "product",
+          "line": 105,
+          "excerpt": "eady extracted.\"\n      },\n      \"retention\": \"Retention and deletion policy must be explicitly selected during implementation design. No indefinite retention is authorized by this draft.\",\n      \"boundaries\": [\n        \"Product Intelligence remains upstream.\",\n        \"Quote Preview remains downstream.\",\n        \"The PDF engine is reference input, never quote truth.\",\n        \"No CRM, backend, provider, policy, pipeline, message or calendar wr"
+        },
+        {
+          "term": "product",
+          "line": 144,
+          "excerpt": "exact_identity\": true,\n      \"event_is_reference_notification_only\": true,\n      \"violation_fails_adr\": true,\n      \"external_unproven_source_dependency\": false\n    }\n  },\n  \"canonical_inputs\": {\n    \"PDF_ENGINE_PATH\": \"product-intelligence/evidence/forge-quote-pdf-preview-engine.js\",\n    \"CONFIRMATION_MODAL_PATH\": \"docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.js\",\n    \"QUOTE_PREVIEW_UI_PATH\": \"docs/static"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 234,
+      "mapperScore": 183,
+      "validatorScore": 119,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z9-quote-preview-pdf-runtime-persistence-adr-approval.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 10990,
+      "sha256": "45a63fffccaee1a50372ba8406f81d82bc5b1eeb2a3be2d255f7a9a11776c628",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 4,
+          "positions": [
+            691,
+            1419,
+            2246,
+            3677
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            3695
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            3715
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            3736
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            3757
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            3781
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            3808
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            3841
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 16,
+          "excerpt": "time owner, cache, writer, reader or complete call chain.\",\n    \"RECOMMENDED_OPTION\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n    \"RECOMMENDATION_STATUS\": \"APPROVED\",\n    \"OPTIONS\": [\n      {\n        \"id\": \"A\",\n        \"name\": \"REUSE_EXISTING_GENERIC_RUNTIME\",\n        \"status\": \"REJECTED_PENDING_NEW_EVIDENCE\",\n        \"description\": \"Reuse an existing generic repository, runtime state or cache.\",\n        \"advantages\": [\n          \"Avoids du"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "    ],\n        \"acceptance_condition\": \"New source evidence must prove ownership, writer, reader, identity and downstream call chain before this option can return to review.\"\n      },\n      {\n        \"id\": \"B\",\n        \"name\": \"EPHEMERAL_IN_MEMORY_HANDOFF\",\n        \"status\": \"NOT_RECOMMENDED\",\n        \"description\": \"Pass the extraction result directly in memory from the engine to the confirmation modal without a persistence boundary.\",\n   "
+        },
+        {
+          "term": "name",
+          "line": 48,
+          "excerpt": "t recovery weaker.\"\n        ],\n        \"acceptance_condition\": \"Could only be chosen if the persistence requirement is explicitly revoked by a later constitutional decision.\"\n      },\n      {\n        \"id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence ha"
+        },
+        {
+          "term": "name",
+          "line": 70,
+          "excerpt": "t\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n  "
+        },
+        {
+          "term": "name",
+          "line": 117,
+          "excerpt": "lementation discovery confirms no canonical equivalent exists.\",\n      \"One canonical owner path is approved.\",\n      \"One explicit versioned identity/key contract is approved.\",\n      \"One writer and one reader API are named and documented.\",\n      \"The eight-field schema and metadata contract are approved.\",\n      \"The extraction-ready event carries only an identity/reference.\",\n      \"Yes and No actions consume the same stored preview re"
+        },
+        {
+          "term": "family",
+          "line": 71,
+          "excerpt": "traction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersi"
+        },
+        {
+          "term": "product",
+          "line": 50,
+          "excerpt": "id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence handoff infrastructure and consumed read-only by Quote Preview.\",\n        \"advantages\": [\n          \"Matches the locked PDF → writer → cache → popup/UI flow.\",\n          \"Provides deterministic reload, conf"
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "      \"ownership\": \"A single canonical module must own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n        "
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "st own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n     "
+        },
+        {
+          "term": "product",
+          "line": 72,
+          "excerpt": "uced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersion\",\n          \"sourc"
+        },
+        {
+          "term": "product",
+          "line": 105,
+          "excerpt": "eady extracted.\"\n      },\n      \"retention\": \"Retention and deletion policy must be explicitly selected during implementation design. No indefinite retention is authorized by this draft.\",\n      \"boundaries\": [\n        \"Product Intelligence remains upstream.\",\n        \"Quote Preview remains downstream.\",\n        \"The PDF engine is reference input, never quote truth.\",\n        \"No CRM, backend, provider, policy, pipeline, message or calendar wr"
+        },
+        {
+          "term": "product",
+          "line": 147,
+          "excerpt": "REVIEW_PDF_RUNTIME_PERSISTENCE\",\n    \"ADR_NUMBER\": null,\n    \"APPROVED_CANONICAL_PATH\": \"docs/architecture/quote-preview/quote-preview-pdf-runtime-persistence-adr.md\"\n  },\n  \"canonical_inputs\": {\n    \"PDF_ENGINE_PATH\": \"product-intelligence/evidence/forge-quote-pdf-preview-engine.js\",\n    \"CONFIRMATION_MODAL_PATH\": \"docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.js\",\n    \"QUOTE_PREVIEW_UI_PATH\": \"docs/static"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 234,
+      "mapperScore": 183,
+      "validatorScore": 119,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z2-canonical-engine-cache-api-inspection-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 146538,
+      "sha256": "a34c58b700a4199ca745cadbeb1b61530a0e0ef575d1da3d578bf3189ed22fed",
+      "exactFields": [
+        "name",
+        "sumAssured",
+        "annualPremium"
+      ],
+      "exactFieldCount": 3,
+      "fieldEvidence": {
+        "name": {
+          "count": 493,
+          "positions": [
+            4366,
+            4463,
+            4552,
+            4624,
+            4685,
+            5703,
+            5785,
+            5858,
+            5939,
+            6015,
+            6094,
+            6171,
+            6246,
+            6320,
+            7280,
+            7360,
+            9010,
+            9229,
+            9375,
+            9456,
+            9606,
+            10382,
+            10438,
+            12390,
+            12953,
+            13056,
+            14119,
+            14225,
+            14289,
+            14395,
+            14485,
+            14562,
+            14629,
+            14718,
+            14974,
+            15111,
+            18117,
+            18271,
+            18335,
+            18411,
+            18499,
+            18600,
+            18717,
+            18826,
+            18892,
+            18997,
+            19254,
+            19396,
+            19530,
+            19655
+          ]
+        },
+        "family": {
+          "count": 0,
+          "positions": []
+        },
+        "product": {
+          "count": 0,
+          "positions": []
+        },
+        "insured": {
+          "count": 0,
+          "positions": []
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            90118
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            90214
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 0,
+          "positions": []
+        },
+        "coveragePeriod": {
+          "count": 0,
+          "positions": []
+        }
+      },
+      "schemaWindowContainsAllEight": false,
+      "quotedAllEight": false,
+      "nativeAliasTerms": [
+        "prospect",
+        "premium",
+        "product"
+      ],
+      "nativeAliasTermCount": 3,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields",
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "required",
+        "schema",
+        "shape"
+      ],
+      "constructionSignals": [
+        "return {",
+        ".map(",
+        "getField(",
+        "fields:",
+        "fields =",
+        "payload =",
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [],
+      "exports": [
+        "ADAPTER_ID",
+        "BaseRepository",
+        "CacheRuntime",
+        "Classifications",
+        "DEFAULT_SAFETY_FLAGS",
+        "Exports",
+        "Functions",
+        "PRODUCT_FAMILIES",
+        "REQUIRED_BINDING_FIELDS",
+        "REQUIRED_FIELDS",
+        "Runtime",
+        "RuntimeManager",
+        "SAFE_ERROR_CODES",
+        "SCHEMA_VERSION",
+        "SHA",
+        "Telemetry",
+        "bindQuotePreviewToProductIntelligence",
+        "buildProductIntelligenceNotModeledError",
+        "buildQuotePreviewBindingNotBoundError",
+        "buildVidaMujerSurvivalSchedule",
+        "default",
+        "engine",
+        "extractOptionalCoverages",
+        "extraerTextoOCR",
+        "form",
+        "function",
+        "getProductIntelligenceReadModelByFamily",
+        "getProductIntelligenceReadModelCatalog",
+        "gmm",
+        "js",
+        "name",
+        "parameters",
+        "parseGMMQuote",
+        "parseSolucionlineRetirementQuote",
+        "quote",
+        "quote_preview_related",
+        "summarizeGmmQuote",
+        "summary",
+        "text",
+        "validateProductIntelligenceReadModelShape",
+        "validateQuotePreviewBindingShape"
+      ],
+      "imports": [
+        "\n        },\n        {\n          ",
+        "../../product-intelligence/evidence/forge-quote-pdf-preview-engine.js",
+        "../platform/adapters/quote-preview/quote-preview-pdf-engine-repo-promotion-adapter-076b.js",
+        "../platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js",
+        "../platform/adapters/quote-preview/quote-preview-product-intelligence-binding-adapter-074b.js",
+        "../policy-operations/evidence/policy-ocr-engine.js",
+        "../product-intelligence/coverage/gmm-out-of-pocket-engine.js",
+        "../product-intelligence/evidence/gmm-quote-parser.js",
+        "../product-intelligence/evidence/solucionline-retirement-parser.js",
+        "./exchange-rate-cache-engine",
+        "./imagina-ser-advisor-analysis-engine",
+        "./imagina-ser-client-presentation-engine",
+        "./imagina-ser-decision-engine",
+        "./imagina-ser-future-mxn-bridge",
+        "./imagina-ser-objection-engine",
+        "./imagina-ser-ocr-extractor",
+        "./imagina-ser-presentation-prompt-engine",
+        "./imagina-ser-retirement-fund-engine",
+        "./imagina-ser-scenario-engine",
+        "./product-intelligence/knowledge/shared-education-cost-engine",
+        "./quote-preview-product-intelligence-binding-adapter-074b.js",
+        "./retirement-future-udi-projection-engine",
+        "./retirement-presentation-scenario-engine.js",
+        "./shared-ave-growth-engine",
+        "./shared-ave-rescue-engine",
+        "./shared-ave-type-inference-engine",
+        "./shared-banxico-edge-provider",
+        "./shared-banxico-rate-engine",
+        "./shared-currency-projection-engine",
+        "assert",
+        "fs",
+        "https",
+        "node:assert/strict",
+        "node:child_process",
+        "node:fs",
+        "}, {"
+      ],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 48,
+          "excerpt": "ct-intelligence-binding-adapter-074b-test.js`\n- `tests/quote-preview-pdf-product-intelligence-integration-adapter-075b-test.js`\n- `tests/quote-preview-pdf-engine-repo-promotion-adapter-076b-test.js`\n- `telemetry.js`\n\n## Named runtime candidates\n\n### runtime.js\n\n- `runtime.js`\n\n### cache-runtime.js\n\n- `cache-runtime.js`\n\n### base-repository.js\n\n- `base-repository.js`\n\n## Per-file evidence\n\n### `base-repository.js`\n\n- SHA-256: `c38283fa5dcd8b"
+        },
+        {
+          "term": "name",
+          "line": 126,
+          "excerpt": "09d945e20d1690103f310fb34cd175bfaeaa2ae48a8fcdd82faae5`\n- Classifications: `exchange_rate_cache_or_banxico_domain, read_signals, write_signals`\n- Exports: `[\"getCachedRates\", \"readCache\", \"writeCache\"]`\n- Functions: `[{\"name\": \"getCachedRates\", \"parameters\": [\"{ forceRefresh = false } = {}\"], \"form\": \"function\"}, {\"name\": \"getCurrentRatesWithConfiguredProvider\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"hoursBetween\", \"parameters\": ["
+        },
+        {
+          "term": "name",
+          "line": 126,
+          "excerpt": "r_banxico_domain, read_signals, write_signals`\n- Exports: `[\"getCachedRates\", \"readCache\", \"writeCache\"]`\n- Functions: `[{\"name\": \"getCachedRates\", \"parameters\": [\"{ forceRefresh = false } = {}\"], \"form\": \"function\"}, {\"name\": \"getCurrentRatesWithConfiguredProvider\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"hoursBetween\", \"parameters\": [\"a\", \"b\"], \"form\": \"function\"}, {\"name\": \"readCache\", \"parameters\": [], \"form\": \"function\"}, {\"na"
+        },
+        {
+          "term": "name",
+          "line": 126,
+          "excerpt": ", \"writeCache\"]`\n- Functions: `[{\"name\": \"getCachedRates\", \"parameters\": [\"{ forceRefresh = false } = {}\"], \"form\": \"function\"}, {\"name\": \"getCurrentRatesWithConfiguredProvider\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"hoursBetween\", \"parameters\": [\"a\", \"b\"], \"form\": \"function\"}, {\"name\": \"readCache\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"writeCache\", \"parameters\": [\"data\"], \"form\": \"function\"}]`\n- Classes: `[]`\n- Events"
+        },
+        {
+          "term": "name",
+          "line": 126,
+          "excerpt": " [\"{ forceRefresh = false } = {}\"], \"form\": \"function\"}, {\"name\": \"getCurrentRatesWithConfiguredProvider\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"hoursBetween\", \"parameters\": [\"a\", \"b\"], \"form\": \"function\"}, {\"name\": \"readCache\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"writeCache\", \"parameters\": [\"data\"], \"form\": \"function\"}]`\n- Classes: `[]`\n- Events: `[]`\n- Cache calls: `[]`\n- Cache keys: `[]`\n- Storage APIs: `[]`\n- PDF"
+        },
+        {
+          "term": "name",
+          "line": 126,
+          "excerpt": "me\": \"getCurrentRatesWithConfiguredProvider\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"hoursBetween\", \"parameters\": [\"a\", \"b\"], \"form\": \"function\"}, {\"name\": \"readCache\", \"parameters\": [], \"form\": \"function\"}, {\"name\": \"writeCache\", \"parameters\": [\"data\"], \"form\": \"function\"}]`\n- Classes: `[]`\n- Events: `[]`\n- Cache calls: `[]`\n- Cache keys: `[]`\n- Storage APIs: `[]`\n- PDF processing signals: `false`\n- Cache writer signals: `true`\n-"
+        },
+        {
+          "term": "name",
+          "line": 154,
+          "excerpt": "\n### `gmm-quote-summary-engine.js`\n\n- SHA-256: `3b31dd4ebd59133a4d02bb533c7c52b006aeba6a96f528909de2ac1a45d304a1`\n- Classifications: `quote_preview_related`\n- Exports: `[\"default\", \"summarizeGmmQuote\"]`\n- Functions: `[{\"name\": \"extractOptionalCoverages\", \"parameters\": [\"text\"], \"form\": \"function\"}, {\"name\": \"extractProspect\", \"parameters\": [\"text\"], \"form\": \"function\"}, {\"name\": \"findMoneyAfter\", \"parameters\": [\"label\", \"text\"], \"form\": \"fu"
+        },
+        {
+          "term": "name",
+          "line": 154,
+          "excerpt": "aeba6a96f528909de2ac1a45d304a1`\n- Classifications: `quote_preview_related`\n- Exports: `[\"default\", \"summarizeGmmQuote\"]`\n- Functions: `[{\"name\": \"extractOptionalCoverages\", \"parameters\": [\"text\"], \"form\": \"function\"}, {\"name\": \"extractProspect\", \"parameters\": [\"text\"], \"form\": \"function\"}, {\"name\": \"findMoneyAfter\", \"parameters\": [\"label\", \"text\"], \"form\": \"function\"}, {\"name\": \"matchText\", \"parameters\": [\"text\", \"regex\"], \"form\": \"function"
+        },
+        {
+          "term": "name",
+          "line": 154,
+          "excerpt": "`\n- Exports: `[\"default\", \"summarizeGmmQuote\"]`\n- Functions: `[{\"name\": \"extractOptionalCoverages\", \"parameters\": [\"text\"], \"form\": \"function\"}, {\"name\": \"extractProspect\", \"parameters\": [\"text\"], \"form\": \"function\"}, {\"name\": \"findMoneyAfter\", \"parameters\": [\"label\", \"text\"], \"form\": \"function\"}, {\"name\": \"matchText\", \"parameters\": [\"text\", \"regex\"], \"form\": \"function\"}, {\"name\": \"normalizeSpaces\", \"parameters\": [\"value = ''\"], \"form\": \"fu"
+        },
+        {
+          "term": "name",
+          "line": 154,
+          "excerpt": "ptionalCoverages\", \"parameters\": [\"text\"], \"form\": \"function\"}, {\"name\": \"extractProspect\", \"parameters\": [\"text\"], \"form\": \"function\"}, {\"name\": \"findMoneyAfter\", \"parameters\": [\"label\", \"text\"], \"form\": \"function\"}, {\"name\": \"matchText\", \"parameters\": [\"text\", \"regex\"], \"form\": \"function\"}, {\"name\": \"normalizeSpaces\", \"parameters\": [\"value = ''\"], \"form\": \"function\"}, {\"name\": \"normalizeText\", \"parameters\": [\"value = ''\"], \"form\": \"functi"
+        },
+        {
+          "term": "name",
+          "line": 154,
+          "excerpt": "tractProspect\", \"parameters\": [\"text\"], \"form\": \"function\"}, {\"name\": \"findMoneyAfter\", \"parameters\": [\"label\", \"text\"], \"form\": \"function\"}, {\"name\": \"matchText\", \"parameters\": [\"text\", \"regex\"], \"form\": \"function\"}, {\"name\": \"normalizeSpaces\", \"parameters\": [\"value = ''\"], \"form\": \"function\"}, {\"name\": \"normalizeText\", \"parameters\": [\"value = ''\"], \"form\": \"function\"}, {\"name\": \"parseGender\", \"parameters\": [\"value = ''\"], \"form\": \"functio"
+        },
+        {
+          "term": "name",
+          "line": 154,
+          "excerpt": "yAfter\", \"parameters\": [\"label\", \"text\"], \"form\": \"function\"}, {\"name\": \"matchText\", \"parameters\": [\"text\", \"regex\"], \"form\": \"function\"}, {\"name\": \"normalizeSpaces\", \"parameters\": [\"value = ''\"], \"form\": \"function\"}, {\"name\": \"normalizeText\", \"parameters\": [\"value = ''\"], \"form\": \"function\"}, {\"name\": \"parseGender\", \"parameters\": [\"value = ''\"], \"form\": \"function\"}, {\"name\": \"parseMoney\", \"parameters\": [\"value = ''\"], \"form\": \"function\"}, "
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 56,
+      "mapperScore": 179,
+      "validatorScore": 94,
+      "consumerScore": 18
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z2-canonical-engine-cache-api-inspection.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 234185,
+      "sha256": "55c1a933cb126fa30fb7a62ab2f1ec8317853207c3a8c05e7a21a97cc5377bf7",
+      "exactFields": [
+        "name",
+        "sumAssured",
+        "annualPremium"
+      ],
+      "exactFieldCount": 3,
+      "fieldEvidence": {
+        "name": {
+          "count": 493,
+          "positions": [
+            9642,
+            9908,
+            10085,
+            10348,
+            10913,
+            11105,
+            11652,
+            11847,
+            12559,
+            12759,
+            12951,
+            13134,
+            13324,
+            13479,
+            13638,
+            13806,
+            13991,
+            14175,
+            14356,
+            14541,
+            14723,
+            14875,
+            15030,
+            15217,
+            15447,
+            15787,
+            15973,
+            16113,
+            16301,
+            16665,
+            16983,
+            17130,
+            17471,
+            17684,
+            17849,
+            18025,
+            18217,
+            18438,
+            18614,
+            18811,
+            19011,
+            19186,
+            19396,
+            19558,
+            19747,
+            20068,
+            20221,
+            20411,
+            21381,
+            22348
+          ]
+        },
+        "family": {
+          "count": 0,
+          "positions": []
+        },
+        "product": {
+          "count": 0,
+          "positions": []
+        },
+        "insured": {
+          "count": 0,
+          "positions": []
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            225978
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            226236
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 0,
+          "positions": []
+        },
+        "coveragePeriod": {
+          "count": 0,
+          "positions": []
+        }
+      },
+      "schemaWindowContainsAllEight": false,
+      "quotedAllEight": false,
+      "nativeAliasTerms": [
+        "prospect",
+        "premium",
+        "product"
+      ],
+      "nativeAliasTermCount": 3,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields",
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "required",
+        "schema",
+        "shape"
+      ],
+      "constructionSignals": [
+        "return {",
+        ".map(",
+        "getField(",
+        "fields:",
+        "fields =",
+        "payload =",
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "quote-preview-confirmation-modal",
+        "modal"
+      ],
+      "exports": [
+        "ADAPTER_ID",
+        "BaseRepository",
+        "CacheRuntime",
+        "DEFAULT_SAFETY_FLAGS",
+        "PRODUCT_FAMILIES",
+        "REQUIRED_BINDING_FIELDS",
+        "REQUIRED_FIELDS",
+        "Runtime",
+        "RuntimeManager",
+        "SAFE_ERROR_CODES",
+        "SCHEMA_VERSION",
+        "Telemetry",
+        "bindQuotePreviewToProductIntelligence",
+        "buildProductIntelligenceNotModeledError",
+        "buildQuotePreviewBindingNotBoundError",
+        "buildVidaMujerSurvivalSchedule",
+        "extraerTextoOCR",
+        "getProductIntelligenceReadModelByFamily",
+        "getProductIntelligenceReadModelCatalog",
+        "parseGMMQuote",
+        "parseSolucionlineRetirementQuote",
+        "summarizeGmmQuote",
+        "validateProductIntelligenceReadModelShape",
+        "validateQuotePreviewBindingShape"
+      ],
+      "imports": [
+        "\n          },\n          {\n            ",
+        "\n        },\n        {\n          ",
+        "../../product-intelligence/evidence/forge-quote-pdf-preview-engine.js",
+        "../platform/adapters/quote-preview/quote-preview-pdf-engine-repo-promotion-adapter-076b.js",
+        "../platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js",
+        "../platform/adapters/quote-preview/quote-preview-product-intelligence-binding-adapter-074b.js",
+        "../policy-operations/evidence/policy-ocr-engine.js",
+        "../product-intelligence/coverage/gmm-out-of-pocket-engine.js",
+        "../product-intelligence/evidence/gmm-quote-parser.js",
+        "../product-intelligence/evidence/solucionline-retirement-parser.js",
+        "./quote-preview-product-intelligence-binding-adapter-074b.js",
+        "assert",
+        "node:assert/strict",
+        "node:child_process",
+        "node:fs"
+      ],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 267,
+          "excerpt": "te-pdf-preview-engine.js\",\n        \"score\": 10,\n        \"has_writer_signals\": false,\n        \"has_reader_signals\": true,\n        \"cache_keys\": [\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": \")) : null,\\n    quoteDate: (studyDateLine.match(/d[ií]a\\\\s+([0-9]{1,2}\\\\/[0-9]{1,2}\\\\/[0-9]{2,4})/i) || [])[1] || null,\\n    extractionSource: \"\n          },\n          {\n            \"source\":"
+        },
+        {
+          "term": "name",
+          "line": 272,
+          "excerpt": "   quoteDate: (studyDateLine.match(/d[ií]a\\\\s+([0-9]{1,2}\\\\/[0-9]{1,2}\\\\/[0-9]{2,4})/i) || [])[1] || null,\\n    extractionSource: \"\n          },\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": \"forge_quote_pdf_preview_with_evidenced_udi_growth_rule\"\n          },\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": \" ? extractSolu"
+        },
+        {
+          "term": "name",
+          "line": 277,
+          "excerpt": ": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": \"forge_quote_pdf_preview_with_evidenced_udi_growth_rule\"\n          },\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": \" ? extractSolucionlineLifeQuoteFields(text) : null;\\n  const result = {\\n    detectedQuoteDomain,\\n    ...(extracted || { extractionSource: \"\n          },\n          {\n            \"source\": \"q"
+        },
+        {
+          "term": "name",
+          "line": 282,
+          "excerpt": "SolucionlineLifeQuoteFields(text) : null;\\n  const result = {\\n    detectedQuoteDomain,\\n    ...(extracted || { extractionSource: \"\n          },\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": \"forge-quote-pdf-preview-engine.js\"\n          }\n        ],\n        \"storage_apis\": [],\n        \"cache_calls\": [\n          {\n            \"owner\": \"lines\",\n            \"method\": \"find\"\n         "
+        },
+        {
+          "term": "name",
+          "line": 303,
+          "excerpt": "f-preview-engine-test.js\",\n        \"score\": 7,\n        \"has_writer_signals\": false,\n        \"has_reader_signals\": false,\n        \"cache_keys\": [\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": \"../../product-intelligence/evidence/forge-quote-pdf-preview-engine.js\"\n          },\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": "
+        },
+        {
+          "term": "name",
+          "line": 308,
+          "excerpt": "ring_literal\",\n            \"name\": \"\",\n            \"value\": \"../../product-intelligence/evidence/forge-quote-pdf-preview-engine.js\"\n          },\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": \"PASS forge quote pdf preview engine test\"\n          }\n        ],\n        \"storage_apis\": [],\n        \"cache_calls\": [],\n        \"rejection_reasons\": []\n      }\n    ],\n    \"explicitly_rejected"
+        },
+        {
+          "term": "name",
+          "line": 326,
+          "excerpt": "ad-model-adapter-073d.js\",\n        \"score\": 10,\n        \"has_writer_signals\": false,\n        \"has_reader_signals\": true,\n        \"cache_keys\": [\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": \"Quote PDF preview may consume Product Intelligence; it is not authority.\"\n          },\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value"
+        },
+        {
+          "term": "name",
+          "line": 331,
+          "excerpt": "g_literal\",\n            \"name\": \"\",\n            \"value\": \"Quote PDF preview may consume Product Intelligence; it is not authority.\"\n          },\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": \"product-intelligence/evidence/forge-quote-pdf-preview-engine.js\"\n          }\n        ],\n        \"storage_apis\": [],\n        \"cache_calls\": [\n          {\n            \"owner\": \"PRODUCT_RECORDS\""
+        },
+        {
+          "term": "name",
+          "line": 354,
+          "excerpt": "-mapping-adapter-077b.js\",\n        \"score\": 10,\n        \"has_writer_signals\": false,\n        \"has_reader_signals\": true,\n        \"cache_keys\": [\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": \"forge.quote_preview.pdf_engine.existing_surfaces.canonical_mapping.adapter.v1\"\n          },\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \""
+        },
+        {
+          "term": "name",
+          "line": 359,
+          "excerpt": "eral\",\n            \"name\": \"\",\n            \"value\": \"forge.quote_preview.pdf_engine.existing_surfaces.canonical_mapping.adapter.v1\"\n          },\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": \"forge.quote_preview.pdf_engine.existing_surfaces.canonical_mapping.v1\"\n          },\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": "
+        },
+        {
+          "term": "name",
+          "line": 364,
+          "excerpt": "ring_literal\",\n            \"name\": \"\",\n            \"value\": \"forge.quote_preview.pdf_engine.existing_surfaces.canonical_mapping.v1\"\n          },\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": \"quote_preview_pdf_engine_existing_surfaces_canonical_mapping\"\n          },\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": \",\\n});\\n"
+        },
+        {
+          "term": "name",
+          "line": 369,
+          "excerpt": "te_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": \"quote_preview_pdf_engine_existing_surfaces_canonical_mapping\"\n          },\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": \",\\n});\\n\\nconst SURFACE_TYPES = Object.freeze({\\n  PDF_EXTRACTION: \"\n          },\n          {\n            \"source\": \"quote_pdf_string_literal\",\n            \"name\": \"\",\n            \"value\": \","
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 56,
+      "mapperScore": 179,
+      "validatorScore": 94,
+      "consumerScore": 42
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15dr-targeted-adapter-dataflow-discovery-repair-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 23172,
+      "sha256": "2707657b2039055d2e18e296c4fb53ba29a3582505167db6fe144fc86e2f7473",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 14,
+          "positions": [
+            972,
+            1850,
+            2261,
+            3202,
+            3458,
+            3468,
+            3968,
+            5528,
+            6142,
+            8933,
+            8943,
+            8992,
+            9002,
+            10252
+          ]
+        },
+        "family": {
+          "count": 7,
+          "positions": [
+            1015,
+            4444,
+            8557,
+            8637,
+            10009,
+            10081,
+            13255
+          ]
+        },
+        "product": {
+          "count": 6,
+          "positions": [
+            4462,
+            8575,
+            8655,
+            10025,
+            10097,
+            14204
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            20372
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            20614
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            20859
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            21107
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            21361
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": false,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "hasOwnProperty",
+        "required",
+        "schema",
+        "shape"
+      ],
+      "constructionSignals": [
+        "return {",
+        ".map(",
+        "getField(",
+        "canonical",
+        "projection"
+      ],
+      "consumerSignals": [
+        "persist"
+      ],
+      "exports": [],
+      "imports": [
+        "./quote-preview-product-intelligence-binding-adapter-074b.js"
+      ],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 27,
+          "excerpt": "FUNCTION_COUNT\": 4,\n    \"CANONICAL_FIELD_DATAFLOW_PACKET_READY\": true,\n    \"CANONICAL_FIELD_COUNT\": 8,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELD_MODES\": {\n      \"name\": \"REFERENCE_ONLY_OR_DYNAMIC\",\n      \"family\": \"REFERENCE_ONLY_OR_DYNAMIC\"\n    },\n    \"PROJECTION_CONSTRUCTION_MODES\": [\n      \"DISTRIBUTED_ACROSS_HELPERS\"\n    ],\n    \"COMBINED_RESOLVED_CANONICAL_FIELD_COUNT\": 3,\n    \"P"
+        },
+        {
+          "term": "name",
+          "line": 51,
+          "excerpt": "ER_EXECUTION\": false,\n    \"PDF_READ_EXECUTED\": false,\n    \"BACKEND_CONNECTION\": false,\n    \"QUOTE_TRUTH_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15D2_ADAPTER_DATAFLOW_DISCOVERY_REVIEW_GATE\"\n  },\n  \"targetFunction\": {\n    \"name\": \"integrateQuotePreviewPdfEngineWithProductIntelligence\",\n    \"lineStart\": 230,\n    \"lineEnd\": 230,\n    \"parameters\": [\n      \"request = {}\"\n    ],\n    \"calls\": [],\n    \"internalCalls\": [],\n    \"sourceSha256\": \"6e5d3a8"
+        },
+        {
+          "term": "name",
+          "line": 63,
+          "excerpt": " [],\n    \"sourceSha256\": \"6e5d3a8c46f2c0cad9793ccd9ee7c25aa421c47614324e631ba41f62d869d13a\",\n    \"source\": \"function integrateQuotePreviewPdfEngineWithProductIntelligence(request = {}\"\n  },\n  \"validatorFunction\": {\n    \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"lineStart\": 345,\n    \"lineEnd\": 356,\n    \"parameters\": [\n      \"integration\"\n    ],\n    \"sourceSha256\": \"69ed721069a72cbef9f82c5c65d88d030b7e334eb43ae"
+        },
+        {
+          "term": "name",
+          "line": 81,
+          "excerpt": ",\\n    flagFailures\\n  };\\n}\"\n  },\n  \"callClosureFunctions\": [\n    \"integrateQuotePreviewPdfEngineWithProductIntelligence\"\n  ],\n  \"fieldMentionFunctions\": [\n    \"for\",\n    \"if\"\n  ],\n  \"relevantFunctions\": [\n    {\n      \"name\": \"for\",\n      \"lineStart\": 119,\n      \"lineEnd\": 123,\n      \"parameters\": [\n        \"const name of names\"\n      ],\n      \"calls\": [\n        \"Object.prototype.hasOwnProperty.call\"\n      ],\n      \"internalCalls\": [],\n   "
+        },
+        {
+          "term": "name",
+          "line": 85,
+          "excerpt": "eWithProductIntelligence\"\n  ],\n  \"fieldMentionFunctions\": [\n    \"for\",\n    \"if\"\n  ],\n  \"relevantFunctions\": [\n    {\n      \"name\": \"for\",\n      \"lineStart\": 119,\n      \"lineEnd\": 123,\n      \"parameters\": [\n        \"const name of names\"\n      ],\n      \"calls\": [\n        \"Object.prototype.hasOwnProperty.call\"\n      ],\n      \"internalCalls\": [],\n      \"canonicalFieldsMentioned\": [\n        \"name\"\n      ],\n      \"objectLiterals\": [],\n      \"assig"
+        },
+        {
+          "term": "name",
+          "line": 85,
+          "excerpt": "ductIntelligence\"\n  ],\n  \"fieldMentionFunctions\": [\n    \"for\",\n    \"if\"\n  ],\n  \"relevantFunctions\": [\n    {\n      \"name\": \"for\",\n      \"lineStart\": 119,\n      \"lineEnd\": 123,\n      \"parameters\": [\n        \"const name of names\"\n      ],\n      \"calls\": [\n        \"Object.prototype.hasOwnProperty.call\"\n      ],\n      \"internalCalls\": [],\n      \"canonicalFieldsMentioned\": [\n        \"name\"\n      ],\n      \"objectLiterals\": [],\n      \"assignments\":"
+        },
+        {
+          "term": "name",
+          "line": 92,
+          "excerpt": "ineEnd\": 123,\n      \"parameters\": [\n        \"const name of names\"\n      ],\n      \"calls\": [\n        \"Object.prototype.hasOwnProperty.call\"\n      ],\n      \"internalCalls\": [],\n      \"canonicalFieldsMentioned\": [\n        \"name\"\n      ],\n      \"objectLiterals\": [],\n      \"assignments\": [],\n      \"getFieldCalls\": [],\n      \"returnExpressions\": [\n        \"object[name]\"\n      ],\n      \"eventSites\": [],\n      \"callbackSites\": [],\n      \"sourceSha2"
+        },
+        {
+          "term": "name",
+          "line": 98,
+          "excerpt": "     ],\n      \"internalCalls\": [],\n      \"canonicalFieldsMentioned\": [\n        \"name\"\n      ],\n      \"objectLiterals\": [],\n      \"assignments\": [],\n      \"getFieldCalls\": [],\n      \"returnExpressions\": [\n        \"object[name]\"\n      ],\n      \"eventSites\": [],\n      \"callbackSites\": [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Obj"
+        },
+        {
+          "term": "name",
+          "line": 103,
+          "excerpt": "urnExpressions\": [\n        \"object[name]\"\n      ],\n      \"eventSites\": [],\n      \"callbackSites\": [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\"\n    },\n    {\n      \"name\": \"if\",\n      \"lineStart\": 272,\n      \"lineE"
+        },
+        {
+          "term": "name",
+          "line": 103,
+          "excerpt": "ssions\": [\n        \"object[name]\"\n      ],\n      \"eventSites\": [],\n      \"callbackSites\": [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\"\n    },\n    {\n      \"name\": \"if\",\n      \"lineStart\": 272,\n      \"lineEnd\": 281"
+        },
+        {
+          "term": "name",
+          "line": 103,
+          "excerpt": "\"callbackSites\": [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\"\n    },\n    {\n      \"name\": \"if\",\n      \"lineStart\": 272,\n      \"lineEnd\": 281,\n      \"parameters\": [\n        \"typeof bindingAdapter.validateQuotePrevi"
+        },
+        {
+          "term": "name",
+          "line": 103,
+          "excerpt": " [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\"\n    },\n    {\n      \"name\": \"if\",\n      \"lineStart\": 272,\n      \"lineEnd\": 281,\n      \"parameters\": [\n        \"typeof bindingAdapter.validateQuotePreviewBindingShape ="
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 170,
+      "mapperScore": 168,
+      "validatorScore": 124,
+      "consumerScore": 60
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15dr-targeted-adapter-dataflow-discovery-repair.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 23083,
+      "sha256": "05122768818f1ebc19ee43c01e4945b5140a87218ba64ab5b7a30d3f5d9bc809",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 14,
+          "positions": [
+            887,
+            1765,
+            2176,
+            3117,
+            3373,
+            3383,
+            3883,
+            5443,
+            6057,
+            8848,
+            8858,
+            8907,
+            8917,
+            10167
+          ]
+        },
+        "family": {
+          "count": 7,
+          "positions": [
+            930,
+            4359,
+            8472,
+            8552,
+            9924,
+            9996,
+            13170
+          ]
+        },
+        "product": {
+          "count": 6,
+          "positions": [
+            4377,
+            8490,
+            8570,
+            9940,
+            10012,
+            14119
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            20287
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            20529
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            20774
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            21022
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            21276
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": false,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "hasOwnProperty",
+        "required",
+        "schema",
+        "shape"
+      ],
+      "constructionSignals": [
+        "return {",
+        ".map(",
+        "getField(",
+        "canonical",
+        "projection"
+      ],
+      "consumerSignals": [
+        "persist"
+      ],
+      "exports": [],
+      "imports": [
+        "./quote-preview-product-intelligence-binding-adapter-074b.js"
+      ],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 22,
+          "excerpt": "FUNCTION_COUNT\": 4,\n    \"CANONICAL_FIELD_DATAFLOW_PACKET_READY\": true,\n    \"CANONICAL_FIELD_COUNT\": 8,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELD_MODES\": {\n      \"name\": \"REFERENCE_ONLY_OR_DYNAMIC\",\n      \"family\": \"REFERENCE_ONLY_OR_DYNAMIC\"\n    },\n    \"PROJECTION_CONSTRUCTION_MODES\": [\n      \"DISTRIBUTED_ACROSS_HELPERS\"\n    ],\n    \"COMBINED_RESOLVED_CANONICAL_FIELD_COUNT\": 3,\n    \"P"
+        },
+        {
+          "term": "name",
+          "line": 46,
+          "excerpt": "ER_EXECUTION\": false,\n    \"PDF_READ_EXECUTED\": false,\n    \"BACKEND_CONNECTION\": false,\n    \"QUOTE_TRUTH_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15D2_ADAPTER_DATAFLOW_DISCOVERY_REVIEW_GATE\"\n  },\n  \"targetFunction\": {\n    \"name\": \"integrateQuotePreviewPdfEngineWithProductIntelligence\",\n    \"lineStart\": 230,\n    \"lineEnd\": 230,\n    \"parameters\": [\n      \"request = {}\"\n    ],\n    \"calls\": [],\n    \"internalCalls\": [],\n    \"sourceSha256\": \"6e5d3a8"
+        },
+        {
+          "term": "name",
+          "line": 58,
+          "excerpt": " [],\n    \"sourceSha256\": \"6e5d3a8c46f2c0cad9793ccd9ee7c25aa421c47614324e631ba41f62d869d13a\",\n    \"source\": \"function integrateQuotePreviewPdfEngineWithProductIntelligence(request = {}\"\n  },\n  \"validatorFunction\": {\n    \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"lineStart\": 345,\n    \"lineEnd\": 356,\n    \"parameters\": [\n      \"integration\"\n    ],\n    \"sourceSha256\": \"69ed721069a72cbef9f82c5c65d88d030b7e334eb43ae"
+        },
+        {
+          "term": "name",
+          "line": 76,
+          "excerpt": ",\\n    flagFailures\\n  };\\n}\"\n  },\n  \"callClosureFunctions\": [\n    \"integrateQuotePreviewPdfEngineWithProductIntelligence\"\n  ],\n  \"fieldMentionFunctions\": [\n    \"for\",\n    \"if\"\n  ],\n  \"relevantFunctions\": [\n    {\n      \"name\": \"for\",\n      \"lineStart\": 119,\n      \"lineEnd\": 123,\n      \"parameters\": [\n        \"const name of names\"\n      ],\n      \"calls\": [\n        \"Object.prototype.hasOwnProperty.call\"\n      ],\n      \"internalCalls\": [],\n   "
+        },
+        {
+          "term": "name",
+          "line": 80,
+          "excerpt": "eWithProductIntelligence\"\n  ],\n  \"fieldMentionFunctions\": [\n    \"for\",\n    \"if\"\n  ],\n  \"relevantFunctions\": [\n    {\n      \"name\": \"for\",\n      \"lineStart\": 119,\n      \"lineEnd\": 123,\n      \"parameters\": [\n        \"const name of names\"\n      ],\n      \"calls\": [\n        \"Object.prototype.hasOwnProperty.call\"\n      ],\n      \"internalCalls\": [],\n      \"canonicalFieldsMentioned\": [\n        \"name\"\n      ],\n      \"objectLiterals\": [],\n      \"assig"
+        },
+        {
+          "term": "name",
+          "line": 80,
+          "excerpt": "ductIntelligence\"\n  ],\n  \"fieldMentionFunctions\": [\n    \"for\",\n    \"if\"\n  ],\n  \"relevantFunctions\": [\n    {\n      \"name\": \"for\",\n      \"lineStart\": 119,\n      \"lineEnd\": 123,\n      \"parameters\": [\n        \"const name of names\"\n      ],\n      \"calls\": [\n        \"Object.prototype.hasOwnProperty.call\"\n      ],\n      \"internalCalls\": [],\n      \"canonicalFieldsMentioned\": [\n        \"name\"\n      ],\n      \"objectLiterals\": [],\n      \"assignments\":"
+        },
+        {
+          "term": "name",
+          "line": 87,
+          "excerpt": "ineEnd\": 123,\n      \"parameters\": [\n        \"const name of names\"\n      ],\n      \"calls\": [\n        \"Object.prototype.hasOwnProperty.call\"\n      ],\n      \"internalCalls\": [],\n      \"canonicalFieldsMentioned\": [\n        \"name\"\n      ],\n      \"objectLiterals\": [],\n      \"assignments\": [],\n      \"getFieldCalls\": [],\n      \"returnExpressions\": [\n        \"object[name]\"\n      ],\n      \"eventSites\": [],\n      \"callbackSites\": [],\n      \"sourceSha2"
+        },
+        {
+          "term": "name",
+          "line": 93,
+          "excerpt": "     ],\n      \"internalCalls\": [],\n      \"canonicalFieldsMentioned\": [\n        \"name\"\n      ],\n      \"objectLiterals\": [],\n      \"assignments\": [],\n      \"getFieldCalls\": [],\n      \"returnExpressions\": [\n        \"object[name]\"\n      ],\n      \"eventSites\": [],\n      \"callbackSites\": [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Obj"
+        },
+        {
+          "term": "name",
+          "line": 98,
+          "excerpt": "urnExpressions\": [\n        \"object[name]\"\n      ],\n      \"eventSites\": [],\n      \"callbackSites\": [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\"\n    },\n    {\n      \"name\": \"if\",\n      \"lineStart\": 272,\n      \"lineE"
+        },
+        {
+          "term": "name",
+          "line": 98,
+          "excerpt": "ssions\": [\n        \"object[name]\"\n      ],\n      \"eventSites\": [],\n      \"callbackSites\": [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\"\n    },\n    {\n      \"name\": \"if\",\n      \"lineStart\": 272,\n      \"lineEnd\": 281"
+        },
+        {
+          "term": "name",
+          "line": 98,
+          "excerpt": "\"callbackSites\": [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\"\n    },\n    {\n      \"name\": \"if\",\n      \"lineStart\": 272,\n      \"lineEnd\": 281,\n      \"parameters\": [\n        \"typeof bindingAdapter.validateQuotePrevi"
+        },
+        {
+          "term": "name",
+          "line": 98,
+          "excerpt": " [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\"\n    },\n    {\n      \"name\": \"if\",\n      \"lineStart\": 272,\n      \"lineEnd\": 281,\n      \"parameters\": [\n        \"typeof bindingAdapter.validateQuotePreviewBindingShape ="
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 170,
+      "mapperScore": 168,
+      "validatorScore": 124,
+      "consumerScore": 60
+    }
+  ],
+  "bridgeCandidates": [],
+  "validatorCandidates": [
+    {
+      "path": "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js",
+      "category": "production_source",
+      "extension": ".js",
+      "size": 3760,
+      "sha256": "e7f5d74b32115c98bbec5f9f8ad7b1e4503fa87a6c668fdf4919c7a0fa29f322",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 1,
+          "positions": [
+            404
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            412
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            422
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            433
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            444
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            458
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            475
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            498
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "hasOwnProperty",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "fields:",
+        "payload:"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 2,
+          "excerpt": ";else root.ForgeQuotePreviewPdfResultPersistenceContract=api;})(typeof globalThis!==\"undefined\"?globalThis:this,function(){\"use strict\";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!"
+        },
+        {
+          "term": "name",
+          "line": 3,
+          "excerpt": "!==\"undefined\"?globalThis:this,function(){\"use strict\";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeo"
+        },
+        {
+          "term": "name",
+          "line": 14,
+          "excerpt": "l(id){return Object.freeze({previewResultIdentity:identity(id),persistenceContractId:CONTRACT_ID,__forgePersistenceIdentityEvent:true});}\nreturn Object.freeze({CONTRACT_ID:CONTRACT_ID,SCHEMA_VERSION:SCHEMA_VERSION,EVENT_NAME:EVENT_NAME,REQUIRED_FIELDS:REQUIRED_FIELDS,normalizeIdentity:identity,assertSafePayload:function(v){scan(v,\"$\");return true;},extractAuthorizedFields:fieldsFrom,createRecord:record,validateRecord:record,createExtraction"
+        },
+        {
+          "term": "name",
+          "line": 14,
+          "excerpt": "n Object.freeze({previewResultIdentity:identity(id),persistenceContractId:CONTRACT_ID,__forgePersistenceIdentityEvent:true});}\nreturn Object.freeze({CONTRACT_ID:CONTRACT_ID,SCHEMA_VERSION:SCHEMA_VERSION,EVENT_NAME:EVENT_NAME,REQUIRED_FIELDS:REQUIRED_FIELDS,normalizeIdentity:identity,assertSafePayload:function(v){scan(v,\"$\");return true;},extractAuthorizedFields:fieldsFrom,createRecord:record,validateRecord:record,createExtractionReadyDetail"
+        },
+        {
+          "term": "family",
+          "line": 3,
+          "excerpt": "fined\"?globalThis:this,function(){\"use strict\";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"obj"
+        },
+        {
+          "term": "product",
+          "line": 3,
+          "excerpt": "balThis:this,function(){\"use strict\";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Arra"
+        },
+        {
+          "term": "insured",
+          "line": 3,
+          "excerpt": "s,function(){\"use strict\";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Array.isArray(v"
+        },
+        {
+          "term": "sumAssured",
+          "line": 3,
+          "excerpt": "){\"use strict\";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Array.isArray(v);}\nfunction c"
+        },
+        {
+          "term": "annualPremium",
+          "line": 3,
+          "excerpt": ";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Array.isArray(v);}\nfunction clone(v){return JS"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 3,
+          "excerpt": "=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Array.isArray(v);}\nfunction clone(v){return JSON.parse(JSON.stringify"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 3,
+          "excerpt": "ULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Array.isArray(v);}\nfunction clone(v){return JSON.parse(JSON.stringify(v));}\nfunction sc"
+        },
+        {
+          "term": "premium",
+          "line": 3,
+          "excerpt": "CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Array.isArray(v);}\nfunction clone(v){return JS"
+        }
+      ],
+      "reverseImporters": [
+        "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-coordinator.js",
+        "platform/runtime/quote-preview/quote-preview-pdf-result-store.js"
+      ],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 271,
+      "mapperScore": 158,
+      "validatorScore": 174,
+      "consumerScore": 109
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15r3-existing-owner-static-contract-review-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 29462,
+      "sha256": "832a66f6fcbd5dd2da22061c63e396425d0556c9254df112e1ec1d4f295c4cc7",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 12,
+          "positions": [
+            2645,
+            2795,
+            4480,
+            7264,
+            7429,
+            13813,
+            14801,
+            15522,
+            21271,
+            22376,
+            22698,
+            24665
+          ]
+        },
+        "family": {
+          "count": 9,
+          "positions": [
+            2659,
+            2813,
+            4494,
+            7280,
+            7449,
+            21291,
+            22390,
+            22728,
+            24695
+          ]
+        },
+        "product": {
+          "count": 13,
+          "positions": [
+            2003,
+            2537,
+            2548,
+            4510,
+            6345,
+            7150,
+            7161,
+            20654,
+            21166,
+            21177,
+            22406,
+            22760,
+            24727
+          ]
+        },
+        "insured": {
+          "count": 9,
+          "positions": [
+            2675,
+            2833,
+            4527,
+            7298,
+            7471,
+            21313,
+            22423,
+            22793,
+            24760
+          ]
+        },
+        "sumAssured": {
+          "count": 9,
+          "positions": [
+            2692,
+            2882,
+            4544,
+            7317,
+            7526,
+            21368,
+            22440,
+            22826,
+            24793
+          ]
+        },
+        "annualPremium": {
+          "count": 16,
+          "positions": [
+            1470,
+            2565,
+            2582,
+            2967,
+            4564,
+            5764,
+            7180,
+            7197,
+            7619,
+            20073,
+            21196,
+            21213,
+            21461,
+            22460,
+            22858,
+            24825
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 9,
+          "positions": [
+            2712,
+            2934,
+            4587,
+            7339,
+            7584,
+            21426,
+            22483,
+            22893,
+            24860
+          ]
+        },
+        "coveragePeriod": {
+          "count": 9,
+          "positions": [
+            2741,
+            3208,
+            4616,
+            7370,
+            7880,
+            21722,
+            22512,
+            22934,
+            24901
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "policyTerm",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 14,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields",
+        "pdf_text_life_fallback"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "hasOwnProperty",
+        "required",
+        "shape"
+      ],
+      "constructionSignals": [
+        "return {",
+        ".map(",
+        "canonical",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 103,
+          "excerpt": "IELD_MAPPING_CLASS\": \"PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED\",\n    \"DIRECT_CANONICAL_MAPPING\": {\n      \"product\": \"product\",\n      \"annualPremium\": \"annualPremium\"\n    },\n    \"MISSING_CANONICAL_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"insured\",\n      \"sumAssured\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ALIAS_EVIDENCE\": {\n      \"name\": [],\n      \"family\": [],\n      \"insured\": [\n        \"sumInsured\"\n   "
+        },
+        {
+          "term": "name",
+          "line": 111,
+          "excerpt": "ium\": \"annualPremium\"\n    },\n    \"MISSING_CANONICAL_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"insured\",\n      \"sumAssured\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ALIAS_EVIDENCE\": {\n      \"name\": [],\n      \"family\": [],\n      \"insured\": [\n        \"sumInsured\"\n      ],\n      \"sumAssured\": [\n        \"sumInsured\"\n      ],\n      \"plannedOrAvePremium\": [\n        \"annualPremium\",\n        \"baseAnnualPremium\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 142,
+          "excerpt": "ESS_PATH_CANDIDATE_RESOLVED\": true,\n    \"ADAPTER_SUCCESS_PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n "
+        },
+        {
+          "term": "name",
+          "line": 143,
+          "excerpt": " true,\n    \"ADAPTER_SUCCESS_PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": fal"
+        },
+        {
+          "term": "name",
+          "line": 144,
+          "excerpt": "PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\":"
+        },
+        {
+          "term": "name",
+          "line": 145,
+          "excerpt": "QuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\": false,\n    \"REAL_ENGINE_E"
+        },
+        {
+          "term": "name",
+          "line": 147,
+          "excerpt": "CCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\": false,\n    \"REAL_ENGINE_EXECUTION\": false,\n    \"PARSER_EXECUTED\": false,\n    \"CONTROLLED_BROW"
+        },
+        {
+          "term": "name",
+          "line": 166,
+          "excerpt": "H_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15R4_EXISTING_ENGINE_NATIVE_FIELD_MAPPING_AND_TARGETED_INVOCATION_GATE\"\n  },\n  \"static_owner_analysis\": {\n    \"status\": \"PASS\",\n    \"reason\": null,\n    \"requiredFields\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"engine\": {\n      \"callable\": \"extractSolucionlineLifeQuoteFi"
+        },
+        {
+          "term": "name",
+          "line": 281,
+          "excerpt": "        \"solucionline_imagina_ser_economic_scenarios\"\n      ],\n      \"directCanonicalMapping\": {\n        \"product\": \"product\",\n        \"annualPremium\": \"annualPremium\"\n      },\n      \"missingCanonicalFields\": [\n        \"name\",\n        \"family\",\n        \"insured\",\n        \"sumAssured\",\n        \"plannedOrAvePremium\",\n        \"coveragePeriod\"\n      ],\n      \"aliasEvidence\": {\n        \"name\": [],\n        \"family\": [],\n        \"insured\": [\n     "
+        },
+        {
+          "term": "name",
+          "line": 289,
+          "excerpt": "m\"\n      },\n      \"missingCanonicalFields\": [\n        \"name\",\n        \"family\",\n        \"insured\",\n        \"sumAssured\",\n        \"plannedOrAvePremium\",\n        \"coveragePeriod\"\n      ],\n      \"aliasEvidence\": {\n        \"name\": [],\n        \"family\": [],\n        \"insured\": [\n          \"sumInsured\"\n        ],\n        \"sumAssured\": [\n          \"sumInsured\"\n        ],\n        \"plannedOrAvePremium\": [\n          \"annualPremium\",\n          \"baseAnn"
+        },
+        {
+          "term": "name",
+          "line": 325,
+          "excerpt": "lback'\\n  };\\n}\"\n    },\n    \"adapter\": {\n      \"excludedNegativeFunctions\": [\n        \"buildQuotePreviewPdfIntegrationError\",\n        \"extractBindingSafeError\"\n      ],\n      \"positiveCandidates\": [\n        {\n          \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n          \"score\": 140,\n          \"reasons\": [\n            \"name_token:integrat\",\n            \"name_token:preview\",\n            \"name_token:quote\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 328,
+          "excerpt": "     \"extractBindingSafeError\"\n      ],\n      \"positiveCandidates\": [\n        {\n          \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n          \"score\": 140,\n          \"reasons\": [\n            \"name_token:integrat\",\n            \"name_token:preview\",\n            \"name_token:quote\",\n            \"name_token:product\",\n            \"body_token:fields\",\n            \"non_negative_name\"\n          ],\n          \"parameters\": "
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 246,
+      "mapperScore": 302,
+      "validatorScore": 149,
+      "consumerScore": 72
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15r3-existing-owner-static-contract-review.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 29371,
+      "sha256": "b5d5977ef8fd5e3608523fb6203e5934e15e38d1f12bc964e705dcc70ede6ec5",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 12,
+          "positions": [
+            2558,
+            2708,
+            4393,
+            7177,
+            7342,
+            13726,
+            14714,
+            15435,
+            21184,
+            22289,
+            22611,
+            24578
+          ]
+        },
+        "family": {
+          "count": 9,
+          "positions": [
+            2572,
+            2726,
+            4407,
+            7193,
+            7362,
+            21204,
+            22303,
+            22641,
+            24608
+          ]
+        },
+        "product": {
+          "count": 13,
+          "positions": [
+            1916,
+            2450,
+            2461,
+            4423,
+            6258,
+            7063,
+            7074,
+            20567,
+            21079,
+            21090,
+            22319,
+            22673,
+            24640
+          ]
+        },
+        "insured": {
+          "count": 9,
+          "positions": [
+            2588,
+            2746,
+            4440,
+            7211,
+            7384,
+            21226,
+            22336,
+            22706,
+            24673
+          ]
+        },
+        "sumAssured": {
+          "count": 9,
+          "positions": [
+            2605,
+            2795,
+            4457,
+            7230,
+            7439,
+            21281,
+            22353,
+            22739,
+            24706
+          ]
+        },
+        "annualPremium": {
+          "count": 16,
+          "positions": [
+            1383,
+            2478,
+            2495,
+            2880,
+            4477,
+            5677,
+            7093,
+            7110,
+            7532,
+            19986,
+            21109,
+            21126,
+            21374,
+            22373,
+            22771,
+            24738
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 9,
+          "positions": [
+            2625,
+            2847,
+            4500,
+            7252,
+            7497,
+            21339,
+            22396,
+            22806,
+            24773
+          ]
+        },
+        "coveragePeriod": {
+          "count": 9,
+          "positions": [
+            2654,
+            3121,
+            4529,
+            7283,
+            7793,
+            21635,
+            22425,
+            22847,
+            24814
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "policyTerm",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 14,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields",
+        "pdf_text_life_fallback"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "hasOwnProperty",
+        "required",
+        "shape"
+      ],
+      "constructionSignals": [
+        "return {",
+        ".map(",
+        "canonical",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 98,
+          "excerpt": "IELD_MAPPING_CLASS\": \"PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED\",\n    \"DIRECT_CANONICAL_MAPPING\": {\n      \"product\": \"product\",\n      \"annualPremium\": \"annualPremium\"\n    },\n    \"MISSING_CANONICAL_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"insured\",\n      \"sumAssured\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ALIAS_EVIDENCE\": {\n      \"name\": [],\n      \"family\": [],\n      \"insured\": [\n        \"sumInsured\"\n   "
+        },
+        {
+          "term": "name",
+          "line": 106,
+          "excerpt": "ium\": \"annualPremium\"\n    },\n    \"MISSING_CANONICAL_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"insured\",\n      \"sumAssured\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ALIAS_EVIDENCE\": {\n      \"name\": [],\n      \"family\": [],\n      \"insured\": [\n        \"sumInsured\"\n      ],\n      \"sumAssured\": [\n        \"sumInsured\"\n      ],\n      \"plannedOrAvePremium\": [\n        \"annualPremium\",\n        \"baseAnnualPremium\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 137,
+          "excerpt": "ESS_PATH_CANDIDATE_RESOLVED\": true,\n    \"ADAPTER_SUCCESS_PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n "
+        },
+        {
+          "term": "name",
+          "line": 138,
+          "excerpt": " true,\n    \"ADAPTER_SUCCESS_PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": fal"
+        },
+        {
+          "term": "name",
+          "line": 139,
+          "excerpt": "PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\":"
+        },
+        {
+          "term": "name",
+          "line": 140,
+          "excerpt": "QuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\": false,\n    \"REAL_ENGINE_E"
+        },
+        {
+          "term": "name",
+          "line": 142,
+          "excerpt": "CCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\": false,\n    \"REAL_ENGINE_EXECUTION\": false,\n    \"PARSER_EXECUTED\": false,\n    \"CONTROLLED_BROW"
+        },
+        {
+          "term": "name",
+          "line": 161,
+          "excerpt": "H_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15R4_EXISTING_ENGINE_NATIVE_FIELD_MAPPING_AND_TARGETED_INVOCATION_GATE\"\n  },\n  \"static_owner_analysis\": {\n    \"status\": \"PASS\",\n    \"reason\": null,\n    \"requiredFields\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"engine\": {\n      \"callable\": \"extractSolucionlineLifeQuoteFi"
+        },
+        {
+          "term": "name",
+          "line": 276,
+          "excerpt": "        \"solucionline_imagina_ser_economic_scenarios\"\n      ],\n      \"directCanonicalMapping\": {\n        \"product\": \"product\",\n        \"annualPremium\": \"annualPremium\"\n      },\n      \"missingCanonicalFields\": [\n        \"name\",\n        \"family\",\n        \"insured\",\n        \"sumAssured\",\n        \"plannedOrAvePremium\",\n        \"coveragePeriod\"\n      ],\n      \"aliasEvidence\": {\n        \"name\": [],\n        \"family\": [],\n        \"insured\": [\n     "
+        },
+        {
+          "term": "name",
+          "line": 284,
+          "excerpt": "m\"\n      },\n      \"missingCanonicalFields\": [\n        \"name\",\n        \"family\",\n        \"insured\",\n        \"sumAssured\",\n        \"plannedOrAvePremium\",\n        \"coveragePeriod\"\n      ],\n      \"aliasEvidence\": {\n        \"name\": [],\n        \"family\": [],\n        \"insured\": [\n          \"sumInsured\"\n        ],\n        \"sumAssured\": [\n          \"sumInsured\"\n        ],\n        \"plannedOrAvePremium\": [\n          \"annualPremium\",\n          \"baseAnn"
+        },
+        {
+          "term": "name",
+          "line": 320,
+          "excerpt": "lback'\\n  };\\n}\"\n    },\n    \"adapter\": {\n      \"excludedNegativeFunctions\": [\n        \"buildQuotePreviewPdfIntegrationError\",\n        \"extractBindingSafeError\"\n      ],\n      \"positiveCandidates\": [\n        {\n          \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n          \"score\": 140,\n          \"reasons\": [\n            \"name_token:integrat\",\n            \"name_token:preview\",\n            \"name_token:quote\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 323,
+          "excerpt": "     \"extractBindingSafeError\"\n      ],\n      \"positiveCandidates\": [\n        {\n          \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n          \"score\": 140,\n          \"reasons\": [\n            \"name_token:integrat\",\n            \"name_token:preview\",\n            \"name_token:quote\",\n            \"name_token:product\",\n            \"body_token:fields\",\n            \"non_negative_name\"\n          ],\n          \"parameters\": "
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 246,
+      "mapperScore": 302,
+      "validatorScore": 149,
+      "consumerScore": 72
+    },
+    {
+      "path": "docs/architecture/quote-preview/107z15r3-existing-owner-static-contract-review.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 2815,
+      "sha256": "b77d38016de8ff7436e95e9aeb1c0c38d36773cbc126f0575f12d9493bcf7722",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 2,
+          "positions": [
+            1547,
+            1652
+          ]
+        },
+        "family": {
+          "count": 2,
+          "positions": [
+            1555,
+            1664
+          ]
+        },
+        "product": {
+          "count": 2,
+          "positions": [
+            1460,
+            1471
+          ]
+        },
+        "insured": {
+          "count": 2,
+          "positions": [
+            1565,
+            1678
+          ]
+        },
+        "sumAssured": {
+          "count": 2,
+          "positions": [
+            1576,
+            1705
+          ]
+        },
+        "annualPremium": {
+          "count": 4,
+          "positions": [
+            1064,
+            1482,
+            1499,
+            1759
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 2,
+          "positions": [
+            1590,
+            1735
+          ]
+        },
+        "coveragePeriod": {
+          "count": 2,
+          "positions": [
+            1613,
+            1923
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 12,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "required",
+        "shape"
+      ],
+      "constructionSignals": [
+        "fields:",
+        "canonical",
+        "mapping"
+      ],
+      "consumerSignals": [],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 28,
+          "excerpt": "edAnnual']`\n\n## Canonical mapping\n\n- Mapping class: `PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED`\n- Direct canonical mappings: `{'product': 'product', 'annualPremium': 'annualPremium'}`\n- Missing canonical fields: `['name', 'family', 'insured', 'sumAssured', 'plannedOrAvePremium', 'coveragePeriod']`\n- Alias evidence: `{'name': [], 'family': [], 'insured': ['sumInsured'], 'sumAssured': ['sumInsured'], 'plannedOrAvePremium': ['annualPremiu"
+        },
+        {
+          "term": "name",
+          "line": 29,
+          "excerpt": "rect canonical mappings: `{'product': 'product', 'annualPremium': 'annualPremium'}`\n- Missing canonical fields: `['name', 'family', 'insured', 'sumAssured', 'plannedOrAvePremium', 'coveragePeriod']`\n- Alias evidence: `{'name': [], 'family': [], 'insured': ['sumInsured'], 'sumAssured': ['sumInsured'], 'plannedOrAvePremium': ['annualPremium', 'baseAnnualPremium', 'plannedAnnual', 'plannedMonthly', 'plannedQuarterly', 'plannedSemiannual', 'pre"
+        },
+        {
+          "term": "name",
+          "line": 40,
+          "excerpt": "parately so the next execution can validate them.\n\n## Adapter success path\n\nNegative-path callables were excluded.\n\n- Candidate: `validateQuotePreviewPdfProductIntelligenceIntegrationShape`\n- Score: `140`\n- Evidence: `['name_token:integrat', 'name_token:preview', 'name_token:quote', 'name_token:product', 'body_token:fields', 'non_negative_name']`\n\nThis is a static success-path candidate, not yet accepted as runtime truth.\nThe next gate must"
+        },
+        {
+          "term": "name",
+          "line": 40,
+          "excerpt": "ecution can validate them.\n\n## Adapter success path\n\nNegative-path callables were excluded.\n\n- Candidate: `validateQuotePreviewPdfProductIntelligenceIntegrationShape`\n- Score: `140`\n- Evidence: `['name_token:integrat', 'name_token:preview', 'name_token:quote', 'name_token:product', 'body_token:fields', 'non_negative_name']`\n\nThis is a static success-path candidate, not yet accepted as runtime truth.\nThe next gate must execute it and prove t"
+        },
+        {
+          "term": "name",
+          "line": 40,
+          "excerpt": "hem.\n\n## Adapter success path\n\nNegative-path callables were excluded.\n\n- Candidate: `validateQuotePreviewPdfProductIntelligenceIntegrationShape`\n- Score: `140`\n- Evidence: `['name_token:integrat', 'name_token:preview', 'name_token:quote', 'name_token:product', 'body_token:fields', 'non_negative_name']`\n\nThis is a static success-path candidate, not yet accepted as runtime truth.\nThe next gate must execute it and prove the exact eight-field m"
+        },
+        {
+          "term": "name",
+          "line": 40,
+          "excerpt": "cess path\n\nNegative-path callables were excluded.\n\n- Candidate: `validateQuotePreviewPdfProductIntelligenceIntegrationShape`\n- Score: `140`\n- Evidence: `['name_token:integrat', 'name_token:preview', 'name_token:quote', 'name_token:product', 'body_token:fields', 'non_negative_name']`\n\nThis is a static success-path candidate, not yet accepted as runtime truth.\nThe next gate must execute it and prove the exact eight-field mapping.\n\n## Boundari"
+        },
+        {
+          "term": "name",
+          "line": 40,
+          "excerpt": "didate: `validateQuotePreviewPdfProductIntelligenceIntegrationShape`\n- Score: `140`\n- Evidence: `['name_token:integrat', 'name_token:preview', 'name_token:quote', 'name_token:product', 'body_token:fields', 'non_negative_name']`\n\nThis is a static success-path candidate, not yet accepted as runtime truth.\nThe next gate must execute it and prove the exact eight-field mapping.\n\n## Boundaries\n\n- Engine/parser execution: `false`\n- Browser executi"
+        },
+        {
+          "term": "family",
+          "line": 28,
+          "excerpt": "']`\n\n## Canonical mapping\n\n- Mapping class: `PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED`\n- Direct canonical mappings: `{'product': 'product', 'annualPremium': 'annualPremium'}`\n- Missing canonical fields: `['name', 'family', 'insured', 'sumAssured', 'plannedOrAvePremium', 'coveragePeriod']`\n- Alias evidence: `{'name': [], 'family': [], 'insured': ['sumInsured'], 'sumAssured': ['sumInsured'], 'plannedOrAvePremium': ['annualPremium', 'baseA"
+        },
+        {
+          "term": "family",
+          "line": 29,
+          "excerpt": "al mappings: `{'product': 'product', 'annualPremium': 'annualPremium'}`\n- Missing canonical fields: `['name', 'family', 'insured', 'sumAssured', 'plannedOrAvePremium', 'coveragePeriod']`\n- Alias evidence: `{'name': [], 'family': [], 'insured': ['sumInsured'], 'sumAssured': ['sumInsured'], 'plannedOrAvePremium': ['annualPremium', 'baseAnnualPremium', 'plannedAnnual', 'plannedMonthly', 'plannedQuarterly', 'plannedSemiannual', 'premium', 'premiu"
+        },
+        {
+          "term": "product",
+          "line": 20,
+          "excerpt": "i', 'genderLine.match', 'guaranteeLine.match', 'i.test', 'insuredLine.replace', 'line.match', 'line.replace', 'lines.find', 'lines.findIndex', 'liquidationLine.match', 'map', 'match', 'parseNumberList', 'pattern.test', 'productLine.match', 'scenario', 'split', 'studyDateLine.match', 'test', 'trim']`\n- Native output key count: `42`\n- Native output key preview: `['advisor', 'age', 'annual', 'annualPremium', 'baseAnnualPremium', 'birthDate', 'cov"
+        },
+        {
+          "term": "product",
+          "line": 27,
+          "excerpt": ", 'monthlyIncomeUdi', 'optionalCoverages', 'paymentMode', 'paymentTerm', 'plan', 'plannedAnnual']`\n\n## Canonical mapping\n\n- Mapping class: `PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED`\n- Direct canonical mappings: `{'product': 'product', 'annualPremium': 'annualPremium'}`\n- Missing canonical fields: `['name', 'family', 'insured', 'sumAssured', 'plannedOrAvePremium', 'coveragePeriod']`\n- Alias evidence: `{'name': [], 'family': [], 'insured':"
+        },
+        {
+          "term": "product",
+          "line": 27,
+          "excerpt": "ncomeUdi', 'optionalCoverages', 'paymentMode', 'paymentTerm', 'plan', 'plannedAnnual']`\n\n## Canonical mapping\n\n- Mapping class: `PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED`\n- Direct canonical mappings: `{'product': 'product', 'annualPremium': 'annualPremium'}`\n- Missing canonical fields: `['name', 'family', 'insured', 'sumAssured', 'plannedOrAvePremium', 'coveragePeriod']`\n- Alias evidence: `{'name': [], 'family': [], 'insured': ['sumInsur"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 242,
+      "mapperScore": 281,
+      "validatorScore": 139,
+      "consumerScore": 48
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15s-canonical-schema-owner-reconciliation-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 143439,
+      "sha256": "a8ecfaf9f18d56cc1cc9105381a0e668de65e92d2fb8d31296fdd0fd19302415",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 39,
+          "positions": [
+            1171,
+            2157,
+            2673,
+            3189,
+            3705,
+            4219,
+            4732,
+            5279,
+            5804,
+            6328,
+            6828,
+            7394,
+            7821,
+            8354,
+            8884,
+            9414,
+            9944,
+            10475,
+            11006,
+            70207,
+            70825,
+            71907,
+            72433,
+            72959,
+            73485,
+            74009,
+            74532,
+            75093,
+            75628,
+            76162,
+            76672,
+            77254,
+            77691,
+            78234,
+            78774,
+            79314,
+            79854,
+            80395,
+            80936
+          ]
+        },
+        "family": {
+          "count": 31,
+          "positions": [
+            11554,
+            12252,
+            12760,
+            13269,
+            13785,
+            14295,
+            14805,
+            15316,
+            15827,
+            16374,
+            16968,
+            17455,
+            17990,
+            18526,
+            19062,
+            70221,
+            81498,
+            82250,
+            82768,
+            83287,
+            83813,
+            84333,
+            84853,
+            85374,
+            85895,
+            86456,
+            87066,
+            87563,
+            88108,
+            88654,
+            89200
+          ]
+        },
+        "product": {
+          "count": 63,
+          "positions": [
+            19613,
+            19744,
+            19812,
+            19822,
+            19875,
+            19885,
+            20499,
+            21008,
+            21516,
+            22024,
+            22533,
+            23042,
+            23551,
+            24061,
+            24609,
+            24999,
+            25491,
+            26001,
+            26510,
+            27019,
+            27528,
+            28036,
+            28580,
+            29175,
+            29655,
+            30194,
+            30732,
+            31268,
+            31806,
+            32343,
+            32880,
+            70237,
+            89765,
+            89902,
+            89974,
+            89986,
+            90043,
+            90055,
+            90733,
+            91252,
+            91770,
+            92288,
+            92807,
+            93326,
+            93845,
+            94365,
+            94927,
+            95327,
+            95829,
+            96349
+          ]
+        },
+        "insured": {
+          "count": 37,
+          "positions": [
+            33433,
+            34146,
+            34658,
+            35177,
+            35690,
+            36202,
+            36711,
+            37222,
+            37733,
+            38312,
+            38907,
+            39443,
+            39978,
+            40517,
+            41055,
+            41592,
+            42129,
+            42666,
+            70254,
+            103935,
+            104704,
+            105226,
+            105755,
+            106278,
+            106800,
+            107319,
+            107840,
+            108361,
+            108956,
+            109567,
+            110113,
+            110658,
+            111207,
+            111755,
+            112302,
+            112849,
+            113396
+          ]
+        },
+        "sumAssured": {
+          "count": 5,
+          "positions": [
+            43219,
+            48152,
+            70271,
+            113963,
+            119038
+          ]
+        },
+        "annualPremium": {
+          "count": 43,
+          "positions": [
+            48763,
+            48900,
+            48974,
+            48984,
+            49043,
+            49053,
+            49521,
+            50050,
+            50571,
+            51092,
+            51616,
+            52142,
+            52727,
+            53526,
+            53839,
+            54495,
+            55024,
+            55545,
+            56066,
+            56590,
+            57116,
+            70291,
+            119667,
+            119810,
+            119888,
+            119900,
+            119963,
+            119975,
+            120485,
+            121024,
+            121555,
+            122086,
+            122620,
+            123156,
+            123757,
+            124584,
+            124921,
+            125631,
+            126170,
+            126701,
+            127232,
+            127766,
+            128302
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 5,
+          "positions": [
+            53344,
+            61843,
+            70314,
+            124392,
+            133127
+          ]
+        },
+        "coveragePeriod": {
+          "count": 5,
+          "positions": [
+            62472,
+            69528,
+            70343,
+            133774,
+            141018
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "policyTerm",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 14,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "validate",
+        "hasOwnProperty",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "getField(",
+        "fields:",
+        "payload:",
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [
+        "./quote-preview-product-intelligence-binding-adapter-074b.js"
+      ],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 34,
+          "excerpt": "\"PDF_READ_EXECUTED\": false,\n    \"BACKEND_CONNECTION\": false,\n    \"QUOTE_TRUTH_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15S1_CANONICAL_SCHEMA_CORRECTION_AUTHORIZATION_GATE\"\n  },\n  \"fields\": [\n    {\n      \"canonicalField\": \"name\",\n      \"classification\": \"ADAPTER_DERIVED_ONLY\",\n      \"runtimeOwner\": \"adapter\",\n      \"directEngineMapping\": null,\n      \"engineAliases\": [],\n      \"normalizedNativeKeys\": [],\n      \"proposalRankedCandidates\": [],\n  "
+        },
+        {
+          "term": "name",
+          "line": 82,
+          "excerpt": "\n      },\n      \"engineEvidence\": false,\n      \"adapterEvidence\": true,\n      \"persistenceEvidence\": true,\n      \"modalEvidence\": true,\n      \"engineSnippets\": [],\n      \"adapterSnippets\": [\n        {\n          \"term\": \"name\",\n          \"line\": 118,\n          \"excerpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction "
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "e\": 118,\n          \"excerpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationO"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "erpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n "
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": " .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": ", '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"o"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "ace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')"
+        },
+        {
+          "term": "name",
+          "line": 87,
+          "excerpt": " && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names)"
+        },
+        {
+          "term": "name",
+          "line": 89,
+          "excerpt": " \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationO"
+        },
+        {
+          "term": "name",
+          "line": 89,
+          "excerpt": "e\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result) {\\n  if (resu"
+        },
+        {
+          "term": "name",
+          "line": 89,
+          "excerpt": "\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result) {\\n  if (result === t"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 242,
+      "mapperScore": 312,
+      "validatorScore": 139,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15s-canonical-schema-owner-reconciliation.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 143349,
+      "sha256": "612bda54bc9753edafaf391fb9defd94793a3fc61e538cd3d3b7bcca71d3014d",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 39,
+          "positions": [
+            1085,
+            2071,
+            2587,
+            3103,
+            3619,
+            4133,
+            4646,
+            5193,
+            5718,
+            6242,
+            6742,
+            7308,
+            7735,
+            8268,
+            8798,
+            9328,
+            9858,
+            10389,
+            10920,
+            70121,
+            70739,
+            71821,
+            72347,
+            72873,
+            73399,
+            73923,
+            74446,
+            75007,
+            75542,
+            76076,
+            76586,
+            77168,
+            77605,
+            78148,
+            78688,
+            79228,
+            79768,
+            80309,
+            80850
+          ]
+        },
+        "family": {
+          "count": 31,
+          "positions": [
+            11468,
+            12166,
+            12674,
+            13183,
+            13699,
+            14209,
+            14719,
+            15230,
+            15741,
+            16288,
+            16882,
+            17369,
+            17904,
+            18440,
+            18976,
+            70135,
+            81412,
+            82164,
+            82682,
+            83201,
+            83727,
+            84247,
+            84767,
+            85288,
+            85809,
+            86370,
+            86980,
+            87477,
+            88022,
+            88568,
+            89114
+          ]
+        },
+        "product": {
+          "count": 63,
+          "positions": [
+            19527,
+            19658,
+            19726,
+            19736,
+            19789,
+            19799,
+            20413,
+            20922,
+            21430,
+            21938,
+            22447,
+            22956,
+            23465,
+            23975,
+            24523,
+            24913,
+            25405,
+            25915,
+            26424,
+            26933,
+            27442,
+            27950,
+            28494,
+            29089,
+            29569,
+            30108,
+            30646,
+            31182,
+            31720,
+            32257,
+            32794,
+            70151,
+            89679,
+            89816,
+            89888,
+            89900,
+            89957,
+            89969,
+            90647,
+            91166,
+            91684,
+            92202,
+            92721,
+            93240,
+            93759,
+            94279,
+            94841,
+            95241,
+            95743,
+            96263
+          ]
+        },
+        "insured": {
+          "count": 37,
+          "positions": [
+            33347,
+            34060,
+            34572,
+            35091,
+            35604,
+            36116,
+            36625,
+            37136,
+            37647,
+            38226,
+            38821,
+            39357,
+            39892,
+            40431,
+            40969,
+            41506,
+            42043,
+            42580,
+            70168,
+            103849,
+            104618,
+            105140,
+            105669,
+            106192,
+            106714,
+            107233,
+            107754,
+            108275,
+            108870,
+            109481,
+            110027,
+            110572,
+            111121,
+            111669,
+            112216,
+            112763,
+            113310
+          ]
+        },
+        "sumAssured": {
+          "count": 5,
+          "positions": [
+            43133,
+            48066,
+            70185,
+            113877,
+            118952
+          ]
+        },
+        "annualPremium": {
+          "count": 43,
+          "positions": [
+            48677,
+            48814,
+            48888,
+            48898,
+            48957,
+            48967,
+            49435,
+            49964,
+            50485,
+            51006,
+            51530,
+            52056,
+            52641,
+            53440,
+            53753,
+            54409,
+            54938,
+            55459,
+            55980,
+            56504,
+            57030,
+            70205,
+            119581,
+            119724,
+            119802,
+            119814,
+            119877,
+            119889,
+            120399,
+            120938,
+            121469,
+            122000,
+            122534,
+            123070,
+            123671,
+            124498,
+            124835,
+            125545,
+            126084,
+            126615,
+            127146,
+            127680,
+            128216
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 5,
+          "positions": [
+            53258,
+            61757,
+            70228,
+            124306,
+            133041
+          ]
+        },
+        "coveragePeriod": {
+          "count": 5,
+          "positions": [
+            62386,
+            69442,
+            70257,
+            133688,
+            140932
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "policyTerm",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 14,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "validate",
+        "hasOwnProperty",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "getField(",
+        "fields:",
+        "payload:",
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [
+        "./quote-preview-product-intelligence-binding-adapter-074b.js"
+      ],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 29,
+          "excerpt": "\"PDF_READ_EXECUTED\": false,\n    \"BACKEND_CONNECTION\": false,\n    \"QUOTE_TRUTH_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15S1_CANONICAL_SCHEMA_CORRECTION_AUTHORIZATION_GATE\"\n  },\n  \"fields\": [\n    {\n      \"canonicalField\": \"name\",\n      \"classification\": \"ADAPTER_DERIVED_ONLY\",\n      \"runtimeOwner\": \"adapter\",\n      \"directEngineMapping\": null,\n      \"engineAliases\": [],\n      \"normalizedNativeKeys\": [],\n      \"proposalRankedCandidates\": [],\n  "
+        },
+        {
+          "term": "name",
+          "line": 77,
+          "excerpt": "\n      },\n      \"engineEvidence\": false,\n      \"adapterEvidence\": true,\n      \"persistenceEvidence\": true,\n      \"modalEvidence\": true,\n      \"engineSnippets\": [],\n      \"adapterSnippets\": [\n        {\n          \"term\": \"name\",\n          \"line\": 118,\n          \"excerpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction "
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": "e\": 118,\n          \"excerpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationO"
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": "erpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n "
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": " .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {"
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": ", '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"o"
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": "ace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n"
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": "/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')"
+        },
+        {
+          "term": "name",
+          "line": 82,
+          "excerpt": " && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names)"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": " \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationO"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "e\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result) {\\n  if (resu"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result) {\\n  if (result === t"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 242,
+      "mapperScore": 312,
+      "validatorScore": 139,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15r-existing-extractor-api-contract-resolution-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 22185,
+      "sha256": "736bc5eafd7385c57f4d3ca73e99896c302cb57892905fc07db2264c3c4b8428",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 22,
+          "positions": [
+            1897,
+            2423,
+            3063,
+            4158,
+            5047,
+            5977,
+            6824,
+            7577,
+            8884,
+            9570,
+            10863,
+            11836,
+            12793,
+            14386,
+            14659,
+            14817,
+            14957,
+            15097,
+            15236,
+            15432,
+            15641,
+            15833
+          ]
+        },
+        "family": {
+          "count": 4,
+          "positions": [
+            1911,
+            3150,
+            9657,
+            14400
+          ]
+        },
+        "product": {
+          "count": 4,
+          "positions": [
+            1927,
+            3239,
+            9746,
+            14416
+          ]
+        },
+        "insured": {
+          "count": 4,
+          "positions": [
+            1944,
+            3329,
+            9836,
+            14433
+          ]
+        },
+        "sumAssured": {
+          "count": 4,
+          "positions": [
+            1961,
+            3419,
+            9926,
+            14450
+          ]
+        },
+        "annualPremium": {
+          "count": 4,
+          "positions": [
+            1981,
+            3512,
+            10019,
+            14470
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 4,
+          "positions": [
+            2004,
+            3608,
+            10115,
+            14493
+          ]
+        },
+        "coveragePeriod": {
+          "count": 4,
+          "positions": [
+            2033,
+            3710,
+            10217,
+            14522
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "sumInsured",
+        "totalAnnualPremium",
+        "premium",
+        "policyTerm",
+        "paymentTerm",
+        "product"
+      ],
+      "nativeAliasTermCount": 6,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields"
+      ],
+      "validatorSignals": [
+        "validate",
+        "required",
+        "shape"
+      ],
+      "constructionSignals": [
+        "projection"
+      ],
+      "consumerSignals": [
+        "persist"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 63,
+          "excerpt": "QUOTE_TRUTH_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15R2_EXISTING_EXTRACTOR_TARGETED_SYNTHETIC_INVOCATION_GATE\"\n  },\n  \"api_contract_resolution\": {\n    \"status\": \"PASS\",\n    \"reason\": null,\n    \"requiredFields\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"sourceReceipts\": {\n      \"engineFileSha256\": \"d164ce99e24add"
+        },
+        {
+          "term": "name",
+          "line": 81,
+          "excerpt": "0e23cda8585af3a6650f220c724a5c8ea9b9dc04e0ecebd5941e3391fed971d\"\n    },\n    \"engine\": {\n      \"resolved\": true,\n      \"winner\": {\n        \"path\": \"extractSolucionlineLifeQuoteFields\",\n        \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required"
+        },
+        {
+          "term": "name",
+          "line": 85,
+          "excerpt": "r\": {\n        \"path\": \"extractSolucionlineLifeQuoteFields\",\n        \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required_field_mentions:2\",\n          \"practical_arity\"\n        ],\n        \"parameters\": [\n          \"text\"\n        ],\n        \"inpu"
+        },
+        {
+          "term": "name",
+          "line": 86,
+          "excerpt": "lucionlineLifeQuoteFields\",\n        \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required_field_mentions:2\",\n          \"practical_arity\"\n        ],\n        \"parameters\": [\n          \"text\"\n        ],\n        \"inputContract\": {\n          \"kind\": "
+        },
+        {
+          "term": "name",
+          "line": 87,
+          "excerpt": "      \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required_field_mentions:2\",\n          \"practical_arity\"\n        ],\n        \"parameters\": [\n          \"text\"\n        ],\n        \"inputContract\": {\n          \"kind\": \"SINGLE_OBJECT_OR_VALUE\",\n    "
+        },
+        {
+          "term": "name",
+          "line": 105,
+          "excerpt": "ameters\": [\n            \"text\"\n          ],\n          \"textProperties\": [],\n          \"domainProperties\": [],\n          \"allAccessedProperties\": []\n        },\n        \"fieldEvidence\": [\n          {\n            \"field\": \"name\",\n            \"occurrenceCount\": 0\n          },\n          {\n            \"field\": \"family\",\n            \"occurrenceCount\": 0\n          },\n          {\n            \"field\": \"product\",\n            \"occurrenceCount\": 1\n     "
+        },
+        {
+          "term": "name",
+          "line": 148,
+          "excerpt": "{\n          \"strategyId\": \"UNRESOLVED\",\n          \"argumentTemplate\": []\n        }\n      },\n      \"candidates\": [\n        {\n          \"path\": \"extractSolucionlineLifeQuoteFields\",\n          \"ownerPath\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 152,
+          "excerpt": "  \"path\": \"extractSolucionlineLifeQuoteFields\",\n          \"ownerPath\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n            \"required_field_mentions:2\",\n            \"practical_arity\"\n          ],\n          \"parameters\": [\n            \"text\"\n          "
+        },
+        {
+          "term": "name",
+          "line": 153,
+          "excerpt": "QuoteFields\",\n          \"ownerPath\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n            \"required_field_mentions:2\",\n            \"practical_arity\"\n          ],\n          \"parameters\": [\n            \"text\"\n          ],\n          \"inputContract\": {\n  "
+        },
+        {
+          "term": "name",
+          "line": 154,
+          "excerpt": "th\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n            \"required_field_mentions:2\",\n            \"practical_arity\"\n          ],\n          \"parameters\": [\n            \"text\"\n          ],\n          \"inputContract\": {\n            \"kind\": \"SINGLE_OBJECT"
+        },
+        {
+          "term": "name",
+          "line": 177,
+          "excerpt": "rceSha256\": \"8af5104835a02cc62c20a9a9a4d1c9708fc1016b9b48e08a23773b91555d539d\",\n          \"sourceLength\": 5284\n        },\n        {\n          \"path\": \"summarizeForgeQuotePdfText\",\n          \"ownerPath\": null,\n          \"name\": \"summarizeForgeQuotePdfText\",\n          \"arity\": 0,\n          \"score\": 110,\n          \"scoreReasons\": [\n            \"name_token:quote\",\n            \"explicit_text_property\"\n          ],\n          \"parameters\": [\n     "
+        },
+        {
+          "term": "name",
+          "line": 181,
+          "excerpt": "      {\n          \"path\": \"summarizeForgeQuotePdfText\",\n          \"ownerPath\": null,\n          \"name\": \"summarizeForgeQuotePdfText\",\n          \"arity\": 0,\n          \"score\": 110,\n          \"scoreReasons\": [\n            \"name_token:quote\",\n            \"explicit_text_property\"\n          ],\n          \"parameters\": [\n            \"input\"\n          ],\n          \"inputContract\": {\n            \"kind\": \"OBJECT_WITH_TEXT_PROPERTY\",\n            \"param"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 238,
+      "mapperScore": 223,
+      "validatorScore": 129,
+      "consumerScore": 60
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15r-existing-extractor-api-contract-resolution.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 22090,
+      "sha256": "398410bf85dd5b95966c68fc0dcd2e5cc3d2007dd7ea2fb178c77149e997ec42",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 22,
+          "positions": [
+            1806,
+            2332,
+            2972,
+            4067,
+            4956,
+            5886,
+            6733,
+            7486,
+            8793,
+            9479,
+            10772,
+            11745,
+            12702,
+            14295,
+            14568,
+            14726,
+            14866,
+            15006,
+            15145,
+            15341,
+            15550,
+            15742
+          ]
+        },
+        "family": {
+          "count": 4,
+          "positions": [
+            1820,
+            3059,
+            9566,
+            14309
+          ]
+        },
+        "product": {
+          "count": 4,
+          "positions": [
+            1836,
+            3148,
+            9655,
+            14325
+          ]
+        },
+        "insured": {
+          "count": 4,
+          "positions": [
+            1853,
+            3238,
+            9745,
+            14342
+          ]
+        },
+        "sumAssured": {
+          "count": 4,
+          "positions": [
+            1870,
+            3328,
+            9835,
+            14359
+          ]
+        },
+        "annualPremium": {
+          "count": 4,
+          "positions": [
+            1890,
+            3421,
+            9928,
+            14379
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 4,
+          "positions": [
+            1913,
+            3517,
+            10024,
+            14402
+          ]
+        },
+        "coveragePeriod": {
+          "count": 4,
+          "positions": [
+            1942,
+            3619,
+            10126,
+            14431
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "sumInsured",
+        "totalAnnualPremium",
+        "premium",
+        "policyTerm",
+        "paymentTerm",
+        "product"
+      ],
+      "nativeAliasTermCount": 6,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields"
+      ],
+      "validatorSignals": [
+        "validate",
+        "required",
+        "shape"
+      ],
+      "constructionSignals": [
+        "projection"
+      ],
+      "consumerSignals": [
+        "persist"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 58,
+          "excerpt": "QUOTE_TRUTH_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15R2_EXISTING_EXTRACTOR_TARGETED_SYNTHETIC_INVOCATION_GATE\"\n  },\n  \"api_contract_resolution\": {\n    \"status\": \"PASS\",\n    \"reason\": null,\n    \"requiredFields\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"sourceReceipts\": {\n      \"engineFileSha256\": \"d164ce99e24add"
+        },
+        {
+          "term": "name",
+          "line": 76,
+          "excerpt": "0e23cda8585af3a6650f220c724a5c8ea9b9dc04e0ecebd5941e3391fed971d\"\n    },\n    \"engine\": {\n      \"resolved\": true,\n      \"winner\": {\n        \"path\": \"extractSolucionlineLifeQuoteFields\",\n        \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required"
+        },
+        {
+          "term": "name",
+          "line": 80,
+          "excerpt": "r\": {\n        \"path\": \"extractSolucionlineLifeQuoteFields\",\n        \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required_field_mentions:2\",\n          \"practical_arity\"\n        ],\n        \"parameters\": [\n          \"text\"\n        ],\n        \"inpu"
+        },
+        {
+          "term": "name",
+          "line": 81,
+          "excerpt": "lucionlineLifeQuoteFields\",\n        \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required_field_mentions:2\",\n          \"practical_arity\"\n        ],\n        \"parameters\": [\n          \"text\"\n        ],\n        \"inputContract\": {\n          \"kind\": "
+        },
+        {
+          "term": "name",
+          "line": 82,
+          "excerpt": "      \"ownerPath\": null,\n        \"name\": \"extractSolucionlineLifeQuoteFields\",\n        \"arity\": 1,\n        \"score\": 126,\n        \"scoreReasons\": [\n          \"name_token:extract\",\n          \"name_token:field\",\n          \"name_token:quote\",\n          \"required_field_mentions:2\",\n          \"practical_arity\"\n        ],\n        \"parameters\": [\n          \"text\"\n        ],\n        \"inputContract\": {\n          \"kind\": \"SINGLE_OBJECT_OR_VALUE\",\n    "
+        },
+        {
+          "term": "name",
+          "line": 100,
+          "excerpt": "ameters\": [\n            \"text\"\n          ],\n          \"textProperties\": [],\n          \"domainProperties\": [],\n          \"allAccessedProperties\": []\n        },\n        \"fieldEvidence\": [\n          {\n            \"field\": \"name\",\n            \"occurrenceCount\": 0\n          },\n          {\n            \"field\": \"family\",\n            \"occurrenceCount\": 0\n          },\n          {\n            \"field\": \"product\",\n            \"occurrenceCount\": 1\n     "
+        },
+        {
+          "term": "name",
+          "line": 143,
+          "excerpt": "{\n          \"strategyId\": \"UNRESOLVED\",\n          \"argumentTemplate\": []\n        }\n      },\n      \"candidates\": [\n        {\n          \"path\": \"extractSolucionlineLifeQuoteFields\",\n          \"ownerPath\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 147,
+          "excerpt": "  \"path\": \"extractSolucionlineLifeQuoteFields\",\n          \"ownerPath\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n            \"required_field_mentions:2\",\n            \"practical_arity\"\n          ],\n          \"parameters\": [\n            \"text\"\n          "
+        },
+        {
+          "term": "name",
+          "line": 148,
+          "excerpt": "QuoteFields\",\n          \"ownerPath\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n            \"required_field_mentions:2\",\n            \"practical_arity\"\n          ],\n          \"parameters\": [\n            \"text\"\n          ],\n          \"inputContract\": {\n  "
+        },
+        {
+          "term": "name",
+          "line": 149,
+          "excerpt": "th\": null,\n          \"name\": \"extractSolucionlineLifeQuoteFields\",\n          \"arity\": 1,\n          \"score\": 126,\n          \"scoreReasons\": [\n            \"name_token:extract\",\n            \"name_token:field\",\n            \"name_token:quote\",\n            \"required_field_mentions:2\",\n            \"practical_arity\"\n          ],\n          \"parameters\": [\n            \"text\"\n          ],\n          \"inputContract\": {\n            \"kind\": \"SINGLE_OBJECT"
+        },
+        {
+          "term": "name",
+          "line": 172,
+          "excerpt": "rceSha256\": \"8af5104835a02cc62c20a9a9a4d1c9708fc1016b9b48e08a23773b91555d539d\",\n          \"sourceLength\": 5284\n        },\n        {\n          \"path\": \"summarizeForgeQuotePdfText\",\n          \"ownerPath\": null,\n          \"name\": \"summarizeForgeQuotePdfText\",\n          \"arity\": 0,\n          \"score\": 110,\n          \"scoreReasons\": [\n            \"name_token:quote\",\n            \"explicit_text_property\"\n          ],\n          \"parameters\": [\n     "
+        },
+        {
+          "term": "name",
+          "line": 176,
+          "excerpt": "      {\n          \"path\": \"summarizeForgeQuotePdfText\",\n          \"ownerPath\": null,\n          \"name\": \"summarizeForgeQuotePdfText\",\n          \"arity\": 0,\n          \"score\": 110,\n          \"scoreReasons\": [\n            \"name_token:quote\",\n            \"explicit_text_property\"\n          ],\n          \"parameters\": [\n            \"input\"\n          ],\n          \"inputContract\": {\n            \"kind\": \"OBJECT_WITH_TEXT_PROPERTY\",\n            \"param"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 238,
+      "mapperScore": 223,
+      "validatorScore": 129,
+      "consumerScore": 60
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15s1-canonical-schema-correction-authorization-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 10596,
+      "sha256": "c93ee6798540012a5d8b3ef914c9277c66a7955fdc6b648084d9c4f4b3217fc5",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 3,
+          "positions": [
+            1026,
+            2340,
+            2401
+          ]
+        },
+        "family": {
+          "count": 3,
+          "positions": [
+            1040,
+            2354,
+            3274
+          ]
+        },
+        "product": {
+          "count": 8,
+          "positions": [
+            820,
+            2174,
+            3816,
+            3955,
+            4027,
+            4039,
+            4096,
+            4108
+          ]
+        },
+        "insured": {
+          "count": 3,
+          "positions": [
+            837,
+            2191,
+            4606
+          ]
+        },
+        "sumAssured": {
+          "count": 3,
+          "positions": [
+            854,
+            2208,
+            5196
+          ]
+        },
+        "annualPremium": {
+          "count": 10,
+          "positions": [
+            874,
+            2228,
+            5789,
+            5934,
+            6012,
+            6024,
+            6087,
+            6099,
+            6622,
+            6959
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 3,
+          "positions": [
+            897,
+            2251,
+            6428
+          ]
+        },
+        "coveragePeriod": {
+          "count": 3,
+          "positions": [
+            926,
+            2280,
+            7488
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 11,
+      "engineTerms": [],
+      "validatorSignals": [
+        "validate",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 19,
+          "excerpt": "D\": \"RUNTIME_FIELD_OWNERSHIP_AND_ADAPTER_PROJECTION\",\n    \"EIGHT_FIELD_SCHEMA_PRESERVED\": true,\n    \"CANONICAL_FIELD_COUNT\": 8,\n    \"FIELD_ADDITION_AUTHORIZED\": false,\n    \"FIELD_REMOVAL_AUTHORIZED\": false,\n    \"FIELD_RENAME_AUTHORIZED\": false,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ENGINE_OWNED_FIELDS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "DS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n  "
+        },
+        {
+          "term": "name",
+          "line": 68,
+          "excerpt": "\"fieldOwnership\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n   "
+        },
+        {
+          "term": "name",
+          "line": 72,
+          "excerpt": "\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [],\n        \"proposalRankedCandi"
+        },
+        {
+          "term": "name",
+          "line": 320,
+          "excerpt": "e resulting exact eight-field packet with the existing adapter validator.\",\n      \"Emit no official quote, provider write, backend effect or quote truth.\"\n    ],\n    \"forbiddenBehavior\": [\n      \"Do not add, remove or rename canonical fields.\",\n      \"Do not create a new runtime module, engine, cache or bridge.\",\n      \"Do not duplicate mapping logic outside the existing adapter.\",\n      \"Do not use manual field guesses or user-selected ali"
+        },
+        {
+          "term": "family",
+          "line": 32,
+          "excerpt": "product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n    \"EXISTING_ADAP"
+        },
+        {
+          "term": "family",
+          "line": 69,
+          "excerpt": "p\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalized"
+        },
+        {
+          "term": "family",
+          "line": 114,
+          "excerpt": "   30,\n            35,\n            36,\n            41,\n            42,\n            47,\n            48,\n            53,\n            54,\n            55,\n            60,\n            61\n          ]\n        }\n      },\n      \"family\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [],\n        \"proposalRankedCandi"
+        },
+        {
+          "term": "product",
+          "line": 22,
+          "excerpt": "    \"CANONICAL_FIELD_COUNT\": 8,\n    \"FIELD_ADDITION_AUTHORIZED\": false,\n    \"FIELD_REMOVAL_AUTHORIZED\": false,\n    \"FIELD_RENAME_AUTHORIZED\": false,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ENGINE_OWNED_FIELDS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\""
+        },
+        {
+          "term": "product",
+          "line": 36,
+          "excerpt": "IELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n    \"EXISTING_ADAPTER_CANONICAL_PROJECTION_EXPOSURE_AUTHORIZED\": true,\n    \"EXISTING_PROJECTION_REUSE_REQUIRED\": true,\n    \"DUPLICATE_MAPPING_LOGIC_AUTHORIZED\": false,\n  "
+        },
+        {
+          "term": "product",
+          "line": 60,
+          "excerpt": " \"REAL_CUSTOMER_DATA_AUTHORIZED\": false,\n    \"REAL_EFFECTS_AUTHORIZED\": false,\n    \"NEXT_GATE\": \"107Z15S2_EXISTING_ADAPTER_CANONICAL_PROJECTION_EXPOSURE_GATE\"\n  },\n  \"fieldOwnership\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \""
+        },
+        {
+          "term": "product",
+          "line": 135,
+          "excerpt": "   \"engine\": [],\n          \"adapter\": [\n            288\n          ],\n          \"contract\": [\n            3\n          ],\n          \"store\": [],\n          \"coordinator\": [],\n          \"modal\": []\n        }\n      },\n      \"product\": {\n        \"classification\": \"ENGINE_NATIVE_OR_ENGINE_DERIVED\",\n        \"runtimeOwner\": \"engine\",\n        \"directEngineMapping\": \"product\",\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [\n          \"prod"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 238,
+      "mapperScore": 218,
+      "validatorScore": 129,
+      "consumerScore": 96
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15s1-canonical-schema-correction-authorization.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 10501,
+      "sha256": "4432f2278993373babbb669874e0fcf684acde9bc41c0f005f2efc125feb22da",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 3,
+          "positions": [
+            935,
+            2249,
+            2310
+          ]
+        },
+        "family": {
+          "count": 3,
+          "positions": [
+            949,
+            2263,
+            3183
+          ]
+        },
+        "product": {
+          "count": 8,
+          "positions": [
+            729,
+            2083,
+            3725,
+            3864,
+            3936,
+            3948,
+            4005,
+            4017
+          ]
+        },
+        "insured": {
+          "count": 3,
+          "positions": [
+            746,
+            2100,
+            4515
+          ]
+        },
+        "sumAssured": {
+          "count": 3,
+          "positions": [
+            763,
+            2117,
+            5105
+          ]
+        },
+        "annualPremium": {
+          "count": 10,
+          "positions": [
+            783,
+            2137,
+            5698,
+            5843,
+            5921,
+            5933,
+            5996,
+            6008,
+            6531,
+            6868
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 3,
+          "positions": [
+            806,
+            2160,
+            6337
+          ]
+        },
+        "coveragePeriod": {
+          "count": 3,
+          "positions": [
+            835,
+            2189,
+            7397
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 11,
+      "engineTerms": [],
+      "validatorSignals": [
+        "validate",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 14,
+          "excerpt": "D\": \"RUNTIME_FIELD_OWNERSHIP_AND_ADAPTER_PROJECTION\",\n    \"EIGHT_FIELD_SCHEMA_PRESERVED\": true,\n    \"CANONICAL_FIELD_COUNT\": 8,\n    \"FIELD_ADDITION_AUTHORIZED\": false,\n    \"FIELD_REMOVAL_AUTHORIZED\": false,\n    \"FIELD_RENAME_AUTHORIZED\": false,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ENGINE_OWNED_FIELDS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],"
+        },
+        {
+          "term": "name",
+          "line": 26,
+          "excerpt": "DS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n  "
+        },
+        {
+          "term": "name",
+          "line": 63,
+          "excerpt": "\"fieldOwnership\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n   "
+        },
+        {
+          "term": "name",
+          "line": 67,
+          "excerpt": "\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [],\n        \"proposalRankedCandi"
+        },
+        {
+          "term": "name",
+          "line": 315,
+          "excerpt": "e resulting exact eight-field packet with the existing adapter validator.\",\n      \"Emit no official quote, provider write, backend effect or quote truth.\"\n    ],\n    \"forbiddenBehavior\": [\n      \"Do not add, remove or rename canonical fields.\",\n      \"Do not create a new runtime module, engine, cache or bridge.\",\n      \"Do not duplicate mapping logic outside the existing adapter.\",\n      \"Do not use manual field guesses or user-selected ali"
+        },
+        {
+          "term": "family",
+          "line": 27,
+          "excerpt": "product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n    \"EXISTING_ADAP"
+        },
+        {
+          "term": "family",
+          "line": 64,
+          "excerpt": "p\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalized"
+        },
+        {
+          "term": "family",
+          "line": 109,
+          "excerpt": "   30,\n            35,\n            36,\n            41,\n            42,\n            47,\n            48,\n            53,\n            54,\n            55,\n            60,\n            61\n          ]\n        }\n      },\n      \"family\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [],\n        \"proposalRankedCandi"
+        },
+        {
+          "term": "product",
+          "line": 17,
+          "excerpt": "    \"CANONICAL_FIELD_COUNT\": 8,\n    \"FIELD_ADDITION_AUTHORIZED\": false,\n    \"FIELD_REMOVAL_AUTHORIZED\": false,\n    \"FIELD_RENAME_AUTHORIZED\": false,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ENGINE_OWNED_FIELDS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\""
+        },
+        {
+          "term": "product",
+          "line": 31,
+          "excerpt": "IELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n    \"EXISTING_ADAPTER_CANONICAL_PROJECTION_EXPOSURE_AUTHORIZED\": true,\n    \"EXISTING_PROJECTION_REUSE_REQUIRED\": true,\n    \"DUPLICATE_MAPPING_LOGIC_AUTHORIZED\": false,\n  "
+        },
+        {
+          "term": "product",
+          "line": 55,
+          "excerpt": " \"REAL_CUSTOMER_DATA_AUTHORIZED\": false,\n    \"REAL_EFFECTS_AUTHORIZED\": false,\n    \"NEXT_GATE\": \"107Z15S2_EXISTING_ADAPTER_CANONICAL_PROJECTION_EXPOSURE_GATE\"\n  },\n  \"fieldOwnership\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \""
+        },
+        {
+          "term": "product",
+          "line": 130,
+          "excerpt": "   \"engine\": [],\n          \"adapter\": [\n            288\n          ],\n          \"contract\": [\n            3\n          ],\n          \"store\": [],\n          \"coordinator\": [],\n          \"modal\": []\n        }\n      },\n      \"product\": {\n        \"classification\": \"ENGINE_NATIVE_OR_ENGINE_DERIVED\",\n        \"runtimeOwner\": \"engine\",\n        \"directEngineMapping\": \"product\",\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [\n          \"prod"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 238,
+      "mapperScore": 218,
+      "validatorScore": 129,
+      "consumerScore": 96
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15dr-targeted-adapter-dataflow-discovery-repair-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 23172,
+      "sha256": "2707657b2039055d2e18e296c4fb53ba29a3582505167db6fe144fc86e2f7473",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 14,
+          "positions": [
+            972,
+            1850,
+            2261,
+            3202,
+            3458,
+            3468,
+            3968,
+            5528,
+            6142,
+            8933,
+            8943,
+            8992,
+            9002,
+            10252
+          ]
+        },
+        "family": {
+          "count": 7,
+          "positions": [
+            1015,
+            4444,
+            8557,
+            8637,
+            10009,
+            10081,
+            13255
+          ]
+        },
+        "product": {
+          "count": 6,
+          "positions": [
+            4462,
+            8575,
+            8655,
+            10025,
+            10097,
+            14204
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            20372
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            20614
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            20859
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            21107
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            21361
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": false,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "hasOwnProperty",
+        "required",
+        "schema",
+        "shape"
+      ],
+      "constructionSignals": [
+        "return {",
+        ".map(",
+        "getField(",
+        "canonical",
+        "projection"
+      ],
+      "consumerSignals": [
+        "persist"
+      ],
+      "exports": [],
+      "imports": [
+        "./quote-preview-product-intelligence-binding-adapter-074b.js"
+      ],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 27,
+          "excerpt": "FUNCTION_COUNT\": 4,\n    \"CANONICAL_FIELD_DATAFLOW_PACKET_READY\": true,\n    \"CANONICAL_FIELD_COUNT\": 8,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELD_MODES\": {\n      \"name\": \"REFERENCE_ONLY_OR_DYNAMIC\",\n      \"family\": \"REFERENCE_ONLY_OR_DYNAMIC\"\n    },\n    \"PROJECTION_CONSTRUCTION_MODES\": [\n      \"DISTRIBUTED_ACROSS_HELPERS\"\n    ],\n    \"COMBINED_RESOLVED_CANONICAL_FIELD_COUNT\": 3,\n    \"P"
+        },
+        {
+          "term": "name",
+          "line": 51,
+          "excerpt": "ER_EXECUTION\": false,\n    \"PDF_READ_EXECUTED\": false,\n    \"BACKEND_CONNECTION\": false,\n    \"QUOTE_TRUTH_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15D2_ADAPTER_DATAFLOW_DISCOVERY_REVIEW_GATE\"\n  },\n  \"targetFunction\": {\n    \"name\": \"integrateQuotePreviewPdfEngineWithProductIntelligence\",\n    \"lineStart\": 230,\n    \"lineEnd\": 230,\n    \"parameters\": [\n      \"request = {}\"\n    ],\n    \"calls\": [],\n    \"internalCalls\": [],\n    \"sourceSha256\": \"6e5d3a8"
+        },
+        {
+          "term": "name",
+          "line": 63,
+          "excerpt": " [],\n    \"sourceSha256\": \"6e5d3a8c46f2c0cad9793ccd9ee7c25aa421c47614324e631ba41f62d869d13a\",\n    \"source\": \"function integrateQuotePreviewPdfEngineWithProductIntelligence(request = {}\"\n  },\n  \"validatorFunction\": {\n    \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"lineStart\": 345,\n    \"lineEnd\": 356,\n    \"parameters\": [\n      \"integration\"\n    ],\n    \"sourceSha256\": \"69ed721069a72cbef9f82c5c65d88d030b7e334eb43ae"
+        },
+        {
+          "term": "name",
+          "line": 81,
+          "excerpt": ",\\n    flagFailures\\n  };\\n}\"\n  },\n  \"callClosureFunctions\": [\n    \"integrateQuotePreviewPdfEngineWithProductIntelligence\"\n  ],\n  \"fieldMentionFunctions\": [\n    \"for\",\n    \"if\"\n  ],\n  \"relevantFunctions\": [\n    {\n      \"name\": \"for\",\n      \"lineStart\": 119,\n      \"lineEnd\": 123,\n      \"parameters\": [\n        \"const name of names\"\n      ],\n      \"calls\": [\n        \"Object.prototype.hasOwnProperty.call\"\n      ],\n      \"internalCalls\": [],\n   "
+        },
+        {
+          "term": "name",
+          "line": 85,
+          "excerpt": "eWithProductIntelligence\"\n  ],\n  \"fieldMentionFunctions\": [\n    \"for\",\n    \"if\"\n  ],\n  \"relevantFunctions\": [\n    {\n      \"name\": \"for\",\n      \"lineStart\": 119,\n      \"lineEnd\": 123,\n      \"parameters\": [\n        \"const name of names\"\n      ],\n      \"calls\": [\n        \"Object.prototype.hasOwnProperty.call\"\n      ],\n      \"internalCalls\": [],\n      \"canonicalFieldsMentioned\": [\n        \"name\"\n      ],\n      \"objectLiterals\": [],\n      \"assig"
+        },
+        {
+          "term": "name",
+          "line": 85,
+          "excerpt": "ductIntelligence\"\n  ],\n  \"fieldMentionFunctions\": [\n    \"for\",\n    \"if\"\n  ],\n  \"relevantFunctions\": [\n    {\n      \"name\": \"for\",\n      \"lineStart\": 119,\n      \"lineEnd\": 123,\n      \"parameters\": [\n        \"const name of names\"\n      ],\n      \"calls\": [\n        \"Object.prototype.hasOwnProperty.call\"\n      ],\n      \"internalCalls\": [],\n      \"canonicalFieldsMentioned\": [\n        \"name\"\n      ],\n      \"objectLiterals\": [],\n      \"assignments\":"
+        },
+        {
+          "term": "name",
+          "line": 92,
+          "excerpt": "ineEnd\": 123,\n      \"parameters\": [\n        \"const name of names\"\n      ],\n      \"calls\": [\n        \"Object.prototype.hasOwnProperty.call\"\n      ],\n      \"internalCalls\": [],\n      \"canonicalFieldsMentioned\": [\n        \"name\"\n      ],\n      \"objectLiterals\": [],\n      \"assignments\": [],\n      \"getFieldCalls\": [],\n      \"returnExpressions\": [\n        \"object[name]\"\n      ],\n      \"eventSites\": [],\n      \"callbackSites\": [],\n      \"sourceSha2"
+        },
+        {
+          "term": "name",
+          "line": 98,
+          "excerpt": "     ],\n      \"internalCalls\": [],\n      \"canonicalFieldsMentioned\": [\n        \"name\"\n      ],\n      \"objectLiterals\": [],\n      \"assignments\": [],\n      \"getFieldCalls\": [],\n      \"returnExpressions\": [\n        \"object[name]\"\n      ],\n      \"eventSites\": [],\n      \"callbackSites\": [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Obj"
+        },
+        {
+          "term": "name",
+          "line": 103,
+          "excerpt": "urnExpressions\": [\n        \"object[name]\"\n      ],\n      \"eventSites\": [],\n      \"callbackSites\": [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\"\n    },\n    {\n      \"name\": \"if\",\n      \"lineStart\": 272,\n      \"lineE"
+        },
+        {
+          "term": "name",
+          "line": 103,
+          "excerpt": "ssions\": [\n        \"object[name]\"\n      ],\n      \"eventSites\": [],\n      \"callbackSites\": [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\"\n    },\n    {\n      \"name\": \"if\",\n      \"lineStart\": 272,\n      \"lineEnd\": 281"
+        },
+        {
+          "term": "name",
+          "line": 103,
+          "excerpt": "\"callbackSites\": [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\"\n    },\n    {\n      \"name\": \"if\",\n      \"lineStart\": 272,\n      \"lineEnd\": 281,\n      \"parameters\": [\n        \"typeof bindingAdapter.validateQuotePrevi"
+        },
+        {
+          "term": "name",
+          "line": 103,
+          "excerpt": " [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\"\n    },\n    {\n      \"name\": \"if\",\n      \"lineStart\": 272,\n      \"lineEnd\": 281,\n      \"parameters\": [\n        \"typeof bindingAdapter.validateQuotePreviewBindingShape ="
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 170,
+      "mapperScore": 168,
+      "validatorScore": 124,
+      "consumerScore": 60
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15dr-targeted-adapter-dataflow-discovery-repair.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 23083,
+      "sha256": "05122768818f1ebc19ee43c01e4945b5140a87218ba64ab5b7a30d3f5d9bc809",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 14,
+          "positions": [
+            887,
+            1765,
+            2176,
+            3117,
+            3373,
+            3383,
+            3883,
+            5443,
+            6057,
+            8848,
+            8858,
+            8907,
+            8917,
+            10167
+          ]
+        },
+        "family": {
+          "count": 7,
+          "positions": [
+            930,
+            4359,
+            8472,
+            8552,
+            9924,
+            9996,
+            13170
+          ]
+        },
+        "product": {
+          "count": 6,
+          "positions": [
+            4377,
+            8490,
+            8570,
+            9940,
+            10012,
+            14119
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            20287
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            20529
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            20774
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            21022
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            21276
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": false,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "hasOwnProperty",
+        "required",
+        "schema",
+        "shape"
+      ],
+      "constructionSignals": [
+        "return {",
+        ".map(",
+        "getField(",
+        "canonical",
+        "projection"
+      ],
+      "consumerSignals": [
+        "persist"
+      ],
+      "exports": [],
+      "imports": [
+        "./quote-preview-product-intelligence-binding-adapter-074b.js"
+      ],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 22,
+          "excerpt": "FUNCTION_COUNT\": 4,\n    \"CANONICAL_FIELD_DATAFLOW_PACKET_READY\": true,\n    \"CANONICAL_FIELD_COUNT\": 8,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELD_MODES\": {\n      \"name\": \"REFERENCE_ONLY_OR_DYNAMIC\",\n      \"family\": \"REFERENCE_ONLY_OR_DYNAMIC\"\n    },\n    \"PROJECTION_CONSTRUCTION_MODES\": [\n      \"DISTRIBUTED_ACROSS_HELPERS\"\n    ],\n    \"COMBINED_RESOLVED_CANONICAL_FIELD_COUNT\": 3,\n    \"P"
+        },
+        {
+          "term": "name",
+          "line": 46,
+          "excerpt": "ER_EXECUTION\": false,\n    \"PDF_READ_EXECUTED\": false,\n    \"BACKEND_CONNECTION\": false,\n    \"QUOTE_TRUTH_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15D2_ADAPTER_DATAFLOW_DISCOVERY_REVIEW_GATE\"\n  },\n  \"targetFunction\": {\n    \"name\": \"integrateQuotePreviewPdfEngineWithProductIntelligence\",\n    \"lineStart\": 230,\n    \"lineEnd\": 230,\n    \"parameters\": [\n      \"request = {}\"\n    ],\n    \"calls\": [],\n    \"internalCalls\": [],\n    \"sourceSha256\": \"6e5d3a8"
+        },
+        {
+          "term": "name",
+          "line": 58,
+          "excerpt": " [],\n    \"sourceSha256\": \"6e5d3a8c46f2c0cad9793ccd9ee7c25aa421c47614324e631ba41f62d869d13a\",\n    \"source\": \"function integrateQuotePreviewPdfEngineWithProductIntelligence(request = {}\"\n  },\n  \"validatorFunction\": {\n    \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"lineStart\": 345,\n    \"lineEnd\": 356,\n    \"parameters\": [\n      \"integration\"\n    ],\n    \"sourceSha256\": \"69ed721069a72cbef9f82c5c65d88d030b7e334eb43ae"
+        },
+        {
+          "term": "name",
+          "line": 76,
+          "excerpt": ",\\n    flagFailures\\n  };\\n}\"\n  },\n  \"callClosureFunctions\": [\n    \"integrateQuotePreviewPdfEngineWithProductIntelligence\"\n  ],\n  \"fieldMentionFunctions\": [\n    \"for\",\n    \"if\"\n  ],\n  \"relevantFunctions\": [\n    {\n      \"name\": \"for\",\n      \"lineStart\": 119,\n      \"lineEnd\": 123,\n      \"parameters\": [\n        \"const name of names\"\n      ],\n      \"calls\": [\n        \"Object.prototype.hasOwnProperty.call\"\n      ],\n      \"internalCalls\": [],\n   "
+        },
+        {
+          "term": "name",
+          "line": 80,
+          "excerpt": "eWithProductIntelligence\"\n  ],\n  \"fieldMentionFunctions\": [\n    \"for\",\n    \"if\"\n  ],\n  \"relevantFunctions\": [\n    {\n      \"name\": \"for\",\n      \"lineStart\": 119,\n      \"lineEnd\": 123,\n      \"parameters\": [\n        \"const name of names\"\n      ],\n      \"calls\": [\n        \"Object.prototype.hasOwnProperty.call\"\n      ],\n      \"internalCalls\": [],\n      \"canonicalFieldsMentioned\": [\n        \"name\"\n      ],\n      \"objectLiterals\": [],\n      \"assig"
+        },
+        {
+          "term": "name",
+          "line": 80,
+          "excerpt": "ductIntelligence\"\n  ],\n  \"fieldMentionFunctions\": [\n    \"for\",\n    \"if\"\n  ],\n  \"relevantFunctions\": [\n    {\n      \"name\": \"for\",\n      \"lineStart\": 119,\n      \"lineEnd\": 123,\n      \"parameters\": [\n        \"const name of names\"\n      ],\n      \"calls\": [\n        \"Object.prototype.hasOwnProperty.call\"\n      ],\n      \"internalCalls\": [],\n      \"canonicalFieldsMentioned\": [\n        \"name\"\n      ],\n      \"objectLiterals\": [],\n      \"assignments\":"
+        },
+        {
+          "term": "name",
+          "line": 87,
+          "excerpt": "ineEnd\": 123,\n      \"parameters\": [\n        \"const name of names\"\n      ],\n      \"calls\": [\n        \"Object.prototype.hasOwnProperty.call\"\n      ],\n      \"internalCalls\": [],\n      \"canonicalFieldsMentioned\": [\n        \"name\"\n      ],\n      \"objectLiterals\": [],\n      \"assignments\": [],\n      \"getFieldCalls\": [],\n      \"returnExpressions\": [\n        \"object[name]\"\n      ],\n      \"eventSites\": [],\n      \"callbackSites\": [],\n      \"sourceSha2"
+        },
+        {
+          "term": "name",
+          "line": 93,
+          "excerpt": "     ],\n      \"internalCalls\": [],\n      \"canonicalFieldsMentioned\": [\n        \"name\"\n      ],\n      \"objectLiterals\": [],\n      \"assignments\": [],\n      \"getFieldCalls\": [],\n      \"returnExpressions\": [\n        \"object[name]\"\n      ],\n      \"eventSites\": [],\n      \"callbackSites\": [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Obj"
+        },
+        {
+          "term": "name",
+          "line": 98,
+          "excerpt": "urnExpressions\": [\n        \"object[name]\"\n      ],\n      \"eventSites\": [],\n      \"callbackSites\": [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\"\n    },\n    {\n      \"name\": \"if\",\n      \"lineStart\": 272,\n      \"lineE"
+        },
+        {
+          "term": "name",
+          "line": 98,
+          "excerpt": "ssions\": [\n        \"object[name]\"\n      ],\n      \"eventSites\": [],\n      \"callbackSites\": [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\"\n    },\n    {\n      \"name\": \"if\",\n      \"lineStart\": 272,\n      \"lineEnd\": 281"
+        },
+        {
+          "term": "name",
+          "line": 98,
+          "excerpt": "\"callbackSites\": [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\"\n    },\n    {\n      \"name\": \"if\",\n      \"lineStart\": 272,\n      \"lineEnd\": 281,\n      \"parameters\": [\n        \"typeof bindingAdapter.validateQuotePrevi"
+        },
+        {
+          "term": "name",
+          "line": 98,
+          "excerpt": " [],\n      \"sourceSha256\": \"7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84\",\n      \"source\": \"for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\"\n    },\n    {\n      \"name\": \"if\",\n      \"lineStart\": 272,\n      \"lineEnd\": 281,\n      \"parameters\": [\n        \"typeof bindingAdapter.validateQuotePreviewBindingShape ="
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 170,
+      "mapperScore": 168,
+      "validatorScore": 124,
+      "consumerScore": 60
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z7-quote-preview-pdf-runtime-persistence-adr-draft.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 8456,
+      "sha256": "a1112320a360c41e566b96aa0ed34bbe4e5f296c91cb1eae50a73b132b449954",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 4,
+          "positions": [
+            703,
+            1431,
+            2258,
+            3689
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            3707
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            3727
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            3748
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            3769
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            3793
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            3820
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            3853
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 16,
+          "excerpt": ", writer, reader or complete call chain.\",\n    \"RECOMMENDED_OPTION\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n    \"RECOMMENDATION_STATUS\": \"PENDING_EXPLICIT_APPROVAL\",\n    \"OPTIONS\": [\n      {\n        \"id\": \"A\",\n        \"name\": \"REUSE_EXISTING_GENERIC_RUNTIME\",\n        \"status\": \"REJECTED_PENDING_NEW_EVIDENCE\",\n        \"description\": \"Reuse an existing generic repository, runtime state or cache.\",\n        \"advantages\": [\n          \"Avoids du"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "    ],\n        \"acceptance_condition\": \"New source evidence must prove ownership, writer, reader, identity and downstream call chain before this option can return to review.\"\n      },\n      {\n        \"id\": \"B\",\n        \"name\": \"EPHEMERAL_IN_MEMORY_HANDOFF\",\n        \"status\": \"NOT_RECOMMENDED\",\n        \"description\": \"Pass the extraction result directly in memory from the engine to the confirmation modal without a persistence boundary.\",\n   "
+        },
+        {
+          "term": "name",
+          "line": 48,
+          "excerpt": "t recovery weaker.\"\n        ],\n        \"acceptance_condition\": \"Could only be chosen if the persistence requirement is explicitly revoked by a later constitutional decision.\"\n      },\n      {\n        \"id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence ha"
+        },
+        {
+          "term": "name",
+          "line": 70,
+          "excerpt": "t\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n  "
+        },
+        {
+          "term": "name",
+          "line": 117,
+          "excerpt": "lementation discovery confirms no canonical equivalent exists.\",\n      \"One canonical owner path is approved.\",\n      \"One explicit versioned identity/key contract is approved.\",\n      \"One writer and one reader API are named and documented.\",\n      \"The eight-field schema and metadata contract are approved.\",\n      \"The extraction-ready event carries only an identity/reference.\",\n      \"Yes and No actions consume the same stored preview re"
+        },
+        {
+          "term": "family",
+          "line": 71,
+          "excerpt": "traction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersi"
+        },
+        {
+          "term": "product",
+          "line": 50,
+          "excerpt": "id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence handoff infrastructure and consumed read-only by Quote Preview.\",\n        \"advantages\": [\n          \"Matches the locked PDF → writer → cache → popup/UI flow.\",\n          \"Provides deterministic reload, conf"
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "      \"ownership\": \"A single canonical module must own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n        "
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "st own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n     "
+        },
+        {
+          "term": "product",
+          "line": 72,
+          "excerpt": "uced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersion\",\n          \"sourc"
+        },
+        {
+          "term": "product",
+          "line": 105,
+          "excerpt": "eady extracted.\"\n      },\n      \"retention\": \"Retention and deletion policy must be explicitly selected during implementation design. No indefinite retention is authorized by this draft.\",\n      \"boundaries\": [\n        \"Product Intelligence remains upstream.\",\n        \"Quote Preview remains downstream.\",\n        \"The PDF engine is reference input, never quote truth.\",\n        \"No CRM, backend, provider, policy, pipeline, message or calendar wr"
+        },
+        {
+          "term": "product",
+          "line": 135,
+          "excerpt": "\",\n      \"The implementation would use a hidden latest-record default.\",\n      \"The result could become official quote truth without explicit downstream gates.\"\n    ]\n  },\n  \"canonical_inputs\": {\n    \"PDF_ENGINE_PATH\": \"product-intelligence/evidence/forge-quote-pdf-preview-engine.js\",\n    \"CONFIRMATION_MODAL_PATH\": \"docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.js\",\n    \"QUOTE_PREVIEW_UI_PATH\": \"docs/static"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 234,
+      "mapperScore": 183,
+      "validatorScore": 119,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z7r-quote-preview-pdf-runtime-persistence-adr-revision.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 9158,
+      "sha256": "0577c6ff937027f9b44cfd870812c1a36e0bc45b6fe1dd87c851784c2a9dd367",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 4,
+          "positions": [
+            733,
+            1461,
+            2288,
+            3719
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            3737
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            3757
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            3778
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            3799
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            3823
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            3850
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            3883
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 16,
+          "excerpt": "ader or complete call chain.\",\n    \"RECOMMENDED_OPTION\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n    \"RECOMMENDATION_STATUS\": \"PENDING_REVISED_CONSTITUTIONAL_REVIEW\",\n    \"OPTIONS\": [\n      {\n        \"id\": \"A\",\n        \"name\": \"REUSE_EXISTING_GENERIC_RUNTIME\",\n        \"status\": \"REJECTED_PENDING_NEW_EVIDENCE\",\n        \"description\": \"Reuse an existing generic repository, runtime state or cache.\",\n        \"advantages\": [\n          \"Avoids du"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "    ],\n        \"acceptance_condition\": \"New source evidence must prove ownership, writer, reader, identity and downstream call chain before this option can return to review.\"\n      },\n      {\n        \"id\": \"B\",\n        \"name\": \"EPHEMERAL_IN_MEMORY_HANDOFF\",\n        \"status\": \"NOT_RECOMMENDED\",\n        \"description\": \"Pass the extraction result directly in memory from the engine to the confirmation modal without a persistence boundary.\",\n   "
+        },
+        {
+          "term": "name",
+          "line": 48,
+          "excerpt": "t recovery weaker.\"\n        ],\n        \"acceptance_condition\": \"Could only be chosen if the persistence requirement is explicitly revoked by a later constitutional decision.\"\n      },\n      {\n        \"id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence ha"
+        },
+        {
+          "term": "name",
+          "line": 70,
+          "excerpt": "t\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n  "
+        },
+        {
+          "term": "name",
+          "line": 117,
+          "excerpt": "lementation discovery confirms no canonical equivalent exists.\",\n      \"One canonical owner path is approved.\",\n      \"One explicit versioned identity/key contract is approved.\",\n      \"One writer and one reader API are named and documented.\",\n      \"The eight-field schema and metadata contract are approved.\",\n      \"The extraction-ready event carries only an identity/reference.\",\n      \"Yes and No actions consume the same stored preview re"
+        },
+        {
+          "term": "family",
+          "line": 71,
+          "excerpt": "traction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersi"
+        },
+        {
+          "term": "product",
+          "line": 50,
+          "excerpt": "id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence handoff infrastructure and consumed read-only by Quote Preview.\",\n        \"advantages\": [\n          \"Matches the locked PDF → writer → cache → popup/UI flow.\",\n          \"Provides deterministic reload, conf"
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "      \"ownership\": \"A single canonical module must own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n        "
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "st own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n     "
+        },
+        {
+          "term": "product",
+          "line": 72,
+          "excerpt": "uced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersion\",\n          \"sourc"
+        },
+        {
+          "term": "product",
+          "line": 105,
+          "excerpt": "eady extracted.\"\n      },\n      \"retention\": \"Retention and deletion policy must be explicitly selected during implementation design. No indefinite retention is authorized by this draft.\",\n      \"boundaries\": [\n        \"Product Intelligence remains upstream.\",\n        \"Quote Preview remains downstream.\",\n        \"The PDF engine is reference input, never quote truth.\",\n        \"No CRM, backend, provider, policy, pipeline, message or calendar wr"
+        },
+        {
+          "term": "product",
+          "line": 135,
+          "excerpt": "\",\n      \"The implementation would use a hidden latest-record default.\",\n      \"The result could become official quote truth without explicit downstream gates.\"\n    ]\n  },\n  \"canonical_inputs\": {\n    \"PDF_ENGINE_PATH\": \"product-intelligence/evidence/forge-quote-pdf-preview-engine.js\",\n    \"CONFIRMATION_MODAL_PATH\": \"docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.js\",\n    \"QUOTE_PREVIEW_UI_PATH\": \"docs/static"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 234,
+      "mapperScore": 183,
+      "validatorScore": 119,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z8s3r-source-authority-normalization-validator-repair.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 10239,
+      "sha256": "ce5cf62d58c9ab5198acc4ef1150268e1b373db1de432d222f73ccc3826408be",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 4,
+          "positions": [
+            751,
+            1479,
+            2306,
+            3737
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            3755
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            3775
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            3796
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            3817
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            3841
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            3868
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            3901
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 16,
+          "excerpt": "ete call chain.\",\n    \"RECOMMENDED_OPTION\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n    \"RECOMMENDATION_STATUS\": \"PENDING_AUTHORITY_NORMALIZED_CONSTITUTIONAL_REVIEW\",\n    \"OPTIONS\": [\n      {\n        \"id\": \"A\",\n        \"name\": \"REUSE_EXISTING_GENERIC_RUNTIME\",\n        \"status\": \"REJECTED_PENDING_NEW_EVIDENCE\",\n        \"description\": \"Reuse an existing generic repository, runtime state or cache.\",\n        \"advantages\": [\n          \"Avoids du"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "    ],\n        \"acceptance_condition\": \"New source evidence must prove ownership, writer, reader, identity and downstream call chain before this option can return to review.\"\n      },\n      {\n        \"id\": \"B\",\n        \"name\": \"EPHEMERAL_IN_MEMORY_HANDOFF\",\n        \"status\": \"NOT_RECOMMENDED\",\n        \"description\": \"Pass the extraction result directly in memory from the engine to the confirmation modal without a persistence boundary.\",\n   "
+        },
+        {
+          "term": "name",
+          "line": 48,
+          "excerpt": "t recovery weaker.\"\n        ],\n        \"acceptance_condition\": \"Could only be chosen if the persistence requirement is explicitly revoked by a later constitutional decision.\"\n      },\n      {\n        \"id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence ha"
+        },
+        {
+          "term": "name",
+          "line": 70,
+          "excerpt": "t\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n  "
+        },
+        {
+          "term": "name",
+          "line": 117,
+          "excerpt": "lementation discovery confirms no canonical equivalent exists.\",\n      \"One canonical owner path is approved.\",\n      \"One explicit versioned identity/key contract is approved.\",\n      \"One writer and one reader API are named and documented.\",\n      \"The eight-field schema and metadata contract are approved.\",\n      \"The extraction-ready event carries only an identity/reference.\",\n      \"Yes and No actions consume the same stored preview re"
+        },
+        {
+          "term": "family",
+          "line": 71,
+          "excerpt": "traction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersi"
+        },
+        {
+          "term": "product",
+          "line": 50,
+          "excerpt": "id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence handoff infrastructure and consumed read-only by Quote Preview.\",\n        \"advantages\": [\n          \"Matches the locked PDF → writer → cache → popup/UI flow.\",\n          \"Provides deterministic reload, conf"
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "      \"ownership\": \"A single canonical module must own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n        "
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "st own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n     "
+        },
+        {
+          "term": "product",
+          "line": 72,
+          "excerpt": "uced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersion\",\n          \"sourc"
+        },
+        {
+          "term": "product",
+          "line": 105,
+          "excerpt": "eady extracted.\"\n      },\n      \"retention\": \"Retention and deletion policy must be explicitly selected during implementation design. No indefinite retention is authorized by this draft.\",\n      \"boundaries\": [\n        \"Product Intelligence remains upstream.\",\n        \"Quote Preview remains downstream.\",\n        \"The PDF engine is reference input, never quote truth.\",\n        \"No CRM, backend, provider, policy, pipeline, message or calendar wr"
+        },
+        {
+          "term": "product",
+          "line": 144,
+          "excerpt": "exact_identity\": true,\n      \"event_is_reference_notification_only\": true,\n      \"violation_fails_adr\": true,\n      \"external_unproven_source_dependency\": false\n    }\n  },\n  \"canonical_inputs\": {\n    \"PDF_ENGINE_PATH\": \"product-intelligence/evidence/forge-quote-pdf-preview-engine.js\",\n    \"CONFIRMATION_MODAL_PATH\": \"docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.js\",\n    \"QUOTE_PREVIEW_UI_PATH\": \"docs/static"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 234,
+      "mapperScore": 183,
+      "validatorScore": 119,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z9-quote-preview-pdf-runtime-persistence-adr-approval.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 10990,
+      "sha256": "45a63fffccaee1a50372ba8406f81d82bc5b1eeb2a3be2d255f7a9a11776c628",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 4,
+          "positions": [
+            691,
+            1419,
+            2246,
+            3677
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            3695
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            3715
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            3736
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            3757
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            3781
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            3808
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            3841
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 16,
+          "excerpt": "time owner, cache, writer, reader or complete call chain.\",\n    \"RECOMMENDED_OPTION\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n    \"RECOMMENDATION_STATUS\": \"APPROVED\",\n    \"OPTIONS\": [\n      {\n        \"id\": \"A\",\n        \"name\": \"REUSE_EXISTING_GENERIC_RUNTIME\",\n        \"status\": \"REJECTED_PENDING_NEW_EVIDENCE\",\n        \"description\": \"Reuse an existing generic repository, runtime state or cache.\",\n        \"advantages\": [\n          \"Avoids du"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "    ],\n        \"acceptance_condition\": \"New source evidence must prove ownership, writer, reader, identity and downstream call chain before this option can return to review.\"\n      },\n      {\n        \"id\": \"B\",\n        \"name\": \"EPHEMERAL_IN_MEMORY_HANDOFF\",\n        \"status\": \"NOT_RECOMMENDED\",\n        \"description\": \"Pass the extraction result directly in memory from the engine to the confirmation modal without a persistence boundary.\",\n   "
+        },
+        {
+          "term": "name",
+          "line": 48,
+          "excerpt": "t recovery weaker.\"\n        ],\n        \"acceptance_condition\": \"Could only be chosen if the persistence requirement is explicitly revoked by a later constitutional decision.\"\n      },\n      {\n        \"id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence ha"
+        },
+        {
+          "term": "name",
+          "line": 70,
+          "excerpt": "t\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n  "
+        },
+        {
+          "term": "name",
+          "line": 117,
+          "excerpt": "lementation discovery confirms no canonical equivalent exists.\",\n      \"One canonical owner path is approved.\",\n      \"One explicit versioned identity/key contract is approved.\",\n      \"One writer and one reader API are named and documented.\",\n      \"The eight-field schema and metadata contract are approved.\",\n      \"The extraction-ready event carries only an identity/reference.\",\n      \"Yes and No actions consume the same stored preview re"
+        },
+        {
+          "term": "family",
+          "line": 71,
+          "excerpt": "traction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersi"
+        },
+        {
+          "term": "product",
+          "line": 50,
+          "excerpt": "id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence handoff infrastructure and consumed read-only by Quote Preview.\",\n        \"advantages\": [\n          \"Matches the locked PDF → writer → cache → popup/UI flow.\",\n          \"Provides deterministic reload, conf"
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "      \"ownership\": \"A single canonical module must own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n        "
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "st own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n     "
+        },
+        {
+          "term": "product",
+          "line": 72,
+          "excerpt": "uced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersion\",\n          \"sourc"
+        },
+        {
+          "term": "product",
+          "line": 105,
+          "excerpt": "eady extracted.\"\n      },\n      \"retention\": \"Retention and deletion policy must be explicitly selected during implementation design. No indefinite retention is authorized by this draft.\",\n      \"boundaries\": [\n        \"Product Intelligence remains upstream.\",\n        \"Quote Preview remains downstream.\",\n        \"The PDF engine is reference input, never quote truth.\",\n        \"No CRM, backend, provider, policy, pipeline, message or calendar wr"
+        },
+        {
+          "term": "product",
+          "line": 147,
+          "excerpt": "REVIEW_PDF_RUNTIME_PERSISTENCE\",\n    \"ADR_NUMBER\": null,\n    \"APPROVED_CANONICAL_PATH\": \"docs/architecture/quote-preview/quote-preview-pdf-runtime-persistence-adr.md\"\n  },\n  \"canonical_inputs\": {\n    \"PDF_ENGINE_PATH\": \"product-intelligence/evidence/forge-quote-pdf-preview-engine.js\",\n    \"CONFIRMATION_MODAL_PATH\": \"docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.js\",\n    \"QUOTE_PREVIEW_UI_PATH\": \"docs/static"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 234,
+      "mapperScore": 183,
+      "validatorScore": 119,
+      "consumerScore": 108
+    },
+    {
+      "path": "scripts/repo-doc-migration-harness.js",
+      "category": "production_source",
+      "extension": ".js",
+      "size": 45990,
+      "sha256": "d4c13bff3c40b376aa2ebf955757d3074b2a8c8c389e716d5d77fcc578edc41d",
+      "exactFields": [
+        "name",
+        "product"
+      ],
+      "exactFieldCount": 2,
+      "fieldEvidence": {
+        "name": {
+          "count": 4,
+          "positions": [
+            3167,
+            3192,
+            3271,
+            3622
+          ]
+        },
+        "family": {
+          "count": 0,
+          "positions": []
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            6701
+          ]
+        },
+        "insured": {
+          "count": 0,
+          "positions": []
+        },
+        "sumAssured": {
+          "count": 0,
+          "positions": []
+        },
+        "annualPremium": {
+          "count": 0,
+          "positions": []
+        },
+        "plannedOrAvePremium": {
+          "count": 0,
+          "positions": []
+        },
+        "coveragePeriod": {
+          "count": 0,
+          "positions": []
+        }
+      },
+      "schemaWindowContainsAllEight": false,
+      "quotedAllEight": false,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "hasOwnProperty",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "return {",
+        ".reduce(",
+        ".map("
+      ],
+      "consumerSignals": [],
+      "exports": [
+        "PROTECTED_ROOT_ASSETS",
+        "check",
+        "classifyMarkdownLink",
+        "classifyPlanRecord",
+        "compareDestination",
+        "destinationFor",
+        "docsAntiContaminationCheck",
+        "duplicateDestinationReport",
+        "extractMarkdownLinks",
+        "isCode",
+        "isDoc",
+        "isRoot",
+        "linkReport",
+        "makeInventory",
+        "markdownHeadingSlug",
+        "markdownHeadingSlugs",
+        "protectedRootRegressionChecks",
+        "rewritePlan",
+        "validate",
+        "validateInventory",
+        "validateInventoryObject",
+        "writeInventory"
+      ],
+      "imports": [
+        "child_process",
+        "fs",
+        "path"
+      ],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 78,
+          "excerpt": "-archive',\n  },\n  {\n    deprecated: 'docs/adr',\n    replacement: 'docs/02-adr-candidates',\n  },\n  {\n    deprecated: 'docs/05-legacy',\n    replacement: 'docs/99-archive/05-legacy',\n  },\n];\n\nconst REGISTERED_TOP_LEVEL_DOC_NAMESPACES = new Set([\n  'docs/00-governance',\n  'docs/01-constitution',\n  'docs/02-adr-candidates',\n  'docs/02-build-tree',\n  'docs/03-discoveries',\n  'docs/03-discovery',\n  'docs/04-intelligence',\n  'docs/04-manager-os',\n "
+        },
+        {
+          "term": "name",
+          "line": 151,
+          "excerpt": "x += 1;\n    }\n  }\n\n  return parsed;\n}\n\nfunction walk(dir, base = '') {\n  const entries = fs.readdirSync(path.join(ROOT, dir), { withFileTypes: true });\n  const files = [];\n\n  for (const entry of entries) {\n    if (entry.name === '.git' || entry.name === 'node_modules') continue;\n    const rel = path.posix.join(base, entry.name);\n    const full = path.join(ROOT, rel);\n\n    if (entry.isDirectory()) {\n      files.push(...walk(rel, rel));\n    }"
+        },
+        {
+          "term": "name",
+          "line": 151,
+          "excerpt": "rn parsed;\n}\n\nfunction walk(dir, base = '') {\n  const entries = fs.readdirSync(path.join(ROOT, dir), { withFileTypes: true });\n  const files = [];\n\n  for (const entry of entries) {\n    if (entry.name === '.git' || entry.name === 'node_modules') continue;\n    const rel = path.posix.join(base, entry.name);\n    const full = path.join(ROOT, rel);\n\n    if (entry.isDirectory()) {\n      files.push(...walk(rel, rel));\n    } else if (entry.isFile())"
+        },
+        {
+          "term": "name",
+          "line": 152,
+          "excerpt": "path.join(ROOT, dir), { withFileTypes: true });\n  const files = [];\n\n  for (const entry of entries) {\n    if (entry.name === '.git' || entry.name === 'node_modules') continue;\n    const rel = path.posix.join(base, entry.name);\n    const full = path.join(ROOT, rel);\n\n    if (entry.isDirectory()) {\n      files.push(...walk(rel, rel));\n    } else if (entry.isFile()) {\n      files.push(rel);\n    }\n  }\n\n  return files.sort();\n}\n\nfunction rootFil"
+        },
+        {
+          "term": "name",
+          "line": 168,
+          "excerpt": "ntry.isFile()) {\n      files.push(rel);\n    }\n  }\n\n  return files.sort();\n}\n\nfunction rootFiles() {\n  return fs.readdirSync(ROOT, { withFileTypes: true })\n    .filter((entry) => entry.isFile())\n    .map((entry) => entry.name)\n    .sort();\n}\n\nfunction extname(file) {\n  return path.extname(file).toLowerCase();\n}\n\nfunction isDoc(file) {\n  return DOC_EXTENSIONS.has(extname(file));\n}\n\nfunction isCode(file) {\n  return CODE_EXTENSIONS.has(extname("
+        },
+        {
+          "term": "name",
+          "line": 172,
+          "excerpt": "rel);\n    }\n  }\n\n  return files.sort();\n}\n\nfunction rootFiles() {\n  return fs.readdirSync(ROOT, { withFileTypes: true })\n    .filter((entry) => entry.isFile())\n    .map((entry) => entry.name)\n    .sort();\n}\n\nfunction extname(file) {\n  return path.extname(file).toLowerCase();\n}\n\nfunction isDoc(file) {\n  return DOC_EXTENSIONS.has(extname(file));\n}\n\nfunction isCode(file) {\n  return CODE_EXTENSIONS.has(extname(file));\n}\n\nfunction isExcludedFrom"
+        },
+        {
+          "term": "name",
+          "line": 173,
+          "excerpt": "s.sort();\n}\n\nfunction rootFiles() {\n  return fs.readdirSync(ROOT, { withFileTypes: true })\n    .filter((entry) => entry.isFile())\n    .map((entry) => entry.name)\n    .sort();\n}\n\nfunction extname(file) {\n  return path.extname(file).toLowerCase();\n}\n\nfunction isDoc(file) {\n  return DOC_EXTENSIONS.has(extname(file));\n}\n\nfunction isCode(file) {\n  return CODE_EXTENSIONS.has(extname(file));\n}\n\nfunction isExcludedFromDocsAntiContamination(file) {\n"
+        },
+        {
+          "term": "name",
+          "line": 177,
+          "excerpt": "true })\n    .filter((entry) => entry.isFile())\n    .map((entry) => entry.name)\n    .sort();\n}\n\nfunction extname(file) {\n  return path.extname(file).toLowerCase();\n}\n\nfunction isDoc(file) {\n  return DOC_EXTENSIONS.has(extname(file));\n}\n\nfunction isCode(file) {\n  return CODE_EXTENSIONS.has(extname(file));\n}\n\nfunction isExcludedFromDocsAntiContamination(file) {\n  return DOC_ANTI_CONTAMINATION_EXCLUDED_PREFIXES.some((prefix) => file.startsWith("
+        },
+        {
+          "term": "name",
+          "line": 181,
+          "excerpt": ".name)\n    .sort();\n}\n\nfunction extname(file) {\n  return path.extname(file).toLowerCase();\n}\n\nfunction isDoc(file) {\n  return DOC_EXTENSIONS.has(extname(file));\n}\n\nfunction isCode(file) {\n  return CODE_EXTENSIONS.has(extname(file));\n}\n\nfunction isExcludedFromDocsAntiContamination(file) {\n  return DOC_ANTI_CONTAMINATION_EXCLUDED_PREFIXES.some((prefix) => file.startsWith(prefix));\n}\n\nfunction topLevelDocsNamespace(file) {\n  if (!file.startsWi"
+        },
+        {
+          "term": "name",
+          "line": 188,
+          "excerpt": "{\n  return CODE_EXTENSIONS.has(extname(file));\n}\n\nfunction isExcludedFromDocsAntiContamination(file) {\n  return DOC_ANTI_CONTAMINATION_EXCLUDED_PREFIXES.some((prefix) => file.startsWith(prefix));\n}\n\nfunction topLevelDocsNamespace(file) {\n  if (!file.startsWith('docs/')) return '';\n  const parts = file.split('/');\n  if (parts.length < 3) return '';\n  return `docs/${parts[1]}`;\n}\n\nfunction isDocsAntiContaminationPolicyDeclaration(file) {\n  re"
+        },
+        {
+          "term": "name",
+          "line": 335,
+          "excerpt": "VIEW_REQUIRED',\n      reason: 'Not a root documentation file in harness scope.',\n    };\n  }\n\n  if (isTestDoc(file)) {\n    return {\n      source: file,\n      destination,\n      action: 'SKIP_TEST_DOC',\n      reason: 'Filename indicates test/validation artifact; requires separate evidence policy.',\n    };\n  }\n\n  if (isCode(file)) {\n    return {\n      source: file,\n      destination,\n      action: 'REVIEW_REQUIRED',\n      reason: 'Runtime/code"
+        },
+        {
+          "term": "name",
+          "line": 448,
+          "excerpt": "Dir || options['output-dir'];\n  const outputDir = requested ? path.resolve(ROOT, requested) : ROOT;\n  fs.mkdirSync(outputDir, { recursive: true });\n  return outputDir;\n}\n\nfunction assertReportWriteAllowed(outputDir, filename) {\n  const resolved = path.resolve(outputDir, filename);\n  const relativeToRoot = path.relative(ROOT, resolved);\n  const writesProtectedRoot = (\n    !relativeToRoot.startsWith('..') &&\n    !path.isAbsolute(relativeToRoo"
+        }
+      ],
+      "reverseImporters": [
+        "scripts/test-repo-migration-harness.js"
+      ],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 69,
+      "mapperScore": 93,
+      "validatorScore": 111,
+      "consumerScore": 37
+    },
+    {
+      "path": "docs/architecture/quote-preview/107z8-quote-preview-pdf-runtime-persistence-adr-review.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 3956,
+      "sha256": "f678699e15d6faa17046d7852b10a9e8cb3ab5e0f25ba6d781d1316f8a925e3b",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 1,
+          "positions": [
+            493
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            501
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            511
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            522
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            533
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            547
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            564
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            587
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "required"
+      ],
+      "constructionSignals": [],
+      "consumerSignals": [
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 29,
+          "excerpt": "ist\n\n### PASS — DRAFT_NOT_SILENTLY_APPROVED\n\nADR remains draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found i"
+        },
+        {
+          "term": "family",
+          "line": 29,
+          "excerpt": " PASS — DRAFT_NOT_SILENTLY_APPROVED\n\nADR remains draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draf"
+        },
+        {
+          "term": "product",
+          "line": 29,
+          "excerpt": "AFT_NOT_SILENTLY_APPROVED\n\nADR remains draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS"
+        },
+        {
+          "term": "product",
+          "line": 31,
+          "excerpt": "false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Boundary text found in ADR draft"
+        },
+        {
+          "term": "product",
+          "line": 33,
+          "excerpt": "IELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — NO_QUOTE_TRUTH\n\nPr"
+        },
+        {
+          "term": "insured",
+          "line": 29,
+          "excerpt": "ENTLY_APPROVED\n\nADR remains draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PR"
+        },
+        {
+          "term": "sumAssured",
+          "line": 29,
+          "excerpt": "VED\n\nADR remains draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTRE"
+        },
+        {
+          "term": "annualPremium",
+          "line": 29,
+          "excerpt": "ns draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 29,
+          "excerpt": "proved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEv"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 29,
+          "excerpt": "TATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Boundary t"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "ft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "ence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEv"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 230,
+      "mapperScore": 123,
+      "validatorScore": 109,
+      "consumerScore": 72
+    },
+    {
+      "path": "docs/architecture/quote-preview/107z8r-quote-preview-pdf-runtime-persistence-adr-revised-review.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 4067,
+      "sha256": "e74979337661fdbb31aa147bd4b82a3cb4f0f229ba88fb0a575a76b5419f21a6",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 1,
+          "positions": [
+            517
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            525
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            535
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            546
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            557
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            571
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            588
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            611
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "required"
+      ],
+      "constructionSignals": [],
+      "consumerSignals": [
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 29,
+          "excerpt": "DRAFT_NOT_SILENTLY_APPROVED\n\nADR remains revised draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found i"
+        },
+        {
+          "term": "family",
+          "line": 29,
+          "excerpt": "T_SILENTLY_APPROVED\n\nADR remains revised draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised "
+        },
+        {
+          "term": "product",
+          "line": 29,
+          "excerpt": "_APPROVED\n\nADR remains revised draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PA"
+        },
+        {
+          "term": "product",
+          "line": 31,
+          "excerpt": "false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Boundary text found in revised"
+        },
+        {
+          "term": "product",
+          "line": 33,
+          "excerpt": "IELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — NO_QUOTE_TRUTH"
+        },
+        {
+          "term": "insured",
+          "line": 29,
+          "excerpt": "ADR remains revised draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_"
+        },
+        {
+          "term": "sumAssured",
+          "line": 29,
+          "excerpt": " revised draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNST"
+        },
+        {
+          "term": "annualPremium",
+          "line": 29,
+          "excerpt": " and unapproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Previ"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 29,
+          "excerpt": "Evidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\n"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 29,
+          "excerpt": "AFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Boundary"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "napproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Previ"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "R_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\n"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 230,
+      "mapperScore": 123,
+      "validatorScore": 109,
+      "consumerScore": 72
+    },
+    {
+      "path": "docs/architecture/quote-preview/107z8r3-quote-preview-pdf-runtime-persistence-authority-normalized-review.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 3239,
+      "sha256": "73a6416d43c8de21e4c34d2b41c71b3d39e97460d2d2f6e947946579e97befd6",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 1,
+          "positions": [
+            559
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            567
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            577
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            588
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            599
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            613
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            630
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            653
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "required"
+      ],
+      "constructionSignals": [],
+      "consumerSignals": [
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 29,
+          "excerpt": "alized draft\n\nEvidence: ADR_STATUS=DRAFT_AUTHORITY_NORMALIZED; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary fou"
+        },
+        {
+          "term": "family",
+          "line": 29,
+          "excerpt": "raft\n\nEvidence: ADR_STATUS=DRAFT_AUTHORITY_NORMALIZED; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in norm"
+        },
+        {
+          "term": "product",
+          "line": 29,
+          "excerpt": "ence: ADR_STATUS=DRAFT_AUTHORITY_NORMALIZED; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n"
+        },
+        {
+          "term": "product",
+          "line": 31,
+          "excerpt": "ACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Downstream boundary fou"
+        },
+        {
+          "term": "product",
+          "line": 33,
+          "excerpt": "Exactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Downstream boundary found in normalized ADR\n\n### PASS "
+        },
+        {
+          "term": "insured",
+          "line": 29,
+          "excerpt": "TATUS=DRAFT_AUTHORITY_NORMALIZED; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS —"
+        },
+        {
+          "term": "sumAssured",
+          "line": 29,
+          "excerpt": "_AUTHORITY_NORMALIZED; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW"
+        },
+        {
+          "term": "annualPremium",
+          "line": 29,
+          "excerpt": "MALIZED; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuot"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 29,
+          "excerpt": "OVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downs"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 29,
+          "excerpt": "ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: D"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "D; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuot"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downs"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 230,
+      "mapperScore": 123,
+      "validatorScore": 109,
+      "consumerScore": 72
+    }
+  ],
+  "consumerCandidates": [
+    {
+      "path": "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js",
+      "category": "production_source",
+      "extension": ".js",
+      "size": 3760,
+      "sha256": "e7f5d74b32115c98bbec5f9f8ad7b1e4503fa87a6c668fdf4919c7a0fa29f322",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 1,
+          "positions": [
+            404
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            412
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            422
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            433
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            444
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            458
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            475
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            498
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "hasOwnProperty",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "fields:",
+        "payload:"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 2,
+          "excerpt": ";else root.ForgeQuotePreviewPdfResultPersistenceContract=api;})(typeof globalThis!==\"undefined\"?globalThis:this,function(){\"use strict\";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!"
+        },
+        {
+          "term": "name",
+          "line": 3,
+          "excerpt": "!==\"undefined\"?globalThis:this,function(){\"use strict\";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeo"
+        },
+        {
+          "term": "name",
+          "line": 14,
+          "excerpt": "l(id){return Object.freeze({previewResultIdentity:identity(id),persistenceContractId:CONTRACT_ID,__forgePersistenceIdentityEvent:true});}\nreturn Object.freeze({CONTRACT_ID:CONTRACT_ID,SCHEMA_VERSION:SCHEMA_VERSION,EVENT_NAME:EVENT_NAME,REQUIRED_FIELDS:REQUIRED_FIELDS,normalizeIdentity:identity,assertSafePayload:function(v){scan(v,\"$\");return true;},extractAuthorizedFields:fieldsFrom,createRecord:record,validateRecord:record,createExtraction"
+        },
+        {
+          "term": "name",
+          "line": 14,
+          "excerpt": "n Object.freeze({previewResultIdentity:identity(id),persistenceContractId:CONTRACT_ID,__forgePersistenceIdentityEvent:true});}\nreturn Object.freeze({CONTRACT_ID:CONTRACT_ID,SCHEMA_VERSION:SCHEMA_VERSION,EVENT_NAME:EVENT_NAME,REQUIRED_FIELDS:REQUIRED_FIELDS,normalizeIdentity:identity,assertSafePayload:function(v){scan(v,\"$\");return true;},extractAuthorizedFields:fieldsFrom,createRecord:record,validateRecord:record,createExtractionReadyDetail"
+        },
+        {
+          "term": "family",
+          "line": 3,
+          "excerpt": "fined\"?globalThis:this,function(){\"use strict\";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"obj"
+        },
+        {
+          "term": "product",
+          "line": 3,
+          "excerpt": "balThis:this,function(){\"use strict\";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Arra"
+        },
+        {
+          "term": "insured",
+          "line": 3,
+          "excerpt": "s,function(){\"use strict\";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Array.isArray(v"
+        },
+        {
+          "term": "sumAssured",
+          "line": 3,
+          "excerpt": "){\"use strict\";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Array.isArray(v);}\nfunction c"
+        },
+        {
+          "term": "annualPremium",
+          "line": 3,
+          "excerpt": ";\nvar CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Array.isArray(v);}\nfunction clone(v){return JS"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 3,
+          "excerpt": "=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Array.isArray(v);}\nfunction clone(v){return JSON.parse(JSON.stringify"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 3,
+          "excerpt": "ULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Array.isArray(v);}\nfunction clone(v){return JSON.parse(JSON.stringify(v));}\nfunction sc"
+        },
+        {
+          "term": "premium",
+          "line": 3,
+          "excerpt": "CONTRACT_ID=\"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",SCHEMA_VERSION=\"1\",EVENT_NAME=\"forge:quote-preview:extraction-ready\";\nvar REQUIRED_FIELDS=Object.freeze([\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]);\nfunction err(ok,code,msg){if(!ok){var e=new Error(msg);e.code=code;throw e;}}\nfunction obj(v){return !!v&&typeof v===\"object\"&&!Array.isArray(v);}\nfunction clone(v){return JS"
+        }
+      ],
+      "reverseImporters": [
+        "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-coordinator.js",
+        "platform/runtime/quote-preview/quote-preview-pdf-result-store.js"
+      ],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 271,
+      "mapperScore": 158,
+      "validatorScore": 174,
+      "consumerScore": 109
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z12r-quote-preview-pdf-runtime-persistence-scoped-implementation-repair-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 3676,
+      "sha256": "4a109a0db3ded438eed879c24e567a7a3c4c19420e06f1736d3406727af28c6e",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 1,
+          "positions": [
+            827
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            841
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            857
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            874
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            891
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            911
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            934
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            963
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "required"
+      ],
+      "constructionSignals": [],
+      "consumerSignals": [
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 24,
+          "excerpt": " false,\n    \"SYNTHETIC_TEST_EXECUTED\": true,\n    \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-previ"
+        },
+        {
+          "term": "family",
+          "line": 25,
+          "excerpt": "YNTHETIC_TEST_EXECUTED\": true,\n    \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-pe"
+        },
+        {
+          "term": "product",
+          "line": 26,
+          "excerpt": "ECUTED\": true,\n    \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contrac"
+        },
+        {
+          "term": "insured",
+          "line": 27,
+          "excerpt": "  \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE"
+        },
+        {
+          "term": "sumAssured",
+          "line": 28,
+          "excerpt": "XECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/ru"
+        },
+        {
+          "term": "annualPremium",
+          "line": 29,
+          "excerpt": " \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quo"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 30,
+          "excerpt": "FFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quote-preview-pdf-result-store.j"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 31,
+          "excerpt": "REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\",\n    \"COORDINATOR_PAT"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "IME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quo"
+        },
+        {
+          "term": "premium",
+          "line": 30,
+          "excerpt": "ED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quote-preview-pdf-result-store.j"
+        },
+        {
+          "term": "REQUIRED_CONFIRMATION_FIELDS",
+          "line": 23,
+          "excerpt": "ue,\n    \"SYNTHETIC_TEST_FILE_COMMITTED\": false,\n    \"SYNTHETIC_TEST_EXECUTED\": true,\n    \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-pre"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 265,
+      "mapperScore": 123,
+      "validatorScore": 109,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z12r-quote-preview-pdf-runtime-persistence-scoped-implementation-repair.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 3595,
+      "sha256": "b3263ccc56286a8fbcf09b7d1c3b2fe8da9850e63ad01c3f8f77b2190c890d97",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 1,
+          "positions": [
+            750
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            764
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            780
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            797
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            814
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            834
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            857
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            886
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "required"
+      ],
+      "constructionSignals": [],
+      "consumerSignals": [
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 19,
+          "excerpt": " false,\n    \"SYNTHETIC_TEST_EXECUTED\": true,\n    \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-previ"
+        },
+        {
+          "term": "family",
+          "line": 20,
+          "excerpt": "YNTHETIC_TEST_EXECUTED\": true,\n    \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-pe"
+        },
+        {
+          "term": "product",
+          "line": 21,
+          "excerpt": "ECUTED\": true,\n    \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contrac"
+        },
+        {
+          "term": "insured",
+          "line": 22,
+          "excerpt": "  \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE"
+        },
+        {
+          "term": "sumAssured",
+          "line": 23,
+          "excerpt": "XECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/ru"
+        },
+        {
+          "term": "annualPremium",
+          "line": 24,
+          "excerpt": " \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quo"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 25,
+          "excerpt": "FFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quote-preview-pdf-result-store.j"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 26,
+          "excerpt": "REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quote-preview-pdf-result-store.js\",\n    \"COORDINATOR_PAT"
+        },
+        {
+          "term": "premium",
+          "line": 24,
+          "excerpt": "IME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quo"
+        },
+        {
+          "term": "premium",
+          "line": 25,
+          "excerpt": "ED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js\",\n    \"STORE_PATH\": \"platform/runtime/quote-preview/quote-preview-pdf-result-store.j"
+        },
+        {
+          "term": "REQUIRED_CONFIRMATION_FIELDS",
+          "line": 18,
+          "excerpt": "ue,\n    \"SYNTHETIC_TEST_FILE_COMMITTED\": false,\n    \"SYNTHETIC_TEST_EXECUTED\": true,\n    \"LIVE_RUNTIME_EXECUTED\": false,\n    \"RUNTIME_PERSISTENCE_EFFECT_EXECUTED\": false,\n    \"REQUIRED_CONFIRMATION_FIELD_COUNT\": 8,\n    \"REQUIRED_CONFIRMATION_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"CONTRACT_PATH\": \"platform/adapters/quote-pre"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 265,
+      "mapperScore": 123,
+      "validatorScore": 109,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z14r1-controlled-browser-integration-targeted-repair-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 7060,
+      "sha256": "b0a5e58bf610dad66ccbe94de7229686bbb5c9f5b5d3f60a9cfba8ed46745278",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 2,
+          "positions": [
+            4449,
+            4802
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            4484
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            4521
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            4559
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            4597
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            4638
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            4682
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            4732
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "schema"
+      ],
+      "constructionSignals": [],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 89,
+          "excerpt": "on\": \"1\"\n            },\n            \"persistenceContractId\": \"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",\n            \"__forgePersistenceIdentityEvent\": true\n          }\n        }\n      ],\n      \"modalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n"
+        },
+        {
+          "term": "name",
+          "line": 98,
+          "excerpt": "e-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"status\": \"ambiguous\",\n            \"candidates\": [\n              \"browser-a\",\n              \"browser-b\"\n            ]\n          }\n        },\n        \"previewResultIdentity\": {\n          \"previewResultId\""
+        },
+        {
+          "term": "family",
+          "line": 90,
+          "excerpt": " \"persistenceContractId\": \"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",\n            \"__forgePersistenceIdentityEvent\": true\n          }\n        }\n      ],\n      \"modalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"brows"
+        },
+        {
+          "term": "product",
+          "line": 91,
+          "excerpt": "IEW_PDF_RESULT_PERSISTENCE_V1\",\n            \"__forgePersistenceIdentityEvent\": true\n          }\n        }\n      ],\n      \"modalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\":"
+        },
+        {
+          "term": "insured",
+          "line": 92,
+          "excerpt": "      \"__forgePersistenceIdentityEvent\": true\n          }\n        }\n      ],\n      \"modalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity"
+        },
+        {
+          "term": "sumAssured",
+          "line": 93,
+          "excerpt": "\": true\n          }\n        }\n      ],\n      \"modalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"sta"
+        },
+        {
+          "term": "annualPremium",
+          "line": 94,
+          "excerpt": "    \"modalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"status\": \"ambiguous\",\n            \"candidates\":"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 95,
+          "excerpt": "er-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"status\": \"ambiguous\",\n            \"candidates\": [\n              \"browser-a\",\n              \"brows"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 96,
+          "excerpt": "        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"status\": \"ambiguous\",\n            \"candidates\": [\n              \"browser-a\",\n              \"browser-b\"\n            ]\n          }\n        },\n  "
+        },
+        {
+          "term": "premium",
+          "line": 94,
+          "excerpt": "odalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"status\": \"ambiguous\",\n            \"candidates\":"
+        },
+        {
+          "term": "premium",
+          "line": 95,
+          "excerpt": "\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"status\": \"ambiguous\",\n            \"candidates\": [\n              \"browser-a\",\n              \"brows"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 230,
+      "mapperScore": 123,
+      "validatorScore": 109,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z14r1-controlled-browser-integration-targeted-repair.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 6972,
+      "sha256": "9127dd772492443b8841b2b38f57613a2f497826dad4d54a3f05a4ae10ce24fb",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 2,
+          "positions": [
+            4365,
+            4718
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            4400
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            4437
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            4475
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            4513
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            4554
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            4598
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            4648
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "schema"
+      ],
+      "constructionSignals": [],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "on\": \"1\"\n            },\n            \"persistenceContractId\": \"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",\n            \"__forgePersistenceIdentityEvent\": true\n          }\n        }\n      ],\n      \"modalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n"
+        },
+        {
+          "term": "name",
+          "line": 93,
+          "excerpt": "e-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"status\": \"ambiguous\",\n            \"candidates\": [\n              \"browser-a\",\n              \"browser-b\"\n            ]\n          }\n        },\n        \"previewResultIdentity\": {\n          \"previewResultId\""
+        },
+        {
+          "term": "family",
+          "line": 85,
+          "excerpt": " \"persistenceContractId\": \"QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1\",\n            \"__forgePersistenceIdentityEvent\": true\n          }\n        }\n      ],\n      \"modalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"brows"
+        },
+        {
+          "term": "product",
+          "line": 86,
+          "excerpt": "IEW_PDF_RESULT_PERSISTENCE_V1\",\n            \"__forgePersistenceIdentityEvent\": true\n          }\n        }\n      ],\n      \"modalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\":"
+        },
+        {
+          "term": "insured",
+          "line": 87,
+          "excerpt": "      \"__forgePersistenceIdentityEvent\": true\n          }\n        }\n      ],\n      \"modalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity"
+        },
+        {
+          "term": "sumAssured",
+          "line": 88,
+          "excerpt": "\": true\n          }\n        }\n      ],\n      \"modalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"sta"
+        },
+        {
+          "term": "annualPremium",
+          "line": 89,
+          "excerpt": "    \"modalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"status\": \"ambiguous\",\n            \"candidates\":"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 90,
+          "excerpt": "er-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"status\": \"ambiguous\",\n            \"candidates\": [\n              \"browser-a\",\n              \"brows"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 91,
+          "excerpt": "        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"status\": \"ambiguous\",\n            \"candidates\": [\n              \"browser-a\",\n              \"browser-b\"\n            ]\n          }\n        },\n  "
+        },
+        {
+          "term": "premium",
+          "line": 89,
+          "excerpt": "odalPayload\": {\n        \"name\": \"browser-value-1\",\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"status\": \"ambiguous\",\n            \"candidates\":"
+        },
+        {
+          "term": "premium",
+          "line": 90,
+          "excerpt": "\n        \"family\": \"browser-value-2\",\n        \"product\": \"browser-value-3\",\n        \"insured\": \"browser-value-4\",\n        \"sumAssured\": \"browser-value-5\",\n        \"annualPremium\": \"browser-value-6\",\n        \"plannedOrAvePremium\": \"browser-value-7\",\n        \"coveragePeriod\": \"browser-value-8\",\n        \"ambiguity\": {\n          \"name\": {\n            \"status\": \"ambiguous\",\n            \"candidates\": [\n              \"browser-a\",\n              \"brows"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 230,
+      "mapperScore": 123,
+      "validatorScore": 109,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15s-canonical-schema-owner-reconciliation-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 143439,
+      "sha256": "a8ecfaf9f18d56cc1cc9105381a0e668de65e92d2fb8d31296fdd0fd19302415",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 39,
+          "positions": [
+            1171,
+            2157,
+            2673,
+            3189,
+            3705,
+            4219,
+            4732,
+            5279,
+            5804,
+            6328,
+            6828,
+            7394,
+            7821,
+            8354,
+            8884,
+            9414,
+            9944,
+            10475,
+            11006,
+            70207,
+            70825,
+            71907,
+            72433,
+            72959,
+            73485,
+            74009,
+            74532,
+            75093,
+            75628,
+            76162,
+            76672,
+            77254,
+            77691,
+            78234,
+            78774,
+            79314,
+            79854,
+            80395,
+            80936
+          ]
+        },
+        "family": {
+          "count": 31,
+          "positions": [
+            11554,
+            12252,
+            12760,
+            13269,
+            13785,
+            14295,
+            14805,
+            15316,
+            15827,
+            16374,
+            16968,
+            17455,
+            17990,
+            18526,
+            19062,
+            70221,
+            81498,
+            82250,
+            82768,
+            83287,
+            83813,
+            84333,
+            84853,
+            85374,
+            85895,
+            86456,
+            87066,
+            87563,
+            88108,
+            88654,
+            89200
+          ]
+        },
+        "product": {
+          "count": 63,
+          "positions": [
+            19613,
+            19744,
+            19812,
+            19822,
+            19875,
+            19885,
+            20499,
+            21008,
+            21516,
+            22024,
+            22533,
+            23042,
+            23551,
+            24061,
+            24609,
+            24999,
+            25491,
+            26001,
+            26510,
+            27019,
+            27528,
+            28036,
+            28580,
+            29175,
+            29655,
+            30194,
+            30732,
+            31268,
+            31806,
+            32343,
+            32880,
+            70237,
+            89765,
+            89902,
+            89974,
+            89986,
+            90043,
+            90055,
+            90733,
+            91252,
+            91770,
+            92288,
+            92807,
+            93326,
+            93845,
+            94365,
+            94927,
+            95327,
+            95829,
+            96349
+          ]
+        },
+        "insured": {
+          "count": 37,
+          "positions": [
+            33433,
+            34146,
+            34658,
+            35177,
+            35690,
+            36202,
+            36711,
+            37222,
+            37733,
+            38312,
+            38907,
+            39443,
+            39978,
+            40517,
+            41055,
+            41592,
+            42129,
+            42666,
+            70254,
+            103935,
+            104704,
+            105226,
+            105755,
+            106278,
+            106800,
+            107319,
+            107840,
+            108361,
+            108956,
+            109567,
+            110113,
+            110658,
+            111207,
+            111755,
+            112302,
+            112849,
+            113396
+          ]
+        },
+        "sumAssured": {
+          "count": 5,
+          "positions": [
+            43219,
+            48152,
+            70271,
+            113963,
+            119038
+          ]
+        },
+        "annualPremium": {
+          "count": 43,
+          "positions": [
+            48763,
+            48900,
+            48974,
+            48984,
+            49043,
+            49053,
+            49521,
+            50050,
+            50571,
+            51092,
+            51616,
+            52142,
+            52727,
+            53526,
+            53839,
+            54495,
+            55024,
+            55545,
+            56066,
+            56590,
+            57116,
+            70291,
+            119667,
+            119810,
+            119888,
+            119900,
+            119963,
+            119975,
+            120485,
+            121024,
+            121555,
+            122086,
+            122620,
+            123156,
+            123757,
+            124584,
+            124921,
+            125631,
+            126170,
+            126701,
+            127232,
+            127766,
+            128302
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 5,
+          "positions": [
+            53344,
+            61843,
+            70314,
+            124392,
+            133127
+          ]
+        },
+        "coveragePeriod": {
+          "count": 5,
+          "positions": [
+            62472,
+            69528,
+            70343,
+            133774,
+            141018
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "policyTerm",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 14,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "validate",
+        "hasOwnProperty",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "getField(",
+        "fields:",
+        "payload:",
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [
+        "./quote-preview-product-intelligence-binding-adapter-074b.js"
+      ],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 34,
+          "excerpt": "\"PDF_READ_EXECUTED\": false,\n    \"BACKEND_CONNECTION\": false,\n    \"QUOTE_TRUTH_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15S1_CANONICAL_SCHEMA_CORRECTION_AUTHORIZATION_GATE\"\n  },\n  \"fields\": [\n    {\n      \"canonicalField\": \"name\",\n      \"classification\": \"ADAPTER_DERIVED_ONLY\",\n      \"runtimeOwner\": \"adapter\",\n      \"directEngineMapping\": null,\n      \"engineAliases\": [],\n      \"normalizedNativeKeys\": [],\n      \"proposalRankedCandidates\": [],\n  "
+        },
+        {
+          "term": "name",
+          "line": 82,
+          "excerpt": "\n      },\n      \"engineEvidence\": false,\n      \"adapterEvidence\": true,\n      \"persistenceEvidence\": true,\n      \"modalEvidence\": true,\n      \"engineSnippets\": [],\n      \"adapterSnippets\": [\n        {\n          \"term\": \"name\",\n          \"line\": 118,\n          \"excerpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction "
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "e\": 118,\n          \"excerpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationO"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "erpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n "
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": " .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": ", '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"o"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "ace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')"
+        },
+        {
+          "term": "name",
+          "line": 87,
+          "excerpt": " && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names)"
+        },
+        {
+          "term": "name",
+          "line": 89,
+          "excerpt": " \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationO"
+        },
+        {
+          "term": "name",
+          "line": 89,
+          "excerpt": "e\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result) {\\n  if (resu"
+        },
+        {
+          "term": "name",
+          "line": 89,
+          "excerpt": "\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result) {\\n  if (result === t"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 242,
+      "mapperScore": 312,
+      "validatorScore": 139,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15s-canonical-schema-owner-reconciliation.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 143349,
+      "sha256": "612bda54bc9753edafaf391fb9defd94793a3fc61e538cd3d3b7bcca71d3014d",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 39,
+          "positions": [
+            1085,
+            2071,
+            2587,
+            3103,
+            3619,
+            4133,
+            4646,
+            5193,
+            5718,
+            6242,
+            6742,
+            7308,
+            7735,
+            8268,
+            8798,
+            9328,
+            9858,
+            10389,
+            10920,
+            70121,
+            70739,
+            71821,
+            72347,
+            72873,
+            73399,
+            73923,
+            74446,
+            75007,
+            75542,
+            76076,
+            76586,
+            77168,
+            77605,
+            78148,
+            78688,
+            79228,
+            79768,
+            80309,
+            80850
+          ]
+        },
+        "family": {
+          "count": 31,
+          "positions": [
+            11468,
+            12166,
+            12674,
+            13183,
+            13699,
+            14209,
+            14719,
+            15230,
+            15741,
+            16288,
+            16882,
+            17369,
+            17904,
+            18440,
+            18976,
+            70135,
+            81412,
+            82164,
+            82682,
+            83201,
+            83727,
+            84247,
+            84767,
+            85288,
+            85809,
+            86370,
+            86980,
+            87477,
+            88022,
+            88568,
+            89114
+          ]
+        },
+        "product": {
+          "count": 63,
+          "positions": [
+            19527,
+            19658,
+            19726,
+            19736,
+            19789,
+            19799,
+            20413,
+            20922,
+            21430,
+            21938,
+            22447,
+            22956,
+            23465,
+            23975,
+            24523,
+            24913,
+            25405,
+            25915,
+            26424,
+            26933,
+            27442,
+            27950,
+            28494,
+            29089,
+            29569,
+            30108,
+            30646,
+            31182,
+            31720,
+            32257,
+            32794,
+            70151,
+            89679,
+            89816,
+            89888,
+            89900,
+            89957,
+            89969,
+            90647,
+            91166,
+            91684,
+            92202,
+            92721,
+            93240,
+            93759,
+            94279,
+            94841,
+            95241,
+            95743,
+            96263
+          ]
+        },
+        "insured": {
+          "count": 37,
+          "positions": [
+            33347,
+            34060,
+            34572,
+            35091,
+            35604,
+            36116,
+            36625,
+            37136,
+            37647,
+            38226,
+            38821,
+            39357,
+            39892,
+            40431,
+            40969,
+            41506,
+            42043,
+            42580,
+            70168,
+            103849,
+            104618,
+            105140,
+            105669,
+            106192,
+            106714,
+            107233,
+            107754,
+            108275,
+            108870,
+            109481,
+            110027,
+            110572,
+            111121,
+            111669,
+            112216,
+            112763,
+            113310
+          ]
+        },
+        "sumAssured": {
+          "count": 5,
+          "positions": [
+            43133,
+            48066,
+            70185,
+            113877,
+            118952
+          ]
+        },
+        "annualPremium": {
+          "count": 43,
+          "positions": [
+            48677,
+            48814,
+            48888,
+            48898,
+            48957,
+            48967,
+            49435,
+            49964,
+            50485,
+            51006,
+            51530,
+            52056,
+            52641,
+            53440,
+            53753,
+            54409,
+            54938,
+            55459,
+            55980,
+            56504,
+            57030,
+            70205,
+            119581,
+            119724,
+            119802,
+            119814,
+            119877,
+            119889,
+            120399,
+            120938,
+            121469,
+            122000,
+            122534,
+            123070,
+            123671,
+            124498,
+            124835,
+            125545,
+            126084,
+            126615,
+            127146,
+            127680,
+            128216
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 5,
+          "positions": [
+            53258,
+            61757,
+            70228,
+            124306,
+            133041
+          ]
+        },
+        "coveragePeriod": {
+          "count": 5,
+          "positions": [
+            62386,
+            69442,
+            70257,
+            133688,
+            140932
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "policyTerm",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 14,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "validate",
+        "hasOwnProperty",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "getField(",
+        "fields:",
+        "payload:",
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [
+        "./quote-preview-product-intelligence-binding-adapter-074b.js"
+      ],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 29,
+          "excerpt": "\"PDF_READ_EXECUTED\": false,\n    \"BACKEND_CONNECTION\": false,\n    \"QUOTE_TRUTH_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15S1_CANONICAL_SCHEMA_CORRECTION_AUTHORIZATION_GATE\"\n  },\n  \"fields\": [\n    {\n      \"canonicalField\": \"name\",\n      \"classification\": \"ADAPTER_DERIVED_ONLY\",\n      \"runtimeOwner\": \"adapter\",\n      \"directEngineMapping\": null,\n      \"engineAliases\": [],\n      \"normalizedNativeKeys\": [],\n      \"proposalRankedCandidates\": [],\n  "
+        },
+        {
+          "term": "name",
+          "line": 77,
+          "excerpt": "\n      },\n      \"engineEvidence\": false,\n      \"adapterEvidence\": true,\n      \"persistenceEvidence\": true,\n      \"modalEvidence\": true,\n      \"engineSnippets\": [],\n      \"adapterSnippets\": [\n        {\n          \"term\": \"name\",\n          \"line\": 118,\n          \"excerpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction "
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": "e\": 118,\n          \"excerpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationO"
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": "erpt\": \" .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n "
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": " .toLowerCase()\\n    .normalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {"
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": ", '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"o"
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": "ace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n"
+        },
+        {
+          "term": "name",
+          "line": 79,
+          "excerpt": "/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')"
+        },
+        {
+          "term": "name",
+          "line": 82,
+          "excerpt": " && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result)\"\n        },\n        {\n          \"term\": \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names)"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": " \"name\",\n          \"line\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationO"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "e\": 119,\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result) {\\n  if (resu"
+        },
+        {
+          "term": "name",
+          "line": 84,
+          "excerpt": "\n          \"excerpt\": \"ormalize('NFD')\\n    .replace(/[\\\\u0300-\\\\u036f]/g, '')\\n    .replace(/[^a-z0-9]+/g, '_')\\n    .replace(/^_+|_+$/g, '') || 'unknown';\\n}\\n\\nfunction getField(object, names) {\\n  for (const name of names) {\\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\\n      return object[name];\\n    }\\n  }\\n  return undefined;\\n}\\n\\nfunction validationOk(result) {\\n  if (result === t"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 242,
+      "mapperScore": 312,
+      "validatorScore": 139,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z7-quote-preview-pdf-runtime-persistence-adr-draft.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 8456,
+      "sha256": "a1112320a360c41e566b96aa0ed34bbe4e5f296c91cb1eae50a73b132b449954",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 4,
+          "positions": [
+            703,
+            1431,
+            2258,
+            3689
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            3707
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            3727
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            3748
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            3769
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            3793
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            3820
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            3853
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 16,
+          "excerpt": ", writer, reader or complete call chain.\",\n    \"RECOMMENDED_OPTION\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n    \"RECOMMENDATION_STATUS\": \"PENDING_EXPLICIT_APPROVAL\",\n    \"OPTIONS\": [\n      {\n        \"id\": \"A\",\n        \"name\": \"REUSE_EXISTING_GENERIC_RUNTIME\",\n        \"status\": \"REJECTED_PENDING_NEW_EVIDENCE\",\n        \"description\": \"Reuse an existing generic repository, runtime state or cache.\",\n        \"advantages\": [\n          \"Avoids du"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "    ],\n        \"acceptance_condition\": \"New source evidence must prove ownership, writer, reader, identity and downstream call chain before this option can return to review.\"\n      },\n      {\n        \"id\": \"B\",\n        \"name\": \"EPHEMERAL_IN_MEMORY_HANDOFF\",\n        \"status\": \"NOT_RECOMMENDED\",\n        \"description\": \"Pass the extraction result directly in memory from the engine to the confirmation modal without a persistence boundary.\",\n   "
+        },
+        {
+          "term": "name",
+          "line": 48,
+          "excerpt": "t recovery weaker.\"\n        ],\n        \"acceptance_condition\": \"Could only be chosen if the persistence requirement is explicitly revoked by a later constitutional decision.\"\n      },\n      {\n        \"id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence ha"
+        },
+        {
+          "term": "name",
+          "line": 70,
+          "excerpt": "t\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n  "
+        },
+        {
+          "term": "name",
+          "line": 117,
+          "excerpt": "lementation discovery confirms no canonical equivalent exists.\",\n      \"One canonical owner path is approved.\",\n      \"One explicit versioned identity/key contract is approved.\",\n      \"One writer and one reader API are named and documented.\",\n      \"The eight-field schema and metadata contract are approved.\",\n      \"The extraction-ready event carries only an identity/reference.\",\n      \"Yes and No actions consume the same stored preview re"
+        },
+        {
+          "term": "family",
+          "line": 71,
+          "excerpt": "traction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersi"
+        },
+        {
+          "term": "product",
+          "line": 50,
+          "excerpt": "id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence handoff infrastructure and consumed read-only by Quote Preview.\",\n        \"advantages\": [\n          \"Matches the locked PDF → writer → cache → popup/UI flow.\",\n          \"Provides deterministic reload, conf"
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "      \"ownership\": \"A single canonical module must own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n        "
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "st own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n     "
+        },
+        {
+          "term": "product",
+          "line": 72,
+          "excerpt": "uced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersion\",\n          \"sourc"
+        },
+        {
+          "term": "product",
+          "line": 105,
+          "excerpt": "eady extracted.\"\n      },\n      \"retention\": \"Retention and deletion policy must be explicitly selected during implementation design. No indefinite retention is authorized by this draft.\",\n      \"boundaries\": [\n        \"Product Intelligence remains upstream.\",\n        \"Quote Preview remains downstream.\",\n        \"The PDF engine is reference input, never quote truth.\",\n        \"No CRM, backend, provider, policy, pipeline, message or calendar wr"
+        },
+        {
+          "term": "product",
+          "line": 135,
+          "excerpt": "\",\n      \"The implementation would use a hidden latest-record default.\",\n      \"The result could become official quote truth without explicit downstream gates.\"\n    ]\n  },\n  \"canonical_inputs\": {\n    \"PDF_ENGINE_PATH\": \"product-intelligence/evidence/forge-quote-pdf-preview-engine.js\",\n    \"CONFIRMATION_MODAL_PATH\": \"docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.js\",\n    \"QUOTE_PREVIEW_UI_PATH\": \"docs/static"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 234,
+      "mapperScore": 183,
+      "validatorScore": 119,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z7r-quote-preview-pdf-runtime-persistence-adr-revision.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 9158,
+      "sha256": "0577c6ff937027f9b44cfd870812c1a36e0bc45b6fe1dd87c851784c2a9dd367",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 4,
+          "positions": [
+            733,
+            1461,
+            2288,
+            3719
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            3737
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            3757
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            3778
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            3799
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            3823
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            3850
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            3883
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 16,
+          "excerpt": "ader or complete call chain.\",\n    \"RECOMMENDED_OPTION\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n    \"RECOMMENDATION_STATUS\": \"PENDING_REVISED_CONSTITUTIONAL_REVIEW\",\n    \"OPTIONS\": [\n      {\n        \"id\": \"A\",\n        \"name\": \"REUSE_EXISTING_GENERIC_RUNTIME\",\n        \"status\": \"REJECTED_PENDING_NEW_EVIDENCE\",\n        \"description\": \"Reuse an existing generic repository, runtime state or cache.\",\n        \"advantages\": [\n          \"Avoids du"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "    ],\n        \"acceptance_condition\": \"New source evidence must prove ownership, writer, reader, identity and downstream call chain before this option can return to review.\"\n      },\n      {\n        \"id\": \"B\",\n        \"name\": \"EPHEMERAL_IN_MEMORY_HANDOFF\",\n        \"status\": \"NOT_RECOMMENDED\",\n        \"description\": \"Pass the extraction result directly in memory from the engine to the confirmation modal without a persistence boundary.\",\n   "
+        },
+        {
+          "term": "name",
+          "line": 48,
+          "excerpt": "t recovery weaker.\"\n        ],\n        \"acceptance_condition\": \"Could only be chosen if the persistence requirement is explicitly revoked by a later constitutional decision.\"\n      },\n      {\n        \"id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence ha"
+        },
+        {
+          "term": "name",
+          "line": 70,
+          "excerpt": "t\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n  "
+        },
+        {
+          "term": "name",
+          "line": 117,
+          "excerpt": "lementation discovery confirms no canonical equivalent exists.\",\n      \"One canonical owner path is approved.\",\n      \"One explicit versioned identity/key contract is approved.\",\n      \"One writer and one reader API are named and documented.\",\n      \"The eight-field schema and metadata contract are approved.\",\n      \"The extraction-ready event carries only an identity/reference.\",\n      \"Yes and No actions consume the same stored preview re"
+        },
+        {
+          "term": "family",
+          "line": 71,
+          "excerpt": "traction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersi"
+        },
+        {
+          "term": "product",
+          "line": 50,
+          "excerpt": "id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence handoff infrastructure and consumed read-only by Quote Preview.\",\n        \"advantages\": [\n          \"Matches the locked PDF → writer → cache → popup/UI flow.\",\n          \"Provides deterministic reload, conf"
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "      \"ownership\": \"A single canonical module must own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n        "
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "st own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n     "
+        },
+        {
+          "term": "product",
+          "line": 72,
+          "excerpt": "uced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersion\",\n          \"sourc"
+        },
+        {
+          "term": "product",
+          "line": 105,
+          "excerpt": "eady extracted.\"\n      },\n      \"retention\": \"Retention and deletion policy must be explicitly selected during implementation design. No indefinite retention is authorized by this draft.\",\n      \"boundaries\": [\n        \"Product Intelligence remains upstream.\",\n        \"Quote Preview remains downstream.\",\n        \"The PDF engine is reference input, never quote truth.\",\n        \"No CRM, backend, provider, policy, pipeline, message or calendar wr"
+        },
+        {
+          "term": "product",
+          "line": 135,
+          "excerpt": "\",\n      \"The implementation would use a hidden latest-record default.\",\n      \"The result could become official quote truth without explicit downstream gates.\"\n    ]\n  },\n  \"canonical_inputs\": {\n    \"PDF_ENGINE_PATH\": \"product-intelligence/evidence/forge-quote-pdf-preview-engine.js\",\n    \"CONFIRMATION_MODAL_PATH\": \"docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.js\",\n    \"QUOTE_PREVIEW_UI_PATH\": \"docs/static"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 234,
+      "mapperScore": 183,
+      "validatorScore": 119,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z8s3r-source-authority-normalization-validator-repair.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 10239,
+      "sha256": "ce5cf62d58c9ab5198acc4ef1150268e1b373db1de432d222f73ccc3826408be",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 4,
+          "positions": [
+            751,
+            1479,
+            2306,
+            3737
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            3755
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            3775
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            3796
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            3817
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            3841
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            3868
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            3901
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 16,
+          "excerpt": "ete call chain.\",\n    \"RECOMMENDED_OPTION\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n    \"RECOMMENDATION_STATUS\": \"PENDING_AUTHORITY_NORMALIZED_CONSTITUTIONAL_REVIEW\",\n    \"OPTIONS\": [\n      {\n        \"id\": \"A\",\n        \"name\": \"REUSE_EXISTING_GENERIC_RUNTIME\",\n        \"status\": \"REJECTED_PENDING_NEW_EVIDENCE\",\n        \"description\": \"Reuse an existing generic repository, runtime state or cache.\",\n        \"advantages\": [\n          \"Avoids du"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "    ],\n        \"acceptance_condition\": \"New source evidence must prove ownership, writer, reader, identity and downstream call chain before this option can return to review.\"\n      },\n      {\n        \"id\": \"B\",\n        \"name\": \"EPHEMERAL_IN_MEMORY_HANDOFF\",\n        \"status\": \"NOT_RECOMMENDED\",\n        \"description\": \"Pass the extraction result directly in memory from the engine to the confirmation modal without a persistence boundary.\",\n   "
+        },
+        {
+          "term": "name",
+          "line": 48,
+          "excerpt": "t recovery weaker.\"\n        ],\n        \"acceptance_condition\": \"Could only be chosen if the persistence requirement is explicitly revoked by a later constitutional decision.\"\n      },\n      {\n        \"id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence ha"
+        },
+        {
+          "term": "name",
+          "line": 70,
+          "excerpt": "t\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n  "
+        },
+        {
+          "term": "name",
+          "line": 117,
+          "excerpt": "lementation discovery confirms no canonical equivalent exists.\",\n      \"One canonical owner path is approved.\",\n      \"One explicit versioned identity/key contract is approved.\",\n      \"One writer and one reader API are named and documented.\",\n      \"The eight-field schema and metadata contract are approved.\",\n      \"The extraction-ready event carries only an identity/reference.\",\n      \"Yes and No actions consume the same stored preview re"
+        },
+        {
+          "term": "family",
+          "line": 71,
+          "excerpt": "traction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersi"
+        },
+        {
+          "term": "product",
+          "line": 50,
+          "excerpt": "id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence handoff infrastructure and consumed read-only by Quote Preview.\",\n        \"advantages\": [\n          \"Matches the locked PDF → writer → cache → popup/UI flow.\",\n          \"Provides deterministic reload, conf"
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "      \"ownership\": \"A single canonical module must own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n        "
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "st own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n     "
+        },
+        {
+          "term": "product",
+          "line": 72,
+          "excerpt": "uced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersion\",\n          \"sourc"
+        },
+        {
+          "term": "product",
+          "line": 105,
+          "excerpt": "eady extracted.\"\n      },\n      \"retention\": \"Retention and deletion policy must be explicitly selected during implementation design. No indefinite retention is authorized by this draft.\",\n      \"boundaries\": [\n        \"Product Intelligence remains upstream.\",\n        \"Quote Preview remains downstream.\",\n        \"The PDF engine is reference input, never quote truth.\",\n        \"No CRM, backend, provider, policy, pipeline, message or calendar wr"
+        },
+        {
+          "term": "product",
+          "line": 144,
+          "excerpt": "exact_identity\": true,\n      \"event_is_reference_notification_only\": true,\n      \"violation_fails_adr\": true,\n      \"external_unproven_source_dependency\": false\n    }\n  },\n  \"canonical_inputs\": {\n    \"PDF_ENGINE_PATH\": \"product-intelligence/evidence/forge-quote-pdf-preview-engine.js\",\n    \"CONFIRMATION_MODAL_PATH\": \"docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.js\",\n    \"QUOTE_PREVIEW_UI_PATH\": \"docs/static"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 234,
+      "mapperScore": 183,
+      "validatorScore": 119,
+      "consumerScore": 108
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z9-quote-preview-pdf-runtime-persistence-adr-approval.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 10990,
+      "sha256": "45a63fffccaee1a50372ba8406f81d82bc5b1eeb2a3be2d255f7a9a11776c628",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 4,
+          "positions": [
+            691,
+            1419,
+            2246,
+            3677
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            3695
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            3715
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            3736
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            3757
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            3781
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            3808
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            3841
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [
+        "forge-quote-pdf-preview-engine",
+        "quote-pdf-preview-engine"
+      ],
+      "validatorSignals": [
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical"
+      ],
+      "consumerSignals": [
+        "forge:quote-preview:extraction-ready",
+        "quote-preview-confirmation-modal",
+        "persist",
+        "store",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 16,
+          "excerpt": "time owner, cache, writer, reader or complete call chain.\",\n    \"RECOMMENDED_OPTION\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n    \"RECOMMENDATION_STATUS\": \"APPROVED\",\n    \"OPTIONS\": [\n      {\n        \"id\": \"A\",\n        \"name\": \"REUSE_EXISTING_GENERIC_RUNTIME\",\n        \"status\": \"REJECTED_PENDING_NEW_EVIDENCE\",\n        \"description\": \"Reuse an existing generic repository, runtime state or cache.\",\n        \"advantages\": [\n          \"Avoids du"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "    ],\n        \"acceptance_condition\": \"New source evidence must prove ownership, writer, reader, identity and downstream call chain before this option can return to review.\"\n      },\n      {\n        \"id\": \"B\",\n        \"name\": \"EPHEMERAL_IN_MEMORY_HANDOFF\",\n        \"status\": \"NOT_RECOMMENDED\",\n        \"description\": \"Pass the extraction result directly in memory from the engine to the confirmation modal without a persistence boundary.\",\n   "
+        },
+        {
+          "term": "name",
+          "line": 48,
+          "excerpt": "t recovery weaker.\"\n        ],\n        \"acceptance_condition\": \"Could only be chosen if the persistence requirement is explicitly revoked by a later constitutional decision.\"\n      },\n      {\n        \"id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence ha"
+        },
+        {
+          "term": "name",
+          "line": 70,
+          "excerpt": "t\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n  "
+        },
+        {
+          "term": "name",
+          "line": 117,
+          "excerpt": "lementation discovery confirms no canonical equivalent exists.\",\n      \"One canonical owner path is approved.\",\n      \"One explicit versioned identity/key contract is approved.\",\n      \"One writer and one reader API are named and documented.\",\n      \"The eight-field schema and metadata contract are approved.\",\n      \"The extraction-ready event carries only an identity/reference.\",\n      \"Yes and No actions consume the same stored preview re"
+        },
+        {
+          "term": "family",
+          "line": 71,
+          "excerpt": "traction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersi"
+        },
+        {
+          "term": "product",
+          "line": 50,
+          "excerpt": "id\": \"C\",\n        \"name\": \"DEDICATED_LOCAL_PREVIEW_RESULT_STORE\",\n        \"status\": \"DRAFT_RECOMMENDATION_PENDING_APPROVAL\",\n        \"description\": \"Create one narrowly scoped offline-first preview-result store owned by Product Intelligence handoff infrastructure and consumed read-only by Quote Preview.\",\n        \"advantages\": [\n          \"Matches the locked PDF → writer → cache → popup/UI flow.\",\n          \"Provides deterministic reload, conf"
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "      \"ownership\": \"A single canonical module must own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n        "
+        },
+        {
+          "term": "product",
+          "line": 67,
+          "excerpt": "st own preview-result lifecycle. The UI and modal must never own parsing or persistence.\",\n      \"input\": \"Structured extraction output produced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n     "
+        },
+        {
+          "term": "product",
+          "line": 72,
+          "excerpt": "uced upstream by the authorized Product Intelligence PDF engine or its existing product-specific extractors.\",\n      \"schema\": {\n        \"required_confirmation_fields\": [\n          \"name\",\n          \"family\",\n          \"product\",\n          \"insured\",\n          \"sumAssured\",\n          \"annualPremium\",\n          \"plannedOrAvePremium\",\n          \"coveragePeriod\"\n        ],\n        \"required_metadata\": [\n          \"schemaVersion\",\n          \"sourc"
+        },
+        {
+          "term": "product",
+          "line": 105,
+          "excerpt": "eady extracted.\"\n      },\n      \"retention\": \"Retention and deletion policy must be explicitly selected during implementation design. No indefinite retention is authorized by this draft.\",\n      \"boundaries\": [\n        \"Product Intelligence remains upstream.\",\n        \"Quote Preview remains downstream.\",\n        \"The PDF engine is reference input, never quote truth.\",\n        \"No CRM, backend, provider, policy, pipeline, message or calendar wr"
+        },
+        {
+          "term": "product",
+          "line": 147,
+          "excerpt": "REVIEW_PDF_RUNTIME_PERSISTENCE\",\n    \"ADR_NUMBER\": null,\n    \"APPROVED_CANONICAL_PATH\": \"docs/architecture/quote-preview/quote-preview-pdf-runtime-persistence-adr.md\"\n  },\n  \"canonical_inputs\": {\n    \"PDF_ENGINE_PATH\": \"product-intelligence/evidence/forge-quote-pdf-preview-engine.js\",\n    \"CONFIRMATION_MODAL_PATH\": \"docs/static-preview/forge-alive/assets/forge-quote-preview-confirmation-modal-107q.js\",\n    \"QUOTE_PREVIEW_UI_PATH\": \"docs/static"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 234,
+      "mapperScore": 183,
+      "validatorScore": 119,
+      "consumerScore": 108
+    },
+    {
+      "path": "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-coordinator.js",
+      "category": "production_source",
+      "extension": ".js",
+      "size": 2463,
+      "sha256": "07d06906c235a144215dc21e1c1bde611fe87896cdb1daf3d71b574caf75fd25",
+      "exactFields": [],
+      "exactFieldCount": 0,
+      "fieldEvidence": {
+        "name": {
+          "count": 0,
+          "positions": []
+        },
+        "family": {
+          "count": 0,
+          "positions": []
+        },
+        "product": {
+          "count": 0,
+          "positions": []
+        },
+        "insured": {
+          "count": 0,
+          "positions": []
+        },
+        "sumAssured": {
+          "count": 0,
+          "positions": []
+        },
+        "annualPremium": {
+          "count": 0,
+          "positions": []
+        },
+        "plannedOrAvePremium": {
+          "count": 0,
+          "positions": []
+        },
+        "coveragePeriod": {
+          "count": 0,
+          "positions": []
+        }
+      },
+      "schemaWindowContainsAllEight": false,
+      "quotedAllEight": false,
+      "nativeAliasTerms": [],
+      "nativeAliasTermCount": 0,
+      "engineTerms": [],
+      "validatorSignals": [
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "fields:"
+      ],
+      "consumerSignals": [
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [
+        "../../runtime/quote-preview/quote-preview-pdf-result-store.js",
+        "./quote-preview-pdf-result-persistence-contract.js"
+      ],
+      "resolvedImports": [
+        "platform/runtime/quote-preview/quote-preview-pdf-result-store.js",
+        "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js"
+      ],
+      "sourceSnippets": [],
+      "reverseImporters": [],
+      "importsCanonicalContract": true,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 33,
+      "mapperScore": 85,
+      "validatorScore": 45,
+      "consumerScore": 103
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15s1-canonical-schema-correction-authorization-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 10596,
+      "sha256": "c93ee6798540012a5d8b3ef914c9277c66a7955fdc6b648084d9c4f4b3217fc5",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 3,
+          "positions": [
+            1026,
+            2340,
+            2401
+          ]
+        },
+        "family": {
+          "count": 3,
+          "positions": [
+            1040,
+            2354,
+            3274
+          ]
+        },
+        "product": {
+          "count": 8,
+          "positions": [
+            820,
+            2174,
+            3816,
+            3955,
+            4027,
+            4039,
+            4096,
+            4108
+          ]
+        },
+        "insured": {
+          "count": 3,
+          "positions": [
+            837,
+            2191,
+            4606
+          ]
+        },
+        "sumAssured": {
+          "count": 3,
+          "positions": [
+            854,
+            2208,
+            5196
+          ]
+        },
+        "annualPremium": {
+          "count": 10,
+          "positions": [
+            874,
+            2228,
+            5789,
+            5934,
+            6012,
+            6024,
+            6087,
+            6099,
+            6622,
+            6959
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 3,
+          "positions": [
+            897,
+            2251,
+            6428
+          ]
+        },
+        "coveragePeriod": {
+          "count": 3,
+          "positions": [
+            926,
+            2280,
+            7488
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 11,
+      "engineTerms": [],
+      "validatorSignals": [
+        "validate",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 19,
+          "excerpt": "D\": \"RUNTIME_FIELD_OWNERSHIP_AND_ADAPTER_PROJECTION\",\n    \"EIGHT_FIELD_SCHEMA_PRESERVED\": true,\n    \"CANONICAL_FIELD_COUNT\": 8,\n    \"FIELD_ADDITION_AUTHORIZED\": false,\n    \"FIELD_REMOVAL_AUTHORIZED\": false,\n    \"FIELD_RENAME_AUTHORIZED\": false,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ENGINE_OWNED_FIELDS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],"
+        },
+        {
+          "term": "name",
+          "line": 31,
+          "excerpt": "DS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n  "
+        },
+        {
+          "term": "name",
+          "line": 68,
+          "excerpt": "\"fieldOwnership\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n   "
+        },
+        {
+          "term": "name",
+          "line": 72,
+          "excerpt": "\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [],\n        \"proposalRankedCandi"
+        },
+        {
+          "term": "name",
+          "line": 320,
+          "excerpt": "e resulting exact eight-field packet with the existing adapter validator.\",\n      \"Emit no official quote, provider write, backend effect or quote truth.\"\n    ],\n    \"forbiddenBehavior\": [\n      \"Do not add, remove or rename canonical fields.\",\n      \"Do not create a new runtime module, engine, cache or bridge.\",\n      \"Do not duplicate mapping logic outside the existing adapter.\",\n      \"Do not use manual field guesses or user-selected ali"
+        },
+        {
+          "term": "family",
+          "line": 32,
+          "excerpt": "product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n    \"EXISTING_ADAP"
+        },
+        {
+          "term": "family",
+          "line": 69,
+          "excerpt": "p\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalized"
+        },
+        {
+          "term": "family",
+          "line": 114,
+          "excerpt": "   30,\n            35,\n            36,\n            41,\n            42,\n            47,\n            48,\n            53,\n            54,\n            55,\n            60,\n            61\n          ]\n        }\n      },\n      \"family\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [],\n        \"proposalRankedCandi"
+        },
+        {
+          "term": "product",
+          "line": 22,
+          "excerpt": "    \"CANONICAL_FIELD_COUNT\": 8,\n    \"FIELD_ADDITION_AUTHORIZED\": false,\n    \"FIELD_REMOVAL_AUTHORIZED\": false,\n    \"FIELD_RENAME_AUTHORIZED\": false,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ENGINE_OWNED_FIELDS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\""
+        },
+        {
+          "term": "product",
+          "line": 36,
+          "excerpt": "IELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n    \"EXISTING_ADAPTER_CANONICAL_PROJECTION_EXPOSURE_AUTHORIZED\": true,\n    \"EXISTING_PROJECTION_REUSE_REQUIRED\": true,\n    \"DUPLICATE_MAPPING_LOGIC_AUTHORIZED\": false,\n  "
+        },
+        {
+          "term": "product",
+          "line": 60,
+          "excerpt": " \"REAL_CUSTOMER_DATA_AUTHORIZED\": false,\n    \"REAL_EFFECTS_AUTHORIZED\": false,\n    \"NEXT_GATE\": \"107Z15S2_EXISTING_ADAPTER_CANONICAL_PROJECTION_EXPOSURE_GATE\"\n  },\n  \"fieldOwnership\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \""
+        },
+        {
+          "term": "product",
+          "line": 135,
+          "excerpt": "   \"engine\": [],\n          \"adapter\": [\n            288\n          ],\n          \"contract\": [\n            3\n          ],\n          \"store\": [],\n          \"coordinator\": [],\n          \"modal\": []\n        }\n      },\n      \"product\": {\n        \"classification\": \"ENGINE_NATIVE_OR_ENGINE_DERIVED\",\n        \"runtimeOwner\": \"engine\",\n        \"directEngineMapping\": \"product\",\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [\n          \"prod"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 238,
+      "mapperScore": 218,
+      "validatorScore": 129,
+      "consumerScore": 96
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15s1-canonical-schema-correction-authorization.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 10501,
+      "sha256": "4432f2278993373babbb669874e0fcf684acde9bc41c0f005f2efc125feb22da",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 3,
+          "positions": [
+            935,
+            2249,
+            2310
+          ]
+        },
+        "family": {
+          "count": 3,
+          "positions": [
+            949,
+            2263,
+            3183
+          ]
+        },
+        "product": {
+          "count": 8,
+          "positions": [
+            729,
+            2083,
+            3725,
+            3864,
+            3936,
+            3948,
+            4005,
+            4017
+          ]
+        },
+        "insured": {
+          "count": 3,
+          "positions": [
+            746,
+            2100,
+            4515
+          ]
+        },
+        "sumAssured": {
+          "count": 3,
+          "positions": [
+            763,
+            2117,
+            5105
+          ]
+        },
+        "annualPremium": {
+          "count": 10,
+          "positions": [
+            783,
+            2137,
+            5698,
+            5843,
+            5921,
+            5933,
+            5996,
+            6008,
+            6531,
+            6868
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 3,
+          "positions": [
+            806,
+            2160,
+            6337
+          ]
+        },
+        "coveragePeriod": {
+          "count": 3,
+          "positions": [
+            835,
+            2189,
+            7397
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 11,
+      "engineTerms": [],
+      "validatorSignals": [
+        "validate",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [
+        "canonical",
+        "projection",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "persist",
+        "store",
+        "coordinator",
+        "modal"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 14,
+          "excerpt": "D\": \"RUNTIME_FIELD_OWNERSHIP_AND_ADAPTER_PROJECTION\",\n    \"EIGHT_FIELD_SCHEMA_PRESERVED\": true,\n    \"CANONICAL_FIELD_COUNT\": 8,\n    \"FIELD_ADDITION_AUTHORIZED\": false,\n    \"FIELD_REMOVAL_AUTHORIZED\": false,\n    \"FIELD_RENAME_AUTHORIZED\": false,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ENGINE_OWNED_FIELDS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],"
+        },
+        {
+          "term": "name",
+          "line": 26,
+          "excerpt": "DS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n  "
+        },
+        {
+          "term": "name",
+          "line": 63,
+          "excerpt": "\"fieldOwnership\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n   "
+        },
+        {
+          "term": "name",
+          "line": 67,
+          "excerpt": "\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [],\n        \"proposalRankedCandi"
+        },
+        {
+          "term": "name",
+          "line": 315,
+          "excerpt": "e resulting exact eight-field packet with the existing adapter validator.\",\n      \"Emit no official quote, provider write, backend effect or quote truth.\"\n    ],\n    \"forbiddenBehavior\": [\n      \"Do not add, remove or rename canonical fields.\",\n      \"Do not create a new runtime module, engine, cache or bridge.\",\n      \"Do not duplicate mapping logic outside the existing adapter.\",\n      \"Do not use manual field guesses or user-selected ali"
+        },
+        {
+          "term": "family",
+          "line": 27,
+          "excerpt": "product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n    \"EXISTING_ADAP"
+        },
+        {
+          "term": "family",
+          "line": 64,
+          "excerpt": "p\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \"name\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalized"
+        },
+        {
+          "term": "family",
+          "line": 109,
+          "excerpt": "   30,\n            35,\n            36,\n            41,\n            42,\n            47,\n            48,\n            53,\n            54,\n            55,\n            60,\n            61\n          ]\n        }\n      },\n      \"family\": {\n        \"classification\": \"ADAPTER_DERIVED_ONLY\",\n        \"runtimeOwner\": \"adapter\",\n        \"directEngineMapping\": null,\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [],\n        \"proposalRankedCandi"
+        },
+        {
+          "term": "product",
+          "line": 17,
+          "excerpt": "    \"CANONICAL_FIELD_COUNT\": 8,\n    \"FIELD_ADDITION_AUTHORIZED\": false,\n    \"FIELD_REMOVAL_AUTHORIZED\": false,\n    \"FIELD_RENAME_AUTHORIZED\": false,\n    \"ENGINE_OWNED_FIELD_COUNT\": 6,\n    \"ENGINE_OWNED_FIELDS\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ADAPTER_DERIVED_FIELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\""
+        },
+        {
+          "term": "product",
+          "line": 31,
+          "excerpt": "IELD_COUNT\": 2,\n    \"ADAPTER_DERIVED_FIELDS\": [\n      \"name\",\n      \"family\"\n    ],\n    \"ADAPTER_SOURCE_CHANGE_AUTHORIZED\": true,\n    \"AUTHORIZED_SOURCE_PATHS\": [\n      \"platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js\"\n    ],\n    \"EXISTING_ADAPTER_CANONICAL_PROJECTION_EXPOSURE_AUTHORIZED\": true,\n    \"EXISTING_PROJECTION_REUSE_REQUIRED\": true,\n    \"DUPLICATE_MAPPING_LOGIC_AUTHORIZED\": false,\n  "
+        },
+        {
+          "term": "product",
+          "line": 55,
+          "excerpt": " \"REAL_CUSTOMER_DATA_AUTHORIZED\": false,\n    \"REAL_EFFECTS_AUTHORIZED\": false,\n    \"NEXT_GATE\": \"107Z15S2_EXISTING_ADAPTER_CANONICAL_PROJECTION_EXPOSURE_GATE\"\n  },\n  \"fieldOwnership\": {\n    \"engineOwnedFields\": [\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"adapterDerivedFields\": [\n      \"name\",\n      \"family\"\n    ],\n    \"evidenceByField\": {\n      \""
+        },
+        {
+          "term": "product",
+          "line": 130,
+          "excerpt": "   \"engine\": [],\n          \"adapter\": [\n            288\n          ],\n          \"contract\": [\n            3\n          ],\n          \"store\": [],\n          \"coordinator\": [],\n          \"modal\": []\n        }\n      },\n      \"product\": {\n        \"classification\": \"ENGINE_NATIVE_OR_ENGINE_DERIVED\",\n        \"runtimeOwner\": \"engine\",\n        \"directEngineMapping\": \"product\",\n        \"engineAliases\": [],\n        \"normalizedNativeKeys\": [\n          \"prod"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 238,
+      "mapperScore": 218,
+      "validatorScore": 129,
+      "consumerScore": 96
+    },
+    {
+      "path": "platform/runtime/quote-preview/quote-preview-pdf-result-store.js",
+      "category": "production_source",
+      "extension": ".js",
+      "size": 2297,
+      "sha256": "3f5271c8b66485603051411b84a1260cf2d2590385ff4e34243eb31322b871d5",
+      "exactFields": [],
+      "exactFieldCount": 0,
+      "fieldEvidence": {
+        "name": {
+          "count": 0,
+          "positions": []
+        },
+        "family": {
+          "count": 0,
+          "positions": []
+        },
+        "product": {
+          "count": 0,
+          "positions": []
+        },
+        "insured": {
+          "count": 0,
+          "positions": []
+        },
+        "sumAssured": {
+          "count": 0,
+          "positions": []
+        },
+        "annualPremium": {
+          "count": 0,
+          "positions": []
+        },
+        "plannedOrAvePremium": {
+          "count": 0,
+          "positions": []
+        },
+        "coveragePeriod": {
+          "count": 0,
+          "positions": []
+        }
+      },
+      "schemaWindowContainsAllEight": false,
+      "quotedAllEight": false,
+      "nativeAliasTerms": [],
+      "nativeAliasTermCount": 0,
+      "engineTerms": [],
+      "validatorSignals": [
+        "validate",
+        "required",
+        "schema"
+      ],
+      "constructionSignals": [],
+      "consumerSignals": [
+        "localStorage",
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [
+        "../../adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js"
+      ],
+      "resolvedImports": [
+        "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js"
+      ],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 5,
+          "excerpt": ",v);},removeItem:function(k){s.removeItem(k);},keys:function(){var a=[];for(var i=0;i<s.length;i++){var k=s.key(i);if(typeof k===\"string\")a.push(k);}return a;}};}\nfunction create(o){o=o||{};var b=o.backend||local(),ns=o.namespace||\"forge.quotePreview.pdfResult.v1\",now=o.now||function(){return Date.now();};function key(id){id=c.normalizeIdentity(id);return ns+\":\"+encodeURIComponent(id.schemaVersion)+\":\"+encodeURIComponent(id.previewResultId)"
+        }
+      ],
+      "reverseImporters": [
+        "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-coordinator.js"
+      ],
+      "importsCanonicalContract": true,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 37,
+      "mapperScore": 80,
+      "validatorScore": 55,
+      "consumerScore": 91
+    },
+    {
+      "path": "docs/architecture/quote-preview/107z8-quote-preview-pdf-runtime-persistence-adr-review.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 3956,
+      "sha256": "f678699e15d6faa17046d7852b10a9e8cb3ab5e0f25ba6d781d1316f8a925e3b",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 1,
+          "positions": [
+            493
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            501
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            511
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            522
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            533
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            547
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            564
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            587
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "required"
+      ],
+      "constructionSignals": [],
+      "consumerSignals": [
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 29,
+          "excerpt": "ist\n\n### PASS — DRAFT_NOT_SILENTLY_APPROVED\n\nADR remains draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found i"
+        },
+        {
+          "term": "family",
+          "line": 29,
+          "excerpt": " PASS — DRAFT_NOT_SILENTLY_APPROVED\n\nADR remains draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draf"
+        },
+        {
+          "term": "product",
+          "line": 29,
+          "excerpt": "AFT_NOT_SILENTLY_APPROVED\n\nADR remains draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS"
+        },
+        {
+          "term": "product",
+          "line": 31,
+          "excerpt": "false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Boundary text found in ADR draft"
+        },
+        {
+          "term": "product",
+          "line": 33,
+          "excerpt": "IELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — NO_QUOTE_TRUTH\n\nPr"
+        },
+        {
+          "term": "insured",
+          "line": 29,
+          "excerpt": "ENTLY_APPROVED\n\nADR remains draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PR"
+        },
+        {
+          "term": "sumAssured",
+          "line": 29,
+          "excerpt": "VED\n\nADR remains draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTRE"
+        },
+        {
+          "term": "annualPremium",
+          "line": 29,
+          "excerpt": "ns draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 29,
+          "excerpt": "proved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEv"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 29,
+          "excerpt": "TATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Boundary t"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "ft and unapproved\n\nEvidence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "ence: ADR_STATUS=DRAFT and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in ADR draft\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEv"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 230,
+      "mapperScore": 123,
+      "validatorScore": 109,
+      "consumerScore": 72
+    },
+    {
+      "path": "docs/architecture/quote-preview/107z8r-quote-preview-pdf-runtime-persistence-adr-revised-review.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 4067,
+      "sha256": "e74979337661fdbb31aa147bd4b82a3cb4f0f229ba88fb0a575a76b5419f21a6",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 1,
+          "positions": [
+            517
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            525
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            535
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            546
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            557
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            571
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            588
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            611
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "required"
+      ],
+      "constructionSignals": [],
+      "consumerSignals": [
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 29,
+          "excerpt": "DRAFT_NOT_SILENTLY_APPROVED\n\nADR remains revised draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found i"
+        },
+        {
+          "term": "family",
+          "line": 29,
+          "excerpt": "T_SILENTLY_APPROVED\n\nADR remains revised draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised "
+        },
+        {
+          "term": "product",
+          "line": 29,
+          "excerpt": "_APPROVED\n\nADR remains revised draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PA"
+        },
+        {
+          "term": "product",
+          "line": 31,
+          "excerpt": "false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Boundary text found in revised"
+        },
+        {
+          "term": "product",
+          "line": 33,
+          "excerpt": "IELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — NO_QUOTE_TRUTH"
+        },
+        {
+          "term": "insured",
+          "line": 29,
+          "excerpt": "ADR remains revised draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_"
+        },
+        {
+          "term": "sumAssured",
+          "line": 29,
+          "excerpt": " revised draft and unapproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNST"
+        },
+        {
+          "term": "annualPremium",
+          "line": 29,
+          "excerpt": " and unapproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Previ"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 29,
+          "excerpt": "Evidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\n"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 29,
+          "excerpt": "AFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Boundary"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "napproved\n\nEvidence: ADR_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Previ"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "R_STATUS=DRAFT_REVISED and ADR_APPROVED=false\n\n### PASS — EXACT_EIGHT_FIELDS\n\nExactly eight confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Boundary text found in revised ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\n"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 230,
+      "mapperScore": 123,
+      "validatorScore": 109,
+      "consumerScore": 72
+    },
+    {
+      "path": "docs/architecture/quote-preview/107z8r3-quote-preview-pdf-runtime-persistence-authority-normalized-review.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 3239,
+      "sha256": "73a6416d43c8de21e4c34d2b41c71b3d39e97460d2d2f6e947946579e97befd6",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 1,
+          "positions": [
+            559
+          ]
+        },
+        "family": {
+          "count": 1,
+          "positions": [
+            567
+          ]
+        },
+        "product": {
+          "count": 1,
+          "positions": [
+            577
+          ]
+        },
+        "insured": {
+          "count": 1,
+          "positions": [
+            588
+          ]
+        },
+        "sumAssured": {
+          "count": 1,
+          "positions": [
+            599
+          ]
+        },
+        "annualPremium": {
+          "count": 1,
+          "positions": [
+            613
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 1,
+          "positions": [
+            630
+          ]
+        },
+        "coveragePeriod": {
+          "count": 1,
+          "positions": [
+            653
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "product"
+      ],
+      "nativeAliasTermCount": 1,
+      "engineTerms": [],
+      "validatorSignals": [
+        "required"
+      ],
+      "constructionSignals": [],
+      "consumerSignals": [
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 29,
+          "excerpt": "alized draft\n\nEvidence: ADR_STATUS=DRAFT_AUTHORITY_NORMALIZED; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary fou"
+        },
+        {
+          "term": "family",
+          "line": 29,
+          "excerpt": "raft\n\nEvidence: ADR_STATUS=DRAFT_AUTHORITY_NORMALIZED; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in norm"
+        },
+        {
+          "term": "product",
+          "line": 29,
+          "excerpt": "ence: ADR_STATUS=DRAFT_AUTHORITY_NORMALIZED; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n"
+        },
+        {
+          "term": "product",
+          "line": 31,
+          "excerpt": "ACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Downstream boundary fou"
+        },
+        {
+          "term": "product",
+          "line": 33,
+          "excerpt": "Exactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: Downstream boundary found in normalized ADR\n\n### PASS "
+        },
+        {
+          "term": "insured",
+          "line": 29,
+          "excerpt": "TATUS=DRAFT_AUTHORITY_NORMALIZED; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS —"
+        },
+        {
+          "term": "sumAssured",
+          "line": 29,
+          "excerpt": "_AUTHORITY_NORMALIZED; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW"
+        },
+        {
+          "term": "annualPremium",
+          "line": 29,
+          "excerpt": "MALIZED; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuot"
+        },
+        {
+          "term": "plannedOrAvePremium",
+          "line": 29,
+          "excerpt": "OVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downs"
+        },
+        {
+          "term": "coveragePeriod",
+          "line": 29,
+          "excerpt": "ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downstream\n\nEvidence: D"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "D; ADR_APPROVED=false; ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuot"
+        },
+        {
+          "term": "premium",
+          "line": 29,
+          "excerpt": "ADR_NUMBER_ASSIGNED=false\n\n### PASS — EXACT_EIGHT_CONFIRMATION_FIELDS\n\nExactly eight unique confirmation fields are defined\n\nEvidence: [\"name\", \"family\", \"product\", \"insured\", \"sumAssured\", \"annualPremium\", \"plannedOrAvePremium\", \"coveragePeriod\"]\n\n### PASS — PRODUCT_INTELLIGENCE_UPSTREAM\n\nProduct Intelligence remains upstream\n\nEvidence: Upstream boundary found in normalized ADR\n\n### PASS — QUOTE_PREVIEW_DOWNSTREAM\n\nQuote Preview remains downs"
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": false,
+      "schemaScore": 230,
+      "mapperScore": 123,
+      "validatorScore": 109,
+      "consumerScore": 72
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15r3-existing-owner-static-contract-review-evidence.md",
+      "category": "documentation",
+      "extension": ".md",
+      "size": 29462,
+      "sha256": "832a66f6fcbd5dd2da22061c63e396425d0556c9254df112e1ec1d4f295c4cc7",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 12,
+          "positions": [
+            2645,
+            2795,
+            4480,
+            7264,
+            7429,
+            13813,
+            14801,
+            15522,
+            21271,
+            22376,
+            22698,
+            24665
+          ]
+        },
+        "family": {
+          "count": 9,
+          "positions": [
+            2659,
+            2813,
+            4494,
+            7280,
+            7449,
+            21291,
+            22390,
+            22728,
+            24695
+          ]
+        },
+        "product": {
+          "count": 13,
+          "positions": [
+            2003,
+            2537,
+            2548,
+            4510,
+            6345,
+            7150,
+            7161,
+            20654,
+            21166,
+            21177,
+            22406,
+            22760,
+            24727
+          ]
+        },
+        "insured": {
+          "count": 9,
+          "positions": [
+            2675,
+            2833,
+            4527,
+            7298,
+            7471,
+            21313,
+            22423,
+            22793,
+            24760
+          ]
+        },
+        "sumAssured": {
+          "count": 9,
+          "positions": [
+            2692,
+            2882,
+            4544,
+            7317,
+            7526,
+            21368,
+            22440,
+            22826,
+            24793
+          ]
+        },
+        "annualPremium": {
+          "count": 16,
+          "positions": [
+            1470,
+            2565,
+            2582,
+            2967,
+            4564,
+            5764,
+            7180,
+            7197,
+            7619,
+            20073,
+            21196,
+            21213,
+            21461,
+            22460,
+            22858,
+            24825
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 9,
+          "positions": [
+            2712,
+            2934,
+            4587,
+            7339,
+            7584,
+            21426,
+            22483,
+            22893,
+            24860
+          ]
+        },
+        "coveragePeriod": {
+          "count": 9,
+          "positions": [
+            2741,
+            3208,
+            4616,
+            7370,
+            7880,
+            21722,
+            22512,
+            22934,
+            24901
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "policyTerm",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 14,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields",
+        "pdf_text_life_fallback"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "hasOwnProperty",
+        "required",
+        "shape"
+      ],
+      "constructionSignals": [
+        "return {",
+        ".map(",
+        "canonical",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 103,
+          "excerpt": "IELD_MAPPING_CLASS\": \"PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED\",\n    \"DIRECT_CANONICAL_MAPPING\": {\n      \"product\": \"product\",\n      \"annualPremium\": \"annualPremium\"\n    },\n    \"MISSING_CANONICAL_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"insured\",\n      \"sumAssured\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ALIAS_EVIDENCE\": {\n      \"name\": [],\n      \"family\": [],\n      \"insured\": [\n        \"sumInsured\"\n   "
+        },
+        {
+          "term": "name",
+          "line": 111,
+          "excerpt": "ium\": \"annualPremium\"\n    },\n    \"MISSING_CANONICAL_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"insured\",\n      \"sumAssured\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ALIAS_EVIDENCE\": {\n      \"name\": [],\n      \"family\": [],\n      \"insured\": [\n        \"sumInsured\"\n      ],\n      \"sumAssured\": [\n        \"sumInsured\"\n      ],\n      \"plannedOrAvePremium\": [\n        \"annualPremium\",\n        \"baseAnnualPremium\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 142,
+          "excerpt": "ESS_PATH_CANDIDATE_RESOLVED\": true,\n    \"ADAPTER_SUCCESS_PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n "
+        },
+        {
+          "term": "name",
+          "line": 143,
+          "excerpt": " true,\n    \"ADAPTER_SUCCESS_PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": fal"
+        },
+        {
+          "term": "name",
+          "line": 144,
+          "excerpt": "PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\":"
+        },
+        {
+          "term": "name",
+          "line": 145,
+          "excerpt": "QuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\": false,\n    \"REAL_ENGINE_E"
+        },
+        {
+          "term": "name",
+          "line": 147,
+          "excerpt": "CCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\": false,\n    \"REAL_ENGINE_EXECUTION\": false,\n    \"PARSER_EXECUTED\": false,\n    \"CONTROLLED_BROW"
+        },
+        {
+          "term": "name",
+          "line": 166,
+          "excerpt": "H_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15R4_EXISTING_ENGINE_NATIVE_FIELD_MAPPING_AND_TARGETED_INVOCATION_GATE\"\n  },\n  \"static_owner_analysis\": {\n    \"status\": \"PASS\",\n    \"reason\": null,\n    \"requiredFields\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"engine\": {\n      \"callable\": \"extractSolucionlineLifeQuoteFi"
+        },
+        {
+          "term": "name",
+          "line": 281,
+          "excerpt": "        \"solucionline_imagina_ser_economic_scenarios\"\n      ],\n      \"directCanonicalMapping\": {\n        \"product\": \"product\",\n        \"annualPremium\": \"annualPremium\"\n      },\n      \"missingCanonicalFields\": [\n        \"name\",\n        \"family\",\n        \"insured\",\n        \"sumAssured\",\n        \"plannedOrAvePremium\",\n        \"coveragePeriod\"\n      ],\n      \"aliasEvidence\": {\n        \"name\": [],\n        \"family\": [],\n        \"insured\": [\n     "
+        },
+        {
+          "term": "name",
+          "line": 289,
+          "excerpt": "m\"\n      },\n      \"missingCanonicalFields\": [\n        \"name\",\n        \"family\",\n        \"insured\",\n        \"sumAssured\",\n        \"plannedOrAvePremium\",\n        \"coveragePeriod\"\n      ],\n      \"aliasEvidence\": {\n        \"name\": [],\n        \"family\": [],\n        \"insured\": [\n          \"sumInsured\"\n        ],\n        \"sumAssured\": [\n          \"sumInsured\"\n        ],\n        \"plannedOrAvePremium\": [\n          \"annualPremium\",\n          \"baseAnn"
+        },
+        {
+          "term": "name",
+          "line": 325,
+          "excerpt": "lback'\\n  };\\n}\"\n    },\n    \"adapter\": {\n      \"excludedNegativeFunctions\": [\n        \"buildQuotePreviewPdfIntegrationError\",\n        \"extractBindingSafeError\"\n      ],\n      \"positiveCandidates\": [\n        {\n          \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n          \"score\": 140,\n          \"reasons\": [\n            \"name_token:integrat\",\n            \"name_token:preview\",\n            \"name_token:quote\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 328,
+          "excerpt": "     \"extractBindingSafeError\"\n      ],\n      \"positiveCandidates\": [\n        {\n          \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n          \"score\": 140,\n          \"reasons\": [\n            \"name_token:integrat\",\n            \"name_token:preview\",\n            \"name_token:quote\",\n            \"name_token:product\",\n            \"body_token:fields\",\n            \"non_negative_name\"\n          ],\n          \"parameters\": "
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 246,
+      "mapperScore": 302,
+      "validatorScore": 149,
+      "consumerScore": 72
+    },
+    {
+      "path": "docs/evidence/quote-preview/107z15r3-existing-owner-static-contract-review.json",
+      "category": "documentation",
+      "extension": ".json",
+      "size": 29371,
+      "sha256": "b5d5977ef8fd5e3608523fb6203e5934e15e38d1f12bc964e705dcc70ede6ec5",
+      "exactFields": [
+        "name",
+        "family",
+        "product",
+        "insured",
+        "sumAssured",
+        "annualPremium",
+        "plannedOrAvePremium",
+        "coveragePeriod"
+      ],
+      "exactFieldCount": 8,
+      "fieldEvidence": {
+        "name": {
+          "count": 12,
+          "positions": [
+            2558,
+            2708,
+            4393,
+            7177,
+            7342,
+            13726,
+            14714,
+            15435,
+            21184,
+            22289,
+            22611,
+            24578
+          ]
+        },
+        "family": {
+          "count": 9,
+          "positions": [
+            2572,
+            2726,
+            4407,
+            7193,
+            7362,
+            21204,
+            22303,
+            22641,
+            24608
+          ]
+        },
+        "product": {
+          "count": 13,
+          "positions": [
+            1916,
+            2450,
+            2461,
+            4423,
+            6258,
+            7063,
+            7074,
+            20567,
+            21079,
+            21090,
+            22319,
+            22673,
+            24640
+          ]
+        },
+        "insured": {
+          "count": 9,
+          "positions": [
+            2588,
+            2746,
+            4440,
+            7211,
+            7384,
+            21226,
+            22336,
+            22706,
+            24673
+          ]
+        },
+        "sumAssured": {
+          "count": 9,
+          "positions": [
+            2605,
+            2795,
+            4457,
+            7230,
+            7439,
+            21281,
+            22353,
+            22739,
+            24706
+          ]
+        },
+        "annualPremium": {
+          "count": 16,
+          "positions": [
+            1383,
+            2478,
+            2495,
+            2880,
+            4477,
+            5677,
+            7093,
+            7110,
+            7532,
+            19986,
+            21109,
+            21126,
+            21374,
+            22373,
+            22771,
+            24738
+          ]
+        },
+        "plannedOrAvePremium": {
+          "count": 9,
+          "positions": [
+            2625,
+            2847,
+            4500,
+            7252,
+            7497,
+            21339,
+            22396,
+            22806,
+            24773
+          ]
+        },
+        "coveragePeriod": {
+          "count": 9,
+          "positions": [
+            2654,
+            3121,
+            4529,
+            7283,
+            7793,
+            21635,
+            22425,
+            22847,
+            24814
+          ]
+        }
+      },
+      "schemaWindowContainsAllEight": true,
+      "quotedAllEight": true,
+      "nativeAliasTerms": [
+        "prospect",
+        "sumInsured",
+        "baseAnnualPremium",
+        "totalAnnualPremium",
+        "premium",
+        "premiumTable",
+        "plannedAnnual",
+        "plannedMonthly",
+        "plannedQuarterly",
+        "plannedSemiannual",
+        "policyTerm",
+        "paymentTerm",
+        "guaranteePeriod",
+        "product"
+      ],
+      "nativeAliasTermCount": 14,
+      "engineTerms": [
+        "extractSolucionlineLifeQuoteFields",
+        "pdf_text_life_fallback"
+      ],
+      "validatorSignals": [
+        "validate",
+        "missing",
+        "hasOwnProperty",
+        "required",
+        "shape"
+      ],
+      "constructionSignals": [
+        "return {",
+        ".map(",
+        "canonical",
+        "mapping"
+      ],
+      "consumerSignals": [
+        "persist",
+        "store"
+      ],
+      "exports": [],
+      "imports": [],
+      "resolvedImports": [],
+      "sourceSnippets": [
+        {
+          "term": "name",
+          "line": 98,
+          "excerpt": "IELD_MAPPING_CLASS\": \"PARTIAL_CANONICAL_PLUS_NATIVE_MAPPING_REQUIRED\",\n    \"DIRECT_CANONICAL_MAPPING\": {\n      \"product\": \"product\",\n      \"annualPremium\": \"annualPremium\"\n    },\n    \"MISSING_CANONICAL_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"insured\",\n      \"sumAssured\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ALIAS_EVIDENCE\": {\n      \"name\": [],\n      \"family\": [],\n      \"insured\": [\n        \"sumInsured\"\n   "
+        },
+        {
+          "term": "name",
+          "line": 106,
+          "excerpt": "ium\": \"annualPremium\"\n    },\n    \"MISSING_CANONICAL_FIELDS\": [\n      \"name\",\n      \"family\",\n      \"insured\",\n      \"sumAssured\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"ALIAS_EVIDENCE\": {\n      \"name\": [],\n      \"family\": [],\n      \"insured\": [\n        \"sumInsured\"\n      ],\n      \"sumAssured\": [\n        \"sumInsured\"\n      ],\n      \"plannedOrAvePremium\": [\n        \"annualPremium\",\n        \"baseAnnualPremium\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 137,
+          "excerpt": "ESS_PATH_CANDIDATE_RESOLVED\": true,\n    \"ADAPTER_SUCCESS_PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n "
+        },
+        {
+          "term": "name",
+          "line": 138,
+          "excerpt": " true,\n    \"ADAPTER_SUCCESS_PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": fal"
+        },
+        {
+          "term": "name",
+          "line": 139,
+          "excerpt": "PATH_CANDIDATE\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\":"
+        },
+        {
+          "term": "name",
+          "line": 140,
+          "excerpt": "QuotePreviewPdfProductIntelligenceIntegrationShape\",\n    \"ADAPTER_SUCCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\": false,\n    \"REAL_ENGINE_E"
+        },
+        {
+          "term": "name",
+          "line": 142,
+          "excerpt": "CCESS_PATH_SCORE\": 140,\n    \"ADAPTER_SUCCESS_PATH_REASONS\": [\n      \"name_token:integrat\",\n      \"name_token:preview\",\n      \"name_token:quote\",\n      \"name_token:product\",\n      \"body_token:fields\",\n      \"non_negative_name\"\n    ],\n    \"TARGETED_NATIVE_MAPPING_INVOCATION_AUTHORIZED\": true,\n    \"SOURCE_CODE_WRITTEN\": false,\n    \"SOURCE_UI_CHANGED\": false,\n    \"REAL_ENGINE_EXECUTION\": false,\n    \"PARSER_EXECUTED\": false,\n    \"CONTROLLED_BROW"
+        },
+        {
+          "term": "name",
+          "line": 161,
+          "excerpt": "H_ALLOWED\": false,\n    \"NEXT_GATE\": \"107Z15R4_EXISTING_ENGINE_NATIVE_FIELD_MAPPING_AND_TARGETED_INVOCATION_GATE\"\n  },\n  \"static_owner_analysis\": {\n    \"status\": \"PASS\",\n    \"reason\": null,\n    \"requiredFields\": [\n      \"name\",\n      \"family\",\n      \"product\",\n      \"insured\",\n      \"sumAssured\",\n      \"annualPremium\",\n      \"plannedOrAvePremium\",\n      \"coveragePeriod\"\n    ],\n    \"engine\": {\n      \"callable\": \"extractSolucionlineLifeQuoteFi"
+        },
+        {
+          "term": "name",
+          "line": 276,
+          "excerpt": "        \"solucionline_imagina_ser_economic_scenarios\"\n      ],\n      \"directCanonicalMapping\": {\n        \"product\": \"product\",\n        \"annualPremium\": \"annualPremium\"\n      },\n      \"missingCanonicalFields\": [\n        \"name\",\n        \"family\",\n        \"insured\",\n        \"sumAssured\",\n        \"plannedOrAvePremium\",\n        \"coveragePeriod\"\n      ],\n      \"aliasEvidence\": {\n        \"name\": [],\n        \"family\": [],\n        \"insured\": [\n     "
+        },
+        {
+          "term": "name",
+          "line": 284,
+          "excerpt": "m\"\n      },\n      \"missingCanonicalFields\": [\n        \"name\",\n        \"family\",\n        \"insured\",\n        \"sumAssured\",\n        \"plannedOrAvePremium\",\n        \"coveragePeriod\"\n      ],\n      \"aliasEvidence\": {\n        \"name\": [],\n        \"family\": [],\n        \"insured\": [\n          \"sumInsured\"\n        ],\n        \"sumAssured\": [\n          \"sumInsured\"\n        ],\n        \"plannedOrAvePremium\": [\n          \"annualPremium\",\n          \"baseAnn"
+        },
+        {
+          "term": "name",
+          "line": 320,
+          "excerpt": "lback'\\n  };\\n}\"\n    },\n    \"adapter\": {\n      \"excludedNegativeFunctions\": [\n        \"buildQuotePreviewPdfIntegrationError\",\n        \"extractBindingSafeError\"\n      ],\n      \"positiveCandidates\": [\n        {\n          \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n          \"score\": 140,\n          \"reasons\": [\n            \"name_token:integrat\",\n            \"name_token:preview\",\n            \"name_token:quote\",\n       "
+        },
+        {
+          "term": "name",
+          "line": 323,
+          "excerpt": "     \"extractBindingSafeError\"\n      ],\n      \"positiveCandidates\": [\n        {\n          \"name\": \"validateQuotePreviewPdfProductIntelligenceIntegrationShape\",\n          \"score\": 140,\n          \"reasons\": [\n            \"name_token:integrat\",\n            \"name_token:preview\",\n            \"name_token:quote\",\n            \"name_token:product\",\n            \"body_token:fields\",\n            \"non_negative_name\"\n          ],\n          \"parameters\": "
+        }
+      ],
+      "reverseImporters": [],
+      "importsCanonicalContract": false,
+      "importsOrReferencesEngine": true,
+      "schemaScore": 246,
+      "mapperScore": 302,
+      "validatorScore": 149,
+      "consumerScore": 72
+    }
+  ],
+  "contractReverseImporters": [
+    "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-coordinator.js",
+    "platform/runtime/quote-preview/quote-preview-pdf-result-store.js"
+  ],
+  "interpretation": {
+    "mapperOwnerClaimRequires": [
+      "production source",
+      "at least six exact canonical fields",
+      "at least four native alias terms",
+      "at least two construction signals",
+      "contract import or engine reference"
+    ],
+    "mapperOwnerNotFoundMeans": "No tracked production file met the evidence threshold. This is not proof that a bridge must be created."
+  },
+  "authorization": {
+    "OWNER_REVIEW_GATE_AUTHORIZED": false,
+    "MISSING_BRIDGE_REVIEW_GATE_AUTHORIZED": true,
+    "SOURCE_CHANGE_AUTHORIZED": false,
+    "SOURCE_CODE_WRITE_AUTHORIZED": false,
+    "NEW_MODULE_AUTHORIZED": false,
+    "REAL_EFFECTS_AUTHORIZED": false
+  },
+  "constitutionalFlags": {
+    "NEW_ENGINE_CREATED": false,
+    "NEW_CACHE_CREATED": false,
+    "DUPLICATE_BRIDGE_CREATED": false,
+    "SCHEMA_CHANGED": false,
+    "SOURCE_UI_CHANGED": false,
+    "REAL_ENGINE_EXECUTION": false,
+    "PARSER_EXECUTED": false,
+    "CONTROLLED_BROWSER_EXECUTION": false,
+    "PDF_READ_EXECUTED": false,
+    "BACKEND_CONNECTION": false,
+    "QUOTE_TRUTH_ALLOWED": false,
+    "STATIC_REPO_WIDE_INSPECTION_EXECUTED": true,
+    "TEST_EXECUTION": true
+  }
+}
+```
