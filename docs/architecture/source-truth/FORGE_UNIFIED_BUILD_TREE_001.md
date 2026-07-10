@@ -10913,3 +10913,51 @@ LOCKED_DECISION=MANUAL_VALUE_CAPTURE_GATE_LOCKED_FOR_TEMPLATE_PREP_ONLY_NO_VALUE
 
 NEXT=107H_QUOTE_PREVIEW_MANUAL_VALUE_CAPTURE_TEMPLATE_DRY_RUN
 <!-- FORGE:107G_QUOTE_PREVIEW_MANUAL_VALUE_CAPTURE_GATE:END -->
+
+<!-- FORGE:107H_QUOTE_PREVIEW_MANUAL_VALUE_CAPTURE_TEMPLATE_DRY_RUN:START -->
+## 107H Quote Preview Manual Value Capture Template Dry Run
+
+107H creates a blank manual value capture template.
+
+Locked decision:
+`MANUAL_VALUE_CAPTURE_TEMPLATE_DRY_RUN_COMPLETE_WITH_NULL_VALUES_NO_TRUTH_NO_UI`
+
+Confirmed:
+
+- manual value capture template created;
+- template is blank;
+- source is capture specs from 107G only;
+- manual operator token not required this phase;
+- manual value capture not executed;
+- captured values remain null;
+- captured value count is zero;
+- approved value count is zero;
+- actual capture requires future manual token;
+- real value approval forbidden;
+- candidate truth forbidden;
+- quote truth forbidden;
+- UI population forbidden;
+- presentation generation forbidden;
+- backend connection not used;
+- provider runtime not used;
+- source UI was not changed;
+- all safety flags remain false.
+
+CAPTURE_TEMPLATE_ENTRY_COUNT=6
+
+ELIGIBLE_TEMPLATE_ENTRY_COUNT=6
+
+BLOCKED_TEMPLATE_ENTRY_COUNT=0
+
+MONEY_SIGNAL_TEMPLATE_ENTRY_COUNT=4
+
+DATE_SIGNAL_TEMPLATE_ENTRY_COUNT=2
+
+FUTURE_MANUAL_CAPTURE_TOKEN_NAME=AUTHORIZE_MANUAL_VALUE_CAPTURE_LOCAL_ONLY
+
+DECISION=PASS_107H_QUOTE_PREVIEW_MANUAL_VALUE_CAPTURE_TEMPLATE_DRY_RUN
+
+LOCKED_DECISION=MANUAL_VALUE_CAPTURE_TEMPLATE_DRY_RUN_COMPLETE_WITH_NULL_VALUES_NO_TRUTH_NO_UI
+
+NEXT=107I_QUOTE_PREVIEW_MANUAL_VALUE_CAPTURE_AUTHORIZATION_GATE
+<!-- FORGE:107H_QUOTE_PREVIEW_MANUAL_VALUE_CAPTURE_TEMPLATE_DRY_RUN:END -->
