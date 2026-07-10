@@ -10820,3 +10820,55 @@ LOCKED_DECISION=REDACTED_LOOKUP_RESULT_MAPPING_GATE_LOCKED_NO_VALUES_NO_TRUTH_NO
 
 NEXT=107F_QUOTE_PREVIEW_REDACTED_LOOKUP_RESULT_MAPPING_DRY_RUN
 <!-- FORGE:107E_QUOTE_PREVIEW_REDACTED_LOOKUP_RESULT_MAPPING_GATE:END -->
+
+<!-- FORGE:107F_QUOTE_PREVIEW_REDACTED_LOOKUP_RESULT_MAPPING_DRY_RUN:START -->
+## 107F Quote Preview Redacted Lookup Result Mapping Dry Run
+
+107F materializes field candidate states from redacted lookup signals.
+
+Locked decision:
+`REDACTED_LOOKUP_RESULT_MAPPING_DRY_RUN_COMPLETE_WITH_FIELD_CANDIDATE_STATES_NO_VALUES_NO_TRUTH`
+
+Confirmed:
+
+- redacted mapping executed;
+- source is committed redacted lookup results only;
+- field candidate states materialized;
+- candidate values are null;
+- manual value capture required later;
+- raw PDF not accessed;
+- raw text not accessed;
+- raw text not committed;
+- raw value not extracted;
+- real value not extracted;
+- real value approval not executed;
+- candidate truth forbidden;
+- OCR execution forbidden;
+- parser execution forbidden;
+- calculator execution forbidden;
+- quote truth not created;
+- UI not populated;
+- presentation not generated;
+- backend connection not used;
+- provider runtime not used;
+- source UI was not changed;
+- all safety flags remain false.
+
+FIELD_CANDIDATE_RECORD_COUNT=6
+
+READY_FOR_MANUAL_VALUE_CAPTURE_COUNT=6
+
+BLOCKED_FIELD_CANDIDATE_COUNT=0
+
+LOOKUP_MAPPING_RECORD_COUNT=27
+
+MONEY_SIGNAL_FIELD_COUNT=4
+
+DATE_SIGNAL_FIELD_COUNT=2
+
+DECISION=PASS_107F_QUOTE_PREVIEW_REDACTED_LOOKUP_RESULT_MAPPING_DRY_RUN
+
+LOCKED_DECISION=REDACTED_LOOKUP_RESULT_MAPPING_DRY_RUN_COMPLETE_WITH_FIELD_CANDIDATE_STATES_NO_VALUES_NO_TRUTH
+
+NEXT=107G_QUOTE_PREVIEW_MANUAL_VALUE_CAPTURE_GATE
+<!-- FORGE:107F_QUOTE_PREVIEW_REDACTED_LOOKUP_RESULT_MAPPING_DRY_RUN:END -->
