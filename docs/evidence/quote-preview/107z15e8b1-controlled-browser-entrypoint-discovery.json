@@ -1,0 +1,2790 @@
+{
+  "chain": "107Z15E8B1_CONTROLLED_BROWSER_ENTRYPOINT_DISCOVERY_GATE",
+  "status": "PASS",
+  "discoveryComplete": true,
+  "previousProof": "/storage/emulated/0/ForgeGemini/Reports/107Z15E8B_20260710_154959/107Z15E8B_PROOF_20260710_154959.json",
+  "previousRejectedTarget": "manager-os/provider-runtime/provider-runtime-boundary-contract.js",
+  "entrypointDecision": "BROWSER_AND_QUOTE_PREVIEW_SURFACES_FOUND_WITHOUT_CREDIBLE_CONNECTION",
+  "finalEntrypoint": null,
+  "entrypointConfidence": "DISCONNECTED",
+  "sourceChangeAuthorized": false,
+  "allowedSourceFiles": [],
+  "scoreMargin": null,
+  "counts": {
+    "trackedProductionFiles": 972,
+    "graphNodes": 972,
+    "graphEdges": 725,
+    "browserFiles": 50,
+    "quoteSemanticFiles": 70,
+    "persistenceFiles": 3,
+    "credibleCandidates": 0
+  },
+  "candidateRanking": [
+    {
+      "file": "utils.js",
+      "browserSignals": 18,
+      "domBindingSignals": 9,
+      "confirmationSignals": 10,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "runtime.js",
+        "overlay-manager.js"
+      ],
+      "incomingCount": 8,
+      "outgoingCount": 2,
+      "importedBy": [
+        "actividad.js",
+        "auth-guard.js",
+        "cartera.js",
+        "comisiones.js",
+        "platform/app/runtime-listeners.js",
+        "platform/auth/auth-service.js",
+        "prospeccion.js",
+        "referidos.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 37,
+      "structuralClasses": 2,
+      "score": 183,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 13,
+            "snippet": "return document.createTextNode("
+          },
+          {
+            "line": 34,
+            "snippet": "const toast = document.createElement('div');"
+          },
+          {
+            "line": 42,
+            "snippet": "const icon = document.createElement('span');"
+          },
+          {
+            "line": 48,
+            "snippet": "const text = document.createElement('span');"
+          },
+          {
+            "line": 56,
+            "snippet": "document.body.appendChild(toast);"
+          },
+          {
+            "line": 100,
+            "snippet": "const previousFocus = document.activeElement;"
+          },
+          {
+            "line": 102,
+            "snippet": "const overlay = document.createElement('div');"
+          },
+          {
+            "line": 108,
+            "snippet": "const modal = document.createElement('div');"
+          },
+          {
+            "line": 140,
+            "snippet": "modal.querySelector('.ui-modal-title').textContent = title;"
+          },
+          {
+            "line": 142,
+            "snippet": "modal.querySelector('.ui-modal-text').textContent = text;"
+          },
+          {
+            "line": 146,
+            "snippet": "document.body.appendChild(overlay);"
+          },
+          {
+            "line": 183,
+            "snippet": "document.addEventListener("
+          },
+          {
+            "line": 183,
+            "snippet": "document.addEventListener("
+          },
+          {
+            "line": 189,
+            "snippet": "document.removeEventListener("
+          },
+          {
+            "line": 195,
+            "snippet": "overlay.addEventListener('click', e => {"
+          },
+          {
+            "line": 202,
+            "snippet": "modal.addEventListener('click', e => {"
+          },
+          {
+            "line": 220,
+            "snippet": "modal.querySelector("
+          },
+          {
+            "line": 267,
+            "snippet": "window.open("
+          }
+        ],
+        "confirmation": [
+          {
+            "line": 108,
+            "snippet": "const modal = document.createElement('div');"
+          },
+          {
+            "line": 110,
+            "snippet": "modal.className = 'ui-modal';"
+          },
+          {
+            "line": 112,
+            "snippet": "modal.setAttribute('role', 'dialog');"
+          },
+          {
+            "line": 114,
+            "snippet": "modal.setAttribute('aria-modal', 'true');"
+          },
+          {
+            "line": 116,
+            "snippet": "modal.innerHTML = `"
+          },
+          {
+            "line": 140,
+            "snippet": "modal.querySelector('.ui-modal-title').textContent = title;"
+          },
+          {
+            "line": 142,
+            "snippet": "modal.querySelector('.ui-modal-text').textContent = text;"
+          },
+          {
+            "line": 144,
+            "snippet": "overlay.appendChild(modal);"
+          },
+          {
+            "line": 202,
+            "snippet": "modal.addEventListener('click', e => {"
+          },
+          {
+            "line": 220,
+            "snippet": "modal.querySelector("
+          }
+        ],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "design-system-preview.html",
+      "browserSignals": 9,
+      "domBindingSignals": 7,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 1,
+      "imports": [],
+      "incomingCount": 0,
+      "outgoingCount": 0,
+      "importedBy": [],
+      "htmlLoadedScript": false,
+      "quoteDistance": 0,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 16,
+      "structuralClasses": 2,
+      "score": 134,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 359,
+            "snippet": "const toggle = document.getElementById('theme-toggle-preview');"
+          },
+          {
+            "line": 360,
+            "snippet": "toggle.addEventListener('change', () => {"
+          },
+          {
+            "line": 361,
+            "snippet": "document.documentElement.setAttribute('data-theme', toggle.checked ? 'dark' : '');"
+          },
+          {
+            "line": 365,
+            "snippet": "document.querySelectorAll('.nav-btn[data-target]').forEach(btn => {"
+          },
+          {
+            "line": 366,
+            "snippet": "btn.addEventListener('click', () => {"
+          },
+          {
+            "line": 367,
+            "snippet": "document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));"
+          },
+          {
+            "line": 373,
+            "snippet": "document.querySelectorAll('[data-val]').forEach(btn => {"
+          },
+          {
+            "line": 374,
+            "snippet": "btn.addEventListener('click', () => {"
+          },
+          {
+            "line": 376,
+            "snippet": "const valueEl = btn.closest('.ios-widget')?.querySelector('[style*=\"font-size:28px\"]');"
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "comisiones.js",
+      "browserSignals": 26,
+      "domBindingSignals": 20,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "db.js",
+        "supabase-runtime.js",
+        "ai-service.js",
+        "platform/navigation-runtime.js",
+        "utils.js"
+      ],
+      "incomingCount": 1,
+      "outgoingCount": 5,
+      "importedBy": [
+        "app.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 46,
+      "structuralClasses": 1,
+      "score": 128,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 208,
+            "snippet": "const root = document.getElementById('fin-root');"
+          },
+          {
+            "line": 290,
+            "snippet": "document.getElementById('cfg-fec')?.addEventListener('change', () => {"
+          },
+          {
+            "line": 290,
+            "snippet": "document.getElementById('cfg-fec')?.addEventListener('change', () => {"
+          },
+          {
+            "line": 291,
+            "snippet": "const f = document.getElementById('cfg-fec').value;"
+          },
+          {
+            "line": 293,
+            "snippet": "document.getElementById('cfg-indices-wrap').style.display = mc >= 15 ? 'grid' : 'none';"
+          },
+          {
+            "line": 296,
+            "snippet": "document.getElementById('btn-save-cfg')?.addEventListener('click', async () => {"
+          },
+          {
+            "line": 296,
+            "snippet": "document.getElementById('btn-save-cfg')?.addEventListener('click', async () => {"
+          },
+          {
+            "line": 297,
+            "snippet": "const f = document.getElementById('cfg-fec').value;"
+          },
+          {
+            "line": 302,
+            "snippet": "const limra = parseFloat(document.getElementById('cfg-limra')?.value)||75.5;"
+          },
+          {
+            "line": 303,
+            "snippet": "const igc = parseFloat(document.getElementById('cfg-igc')?.value)||91.0;"
+          },
+          {
+            "line": 322,
+            "snippet": "document.getElementById('btn-save-indices')?.addEventListener('click', async () => {"
+          },
+          {
+            "line": 322,
+            "snippet": "document.getElementById('btn-save-indices')?.addEventListener('click', async () => {"
+          },
+          {
+            "line": 323,
+            "snippet": "const limra = parseFloat(document.getElementById('idx-limra').value) || 75.5;"
+          },
+          {
+            "line": 324,
+            "snippet": "const igc = parseFloat(document.getElementById('idx-igc').value) || 91.0;"
+          },
+          {
+            "line": 335,
+            "snippet": "document.getElementById('fin-root').innerHTML = buildUI(r, pAct);"
+          },
+          {
+            "line": 447,
+            "snippet": "document.getElementById('btn-update-indices')?.addEventListener('click', () => {"
+          },
+          {
+            "line": 447,
+            "snippet": "document.getElementById('btn-update-indices')?.addEventListener('click', () => {"
+          },
+          {
+            "line": 448,
+            "snippet": "document.getElementById('fin-root').innerHTML = renderConfigFormIndices(perfil);"
+          },
+          {
+            "line": 452,
+            "snippet": "document.getElementById('btn-simular')?.addEventListener('click', () => {"
+          },
+          {
+            "line": 452,
+            "snippet": "document.getElementById('btn-simular')?.addEventListener('click', () => {"
+          },
+          {
+            "line": 453,
+            "snippet": "const plan = document.getElementById('sim-plan').value;"
+          },
+          {
+            "line": 454,
+            "snippet": "const prima = parseFloat(document.getElementById('sim-prima').value) || 0;"
+          },
+          {
+            "line": 455,
+            "snippet": "const fp = parseFloat(document.getElementById('sim-fpago').value) || 1;"
+          },
+          {
+            "line": 462,
+            "snippet": "const res = document.getElementById('sim-resultado');"
+          },
+          {
+            "line": 467,
+            "snippet": "document.getElementById('btn-dev-reset')?.addEventListener('click', async () => {"
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "prospeccion.js",
+      "browserSignals": 39,
+      "domBindingSignals": 34,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "db.js",
+        "ai-service.js",
+        "utils.js"
+      ],
+      "incomingCount": 1,
+      "outgoingCount": 3,
+      "importedBy": [
+        "app.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 73,
+      "structuralClasses": 1,
+      "score": 124,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 11,
+            "snippet": "document.getElementById('pros-titulo').innerText = '🎯 Control de Prospectos';"
+          },
+          {
+            "line": 13,
+            "snippet": "const el = document.getElementById(id);"
+          },
+          {
+            "line": 16,
+            "snippet": "document.getElementById('btn-cancelar-pros').style.display = 'none';"
+          },
+          {
+            "line": 17,
+            "snippet": "document.getElementById('out-guion-apertura').innerHTML = 'Selecciona un enfoque...';"
+          },
+          {
+            "line": 18,
+            "snippet": "document.getElementById('out-objecion-ia').innerHTML = 'Esperando objeción...';"
+          },
+          {
+            "line": 95,
+            "snippet": "const root = document.getElementById('prospeccion-root');"
+          },
+          {
+            "line": 99,
+            "snippet": "root.addEventListener('click', handleProspeccionClicks);"
+          },
+          {
+            "line": 101,
+            "snippet": "document.getElementById('btn-guardar-pros')?.addEventListener('click', Controller.guardarProspecto);"
+          },
+          {
+            "line": 101,
+            "snippet": "document.getElementById('btn-guardar-pros')?.addEventListener('click', Controller.guardarProspecto);"
+          },
+          {
+            "line": 102,
+            "snippet": "document.getElementById('btn-cancelar-pros')?.addEventListener('click', () => State.reset());"
+          },
+          {
+            "line": 102,
+            "snippet": "document.getElementById('btn-cancelar-pros')?.addEventListener('click', () => State.reset());"
+          },
+          {
+            "line": 111,
+            "snippet": "document.getElementById('pros-nombre').value = obj.nombre || '';"
+          },
+          {
+            "line": 112,
+            "snippet": "document.getElementById('pros-telefono').value = obj.telefono || '';"
+          },
+          {
+            "line": 113,
+            "snippet": "document.getElementById('pros-notas').value = `COI: ${obj.origen || 'N/A'}. Notas: ${obj.notas || ''}`;"
+          },
+          {
+            "line": 116,
+            "snippet": "document.getElementById('pros-temperatura').value = 'Tibio';"
+          },
+          {
+            "line": 150,
+            "snippet": "nombre: document.getElementById('pros-nombre').value.trim(),"
+          },
+          {
+            "line": 151,
+            "snippet": "telefono: document.getElementById('pros-telefono').value.trim(),"
+          },
+          {
+            "line": 152,
+            "snippet": "producto: document.getElementById('pros-producto').value,"
+          },
+          {
+            "line": 153,
+            "snippet": "temperatura: document.getElementById('pros-temperatura').value,"
+          },
+          {
+            "line": 154,
+            "snippet": "notas: document.getElementById('pros-notas').value.trim()"
+          },
+          {
+            "line": 170,
+            "snippet": "const container = document.getElementById('lista-prospectos');"
+          },
+          {
+            "line": 199,
+            "snippet": "document.getElementById('pros-titulo').innerText = '✏️ Editar Prospecto';"
+          },
+          {
+            "line": 200,
+            "snippet": "document.getElementById('pros-nombre').value = p.nombre || '';"
+          },
+          {
+            "line": 201,
+            "snippet": "document.getElementById('pros-telefono').value = p.telefono || '';"
+          },
+          {
+            "line": 202,
+            "snippet": "document.getElementById('pros-producto').value = p.producto || 'Segubeca';"
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "referidos.js",
+      "browserSignals": 26,
+      "domBindingSignals": 21,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "db.js",
+        "platform/navigation-runtime.js",
+        "utils.js"
+      ],
+      "incomingCount": 1,
+      "outgoingCount": 3,
+      "importedBy": [
+        "app.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 47,
+      "structuralClasses": 1,
+      "score": 124,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 11,
+            "snippet": "document.getElementById('ref-titulo').innerText = '👥 Registro de Referidos';"
+          },
+          {
+            "line": 13,
+            "snippet": "const el = document.getElementById(id);"
+          },
+          {
+            "line": 16,
+            "snippet": "document.getElementById('ref-estado').value = 'Nuevo';"
+          },
+          {
+            "line": 17,
+            "snippet": "document.getElementById('btn-cancelar-ref').style.display = 'none';"
+          },
+          {
+            "line": 64,
+            "snippet": "const root = document.getElementById('referidos-root');"
+          },
+          {
+            "line": 69,
+            "snippet": "root.addEventListener('click', handleReferidosClicks);"
+          },
+          {
+            "line": 71,
+            "snippet": "document.getElementById('btn-guardar-ref')?.addEventListener('click', Controller.guardarReferido);"
+          },
+          {
+            "line": 71,
+            "snippet": "document.getElementById('btn-guardar-ref')?.addEventListener('click', Controller.guardarReferido);"
+          },
+          {
+            "line": 72,
+            "snippet": "document.getElementById('btn-cancelar-ref')?.addEventListener('click', () => State.reset());"
+          },
+          {
+            "line": 72,
+            "snippet": "document.getElementById('btn-cancelar-ref')?.addEventListener('click', () => State.reset());"
+          },
+          {
+            "line": 73,
+            "snippet": "document.getElementById('ref-buscador')?.addEventListener('input', (e) => Controller.filtrarUI(e.target.value));"
+          },
+          {
+            "line": 73,
+            "snippet": "document.getElementById('ref-buscador')?.addEventListener('input', (e) => Controller.filtrarUI(e.target.value));"
+          },
+          {
+            "line": 95,
+            "snippet": "nombre: document.getElementById('ref-nombre').value.trim(),"
+          },
+          {
+            "line": 96,
+            "snippet": "telefono: document.getElementById('ref-telefono').value.trim(),"
+          },
+          {
+            "line": 97,
+            "snippet": "origen: document.getElementById('ref-origen').value.trim(),"
+          },
+          {
+            "line": 98,
+            "snippet": "estado: document.getElementById('ref-estado').value,"
+          },
+          {
+            "line": 99,
+            "snippet": "notas: document.getElementById('ref-notas').value.trim()"
+          },
+          {
+            "line": 131,
+            "snippet": "const container = document.getElementById('lista-referidos-container');"
+          },
+          {
+            "line": 180,
+            "snippet": "document.getElementById('ref-titulo').innerText = '✏️ Editar Referido';"
+          },
+          {
+            "line": 181,
+            "snippet": "document.getElementById('ref-nombre').value = r.nombre || '';"
+          },
+          {
+            "line": 182,
+            "snippet": "document.getElementById('ref-telefono').value = r.telefono || '';"
+          },
+          {
+            "line": 183,
+            "snippet": "document.getElementById('ref-origen').value = r.origen || '';"
+          },
+          {
+            "line": 184,
+            "snippet": "document.getElementById('ref-estado').value = r.estado || 'Nuevo';"
+          },
+          {
+            "line": 185,
+            "snippet": "document.getElementById('ref-notas').value = r.notas || '';"
+          },
+          {
+            "line": 187,
+            "snippet": "document.getElementById('btn-cancelar-ref').style.display = 'block';"
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "cartera-view.js",
+      "browserSignals": 15,
+      "domBindingSignals": 15,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "policy-operations/client-records/cartera-utils.js"
+      ],
+      "incomingCount": 0,
+      "outgoingCount": 1,
+      "importedBy": [],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 30,
+      "structuralClasses": 1,
+      "score": 122,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 130,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 622,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 637,
+            "snippet": "document.createDocumentFragment();"
+          },
+          {
+            "line": 652,
+            "snippet": "document.createElement('article');"
+          },
+          {
+            "line": 891,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 903,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 916,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 927,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 938,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 948,
+            "snippet": "window.scrollTo({"
+          },
+          {
+            "line": 957,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 967,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 978,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 989,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 1003,
+            "snippet": "document.getElementById("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "app.js",
+      "browserSignals": 4,
+      "domBindingSignals": 3,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 1,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "supabase-runtime.js",
+        "prospeccion.js",
+        "referidos.js",
+        "actividad.js",
+        "cartera.js",
+        "comisiones.js",
+        "event-system.js",
+        "platform/app/bootstrap.js",
+        "platform/app/forge-app-shell.js",
+        "platform/auth/auth-service.js",
+        "platform/routing/enterprise-router.js",
+        "platform/routing/route-registry.js",
+        "logger.js",
+        "platform/app/runtime-listeners.js",
+        "legacy/crmaddlife/chat-shell.js",
+        "legacy/crmaddlife/ui-listeners.js",
+        "legacy/crmaddlife/ui-shell.js",
+        "dashboard.js"
+      ],
+      "incomingCount": 0,
+      "outgoingCount": 18,
+      "importedBy": [],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 7,
+      "structuralClasses": 2,
+      "score": 97,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 139,
+            "snippet": "const nav = document.getElementById('main-sidebar');"
+          },
+          {
+            "line": 141,
+            "snippet": "nav.addEventListener('click', (e) => {"
+          },
+          {
+            "line": 150,
+            "snippet": "const btnLogout = document.getElementById('btn-cerrar-sesion');"
+          },
+          {
+            "line": 152,
+            "snippet": "btnLogout.addEventListener('click', () => {"
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "platform/commands/command-palette.js",
+      "browserSignals": 7,
+      "domBindingSignals": 2,
+      "confirmationSignals": 5,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "rule-packs/smnyl/smnyl-command-palette-engine.js"
+      ],
+      "incomingCount": 0,
+      "outgoingCount": 1,
+      "importedBy": [],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 14,
+      "structuralClasses": 2,
+      "score": 92,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 13,
+            "snippet": "document.addEventListener("
+          },
+          {
+            "line": 13,
+            "snippet": "document.addEventListener("
+          },
+          {
+            "line": 34,
+            "snippet": "document.createElement('div');"
+          },
+          {
+            "line": 58,
+            "snippet": "document.body.appendChild(modal);"
+          },
+          {
+            "line": 61,
+            "snippet": "modal.querySelector("
+          },
+          {
+            "line": 67,
+            "snippet": "input.addEventListener("
+          },
+          {
+            "line": 85,
+            "snippet": "document.getElementById("
+          }
+        ],
+        "confirmation": [
+          {
+            "line": 33,
+            "snippet": "const modal ="
+          },
+          {
+            "line": 36,
+            "snippet": "modal.className ="
+          },
+          {
+            "line": 39,
+            "snippet": "modal.innerHTML = `"
+          },
+          {
+            "line": 58,
+            "snippet": "document.body.appendChild(modal);"
+          },
+          {
+            "line": 61,
+            "snippet": "modal.querySelector("
+          }
+        ],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "actividad.js",
+      "browserSignals": 7,
+      "domBindingSignals": 8,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "db.js",
+        "ai-service.js",
+        "event-system.js",
+        "memory-manager.js",
+        "utils.js"
+      ],
+      "incomingCount": 1,
+      "outgoingCount": 5,
+      "importedBy": [
+        "app.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 15,
+      "structuralClasses": 1,
+      "score": 83,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 359,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 403,
+            "snippet": "root.addEventListener("
+          },
+          {
+            "line": 525,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 538,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 630,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 653,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 743,
+            "snippet": "document.getElementById("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "manager-os/github-pages-static-preview/github-pages-static-preview-boundary-contract.js",
+      "browserSignals": 1,
+      "domBindingSignals": 0,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 2,
+      "imports": [],
+      "incomingCount": 0,
+      "outgoingCount": 0,
+      "importedBy": [],
+      "htmlLoadedScript": false,
+      "quoteDistance": 0,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 1,
+      "structuralClasses": 2,
+      "score": 71,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 173,
+            "snippet": "return /localStorage|sessionStorage|indexedDB|document\\.cookie|cookie\\s*=/i.test(text);"
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "index.html",
+      "browserSignals": 3,
+      "domBindingSignals": 0,
+      "confirmationSignals": 1,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 1,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [],
+      "incomingCount": 0,
+      "outgoingCount": 0,
+      "importedBy": [],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 4,
+      "structuralClasses": 3,
+      "score": 66,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 16,
+            "snippet": "AuthService en app.js accede a window.supabase.createClient()."
+          },
+          {
+            "line": 170,
+            "snippet": "window.addEventListener('load', function () {"
+          },
+          {
+            "line": 170,
+            "snippet": "window.addEventListener('load', function () {"
+          }
+        ],
+        "confirmation": [
+          {
+            "line": 120,
+            "snippet": "<div id=\"ai-chat-window\" class=\"chat-window-modal\" role=\"dialog\" aria-label=\"Asistente Comercial\" aria-modal=\"true\">"
+          }
+        ],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "platform/app/bootstrap.js",
+      "browserSignals": 3,
+      "domBindingSignals": 0,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 1,
+      "pathUiSignals": 1,
+      "pathQuoteSignals": 0,
+      "imports": [],
+      "incomingCount": 1,
+      "outgoingCount": 0,
+      "importedBy": [
+        "app.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 3,
+      "structuralClasses": 2,
+      "score": 64,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 21,
+            "snippet": "if (document.readyState === 'loading') {"
+          },
+          {
+            "line": 22,
+            "snippet": "document.addEventListener('DOMContentLoaded', run, { once: true });"
+          },
+          {
+            "line": 22,
+            "snippet": "document.addEventListener('DOMContentLoaded', run, { once: true });"
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "platform/app/runtime-listeners.js",
+      "browserSignals": 8,
+      "domBindingSignals": 0,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 1,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "utils.js",
+        "state-manager.js",
+        "event-system.js",
+        "platform/sync/sync-orchestrator.js",
+        "error-boundary.js",
+        "logger.js"
+      ],
+      "incomingCount": 1,
+      "outgoingCount": 6,
+      "importedBy": [
+        "app.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 8,
+      "structuralClasses": 1,
+      "score": 59,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 13,
+            "snippet": "window.addEventListener('online', () => {"
+          },
+          {
+            "line": 13,
+            "snippet": "window.addEventListener('online', () => {"
+          },
+          {
+            "line": 25,
+            "snippet": "window.addEventListener('offline', () => {"
+          },
+          {
+            "line": 25,
+            "snippet": "window.addEventListener('offline', () => {"
+          },
+          {
+            "line": 32,
+            "snippet": "window.addEventListener('unhandledrejection', (e) => {"
+          },
+          {
+            "line": 32,
+            "snippet": "window.addEventListener('unhandledrejection', (e) => {"
+          },
+          {
+            "line": 37,
+            "snippet": "window.addEventListener('error', (e) => {"
+          },
+          {
+            "line": 37,
+            "snippet": "window.addEventListener('error', (e) => {"
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "platform/auth/auth-service.js",
+      "browserSignals": 9,
+      "domBindingSignals": 0,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "utils.js",
+        "supabase-runtime.js",
+        "state-manager.js",
+        "module-lifecycle.js",
+        "analytics-engine.js",
+        "logger.js",
+        "app-shell-manager.js"
+      ],
+      "incomingCount": 1,
+      "outgoingCount": 7,
+      "importedBy": [
+        "app.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 9,
+      "structuralClasses": 1,
+      "score": 57,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 13,
+            "snippet": "SUPABASE_URL: window.__ENV__?.SUPABASE_URL || '',"
+          },
+          {
+            "line": 14,
+            "snippet": "SUPABASE_KEY: window.__ENV__?.SUPABASE_KEY || '',"
+          },
+          {
+            "line": 15,
+            "snippet": "DEMO_MODE:   window.__ENV__?.DEMO_MODE || '',"
+          },
+          {
+            "line": 30,
+            "snippet": "window.supabaseClient = this.client;"
+          },
+          {
+            "line": 36,
+            "snippet": "if (!window.supabase) {"
+          },
+          {
+            "line": 44,
+            "snippet": "this.client = window.supabase.createClient("
+          },
+          {
+            "line": 59,
+            "snippet": "window.supabaseClient = this.client;"
+          },
+          {
+            "line": 107,
+            "snippet": "redirectTo:          new URL(window.location.pathname || '/', window.location.origin).href,"
+          },
+          {
+            "line": 107,
+            "snippet": "redirectTo:          new URL(window.location.pathname || '/', window.location.origin).href,"
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "accessibility-engine.js",
+      "browserSignals": 8,
+      "domBindingSignals": 3,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [],
+      "incomingCount": 1,
+      "outgoingCount": 0,
+      "importedBy": [
+        "core-app-engine.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 11,
+      "structuralClasses": 1,
+      "score": 53,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 20,
+            "snippet": "window.matchMedia("
+          },
+          {
+            "line": 24,
+            "snippet": "document.body.dataset.motion ="
+          },
+          {
+            "line": 32,
+            "snippet": "document.addEventListener("
+          },
+          {
+            "line": 32,
+            "snippet": "document.addEventListener("
+          },
+          {
+            "line": 40,
+            "snippet": "document.body.classList.add("
+          },
+          {
+            "line": 47,
+            "snippet": "document.addEventListener("
+          },
+          {
+            "line": 47,
+            "snippet": "document.addEventListener("
+          },
+          {
+            "line": 51,
+            "snippet": "document.body.classList.remove("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "policy-operations/policy-detail/drag-drop-policy-zone.js",
+      "browserSignals": 4,
+      "domBindingSignals": 4,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [],
+      "incomingCount": 0,
+      "outgoingCount": 0,
+      "importedBy": [],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 8,
+      "structuralClasses": 1,
+      "score": 40,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 20,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 35,
+            "snippet": "zone.addEventListener("
+          },
+          {
+            "line": 55,
+            "snippet": "zone.addEventListener("
+          },
+          {
+            "line": 73,
+            "snippet": "zone.addEventListener("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "platform/app/forge-app-shell.js",
+      "browserSignals": 1,
+      "domBindingSignals": 0,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 1,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "db.js",
+        "core-app-engine.js",
+        "platform/navigation-runtime.js",
+        "platform/sync/sync-orchestrator.js",
+        "analytics-engine.js",
+        "error-boundary.js",
+        "logger.js",
+        "app-shell-manager.js"
+      ],
+      "incomingCount": 1,
+      "outgoingCount": 8,
+      "importedBy": [
+        "app.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 1,
+      "structuralClasses": 1,
+      "score": 28,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 55,
+            "snippet": "const hashRoute = window.location.hash.replace('#', '').trim();"
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "platform/commands/command-palette-ui.js",
+      "browserSignals": 3,
+      "domBindingSignals": 3,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [],
+      "incomingCount": 1,
+      "outgoingCount": 0,
+      "importedBy": [
+        "platform/commands/command-shortcuts-engine.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 6,
+      "structuralClasses": 1,
+      "score": 28,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 43,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 52,
+            "snippet": "document"
+          },
+          {
+            "line": 63,
+            "snippet": "document.getElementById("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "responsive-engine.js",
+      "browserSignals": 4,
+      "domBindingSignals": 1,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "state-manager.js"
+      ],
+      "incomingCount": 1,
+      "outgoingCount": 1,
+      "importedBy": [
+        "core-app-engine.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 5,
+      "structuralClasses": 1,
+      "score": 25,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 12,
+            "snippet": "window.addEventListener("
+          },
+          {
+            "line": 12,
+            "snippet": "window.addEventListener("
+          },
+          {
+            "line": 28,
+            "snippet": "window.innerWidth;"
+          },
+          {
+            "line": 47,
+            "snippet": "document.body.dataset.device ="
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "legacy/crmaddlife/ui-listeners.js",
+      "browserSignals": 4,
+      "domBindingSignals": 1,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [],
+      "incomingCount": 1,
+      "outgoingCount": 0,
+      "importedBy": [
+        "app.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 5,
+      "structuralClasses": 1,
+      "score": 23,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 6,
+            "snippet": "const themeToggle = document.getElementById('theme-toggle');"
+          },
+          {
+            "line": 11,
+            "snippet": "document.documentElement.setAttribute('data-theme', 'dark');"
+          },
+          {
+            "line": 15,
+            "snippet": "themeToggle.addEventListener('change', (e) => {"
+          },
+          {
+            "line": 17,
+            "snippet": "document.documentElement.setAttribute("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "advisor-os/concursos/concursos.js",
+      "browserSignals": 2,
+      "domBindingSignals": 2,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "rule-packs/smnyl/smnyl-concursos-engine.js"
+      ],
+      "incomingCount": 0,
+      "outgoingCount": 1,
+      "importedBy": [],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 4,
+      "structuralClasses": 1,
+      "score": 22,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 107,
+            "snippet": "document.getElementById("
+          },
+          {
+            "line": 113,
+            "snippet": "document.getElementById("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "crash-runtime.js",
+      "browserSignals": 4,
+      "domBindingSignals": 0,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "telemetry.js"
+      ],
+      "incomingCount": 0,
+      "outgoingCount": 1,
+      "importedBy": [],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 4,
+      "structuralClasses": 1,
+      "score": 22,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 11,
+            "snippet": "window.addEventListener("
+          },
+          {
+            "line": 11,
+            "snippet": "window.addEventListener("
+          },
+          {
+            "line": 25,
+            "snippet": "window.addEventListener("
+          },
+          {
+            "line": 25,
+            "snippet": "window.addEventListener("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "route-transition-manager.js",
+      "browserSignals": 2,
+      "domBindingSignals": 2,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "memory-manager.js"
+      ],
+      "incomingCount": 0,
+      "outgoingCount": 1,
+      "importedBy": [],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 4,
+      "structuralClasses": 1,
+      "score": 22,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 40,
+            "snippet": "document.body.classList.add("
+          },
+          {
+            "line": 60,
+            "snippet": "document.body.classList.remove("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "network-manager.js",
+      "browserSignals": 4,
+      "domBindingSignals": 0,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "event-system.js",
+        "state-manager.js"
+      ],
+      "incomingCount": 2,
+      "outgoingCount": 2,
+      "importedBy": [
+        "core-app-engine.js",
+        "platform/sync/offline-sync.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 4,
+      "structuralClasses": 1,
+      "score": 20,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 23,
+            "snippet": "window.addEventListener("
+          },
+          {
+            "line": 23,
+            "snippet": "window.addEventListener("
+          },
+          {
+            "line": 28,
+            "snippet": "window.addEventListener("
+          },
+          {
+            "line": 28,
+            "snippet": "window.addEventListener("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "platform/sync/offline-sync.js",
+      "browserSignals": 4,
+      "domBindingSignals": 0,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "db.js",
+        "network-manager.js"
+      ],
+      "incomingCount": 2,
+      "outgoingCount": 2,
+      "importedBy": [
+        "core-app-engine.js",
+        "platform/sync/sync-orchestrator.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 4,
+      "structuralClasses": 1,
+      "score": 20,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 186,
+            "snippet": "!window.supabaseClient"
+          },
+          {
+            "line": 196,
+            "snippet": "} = await window"
+          },
+          {
+            "line": 215,
+            "snippet": "!window.supabaseClient"
+          },
+          {
+            "line": 225,
+            "snippet": "} = await window"
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "render-engine.js",
+      "browserSignals": 3,
+      "domBindingSignals": 1,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [],
+      "incomingCount": 0,
+      "outgoingCount": 0,
+      "importedBy": [],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 4,
+      "structuralClasses": 1,
+      "score": 20,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 37,
+            "snippet": "document.createDocumentFragment();"
+          },
+          {
+            "line": 84,
+            "snippet": "window.scrollY;"
+          },
+          {
+            "line": 91,
+            "snippet": "window.scrollTo("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "virtual-list.js",
+      "browserSignals": 2,
+      "domBindingSignals": 2,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [],
+      "incomingCount": 0,
+      "outgoingCount": 0,
+      "importedBy": [],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 4,
+      "structuralClasses": 1,
+      "score": 20,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 44,
+            "snippet": "document.createElement('div');"
+          },
+          {
+            "line": 59,
+            "snippet": "this.container.addEventListener("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "cartera-events.js",
+      "browserSignals": 4,
+      "domBindingSignals": 0,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [],
+      "incomingCount": 1,
+      "outgoingCount": 0,
+      "importedBy": [
+        "cartera-service.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 4,
+      "structuralClasses": 1,
+      "score": 18,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 22,
+            "snippet": "window.dispatchEvent("
+          },
+          {
+            "line": 34,
+            "snippet": "window.addEventListener("
+          },
+          {
+            "line": 34,
+            "snippet": "window.addEventListener("
+          },
+          {
+            "line": 42,
+            "snippet": "window.removeEventListener("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "realtime-engine.js",
+      "browserSignals": 4,
+      "domBindingSignals": 0,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [],
+      "incomingCount": 1,
+      "outgoingCount": 0,
+      "importedBy": [
+        "platform/sync/sync-orchestrator.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 4,
+      "structuralClasses": 1,
+      "score": 18,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 18,
+            "snippet": "!window.supabaseClient"
+          },
+          {
+            "line": 36,
+            "snippet": "window.supabaseClient"
+          },
+          {
+            "line": 75,
+            "snippet": "window.supabaseClient"
+          },
+          {
+            "line": 95,
+            "snippet": "window.supabaseClient"
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "platform/navigation-runtime.js",
+      "browserSignals": 5,
+      "domBindingSignals": 0,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [],
+      "incomingCount": 4,
+      "outgoingCount": 0,
+      "importedBy": [
+        "comisiones.js",
+        "dashboard.js",
+        "platform/app/forge-app-shell.js",
+        "referidos.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 5,
+      "structuralClasses": 1,
+      "score": 17,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 69,
+            "snippet": "if (typeof window === 'undefined') {"
+          },
+          {
+            "line": 78,
+            "snippet": "window.navigateTo = legacyShim;"
+          },
+          {
+            "line": 84,
+            "snippet": "if (typeof window === 'undefined') {"
+          },
+          {
+            "line": 88,
+            "snippet": "if (legacyShim && window.navigateTo === legacyShim) {"
+          },
+          {
+            "line": 89,
+            "snippet": "delete window.navigateTo;"
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "telemetry.js",
+      "browserSignals": 5,
+      "domBindingSignals": 0,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [],
+      "incomingCount": 4,
+      "outgoingCount": 0,
+      "importedBy": [
+        "base-repository.js",
+        "crash-runtime.js",
+        "health-runtime.js",
+        "performance-runtime.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 5,
+      "structuralClasses": 1,
+      "score": 17,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 126,
+            "snippet": "window.addEventListener("
+          },
+          {
+            "line": 126,
+            "snippet": "window.addEventListener("
+          },
+          {
+            "line": 135,
+            "snippet": "document.addEventListener("
+          },
+          {
+            "line": 135,
+            "snippet": "document.addEventListener("
+          },
+          {
+            "line": 141,
+            "snippet": "document.visibilityState ==="
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "auth-guard.js",
+      "browserSignals": 3,
+      "domBindingSignals": 0,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "utils.js"
+      ],
+      "incomingCount": 1,
+      "outgoingCount": 1,
+      "importedBy": [
+        "core-app-engine.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 3,
+      "structuralClasses": 1,
+      "score": 15,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 32,
+            "snippet": "window.addEventListener("
+          },
+          {
+            "line": 32,
+            "snippet": "window.addEventListener("
+          },
+          {
+            "line": 57,
+            "snippet": "window.removeEventListener("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "platform/sync/sync-engine.js",
+      "browserSignals": 3,
+      "domBindingSignals": 0,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "runtime.js"
+      ],
+      "incomingCount": 1,
+      "outgoingCount": 1,
+      "importedBy": [
+        "mutation-engine.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 3,
+      "structuralClasses": 1,
+      "score": 15,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 32,
+            "snippet": "!('BroadcastChannel' in window)"
+          },
+          {
+            "line": 79,
+            "snippet": "window.addEventListener("
+          },
+          {
+            "line": 79,
+            "snippet": "window.addEventListener("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "service-worker.js",
+      "browserSignals": 3,
+      "domBindingSignals": 0,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [],
+      "incomingCount": 0,
+      "outgoingCount": 0,
+      "importedBy": [],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 3,
+      "structuralClasses": 1,
+      "score": 15,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 14,
+            "snippet": "self.addEventListener("
+          },
+          {
+            "line": 32,
+            "snippet": "self.addEventListener("
+          },
+          {
+            "line": 65,
+            "snippet": "self.addEventListener("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "universal-search-engine.js",
+      "browserSignals": 0,
+      "domBindingSignals": 3,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [],
+      "incomingCount": 0,
+      "outgoingCount": 0,
+      "importedBy": [],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 3,
+      "structuralClasses": 1,
+      "score": 15,
+      "credible": false,
+      "evidence": {
+        "browser": [],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "platform/commands/command-shortcuts-engine.js",
+      "browserSignals": 2,
+      "domBindingSignals": 0,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "platform/commands/command-palette-ui.js"
+      ],
+      "incomingCount": 0,
+      "outgoingCount": 1,
+      "importedBy": [],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 2,
+      "structuralClasses": 1,
+      "score": 12,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 21,
+            "snippet": "document.addEventListener("
+          },
+          {
+            "line": 21,
+            "snippet": "document.addEventListener("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "app-shell-manager.js",
+      "browserSignals": 2,
+      "domBindingSignals": 1,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [],
+      "incomingCount": 2,
+      "outgoingCount": 0,
+      "importedBy": [
+        "platform/app/forge-app-shell.js",
+        "platform/auth/auth-service.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 3,
+      "structuralClasses": 1,
+      "score": 11,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 19,
+            "snippet": "document.createElement("
+          },
+          {
+            "line": 72,
+            "snippet": "document.body.appendChild("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "idle-runtime.js",
+      "browserSignals": 2,
+      "domBindingSignals": 0,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [],
+      "incomingCount": 0,
+      "outgoingCount": 0,
+      "importedBy": [],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 2,
+      "structuralClasses": 1,
+      "score": 10,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 9,
+            "snippet": "in window"
+          },
+          {
+            "line": 28,
+            "snippet": "in window"
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "health-runtime.js",
+      "browserSignals": 1,
+      "domBindingSignals": 0,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "telemetry.js"
+      ],
+      "incomingCount": 0,
+      "outgoingCount": 1,
+      "importedBy": [],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 1,
+      "structuralClasses": 1,
+      "score": 7,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 112,
+            "snippet": "connection.addEventListener("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    },
+    {
+      "file": "ai-service.js",
+      "browserSignals": 1,
+      "domBindingSignals": 1,
+      "confirmationSignals": 0,
+      "quotePreviewSignals": 0,
+      "builderCalls": 0,
+      "bridgeCalls": 0,
+      "writeCalls": 0,
+      "readCalls": 0,
+      "createStoreCalls": 0,
+      "coordinatorRefs": 0,
+      "bridgeRefs": 0,
+      "storeRefs": 0,
+      "contractRefs": 0,
+      "entrypointNameSignals": 0,
+      "pathUiSignals": 0,
+      "pathQuoteSignals": 0,
+      "imports": [
+        "event-system.js"
+      ],
+      "incomingCount": 3,
+      "outgoingCount": 1,
+      "importedBy": [
+        "actividad.js",
+        "comisiones.js",
+        "prospeccion.js"
+      ],
+      "htmlLoadedScript": false,
+      "quoteDistance": null,
+      "persistenceDistance": null,
+      "directPersistence": 0,
+      "browserBoundary": 2,
+      "structuralClasses": 1,
+      "score": 6,
+      "credible": false,
+      "evidence": {
+        "browser": [
+          {
+            "line": 251,
+            "snippet": "document.getElementById("
+          }
+        ],
+        "confirmation": [],
+        "quotePreview": [],
+        "canonicalBuilder": [],
+        "write": []
+      }
+    }
+  ],
+  "structuralPolicy": {
+    "importGraphBuiltFromRelativeTrackedImports": true,
+    "htmlScriptSourcesIncluded": true,
+    "commentsExcludedFromStructuralSignals": true,
+    "testsAndDocsExcluded": true,
+    "browserBoundaryRequired": true,
+    "quotePreviewAdjacencyRequired": true,
+    "persistenceOrConfirmationAdjacencyRequired": true,
+    "minimumCredibleScore": 95,
+    "minimumStructuralClasses": 3,
+    "uniqueResolutionMargin": 25
+  },
+  "requiredNextBoundary": {
+    "canonicalBuilder": "buildQuotePreviewPdfCanonicalPersistenceInput({ nativeResult, context })",
+    "officialWrite": "writePreviewResult(recordInput)",
+    "officialRead": "readPreviewResult(identity)",
+    "explicitConfirmation": "persist only after explicit accept/confirmation",
+    "canonicalFieldCount": 8
+  },
+  "next": "107Z15E8B2_BROWSER_TO_QUOTE_PREVIEW_BRIDGE_DISCOVERY_GATE",
+  "sourceCodeWritten": false,
+  "browserExecuted": false,
+  "pdfReadExecuted": false,
+  "localStorageWriteExecuted": false,
+  "backendConnection": false,
+  "quoteTruthAllowed": false
+}
