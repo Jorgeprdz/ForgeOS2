@@ -1,0 +1,2262 @@
+{
+  "chain": "107Z5_TARGETED_GENERIC_RUNTIME_CANDIDATE_OWNERSHIP_AND_CALL_GRAPH_INSPECTION",
+  "status": "HOLD",
+  "generated_at_local_stamp": "20260709_231919",
+  "inspection_mode": "STATIC_SOURCE_ONLY",
+  "prior_classification": {
+    "ARCHITECTURAL_GAP_CLASS": "EXISTING_GENERIC_RUNTIME_CONTRACT_NOT_YET_PROVEN",
+    "CONFIDENCE": "MEDIUM_HIGH",
+    "RATIONALE": [
+      "107Z3 found runtime-like writer, reader, bridge or state candidates but no complete canonical contract."
+    ],
+    "NEXT_GATE": "107Z5_TARGETED_GENERIC_RUNTIME_CANDIDATE_OWNERSHIP_AND_CALL_GRAPH_INSPECTION"
+  },
+  "candidate_count": 4,
+  "candidate_paths": [
+    "platform/adapters/quote-read-model/quote-read-model-adapter-069c.js",
+    "supabase/functions/semantic-extract/index.ts",
+    "compensation/partner-manager/partner-payout-truth-gate.js",
+    "gmm-advisor-review-engine.js"
+  ],
+  "canonical_contract": {
+    "CANONICAL_GENERIC_RUNTIME_PATH": "",
+    "CANONICAL_RUNTIME_OWNER_DOMAIN": "",
+    "CANONICAL_RUNTIME_EXPORTS": [],
+    "CANONICAL_RUNTIME_WRITER_FUNCTION": [],
+    "CANONICAL_RUNTIME_READER_FUNCTION": [],
+    "CANONICAL_RUNTIME_EVENT": [],
+    "CANONICAL_ENGINE_TO_RUNTIME_CALLER_PATH": "",
+    "CANONICAL_RUNTIME_TO_MODAL_CALLER_PATH": "",
+    "CANONICAL_RUNTIME_TO_UI_CALLER_PATH": ""
+  },
+  "canonical_candidate": null,
+  "complete_call_chain_proven": false,
+  "ranked_candidates": [
+    {
+      "path": "supabase/functions/semantic-extract/index.ts",
+      "score": 22,
+      "runtime_owner_domain": "supabase",
+      "exports": [],
+      "writer_functions": [
+        "computeQuality"
+      ],
+      "reader_functions": [],
+      "events": [],
+      "storage_apis": [],
+      "quote_relevance": true,
+      "other_domain_signal": false,
+      "caller_count": 79,
+      "quote_caller_count": 6,
+      "engine_callers": [],
+      "modal_callers": [],
+      "ui_callers": [
+        {
+          "caller_path": "docs/static-preview/forge-alive/index.html",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": true,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": true
+        }
+      ],
+      "callers": [
+        {
+          "caller_path": "app-shell-manager.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/advisor-development/advisor-development-development-bonus-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/advisor-development/advisor-development-monthly-income-candidate-orchestrator.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/advisor-development/advisor-development-rule-pack-validator.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/new-professional/new-professional-life-initial-bonus-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/new-professional/new-professional-rule-pack-validator.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/partner-manager/partner-advisor-qualification-explainability-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/partner-manager/partner-alta-partner-bonus-contract.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/partner-manager/partner-alta-partner-bonus-orchestrator.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/partner-manager/partner-annual-productivity-bonus-orchestrator.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/partner-manager/partner-fixed-support-contract.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/partner-manager/partner-payment-cadence-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/partner-manager/partner-payment-distribution-rule-pack-validator.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/partner-manager/partner-quarterly-bonus-calculator.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/partner-manager/partner-support-requirement-gate.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/partner-manager/partner-transition-bonus-contract.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/partner-manager/partner-transition-bonus-orchestrator.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/partner-manager/qualified-advisor-economic-status.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/partner-manager/rule-engine/partner-rule-resolver.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "compensation/partner-manager/rule-pack-readiness.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "dashboard.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "docs/static-preview/forge-alive/index.html",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": true,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": true
+        },
+        {
+          "caller_path": "engagement/context-intake/engagement-manager-context-intake-boundary-contract.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "fixture-validation-test.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "forge-imagina-ser-client-presentation-test.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "imagina-ser-future-mxn-bridge.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "imagina-ser-ocr-extractor.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/advisor-snapshots/advisor-manager-snapshot-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/advisor-tracking/manager-advisor-tracking-boundary-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/alfred-review-action-packet-read-model.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/alfred-review-action-packet-static-preview-dom-renderer.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/alfred-review-action-packet-static-preview-surface-binding.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/alfred-review-action-packet-ui-view-model.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/alfred-static-preview-dom-renderer-integration.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/alfred-universal-command-memory-read-model.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/forecast/manager-forecast-boundary-contract.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/genesis-beta-loop/genesis-beta-loop-ui-read-model.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/github-pages-static-preview/github-pages-static-preview-boundary-contract.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/historical-analytics/manager-historical-analytics-boundary-contract.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/historical-analytics/storage/manager-historical-query-plan-contract.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/historical-analytics/storage/manager-historical-storage-boundary-contract.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/message-generation/llm-draft-intake-boundary-contract.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/message-generation/manager-message-prompt-builder-boundary-contract.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/nba/nba-reason-why-boundary-contract.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/recruitment/interview-flow/interview-flow-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/recruitment/pipeline/recruitment-pipeline-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "manager-os/static-preview-deployment/static-preview-deployment-boundary-contract.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "mick/context-intake/mick-manager-behavior-review-packet-intake.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "mick/context-intake/mick-manager-context-intake-boundary-contract.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "nash-intent-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "nash/context-intake/nash-manager-context-intake-boundary-contract.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "ovelay-manager.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "pipeline-stage-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "platform/adapters/opportunity-pipeline/opportunity-pipeline-read-model-normalizer-067d.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "platform/truth/index.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "policy-operations/evidence/csv-parser-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "policy-operations/evidence/mass-import-validation-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "policy-operations/policy-detail/policy-indexing-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "product-intelligence/knowledge/ave/shared-ave-death-benefit-report.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "product-intelligence/knowledge/ave/shared-ave-portfolio-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": true,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "product-intelligence/projections/projection-milestone-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "proposal-family-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": true,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "quote-to-policy-comparison-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": true,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "ranking-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "retirement-presentation-scenario-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": true,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "rule-packs/smnyl/smnyl-leaderboard-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "scripts/process-note.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "scripts/repo-doc-migration-harness.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "scripts/runtime-module-graph-audit.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "search-index-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "segu-beca-mxn-timeline-clean-report.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "shared-policy-currency-timeline-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "src/intelligence/alpha-runtime/index.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "src/intelligence/ledger/ledger-truth.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "storage-engine.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "sw-cache-config.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "utils.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "vida-mujer-pdf-ave-integration-report.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": true,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "virtual-list.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        }
+      ]
+    },
+    {
+      "path": "platform/adapters/quote-read-model/quote-read-model-adapter-069c.js",
+      "score": 12,
+      "runtime_owner_domain": "platform",
+      "exports": [
+        "QUOTE_READ_MODEL_ADAPTER_ID",
+        "QUOTE_READ_MODEL_SAFE_ERROR",
+        "QUOTE_READ_MODEL_SCHEMA_VERSION",
+        "QUOTE_READ_MODEL_SOURCE_ENGINE",
+        "getQuoteDetail",
+        "getQuoteReadModelManifest",
+        "listQuotes"
+      ],
+      "writer_functions": [],
+      "reader_functions": [
+        "getQuoteDetail",
+        "getQuoteReadModelManifest"
+      ],
+      "events": [],
+      "storage_apis": [],
+      "quote_relevance": true,
+      "other_domain_signal": false,
+      "caller_count": 2,
+      "quote_caller_count": 1,
+      "engine_callers": [],
+      "modal_callers": [],
+      "ui_callers": [],
+      "callers": [
+        {
+          "caller_path": "platform/action-contracts/quote-action-contract-071b.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": false,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "platform/adapters/product-intelligence/product-intelligence-read-model-adapter-073d.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": false,
+          "export_symbol_hits": [],
+          "caller_quote_relevance": true,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        }
+      ]
+    },
+    {
+      "path": "gmm-advisor-review-engine.js",
+      "score": 10,
+      "runtime_owner_domain": "gmm-advisor-review-engine.js",
+      "exports": [
+        "buildGmmAdvisorReview",
+        "default"
+      ],
+      "writer_functions": [],
+      "reader_functions": [],
+      "events": [],
+      "storage_apis": [],
+      "quote_relevance": true,
+      "other_domain_signal": false,
+      "caller_count": 2,
+      "quote_caller_count": 2,
+      "engine_callers": [],
+      "modal_callers": [],
+      "ui_callers": [],
+      "callers": [
+        {
+          "caller_path": "forge-gmm-sprint-3-smoke-test.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": true,
+          "export_symbol_hits": [
+            "buildGmmAdvisorReview"
+          ],
+          "caller_quote_relevance": true,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        },
+        {
+          "caller_path": "forge-gmm-sprint-4-smoke-test.js",
+          "exact_path_or_basename_hit": true,
+          "resolved_import": true,
+          "export_symbol_hits": [
+            "buildGmmAdvisorReview"
+          ],
+          "caller_quote_relevance": true,
+          "caller_is_engine": false,
+          "caller_is_modal": false,
+          "caller_is_ui": false
+        }
+      ]
+    },
+    {
+      "path": "compensation/partner-manager/partner-payout-truth-gate.js",
+      "score": 6,
+      "runtime_owner_domain": "compensation",
+      "exports": [
+        "evaluatePartnerPayoutTruthGate"
+      ],
+      "writer_functions": [],
+      "reader_functions": [],
+      "events": [],
+      "storage_apis": [],
+      "quote_relevance": true,
+      "other_domain_signal": false,
+      "caller_count": 0,
+      "quote_caller_count": 0,
+      "engine_callers": [],
+      "modal_callers": [],
+      "ui_callers": [],
+      "callers": []
+    }
+  ],
+  "candidate_inspections": {
+    "platform/adapters/quote-read-model/quote-read-model-adapter-069c.js": {
+      "path": "platform/adapters/quote-read-model/quote-read-model-adapter-069c.js",
+      "sha256": "6f91db75c769208f33491579b37c83bfd1f114d2ab5442bc56df82b7d51110af",
+      "exports": [
+        "QUOTE_READ_MODEL_ADAPTER_ID",
+        "QUOTE_READ_MODEL_SAFE_ERROR",
+        "QUOTE_READ_MODEL_SCHEMA_VERSION",
+        "QUOTE_READ_MODEL_SOURCE_ENGINE",
+        "getQuoteDetail",
+        "getQuoteReadModelManifest",
+        "listQuotes"
+      ],
+      "functions": [
+        {
+          "name": "clone",
+          "parameters": [
+            "value"
+          ]
+        },
+        {
+          "name": "getQuoteDetail",
+          "parameters": [
+            "quoteId"
+          ]
+        },
+        {
+          "name": "getQuoteReadModelManifest",
+          "parameters": []
+        },
+        {
+          "name": "hasModeledQuote",
+          "parameters": [
+            "summary = {}"
+          ]
+        },
+        {
+          "name": "listQuotes",
+          "parameters": [
+            "input = {}"
+          ]
+        },
+        {
+          "name": "makeAudit",
+          "parameters": []
+        },
+        {
+          "name": "makeEmptyEnvelope",
+          "parameters": [
+            "reason = 'no_modeled_quotes'"
+          ]
+        },
+        {
+          "name": "makeOkEnvelope",
+          "parameters": [
+            "records"
+          ]
+        },
+        {
+          "name": "mapQuoteSummary",
+          "parameters": [
+            "summary"
+          ]
+        },
+        {
+          "name": "previewField",
+          "parameters": [
+            "value",
+            "evidenceIds = [PREVIEW_EVIDENCE_ID]"
+          ]
+        }
+      ],
+      "writer_functions": [],
+      "reader_functions": [
+        "getQuoteDetail",
+        "getQuoteReadModelManifest"
+      ],
+      "events": [],
+      "storage_apis": [],
+      "imports": [
+        {
+          "specifier": "../../../gmm-quote-summary-engine.js",
+          "resolved": "gmm-quote-summary-engine.js"
+        }
+      ],
+      "quote_relevance": true,
+      "bridge_signals": false,
+      "other_domain_signal": false
+    },
+    "supabase/functions/semantic-extract/index.ts": {
+      "path": "supabase/functions/semantic-extract/index.ts",
+      "sha256": "b6465e0e171a3608666420c36828957d0dc236414f5dfd3c9fae01b184c765c4",
+      "exports": [],
+      "functions": [
+        {
+          "name": "callGemini",
+          "parameters": [
+            "note: string"
+          ]
+        },
+        {
+          "name": "computeQuality",
+          "parameters": [
+            "type: string",
+            "owner: string",
+            "action: string | null",
+            "due: string | null"
+          ]
+        },
+        {
+          "name": "deterministicProspectRequest",
+          "parameters": [
+            "note: string",
+            "generatedAt: string"
+          ]
+        },
+        {
+          "name": "emptyResponse",
+          "parameters": [
+            "unknown = \"no_actionable_event\"",
+            "frame: unknown = null"
+          ]
+        },
+        {
+          "name": "hasForbiddenInference",
+          "parameters": [
+            "candidate: Record<string",
+            "unknown>"
+          ]
+        },
+        {
+          "name": "isAllowedOwner",
+          "parameters": [
+            "owner: string"
+          ]
+        },
+        {
+          "name": "isAllowedType",
+          "parameters": [
+            "type: string"
+          ]
+        },
+        {
+          "name": "jsonResponse",
+          "parameters": [
+            "body: unknown",
+            "status = 200"
+          ]
+        },
+        {
+          "name": "sanitizeCandidate",
+          "parameters": [
+            "candidate: Record<string",
+            "unknown>",
+            "note: string",
+            "index: number",
+            "generatedAt: string"
+          ]
+        }
+      ],
+      "writer_functions": [
+        "computeQuality"
+      ],
+      "reader_functions": [],
+      "events": [],
+      "storage_apis": [],
+      "imports": [
+        {
+          "specifier": "https://deno.land/std@0.168.0/http/server.ts",
+          "resolved": null
+        },
+        {
+          "specifier": "npm:@google/generative-ai",
+          "resolved": null
+        },
+        {
+          "specifier": "../../../src/intelligence/hdl/semantic-frame-builder.js",
+          "resolved": "src/intelligence/hdl/semantic-frame-builder.js"
+        }
+      ],
+      "quote_relevance": true,
+      "bridge_signals": false,
+      "other_domain_signal": false
+    },
+    "compensation/partner-manager/partner-payout-truth-gate.js": {
+      "path": "compensation/partner-manager/partner-payout-truth-gate.js",
+      "sha256": "539cf3f0d771e0def244b22bc768d6dcba7d3ad2bbd378e0af4f9fa3b9754393",
+      "exports": [
+        "evaluatePartnerPayoutTruthGate"
+      ],
+      "functions": [
+        {
+          "name": "cannotPromoteCalculationToPayout",
+          "parameters": [
+            "status"
+          ]
+        },
+        {
+          "name": "evaluatePartnerPayoutTruthGate",
+          "parameters": [
+            "{\n  safeCalculationResult = null",
+            "officialEvidence = null",
+            "statementMatch = null",
+            "scopeContext = {}",
+            "lifecycleContext = {}",
+            "} = {}"
+          ]
+        },
+        {
+          "name": "extractionBlockReason",
+          "parameters": [
+            "sourceType"
+          ]
+        },
+        {
+          "name": "isMismatch",
+          "parameters": [
+            "matchStatus"
+          ]
+        }
+      ],
+      "writer_functions": [],
+      "reader_functions": [],
+      "events": [],
+      "storage_apis": [],
+      "imports": [
+        {
+          "specifier": "./partner-official-evidence-status.js",
+          "resolved": "compensation/partner-manager/partner-official-evidence-status.js"
+        },
+        {
+          "specifier": "./partner-compensation-statement-match.js",
+          "resolved": "compensation/partner-manager/partner-compensation-statement-match.js"
+        },
+        {
+          "specifier": "./partner-safe-calculation-result.js",
+          "resolved": "compensation/partner-manager/partner-safe-calculation-result.js"
+        },
+        {
+          "specifier": "./partner-payout-truth-result.js",
+          "resolved": "compensation/partner-manager/partner-payout-truth-result.js"
+        },
+        {
+          "specifier": "./partner-calculation-to-payout-mapper.js",
+          "resolved": "compensation/partner-manager/partner-calculation-to-payout-mapper.js"
+        }
+      ],
+      "quote_relevance": true,
+      "bridge_signals": false,
+      "other_domain_signal": false
+    },
+    "gmm-advisor-review-engine.js": {
+      "path": "gmm-advisor-review-engine.js",
+      "sha256": "04f07ce584230cf3f7f6120899ea2517e5245f173d1caca59b255881a5f42954",
+      "exports": [
+        "buildGmmAdvisorReview",
+        "default"
+      ],
+      "functions": [
+        {
+          "name": "advisorAlert",
+          "parameters": [
+            "priority",
+            "message",
+            "source = 'advisor-review'"
+          ]
+        },
+        {
+          "name": "buildAdvisorAlerts",
+          "parameters": [
+            "comparisonSummary = {}"
+          ]
+        },
+        {
+          "name": "buildAdvisorSummary",
+          "parameters": [
+            "{ caseSnapshot",
+            "advisorAlerts = []",
+            "expectationGaps = [] }"
+          ]
+        },
+        {
+          "name": "buildCaseSnapshot",
+          "parameters": [
+            "{ quoteSummary = {}",
+            "policySummary = {}",
+            "comparisonSummary = {} }"
+          ]
+        },
+        {
+          "name": "buildClientRisks",
+          "parameters": [
+            "{ quoteSummary = {}",
+            "policySummary = {}",
+            "comparisonSummary = {} }"
+          ]
+        },
+        {
+          "name": "buildDiscussionTopics",
+          "parameters": [
+            "{ quoteSummary = {}",
+            "policySummary = {}",
+            "comparisonSummary = {} }"
+          ]
+        },
+        {
+          "name": "buildExpectationGaps",
+          "parameters": [
+            "comparisonSummary = {}"
+          ]
+        },
+        {
+          "name": "buildFollowUpQuestions",
+          "parameters": [
+            "{ comparisonSummary = {}",
+            "policySummary = {} }"
+          ]
+        },
+        {
+          "name": "buildGmmAdvisorReview",
+          "parameters": [
+            "{\n  quoteSummary = {}",
+            "policySummary = {}",
+            "comparisonSummary = {}\n} = {}"
+          ]
+        },
+        {
+          "name": "buildStatus",
+          "parameters": [
+            "identityMatch"
+          ]
+        },
+        {
+          "name": "firstInsured",
+          "parameters": [
+            "policySummary = {}"
+          ]
+        },
+        {
+          "name": "formatProductPlan",
+          "parameters": [
+            "quoteSummary = {}",
+            "policySummary = {}"
+          ]
+        },
+        {
+          "name": "normalizePriority",
+          "parameters": [
+            "value = ''"
+          ]
+        },
+        {
+          "name": "plainGapMessage",
+          "parameters": [
+            "gap = {}"
+          ]
+        }
+      ],
+      "writer_functions": [],
+      "reader_functions": [],
+      "events": [],
+      "storage_apis": [],
+      "imports": [],
+      "quote_relevance": true,
+      "bridge_signals": false,
+      "other_domain_signal": false
+    }
+  },
+  "callers_by_candidate": {
+    "platform/adapters/quote-read-model/quote-read-model-adapter-069c.js": [
+      {
+        "caller_path": "platform/action-contracts/quote-action-contract-071b.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "platform/adapters/product-intelligence/product-intelligence-read-model-adapter-073d.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": true,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "platform/adapters/quote-read-model/quote-read-model-adapter-069c.js",
+        "exact_path_or_basename_hit": false,
+        "resolved_import": false,
+        "export_symbol_hits": [
+          "QUOTE_READ_MODEL_ADAPTER_ID",
+          "QUOTE_READ_MODEL_SAFE_ERROR",
+          "QUOTE_READ_MODEL_SCHEMA_VERSION",
+          "QUOTE_READ_MODEL_SOURCE_ENGINE",
+          "getQuoteDetail",
+          "getQuoteReadModelManifest",
+          "listQuotes"
+        ],
+        "caller_quote_relevance": true,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      }
+    ],
+    "supabase/functions/semantic-extract/index.ts": [
+      {
+        "caller_path": "app-shell-manager.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/advisor-development/advisor-development-development-bonus-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/advisor-development/advisor-development-monthly-income-candidate-orchestrator.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/advisor-development/advisor-development-rule-pack-validator.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/new-professional/new-professional-life-initial-bonus-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/new-professional/new-professional-rule-pack-validator.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/partner-manager/partner-advisor-qualification-explainability-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/partner-manager/partner-alta-partner-bonus-contract.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/partner-manager/partner-alta-partner-bonus-orchestrator.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/partner-manager/partner-annual-productivity-bonus-orchestrator.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/partner-manager/partner-fixed-support-contract.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/partner-manager/partner-payment-cadence-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/partner-manager/partner-payment-distribution-rule-pack-validator.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/partner-manager/partner-quarterly-bonus-calculator.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/partner-manager/partner-support-requirement-gate.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/partner-manager/partner-transition-bonus-contract.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/partner-manager/partner-transition-bonus-orchestrator.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/partner-manager/qualified-advisor-economic-status.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/partner-manager/rule-engine/partner-rule-resolver.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "compensation/partner-manager/rule-pack-readiness.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "dashboard.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "docs/static-preview/forge-alive/index.html",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": true,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": true
+      },
+      {
+        "caller_path": "engagement/context-intake/engagement-manager-context-intake-boundary-contract.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "fixture-validation-test.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "forge-imagina-ser-client-presentation-test.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "imagina-ser-future-mxn-bridge.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "imagina-ser-ocr-extractor.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/advisor-snapshots/advisor-manager-snapshot-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/advisor-tracking/manager-advisor-tracking-boundary-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/alfred-review-action-packet-read-model.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/alfred-review-action-packet-static-preview-dom-renderer.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/alfred-review-action-packet-static-preview-surface-binding.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/alfred-review-action-packet-ui-view-model.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/alfred-static-preview-dom-renderer-integration.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/alfred-universal-command-memory-read-model.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/forecast/manager-forecast-boundary-contract.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/genesis-beta-loop/genesis-beta-loop-ui-read-model.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/github-pages-static-preview/github-pages-static-preview-boundary-contract.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/historical-analytics/manager-historical-analytics-boundary-contract.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/historical-analytics/storage/manager-historical-query-plan-contract.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/historical-analytics/storage/manager-historical-storage-boundary-contract.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/message-generation/llm-draft-intake-boundary-contract.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/message-generation/manager-message-prompt-builder-boundary-contract.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/nba/nba-reason-why-boundary-contract.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/recruitment/interview-flow/interview-flow-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/recruitment/pipeline/recruitment-pipeline-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "manager-os/static-preview-deployment/static-preview-deployment-boundary-contract.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "mick/context-intake/mick-manager-behavior-review-packet-intake.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "mick/context-intake/mick-manager-context-intake-boundary-contract.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "nash-intent-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "nash/context-intake/nash-manager-context-intake-boundary-contract.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "ovelay-manager.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "pipeline-stage-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "platform/adapters/opportunity-pipeline/opportunity-pipeline-read-model-normalizer-067d.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "platform/truth/index.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "policy-operations/evidence/csv-parser-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "policy-operations/evidence/mass-import-validation-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "policy-operations/policy-detail/policy-indexing-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "product-intelligence/knowledge/ave/shared-ave-death-benefit-report.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "product-intelligence/knowledge/ave/shared-ave-portfolio-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": true,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "product-intelligence/projections/projection-milestone-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "proposal-family-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": true,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "quote-to-policy-comparison-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": true,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "ranking-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "retirement-presentation-scenario-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": true,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "rule-packs/smnyl/smnyl-leaderboard-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "scripts/process-note.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "scripts/repo-doc-migration-harness.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "scripts/runtime-module-graph-audit.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "search-index-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "segu-beca-mxn-timeline-clean-report.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "shared-policy-currency-timeline-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "src/intelligence/alpha-runtime/index.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "src/intelligence/ledger/ledger-truth.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "storage-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "supabase/functions/semantic-extract/index.ts",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": true,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "sw-cache-config.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "utils.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "vida-mujer-pdf-ave-integration-report.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": true,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "virtual-list.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [],
+        "caller_quote_relevance": false,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      }
+    ],
+    "compensation/partner-manager/partner-payout-truth-gate.js": [
+      {
+        "caller_path": "compensation/partner-manager/partner-payout-truth-gate.js",
+        "exact_path_or_basename_hit": false,
+        "resolved_import": false,
+        "export_symbol_hits": [
+          "evaluatePartnerPayoutTruthGate"
+        ],
+        "caller_quote_relevance": true,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      }
+    ],
+    "gmm-advisor-review-engine.js": [
+      {
+        "caller_path": "forge-gmm-sprint-3-smoke-test.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": true,
+        "export_symbol_hits": [
+          "buildGmmAdvisorReview"
+        ],
+        "caller_quote_relevance": true,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "forge-gmm-sprint-4-smoke-test.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": true,
+        "export_symbol_hits": [
+          "buildGmmAdvisorReview"
+        ],
+        "caller_quote_relevance": true,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      },
+      {
+        "caller_path": "gmm-advisor-review-engine.js",
+        "exact_path_or_basename_hit": true,
+        "resolved_import": false,
+        "export_symbol_hits": [
+          "buildGmmAdvisorReview"
+        ],
+        "caller_quote_relevance": true,
+        "caller_is_engine": false,
+        "caller_is_modal": false,
+        "caller_is_ui": false
+      }
+    ]
+  },
+  "hold_reasons": [
+    "no single generic runtime candidate has proven ownership, writer, reader and callers"
+  ],
+  "next_gate": "107Z6_TARGETED_RUNTIME_OWNER_ENTRYPOINT_OR_ADR_PREPARATION_GATE",
+  "authorization": {
+    "IMPLEMENTATION_AUTHORIZED": false,
+    "CACHE_CREATION_AUTHORIZED": false,
+    "BRIDGE_CREATION_AUTHORIZED": false,
+    "UI_INTEGRATION_AUTHORIZED": false,
+    "REUSE_DESIGN_GATE_AUTHORIZED": false
+  },
+  "constitutional_flags": {
+    "NEW_ENGINE_CREATED": false,
+    "NEW_CACHE_CREATED": false,
+    "DUPLICATE_BRIDGE_CREATED": false,
+    "PDF_READ_EXECUTED": false,
+    "PARSER_EXECUTED": false,
+    "OCR_EXECUTED": false,
+    "SOURCE_UI_CHANGED": false,
+    "QUOTE_TRUTH_ALLOWED": false,
+    "REAL_ENGINE_EXECUTION": false,
+    "BACKEND_CONNECTION": false,
+    "TEST_EXECUTION": false
+  }
+}
