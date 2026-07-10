@@ -13092,3 +13092,55 @@ LOCKED_DECISION=LOCAL_ONLY_ACTUAL_PDF_LOOKUP_DRY_RUN_COMPLETE_WITH_REDACTED_RESU
 
 NEXT=107D_QUOTE_PREVIEW_LOCAL_ONLY_LOOKUP_RESULT_REVIEW_GATE
 <!-- FORGE:107C_QUOTE_PREVIEW_LOCAL_ONLY_ACTUAL_PDF_LOOKUP_DRY_RUN:END -->
+
+<!-- FORGE:107D_QUOTE_PREVIEW_LOCAL_ONLY_LOOKUP_RESULT_REVIEW_GATE:START -->
+## 107D Quote Preview Local Only Lookup Result Review Gate
+
+107D reviews committed redacted lookup results only and routes to redacted mapping.
+
+Locked decision:
+`LOCAL_ONLY_LOOKUP_RESULT_REVIEW_GATE_LOCKED_FOR_REDACTED_RESULT_REVIEW_NO_VALUES_NO_TRUTH`
+
+Confirmed:
+
+- review gate only;
+- manual operator token not required this phase;
+- only committed redacted lookup results reviewed;
+- lookup results reviewed;
+- matched results present;
+- route selected;
+- raw PDF not accessed;
+- raw text not accessed;
+- raw text not committed;
+- raw value not extracted;
+- real value not extracted;
+- real value approval forbidden;
+- candidate truth forbidden;
+- quote truth forbidden;
+- UI population forbidden;
+- presentation generation forbidden;
+- backend connection not used;
+- provider runtime not used;
+- source UI was not changed;
+- all safety flags remain false.
+
+LOOKUP_RESULT_COUNT=27
+
+MATCHED_LOOKUP_RESULT_COUNT=27
+
+NOT_FOUND_LOOKUP_RESULT_COUNT=0
+
+BLOCKED_AMBIGUOUS_ITEM_COUNT=1
+
+READY_FIELD_COUNT=6
+
+BLOCKED_FIELD_COUNT=0
+
+SELECTED_ROUTE=redacted_lookup_result_mapping_gate
+
+DECISION=PASS_107D_QUOTE_PREVIEW_LOCAL_ONLY_LOOKUP_RESULT_REVIEW_GATE
+
+LOCKED_DECISION=LOCAL_ONLY_LOOKUP_RESULT_REVIEW_GATE_LOCKED_FOR_REDACTED_RESULT_REVIEW_NO_VALUES_NO_TRUTH
+
+NEXT=107E_QUOTE_PREVIEW_REDACTED_LOOKUP_RESULT_MAPPING_GATE
+<!-- FORGE:107D_QUOTE_PREVIEW_LOCAL_ONLY_LOOKUP_RESULT_REVIEW_GATE:END -->

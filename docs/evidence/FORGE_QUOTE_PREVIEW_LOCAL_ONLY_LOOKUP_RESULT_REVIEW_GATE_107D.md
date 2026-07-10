@@ -1,0 +1,321 @@
+# Forge Quote Preview Local Only Lookup Result Review Gate Evidence 107D
+
+PHASE=107D_QUOTE_PREVIEW_LOCAL_ONLY_LOOKUP_RESULT_REVIEW_GATE
+STATUS=PASS
+DECISION=PASS_107D_QUOTE_PREVIEW_LOCAL_ONLY_LOOKUP_RESULT_REVIEW_GATE
+LOCKED_DECISION=LOCAL_ONLY_LOOKUP_RESULT_REVIEW_GATE_LOCKED_FOR_REDACTED_RESULT_REVIEW_NO_VALUES_NO_TRUTH
+NEXT=107E_QUOTE_PREVIEW_REDACTED_LOOKUP_RESULT_MAPPING_GATE
+
+## Gate JSON
+
+{
+  "phase": "107D_QUOTE_PREVIEW_LOCAL_ONLY_LOOKUP_RESULT_REVIEW_GATE",
+  "status": "PASS",
+  "decision": "PASS_107D_QUOTE_PREVIEW_LOCAL_ONLY_LOOKUP_RESULT_REVIEW_GATE",
+  "lockedDecision": "LOCAL_ONLY_LOOKUP_RESULT_REVIEW_GATE_LOCKED_FOR_REDACTED_RESULT_REVIEW_NO_VALUES_NO_TRUTH",
+  "basePhase": "107C_QUOTE_PREVIEW_LOCAL_ONLY_ACTUAL_PDF_LOOKUP_DRY_RUN",
+  "schemaVersion": "106C.1",
+  "testUrl": "https://jorgeprdz.github.io/ForgeOS/static-preview/forge-alive/nueva-cotizacion/?v=105dr5",
+  "gateType": "redacted_lookup_result_review_gate_only",
+  "sourceUiChanged": false,
+  "fastTrackMode": {
+    "manualOperatorTokenRequiredThisPhase": false,
+    "reason": "107D only reviews committed redacted lookup results and does not access PDF or values."
+  },
+  "inputSummary": {
+    "lookupResultCount": 27,
+    "matchedLookupResultCount": 27,
+    "notFoundLookupResultCount": 0,
+    "blockedAmbiguousItemCount": 1,
+    "criticalTargetCount": 6,
+    "pageCountCandidateFrom107C": 3,
+    "sourceTextLineCountNotCommittedFrom107C": 93
+  },
+  "signalTotals": {
+    "moneyLikeSignalResultCount": 23,
+    "dateLikeSignalResultCount": 10,
+    "percentLikeSignalResultCount": 0,
+    "longNumberSignalResultCount": 0,
+    "emailLikeSignalResultCount": 0,
+    "phoneLikeSignalResultCount": 17
+  },
+  "fieldReview": [
+    {
+      "fieldKey": "plan_sum_insured_and_premium",
+      "targetDisplayLabel": "Plan, suma asegurada y prima",
+      "lookupResultCount": 11,
+      "matchedLookupResultCount": 11,
+      "notFoundLookupResultCount": 0,
+      "blockedAmbiguousItemCount": 0,
+      "moneyLikeSignalResultCount": 11,
+      "dateLikeSignalResultCount": 0,
+      "percentLikeSignalResultCount": 0,
+      "longNumberSignalResultCount": 0,
+      "fieldReviewStatus": "ready_for_redacted_mapping_gate",
+      "eligibleFor107ERedactedMappingGate": true,
+      "rawTextCommitted": false,
+      "realValueExtracted": false,
+      "realValueApprovalAllowed": false,
+      "quoteTruthAllowed": false,
+      "uiPopulationAllowed": false,
+      "presentationGenerationAllowed": false
+    },
+    {
+      "fieldKey": "payment_form_currency_and_validity",
+      "targetDisplayLabel": "Forma de pago, moneda y vigencia",
+      "lookupResultCount": 5,
+      "matchedLookupResultCount": 5,
+      "notFoundLookupResultCount": 0,
+      "blockedAmbiguousItemCount": 1,
+      "moneyLikeSignalResultCount": 5,
+      "dateLikeSignalResultCount": 4,
+      "percentLikeSignalResultCount": 0,
+      "longNumberSignalResultCount": 0,
+      "fieldReviewStatus": "ready_for_redacted_mapping_gate",
+      "eligibleFor107ERedactedMappingGate": true,
+      "rawTextCommitted": false,
+      "realValueExtracted": false,
+      "realValueApprovalAllowed": false,
+      "quoteTruthAllowed": false,
+      "uiPopulationAllowed": false,
+      "presentationGenerationAllowed": false
+    },
+    {
+      "fieldKey": "total_aportado",
+      "targetDisplayLabel": "Total aportado",
+      "lookupResultCount": 2,
+      "matchedLookupResultCount": 2,
+      "notFoundLookupResultCount": 0,
+      "blockedAmbiguousItemCount": 0,
+      "moneyLikeSignalResultCount": 0,
+      "dateLikeSignalResultCount": 0,
+      "percentLikeSignalResultCount": 0,
+      "longNumberSignalResultCount": 0,
+      "fieldReviewStatus": "ready_for_redacted_mapping_gate",
+      "eligibleFor107ERedactedMappingGate": true,
+      "rawTextCommitted": false,
+      "realValueExtracted": false,
+      "realValueApprovalAllowed": false,
+      "quoteTruthAllowed": false,
+      "uiPopulationAllowed": false,
+      "presentationGenerationAllowed": false
+    },
+    {
+      "fieldKey": "total_recuperacion",
+      "targetDisplayLabel": "Total recuperación",
+      "lookupResultCount": 2,
+      "matchedLookupResultCount": 2,
+      "notFoundLookupResultCount": 0,
+      "blockedAmbiguousItemCount": 0,
+      "moneyLikeSignalResultCount": 0,
+      "dateLikeSignalResultCount": 0,
+      "percentLikeSignalResultCount": 0,
+      "longNumberSignalResultCount": 0,
+      "fieldReviewStatus": "ready_for_redacted_mapping_gate",
+      "eligibleFor107ERedactedMappingGate": true,
+      "rawTextCommitted": false,
+      "realValueExtracted": false,
+      "realValueApprovalAllowed": false,
+      "quoteTruthAllowed": false,
+      "uiPopulationAllowed": false,
+      "presentationGenerationAllowed": false
+    },
+    {
+      "fieldKey": "values_benefits_or_scenarios_relevant_to_plan",
+      "targetDisplayLabel": "Valores, beneficios o escenarios relevantes",
+      "lookupResultCount": 1,
+      "matchedLookupResultCount": 1,
+      "notFoundLookupResultCount": 0,
+      "blockedAmbiguousItemCount": 0,
+      "moneyLikeSignalResultCount": 1,
+      "dateLikeSignalResultCount": 0,
+      "percentLikeSignalResultCount": 0,
+      "longNumberSignalResultCount": 0,
+      "fieldReviewStatus": "ready_for_redacted_mapping_gate",
+      "eligibleFor107ERedactedMappingGate": true,
+      "rawTextCommitted": false,
+      "realValueExtracted": false,
+      "realValueApprovalAllowed": false,
+      "quoteTruthAllowed": false,
+      "uiPopulationAllowed": false,
+      "presentationGenerationAllowed": false
+    },
+    {
+      "fieldKey": "missing_items_before_presentation",
+      "targetDisplayLabel": "Faltantes antes de presentar",
+      "lookupResultCount": 6,
+      "matchedLookupResultCount": 6,
+      "notFoundLookupResultCount": 0,
+      "blockedAmbiguousItemCount": 0,
+      "moneyLikeSignalResultCount": 6,
+      "dateLikeSignalResultCount": 6,
+      "percentLikeSignalResultCount": 0,
+      "longNumberSignalResultCount": 0,
+      "fieldReviewStatus": "ready_for_redacted_mapping_gate",
+      "eligibleFor107ERedactedMappingGate": true,
+      "rawTextCommitted": false,
+      "realValueExtracted": false,
+      "realValueApprovalAllowed": false,
+      "quoteTruthAllowed": false,
+      "uiPopulationAllowed": false,
+      "presentationGenerationAllowed": false
+    }
+  ],
+  "routeDecision": {
+    "selectedRoute": "redacted_lookup_result_mapping_gate",
+    "nextPhase": "107E_QUOTE_PREVIEW_REDACTED_LOOKUP_RESULT_MAPPING_GATE",
+    "readyFieldCount": 6,
+    "blockedFieldCount": 0,
+    "reason": "Review used redacted signal results only. No real values were extracted or approved.",
+    "rawPdfAccessedIn107D": false,
+    "rawTextAccessedIn107D": false,
+    "rawValueExtractedIn107D": false,
+    "realValueExtractedIn107D": false,
+    "quoteTruthCreatedIn107D": false,
+    "uiPopulatedIn107D": false,
+    "presentationGeneratedIn107D": false
+  },
+  "mappingGateDefinitionFor107E": {
+    "nextPhase": "107E_QUOTE_PREVIEW_REDACTED_LOOKUP_RESULT_MAPPING_GATE",
+    "purpose": "Define controlled mapping from redacted lookup signals to field-level candidate states without real values.",
+    "gateOnly": true,
+    "sourceAllowed": "committed_redacted_lookup_results_only",
+    "rawPdfAccessAllowedIn107E": false,
+    "rawTextAccessAllowedIn107E": false,
+    "rawValueExtractionAllowedIn107E": false,
+    "realValueExtractionAllowedIn107E": false,
+    "realValueApprovalAllowedIn107E": false,
+    "candidateApprovalAsTruthAllowedIn107E": false,
+    "quoteTruthAllowedIn107E": false,
+    "uiPopulationAllowedIn107E": false,
+    "presentationGenerationAllowedIn107E": false
+  },
+  "blockedActionsRemainBlocked": [
+    "raw_pdf_access",
+    "raw_text_access",
+    "raw_text_commit",
+    "raw_value_extraction",
+    "real_value_extraction",
+    "real_value_approval",
+    "candidate_approval_as_truth",
+    "quote_truth",
+    "ui_population",
+    "presentation_generation",
+    "backend_connection",
+    "provider_runtime",
+    "crm_write"
+  ],
+  "rulesConfirmed": {
+    "reviewGateOnly": true,
+    "manualOperatorTokenRequiredThisPhase": false,
+    "reviewedCommittedRedactedLookupResultsOnly": true,
+    "rawPdfAccessedIn107D": false,
+    "rawTextAccessedIn107D": false,
+    "rawTextCommittedIn107D": false,
+    "rawValueExtractedIn107D": false,
+    "realValueExtractedIn107D": false,
+    "realValueApprovalAllowedIn107D": false,
+    "candidateApprovalAsTruthAllowedIn107D": false,
+    "quoteTruthAllowedIn107D": false,
+    "uiPopulationAllowedIn107D": false,
+    "presentationGenerationAllowedIn107D": false,
+    "backendConnectionUsedIn107D": false,
+    "providerRuntimeUsedIn107D": false
+  },
+  "safetyFlags": {
+    "crmWrite": false,
+    "pipelineWrite": false,
+    "policyWrite": false,
+    "quoteWrite": false,
+    "taskCreate": false,
+    "calendarCreate": false,
+    "messageSend": false,
+    "authReal": false,
+    "providerRuntime": false,
+    "secretAccess": false,
+    "browserPersistence": false,
+    "realEngineExecution": false,
+    "realEffectsAllowed": false,
+    "realEffectsEnabled": false,
+    "backendConnection": false,
+    "pdfRead": false,
+    "ocrExecution": false,
+    "parserExecution": false,
+    "calculatorExecution": false,
+    "banxicoCall": false,
+    "testExecution": false,
+    "officialQuoteAllowed": false,
+    "providerRuntimeAllowed": false,
+    "calculatorExecutionAllowed": false,
+    "parserExecutionAllowed": false,
+    "backendConnectionAllowed": false,
+    "quoteTruthAllowed": false,
+    "presentationGenerationAllowed": false,
+    "promptGenerationAllowed": false,
+    "pdfSubmitAllowed": false,
+    "printAutomation": false
+  },
+  "next": "107E_QUOTE_PREVIEW_REDACTED_LOOKUP_RESULT_MAPPING_GATE"
+}
+
+## Validation JSON
+
+{
+  "phase": "107D_QUOTE_PREVIEW_LOCAL_ONLY_LOOKUP_RESULT_REVIEW_GATE",
+  "status": "PASS",
+  "decision": "PASS_107D_QUOTE_PREVIEW_LOCAL_ONLY_LOOKUP_RESULT_REVIEW_GATE",
+  "lockedDecision": "LOCAL_ONLY_LOOKUP_RESULT_REVIEW_GATE_LOCKED_FOR_REDACTED_RESULT_REVIEW_NO_VALUES_NO_TRUTH",
+  "gateType": "redacted_lookup_result_review_gate_only",
+  "manualOperatorTokenRequiredThisPhase": false,
+  "lookupResultCount": 27,
+  "matchedLookupResultCount": 27,
+  "notFoundLookupResultCount": 0,
+  "blockedAmbiguousItemCount": 1,
+  "criticalTargetCount": 6,
+  "readyFieldCount": 6,
+  "blockedFieldCount": 0,
+  "selectedRoute": "redacted_lookup_result_mapping_gate",
+  "moneyLikeSignalResultCount": 23,
+  "dateLikeSignalResultCount": 10,
+  "percentLikeSignalResultCount": 0,
+  "longNumberSignalResultCount": 0,
+  "reviewedCommittedRedactedLookupResultsOnly": true,
+  "rawPdfAccessedIn107D": false,
+  "rawTextAccessedIn107D": false,
+  "rawTextCommittedIn107D": false,
+  "rawValueExtractedIn107D": false,
+  "realValueExtractedIn107D": false,
+  "realValueApprovalAllowedIn107D": false,
+  "candidateApprovalAsTruthAllowedIn107D": false,
+  "quoteTruthAllowedIn107D": false,
+  "uiPopulationAllowedIn107D": false,
+  "presentationGenerationAllowedIn107D": false,
+  "backendConnectionUsedIn107D": false,
+  "providerRuntimeUsedIn107D": false,
+  "sourceUiChanged": false,
+  "allSafetyFlagsFalse": true,
+  "next": "107E_QUOTE_PREVIEW_REDACTED_LOOKUP_RESULT_MAPPING_GATE",
+  "errors": []
+}
+
+## Confirmed
+
+- Review gate only.
+- Manual operator token is not required this phase.
+- Only committed redacted lookup results were reviewed.
+- Lookup results were reviewed.
+- Matched results are present.
+- Route was selected.
+- Raw PDF was not accessed.
+- Raw text was not accessed.
+- Raw text was not committed.
+- Raw value was not extracted.
+- Real value was not extracted.
+- Real value approval is forbidden.
+- Candidate truth is forbidden.
+- Quote truth is forbidden.
+- UI population is forbidden.
+- Presentation generation is forbidden.
+- Backend connection was not used.
+- Provider runtime was not used.
+- Source UI was not changed.
