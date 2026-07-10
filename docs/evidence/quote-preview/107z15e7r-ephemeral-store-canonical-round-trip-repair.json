@@ -1,0 +1,84 @@
+{
+  "chain": "107Z15E7R_EPHEMERAL_STORE_CANONICAL_ROUND_TRIP_REPAIR_GATE",
+  "status": "PASS",
+  "proofComplete": true,
+  "realEngineExecution": true,
+  "syntheticVariantsDifferential": true,
+  "canonicalPacketBuildPass": true,
+  "canonicalFieldCount": 8,
+  "exactEightFieldsPreserved": true,
+  "officialRecordBuilder": "createRecord",
+  "officialRecordValidator": "validateRecord",
+  "schemaVersionUsed": "1",
+  "memoryBackendOnly": true,
+  "createStoreCallShape": "createStore({ backend, now })",
+  "writeCallShape": "writePreviewResult(recordInput)",
+  "readCallShape": "readPreviewResult(identity)",
+  "ephemeralWritePass": true,
+  "ephemeralReadPass": true,
+  "readRecordValidationPass": true,
+  "deepEqualRoundTripPass": true,
+  "differentialRecordsPass": true,
+  "freshBackendEmptyPass": true,
+  "discardCleanupPass": true,
+  "cleanupStrategy": "DISCARD_MEMORY_BACKEND_INSTANCE_AND_PROVE_FRESH_INSTANCE_NOT_FOUND",
+  "absenceSemantics": "throws error.code === \"PREVIEW_RESULT_NOT_FOUND\"",
+  "controlledNow": "2026-07-10T12:00:00.000Z",
+  "createdAt": "2026-07-10T12:00:00.000Z",
+  "expiresAt": "2026-07-11T12:00:00.000Z",
+  "fixtureSha256": "1491d70cb11ea6e613f9f1ca48c12f3ebcbf1fe0c01f8c2e3a353ac37be32497",
+  "variants": [
+    {
+      "label": "ALFA",
+      "syntheticInsured": "PERSONA SINTETICA ALFA",
+      "identity": {
+        "previewResultId": "107z15e7r-alfa",
+        "schemaVersion": "1"
+      },
+      "fieldsHash": "22e20132c1154e6bede3e1820ff4241969ed33bdf3584a1e24efc055488fc67a",
+      "expectedRecordHash": "0a5354f6d8a4fd7b2b84479cc4b019e113e62eb4890118ca2b03d5c9264fde5a",
+      "readRecordHash": "0a5354f6d8a4fd7b2b84479cc4b019e113e62eb4890118ca2b03d5c9264fde5a",
+      "insured": "PERSONA SINTETICA ALFA",
+      "plannedOrAvePremiumIsNull": false
+    },
+    {
+      "label": "BETA",
+      "syntheticInsured": "PERSONA SINTETICA BETA",
+      "identity": {
+        "previewResultId": "107z15e7r-beta",
+        "schemaVersion": "1"
+      },
+      "fieldsHash": "3ffc2f52d1c76616abbdec103c446c28a3b7b185becd95f9eb82945bf3d50be8",
+      "expectedRecordHash": "c16a5532728144b063287d1109f65737b7204a2b42108bd5f0c2514dd574331c",
+      "readRecordHash": "c16a5532728144b063287d1109f65737b7204a2b42108bd5f0c2514dd574331c",
+      "insured": "PERSONA SINTETICA BETA",
+      "plannedOrAvePremiumIsNull": false
+    }
+  ],
+  "freshBackendAbsence": [
+    {
+      "identity": {
+        "previewResultId": "107z15e7r-alfa",
+        "schemaVersion": "1"
+      },
+      "errorCode": "PREVIEW_RESULT_NOT_FOUND",
+      "pass": true
+    },
+    {
+      "identity": {
+        "previewResultId": "107z15e7r-beta",
+        "schemaVersion": "1"
+      },
+      "errorCode": "PREVIEW_RESULT_NOT_FOUND",
+      "pass": true
+    }
+  ],
+  "sourceCodeWritten": false,
+  "pdfReadExecuted": false,
+  "controlledBrowserExecution": false,
+  "persistenceDeviceStorageWriteExecuted": false,
+  "localStorageUsed": false,
+  "backendConnection": false,
+  "quoteTruthAllowed": false,
+  "next": "107Z15E8_CONTROLLED_BROWSER_CANONICAL_PERSISTENCE_INTEGRATION_DECISION_GATE"
+}
