@@ -1,0 +1,130 @@
+{
+  "chain": "107Z15E8M_EXPLICIT_PDF_FLOW_POPUP_INVOCATION_SCOPE_GATE",
+  "scopeId": "QUOTE_PREVIEW_EXPLICIT_PDF_FLOW_POPUP_INVOCATION_V1",
+  "status": "PASS",
+  "authorizationComplete": true,
+  "previousClosureProof": "/storage/emulated/0/ForgeGemini/Reports/107Z15E8L_20260710_164335/107Z15E8L_PROOF_20260710_164335.json",
+  "decision": "AUTHORIZE_EXPLICIT_PDF_RESULT_TO_POPUP_OPEN_INVOCATION",
+  "noFurtherDiscovery": true,
+  "sourceChangeAuthorized": true,
+  "allowedSourceFiles": [
+    "platform/ui/quote-preview/quote-preview-pdf-flow-popup-invocation.js",
+    "platform/ui/quote-preview/quote-preview-pdf-flow-popup-invocation.test.js"
+  ],
+  "authorizedApi": {
+    "exportName": "createQuotePreviewPdfFlowPopupInvocation",
+    "signature": "function createQuotePreviewPdfFlowPopupInvocation(options = {})",
+    "requiredOptions": {
+      "documentLike": "injected DOM-like object forwarded to the existing popup factory",
+      "mountTarget": "injected popup mount node",
+      "store": "official persistence store",
+      "createPreviewResultId": "non-empty preview identity factory",
+      "now": "epoch-millisecond clock",
+      "ttlMs": "positive finite preview lifetime"
+    },
+    "optionalOptions": {
+      "title": "popup title",
+      "onPersisted": "successful persistence callback",
+      "onEditRequested": "edit callback receiving pending preview",
+      "onClosed": "popup-close callback",
+      "onError": "persistence error callback",
+      "formatFieldValue": "display-only field formatter"
+    },
+    "returnShape": {
+      "present": "present({ nativeResult, context, ambiguity?, source? }) calls popup.open(preview)",
+      "close": "delegates to popup.close(reason)",
+      "dispose": "delegates idempotently to popup.dispose()",
+      "getState": "frozen invocation and popup state"
+    }
+  },
+  "authorizedFlow": [
+    "create exactly one popup instance through createQuotePreviewConfirmationPopup",
+    "create no UI before present(input) is called",
+    "validate nativeResult and context without extracting or reading a PDF",
+    "build one preview envelope preserving nativeResult and context references",
+    "default ambiguity and source to empty objects when omitted",
+    "call popup.open(preview) exactly once per successful present call",
+    "allow repeated present calls to update the existing open popup through the popup lifecycle",
+    "delegate close and dispose directly to the existing popup",
+    "perform no persistence during present",
+    "allow persistence only when the existing popup receives Aceptar",
+    "allow zero persistence when the existing popup receives Editar"
+  ],
+  "requiredTests": [
+    "reject invalid construction options through the existing popup contract",
+    "create no UI before present",
+    "reject missing nativeResult",
+    "reject missing context",
+    "present preserves nativeResult and context references",
+    "present defaults ambiguity and source to empty objects",
+    "present forwards explicit ambiguity and source",
+    "present mounts exactly one popup root",
+    "present renders the eight canonical fields through the existing popup",
+    "repeated present updates pending preview without a second popup root",
+    "Aceptar persists through the existing complete stack",
+    "Editar performs zero store writes and zero store reads",
+    "close delegates and clears the popup",
+    "dispose is idempotent",
+    "present after dispose is rejected",
+    "no PDF read, extraction, OCR, file access, route, dashboard, selector discovery, localStorage, or backend creation is introduced"
+  ],
+  "forbiddenChanges": [
+    "any runtime source file other than the two allowed files",
+    "the completed popup host",
+    "the UI surface binding, UI wiring, persistence adapter, coordinator, contract, or store",
+    "any PDF extractor or OCR engine",
+    "reading PDF files or filesystem paths",
+    "automatic discovery of a PDF flow owner",
+    "document.querySelector or document.getElementById",
+    "global window or document lookup",
+    "full page, route, dashboard, shell, or generic host",
+    "direct localStorage access",
+    "store or backend creation",
+    "hardcoded quote values",
+    "persistence during present",
+    "persistence on Editar",
+    "promotion of PDF extraction to official quote truth"
+  ],
+  "dependencyContract": {
+    "popupHostPath": "platform/ui/quote-preview/quote-preview-confirmation-popup-host.js",
+    "popupFactoryExport": "createQuotePreviewConfirmationPopup",
+    "requiredInvocation": "popup.open({ nativeResult, context, ambiguity, source })",
+    "extractionOwnership": "none; caller receives a completed nativeResult",
+    "uiOwnership": "none beyond the existing popup",
+    "persistenceOwnership": "none before popup accept"
+  },
+  "invocationSemantics": {
+    "createsOnePopupInstance": true,
+    "noUiBeforePresent": true,
+    "presentReadsPdf": false,
+    "presentRunsExtraction": false,
+    "presentPersists": false,
+    "presentCallsPopupOpen": true,
+    "acceptPersists": true,
+    "editPersists": false,
+    "editStoreWrites": 0,
+    "editStoreReads": 0,
+    "repeatedPresentUsesSamePopup": true
+  },
+  "scopeExclusions": {
+    "furtherDiscoveryAllowed": false,
+    "pdfReadingAllowed": false,
+    "extractionAllowed": false,
+    "ocrAllowed": false,
+    "automaticFlowOwnerDiscoveryAllowed": false,
+    "fullPageAllowed": false,
+    "routingAllowed": false,
+    "dashboardAllowed": false,
+    "genericHostAllowed": false,
+    "directLocalStorageAllowed": false,
+    "backendCreationAllowed": false
+  },
+  "next": "107Z15E8N_EXPLICIT_PDF_FLOW_POPUP_INVOCATION_SCOPED_IMPLEMENTATION_GATE",
+  "sourceCodeWritten": false,
+  "browserExecuted": false,
+  "pdfReadExecuted": false,
+  "extractionExecuted": false,
+  "localStorageWriteExecuted": false,
+  "backendConnection": false,
+  "quoteTruthAllowed": false
+}
