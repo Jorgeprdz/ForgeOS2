@@ -12989,3 +12989,51 @@ LOCKED_DECISION=LOCAL_ONLY_ACTUAL_PDF_LOOKUP_AUTHORIZATION_GATE_LOCKED_WITH_OPER
 
 NEXT=107B_QUOTE_PREVIEW_LOCAL_ONLY_ACTUAL_PDF_LOOKUP_EXECUTION_GATE
 <!-- FORGE:107A_QUOTE_PREVIEW_LOCAL_ONLY_ACTUAL_PDF_LOOKUP_AUTHORIZATION_GATE:END -->
+
+<!-- FORGE:107B_QUOTE_PREVIEW_LOCAL_ONLY_ACTUAL_PDF_LOOKUP_EXECUTION_GATE:START -->
+## 107B Quote Preview Local Only Actual PDF Lookup Execution Gate
+
+107B defines the local-only execution gate after 107A authorization.
+
+Locked decision:
+`LOCAL_ONLY_ACTUAL_PDF_LOOKUP_EXECUTION_GATE_LOCKED_NO_EXECUTION_YET_NO_RAW_TEXT_COMMIT_NO_TRUTH`
+
+Confirmed:
+
+- manual operator token not required this phase;
+- authorization from 107A required;
+- authorization from 107A accepted;
+- execution gate only;
+- local-only execution boundary prepared;
+- actual PDF lookup not executed in 107B;
+- raw PDF not accessed in 107B;
+- raw text not accessed in 107B;
+- actual PDF path not accessed in 107B;
+- raw text not committed in 107B;
+- raw value not extracted in 107B;
+- real value not extracted in 107B;
+- real value approval forbidden in 107B;
+- candidate truth forbidden;
+- OCR execution forbidden in 107B;
+- parser execution forbidden in 107B;
+- calculator execution forbidden in 107B;
+- quote truth forbidden in 107B;
+- UI population forbidden in 107B;
+- presentation generation forbidden in 107B;
+- local-only scope required for 107C;
+- raw text commit forbidden in 107C;
+- source UI was not changed;
+- all safety flags remain false.
+
+LOOKUP_LINE_ITEM_COUNT=27
+
+BLOCKED_AMBIGUOUS_ITEM_COUNT=1
+
+LOOKUP_ELIGIBLE_FIELD_COUNT=6
+
+DECISION=PASS_107B_QUOTE_PREVIEW_LOCAL_ONLY_ACTUAL_PDF_LOOKUP_EXECUTION_GATE
+
+LOCKED_DECISION=LOCAL_ONLY_ACTUAL_PDF_LOOKUP_EXECUTION_GATE_LOCKED_NO_EXECUTION_YET_NO_RAW_TEXT_COMMIT_NO_TRUTH
+
+NEXT=107C_QUOTE_PREVIEW_LOCAL_ONLY_ACTUAL_PDF_LOOKUP_DRY_RUN
+<!-- FORGE:107B_QUOTE_PREVIEW_LOCAL_ONLY_ACTUAL_PDF_LOOKUP_EXECUTION_GATE:END -->
