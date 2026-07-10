@@ -1,0 +1,13 @@
+{
+  "phase": "107V_QUOTE_PREVIEW_CONFIRMATION_MODAL_YES_NO_BEHAVIOR_VALIDATION",
+  "status": "PASS",
+  "decision": "PASS_107V_QUOTE_PREVIEW_CONFIRMATION_MODAL_YES_NO_BEHAVIOR_VALIDATION",
+  "yesActionValidated": true,
+  "noActionValidated": true,
+  "fieldMapCount": 8,
+  "yesAction": "auto_populate_quote_preview_ui_after_user_confirmation",
+  "noAction": "open_edit_mode_in_quote_preview_ui",
+  "quoteTruthAllowed": false,
+  "errors": [],
+  "next": "107W_QUOTE_PREVIEW_PDF_EXTRACTION_TO_CONFIRMATION_MODAL_HANDOFF_LOCK"
+}
