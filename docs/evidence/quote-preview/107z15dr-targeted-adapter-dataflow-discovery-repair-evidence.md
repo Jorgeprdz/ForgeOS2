@@ -1,0 +1,490 @@
+# 107Z15DR — Targeted adapter dataflow discovery evidence
+
+Status: **PASS**
+
+```json
+{
+  "chain": "107Z15DR_TARGETED_ADAPTER_DATAFLOW_DISCOVERY_REPAIR_GATE",
+  "status": "PASS",
+  "generated_at_local_stamp": "20260710_125150",
+  "discovery": {
+    "IMPLEMENTATION_SCOPE_ID": "QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_V1",
+    "DISCOVERY_ID": "TARGETED_ADAPTER_DATAFLOW_DISCOVERY_REPAIR_V1",
+    "DISCOVERY_COMPLETE": true,
+    "TARGET_FUNCTION_RESOLVED": true,
+    "TARGET_FUNCTION": "integrateQuotePreviewPdfEngineWithProductIntelligence",
+    "TARGET_FUNCTION_LINE_START": 230,
+    "TARGET_FUNCTION_LINE_END": 230,
+    "TARGET_CALL_CLOSURE_RESOLVED": true,
+    "TARGET_CALL_CLOSURE_FUNCTION_COUNT": 1,
+    "FIELD_MENTION_FUNCTION_COUNT": 2,
+    "RELEVANT_FUNCTION_COUNT": 4,
+    "CANONICAL_FIELD_DATAFLOW_PACKET_READY": true,
+    "CANONICAL_FIELD_COUNT": 8,
+    "ENGINE_OWNED_FIELD_COUNT": 6,
+    "ADAPTER_DERIVED_FIELD_COUNT": 2,
+    "ADAPTER_DERIVED_FIELD_MODES": {
+      "name": "REFERENCE_ONLY_OR_DYNAMIC",
+      "family": "REFERENCE_ONLY_OR_DYNAMIC"
+    },
+    "PROJECTION_CONSTRUCTION_MODES": [
+      "DISTRIBUTED_ACROSS_HELPERS"
+    ],
+    "COMBINED_RESOLVED_CANONICAL_FIELD_COUNT": 3,
+    "PROJECTION_RESOLVED_CLAIMED": false,
+    "VALIDATOR_FUNCTION_RESOLVED": true,
+    "VALIDATOR_FUNCTION": "validateQuotePreviewPdfProductIntelligenceIntegrationShape",
+    "VALIDATOR_CALL_SITE_COUNT": 0,
+    "RESULT_DELIVERY_SITE_COUNT": 3,
+    "MANUAL_REVIEW_REQUIRED": true,
+    "SOURCE_CHANGE_AUTHORIZED": false,
+    "SOURCE_CODE_WRITTEN": false,
+    "REAL_ENGINE_EXECUTION": false,
+    "PARSER_EXECUTED": false,
+    "CONTROLLED_BROWSER_EXECUTION": false,
+    "PDF_READ_EXECUTED": false,
+    "BACKEND_CONNECTION": false,
+    "QUOTE_TRUTH_ALLOWED": false,
+    "NEXT_GATE": "107Z15D2_ADAPTER_DATAFLOW_DISCOVERY_REVIEW_GATE"
+  },
+  "targetFunction": {
+    "name": "integrateQuotePreviewPdfEngineWithProductIntelligence",
+    "lineStart": 230,
+    "lineEnd": 230,
+    "parameters": [
+      "request = {}"
+    ],
+    "calls": [],
+    "internalCalls": [],
+    "sourceSha256": "6e5d3a8c46f2c0cad9793ccd9ee7c25aa421c47614324e631ba41f62d869d13a",
+    "source": "function integrateQuotePreviewPdfEngineWithProductIntelligence(request = {}"
+  },
+  "validatorFunction": {
+    "name": "validateQuotePreviewPdfProductIntelligenceIntegrationShape",
+    "lineStart": 345,
+    "lineEnd": 356,
+    "parameters": [
+      "integration"
+    ],
+    "sourceSha256": "69ed721069a72cbef9f82c5c65d88d030b7e334eb43ae15c3c2473c37646f313",
+    "source": "function validateQuotePreviewPdfProductIntelligenceIntegrationShape(integration) {\n  const missing = REQUIRED_INTEGRATION_FIELDS.filter((field) => !Object.prototype.hasOwnProperty.call(integration || {}, field));\n  const flagFailures = Object.entries((integration && integration.safety_flags) || {})\n    .filter(([, value]) => value !== false)\n    .map(([key]) => key);\n\n  return {\n    ok: missing.length === 0 && flagFailures.length === 0,\n    missing,\n    flagFailures\n  };\n}"
+  },
+  "callClosureFunctions": [
+    "integrateQuotePreviewPdfEngineWithProductIntelligence"
+  ],
+  "fieldMentionFunctions": [
+    "for",
+    "if"
+  ],
+  "relevantFunctions": [
+    {
+      "name": "for",
+      "lineStart": 119,
+      "lineEnd": 123,
+      "parameters": [
+        "const name of names"
+      ],
+      "calls": [
+        "Object.prototype.hasOwnProperty.call"
+      ],
+      "internalCalls": [],
+      "canonicalFieldsMentioned": [
+        "name"
+      ],
+      "objectLiterals": [],
+      "assignments": [],
+      "getFieldCalls": [],
+      "returnExpressions": [
+        "object[name]"
+      ],
+      "eventSites": [],
+      "callbackSites": [],
+      "sourceSha256": "7c7d0e7aea81e23bb03f69b6a5cc22df1865344f8fc80be112f3f446c7bd3f84",
+      "source": "for (const name of names) {\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\n      return object[name];\n    }\n  }"
+    },
+    {
+      "name": "if",
+      "lineStart": 272,
+      "lineEnd": 281,
+      "parameters": [
+        "typeof bindingAdapter.validateQuotePreviewBindingShape === 'function'"
+      ],
+      "calls": [
+        "bindingAdapter.validateQuotePreviewBindingShape",
+        "buildQuotePreviewPdfIntegrationError",
+        "validationOk"
+      ],
+      "internalCalls": [
+        "buildQuotePreviewPdfIntegrationError",
+        "validationOk"
+      ],
+      "canonicalFieldsMentioned": [
+        "family",
+        "product"
+      ],
+      "objectLiterals": [],
+      "assignments": [
+        {
+          "object": "bindingAdapter",
+          "field": "validateQuotePreviewBindingShape",
+          "expression": "== 'function') {"
+        }
+      ],
+      "getFieldCalls": [],
+      "returnExpressions": [
+        "buildQuotePreviewPdfIntegrationError( SAFE_ERROR_CODES.BINDING_REQUIRED, bindingRequest, 'Quote Preview Product Intelligence binding shape did not validate.' )"
+      ],
+      "eventSites": [],
+      "callbackSites": [],
+      "sourceSha256": "5a2e989e3749bf7118ee8d7b375df43d1b3de4bc5f7859ee28c149735e86a0a8",
+      "source": "if (typeof bindingAdapter.validateQuotePreviewBindingShape === 'function') {\n    const validation = bindingAdapter.validateQuotePreviewBindingShape(binding);\n    if (!validationOk(validation)) {\n      return buildQuotePreviewPdfIntegrationError(\n        SAFE_ERROR_CODES.BINDING_REQUIRED,\n        bindingRequest,\n        'Quote Preview Product Intelligence binding shape did not validate.'\n      );\n    }\n  }"
+    },
+    {
+      "name": "integrateQuotePreviewPdfEngineWithProductIntelligence",
+      "lineStart": 230,
+      "lineEnd": 230,
+      "parameters": [
+        "request = {}"
+      ],
+      "calls": [],
+      "internalCalls": [],
+      "canonicalFieldsMentioned": [],
+      "objectLiterals": [],
+      "assignments": [],
+      "getFieldCalls": [],
+      "returnExpressions": [],
+      "eventSites": [],
+      "callbackSites": [],
+      "sourceSha256": "6e5d3a8c46f2c0cad9793ccd9ee7c25aa421c47614324e631ba41f62d869d13a",
+      "source": "function integrateQuotePreviewPdfEngineWithProductIntelligence(request = {}"
+    },
+    {
+      "name": "validateQuotePreviewPdfProductIntelligenceIntegrationShape",
+      "lineStart": 345,
+      "lineEnd": 356,
+      "parameters": [
+        "integration"
+      ],
+      "calls": [
+        "Object.entries",
+        "Object.prototype.hasOwnProperty.call",
+        "REQUIRED_INTEGRATION_FIELDS.filter",
+        "filter",
+        "map"
+      ],
+      "internalCalls": [],
+      "canonicalFieldsMentioned": [],
+      "objectLiterals": [
+        {
+          "keys": [
+            "ok"
+          ],
+          "spreads": [],
+          "canonicalFields": [],
+          "source": "{\n  const missing = REQUIRED_INTEGRATION_FIELDS.filter((field) => !Object.prototype.hasOwnProperty.call(integration || {}, field));\n  const flagFailures = Object.entries((integration && integration.safety_flags) || {})\n    .filter(([, value]) => value !== false)\n    .map(([key]) => key);\n\n  return {\n    ok: missing.length === 0 && flagFailures.length === 0,\n    missing,\n    flagFailures\n  };\n}"
+        },
+        {
+          "keys": [
+            "ok"
+          ],
+          "spreads": [],
+          "canonicalFields": [],
+          "source": "{\n    ok: missing.length === 0 && flagFailures.length === 0,\n    missing,\n    flagFailures\n  }"
+        }
+      ],
+      "assignments": [
+        {
+          "object": "missing",
+          "field": "length",
+          "expression": "== 0 && flagFailures.length === 0,"
+        }
+      ],
+      "getFieldCalls": [],
+      "returnExpressions": [
+        "{ ok: missing.length === 0 && flagFailures.length === 0, missing, flagFailures }"
+      ],
+      "eventSites": [],
+      "callbackSites": [],
+      "sourceSha256": "69ed721069a72cbef9f82c5c65d88d030b7e334eb43ae15c3c2473c37646f313",
+      "source": "function validateQuotePreviewPdfProductIntelligenceIntegrationShape(integration) {\n  const missing = REQUIRED_INTEGRATION_FIELDS.filter((field) => !Object.prototype.hasOwnProperty.call(integration || {}, field));\n  const flagFailures = Object.entries((integration && integration.safety_flags) || {})\n    .filter(([, value]) => value !== false)\n    .map(([key]) => key);\n\n  return {\n    ok: missing.length === 0 && flagFailures.length === 0,\n    missing,\n    flagFailures\n  };\n}"
+    }
+  ],
+  "projectionMetrics": [
+    {
+      "function": "if",
+      "literalCanonicalFields": [],
+      "assignedCanonicalFields": [],
+      "mentionedCanonicalFields": [
+        "family",
+        "product"
+      ],
+      "combinedCanonicalFields": [
+        "family",
+        "product"
+      ],
+      "getFieldCallCount": 0,
+      "spreadCount": 0,
+      "returnExpressionCount": 1,
+      "eventSiteCount": 0
+    },
+    {
+      "function": "for",
+      "literalCanonicalFields": [],
+      "assignedCanonicalFields": [],
+      "mentionedCanonicalFields": [
+        "name"
+      ],
+      "combinedCanonicalFields": [
+        "name"
+      ],
+      "getFieldCallCount": 0,
+      "spreadCount": 0,
+      "returnExpressionCount": 1,
+      "eventSiteCount": 0
+    },
+    {
+      "function": "integrateQuotePreviewPdfEngineWithProductIntelligence",
+      "literalCanonicalFields": [],
+      "assignedCanonicalFields": [],
+      "mentionedCanonicalFields": [],
+      "combinedCanonicalFields": [],
+      "getFieldCallCount": 0,
+      "spreadCount": 0,
+      "returnExpressionCount": 0,
+      "eventSiteCount": 0
+    },
+    {
+      "function": "validateQuotePreviewPdfProductIntelligenceIntegrationShape",
+      "literalCanonicalFields": [],
+      "assignedCanonicalFields": [],
+      "mentionedCanonicalFields": [],
+      "combinedCanonicalFields": [],
+      "getFieldCallCount": 0,
+      "spreadCount": 0,
+      "returnExpressionCount": 1,
+      "eventSiteCount": 0
+    }
+  ],
+  "bestProjectionEvidence": {
+    "function": "if",
+    "literalCanonicalFields": [],
+    "assignedCanonicalFields": [],
+    "mentionedCanonicalFields": [
+      "family",
+      "product"
+    ],
+    "combinedCanonicalFields": [
+      "family",
+      "product"
+    ],
+    "getFieldCallCount": 0,
+    "spreadCount": 0,
+    "returnExpressionCount": 1,
+    "eventSiteCount": 0
+  },
+  "fieldResolution": {
+    "name": {
+      "declaredOwner": "adapter",
+      "mode": "REFERENCE_ONLY_OR_DYNAMIC",
+      "ownerFunctions": [
+        "for"
+      ],
+      "occurrences": [
+        {
+          "line": 119,
+          "ownerFunction": "for",
+          "excerpt": "lue || '').trim();\n}\n\nfunction slug(value) {\n  return normalizeText(value)\n    .toLowerCase()\n    .normalize('NFD')\n    .replace(/[\\u0300-\\u036f]/g, '')\n    .replace(/[^a-z0-9]+/g, '_')\n    .replace(/^_+|_+$/g, '') || 'unknown';\n}\n\nfunction getField(object, names) {\n  for (const name of names) {\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\n      return object[name];\n    }\n  }\n  return undefined;\n}\n\nfunction validationOk(result) {\n  if (result === true) return true;\n  if (result && result.ok === true) ret"
+        },
+        {
+          "line": 120,
+          "ownerFunction": "for",
+          "excerpt": "toLowerCase()\n    .normalize('NFD')\n    .replace(/[\\u0300-\\u036f]/g, '')\n    .replace(/[^a-z0-9]+/g, '_')\n    .replace(/^_+|_+$/g, '') || 'unknown';\n}\n\nfunction getField(object, names) {\n  for (const name of names) {\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\n      return object[name];\n    }\n  }\n  return undefined;\n}\n\nfunction validationOk(result) {\n  if (result === true) return true;\n  if (result && result.ok === true) return true;\n  if (result && result.valid === true) return true;\n  if (result && re"
+        },
+        {
+          "line": 120,
+          "ownerFunction": "for",
+          "excerpt": "  .normalize('NFD')\n    .replace(/[\\u0300-\\u036f]/g, '')\n    .replace(/[^a-z0-9]+/g, '_')\n    .replace(/^_+|_+$/g, '') || 'unknown';\n}\n\nfunction getField(object, names) {\n  for (const name of names) {\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\n      return object[name];\n    }\n  }\n  return undefined;\n}\n\nfunction validationOk(result) {\n  if (result === true) return true;\n  if (result && result.ok === true) return true;\n  if (result && result.valid === true) return true;\n  if (result && result.isValid ==="
+        },
+        {
+          "line": 121,
+          "ownerFunction": "for",
+          "excerpt": "0300-\\u036f]/g, '')\n    .replace(/[^a-z0-9]+/g, '_')\n    .replace(/^_+|_+$/g, '') || 'unknown';\n}\n\nfunction getField(object, names) {\n  for (const name of names) {\n    if (object && Object.prototype.hasOwnProperty.call(object, name) && object[name] != null) {\n      return object[name];\n    }\n  }\n  return undefined;\n}\n\nfunction validationOk(result) {\n  if (result === true) return true;\n  if (result && result.ok === true) return true;\n  if (result && result.valid === true) return true;\n  if (result && result.isValid === true) return true;\n  return false;\n}"
+        }
+      ],
+      "getFieldAliasCalls": [],
+      "assignments": [],
+      "objectLiteralSites": []
+    },
+    "family": {
+      "declaredOwner": "adapter",
+      "mode": "REFERENCE_ONLY_OR_DYNAMIC",
+      "ownerFunctions": [
+        "if"
+      ],
+      "occurrences": [
+        {
+          "line": 288,
+          "ownerFunction": "if",
+          "excerpt": " did not validate.'\n      );\n    }\n  }\n\n  const productFamily = getField(binding, ['product_family', 'productFamily']);\n  if (!productFamily) {\n    return buildQuotePreviewPdfIntegrationError(\n      SAFE_ERROR_CODES.PRODUCT_FAMILY_NOT_MAPPED,\n      bindingRequest,\n      'Product family was not mapped by binding adapter.'\n    );\n  }\n\n  const parserRef = getField(binding, ['parser_ref', 'parserRef']);\n  const calculatorRefs = getCalculatorRefs(binding);\n\n  return {\n    schemaVersion: SCHEMA_VERSION,\n    domainId: DOMAIN_ID,\n    mode: MODE,\n    routeClass: "
+        }
+      ],
+      "getFieldAliasCalls": [],
+      "assignments": [],
+      "objectLiteralSites": []
+    },
+    "product": {
+      "declaredOwner": "engine",
+      "mode": "REFERENCE_ONLY_OR_DYNAMIC",
+      "ownerFunctions": [
+        "<top-level>",
+        "if"
+      ],
+      "occurrences": [
+        {
+          "line": 3,
+          "ownerFunction": "<top-level>",
+          "excerpt": "'use strict';\n\nconst bindingAdapter = require('./quote-preview-product-intelligence-binding-adapter-074b.js');\n\nconst ADAPTER_ID = 'forge.quote_preview.pdf_engine_product_intelligence.integration.adapter.v1';\nconst SCHEMA_VERSION = 'forge.quote_preview.pdf_engine_product_intelligence.integration.v1';\nconst DOMAIN_ID = 'quote_preview_pdf_engi"
+        },
+        {
+          "line": 11,
+          "ownerFunction": "<top-level>",
+          "excerpt": "r.v1';\nconst SCHEMA_VERSION = 'forge.quote_preview.pdf_engine_product_intelligence.integration.v1';\nconst DOMAIN_ID = 'quote_preview_pdf_engine_product_intelligence_integration';\nconst MODE = 'read_only';\nconst ROUTE_CLASS = 'preview_safe';\n\nconst QUOTE_PREVIEW_PDF_ENGINE_REF = 'product-intelligence/evidence/forge-quote-pdf-preview-engine.js';\nconst BINDING_ADAPTER_REF = 'platform/adapters/quote-preview/quote-preview-product-intelligence-binding-adapter-074b.js';\nconst PRODUCT_INTELLIGENCE_ADAPTER_REF = 'platform/adapters/product-intelligence/product-int"
+        },
+        {
+          "line": 12,
+          "ownerFunction": "<top-level>",
+          "excerpt": "ne_product_intelligence_integration';\nconst MODE = 'read_only';\nconst ROUTE_CLASS = 'preview_safe';\n\nconst QUOTE_PREVIEW_PDF_ENGINE_REF = 'product-intelligence/evidence/forge-quote-pdf-preview-engine.js';\nconst BINDING_ADAPTER_REF = 'platform/adapters/quote-preview/quote-preview-product-intelligence-binding-adapter-074b.js';\nconst PRODUCT_INTELLIGENCE_ADAPTER_REF = 'platform/adapters/product-intelligence/product-intelligence-read-model-adapter-073d.js';\n\nconst SAFE_ERROR_CODES = Object.freeze({\n  NOT_INTEGRATED: 'QUOTE_PREVIEW_PDF_PRODUCT_INTELLIGENCE_NO"
+        },
+        {
+          "line": 13,
+          "ownerFunction": "<top-level>",
+          "excerpt": "QUOTE_PREVIEW_PDF_ENGINE_REF = 'product-intelligence/evidence/forge-quote-pdf-preview-engine.js';\nconst BINDING_ADAPTER_REF = 'platform/adapters/quote-preview/quote-preview-product-intelligence-binding-adapter-074b.js';\nconst PRODUCT_INTELLIGENCE_ADAPTER_REF = 'platform/adapters/product-intelligence/product-intelligence-read-model-adapter-073d.js';\n\nconst SAFE_ERROR_CODES = Object.freeze({\n  NOT_INTEGRATED: 'QUOTE_PREVIEW_PDF_PRODUCT_INTELLIGENCE_NOT_INTEGRATED',\n  PRODUCT_FAMILY_NOT_MAPPED: 'QUOTE_PREVIEW_PDF_PRODUCT_FAMILY_NOT_MAPPED',\n  BINDING_REQUIR"
+        },
+        {
+          "line": 13,
+          "ownerFunction": "<top-level>",
+          "excerpt": "INE_REF = 'product-intelligence/evidence/forge-quote-pdf-preview-engine.js';\nconst BINDING_ADAPTER_REF = 'platform/adapters/quote-preview/quote-preview-product-intelligence-binding-adapter-074b.js';\nconst PRODUCT_INTELLIGENCE_ADAPTER_REF = 'platform/adapters/product-intelligence/product-intelligence-read-model-adapter-073d.js';\n\nconst SAFE_ERROR_CODES = Object.freeze({\n  NOT_INTEGRATED: 'QUOTE_PREVIEW_PDF_PRODUCT_INTELLIGENCE_NOT_INTEGRATED',\n  PRODUCT_FAMILY_NOT_MAPPED: 'QUOTE_PREVIEW_PDF_PRODUCT_FAMILY_NOT_MAPPED',\n  BINDING_REQUIRED: 'QUOTE_PREVIEW_PD"
+        },
+        {
+          "line": 208,
+          "ownerFunction": "<top-level>",
+          "excerpt": "    banxico_call_allowed: false,\n      real_engine_execution_allowed: false\n    },\n    blocked_effects: clone(BLOCKED_EFFECTS),\n    safety_flags: clone(DEFAULT_SAFETY_FLAGS),\n    safe_error: {\n      code,\n      message: message || 'Quote Preview PDF Engine is not integrated with Product Intelligence for this request.'\n    },\n    audit_event: {\n      event_type: 'quote_preview_pdf_product_intelligence_integration_error',\n      adapter_id: ADAPTER_ID,\n      source_phase: '075B_QUOTE_PREVIEW_PDF_ENGINE_PRODUCT_INTELLIGENCE_INTEGRATION_IMPLEMENTATION'\n    }\n"
+        },
+        {
+          "line": 245,
+          "ownerFunction": "if",
+          "excerpt": "(!bindingAdapter || typeof bindingAdapter.bindQuotePreviewToProductIntelligence !== 'function') {\n    return buildQuotePreviewPdfIntegrationError(\n      SAFE_ERROR_CODES.BINDING_REQUIRED,\n      { ...request, quote_preview_request_id: quotePreviewRequestId },\n      'Quote Preview Product Intelligence binding adapter is required.'\n    );\n  }\n\n  const bindingRequest = {\n    quote_preview_request_id: quotePreviewRequestId,\n    product_family_hint: getField(request, ['product_family_hint', 'productFamilyHint', 'product_family', 'productFamily']),\n    product_"
+        },
+        {
+          "line": 278,
+          "ownerFunction": "if",
+          "excerpt": "pe === 'function') {\n    const validation = bindingAdapter.validateQuotePreviewBindingShape(binding);\n    if (!validationOk(validation)) {\n      return buildQuotePreviewPdfIntegrationError(\n        SAFE_ERROR_CODES.BINDING_REQUIRED,\n        bindingRequest,\n        'Quote Preview Product Intelligence binding shape did not validate.'\n      );\n    }\n  }\n\n  const productFamily = getField(binding, ['product_family', 'productFamily']);\n  if (!productFamily) {\n    return buildQuotePreviewPdfIntegrationError(\n      SAFE_ERROR_CODES.PRODUCT_FAMILY_NOT_MAPPED,\n   "
+        },
+        {
+          "line": 288,
+          "ownerFunction": "if",
+          "excerpt": "ng shape did not validate.'\n      );\n    }\n  }\n\n  const productFamily = getField(binding, ['product_family', 'productFamily']);\n  if (!productFamily) {\n    return buildQuotePreviewPdfIntegrationError(\n      SAFE_ERROR_CODES.PRODUCT_FAMILY_NOT_MAPPED,\n      bindingRequest,\n      'Product family was not mapped by binding adapter.'\n    );\n  }\n\n  const parserRef = getField(binding, ['parser_ref', 'parserRef']);\n  const calculatorRefs = getCalculatorRefs(binding);\n\n  return {\n    schemaVersion: SCHEMA_VERSION,\n    domainId: DOMAIN_ID,\n    mode: MODE,\n    rout"
+        }
+      ],
+      "getFieldAliasCalls": [],
+      "assignments": [],
+      "objectLiteralSites": []
+    },
+    "insured": {
+      "declaredOwner": "engine",
+      "mode": "NO_DIRECT_SOURCE_REFERENCE",
+      "ownerFunctions": [],
+      "occurrences": [],
+      "getFieldAliasCalls": [],
+      "assignments": [],
+      "objectLiteralSites": []
+    },
+    "sumAssured": {
+      "declaredOwner": "engine",
+      "mode": "NO_DIRECT_SOURCE_REFERENCE",
+      "ownerFunctions": [],
+      "occurrences": [],
+      "getFieldAliasCalls": [],
+      "assignments": [],
+      "objectLiteralSites": []
+    },
+    "annualPremium": {
+      "declaredOwner": "engine",
+      "mode": "NO_DIRECT_SOURCE_REFERENCE",
+      "ownerFunctions": [],
+      "occurrences": [],
+      "getFieldAliasCalls": [],
+      "assignments": [],
+      "objectLiteralSites": []
+    },
+    "plannedOrAvePremium": {
+      "declaredOwner": "engine",
+      "mode": "NO_DIRECT_SOURCE_REFERENCE",
+      "ownerFunctions": [],
+      "occurrences": [],
+      "getFieldAliasCalls": [],
+      "assignments": [],
+      "objectLiteralSites": []
+    },
+    "coveragePeriod": {
+      "declaredOwner": "engine",
+      "mode": "NO_DIRECT_SOURCE_REFERENCE",
+      "ownerFunctions": [],
+      "occurrences": [],
+      "getFieldAliasCalls": [],
+      "assignments": [],
+      "objectLiteralSites": []
+    }
+  },
+  "validatorCallSites": [],
+  "deliverySites": [
+    {
+      "kind": "RETURN",
+      "function": "for",
+      "returnExpressions": [
+        "object[name]"
+      ]
+    },
+    {
+      "kind": "RETURN",
+      "function": "if",
+      "returnExpressions": [
+        "buildQuotePreviewPdfIntegrationError( SAFE_ERROR_CODES.BINDING_REQUIRED, bindingRequest, 'Quote Preview Product Intelligence binding shape did not validate.' )"
+      ]
+    },
+    {
+      "kind": "RETURN",
+      "function": "validateQuotePreviewPdfProductIntelligenceIntegrationShape",
+      "returnExpressions": [
+        "{ ok: missing.length === 0 && flagFailures.length === 0, missing, flagFailures }"
+      ]
+    }
+  ],
+  "sourceReceipts": {
+    "adapterSha256": "10e23cda8585af3a6650f220c724a5c8ea9b9dc04e0ecebd5941e3391fed971d"
+  },
+  "authorization": {
+    "DATAFLOW_DISCOVERY_REVIEW_GATE_AUTHORIZED": true,
+    "SOURCE_CHANGE_AUTHORIZED": false,
+    "SOURCE_CODE_WRITE_AUTHORIZED": false,
+    "SCHEMA_CHANGE_AUTHORIZED": false,
+    "NEW_MODULE_AUTHORIZED": false,
+    "REAL_EFFECTS_AUTHORIZED": false
+  },
+  "constitutionalFlags": {
+    "NEW_ENGINE_CREATED": false,
+    "NEW_CACHE_CREATED": false,
+    "DUPLICATE_BRIDGE_CREATED": false,
+    "SCHEMA_CHANGED": false,
+    "SOURCE_UI_CHANGED": false,
+    "REAL_ENGINE_EXECUTION": false,
+    "PARSER_EXECUTED": false,
+    "CONTROLLED_BROWSER_EXECUTION": false,
+    "PDF_READ_EXECUTED": false,
+    "BACKEND_CONNECTION": false,
+    "QUOTE_TRUTH_ALLOWED": false,
+    "STATIC_SOURCE_INSPECTION_EXECUTED": true,
+    "TEST_EXECUTION": true
+  }
+}
+```
