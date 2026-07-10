@@ -12797,3 +12797,52 @@ LOCKED_DECISION=MANUAL_PDF_LOOKUP_GATE_LOCKED_AS_PREP_ONLY_NO_PDF_ACCESS_NO_VALU
 
 NEXT=106X_QUOTE_PREVIEW_MANUAL_PDF_LOOKUP_PACKET_DRY_RUN
 <!-- FORGE:106W_QUOTE_PREVIEW_MANUAL_PDF_LOOKUP_GATE:END -->
+
+<!-- FORGE:106X_QUOTE_PREVIEW_MANUAL_PDF_LOOKUP_PACKET_DRY_RUN:START -->
+## 106X Quote Preview Manual PDF Lookup Packet Dry Run
+
+106X creates a manual PDF lookup checklist only.
+
+Locked decision:
+`MANUAL_PDF_LOOKUP_PACKET_DRY_RUN_COMPLETE_AS_CHECKLIST_ONLY_NO_PDF_ACCESS_NO_VALUES_NO_TRUTH`
+
+Confirmed:
+
+- manual operator token not required;
+- lookup packet created;
+- lookup packet is checklist only;
+- only committed pending location decision records used;
+- manual lookup was not executed now;
+- human operator lookup was not performed now;
+- raw PDF not accessed;
+- raw text not accessed;
+- actual PDF path not accessed;
+- raw value not extracted;
+- real value not extracted;
+- real value approval not executed;
+- candidate truth forbidden;
+- OCR execution forbidden;
+- parser execution forbidden;
+- calculator execution forbidden;
+- quote truth forbidden;
+- UI population forbidden;
+- presentation generation forbidden;
+- future actual PDF lookup requires explicit gate;
+- future actual PDF lookup requires manual operator confirmation;
+- source UI was not changed;
+- all safety flags remain false.
+
+LOOKUP_LINE_ITEM_COUNT=27
+
+BLOCKED_AMBIGUOUS_ITEM_COUNT=1
+
+LOOKUP_ELIGIBLE_FIELD_COUNT=6
+
+CRITICAL_TARGET_COUNT=6
+
+DECISION=PASS_106X_QUOTE_PREVIEW_MANUAL_PDF_LOOKUP_PACKET_DRY_RUN
+
+LOCKED_DECISION=MANUAL_PDF_LOOKUP_PACKET_DRY_RUN_COMPLETE_AS_CHECKLIST_ONLY_NO_PDF_ACCESS_NO_VALUES_NO_TRUTH
+
+NEXT=106Y_QUOTE_PREVIEW_ACTUAL_PDF_LOOKUP_AUTHORIZATION_GATE
+<!-- FORGE:106X_QUOTE_PREVIEW_MANUAL_PDF_LOOKUP_PACKET_DRY_RUN:END -->
