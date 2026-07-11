@@ -201,7 +201,70 @@ assert.ok(!findBlock(sparseImaginaBlocks, "contribution_summary"));
 assert.ok(!findBlock(sparseImaginaBlocks, "protection_summary"));
 assert.ok(findBlock(sparseImaginaBlocks, "missing_information"));
 
-for (const productFamily of ["Vida Mujer", "Segubeca", "ORVI", "PPR"]) {
+const pprBlocks = buildQuoteBenefitSummary({
+  productFamily: "PPR",
+  product: "Plan Personal de Retiro",
+  nativeResult: {
+    productName: "Ahorro para el retiro",
+    retirementAge: 65,
+    premiumStructure: {
+      totalAnnualPremium: 1200,
+      premiumPayingYears: 10
+    },
+    scenarios: {
+      base: {
+        singlePaymentUdi: 50000,
+        monthlyIncomeUdi: 450,
+        projectedUdiValue: 30,
+        targetAge: 65
+      }
+    }
+  },
+  udiProjection: {
+    totalContributed: {
+      udi: 12000,
+      mxn: 180000
+    }
+  }
+});
+
+assert.ok(findBlock(pprBlocks, "contribution_summary"));
+assert.ok(!findBlock(pprBlocks, "protection_summary"));
+const pprRetirement = findBlock(pprBlocks, "retirement_scenarios");
+assert.ok(pprRetirement);
+assert.equal(pprRetirement.scenarios.length, 1);
+assert.equal(pprRetirement.scenarios[0].id, "base");
+assert.equal(pprRetirement.scenarios[0].singlePayment.udi, 50000);
+assert.equal(pprRetirement.scenarios[0].singlePayment.mxn, 1500000);
+assert.equal(pprRetirement.scenarios[0].monthlyIncome.udi, 450);
+assert.equal(pprRetirement.scenarios[0].monthlyIncome.mxn, 13500);
+assert.deepEqual(pprRetirement.missing, [
+  "Falta escenario favorable",
+  "Falta escenario desfavorable"
+]);
+assert.ok(findBlock(pprBlocks, "missing_information"));
+
+const sparsePprBlocks = buildQuoteBenefitSummary({
+  productFamily: "Plan Personal de Retiro",
+  nativeResult: {},
+  udiProjection: {}
+});
+assert.ok(!findBlock(sparsePprBlocks, "retirement_scenarios"));
+const sparsePprMissing = findBlock(sparsePprBlocks, "missing_information");
+assert.ok(sparsePprMissing);
+assert.ok(
+  sparsePprMissing.lines.some((line) => line.label === "Faltan datos de aportación")
+);
+assert.ok(
+  sparsePprMissing.lines.some(
+    (line) => line.label === "Faltan datos de recuperación o escenarios de retiro"
+  )
+);
+assert.ok(
+  sparsePprMissing.lines.some((line) => line.label === "Faltan datos de protección")
+);
+
+for (const productFamily of ["Vida Mujer", "Segubeca", "ORVI"]) {
   const productBlocks = buildQuoteBenefitSummary({
     productFamily,
     nativeResult: {},

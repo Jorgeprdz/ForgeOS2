@@ -61,10 +61,18 @@ function normalizeKey(value) {
     .replace(/^_+|_+$/g, "");
 }
 
-function normalizeProductFamily({ productFamily, product, nativeResult } = {}) {
+function normalizeProductFamily({
+  productFamily,
+  product,
+  nativeResult,
+  context
+} = {}) {
   const raw = [
     productFamily,
     product,
+    context?.productFamily,
+    context?.product,
+    context?.productName,
     nativeResult?.productFamily,
     nativeResult?.productName,
     nativeResult?.product
@@ -74,12 +82,19 @@ function normalizeProductFamily({ productFamily, product, nativeResult } = {}) {
   const normalized = normalizeKey(raw);
 
   if (normalized.includes("imagina_ser")) return "imagina_ser";
+  if (
+    normalized.includes("ppr") ||
+    normalized.includes("plan_personal_de_retiro") ||
+    normalized.includes("ahorro_para_el_retiro") ||
+    normalized.includes("retiro")
+  ) {
+    return "retirement_scenarios";
+  }
   if (normalized.includes("vida_mujer")) return "vida_mujer";
   if (normalized.includes("segu_beca") || normalized.includes("segubeca")) {
     return "segubeca";
   }
   if (normalized.includes("orvi")) return "orvi";
-  if (normalized.includes("ppr")) return "ppr";
 
   return normalized || "unknown";
 }
@@ -471,7 +486,7 @@ function buildRetirementScenarios({ nativeResult, udiProjection }) {
     .filter((id) => !scenarioMap.has(id))
     .map((id) => `Falta escenario ${SCENARIO_LABELS[id].toLowerCase()}`);
 
-  if (!scenarios.length && !missing.length) return null;
+  if (!scenarios.length) return null;
 
   return {
     type: "retirement_scenarios",
@@ -481,7 +496,7 @@ function buildRetirementScenarios({ nativeResult, udiProjection }) {
   };
 }
 
-function buildImaginaSerSummary({ nativeResult = {}, udiProjection = {} }) {
+function buildRetirementBenefitSummary({ nativeResult = {}, udiProjection = {} }) {
   const blocks = [
     buildContributionSummary({ nativeResult, udiProjection }),
     buildProtectionSummary({ nativeResult, udiProjection }),
@@ -493,6 +508,10 @@ function buildImaginaSerSummary({ nativeResult = {}, udiProjection = {} }) {
   const retirementBlock = blocks.find((block) => block.type === "retirement_scenarios");
   if (retirementBlock?.missing?.length) {
     missing.push(...retirementBlock.missing);
+  }
+
+  if (!retirementBlock) {
+    missing.push("Faltan datos de recuperación o escenarios de retiro");
   }
 
   if (!blocks.some((block) => block.type === "contribution_summary")) {
@@ -538,14 +557,15 @@ export function buildQuoteBenefitSummary({
   const normalizedFamily = normalizeProductFamily({
     productFamily,
     product,
-    nativeResult
+    nativeResult,
+    context
   });
 
-  if (normalizedFamily === "imagina_ser") {
-    return buildImaginaSerSummary({ nativeResult, udiProjection });
+  if (normalizedFamily === "imagina_ser" || normalizedFamily === "retirement_scenarios") {
+    return buildRetirementBenefitSummary({ nativeResult, udiProjection });
   }
 
-  if (["vida_mujer", "segubeca", "orvi", "ppr"].includes(normalizedFamily)) {
+  if (["vida_mujer", "segubeca", "orvi"].includes(normalizedFamily)) {
     return buildUnsupportedProductSummary(productFamily || product || normalizedFamily);
   }
 
