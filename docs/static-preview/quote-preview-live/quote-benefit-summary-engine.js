@@ -4,6 +4,9 @@ const ALLOWED_BLOCK_TYPES = new Set([
   "retirement_scenarios",
   "scheduled_endowments",
   "education_payout",
+  "recovery_summary",
+  "women_health_benefits",
+  "recommended_benefits",
   "missing_information"
 ]);
 
@@ -528,6 +531,464 @@ function buildRetirementBenefitSummary({ nativeResult = {}, udiProjection = {} }
   return blocks.filter((block) => ALLOWED_BLOCK_TYPES.has(block.type));
 }
 
+
+const VIDA_MUJER_PCF_DISEASES = Object.freeze([
+  ["Tumor maligno de mama", 1],
+  ["Tumor maligno de mama localizado", 0.47],
+  ["Tumor maligno de ovario", 0.38],
+  ["Tumor maligno de útero", 0.21],
+  ["Tumor maligno de útero localizado", 0.12],
+  ["Tumor maligno de trompas de falopio", 0.12],
+  ["Tumor benigno de vagina o vulva", 0.09],
+]);
+
+function firstVidaMujerNumber(...values) {
+  for (const value of values) {
+    const number = finiteNumberOrNull(value);
+    if (number !== null) return number;
+  }
+  return null;
+}
+
+function vidaMujerRowsFromMaybeArray(value) {
+  return Array.isArray(value) ? value.filter(Boolean) : [];
+}
+
+function vidaMujerCoverageName(coverage) {
+  return String(
+    coverage?.name ??
+    coverage?.coverage ??
+    coverage?.label ??
+    coverage?.description ??
+    coverage?.benefit ??
+    coverage?.code ??
+    ""
+  );
+}
+
+function vidaMujerCoverageMatches(coverage, patterns) {
+  const haystack = normalizeKey(vidaMujerCoverageName(coverage));
+  return patterns.some((pattern) => haystack.includes(normalizeKey(pattern)));
+}
+
+function vidaMujerAllCoverages(nativeResult = {}) {
+  return [
+    ...vidaMujerRowsFromMaybeArray(nativeResult.coverages),
+    ...vidaMujerRowsFromMaybeArray(nativeResult.basicCoverages),
+    ...vidaMujerRowsFromMaybeArray(nativeResult.includedCoverages),
+    ...vidaMujerRowsFromMaybeArray(nativeResult.optionalCoverages),
+    ...vidaMujerRowsFromMaybeArray(nativeResult.additionalCoverages),
+  ];
+}
+
+function vidaMujerRecommendedCoverages(nativeResult = {}) {
+  return [
+    ...vidaMujerRowsFromMaybeArray(nativeResult.recommendedCoverages),
+    ...vidaMujerRowsFromMaybeArray(nativeResult.recommendedBenefits),
+    ...vidaMujerRowsFromMaybeArray(nativeResult.advisedCoverages),
+    ...vidaMujerRowsFromMaybeArray(nativeResult.optionalRecommendedCoverages),
+  ];
+}
+
+function vidaMujerCoverageAmount(coverage, keys = []) {
+  return firstVidaMujerNumber(
+    ...keys.map((key) => coverage?.[key]),
+    coverage?.sumAssured,
+    coverage?.sumaAsegurada,
+    coverage?.insuredAmount,
+    coverage?.amount,
+    coverage?.value
+  );
+}
+
+function vidaMujerCoveragePremium(coverage) {
+  return firstVidaMujerNumber(
+    coverage?.annualPremium,
+    coverage?.primaAnualizada,
+    coverage?.premium,
+    coverage?.prima
+  );
+}
+
+function findVidaMujerCoverageAmount(coverages, patterns, keys = []) {
+  const found = coverages.find((coverage) => vidaMujerCoverageMatches(coverage, patterns));
+  return found ? vidaMujerCoverageAmount(found, keys) : null;
+}
+
+function findVidaMujerCoverageLabel(coverages, patterns) {
+  return coverages.find((coverage) => vidaMujerCoverageMatches(coverage, patterns)) || null;
+}
+
+function vidaMujerGuaranteedRows(nativeResult = {}) {
+  return [
+    ...vidaMujerRowsFromMaybeArray(nativeResult.guaranteedValues),
+    ...vidaMujerRowsFromMaybeArray(nativeResult.guaranteedValueRows),
+    ...vidaMujerRowsFromMaybeArray(nativeResult.valoresGarantizados),
+    ...vidaMujerRowsFromMaybeArray(nativeResult.cashValueRows),
+  ];
+}
+
+function vidaMujerRowNumber(row, keys = []) {
+  return firstVidaMujerNumber(...keys.map((key) => row?.[key]));
+}
+
+function vidaMujerFinalGuaranteedRow(rows) {
+  if (!rows.length) return null;
+  const scored = rows
+    .map((row, index) => ({
+      row,
+      index,
+      age: vidaMujerRowNumber(row, ["age", "realAge", "edad", "edadReal"]),
+      year: vidaMujerRowNumber(row, ["year", "policyYear", "anio", "año"]),
+      total:
+        vidaMujerRowNumber(row, [
+          "annualPremiumAccumulatedWithAve",
+          "primaAnualAcumuladaConAve",
+          "premiumAccumulatedWithAve",
+          "accumulatedPremiumWithAve",
+        ]) ?? 0,
+    }))
+    .sort((a, b) => (a.year ?? a.age ?? a.index) - (b.year ?? b.age ?? b.index));
+
+  return scored[scored.length - 1]?.row || null;
+}
+
+function vidaMujerUdiLabel(value) {
+  const number = finiteNumberOrNull(value);
+  if (number === null) return null;
+  return `${new Intl.NumberFormat("es-MX", { maximumFractionDigits: 0 }).format(Math.round(number))} UDI`;
+}
+
+function vidaMujerMxnLabel(value) {
+  const number = finiteNumberOrNull(value);
+  if (number === null) return null;
+  return `≈ $${new Intl.NumberFormat("es-MX", { maximumFractionDigits: 0 }).format(Math.round(number))} MXN`;
+}
+
+function vidaMujerPercentLabel(value) {
+  const number = finiteNumberOrNull(value);
+  if (number === null) return null;
+  return `${new Intl.NumberFormat("es-MX", { maximumFractionDigits: 2 }).format(number)}%`;
+}
+
+function vidaMujerPushRow(rows, label, value) {
+  if (value === null || value === undefined || value === "") return;
+  rows.push({ label, value: String(value) });
+}
+
+function vidaMujerSumAssured(nativeResult = {}, coverages = []) {
+  return firstVidaMujerNumber(
+    nativeResult.sumAssured,
+    nativeResult.sumaAsegurada,
+    nativeResult.basicSumAssured,
+    nativeResult.sumaAseguradaBasico,
+    nativeResult.insuredAmount,
+    findVidaMujerCoverageAmount(coverages, ["vida mujer", "fallecimiento", "basico", "básico"])
+  );
+}
+
+function vidaMujerAnnualPremium(nativeResult = {}) {
+  return firstVidaMujerNumber(
+    nativeResult.totalAnnualPremium,
+    nativeResult.primaTotalAnual,
+    nativeResult.annualPremium,
+    nativeResult.premiumTable?.annual,
+    nativeResult.premium
+  );
+}
+
+function buildVidaMujerEndowmentRows(sumAssured) {
+  const assured = finiteNumberOrNull(sumAssured);
+  if (assured === null) return [];
+
+  const dotal = assured * 0.05;
+  const finalPayment = assured * 0.8;
+  const rows = [];
+
+  for (const year of [5, 7, 9, 11, 13, 15, 17]) {
+    rows.push({ label: `Dotal año ${year}`, value: vidaMujerUdiLabel(dotal) });
+  }
+
+  rows.push({ label: "Dotal final año 20", value: vidaMujerUdiLabel(finalPayment) });
+  rows.push({ label: "Total dotales por supervivencia", value: vidaMujerUdiLabel(assured * 1.15) });
+
+  return rows;
+}
+
+function buildVidaMujerPcfRows({ pcfSumAssured, currentUdiValue }) {
+  const assured = finiteNumberOrNull(pcfSumAssured);
+  if (assured === null) return [];
+
+  return VIDA_MUJER_PCF_DISEASES.map(([name, percent]) => {
+    const amountUdi = assured * percent;
+    const parts = [
+      `${Math.round(percent * 100)}%`,
+      vidaMujerUdiLabel(amountUdi),
+    ];
+
+    if (finiteNumberOrNull(currentUdiValue) !== null) {
+      parts.push(vidaMujerMxnLabel(amountUdi * currentUdiValue));
+    }
+
+    return {
+      label: `PCF - ${name}`,
+      value: parts.filter(Boolean).join(" · "),
+    };
+  });
+}
+
+function buildVidaMujerBenefitSummary({
+  nativeResult = {},
+  currencyMetadata = {},
+} = {}) {
+  const coverages = vidaMujerAllCoverages(nativeResult);
+  const recommended = vidaMujerRecommendedCoverages(nativeResult);
+  const guaranteedRows = vidaMujerGuaranteedRows(nativeResult);
+  const finalGuaranteed = vidaMujerFinalGuaranteedRow(guaranteedRows);
+
+  const paymentYears = firstVidaMujerNumber(
+    nativeResult.paymentYears,
+    nativeResult.premiumPayingYears,
+    nativeResult.policyTerm,
+    nativeResult.coveragePeriod,
+    nativeResult.paymentTerm,
+    finalGuaranteed?.year
+  ) ?? 20;
+
+  const annualPremium = vidaMujerAnnualPremium(nativeResult);
+  const annualPremiumWithAve = firstVidaMujerNumber(
+    nativeResult.annualPremiumWithAve,
+    nativeResult.primaAnualConAve,
+    nativeResult.premiumWithAve,
+    finalGuaranteed
+      ? vidaMujerRowNumber(finalGuaranteed, [
+          "annualPremiumWithAve",
+          "primaAnualConAve",
+          "premiumWithAve",
+          "firstYearPremiumWithAve",
+        ])
+      : null,
+    guaranteedRows[0]
+      ? vidaMujerRowNumber(guaranteedRows[0], [
+          "annualPremiumAccumulatedWithAve",
+          "primaAnualAcumuladaConAve",
+          "premiumAccumulatedWithAve",
+          "accumulatedPremiumWithAve",
+        ])
+      : null
+  );
+
+  const totalContributed = firstVidaMujerNumber(
+    nativeResult.totalContributed,
+    nativeResult.totalAportado,
+    nativeResult.totalPremiumWithAve,
+    nativeResult.primaTotalAcumuladaConAve,
+    finalGuaranteed
+      ? vidaMujerRowNumber(finalGuaranteed, [
+          "annualPremiumAccumulatedWithAve",
+          "primaAnualAcumuladaConAve",
+          "premiumAccumulatedWithAve",
+          "accumulatedPremiumWithAve",
+        ])
+      : null,
+    annualPremiumWithAve !== null && paymentYears !== null ? annualPremiumWithAve * paymentYears : null
+  );
+
+  const sumAssured = vidaMujerSumAssured(nativeResult, coverages);
+  const pcfSumAssured = firstVidaMujerNumber(
+    nativeResult.pcfSumAssured,
+    nativeResult.proteccionCancerFemeninoSumAssured,
+    findVidaMujerCoverageAmount(coverages, ["pcf", "cancer femenino", "cáncer femenino"])
+  );
+
+  const baitSumAssured = firstVidaMujerNumber(
+    nativeResult.baitSumAssured,
+    findVidaMujerCoverageAmount(coverages, ["bait", "invalidez total"])
+  );
+
+  const aveSurrenderValue = firstVidaMujerNumber(
+    nativeResult.aveSurrenderValue,
+    nativeResult.valorRescateAve,
+    finalGuaranteed
+      ? vidaMujerRowNumber(finalGuaranteed, [
+          "aveSurrenderValue",
+          "valorRescateAve",
+          "valorDeRescateAve",
+          "rescueValueAve",
+        ])
+      : null
+  );
+
+  const cashValue = firstVidaMujerNumber(
+    nativeResult.cashValue,
+    nativeResult.valorEnEfectivo,
+    finalGuaranteed
+      ? vidaMujerRowNumber(finalGuaranteed, ["cashValue", "valorEnEfectivo"])
+      : null
+  );
+
+  const solucionlineRecovery = firstVidaMujerNumber(
+    nativeResult.totalRecovery,
+    nativeResult.recuperacionTotal,
+    finalGuaranteed
+      ? vidaMujerRowNumber(finalGuaranteed, ["totalRecovery", "recuperacionTotal", "recoveryTotal"])
+      : null
+  );
+
+  const recoveryPercent = firstVidaMujerNumber(
+    nativeResult.recoveryPercentage,
+    nativeResult.porcentajeRecuperacionTotal,
+    finalGuaranteed
+      ? vidaMujerRowNumber(finalGuaranteed, [
+          "recoveryPercentage",
+          "porcentajeRecuperacionTotal",
+          "totalRecoveryPercentage",
+        ])
+      : null
+  );
+
+  const survivalTotal = firstVidaMujerNumber(
+    nativeResult.survivalTotal,
+    nativeResult.totalSurvival,
+    nativeResult.totalDotales,
+    sumAssured !== null ? sumAssured * 1.15 : null
+  );
+
+  const commercialRecovery = firstVidaMujerNumber(
+    nativeResult.commercialRecovery,
+    nativeResult.recuperacionComercial,
+    survivalTotal !== null && aveSurrenderValue !== null ? survivalTotal + aveSurrenderValue : null
+  );
+
+  const currentUdiValue = firstVidaMujerNumber(
+    currencyMetadata?.currentUdiValue,
+    nativeResult.currentUdiValue,
+    nativeResult.udiValue
+  );
+
+  const blocks = [];
+  const missing = [];
+
+  const contributionRows = [];
+  vidaMujerPushRow(contributionRows, "Prima anual del seguro", vidaMujerUdiLabel(annualPremium));
+  vidaMujerPushRow(contributionRows, "Prima anual con AVE", vidaMujerUdiLabel(annualPremiumWithAve));
+  vidaMujerPushRow(contributionRows, `Total aportado en ${paymentYears} años`, vidaMujerUdiLabel(totalContributed));
+
+  if (contributionRows.length) {
+    blocks.push({
+      type: "contribution_summary",
+      title: "Lo que aportas",
+      rows: contributionRows,
+    });
+  } else {
+    missing.push("Falta prima anual o prima acumulada con AVE.");
+  }
+
+  const protectionRows = [];
+  vidaMujerPushRow(protectionRows, "Fallecimiento / suma asegurada básica", vidaMujerUdiLabel(sumAssured));
+  vidaMujerPushRow(protectionRows, "BAIT invalidez total y permanente", vidaMujerUdiLabel(baitSumAssured));
+  vidaMujerPushRow(protectionRows, "PCF cáncer femenino", vidaMujerUdiLabel(pcfSumAssured));
+
+  if (findVidaMujerCoverageLabel(coverages, ["bam", "asistencia medica", "asistencia médica"])) {
+    protectionRows.push({ label: "BAM asistencia médica", value: "Amparado sin costo" });
+  }
+
+  if (findVidaMujerCoverageLabel(coverages, ["av ui", "apoyo en vida"])) {
+    protectionRows.push({ label: "AV apoyo en vida", value: "Amparado sin costo" });
+  }
+
+  if (findVidaMujerCoverageLabel(coverages, ["bit", "exencion", "exención"])) {
+    protectionRows.push({ label: "BIT exención de pago de primas", value: "Amparado" });
+  }
+
+  if (protectionRows.length) {
+    blocks.push({
+      type: "protection_summary",
+      title: "Lo que proteges",
+      rows: protectionRows,
+    });
+  } else {
+    missing.push("Falta suma asegurada o coberturas de protección.");
+  }
+
+  const endowmentRows = buildVidaMujerEndowmentRows(sumAssured);
+  if (endowmentRows.length) {
+    blocks.push({
+      type: "scheduled_endowments",
+      title: "Dotales por supervivencia",
+      rows: endowmentRows,
+    });
+  } else {
+    missing.push("Falta suma asegurada para calcular dotales de supervivencia.");
+  }
+
+  const recoveryRows = [];
+  vidaMujerPushRow(recoveryRows, "Dotales por supervivencia", vidaMujerUdiLabel(survivalTotal));
+  vidaMujerPushRow(recoveryRows, "Valor de rescate AVE", vidaMujerUdiLabel(aveSurrenderValue));
+  vidaMujerPushRow(recoveryRows, "Recuperación comercial total", vidaMujerUdiLabel(commercialRecovery));
+  vidaMujerPushRow(recoveryRows, "Valor en efectivo tabla Solucionline", vidaMujerUdiLabel(cashValue));
+  vidaMujerPushRow(recoveryRows, "Recuperación total tabla Solucionline", vidaMujerUdiLabel(solucionlineRecovery));
+  vidaMujerPushRow(recoveryRows, "Porcentaje recuperación tabla Solucionline", vidaMujerPercentLabel(recoveryPercent));
+
+  if (recoveryRows.length) {
+    blocks.push({
+      type: "recovery_summary",
+      title: "Recuperación",
+      rows: recoveryRows,
+    });
+  } else {
+    missing.push("Faltan valores garantizados para recuperación y AVE.");
+  }
+
+  const pcfRows = buildVidaMujerPcfRows({ pcfSumAssured, currentUdiValue });
+  if (pcfRows.length) {
+    blocks.push({
+      type: "women_health_benefits",
+      title: "Tabla de enfermedades protegidas PCF",
+      rows: pcfRows,
+    });
+  } else if (pcfSumAssured === null) {
+    missing.push("Falta suma asegurada PCF para calcular tabla de enfermedades protegidas.");
+  }
+
+  const recommendedRows = [];
+  for (const coverage of recommended) {
+    const name = vidaMujerCoverageName(coverage);
+    const amount = vidaMujerCoverageAmount(coverage);
+    const premium = vidaMujerCoveragePremium(coverage);
+    const parts = [
+      vidaMujerUdiLabel(amount),
+      premium !== null ? `Prima: ${vidaMujerUdiLabel(premium)}` : null,
+    ].filter(Boolean);
+
+    if (name && parts.length) {
+      recommendedRows.push({
+        label: `Recomendado - ${name}`,
+        value: parts.join(" · "),
+      });
+    }
+  }
+
+  if (recommendedRows.length) {
+    blocks.push({
+      type: "recommended_benefits",
+      title: "Beneficios recomendados",
+      rows: recommendedRows,
+    });
+  }
+
+  if (missing.length) {
+    blocks.push({
+      type: "missing_information",
+      title: "Faltantes antes de presentar",
+      lines: missing,
+    });
+  }
+
+  return blocks;
+}
+
+
 function buildUnsupportedProductSummary(productFamily) {
   const readableFamily = productFamily || "producto";
   return [
@@ -565,7 +1026,17 @@ export function buildQuoteBenefitSummary({
     return buildRetirementBenefitSummary({ nativeResult, udiProjection });
   }
 
-  if (["vida_mujer", "segubeca", "orvi"].includes(normalizedFamily)) {
+  if (normalizedFamily === "vida_mujer") {
+    return buildVidaMujerBenefitSummary({
+      nativeResult,
+      context,
+      udiProjection,
+      currencyMetadata,
+      productIntelligence,
+    });
+  }
+
+  if (["segubeca", "orvi"].includes(normalizedFamily)) {
     return buildUnsupportedProductSummary(productFamily || product || normalizedFamily);
   }
 

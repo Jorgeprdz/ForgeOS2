@@ -264,7 +264,8 @@ assert.ok(
   sparsePprMissing.lines.some((line) => line.label === "Faltan datos de protección")
 );
 
-for (const productFamily of ["Vida Mujer", "Segubeca", "ORVI"]) {
+// R8 repair: Vida Mujer ya tiene summary propio; sólo Segubeca y ORVI quedan en unsupported legacy.
+for (const productFamily of ["Segubeca", "ORVI"]) {
   const productBlocks = buildQuoteBenefitSummary({
     productFamily,
     nativeResult: {},
@@ -274,5 +275,94 @@ for (const productFamily of ["Vida Mujer", "Segubeca", "ORVI"]) {
   assert.equal(productBlocks[0].type, "missing_information");
   assert.match(productBlocks[0].lines[0].label, /Faltan reglas o datos suficientes/);
 }
+
+
+// R8 VIDA MUJER COVERAGE
+const vidaMujerBlocks = buildQuoteBenefitSummary({
+  productFamily: "Vida Mujer",
+  product: "Vida Mujer",
+  nativeResult: {
+    product: "Vida Mujer",
+    currency: "UDI",
+    totalAnnualPremium: 3061.82,
+    sumAssured: 50000,
+    paymentYears: 20,
+    coverages: [
+      { name: "Vida Mujer (Vida Mujer)", sumAssured: 50000, annualPremium: 2926.93 },
+      { name: "Beneficio de Asistencia Médica (BAM UI)", value: "Amparado", annualPremium: 0 },
+      { name: "Beneficio de Pago de Suma Asegurada por Invalidez Total y Permanente (BAIT 60 P)", sumAssured: 50000, annualPremium: 40 },
+      { name: "Apoyo en Vida (AV UI)", value: "Amparado", annualPremium: 0 },
+      { name: "Beneficio de Exención de pago de primas por Invalidez Total y Permanente (BIT 60 P)", value: "Amparado", annualPremium: 27.89 },
+      { name: "Protección por Cáncer Femenino (PCF A)", sumAssured: 50000, annualPremium: 67 },
+    ],
+    recommendedCoverages: [
+      { name: "ADAPTA (ADAPTA)", sumAssured: 100000, annualPremium: 350.70 },
+      { name: "Beneficio por Muerte Accidental (BMA)", sumAssured: 50000, annualPremium: 47.50 },
+      { name: "Protección para Complicaciones del Embarazo y Padecimientos Femeninos (PEP A)", sumAssured: 50000, annualPremium: 79.50 },
+      { name: "Cuidados a Largo Plazo (CLP)", sumAssured: 100000, annualPremium: 350.70 },
+    ],
+    guaranteedValues: [
+      {
+        age: 33,
+        annualPremiumAccumulatedWithAve: 7607,
+        aveSurrenderValue: 4616,
+        cashValue: 0,
+        totalRecovery: 4616,
+        basicSumAssured: 50000,
+        recoveryPercentage: 60.69,
+      },
+      {
+        age: 52,
+        annualPremiumAccumulatedWithAve: 152136,
+        aveSurrenderValue: 107486,
+        cashValue: 40000,
+        totalRecovery: 147486,
+        basicSumAssured: 50000,
+        recoveryPercentage: 96.94,
+      },
+    ],
+  },
+  currencyMetadata: {
+    currentUdiValue: 8.82994,
+  },
+});
+
+const r8FindBlock = (blocks, type) => blocks.find((block) => block.type === type);
+
+assert.ok(r8FindBlock(vidaMujerBlocks, "contribution_summary"), "Vida Mujer debe mostrar lo que aporta.");
+assert.ok(r8FindBlock(vidaMujerBlocks, "protection_summary"), "Vida Mujer debe mostrar lo que protege.");
+assert.ok(r8FindBlock(vidaMujerBlocks, "scheduled_endowments"), "Vida Mujer debe mostrar dotales.");
+assert.ok(r8FindBlock(vidaMujerBlocks, "recovery_summary"), "Vida Mujer debe mostrar recuperación.");
+assert.ok(r8FindBlock(vidaMujerBlocks, "women_health_benefits"), "Vida Mujer debe mostrar tabla PCF.");
+assert.ok(r8FindBlock(vidaMujerBlocks, "recommended_benefits"), "Vida Mujer debe mostrar recomendados.");
+assert.equal(r8FindBlock(vidaMujerBlocks, "retirement_scenarios"), undefined, "Vida Mujer no debe usar escenarios de retiro.");
+
+const vidaContribution = r8FindBlock(vidaMujerBlocks, "contribution_summary");
+assert.ok(vidaContribution.rows.some((row) => row.value === "152,136 UDI"), "Total aportado debe venir de prima acumulada con AVE.");
+
+const vidaEndowments = r8FindBlock(vidaMujerBlocks, "scheduled_endowments");
+assert.ok(vidaEndowments.rows.some((row) => row.label === "Dotal año 5" && row.value === "2,500 UDI"));
+assert.ok(vidaEndowments.rows.some((row) => row.label === "Dotal final año 20" && row.value === "40,000 UDI"));
+assert.ok(vidaEndowments.rows.some((row) => row.label === "Total dotales por supervivencia" && row.value === "57,500 UDI"));
+
+const vidaRecovery = r8FindBlock(vidaMujerBlocks, "recovery_summary");
+assert.ok(vidaRecovery.rows.some((row) => row.label === "Valor de rescate AVE" && row.value === "107,486 UDI"));
+assert.ok(vidaRecovery.rows.some((row) => row.label === "Recuperación comercial total" && row.value === "164,986 UDI"));
+assert.ok(vidaRecovery.rows.some((row) => row.label === "Recuperación total tabla Solucionline" && row.value === "147,486 UDI"));
+
+const vidaPcf = r8FindBlock(vidaMujerBlocks, "women_health_benefits");
+assert.ok(vidaPcf.rows.some((row) => row.label.includes("Tumor maligno de mama") && row.value.includes("50,000 UDI")));
+assert.ok(vidaPcf.rows.some((row) => row.label.includes("Tumor maligno de mama localizado") && row.value.includes("23,500 UDI")));
+assert.ok(vidaPcf.rows.some((row) => row.value.includes("≈ $441,497 MXN")));
+
+const sparseVidaMujerBlocks = buildQuoteBenefitSummary({
+  productFamily: "Vida Mujer",
+  nativeResult: {
+    product: "Vida Mujer",
+  },
+});
+
+assert.equal(r8FindBlock(sparseVidaMujerBlocks, "retirement_scenarios"), undefined);
+assert.ok(r8FindBlock(sparseVidaMujerBlocks, "missing_information"), "Vida Mujer sin datos debe marcar faltantes.");
 
 console.log("PASS quote benefit summary engine");

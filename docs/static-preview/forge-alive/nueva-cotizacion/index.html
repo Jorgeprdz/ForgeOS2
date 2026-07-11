@@ -806,6 +806,8 @@
 /* FORGE:107Z15P2_R5_BENEFIT_TABLES:START */
 .fq-benefit-summary-107z15p2 {
   display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
+  align-items: start;
   gap: 14px;
   width: 100%;
   max-width: 100%;
@@ -870,6 +872,10 @@
 }
 
 @media (max-width: 760px) {
+  .fq-benefit-summary-107z15p2 {
+    grid-template-columns: 1fr;
+  }
+
   .fq-benefit-block-107z15p2 {
     padding: 10px;
   }
@@ -2140,6 +2146,10 @@
     const groups = {
       contribution: [],
       protection: [],
+      endowments: [],
+      recovery: [],
+      womenHealth: [],
+      recommended: [],
       scenarios: [],
       missing: [],
       other: []
@@ -2161,6 +2171,45 @@
 
       if (normalizedLabel.includes("escenario")) {
         groups.scenarios.push(row);
+        continue;
+      }
+
+      if (
+        normalizedLabel.includes("pcf") ||
+        normalizedLabel.includes("cancer") ||
+        normalizedLabel.includes("tumor") ||
+        normalizedLabel.includes("enfermedad protegida")
+      ) {
+        groups.womenHealth.push(row);
+        continue;
+      }
+
+      if (
+        normalizedLabel.includes("dotal") ||
+        normalizedLabel.includes("supervivencia")
+      ) {
+        groups.endowments.push(row);
+        continue;
+      }
+
+      if (
+        normalizedLabel.includes("recuperacion") ||
+        normalizedLabel.includes("rescate ave") ||
+        normalizedLabel.includes("valor en efectivo") ||
+        normalizedLabel.includes("porcentaje recuperacion")
+      ) {
+        groups.recovery.push(row);
+        continue;
+      }
+
+      if (
+        normalizedLabel.includes("recomendado") ||
+        normalizedLabel.includes("adapta") ||
+        normalizedLabel.includes("bma") ||
+        normalizedLabel.includes("pep") ||
+        normalizedLabel.includes("clp")
+      ) {
+        groups.recommended.push(row);
         continue;
       }
 
@@ -2196,6 +2245,22 @@
 
     if (groups.protection.length) {
       appendTableBlock(wrapper, "Lo que proteges", groups.protection);
+    }
+
+    if (groups.endowments.length) {
+      appendTableBlock(wrapper, "Dotales por supervivencia", groups.endowments);
+    }
+
+    if (groups.recovery.length) {
+      appendTableBlock(wrapper, "Recuperación", groups.recovery);
+    }
+
+    if (groups.womenHealth.length) {
+      appendTableBlock(wrapper, "Tabla de enfermedades protegidas PCF", groups.womenHealth);
+    }
+
+    if (groups.recommended.length) {
+      appendTableBlock(wrapper, "Beneficios recomendados", groups.recommended);
     }
 
     for (const scenario of groups.scenarios) {
