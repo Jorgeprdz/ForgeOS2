@@ -1852,7 +1852,7 @@
     ]);
     const dynamicBenefitRows = buildDynamicBenefitSummaryRows(calc);
     // DYNAMIC_BENEFIT_SUMMARY_ROWS_107z15p2
-    writeRuntimeGrid("Valores / beneficios / escenarios", dynamicBenefitRows.length ? dynamicBenefitRows : [
+    writeRuntimeGrid("Valores, beneficios o escenarios relevantes", dynamicBenefitRows.length ? dynamicBenefitRows : [
       { label: "Total aportado", value: formatUdiWithMxn(calc.totalContributed, calc.currency, calc.totalContributedMXN, calc.udiRateMetadata).join(" · ") },
       { label: "Recuperación base", value: formatUdiWithMxn(calc.totalRecovery, calc.currency, calc.totalRecoveryMXN, calc.udiRateMetadata).join(" · ") },
       { label: "Valor UDI", value: isUdiCurrency(calc.currency) ? formatUdiMetadataLine(calc.udiRateMetadata) : null },
