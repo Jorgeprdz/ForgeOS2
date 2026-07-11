@@ -742,7 +742,7 @@
               data-forge-prompt-generation-allowed="false"
             >Generar presentación de ventas</button>
             <p class="fq-note-105dr fq-note-gap-105dr">Futuro flujo: contexto del cliente + datos extraídos de la cotización + notas del asesor → prompt estructurado → presentación de ventas generada por IA.</p>
-            <p class="fq-note-105dr fq-note-gap-small-105dr">En esta vista no se genera presentación, no se lee PDF y no se ejecutan cálculos, proveedores ni escrituras.</p>
+            <p class="fq-note-105dr fq-note-gap-small-105dr">En esta vista no se genera presentación ni escrituras. Los cálculos confirmados usan sólo datos extraídos y motores existentes; MXN queda pendiente si falta UDI verificada.</p>
           </section>
         </aside>
       </div>
@@ -775,6 +775,17 @@
 
   .fq-runtime-empty-107z15e8s {
     margin: 0;
+  }
+
+  .fq-summary-lines-107z15f0 {
+    display: grid;
+    gap: 3px;
+  }
+
+  .fq-summary-subline-107z15f0 {
+    display: block;
+    font-weight: 600;
+    opacity: 0.78;
   }
 
   [data-forge-state="accepted"] {
@@ -1392,6 +1403,33 @@
     ].filter(Boolean).join(" · ") || null;
   }
 
+  function isUdiCurrency(currency) {
+    return ["UDI", "UDIS", "MXV"].includes(String(currency || "").trim().toUpperCase());
+  }
+
+  function formatMxn(value) {
+    const number = Number(value);
+    if (!Number.isFinite(number)) return null;
+    return `≈ ${number.toLocaleString("es-MX", { style: "currency", currency: "MXN", maximumFractionDigits: 0 })} MXN`;
+  }
+
+  function formatUdiWithMxn(value, currency, mxnValue, udiMetadata) {
+    const lines = [formatAmount(value, currency)];
+    if (!isUdiCurrency(currency)) return lines;
+    if (hasValue(mxnValue) && udiMetadata?.currentUdiValue) {
+      lines.push(formatMxn(mxnValue));
+    } else {
+      lines.push("MXN pendiente: falta valor UDI verificado.");
+    }
+    return lines;
+  }
+
+  function formatUdiMetadataLine(udiMetadata) {
+    if (!udiMetadata?.currentUdiValue) return "MXN pendiente: falta valor UDI verificado.";
+    const sourceLabel = udiMetadata.source === "BANXICO_SIE_API" ? "Banxico / motor verificado" : udiMetadata.source;
+    return `Valor UDI: $${udiMetadata.currentUdiValue} MXN · Fuente: ${sourceLabel || "motor verificado"} · Fecha: ${udiMetadata.sourceDate || "sin fecha"}`;
+  }
+
   function findSummaryTarget(labels) {
     const wanted = labels.map(normalize);
     for (const node of document.querySelectorAll("dt,th,label,strong,span,p,div")) {
@@ -1413,7 +1451,24 @@
   function setSummaryValue(labels, value) {
     const target = findSummaryTarget(labels);
     if (!target) return false;
-    target.textContent = hasValue(value) ? String(value) : "No identificado en el PDF.";
+    if (Array.isArray(value)) {
+      const lines = value.filter(hasValue);
+      if (!lines.length) {
+        target.textContent = "No identificado en el PDF.";
+      } else {
+        const wrapper = document.createElement("span");
+        wrapper.className = "fq-summary-lines-107z15f0";
+        lines.forEach((line, index) => {
+          const lineNode = document.createElement("span");
+          lineNode.textContent = String(line);
+          if (index > 0) lineNode.className = "fq-summary-subline-107z15f0";
+          wrapper.appendChild(lineNode);
+        });
+        target.replaceChildren(wrapper);
+      }
+    } else {
+      target.textContent = hasValue(value) ? String(value) : "No identificado en el PDF.";
+    }
     target.setAttribute("data-forge-runtime-value", "true");
     return true;
   }
@@ -1424,6 +1479,60 @@
       const timer = window.setTimeout(() => reject(new Error("El módulo de calculadora no terminó de cargar.")), 5000);
       window.addEventListener("forge:quote-calculators-ready", event => { window.clearTimeout(timer); resolve(event.detail); }, { once: true });
     });
+  }
+
+  async function browserUdiRateProvider() {
+    if (typeof window.ForgeQuoteUdiRateProvider === "function") {
+      return window.ForgeQuoteUdiRateProvider();
+    }
+    if (window.ForgeQuoteUdiRateCache) return window.ForgeQuoteUdiRateCache;
+    if (typeof fetch === "function") {
+      const cacheCandidates = [
+        "../../../quote-preview-live/forge-rate-cache.json",
+        "../../../forge-rate-cache.json",
+        "/ForgeOS/forge-rate-cache.json"
+      ];
+      for (const cacheUrl of cacheCandidates) {
+        try {
+          const response = await fetch(cacheUrl, { cache: "no-store" });
+          if (response.ok) return response.json();
+        } catch (error) {
+          // Browser-safe fallback: missing public cache must not block the UI.
+        }
+      }
+    }
+    return null;
+  }
+
+  function parsedRetirementQuote(nativeResult, totalContributed, paymentYears, base) {
+    const annualPremium = nativeResult.premiumTable?.annual ?? nativeResult.totalAnnualPremium ?? nativeResult.premium;
+    const plannedAnnual = nativeResult.premiumTable?.plannedAnnual ?? nativeResult.plannedAnnualPremium ?? null;
+    const basicAnnual = nativeResult.baseAnnualPremium ?? null;
+    return {
+      productName: nativeResult.product ?? nativeResult.plan ?? null,
+      currency: nativeResult.currency ?? "UDI",
+      currentAge: parseYears(nativeResult.currentAge ?? nativeResult.age),
+      retirementAge: parseYears(nativeResult.retirementAge),
+      coverageYears: parseYears(nativeResult.policyTerm),
+      premiumStructure: {
+        basicAnnualPremium: Number.isFinite(Number(basicAnnual)) ? Number(basicAnnual) : null,
+        plannedAnnualContribution: Number.isFinite(Number(plannedAnnual)) ? Number(plannedAnnual) : null,
+        totalAnnualPremium: Number(annualPremium),
+        premiumPayingYears: paymentYears,
+        paidUntilAge: parseYears(nativeResult.paidUntilAge)
+      },
+      scenarios: {
+        base: {
+          lumpSum: base?.singlePaymentUdi,
+          monthlyIncome: base?.monthlyIncomeUdi
+        }
+      },
+      evidence: {
+        premiumStructure: "SOURCE_PACKET",
+        scenarios: "SOURCE_PACKET",
+        totalContributed: hasValue(totalContributed) ? "CALCULATED_BY_RETIREMENT_PRESENTATION_SCENARIO_ENGINE" : "MISSING"
+      }
+    };
   }
 
   async function calculateAcceptedQuote(currentPacket) {
@@ -1438,9 +1547,22 @@
     const base = scenarioObject(nativeResult, "retirementScenarioBase", "retirementBase");
     const favorable = scenarioObject(nativeResult, "retirementScenarioFavorable", "retirementFavorable");
     const unfavorable = scenarioObject(nativeResult, "retirementScenarioUnfavorable", "retirementUnfavorable");
+    const udiRateMetadata = isUdiCurrency(currency) && calculators.getVerifiedUdiRateMetadata
+      ? await calculators.getVerifiedUdiRateMetadata({ rateProvider: browserUdiRateProvider })
+      : null;
+    const retirementScenario = isUdiCurrency(currency) && calculators.buildRetirementPresentationScenario
+      ? calculators.buildRetirementPresentationScenario({
+          parsedQuote: parsedRetirementQuote(nativeResult, totalContributed, paymentYears, base),
+          udiRateMetadata: udiRateMetadata || {}
+        })
+      : null;
     return {
       totalContributed,
       totalRecovery: base && hasValue(base.singlePaymentUdi) ? Number(base.singlePaymentUdi) : null,
+      totalContributedMXN: retirementScenario?.summary?.totalContributedMXN ?? null,
+      totalRecoveryMXN: retirementScenario?.summary?.lumpSumMXN ?? null,
+      udiRateMetadata,
+      retirementScenarioStatus: retirementScenario?.status ?? null,
       paymentYears,
       currency,
       base,
@@ -1449,6 +1571,7 @@
       paymentMode: nativeResult.paymentMode ?? nativeResult.liquidationOption ?? null,
       interestRate: nativeResult.retirementInterestRate ?? null,
       guaranteePeriod: nativeResult.guaranteePeriod ?? null,
+      coveragePeriod: nativeResult.policyTerm ?? null,
       advisor: nativeResult.advisor ?? null,
       quoteDate: nativeResult.quoteDate ?? null,
       optionalCoverages: Array.isArray(nativeResult.optionalCoverages) ? nativeResult.optionalCoverages : [],
@@ -1456,13 +1579,18 @@
   }
 
   function renderAcceptedQuote(calc) {
-    setSummaryValue(["Total aportado"], formatAmount(calc.totalContributed, calc.currency));
-    setSummaryValue(["Total recuperación", "Recuperación total"], formatAmount(calc.totalRecovery, calc.currency));
+    setSummaryValue(["Total aportado"], formatUdiWithMxn(calc.totalContributed, calc.currency, calc.totalContributedMXN, calc.udiRateMetadata));
+    setSummaryValue(["Total recuperación", "Recuperación total"], formatUdiWithMxn(calc.totalRecovery, calc.currency, calc.totalRecoveryMXN, calc.udiRateMetadata));
     setSummaryValue(["Forma de pago"], calc.paymentMode);
     setSummaryValue(["Moneda"], calc.currency);
+    setSummaryValue(["Forma de pago, moneda y vigencia"], [
+      [calc.paymentMode, calc.currency, calc.coveragePeriod].filter(Boolean).join(" · "),
+      formatUdiMetadataLine(calc.udiRateMetadata)
+    ]);
     writeRuntimeGrid("Valores / beneficios / escenarios", [
-      { label: "Total aportado", value: formatAmount(calc.totalContributed, calc.currency) },
-      { label: "Recuperación base", value: formatAmount(calc.totalRecovery, calc.currency) },
+      { label: "Total aportado", value: formatUdiWithMxn(calc.totalContributed, calc.currency, calc.totalContributedMXN, calc.udiRateMetadata).join(" · ") },
+      { label: "Recuperación base", value: formatUdiWithMxn(calc.totalRecovery, calc.currency, calc.totalRecoveryMXN, calc.udiRateMetadata).join(" · ") },
+      { label: "Valor UDI", value: isUdiCurrency(calc.currency) ? formatUdiMetadataLine(calc.udiRateMetadata) : null },
       { label: "Escenario base", value: scenarioText(calc.base, calc.currency) },
       { label: "Escenario favorable", value: scenarioText(calc.favorable, calc.currency) },
       { label: "Escenario desfavorable", value: scenarioText(calc.unfavorable, calc.currency) },
