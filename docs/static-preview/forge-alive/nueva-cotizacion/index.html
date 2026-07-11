@@ -803,8 +803,8 @@
     }
   }
 </style>
-<script src="../../../quote-preview-live/forge-quote-preview-bundle.js"></script>
-<script type="module" src="../../../quote-preview-live/forge-quote-calculators.mjs"></script>
+<script src="../../quote-preview-live/forge-quote-preview-bundle.js"></script>
+<script type="module" src="../../quote-preview-live/forge-quote-calculators.mjs"></script>
 <script>
 "use strict";
 
@@ -1488,6 +1488,7 @@
     if (window.ForgeQuoteUdiRateCache) return window.ForgeQuoteUdiRateCache;
     if (typeof fetch === "function") {
       const cacheCandidates = [
+        "../../quote-preview-live/forge-rate-cache.json",
         "../../../quote-preview-live/forge-rate-cache.json",
         "../../../forge-rate-cache.json",
         "/ForgeOS/forge-rate-cache.json"
