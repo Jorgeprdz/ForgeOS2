@@ -14413,3 +14413,46 @@ Start ORVI from Product Intelligence and reconcile the existing ORVI surfaces be
 
 NEXT: `R15A_ORVI_PRODUCT_INTELLIGENCE_CANONICAL_MODEL_IMPLEMENTATION`
 <!-- FORGE:R15_ORVI_PRODUCT_INTELLIGENCE_DISCOVERY_AND_READINESS:END -->
+
+<!-- FORGE:R15A_ORVI_PRODUCT_INTELLIGENCE_CANONICAL_MODEL_IMPLEMENTATION:START -->
+## R15A ORVI Product Intelligence Canonical Model Implementation
+
+Status: `IMPLEMENTED_PENDING_SOURCE_ADAPTER`
+
+### Scope completed
+
+- Canonical ORVI Product Intelligence owner implemented at `product-intelligence/knowledge/orvi-product-intelligence.js`.
+- Synthetic constitutional regression implemented at `tests/orvi-product-intelligence-canonical-model-test.mjs`.
+- Missing product truth remains `null` plus `missing_information`.
+- Legacy extractor, timeline, decision, event, wait/cancel, and MXN engines are reconciled as candidate surfaces only.
+- Client names are deliberately excluded from Product Intelligence.
+- Explicit zero requires explicit source marking.
+- Guaranteed UDI values remain separate from current or projected MXN scenarios.
+- Decision scenarios remain `not_evaluated`.
+- Recommendation remains `null`.
+- Human decision remains required.
+- Parser, runtime, renderer, and dashboard references remain `null`.
+
+### Existing engine boundaries
+
+- `orvi-ocr-extractor.js`: evidence only; not parser owner.
+- `orvi-guaranteed-value-timeline-engine.js`: candidate calculation surface; not canonical owner.
+- `orvi-mxn-conversion-engine.js`: scenario engine; not guarantee owner.
+- `orvi-wait-vs-cancel-engine.js`: comparison candidate; not recommendation authority.
+- `orvi-decision-engine.js`: legacy explanation candidate; not decision authority.
+- `orvi-event-engine.js`: presentation candidate; not product-truth owner.
+
+### Constitutional guarantees
+
+- No default plan variant.
+- No default 20-year payment term.
+- No default maturity age 99.
+- No missing-as-zero conversion.
+- No automatic recommendation.
+- No UDI/MXN execution.
+- No parser or real source-file execution.
+- No dashboard or UI implementation.
+- No client data committed.
+
+NEXT: `R15B_ORVI_REAL_SOURCE_OWNERSHIP_AND_PARSER_READINESS`
+<!-- FORGE:R15A_ORVI_PRODUCT_INTELLIGENCE_CANONICAL_MODEL_IMPLEMENTATION:END -->

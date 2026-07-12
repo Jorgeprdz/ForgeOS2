@@ -11542,3 +11542,20 @@ R13_PDF_MULTI_PRODUCT_DISCOVERY
 ```
 
 <!-- FORGE:107Z15P2_R12_UNIFIED_BUILD_TREE_PARK_MOBILE_UI:END -->
+
+<!-- FORGE:R15A_ORVI_PRODUCT_INTELLIGENCE_CANONICAL_MODEL_IMPLEMENTATION:START -->
+## Product Intelligence / ORVI R15A
+
+Status: `CANONICAL_MODEL_IMPLEMENTED / SOURCE_ADAPTER_PENDING`
+
+- Canonical semantic owner: `product-intelligence/knowledge/orvi-product-intelligence.js`.
+- Product identity, premiums, protection, timeline, source trace, missing information, decision boundary, and MXN boundary are modeled.
+- Existing root ORVI engines remain candidate evidence/calculation/presentation surfaces.
+- Unknown remains unknown.
+- Explicit zero requires explicit source evidence.
+- Future MXN values are not guarantees.
+- Human decision is required.
+- Parser, runtime, dashboard, and UI remain unauthorized.
+
+NEXT: `R15B_ORVI_REAL_SOURCE_OWNERSHIP_AND_PARSER_READINESS`
+<!-- FORGE:R15A_ORVI_PRODUCT_INTELLIGENCE_CANONICAL_MODEL_IMPLEMENTATION:END -->
