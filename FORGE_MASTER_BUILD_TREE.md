@@ -13704,3 +13704,77 @@ RECOMMENDED_ROUTE=reuse_existing_extractor_and_cache_contract
 
 NEXT=107Y_QUOTE_PREVIEW_EXISTING_PDF_CACHE_CONTRACT_LOCK
 <!-- FORGE:107X_QUOTE_PREVIEW_EXISTING_PDF_EXTRACTOR_CACHE_DISCOVERY:END -->
+
+<!-- FORGE:R13_PRODUCT_DASHBOARD_TEMPLATE_DISCOVERY_AND_BOARD_GATE:START -->
+## R13 Product Dashboard Template Discovery And Board Gate
+
+R13 registers the planned reusable desktop product-dashboard template for Quote Preview / Product Intelligence UI.
+
+Status:
+
+`DISCOVERY_LOCKED_IMPLEMENTATION_READY_WITH_CONDITIONS`
+
+Board approval:
+
+`APPROVED_FOR_DISCOVERY_READINESS_AND_REGISTRATION_ONLY`
+
+Miranda approval:
+
+`APPROVED`
+
+Discovery findings:
+
+- the current Vida Mujer dashboard is rendered by `docs/static-preview/quote-preview-live/forge-benefit-summary-renderer.js`;
+- its visual tokens and desktop layout are installed by `docs/static-preview/quote-preview-live/forge-benefit-summary-layout.js`;
+- both modules are loaded by `docs/static-preview/forge-alive/nueva-cotizacion/index.html`;
+- Vida Mujer is the approved visual reference, not the universal product logic;
+- the reusable pattern may include primary cards, chips, metric rows, color hierarchy, compact sections, recommended-benefit cards, secondary details, and explicit missing-information presentation;
+- Imagina Ser is the first planned consumer of the reusable template and remains a product-specific adapter/configuration case;
+- Product Intelligence remains the owner of product semantics and evidence; the dashboard remains a consumer and must not recalculate or invent product truth.
+
+Implementation boundaries:
+
+- desktop renderer/layout only;
+- no mobile work; mobile remains parked;
+- no financial parser changes;
+- no schemas, routes, `app.js`, rule packs, secrets, sensitive data, client hardcoding, or product-value hardcoding;
+- no business logic outside a future product adapter;
+- no DOM overlay hacks;
+- missing product information must remain explicit and must not be invented;
+- Vida Mujer behavior and visual output must remain compatible.
+
+Candidate implementation surfaces for later review:
+
+- `docs/static-preview/quote-preview-live/forge-benefit-summary-renderer.js`;
+- `docs/static-preview/quote-preview-live/forge-benefit-summary-layout.js`;
+- a new reusable product-dashboard template module named consistently with the existing quote-preview modules;
+- product-specific adapter/config modules only when separately authorized.
+
+Readiness decision:
+
+- discovery and registration are complete;
+- architecture is ready with the conditions above;
+- implementation is not authorized by this gate;
+- a new Constitutional Gate and Board approval are required before source changes;
+- implementation is deferred to `R13A_PRODUCT_DASHBOARD_TEMPLATE_IMPLEMENTATION`.
+
+Required R13A validation:
+
+- `node --check` for every changed JavaScript file;
+- existing quote benefit-summary tests;
+- existing PDF parser tests;
+- Vida Mujer visual and logical non-regression;
+- desktop visual QA;
+- `git diff --check`;
+- privacy check on added lines.
+
+Evidence:
+
+- `docs/evidence/r13-product-dashboard-template-discovery-and-readiness.md`
+
+DECISION=PASS_R13_PRODUCT_DASHBOARD_TEMPLATE_DISCOVERY_AND_BOARD_GATE
+
+LOCKED_DECISION=R13_PRODUCT_DASHBOARD_TEMPLATE_REGISTERED_IMPLEMENTATION_REQUIRES_SEPARATE_AUTHORIZATION
+
+NEXT=R13A_PRODUCT_DASHBOARD_TEMPLATE_IMPLEMENTATION
+<!-- FORGE:R13_PRODUCT_DASHBOARD_TEMPLATE_DISCOVERY_AND_BOARD_GATE:END -->
