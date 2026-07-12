@@ -1272,3 +1272,352 @@ export {
   };
 })();
 // FORGE:107Z15P2_R11I_DESKTOP_BOARD_LAYOUT:END
+
+// FORGE:107Z15P2_R11J_UNIVERSAL_COLOR_AND_WIDE_BOARD:START
+(function installUniversalColorAndWideBoard107z15p2R11J() {
+  const root = typeof globalThis !== "undefined" ? globalThis : window;
+  if (!root || root.__FORGE_107Z15P2_R11J_COLOR_WIDE__) return;
+  root.__FORGE_107Z15P2_R11J_COLOR_WIDE__ = true;
+
+  function normalize107z15p2R11J(value) {
+    return String(value || "")
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .toLowerCase();
+  }
+
+  function injectStyle107z15p2R11J() {
+    if (typeof document === "undefined") return;
+    if (document.getElementById("forge-107z15p2-r11j-color-wide")) return;
+
+    const style = document.createElement("style");
+    style.id = "forge-107z15p2-r11j-color-wide";
+    style.textContent = `
+      :root {
+        --forge-r11j-title: #f5d84a;
+        --forge-r11j-label: rgba(226, 232, 240, 0.76);
+        --forge-r11j-label-soft: rgba(148, 163, 184, 0.88);
+        --forge-r11j-udi: #ffe66d;
+        --forge-r11j-mxn: #7dd3fc;
+        --forge-r11j-good: #86efac;
+        --forge-r11j-muted: rgba(148, 163, 184, 0.74);
+        --forge-r11j-card: rgba(255, 255, 255, 0.045);
+        --forge-r11j-card-2: rgba(125, 211, 252, 0.055);
+        --forge-r11j-line: rgba(132, 222, 245, 0.16);
+      }
+
+      body[data-forge-benefit-layout-expanded="true"] .fq-quote-summary-105dr,
+      body[data-forge-benefit-layout-expanded="true"] .fq-quote-summary-105dr > *,
+      body[data-forge-benefit-layout-expanded="true"] .forge-r11j-wide-ancestor {
+        max-width: none !important;
+        min-width: 0 !important;
+        overflow: visible !important;
+      }
+
+      body[data-forge-benefit-layout-expanded="true"] .fq-quote-summary-105dr {
+        width: min(1520px, calc(100vw - 52px)) !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
+      .forge-r11j-wide-ancestor {
+        width: 100% !important;
+        grid-column: 1 / -1 !important;
+      }
+
+      .forge-r11i-board {
+        width: 100% !important;
+        max-width: none !important;
+        grid-template-columns: repeat(16, minmax(0, 1fr)) !important;
+        gap: 18px !important;
+        align-items: start !important;
+        overflow: visible !important;
+      }
+
+      .forge-r11i-card {
+        background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.028)) !important;
+        border-color: rgba(132, 222, 245, 0.18) !important;
+        overflow: hidden !important;
+      }
+
+      .forge-r11i-card-contribution { grid-column: span 10 !important; }
+      .forge-r11i-card-protection { grid-column: span 6 !important; }
+      .forge-r11i-card-dotales { grid-column: 1 / -1 !important; }
+      .forge-r11i-card-recovery { grid-column: span 5 !important; }
+      .forge-r11i-card-pcf { grid-column: span 6 !important; }
+      .forge-r11i-card-recommended { grid-column: span 5 !important; }
+      .forge-r11i-card-details { grid-column: 1 / -1 !important; opacity: 0.88; }
+
+      .forge-r11j-card h1,
+      .forge-r11j-card h2,
+      .forge-r11j-card h3,
+      .forge-r11j-card h4,
+      .forge-r11j-card h5,
+      .forge-r11j-title {
+        color: var(--forge-r11j-title) !important;
+      }
+
+      .forge-r11j-card .forge-r11j-label,
+      .forge-r11j-card th,
+      .forge-r11j-card td:first-child,
+      .forge-r11j-card .fq-benefit-row-107z15p2 > *:first-child,
+      .forge-r11j-card .fq-benefit-detail-row-107z15p2 > *:first-child,
+      .forge-r11j-card li > *:first-child {
+        color: var(--forge-r11j-label) !important;
+      }
+
+      .forge-r11j-card .forge-r11j-value,
+      .forge-r11j-card td:not(:first-child),
+      .forge-r11j-card .fq-benefit-row-107z15p2 > *:last-child,
+      .forge-r11j-card .fq-benefit-detail-row-107z15p2 > *:last-child {
+        color: var(--forge-r11j-udi) !important;
+        font-weight: 900 !important;
+      }
+
+      .forge-r11j-card .forge-r11j-mxn,
+      .forge-r11j-mxn {
+        color: var(--forge-r11j-mxn) !important;
+        font-weight: 900 !important;
+      }
+
+      .forge-r11j-card .forge-r11j-muted {
+        color: var(--forge-r11j-muted) !important;
+      }
+
+      .forge-r11j-card .forge-r11j-good {
+        color: var(--forge-r11j-good) !important;
+      }
+
+      .forge-r11i-contribution-grid {
+        grid-template-columns: repeat(5, minmax(132px, 1fr)) !important;
+        gap: 12px !important;
+      }
+
+      .forge-r11i-contribution-tile,
+      .forge-r11h-dotales-chip,
+      .forge-r11h-dotales-summary-item {
+        background: var(--forge-r11j-card-2) !important;
+        border-color: var(--forge-r11j-line) !important;
+      }
+
+      .forge-r11i-contribution-label,
+      .forge-r11h-dotales-year,
+      .forge-r11h-dotales-summary-label {
+        color: var(--forge-r11j-label) !important;
+      }
+
+      .forge-r11i-contribution-value,
+      .forge-r11h-dotales-udi,
+      .forge-r11h-dotales-summary-value {
+        color: var(--forge-r11j-udi) !important;
+      }
+
+      .forge-r11h-dotales-mxn,
+      .forge-r11h-dotales-summary-mxn {
+        color: var(--forge-r11j-mxn) !important;
+      }
+
+      .forge-r11i-card-pcf .fq-benefit-row-107z15p2,
+      .forge-r11i-card-pcf .fq-benefit-detail-row-107z15p2,
+      .forge-r11i-card-recommended .fq-benefit-row-107z15p2,
+      .forge-r11i-card-recommended .fq-benefit-detail-row-107z15p2 {
+        display: grid !important;
+        grid-template-columns: minmax(150px, 0.9fr) minmax(160px, 1.1fr) !important;
+        gap: 12px !important;
+      }
+
+      .forge-r11i-card-recommended {
+        max-height: 720px !important;
+        overflow: auto !important;
+        scrollbar-width: thin;
+      }
+
+      @media (max-width: 1280px) {
+        .forge-r11i-board {
+          grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+        }
+
+        .forge-r11i-card-contribution,
+        .forge-r11i-card-protection,
+        .forge-r11i-card-recovery,
+        .forge-r11i-card-pcf,
+        .forge-r11i-card-recommended {
+          grid-column: span 6 !important;
+        }
+
+        .forge-r11i-card-dotales,
+        .forge-r11i-card-details {
+          grid-column: 1 / -1 !important;
+        }
+
+        .forge-r11i-contribution-grid {
+          grid-template-columns: repeat(3, minmax(132px, 1fr)) !important;
+        }
+      }
+
+      @media (max-width: 820px) {
+        .forge-r11i-board {
+          grid-template-columns: 1fr !important;
+        }
+
+        .forge-r11i-card {
+          grid-column: 1 / -1 !important;
+        }
+
+        .forge-r11i-contribution-grid {
+          grid-template-columns: 1fr !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function cardNodes107z15p2R11J() {
+    return Array.from(document.querySelectorAll(
+      ".forge-r11i-card, .fq-benefit-block-107z15p2, .forge-r11h-dotales-card"
+    ));
+  }
+
+  function markWideAncestors107z15p2R11J() {
+    const board = document.querySelector(".forge-r11i-board");
+    if (!board) return;
+
+    let current = board.parentElement;
+    while (current && current !== document.body) {
+      current.classList.add("forge-r11j-wide-ancestor");
+      if (current.classList?.contains("fq-quote-summary-105dr")) break;
+      current = current.parentElement;
+    }
+  }
+
+  function wrapCurrencyTextNode107z15p2R11J(textNode) {
+    if (!textNode || !textNode.nodeValue) return;
+    const value = textNode.nodeValue;
+    if (!/(MXN|UDI|Amparado|recomendado|fuente Forge)/i.test(value)) return;
+    if (textNode.parentElement?.closest?.(".forge-r11j-tokenized")) return;
+
+    const regex = /(≈\s*\$[0-9,]+(?:\.\d+)?\s*MXN|\$[0-9,]+(?:\.\d+)?\s*MXN|[0-9,]+(?:\.\d+)?\s*UDI|Amparado sin costo|Amparado|Estatus:\s*recomendado|fuente Forge Intelligence disponible|recomendado del PDF)/gi;
+    if (!regex.test(value)) return;
+    regex.lastIndex = 0;
+
+    const fragment = document.createDocumentFragment();
+    let lastIndex = 0;
+    let match;
+
+    while ((match = regex.exec(value)) !== null) {
+      if (match.index > lastIndex) {
+        fragment.appendChild(document.createTextNode(value.slice(lastIndex, match.index)));
+      }
+
+      const span = document.createElement("span");
+      span.className = /MXN/i.test(match[0])
+        ? "forge-r11j-mxn"
+        : /Amparado|recomendado|fuente Forge/i.test(match[0])
+          ? "forge-r11j-good"
+          : "forge-r11j-value";
+      span.textContent = match[0];
+      fragment.appendChild(span);
+      lastIndex = match.index + match[0].length;
+    }
+
+    if (lastIndex < value.length) {
+      fragment.appendChild(document.createTextNode(value.slice(lastIndex)));
+    }
+
+    const marker = document.createElement("span");
+    marker.className = "forge-r11j-tokenized";
+    marker.appendChild(fragment);
+    textNode.replaceWith(marker);
+  }
+
+  function tokenizeCurrency107z15p2R11J(rootNode) {
+    if (!rootNode || rootNode.dataset?.forgeR11jTokenized === "true") return;
+
+    const walker = document.createTreeWalker(
+      rootNode,
+      NodeFilter.SHOW_TEXT,
+      {
+        acceptNode(node) {
+          if (!node.nodeValue || !/(MXN|UDI|Amparado|recomendado|fuente Forge)/i.test(node.nodeValue)) {
+            return NodeFilter.FILTER_REJECT;
+          }
+          const parent = node.parentElement;
+          if (!parent) return NodeFilter.FILTER_REJECT;
+          if (parent.closest("script, style, textarea, input, .forge-r11j-tokenized")) {
+            return NodeFilter.FILTER_REJECT;
+          }
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      }
+    );
+
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(wrapCurrencyTextNode107z15p2R11J);
+
+    if (rootNode.dataset) rootNode.dataset.forgeR11jTokenized = "true";
+  }
+
+  function markRows107z15p2R11J(card) {
+    if (!card) return;
+    card.classList.add("forge-r11j-card");
+
+    const titleNodes = Array.from(card.querySelectorAll("h1,h2,h3,h4,h5"))
+      .concat(Array.from(card.querySelectorAll("strong,b")).filter((node) => (node.textContent || "").length < 80));
+    titleNodes.forEach((node) => node.classList.add("forge-r11j-title"));
+
+    const rowSelector = [
+      "tr",
+      "li",
+      ".fq-benefit-row-107z15p2",
+      ".fq-benefit-detail-row-107z15p2",
+      ".forge-r11i-contribution-tile",
+      ".forge-r11h-dotales-chip",
+      ".forge-r11h-dotales-summary-item"
+    ].join(",");
+
+    Array.from(card.querySelectorAll(rowSelector)).forEach((row) => {
+      const children = Array.from(row.children || []).filter((child) => child.textContent.trim());
+      if (children.length >= 2) {
+        children[0].classList.add("forge-r11j-label");
+        children.slice(1).forEach((child) => child.classList.add("forge-r11j-value"));
+      }
+      tokenizeCurrency107z15p2R11J(row);
+    });
+
+    tokenizeCurrency107z15p2R11J(card);
+  }
+
+  function apply107z15p2R11J() {
+    if (typeof document === "undefined") return;
+    injectStyle107z15p2R11J();
+    markWideAncestors107z15p2R11J();
+    cardNodes107z15p2R11J().forEach(markRows107z15p2R11J);
+  }
+
+  function schedule107z15p2R11J() {
+    root.requestAnimationFrame?.(() => {
+      apply107z15p2R11J();
+      root.setTimeout?.(apply107z15p2R11J, 120);
+      root.setTimeout?.(apply107z15p2R11J, 420);
+      root.setTimeout?.(apply107z15p2R11J, 980);
+    });
+  }
+
+  if (typeof document !== "undefined") {
+    schedule107z15p2R11J();
+    document.addEventListener("DOMContentLoaded", schedule107z15p2R11J);
+    document.addEventListener("click", schedule107z15p2R11J, true);
+    document.addEventListener("change", schedule107z15p2R11J, true);
+
+    const observer = new MutationObserver(schedule107z15p2R11J);
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+  }
+
+  root.ForgeR11JUniversalColorAndWideBoard = {
+    apply: apply107z15p2R11J
+  };
+})();
+// FORGE:107Z15P2_R11J_UNIVERSAL_COLOR_AND_WIDE_BOARD:END
