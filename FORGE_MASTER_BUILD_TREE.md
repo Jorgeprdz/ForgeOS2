@@ -14292,3 +14292,124 @@ Status: FUNCTIONAL_PASS pending validated commit; live visual inspection delegat
 
 Next after functional PASS: owner visual/financial spot-check of the versioned live SeguBeca quote; ORVI remains separate.
 <!-- FORGE:R14J_SEGUBECA_PROJECTED_MXN_RUNTIME_INTEGRATION:END -->
+
+<!-- FORGE:R15_ORVI_PRODUCT_INTELLIGENCE_DISCOVERY_AND_READINESS:START -->
+## R15 ORVI Product Intelligence Discovery And Readiness
+
+Status: `DISCOVERY_LOCKED_IMPLEMENTATION_READY_WITH_CONDITIONS`
+
+### Approvals
+
+- Board Approval: explicit instruction from the repository owner to continue with ORVI.
+- Miranda Approval: discovery is sanitized and stores no client PDF text, workbook values, filenames, screenshots, names, identifiers, credentials, or private records.
+- Robocop Gate: Constitution, ADR-003, ADR-004, ADR-005, ADR-007, ADR-008, Roadmap, Master Build Tree, Unified Build Tree, and agent documentation were discovered and read before writing.
+
+### Objective
+
+Start ORVI from Product Intelligence and reconcile the existing ORVI surfaces before any parser, runtime, dashboard, or UI implementation.
+
+### Discovery result
+
+- Existing expected ORVI surfaces found: `8/8`.
+- Tracked files containing ORVI references: `119`.
+- Local ORVI PDF candidates: `0`.
+- Local ORVI workbook candidates: `1`.
+- Source readiness: `REAL_SOURCE_CANDIDATE_FOUND`.
+- Product Intelligence mapping evidence hits: `60`.
+- Parser-ref-null evidence hits: `4`.
+- Scenario/not-guaranteed guardrail hits: `21`.
+- Fixture-specific 90,000 UDI hits: `0`.
+- Zero-default patterns requiring R15A review: `1068`.
+
+### Existing surfaces to reconcile
+
+- `orvi-client-report-test.js`
+- `orvi-event-engine.js`
+- `orvi-guaranteed-value-timeline-engine.js`
+- `orvi-master-test.js`
+- `orvi-mxn-conversion-engine.js`
+- `orvi-ocr-extractor.js`
+- `orvi-wait-vs-cancel-engine.js`
+- `orvi-decision-engine.js`
+
+### Discovered callable contracts
+
+- `orvi-client-report-test.js`: `decorate`, `main`, `money`
+- `orvi-decision-engine.js`: `buildOrviDecision`
+- `orvi-event-engine.js`: `buildOrviEvents`
+- `orvi-master-test.js`: `format`
+- `orvi-mxn-conversion-engine.js`: `convertAmountTodayMXN`, `convertOrviTimelineToMXN`
+- `orvi-ocr-extractor.js`: `extractOrviQuote`, `number`, `pdfToText`
+
+### Candidate canonical read model for R15A
+
+```js
+{
+  product_type: "orvi",
+  product_family: "orvi",
+  plan_variant: null,
+  currency: null,
+  participants: {
+    primary_insured: null,
+    policyholder: null,
+    missing_information: []
+  },
+  premium_structure: {
+    basic_annual_premium: null,
+    additional_annual_premium: null,
+    total_annual_premium: null,
+    payment_term_years: null,
+    limited_payment_variant: null
+  },
+  protection_summary: {
+    basic_sum_assured: null,
+    included_coverages: [],
+    additional_coverages: []
+  },
+  guaranteed_value_timeline: [],
+  decision_scenarios: {
+    continue_or_wait: null,
+    cancel_or_surrender: null,
+    comparison_status: "unknown"
+  },
+  mxn_conversion: {
+    current_udi_metadata: null,
+    current_values: [],
+    projected_values: [],
+    scenario_status: "not_evaluated"
+  },
+  source_trace: [],
+  missing_information: []
+}
+```
+
+### Constitutional interpretation
+
+- Fixtures such as 90,000 UDI or timeline checkpoints are examples and tests only.
+- `0` is not a valid substitute for missing product truth unless the real source explicitly contains zero.
+- Guaranteed values, projected MXN, current MXN, premiums, coverages, payment variants, and decision scenarios must retain distinct provenance.
+- UDI-to-MXN future values are scenarios, not guarantees.
+- Wait, continue, cancel, or surrender language may not become a recommendation without an authorized engine, evidence, and explicit status.
+- Existing engines are evidence surfaces to reconcile, not automatic canonical owners.
+- Quote Preview and any future dashboard remain downstream consumers.
+
+### Prohibited in R15
+
+- No parser implementation or execution against client files.
+- No new calculation engine.
+- No runtime, dashboard, renderer, layout, route, schema, app shell, rule pack, commission, mobile, CRM, message, calendar, or backend change.
+- No PDF, Excel, screenshot, filename, cell value, formula, client name, identifier, email, phone, token, or credential committed.
+- No universal product rule inferred from one fixture.
+
+### R15A readiness conditions
+
+1. Reconcile exact exports and ownership of all existing ORVI engines.
+2. Define plan-variant aliases without hardcoding one quote as universal truth.
+3. Replace missing-as-zero semantics with `null`, `unknown`, `missing_information`, or `BLOCKED`.
+4. Separate guaranteed UDI timeline truth from current and projected MXN scenarios.
+5. Define source ownership for premiums, sum assured, additional benefits, timeline rows, and decision scenarios.
+6. Preserve parser ownership as `null` until an authorized parser module exists.
+7. Use only synthetic fixtures in committed tests.
+
+NEXT: `R15A_ORVI_PRODUCT_INTELLIGENCE_CANONICAL_MODEL_IMPLEMENTATION`
+<!-- FORGE:R15_ORVI_PRODUCT_INTELLIGENCE_DISCOVERY_AND_READINESS:END -->
