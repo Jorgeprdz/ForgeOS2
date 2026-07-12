@@ -289,7 +289,7 @@ function installBenefitDashboardStyles107z15p2R11M() {
       .fq-benefit-dashboard-107z15p2[data-forge-product-type="segubeca"]
         .fq-benefit-card-107z15p2[data-forge-product-section="contribution"]
         .fq-benefit-mini-grid-107z15p2 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr));
       }
       .fq-benefit-dashboard-107z15p2[data-forge-product-type="segubeca"]
         .fq-benefit-recommended-grid-107z15p2 {
@@ -299,8 +299,9 @@ function installBenefitDashboardStyles107z15p2R11M() {
         .fq-benefit-label-107z15p2,
       .fq-benefit-dashboard-107z15p2[data-forge-product-type="segubeca"]
         .fq-benefit-value-107z15p2 {
-        overflow-wrap: anywhere !important;
+        overflow-wrap: break-word !important;
         word-break: normal !important;
+        white-space: normal !important;
       }
     }
 

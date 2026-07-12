@@ -14237,3 +14237,39 @@ DECISION=PASS_R14H_DISCOVERY_AND_IMPLEMENTATION_READINESS
 
 NEXT=R14H_MINIMUM_RUNTIME_REPAIR_AND_BROWSER_VALIDATION
 <!-- FORGE:R14H_SEGUBECA_BROWSER_RENDER_INTEGRATION_REPAIR:END -->
+
+<!-- FORGE:R14I_SEGUBECA_DESKTOP_RESPONSIVE_LAYOUT_REPAIR:START -->
+## R14I SeguBeca Desktop Responsive Layout Repair
+
+Status:
+
+`IMPLEMENTED`
+
+Build Tree area:
+
+Quote Preview / Product Intelligence UI / SeguBeca product dashboard / desktop responsive layout.
+
+Discovery decision:
+
+- real Chromium reproduction confirmed `FUNCTIONAL_PASS / VISUAL_FAIL` at 768, 1024, 1366, and 1536 px widths;
+- the SeguBeca renderer does not activate the existing expanded benefit-layout normalization after mounting its dashboard;
+- the inactive host layout constrains the dashboard to the summary value column and preserves the unrelated right rail;
+- at 1366 and 1536 px the dashboard is `399.2px` inside an `1118px` content grid, with `14.9px` grid tracks and `119.7px` cards;
+- the SeguBeca desktop selector compounds the compression with `overflow-wrap: anywhere !important`, producing visible labels only `0px` to `24px` wide;
+- no `hijoo` text or adapter-side child-label concatenation was reproduced with the sanitized fixture.
+
+Authorized implementation:
+
+- activate the existing benefit-layout normalization from the SeguBeca render handoff;
+- replace arbitrary character wrapping with word-preserving wrapping in the SeguBeca product scope;
+- add focused real-browser responsive layout coverage;
+- preserve product structure, semantics, calculations, values, parsers, other products, and mobile behavior.
+
+Evidence:
+
+- `docs/evidence/r14i-segubeca-desktop-responsive-layout-repair.md`
+
+DECISION=PASS_R14I_SEGUBECA_DESKTOP_RESPONSIVE_LAYOUT_REPAIR
+
+NEXT=R14I_CLOSED
+<!-- FORGE:R14I_SEGUBECA_DESKTOP_RESPONSIVE_LAYOUT_REPAIR:END -->

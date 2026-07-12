@@ -961,6 +961,7 @@ function renderSegubecaBenefitSummary(calc, benefitSummary) {
 
   target.innerHTML = "";
   target.appendChild(dashboard);
+  normalizeBenefitLayout107z15p2R9E();
   return true;
 }
 
