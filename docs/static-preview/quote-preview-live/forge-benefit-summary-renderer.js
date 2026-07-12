@@ -2,6 +2,15 @@ import {
   benefitBlockKey107z15p2R9E,
   normalizeBenefitLayout107z15p2R9E
 } from "./forge-benefit-summary-layout.js";
+import {
+  createDashboardChip,
+  createMetricRow,
+  createMissingInformationSection,
+  createPrimaryMetric,
+  createProductDashboard,
+  createProductDashboardSection,
+  createRecommendedBenefitCard
+} from "./forge-product-dashboard-template.js";
 
 function hasValue(value) {
   return value !== null && value !== undefined && value !== "";
@@ -472,16 +481,10 @@ function appendSemanticValue(container, rawValue) {
 }
 
 function createBenefitRow(item) {
-  const row = document.createElement("div");
-  row.className = "fq-benefit-row-107z15p2";
-  const label = document.createElement("div");
-  label.className = "fq-benefit-label-107z15p2";
-  label.textContent = humanizeTechnicalText(item.concept);
-  const value = document.createElement("div");
-  value.className = "fq-benefit-value-107z15p2";
-  appendSemanticValue(value, item.value);
-  row.append(label, value);
-  return row;
+  return createMetricRow({
+    label: humanizeTechnicalText(item.concept),
+    appendValue: (value) => appendSemanticValue(value, item.value)
+  });
 }
 
 function appendTableBlock(container, title, sourceRows, blockKey = null) {
@@ -497,13 +500,10 @@ function appendTableBlock(container, title, sourceRows, blockKey = null) {
 
   if (!rowsForTable.length && !calendarRows.length) return;
 
-  const block = document.createElement("section");
-  block.className = "fq-benefit-card-107z15p2";
-  block.dataset.forgeBenefitBlock = blockKey || benefitBlockKey107z15p2R9E(title);
-
-  const heading = document.createElement("h4");
-  heading.className = "fq-benefit-card-title-107z15p2";
-  heading.textContent = title;
+  const block = createProductDashboardSection({
+    title,
+    key: blockKey || benefitBlockKey107z15p2R9E(title)
+  });
 
   for (const row of calendarRows) {
     appendEndowmentCalendar(block, row.calendar);
@@ -513,16 +513,10 @@ function appendTableBlock(container, title, sourceRows, blockKey = null) {
     const grid = document.createElement("div");
     grid.className = "fq-benefit-mini-grid-107z15p2";
     for (const item of rowsForTable) {
-      const tile = document.createElement("div");
-      tile.className = "fq-benefit-mini-card-107z15p2";
-      const label = document.createElement("div");
-      label.className = "fq-benefit-label-107z15p2";
-      label.textContent = humanizeTechnicalText(item.concept);
-      const value = document.createElement("div");
-      value.className = "fq-benefit-value-107z15p2";
-      appendSemanticValue(value, item.value);
-      tile.append(label, value);
-      grid.appendChild(tile);
+      grid.appendChild(createPrimaryMetric({
+        label: humanizeTechnicalText(item.concept),
+        appendValue: (value) => appendSemanticValue(value, item.value)
+      }));
     }
     block.appendChild(grid);
   } else if (rowsForTable.length) {
@@ -534,7 +528,6 @@ function appendTableBlock(container, title, sourceRows, blockKey = null) {
     block.appendChild(rows);
   }
 
-  block.prepend(heading);
   container.appendChild(block);
 }
 
@@ -557,19 +550,11 @@ function appendEndowmentCalendar(container, calendar) {
     const chips = document.createElement("div");
     chips.className = "fq-benefit-dotal-chips-107z15p2";
     for (const payment of recurrent) {
-      const chip = document.createElement("div");
-      chip.className = "fq-benefit-dotal-chip-107z15p2";
-      const year = document.createElement("span");
-      year.className = "fq-benefit-dotal-year-107z15p2";
-      year.textContent = `Año ${payment.year}`;
-      const udi = document.createElement("strong");
-      udi.className = "fq-benefit-dotal-udi-107z15p2";
-      udi.textContent = `${formatBenefitNumber(payment.udi, 0)} UDI`;
-      const mxn = document.createElement("span");
-      mxn.className = "fq-benefit-dotal-mxn-107z15p2";
-      mxn.textContent = formatProjectedCalendarMxn(payment.mxn);
-      chip.append(year, udi, mxn);
-      chips.appendChild(chip);
+      chips.appendChild(createDashboardChip({
+        label: `Año ${payment.year}`,
+        primary: `${formatBenefitNumber(payment.udi, 0)} UDI`,
+        secondary: formatProjectedCalendarMxn(payment.mxn)
+      }));
     }
     schedule.append(subtitle, chips);
   }
@@ -643,13 +628,10 @@ function recommendedBenefitFields(value) {
 
 function appendRecommendedBlock(container, sourceRows) {
   if (!sourceRows.length) return;
-  const block = document.createElement("section");
-  block.className = "fq-benefit-card-107z15p2";
-  block.dataset.forgeBenefitBlock = "recommended";
-  const heading = document.createElement("h4");
-  heading.className = "fq-benefit-card-title-107z15p2";
-  heading.textContent = "Beneficios recomendados";
-  block.appendChild(heading);
+  const block = createProductDashboardSection({
+    title: "Beneficios recomendados",
+    key: "recommended"
+  });
 
   const totalRow = sourceRows.find((row) => normalizeVisibleSummaryLabel(row.label).includes("prima total con beneficios recomendados"));
   if (totalRow) {
@@ -663,27 +645,11 @@ function appendRecommendedBlock(container, sourceRows) {
   const grid = document.createElement("div");
   grid.className = "fq-benefit-recommended-grid-107z15p2";
   for (const row of sourceRows.filter((item) => /^recomendado\s*-/i.test(String(item.label || "")))) {
-    const card = document.createElement("article");
-    card.className = "fq-benefit-recommended-card-107z15p2";
-    const name = document.createElement("h5");
-    name.className = "fq-benefit-recommended-name-107z15p2";
-    name.textContent = recommendedBenefitName(row.label);
-    const fields = document.createElement("div");
-    fields.className = "fq-benefit-recommended-fields-107z15p2";
-    for (const item of recommendedBenefitFields(row.value)) {
-      const field = document.createElement("div");
-      field.className = "fq-benefit-recommended-field-107z15p2";
-      const label = document.createElement("div");
-      label.className = "fq-benefit-label-107z15p2";
-      label.textContent = item.label;
-      const value = document.createElement("div");
-      value.className = "fq-benefit-value-107z15p2";
-      appendSemanticValue(value, item.value);
-      field.append(label, value);
-      fields.appendChild(field);
-    }
-    card.append(name, fields);
-    grid.appendChild(card);
+    grid.appendChild(createRecommendedBenefitCard({
+      name: recommendedBenefitName(row.label),
+      fields: recommendedBenefitFields(row.value),
+      appendValue: appendSemanticValue
+    }));
   }
   if (grid.children.length) block.appendChild(grid);
   container.appendChild(block);
@@ -704,25 +670,7 @@ function appendMissingBlock(container, sourceRows) {
 
   if (!values.length) return;
 
-  const block = document.createElement("section");
-  block.className = "fq-benefit-card-107z15p2";
-  block.dataset.forgeBenefitBlock = "missing";
-
-  const heading = document.createElement("h4");
-  heading.className = "fq-benefit-card-title-107z15p2";
-  heading.textContent = "Faltantes antes de presentar";
-
-  const list = document.createElement("ul");
-  list.className = "fq-benefit-missing-list-107z15p2";
-
-  for (const value of values) {
-    const li = document.createElement("li");
-    li.textContent = value;
-    list.appendChild(li);
-  }
-
-  block.append(heading, list);
-  container.appendChild(block);
+  container.appendChild(createMissingInformationSection({ values }));
 }
 
 function scenarioOrder(row) {
@@ -858,8 +806,7 @@ function writeVisibleBenefitRuntimeGrid(rows, emptyText) {
 
   groups.scenarios.sort((a, b) => scenarioOrder(a) - scenarioOrder(b));
 
-  const wrapper = document.createElement("div");
-  wrapper.className = "fq-benefit-dashboard-107z15p2";
+  const wrapper = createProductDashboard();
 
   if (groups.contribution.length) appendTableBlock(wrapper, "Lo que aportas", groups.contribution, "contribution");
   if (groups.protection.length) appendTableBlock(wrapper, "Lo que proteges", groups.protection, "protection");

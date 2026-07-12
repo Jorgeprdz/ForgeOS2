@@ -1,3 +1,5 @@
+import { PRODUCT_DASHBOARD_THEME } from "./forge-product-dashboard-template.js";
+
 function benefitBlockKey107z15p2R9E(title) {
   const normalized = String(title || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
   if (normalized.includes("aporta")) return "contribution";
@@ -29,15 +31,15 @@ function installBenefitDashboardStyles107z15p2R11M() {
   style.id = "forge-benefit-dashboard-r11m";
   style.textContent = `
     :root {
-      --fq-r11m-title: #f4d85d;
-      --fq-r11m-udi: #f5dc6c;
-      --fq-r11m-mxn: #76c9ee;
-      --fq-r11m-label: rgba(226, 232, 240, .76);
-      --fq-r11m-good: #8bd6a4;
-      --fq-r11m-muted: rgba(148, 163, 184, .76);
-      --fq-r11m-line: rgba(125, 211, 252, .14);
-      --fq-r11m-panel: rgba(8, 20, 39, .72);
-      --fq-r11m-tile: rgba(255, 255, 255, .035);
+      --fq-r11m-title: ${PRODUCT_DASHBOARD_THEME.title};
+      --fq-r11m-udi: ${PRODUCT_DASHBOARD_THEME.primaryValue};
+      --fq-r11m-mxn: ${PRODUCT_DASHBOARD_THEME.secondaryValue};
+      --fq-r11m-label: ${PRODUCT_DASHBOARD_THEME.label};
+      --fq-r11m-good: ${PRODUCT_DASHBOARD_THEME.positive};
+      --fq-r11m-muted: ${PRODUCT_DASHBOARD_THEME.muted};
+      --fq-r11m-line: ${PRODUCT_DASHBOARD_THEME.line};
+      --fq-r11m-panel: ${PRODUCT_DASHBOARD_THEME.panel};
+      --fq-r11m-tile: ${PRODUCT_DASHBOARD_THEME.tile};
     }
 
     body[data-forge-benefit-layout-expanded="true"] .fq-quote-summary-105dr {
