@@ -911,6 +911,14 @@ function buildDynamicBenefitSummary(calc) {
   });
 }
 
+function usesSegubecaStructuredDashboardR14F(calc) {
+  const nativeBenefitSummary = calc?.nativeResult?.benefitSummary || calc?.benefitSummary;
+  return Boolean(
+    nativeBenefitSummary &&
+    isSegubecaProduct({ ...calc, benefitSummary: nativeBenefitSummary })
+  );
+}
+
 function buildDynamicBenefitSummaryRows(calc) {
   return benefitSummaryToRuntimeRows(buildDynamicBenefitSummary(calc));
 }
@@ -1014,8 +1022,9 @@ function renderAcceptedQuote(calc, { writeRuntimeGrid } = {}) {
     }
   }
 
+  const usesSegubecaDashboard = usesSegubecaStructuredDashboardR14F(calc);
   const dynamicBenefitRows = renderVisibleDynamicBenefitSummary(calc);
-  if (typeof writeRuntimeGrid === "function") {
+  if (typeof writeRuntimeGrid === "function" && !usesSegubecaDashboard) {
     if (!dynamicBenefitRows.length) {
       writeRuntimeGrid(
         "Valores, beneficios o escenarios relevantes",
@@ -1045,6 +1054,7 @@ const api = Object.freeze({
   benefitFallbackRows,
   buildDynamicBenefitSummary,
   buildDynamicBenefitSummaryRows,
+  usesSegubecaStructuredDashboardR14F,
   benefitSummaryToRuntimeRows,
   formatUdiWithMxn,
   formatUdiMetadataLine,
@@ -1061,6 +1071,7 @@ export {
   benefitFallbackRows,
   buildDynamicBenefitSummary,
   buildDynamicBenefitSummaryRows,
+  usesSegubecaStructuredDashboardR14F,
   benefitSummaryToRuntimeRows,
   formatUdiWithMxn,
   formatUdiMetadataLine,
