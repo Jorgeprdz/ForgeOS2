@@ -1,7 +1,4 @@
-import {
-  benefitBlockKey107z15p2R9E,
-  normalizeBenefitLayout107z15p2R9E
-} from "./forge-benefit-summary-layout.js";
+import { normalizeBenefitLayout107z15p2R9E } from "./forge-benefit-summary-layout.js";
 
 function hasValue(value) {
   return value !== null && value !== undefined && value !== "";
@@ -452,29 +449,7 @@ function tableRowsFromValue(label, value) {
   return result;
 }
 
-function appendBenefitValue(container, value) {
-  const text = humanizeTechnicalText(value);
-  const tokenPattern = /(≈\s*\$[\d,.]+\s*MXN|\$[\d,.]+\s*MXN|[\d,.]+\s*UDI|Amparado(?:\s+sin\s+costo)?|Estatus:\s*recomendado|recomendado)/gi;
-  let cursor = 0;
-  let match;
-
-  while ((match = tokenPattern.exec(text)) !== null) {
-    if (match.index > cursor) container.appendChild(document.createTextNode(text.slice(cursor, match.index)));
-    const token = document.createElement("span");
-    token.className = /MXN/i.test(match[0])
-      ? "fq-benefit-token-mxn-107z15p2"
-      : /Amparado|recomendado/i.test(match[0])
-        ? "fq-benefit-token-good-107z15p2"
-        : "fq-benefit-token-udi-107z15p2";
-    token.textContent = match[0];
-    container.appendChild(token);
-    cursor = match.index + match[0].length;
-  }
-
-  if (cursor < text.length) container.appendChild(document.createTextNode(text.slice(cursor)));
-}
-
-function appendTableBlock(container, title, sourceRows, blockKey = null) {
+function appendTableBlock(container, title, sourceRows) {
   const calendarRows = sourceRows.filter((row) => row.calendar);
   const rowsForTable = [];
 
@@ -487,7 +462,6 @@ function appendTableBlock(container, title, sourceRows, blockKey = null) {
 
   const block = document.createElement("section");
   block.className = "fq-benefit-block-107z15p2";
-  block.dataset.forgeBenefitBlock = blockKey || benefitBlockKey107z15p2R9E(title);
 
   const heading = document.createElement("h4");
   heading.className = "fq-benefit-title-107z15p2";
@@ -497,24 +471,7 @@ function appendTableBlock(container, title, sourceRows, blockKey = null) {
     appendEndowmentCalendar(block, row.calendar);
   }
 
-  if (rowsForTable.length && block.dataset.forgeBenefitBlock === "contribution") {
-    const grid = document.createElement("div");
-    grid.className = "fq-benefit-tile-grid-107z15p2";
-
-    for (const item of rowsForTable) {
-      const tile = document.createElement("div");
-      tile.className = "fq-benefit-tile-107z15p2";
-      const concept = document.createElement("div");
-      concept.className = "fq-benefit-concept-107z15p2";
-      concept.textContent = humanizeTechnicalText(item.concept);
-      const value = document.createElement("div");
-      value.className = "fq-benefit-value-107z15p2";
-      appendBenefitValue(value, item.value);
-      tile.append(concept, value);
-      grid.appendChild(tile);
-    }
-    block.appendChild(grid);
-  } else if (rowsForTable.length) {
+  if (rowsForTable.length) {
     const wrap = document.createElement("div");
     wrap.className = "fq-benefit-table-wrap-107z15p2";
 
@@ -531,7 +488,7 @@ function appendTableBlock(container, title, sourceRows, blockKey = null) {
       th.textContent = humanizeTechnicalText(item.concept);
 
       const td = document.createElement("td");
-      appendBenefitValue(td, item.value);
+      td.textContent = humanizeTechnicalText(item.value);
 
       tr.append(th, td);
       tbody.appendChild(tr);
@@ -559,75 +516,76 @@ function appendEndowmentCalendar(container, calendar) {
   schedule.className = "fq-endowment-schedule-107z15p2";
 
   if (recurrent.length) {
+    const recurrentBlock = document.createElement("div");
+    recurrentBlock.className = "fq-endowment-schedule-card-107z15p2 fq-endowment-schedule-card-wide-107z15p2";
+
     const subtitle = document.createElement("p");
-    subtitle.className = "fq-endowment-schedule-subtitle-107z15p2 fq-benefit-concept-107z15p2";
+    subtitle.className = "fq-endowment-schedule-subtitle-107z15p2";
     subtitle.textContent = "5% = 2,500 UDI c/u";
 
-    const chips = document.createElement("div");
-    chips.className = "fq-endowment-chips-107z15p2";
-    for (const payment of recurrent) {
-      const chip = document.createElement("div");
-      chip.className = "fq-endowment-chip-107z15p2";
-      const year = document.createElement("span");
-      year.className = "fq-endowment-year-107z15p2";
-      year.textContent = `Año ${payment.year}`;
-      const udi = document.createElement("strong");
-      udi.className = "fq-endowment-udi-107z15p2";
-      udi.textContent = `${formatBenefitNumber(payment.udi, 0)} UDI`;
-      const mxn = document.createElement("span");
-      mxn.className = "fq-endowment-mxn-107z15p2";
-      mxn.textContent = formatProjectedCalendarMxn(payment.mxn);
-      chip.append(year, udi, mxn);
-      chips.appendChild(chip);
-    }
-    schedule.append(subtitle, chips);
-  }
+    const table = document.createElement("table");
+    table.className = "fq-endowment-schedule-table-107z15p2";
 
-  const summary = document.createElement("div");
-  summary.className = "fq-endowment-summary-107z15p2";
+    const tbody = document.createElement("tbody");
+    const rows = [
+      ["Años", ...recurrent.map((payment) => payment.year)],
+      ["UDI", ...recurrent.map((payment) => `${formatBenefitNumber(payment.udi, 0)} UDI`)],
+      ["MXN", ...recurrent.map((payment) => formatProjectedCalendarMxn(payment.mxn))]
+    ];
+
+    for (const rowValues of rows) {
+      const tr = document.createElement("tr");
+      rowValues.forEach((cellValue, index) => {
+        const cell = document.createElement(index === 0 ? "th" : "td");
+        if (index === 0) cell.scope = "row";
+        cell.textContent = String(cellValue);
+        tr.appendChild(cell);
+      });
+      tbody.appendChild(tr);
+    }
+
+    table.appendChild(tbody);
+    recurrentBlock.append(subtitle, table);
+    schedule.appendChild(recurrentBlock);
+  }
 
   if (finalPayment) {
     const finalBlock = document.createElement("div");
-    finalBlock.className = "fq-endowment-summary-card-107z15p2";
+    finalBlock.className = "fq-endowment-schedule-card-107z15p2";
+    finalBlock.innerHTML = "";
 
     const label = document.createElement("span");
     label.className = "fq-endowment-schedule-label-107z15p2";
     label.textContent = "Año 20 (80%)";
 
     const udi = document.createElement("strong");
-    udi.className = "fq-endowment-udi-107z15p2";
     udi.textContent = `${formatBenefitNumber(finalPayment.udi, 0)} UDI`;
 
     const mxn = document.createElement("span");
-    mxn.className = "fq-endowment-mxn-107z15p2";
     mxn.textContent = formatProjectedCalendarMxn(finalPayment.mxn);
 
     finalBlock.append(label, udi, mxn);
-    summary.appendChild(finalBlock);
+    schedule.appendChild(finalBlock);
   }
 
   const total = calendar?.total;
   if (total) {
     const totalBlock = document.createElement("div");
-    totalBlock.className = "fq-endowment-summary-card-107z15p2 fq-endowment-schedule-total-107z15p2";
+    totalBlock.className = "fq-endowment-schedule-card-107z15p2 fq-endowment-schedule-total-107z15p2";
 
     const label = document.createElement("span");
     label.className = "fq-endowment-schedule-label-107z15p2";
     label.textContent = "Total dotales / recuperación por supervivencia";
 
     const udi = document.createElement("strong");
-    udi.className = "fq-endowment-udi-107z15p2";
     udi.textContent = `${formatBenefitNumber(total.udi, 0)} UDI`;
 
     const mxn = document.createElement("span");
-    mxn.className = "fq-endowment-mxn-107z15p2";
     mxn.textContent = formatProjectedCalendarMxn(total.mxn);
 
     totalBlock.append(label, udi, mxn);
-    summary.appendChild(totalBlock);
+    schedule.appendChild(totalBlock);
   }
-
-  if (summary.children.length) schedule.appendChild(summary);
 
   container.appendChild(schedule);
 }
@@ -767,10 +725,6 @@ function writeVisibleBenefitRuntimeGrid(rows, emptyText) {
     if (
       normalizedLabel.includes("aporta") ||
       normalizedLabel.includes("aportado") ||
-      normalizedLabel.includes("prima anual base") ||
-      normalizedLabel.includes("prima ave anual") ||
-      normalizedLabel.includes("prima anual total con ave") ||
-      normalizedLabel.includes("plazo de pago") ||
       normalizedValue.includes("total aportado")
     ) {
       groups.contribution.push(row);
@@ -794,31 +748,18 @@ function writeVisibleBenefitRuntimeGrid(rows, emptyText) {
   const wrapper = document.createElement("div");
   wrapper.className = "fq-benefit-summary-107z15p2";
 
-  const recommendedRows = groups.recommended.filter((row) => {
-    const label = normalizeVisibleSummaryLabel(row.label);
-    return !label.includes("detalle clp recomendado del pdf") &&
-      !(/^prima(?: mxn)?$/.test(label));
-  });
-
-  if (groups.contribution.length) appendTableBlock(wrapper, "Lo que aportas", groups.contribution, "contribution");
-  if (groups.protection.length) appendTableBlock(wrapper, "Lo que proteges", groups.protection, "protection");
-  if (groups.endowments.length) appendTableBlock(wrapper, "Dotales por supervivencia", groups.endowments, "endowments");
-  if (groups.recovery.length) appendTableBlock(wrapper, "Recuperación", groups.recovery, "recovery");
-  if (groups.womenHealth.length) appendTableBlock(wrapper, "Tabla de enfermedades protegidas PCF", groups.womenHealth, "women_health");
-  if (recommendedRows.length) appendTableBlock(wrapper, "Beneficios recomendados", recommendedRows, "recommended");
+  if (groups.contribution.length) appendTableBlock(wrapper, "Lo que aportas", groups.contribution);
+  if (groups.protection.length) appendTableBlock(wrapper, "Lo que proteges", groups.protection);
+  if (groups.endowments.length) appendTableBlock(wrapper, "Dotales por supervivencia", groups.endowments);
+  if (groups.recovery.length) appendTableBlock(wrapper, "Recuperación", groups.recovery);
+  if (groups.womenHealth.length) appendTableBlock(wrapper, "Tabla de enfermedades protegidas PCF", groups.womenHealth);
+  if (groups.recommended.length) appendTableBlock(wrapper, "Beneficios recomendados", groups.recommended);
 
   for (const scenario of groups.scenarios) {
     appendTableBlock(wrapper, humanizeTechnicalText(scenario.label), [scenario]);
   }
 
-  const otherRows = groups.other.filter((row) => {
-    const text = normalizeVisibleSummaryLabel(`${row.label} ${row.value}`);
-    return !text.includes("dotal") &&
-      !text.includes("prima ave") &&
-      !text.includes("prima anual base") &&
-      !text.includes("prima anual total con ave");
-  });
-  if (otherRows.length) appendTableBlock(wrapper, "Otros detalles", otherRows, "other");
+  if (groups.other.length) appendTableBlock(wrapper, "Otros detalles", groups.other);
   if (groups.missing.length) appendMissingBlock(wrapper, groups.missing);
 
   target.appendChild(wrapper);
