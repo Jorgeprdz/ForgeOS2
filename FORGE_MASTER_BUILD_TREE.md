@@ -14550,3 +14550,68 @@ Status: `PASS_PRIVACY_REMEDIATION / WORKBOOK_REMAINS_DERIVED_EVIDENCE`
 
 NEXT: `R15C_ORVI_REAL_QUOTE_PDF_SOURCE_INTAKE`
 <!-- FORGE:R15B1_ORVI_TRACKED_WORKBOOK_PRIVACY_REMEDIATION_AND_SOURCE_SANITIZATION:END -->
+
+<!-- FORGE:R15C_ORVI_REAL_QUOTE_PDF_SOURCE_INTAKE:START -->
+## R15C ORVI Real Quote PDF Source Intake
+
+Status: `PASS_SOURCE_INTAKE / READY_FOR_PARSER_CONTRACT_AND_SYNTHETIC_FIXTURE`
+
+### Canonical decisions
+
+- Canonical semantic owner remains `product-intelligence`.
+- Primary extraction source owner: `REAL_ORVI_SOLUCIONLINE_QUOTE_PDF_CONFIRMED`.
+- Source classification: `ILLUSTRATIVE_QUOTE_PRIMARY_EXTRACTION_SOURCE_NOT_CONTRACT`.
+- Parser readiness: `READY_FOR_PARSER_CONTRACT_AND_SYNTHETIC_FIXTURE`.
+- Parser implementation in R15C: `NO`.
+- Real PDF committed: `NO`.
+- Real quote values committed: `NO`.
+- Client or advisor identity committed: `NO`.
+
+### Qualified source structure
+
+- Source located by exact private SHA-256 match.
+- Pages: `3`.
+- Search matches with the exact hash: `1`.
+- Text layer present: `true`.
+- Producer family: `CRYSTAL_REPORTS`.
+- Timeline rows: `64`.
+- Timeline columns: `7`.
+- Explicit-zero timeline rows: `44`.
+- `SIN COSTO` semantics present: `true`.
+- Identity, coverage, recommended benefits, guaranteed values, glossary, and notes sections are present.
+
+### Source boundaries
+
+- The quote identifies itself as illustrative and not part of the insurance contract.
+- The source states a limited quote-validity period.
+- Monetary values are denominated in UDI.
+- The source includes an assumed-rate note for AVE calculations.
+- Displayed-total arithmetic status: `DISPLAYED_TOTAL_DIFFERS_FROM_VISIBLE_LINE_ITEM_SUM`.
+- Parser policy: `CAPTURE_SOURCE_VALUES_AND_FLAG_NON_RECONCILIATION_DO_NOT_RECOMPUTE`.
+- Product maturity, payment semantics, or contractual guarantees may not be inferred from the product title alone.
+- Explicit source zero, `SIN COSTO`, `Amparado`, missing content, and unreadable content must remain distinct states.
+
+### Privacy boundary
+
+- The source contains personal-data categories: `true`.
+- Names, emails, phones, dates, PDF text, filenames, paths, and quote values are excluded from committed evidence.
+- The exact source fingerprint and local path remain only in the private Termux report.
+- Any parser fixture must be synthetic and structurally equivalent, not copied from this quote.
+
+### R15D authorization
+
+R15D may define:
+
+1. A parser contract.
+2. A privacy-redaction contract.
+3. A fully synthetic three-page-equivalent text fixture.
+4. Field provenance and confidence states.
+5. Explicit-zero versus missing versus `SIN COSTO` semantics.
+6. Timeline row validation.
+7. Displayed-total non-reconciliation handling.
+8. Mapping into the R15A canonical model.
+
+R15D may not yet wire runtime, MXN conversion, recommendations, dashboard, or UI.
+
+NEXT: `R15D_ORVI_PDF_PARSER_CONTRACT_AND_SYNTHETIC_FIXTURE`
+<!-- FORGE:R15C_ORVI_REAL_QUOTE_PDF_SOURCE_INTAKE:END -->

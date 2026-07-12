@@ -11595,3 +11595,21 @@ Status: `WORKBOOK_PRIVACY_REMEDIATED / REAL_PDF_SOURCE_PENDING`
 
 NEXT: `R15C_ORVI_REAL_QUOTE_PDF_SOURCE_INTAKE`
 <!-- FORGE:R15B1_ORVI_TRACKED_WORKBOOK_PRIVACY_REMEDIATION_AND_SOURCE_SANITIZATION:END -->
+
+<!-- FORGE:R15C_ORVI_REAL_QUOTE_PDF_SOURCE_INTAKE:START -->
+## Product Intelligence / ORVI R15C
+
+Status: `REAL_SOURCE_CONFIRMED / READY_FOR_PARSER_CONTRACT_AND_SYNTHETIC_FIXTURE`
+
+- Canonical owner: `product-intelligence`.
+- Primary extraction source: `REAL_ORVI_SOLUCIONLINE_QUOTE_PDF_CONFIRMED`.
+- Source type: `ILLUSTRATIVE_QUOTE_PRIMARY_EXTRACTION_SOURCE_NOT_CONTRACT`.
+- Workbook remains derived evidence with parser authority `NO`.
+- Real PDF remains outside Git.
+- Privacy redaction is mandatory.
+- Parser implementation is not authorized in R15C.
+- Synthetic fixture and parser contract are authorized for R15D.
+- Engine, runtime, MXN, renderer, dashboard, and UI remain unauthorized.
+
+NEXT: `R15D_ORVI_PDF_PARSER_CONTRACT_AND_SYNTHETIC_FIXTURE`
+<!-- FORGE:R15C_ORVI_REAL_QUOTE_PDF_SOURCE_INTAKE:END -->
