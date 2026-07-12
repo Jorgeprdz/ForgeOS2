@@ -146,6 +146,101 @@ function isVidaMujerAccepted107z15p2R9C(packet, nativeResult) {
   return family.includes("vida_mujer") || product.includes("vida_mujer");
 }
 
+function isSegubecaAcceptedR14E(packet, nativeResult) {
+  const family = normalizeAcceptedKey107z15p2R9C(acceptedProductFamily107z15p2R9C(packet, nativeResult));
+  const product = normalizeAcceptedKey107z15p2R9C(acceptedProduct107z15p2R9C(packet, nativeResult));
+  return family.includes("segubeca") || family.includes("segu_beca") ||
+    product.includes("segubeca") || product.includes("segu_beca");
+}
+
+function calculateSegubecaAcceptedR14E(packet, nativeResult) {
+  const guaranteedRows = acceptedArray107z15p2R9C(nativeResult.guaranteedRows);
+  const administrationRows = acceptedArray107z15p2R9C(nativeResult.administrationRows);
+  const finalGuaranteed = guaranteedRows.at(-1) || null;
+  const finalAdministration = administrationRows.at(-1) || null;
+
+  const paymentYears = firstAcceptedNumber107z15p2R9C(
+    nativeResult.paymentYears,
+    nativeResult.paymentTerm,
+    nativeResult.policyTerm,
+    nativeResult.coveragePeriod,
+    packet.paymentYears,
+    packet.coveragePeriod
+  );
+
+  const annualPremium = firstAcceptedNumber107z15p2R9C(
+    nativeResult.annualPremium,
+    nativeResult.totalAnnualPremium,
+    nativeResult.premiumTable?.annual,
+    packet.annualPremium
+  );
+
+  const annualPremiumWithRecommended = firstAcceptedNumber107z15p2R9C(
+    nativeResult.annualPremiumWithRecommended,
+    nativeResult.plannedOrAvePremium,
+    nativeResult.premiumTable?.plannedAnnual,
+    packet.annualPremiumWithRecommended,
+    packet.plannedOrAvePremium
+  );
+
+  const totalContributed = firstAcceptedNumber107z15p2R9C(
+    nativeResult.totalContributed,
+    packet.totalContributed,
+    finalGuaranteed?.accumulatedAnnualPremiumWithAve,
+    finalGuaranteed?.annualPremiumAccumulatedWithAve,
+    annualPremium !== null && paymentYears !== null ? annualPremium * paymentYears : null
+  );
+
+  const totalRecovery = firstAcceptedNumber107z15p2R9C(
+    nativeResult.totalRecovery,
+    packet.totalRecovery,
+    finalGuaranteed?.totalRecovery,
+    finalAdministration?.accumulatedDelivery
+  );
+
+  const udiRateMetadata = acceptedUdiRateMetadata107z15p2R9C(packet, nativeResult);
+  const currentUdi = acceptedCurrentUdi107z15p2R9C(udiRateMetadata);
+
+  return {
+    nativeResult: {
+      ...nativeResult,
+      totalContributed,
+      totalRecovery
+    },
+    context: packet?.context || {},
+    productIntelligence: packet?.productIntelligence || null,
+    productFamily: "segubeca",
+    product: nativeResult.product || packet.product || "SeguBeca",
+    client: nativeResult.prospect ?? nativeResult.insured ?? packet.insured ?? packet.name ?? null,
+    currency: nativeResult.currency ?? packet.currency ?? "UDI",
+    annualPremium,
+    annualPremiumWithAve: annualPremiumWithRecommended,
+    annualAvePremium: null,
+    paymentYears,
+    paymentMode: nativeResult.paymentMode ?? "Anual",
+    coveragePeriod: nativeResult.policyTerm ?? nativeResult.coveragePeriod ?? packet.coveragePeriod ?? null,
+    guaranteePeriod: null,
+    advisor: nativeResult.advisor ?? null,
+    quoteDate: nativeResult.quoteDate ?? null,
+    totalContributed,
+    totalContributedMXN: acceptedMxn107z15p2R9C(totalContributed, currentUdi),
+    totalRecovery,
+    totalRecoveryMXN: acceptedMxn107z15p2R9C(totalRecovery, currentUdi),
+    udiRateMetadata,
+    udiProjection: packet?.udiProjection || nativeResult?.udiProjection || null,
+    optionalCoverages: acceptedArray107z15p2R9C(nativeResult.recommendedCoverages),
+    accumulatedIncome: [],
+    base: null,
+    favorable: null,
+    unfavorable: null,
+    interestRate: nativeResult.interestRate ?? null,
+    projectedUdiAtRetirement: null,
+    currentProtectionMXN: acceptedMxn107z15p2R9C(nativeResult.sumAssured ?? nativeResult.sumInsured, currentUdi),
+    monthlyIncomeMXN: null,
+    annualIncomeMXN: null
+  };
+}
+
 function acceptedUdiRateMetadata107z15p2R9C(packet, nativeResult) {
   return packet?.currencyMetadata || packet?.udiRateMetadata || nativeResult?.currencyMetadata || nativeResult?.udiRateMetadata || {
     currentUdiValue: nativeResult?.currentUdiValue ?? nativeResult?.udiValue ?? null
@@ -438,6 +533,9 @@ async function calculateAcceptedQuote(currentPacket) {
   if (isVidaMujerAccepted107z15p2R9C(enrichedPacket, nativeResult)) {
     return calculateVidaMujerAccepted107z15p2R9C(enrichedPacket, nativeResult);
   }
+  if (isSegubecaAcceptedR14E(enrichedPacket, nativeResult)) {
+    return calculateSegubecaAcceptedR14E(enrichedPacket, nativeResult);
+  }
 
   const annualPremium = nativeResult.premiumTable?.annual ?? nativeResult.totalAnnualPremium ?? nativeResult.premium;
   const paymentYears = parseYears(nativeResult.paymentTerm) ?? parseYears(nativeResult.plan);
@@ -505,7 +603,9 @@ const api = Object.freeze({
   validatePacket,
   isPdfSelection107z15p2R9C,
   buildAcceptedNativeResult107z15p2R9C,
-  isVidaMujerAccepted107z15p2R9C
+  isVidaMujerAccepted107z15p2R9C,
+  isSegubecaAcceptedR14E,
+  calculateSegubecaAcceptedR14E
 });
 
 globalThis.ForgeAcceptedQuoteAdapter = api;
@@ -515,5 +615,7 @@ export {
   validatePacket,
   isPdfSelection107z15p2R9C,
   buildAcceptedNativeResult107z15p2R9C,
-  isVidaMujerAccepted107z15p2R9C
+  isVidaMujerAccepted107z15p2R9C,
+  isSegubecaAcceptedR14E,
+  calculateSegubecaAcceptedR14E
 };
