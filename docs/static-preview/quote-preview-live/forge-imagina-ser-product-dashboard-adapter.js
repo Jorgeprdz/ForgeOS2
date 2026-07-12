@@ -54,13 +54,43 @@ function unique(values) {
   return [...new Set(values.filter(Boolean).map((value) => String(value).trim()).filter(Boolean))];
 }
 
-function lineValue(line) {
+function formatImaginaSerNumber(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return null;
+  return new Intl.NumberFormat("es-MX", {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  }).format(Math.round(number));
+}
+
+function formatImaginaSerLineValue(line) {
   if (!line) return null;
   if (line.text) return String(line.text);
   if (line.value === null || line.value === undefined || line.value === "") return null;
-  if (typeof line.value === "object") return line.value;
-  const unit = line.unit === "years" ? "años" : line.unit;
-  return [String(line.value), unit].filter(Boolean).join(" ");
+  if (typeof line.value === "object") return formatImaginaSerAmount(line.value);
+  if (line.unit === "UDI") return `${formatImaginaSerNumber(line.value)} UDI`;
+  if (line.unit === "MXN") return `≈ $${formatImaginaSerNumber(line.value)} MXN`;
+  if (line.unit === "years") return `${formatImaginaSerNumber(line.value)} años`;
+  return String(line.value);
+}
+
+function formatImaginaSerAmount(amount) {
+  if (amount === null || amount === undefined || amount === "") return null;
+  if (typeof amount !== "object") return formatImaginaSerNumber(amount);
+
+  const udi = amount.udi ?? amount.amountUdi ?? amount.valueUdi ?? null;
+  const mxn = amount.mxn ?? amount.mxnAtRetirement ?? amount.mxnCurrent ?? amount.projectedMxn ?? null;
+  const values = [];
+  if (udi !== null && Number.isFinite(Number(udi))) values.push(`${formatImaginaSerNumber(udi)} UDI`);
+  if (mxn !== null && Number.isFinite(Number(mxn))) values.push(`≈ $${formatImaginaSerNumber(mxn)} MXN`);
+  if (amount.targetAge !== null && amount.targetAge !== undefined && Number.isFinite(Number(amount.targetAge))) {
+    values.push(`edad ${formatImaginaSerNumber(amount.targetAge)}`);
+  }
+  return values.join(" · ") || null;
+}
+
+function lineValue(line) {
+  return formatImaginaSerLineValue(line);
 }
 
 function section({ key, kind, title, presentation = "metric_rows", items = [] }) {
@@ -84,10 +114,13 @@ function lineItems(block, predicate = () => true) {
     }));
 }
 
-function scenarioItems(retirementBlock, formatAmount) {
+function scenarioItems(retirementBlock, formatAmount, { omitBaseSinglePayment = false } = {}) {
   return (Array.isArray(retirementBlock?.scenarios) ? retirementBlock.scenarios : []).map((scenario) => {
+    const isBase = normalizeKey(scenario.id || scenario.label) === "base";
     const values = [
-      scenario.singlePayment ? `Meta patrimonial: ${formatAmount(scenario.singlePayment)}` : null,
+      scenario.singlePayment && !(omitBaseSinglePayment && isBase)
+        ? `Meta patrimonial: ${formatAmount(scenario.singlePayment)}`
+        : null,
       scenario.monthlyIncome ? `Renta mensual: ${formatAmount(scenario.monthlyIncome)}` : null,
       scenario.annualIncome ? `Renta anual: ${formatAmount(scenario.annualIncome)}` : null
     ].filter(Boolean);
@@ -126,6 +159,10 @@ function constructionItems(retirementBlock, formatAmount) {
     });
   }
 
+  for (const scenario of scenarioItems(retirementBlock, formatAmount, { omitBaseSinglePayment: true })) {
+    items.push(scenario);
+  }
+
   return items.filter((item) => item.value);
 }
 
@@ -140,7 +177,7 @@ function blockItems(block) {
   return [...lines, ...rows].filter((item) => item.value !== null && item.value !== undefined && item.value !== "");
 }
 
-function buildImaginaSerDashboardModel(benefitSummary, { formatAmount = (value) => String(value ?? "") } = {}) {
+function buildImaginaSerDashboardModel(benefitSummary, { formatAmount = formatImaginaSerAmount } = {}) {
   const blocks = normalizeBlocks(benefitSummary);
   const contribution = blocks.find((block) => block.type === "contribution_summary") || null;
   const protection = blocks.find((block) => block.type === "protection_summary") || null;
@@ -172,9 +209,8 @@ function buildImaginaSerDashboardModel(benefitSummary, { formatAmount = (value) 
   const sections = [
     section({ key: "summary", kind: "summary", title: "Resumen del plan", presentation: "primary_metrics", items: summaryItems }),
     section({ key: "contribution", kind: "contribution", title: "Lo que aportas", presentation: "primary_metrics", items: contributionItems }),
-    section({ key: "construction", kind: "construction", title: "Lo que construyes", items: builtItems }),
+    section({ key: "contribution", kind: "construction", title: "Lo que construyes", presentation: "primary_metrics", items: builtItems }),
     section({ key: "protection", kind: "protection", title: "Lo que proteges", items: protectionItems }),
-    section({ key: "future_scenario", kind: "future_scenario", title: "Escenario futuro", items: futureItems }),
     section({ key: "recommended", kind: "recommended", title: "Beneficios recomendados", presentation: "recommended", items: recommendedItems }),
     section({ key: "other", kind: "secondary_details", title: "Otros detalles", items: secondaryItems })
   ].filter((item) => item.items.length);
@@ -257,6 +293,8 @@ function renderImaginaSerDashboard(model, { documentRef, appendValue } = {}) {
 
 const api = Object.freeze({
   productType: IMAGINA_SER_PRODUCT_TYPE,
+  formatImaginaSerNumber,
+  formatImaginaSerAmount,
   isImaginaSerProduct,
   buildImaginaSerDashboardModel,
   renderImaginaSerDashboard
@@ -266,6 +304,8 @@ globalThis.ForgeImaginaSerProductDashboardAdapter = api;
 
 export {
   IMAGINA_SER_PRODUCT_TYPE,
+  formatImaginaSerNumber,
+  formatImaginaSerAmount,
   isImaginaSerProduct,
   buildImaginaSerDashboardModel,
   renderImaginaSerDashboard

@@ -915,9 +915,7 @@ function renderImaginaSerBenefitSummary(calc, benefitSummary) {
   ]);
   if (!target) return false;
 
-  const model = buildImaginaSerDashboardModel(benefitSummary, {
-    formatAmount: formatBenefitAmount
-  });
+  const model = buildImaginaSerDashboardModel(benefitSummary);
   const dashboard = renderImaginaSerDashboard(model, {
     appendValue: appendSemanticValue
   });

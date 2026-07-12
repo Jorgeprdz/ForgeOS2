@@ -1,5 +1,8 @@
 import assert from "node:assert/strict";
-import { parseVidaMujerPdfTextToAcceptedQuotePacket } from "../docs/static-preview/quote-preview-live/forge-pdf-browser-parser.js";
+import {
+  parsePdfTextToAcceptedQuotePacket,
+  parseVidaMujerPdfTextToAcceptedQuotePacket
+} from "../docs/static-preview/quote-preview-live/forge-pdf-browser-parser.js";
 
 const solucionlineRows = `
 Nombre
@@ -69,5 +72,41 @@ for (const [name, sampleText] of Object.entries({ solucionlineRows, headerCollis
   }
   assert.equal(packet.missing_information.length, 0, name);
 }
+
+const imaginaSerRows = `
+IMAGINA SER 65 PAGOS LIMITADOS 15
+Edad: 33
+Moneda: UDI
+IMAGINA SER 65 PAGOS 32 años 75,000 1,000
+Prima básica 1,000 1,000 1,000 1,000
+Prima planeada 2,000 2,000 2,000 2,000
+Prima total 3,000 3,000 3,000 3,000
+33 65 90,000 600 110,000 700 70,000 400
+`;
+
+const imaginaPacket = parsePdfTextToAcceptedQuotePacket(imaginaSerRows, {
+  fileName: "imagina-ser-test.pdf"
+});
+assert.equal(imaginaPacket.product, "Imagina Ser");
+assert.equal(imaginaPacket.productFamily, "imagina_ser");
+assert.equal(imaginaPacket.nativeResult.productFamily, "imagina_ser");
+assert.equal(imaginaPacket.nativeResult.retirementScenarioBase.singlePaymentUdi, 90000);
+assert.equal(imaginaPacket.nativeResult.retirementScenarioFavorable.monthlyIncomeUdi, 700);
+assert.ok(!imaginaPacket.missing_information.some((item) => /Vida Mujer/i.test(item)));
+
+const sparseImaginaPacket = parsePdfTextToAcceptedQuotePacket(
+  "IMAGINA SER 65 PAGOS LIMITADOS 15",
+  { fileName: "imagina-ser-incomplete.pdf" }
+);
+assert.equal(sparseImaginaPacket.product, "Imagina Ser");
+assert.equal(sparseImaginaPacket.nativeResult.policyTerm, null);
+assert.ok(sparseImaginaPacket.missing_information.length > 0);
+assert.ok(sparseImaginaPacket.missing_information.every((item) => !/Vida Mujer/i.test(item)));
+
+const routedVidaPacket = parsePdfTextToAcceptedQuotePacket(solucionlineRows, {
+  fileName: "vida-mujer-routed.pdf"
+});
+assert.equal(routedVidaPacket.product, "Vida Mujer");
+assert.equal(routedVidaPacket.nativeResult.totalContributed, 152136);
 
 console.log("PASS pdf browser parser smoke R11E");

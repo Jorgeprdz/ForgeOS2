@@ -1,4 +1,6 @@
 // FORGE:107Z15P2_R11E_SOLUCIONLINE_LAYOUT_AWARE_PDF_PARSER:START
+import { parseSolucionlineRetirementQuote } from "../../../product-intelligence/evidence/solucionline-retirement-parser.js";
+
 const PDFJS_CDN_VERSION_107Z15P2_R11E = "4.10.38";
 const PDFJS_MODULE_URL_107Z15P2_R11E = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${PDFJS_CDN_VERSION_107Z15P2_R11E}/build/pdf.mjs`;
 const PDFJS_WORKER_URL_107Z15P2_R11E = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${PDFJS_CDN_VERSION_107Z15P2_R11E}/build/pdf.worker.mjs`;
@@ -442,9 +444,152 @@ export function parseVidaMujerPdfTextToAcceptedQuotePacket(text, options = {}) {
   return buildVidaMujerAcceptedQuotePacketFromText107z15p2R11E(text, options);
 }
 
+function imaginaSerMissingInformationR13E(parsed) {
+  const evidence = parsed?.evidence || {};
+  const labels = {
+    productName: "No se identificó el producto Imagina Ser",
+    currentAge: "Falta edad actual en la cotización Imagina Ser",
+    currency: "Falta moneda en la cotización Imagina Ser",
+    sumAssured: "Falta suma asegurada en la cotización Imagina Ser",
+    premiumStructure: "Faltan datos de aportación en la cotización Imagina Ser",
+    scenarios: "Faltan escenarios con evidencia en la cotización Imagina Ser"
+  };
+  return Object.entries(labels)
+    .filter(([key]) => evidence[key] !== "SOURCE_TEXT")
+    .map(([, label]) => label);
+}
+
+function scenarioForAcceptedPacketR13E(scenario) {
+  if (!scenario || (scenario.lumpSum == null && scenario.monthlyIncome == null)) return null;
+  return {
+    singlePaymentUdi: scenario.lumpSum ?? null,
+    monthlyIncomeUdi: scenario.monthlyIncome ?? null
+  };
+}
+
+export function parseImaginaSerPdfTextToAcceptedQuotePacket(text, options = {}) {
+  const parsed = options.parsedResult || parseSolucionlineRetirementQuote({ text });
+  const evidence = parsed.evidence || {};
+  const hasProductEvidence = evidence.productName === "SOURCE_TEXT";
+  const hasPremiumEvidence = evidence.premiumStructure === "SOURCE_TEXT";
+  const hasScenarioEvidence = evidence.scenarios === "SOURCE_TEXT";
+  const premiumPayingYears = Number(parsed.premiumStructure?.premiumPayingYears) > 0
+    ? Number(parsed.premiumStructure.premiumPayingYears)
+    : null;
+  const totalAnnualPremium = hasPremiumEvidence && Number.isFinite(Number(parsed.premiumStructure?.totalAnnualPremium))
+    ? Number(parsed.premiumStructure.totalAnnualPremium)
+    : null;
+  const product = hasProductEvidence ? "Imagina Ser" : null;
+  const productFamily = hasProductEvidence ? "imagina_ser" : null;
+  const scenarios = hasScenarioEvidence ? parsed.scenarios : {};
+  const missingInformation = imaginaSerMissingInformationR13E(parsed);
+
+  const nativeResult = {
+    source: "browser_pdf_parser",
+    extractionVersion: "R13E_imagina_ser_intake",
+    product,
+    productName: hasProductEvidence ? parsed.productName : null,
+    productFamily,
+    product_family: productFamily,
+    currency: evidence.currency === "SOURCE_TEXT" ? parsed.currency : null,
+    currentAge: evidence.currentAge === "SOURCE_TEXT" ? parsed.currentAge : null,
+    retirementAge: hasProductEvidence ? parsed.retirementAge : null,
+    coverageYears: evidence.currentAge === "SOURCE_TEXT" && hasProductEvidence ? parsed.coverageYears : null,
+    sumAssured: evidence.sumAssured === "SOURCE_TEXT" ? parsed.sumAssured : null,
+    sumInsured: evidence.sumAssured === "SOURCE_TEXT" ? parsed.sumAssured : null,
+    premiumStructure: {
+      basicAnnualPremium: hasPremiumEvidence ? parsed.premiumStructure?.basicAnnualPremium : null,
+      plannedAnnualContribution: hasPremiumEvidence ? parsed.premiumStructure?.plannedAnnualContribution : null,
+      plannedContributionType: hasPremiumEvidence ? parsed.premiumStructure?.plannedContributionType : null,
+      totalAnnualPremium,
+      premiumPayingYears,
+      paidUntilAge: evidence.currentAge === "SOURCE_TEXT" && premiumPayingYears !== null
+        ? parsed.premiumStructure?.paidUntilAge
+        : null
+    },
+    premiumTable: {
+      annual: totalAnnualPremium,
+      plannedAnnual: hasPremiumEvidence ? parsed.premiumStructure?.plannedAnnualContribution : null
+    },
+    totalAnnualPremium,
+    paymentTerm: premiumPayingYears !== null ? `${premiumPayingYears} años` : null,
+    policyTerm: evidence.currentAge === "SOURCE_TEXT" && hasProductEvidence && Number(parsed.coverageYears) > 0
+      ? `${parsed.coverageYears} años`
+      : null,
+    scenarios,
+    retirementScenarioBase: hasScenarioEvidence ? scenarioForAcceptedPacketR13E(scenarios.base) : null,
+    retirementScenarioFavorable: hasScenarioEvidence ? scenarioForAcceptedPacketR13E(scenarios.favorable) : null,
+    retirementScenarioUnfavorable: hasScenarioEvidence ? scenarioForAcceptedPacketR13E(scenarios.unfavorable) : null,
+    retirementInterestRate: parsed.interestRate ?? null,
+    evidence,
+    missing_information: missingInformation
+  };
+
+  return {
+    schemaVersion: "forge.accepted_quote_packet.v1",
+    source: "browser_pdf_parser",
+    extractionVersion: "R13E_imagina_ser_intake",
+    fileName: options.fileName || null,
+    family: productFamily,
+    productFamily,
+    product_family: productFamily,
+    product,
+    age: nativeResult.currentAge,
+    currency: nativeResult.currency,
+    sumAssured: nativeResult.sumAssured,
+    sumInsured: nativeResult.sumInsured,
+    annualPremium: totalAnnualPremium,
+    coveragePeriod: nativeResult.policyTerm,
+    paymentYears: premiumPayingYears,
+    context: {
+      family: productFamily,
+      productFamily,
+      product_family: productFamily,
+      product
+    },
+    nativeResult,
+    missing_information: missingInformation
+  };
+}
+
+export function parsePdfTextToAcceptedQuotePacket(text, options = {}) {
+  const source = compactText107z15p2R11E(text);
+  if (/vida\s+mujer/i.test(source)) {
+    return parseVidaMujerPdfTextToAcceptedQuotePacket(text, options);
+  }
+
+  const retirementCandidate = parseSolucionlineRetirementQuote({ text });
+  if (retirementCandidate?.evidence?.productName === "SOURCE_TEXT") {
+    return parseImaginaSerPdfTextToAcceptedQuotePacket(text, {
+      ...options,
+      parsedResult: retirementCandidate
+    });
+  }
+
+  return {
+    schemaVersion: "forge.accepted_quote_packet.v1",
+    source: "browser_pdf_parser",
+    extractionVersion: "R13E_product_router",
+    fileName: options.fileName || null,
+    family: null,
+    productFamily: null,
+    product_family: null,
+    product: null,
+    context: {},
+    nativeResult: {
+      source: "browser_pdf_parser",
+      extractionVersion: "R13E_product_router",
+      product: null,
+      productFamily: null,
+      missing_information: ["No se identificó un producto compatible en el PDF"]
+    },
+    missing_information: ["No se identificó un producto compatible en el PDF"]
+  };
+}
+
 export async function parsePdfFileToAcceptedQuotePacket(file, options = {}) {
   const text = await extractTextFromPdfFile107z15p2R11E(file);
-  return parseVidaMujerPdfTextToAcceptedQuotePacket(text, {
+  return parsePdfTextToAcceptedQuotePacket(text, {
     ...options,
     fileName: options.fileName || file?.name || null
   });
@@ -558,6 +703,8 @@ function installPdfInputInterceptor107z15p2R11E() {
 
 globalThis.ForgePdfBrowserParser = {
   parsePdfFileToAcceptedQuotePacket,
+  parsePdfTextToAcceptedQuotePacket,
+  parseImaginaSerPdfTextToAcceptedQuotePacket,
   parseVidaMujerPdfTextToAcceptedQuotePacket,
   extractTextFromPdfFile107z15p2R11E
 };

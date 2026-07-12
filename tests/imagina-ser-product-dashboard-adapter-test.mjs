@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import {
   buildImaginaSerDashboardModel,
+  formatImaginaSerAmount,
+  formatImaginaSerNumber,
   isImaginaSerProduct,
   renderImaginaSerDashboard
 } from "../docs/static-preview/quote-preview-live/forge-imagina-ser-product-dashboard-adapter.js";
@@ -34,6 +36,14 @@ const documentRef = {
 assert.equal(isImaginaSerProduct({ productFamily: "Imagina Ser" }), true);
 assert.equal(isImaginaSerProduct({ product: "IMAGINA_SER" }), true);
 assert.equal(isImaginaSerProduct({ productFamily: "Vida Mujer" }), false);
+assert.equal(isImaginaSerProduct({ nativeResult: { productName: "IMAGINA SER 65 PAGOS LIMITADOS 15" } }), true);
+assert.equal(formatImaginaSerNumber(607685.9251110773), "607,686");
+assert.equal(formatImaginaSerAmount({ udi: 607685.9251110773 }), "607,686 UDI");
+assert.equal(formatImaginaSerAmount({ mxn: 607685.9251110773 }), "≈ $607,686 MXN");
+assert.equal(
+  formatImaginaSerAmount({ udi: 89982.75, mxnAtRetirement: 4155098.814, targetAge: 65 }),
+  "89,983 UDI · ≈ $4,155,099 MXN · edad 65"
+);
 
 const benefitSummary = [
   {
@@ -87,11 +97,16 @@ const model = buildImaginaSerDashboardModel(benefitSummary, {
 assert.equal(model.productType, "imagina_ser");
 assert.deepEqual(
   model.sections.map((section) => section.title),
-  ["Resumen del plan", "Lo que aportas", "Lo que construyes", "Lo que proteges", "Escenario futuro"]
+  ["Resumen del plan", "Lo que aportas", "Lo que construyes", "Lo que proteges"]
 );
 assert.equal(model.sections.find((section) => section.kind === "summary").items[0].value, "15 años");
 assert.equal(model.sections.find((section) => section.kind === "construction").items[0].evidence, benefitSummary[2].scenarios[0].singlePayment);
 assert.ok(formattedObjects.includes(benefitSummary[2].scenarios[0].singlePayment));
+assert.equal(model.sections.some((section) => section.kind === "future_scenario"), false);
+const constructionSection = model.sections.find((section) => section.kind === "construction");
+assert.equal(constructionSection.key, "contribution");
+assert.equal(constructionSection.presentation, "primary_metrics");
+assert.ok(constructionSection.items.some((item) => item.label === "Escenario Favorable"));
 assert.ok(model.missingInformation.includes("Falta escenario desfavorable"));
 assert.ok(model.missingInformation.includes("No hay beneficios recomendados con evidencia estructurada"));
 assert.ok(model.missingInformation.includes("No hay otros detalles con evidencia estructurada"));
@@ -128,7 +143,7 @@ const integratedModel = buildImaginaSerDashboardModel(productIntelligenceBlocks,
 });
 assert.ok(integratedModel.sections.some((section) => section.kind === "summary"));
 assert.ok(integratedModel.sections.some((section) => section.kind === "construction"));
-assert.ok(integratedModel.sections.some((section) => section.kind === "future_scenario"));
+assert.equal(integratedModel.sections.some((section) => section.kind === "future_scenario"), false);
 assert.ok(integratedModel.missingInformation.includes("Faltan datos de aportación"));
 assert.ok(integratedModel.missingInformation.includes("Faltan datos de protección"));
 
