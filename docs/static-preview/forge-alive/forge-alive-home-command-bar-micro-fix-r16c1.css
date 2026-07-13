@@ -310,3 +310,86 @@ html.forge-mobile-widget-grid-polished-057l .primary-card.glass .fake-cta {
 }
 
 /* FORGEOS:R16C4_COMMAND_ORB_CLEAN_RESET:END */
+
+/* FORGEOS:R16C5_BOTTOM_NAV_NEW_QUOTE_CTA:START */
+
+/*
+  El cuarto elemento de la navegación móvil es ahora un enlace real
+  hacia la página dedicada de Nueva Cotización.
+*/
+.bottom-nav[data-forge-home-navigation-r16c="canonical"]
+  .forge-home-quote-nav-r16c5 {
+  -webkit-tap-highlight-color: transparent !important;
+  appearance: none !important;
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 8px 1px 7px !important;
+  border: 0 !important;
+  border-radius: 22px !important;
+  outline: none !important;
+  background: transparent !important;
+  color: rgba(193, 205, 224, 0.82) !important;
+  text-decoration: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  font: inherit !important;
+  font-weight: 720 !important;
+  line-height: 1 !important;
+  touch-action: manipulation !important;
+  cursor: pointer !important;
+}
+
+.bottom-nav[data-forge-home-navigation-r16c="canonical"]
+  .forge-home-quote-nav-icon-r16c5 {
+  display: grid !important;
+  place-items: center !important;
+  width: 28px !important;
+  height: 25px !important;
+  color: rgba(195, 211, 233, 0.86) !important;
+  font-size: 23px !important;
+  line-height: 1 !important;
+  transform: translateY(-1px) !important;
+}
+
+.bottom-nav[data-forge-home-navigation-r16c="canonical"]
+  .forge-home-quote-nav-label-r16c5 {
+  display: block !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  color: inherit !important;
+  font-size: clamp(9px, 2.55vw, 12px) !important;
+  line-height: 1 !important;
+  letter-spacing: -0.42px !important;
+  text-align: center !important;
+  text-overflow: clip !important;
+  white-space: nowrap !important;
+}
+
+.bottom-nav[data-forge-home-navigation-r16c="canonical"]
+  .forge-home-quote-nav-r16c5:active {
+  transform: scale(0.96) !important;
+}
+
+.bottom-nav[data-forge-home-navigation-r16c="canonical"]
+  .forge-home-quote-nav-r16c5:focus-visible {
+  color: #ffe29c !important;
+  background: rgba(255, 226, 156, 0.08) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 226, 156, 0.34),
+    0 0 18px rgba(103, 215, 255, 0.12) !important;
+}
+
+@media (max-width: 340px) {
+  .bottom-nav[data-forge-home-navigation-r16c="canonical"]
+    .forge-home-quote-nav-label-r16c5 {
+    font-size: 8.5px !important;
+    letter-spacing: -0.55px !important;
+  }
+}
+
+/* FORGEOS:R16C5_BOTTOM_NAV_NEW_QUOTE_CTA:END */
