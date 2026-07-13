@@ -1481,3 +1481,55 @@ body[data-forge-saas-active-module-r16c5l="cotizaciones"]
 }
 
 /* FORGEOS:R16C5M1_QUOTE_MODULE_ISOLATION_CASCADE_FIX:END */
+
+/* FORGEOS:R16F1A_DESKTOP_TABLET_NEW_QUOTE_VISIBILITY_REPAIR:START */
+
+/*
+  Desktop heredado permite únicamente las superficies de Alfred.
+  Cotizaciones activa necesita una excepción de mayor especificidad,
+  acotada al host exacto y sin modificar los contratos heredados.
+*/
+@media (min-width: 768px) {
+  html:has(
+    body[data-forge-saas-active-module-r16c5l="cotizaciones"]
+  ) {
+    min-height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  body[data-forge-saas-active-module-r16c5l="cotizaciones"] {
+    min-height: 100vh !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  body[data-forge-saas-active-module-r16c5l="cotizaciones"]
+    .phone-shell {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+  }
+
+  body[data-forge-saas-active-module-r16c5l="cotizaciones"]
+    .phone-shell
+    > section#forge-saas-module-cotizaciones-r16c5l[data-forge-saas-module-host-r16c5l="cotizaciones"]:not([hidden]) {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    min-height: calc(100vh - 32px) !important;
+    z-index: 30 !important;
+  }
+}
+
+/* FORGEOS:R16F1A_DESKTOP_TABLET_NEW_QUOTE_VISIBILITY_REPAIR:END */
