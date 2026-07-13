@@ -705,29 +705,19 @@ html.forge-mobile-widget-grid-polished-057l .primary-card.glass .fake-cta {
 
 /* FORGEOS:R16D1C_ORB_LAYER_STAIN_HALO_POSITION_SAFE:END */
 
-/* FORGEOS:R16D3_COMMAND_PILL_TRUE_COLLAPSE_AND_CLOSE_CONTROL:START */
-
-[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]
-.command-pill {
-  transform-origin: right center !important;
-  will-change:
-    opacity,
-    transform,
-    clip-path !important;
-}
+/* FORGEOS:R16D3C_COMMAND_STATE_VALIDATOR_CORRECTION:START */
 
 /*
-  Cerrado estable:
-  el pill sale realmente del layout y el layer no conserva una superficie.
+  Las clases de estado viven en el mismo layer canónico.
+  Ningún :is(), :not() o .is-expanded se busca en descendientes.
 */
-[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]
-:not(.forge-r16d3-never-match) {
-  --forge-r16d3-command-transition:
+[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"] {
+  --forge-r16d3a-command-transition:
     440ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]
-:is(:not(.is-expanded):not(.is-opening):not(.is-closing)) {
+/* Cerrado estable: el layer no dibuja cápsula. */
+[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]:not(.is-expanded):not(.is-opening):not(.is-closing) {
   background: transparent !important;
   background-image: none !important;
   border-color: transparent !important;
@@ -737,8 +727,8 @@ html.forge-mobile-widget-grid-polished-057l .primary-card.glass .fake-cta {
   filter: none !important;
 }
 
-[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]
-:is(:not(.is-expanded):not(.is-opening):not(.is-closing))
+/* Cerrado estable: el pill sale realmente del layout. */
+[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]:not(.is-expanded):not(.is-opening):not(.is-closing)
 .command-pill {
   display: none !important;
   opacity: 0 !important;
@@ -756,14 +746,24 @@ html.forge-mobile-widget-grid-polished-057l .primary-card.glass .fake-cta {
   transform:
     translate3d(20px, 0, 0)
     scaleX(0.04) !important;
+  transform-origin: right center !important;
 }
 
-/*
-  Preparación de apertura y repliegue de cierre.
-  Se mantiene display:grid solo durante la transición.
-*/
-[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]
-:is(.is-opening, .is-closing)
+/* La burbuja queda visible y aislada al cerrar. */
+[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]:not(.is-expanded):not(.is-opening):not(.is-closing)
+.command-orb {
+  display: grid !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform:
+    translateZ(0)
+    scale(1)
+    rotate(0deg) !important;
+}
+
+/* Apertura y cierre: pill montado solo durante la transición. */
+[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]:is(.is-opening, .is-closing)
 .command-pill {
   display: grid !important;
   opacity: 0 !important;
@@ -781,16 +781,24 @@ html.forge-mobile-widget-grid-polished-057l .primary-card.glass .fake-cta {
   transform:
     translate3d(20px, 0, 0)
     scaleX(0.04) !important;
+  transform-origin: right center !important;
   transition:
     opacity 180ms ease,
-    transform var(--forge-r16d3-command-transition),
-    clip-path var(--forge-r16d3-command-transition),
+    transform var(--forge-r16d3a-command-transition),
+    clip-path var(--forge-r16d3a-command-transition),
     visibility 0s linear 0s !important;
 }
 
-/* Abierto: vidrio completo desplegado desde la derecha. */
-[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]
-:is(.is-expanded)
+/* Mientras se abre o se cierra, la burbuja no compite con el pill. */
+[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]:is(.is-opening, .is-closing)
+.command-orb {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Abierto: vidrio completo y controles funcionales. */
+[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"].is-expanded
 .command-pill {
   display: grid !important;
   opacity: 1 !important;
@@ -820,15 +828,22 @@ html.forge-mobile-widget-grid-polished-057l .primary-card.glass .fake-cta {
   transform:
     translate3d(0, 0, 0)
     scaleX(1) !important;
+  transform-origin: right center !important;
   transition:
     opacity 260ms ease 26ms,
-    transform var(--forge-r16d3-command-transition),
-    clip-path var(--forge-r16d3-command-transition),
+    transform var(--forge-r16d3a-command-transition),
+    clip-path var(--forge-r16d3a-command-transition),
     visibility 0s linear 0s !important;
 }
 
-[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]
-:is(.is-opening, .is-closing)
+[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"].is-expanded
+.command-orb {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]:is(.is-opening, .is-closing)
 .command-pill
 > * {
   opacity: 0 !important;
@@ -837,12 +852,7 @@ html.forge-mobile-widget-grid-polished-057l .primary-card.glass .fake-cta {
     scale(0.95) !important;
 }
 
-[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]
-.is-expanded
-.command-pill
-> *,
-[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]
-:is(.is-expanded)
+[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"].is-expanded
 .command-pill
 > * {
   opacity: 1 !important;
@@ -855,12 +865,8 @@ html.forge-mobile-widget-grid-polished-057l .primary-card.glass .fake-cta {
       90ms !important;
 }
 
-/* El X queda por encima y recibe gestos aunque el teclado esté abierto. */
-[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]
-.is-expanded
-.command-pill-close,
-[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]
-:is(.is-expanded)
+/* El X queda sobre el vidrio y mantiene la captura JS de R16D3. */
+[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"].is-expanded
 .command-pill-close {
   position: relative !important;
   z-index: 30 !important;
@@ -881,4 +887,4 @@ html.forge-mobile-widget-grid-polished-057l .primary-card.glass .fake-cta {
   }
 }
 
-/* FORGEOS:R16D3_COMMAND_PILL_TRUE_COLLAPSE_AND_CLOSE_CONTROL:END */
+/* FORGEOS:R16D3C_COMMAND_STATE_VALIDATOR_CORRECTION:END */
