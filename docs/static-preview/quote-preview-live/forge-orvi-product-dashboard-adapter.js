@@ -20,6 +20,13 @@ const ORVI_ORCHESTRATION_ID =
 const USD_FUTURE_BLOCK =
   "BLOCKED_PENDING_EXPLICIT_SCENARIO_RATE_AUTHORITY";
 
+const ORVI_DASHBOARD_VIEW_IDS = Object.freeze({
+  protection: "protection",
+  guaranteedRecovery: "guaranteed_recovery",
+});
+
+const ORVI_DEFAULT_VIEW = ORVI_DASHBOARD_VIEW_IDS.protection;
+
 function isRecord(value) {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
 }
@@ -575,6 +582,135 @@ function appendSectionItems(
   card.appendChild(grid);
 }
 
+function normalizeOrviViewId(value) {
+  const normalized = String(value || "").trim();
+  return Object.values(ORVI_DASHBOARD_VIEW_IDS).includes(normalized)
+    ? normalized
+    : ORVI_DEFAULT_VIEW;
+}
+
+function setAttributeSafe(node, name, value) {
+  if (typeof node?.setAttribute === "function") {
+    node.setAttribute(name, String(value));
+  } else if (node) {
+    node[name] = String(value);
+  }
+}
+
+function sectionViewId(kind) {
+  if (kind === "protection" || kind === "future_scenario") {
+    return ORVI_DASHBOARD_VIEW_IDS.protection;
+  }
+  if (kind === "guaranteed_recovery") {
+    return ORVI_DASHBOARD_VIEW_IDS.guaranteedRecovery;
+  }
+  return "shared";
+}
+
+export function activateOrviDashboardView(
+  dashboard,
+  requestedViewId,
+) {
+  if (!dashboard) return null;
+
+  const activeView = normalizeOrviViewId(requestedViewId);
+  dashboard.dataset.forgeOrviActiveView = activeView;
+
+  for (const button of dashboard.__forgeOrviViewButtons || []) {
+    const selected =
+      button?.dataset?.forgeOrviViewTarget === activeView;
+    button.dataset.forgeOrviViewActive = selected ? "true" : "false";
+    setAttributeSafe(button, "aria-pressed", selected);
+    button.tabIndex = selected ? 0 : -1;
+  }
+
+  for (const section of dashboard.__forgeOrviViewSections || []) {
+    const viewId = section?.dataset?.forgeOrviView;
+    const visible = viewId === "shared" || viewId === activeView;
+    section.hidden = !visible;
+    setAttributeSafe(section, "aria-hidden", !visible);
+  }
+
+  return activeView;
+}
+
+export function createOrviDashboardViewSwitcher(
+  model,
+  { documentRef } = {},
+) {
+  const documentTarget = documentRef || globalThis.document;
+  const switcher = documentTarget.createElement("nav");
+  switcher.className =
+    "fq-benefit-orvi-view-switcher-107z15p2";
+  switcher.dataset.forgeOrviViewSwitcher = "true";
+  setAttributeSafe(
+    switcher,
+    "aria-label",
+    "Vistas del dashboard ORVI",
+  );
+  setAttributeSafe(switcher, "role", "group");
+
+  const navigation = Array.isArray(model?.navigation)
+    ? model.navigation
+    : [];
+
+  const labels = new Map(
+    navigation.map((entry) => [
+      entry?.view_id,
+      entry?.label,
+    ]),
+  );
+
+  const buttons = [
+    {
+      viewId: ORVI_DASHBOARD_VIEW_IDS.protection,
+      label:
+        labels.get(ORVI_DASHBOARD_VIEW_IDS.protection) ||
+        "Protección",
+    },
+    {
+      viewId: ORVI_DASHBOARD_VIEW_IDS.guaranteedRecovery,
+      label:
+        labels.get(
+          ORVI_DASHBOARD_VIEW_IDS.guaranteedRecovery,
+        ) || "Recuperación garantizada",
+    },
+  ].map(({ viewId, label }) => {
+    const button = documentTarget.createElement("button");
+    button.className =
+      "fq-benefit-orvi-view-button-107z15p2";
+    button.type = "button";
+    button.textContent = label;
+    button.dataset.forgeOrviViewTarget = viewId;
+    button.dataset.forgeOrviViewActive =
+      viewId === ORVI_DEFAULT_VIEW ? "true" : "false";
+    setAttributeSafe(
+      button,
+      "aria-pressed",
+      viewId === ORVI_DEFAULT_VIEW,
+    );
+
+    const activate = () => {
+      const dashboard = switcher.__forgeOrviDashboard;
+      if (dashboard) {
+        activateOrviDashboardView(dashboard, viewId);
+      }
+    };
+
+    if (typeof button.addEventListener === "function") {
+      button.addEventListener("click", activate);
+    } else {
+      button.onclick = activate;
+    }
+
+    switcher.appendChild(button);
+    return button;
+  });
+
+  switcher.__forgeOrviViewButtons = buttons;
+  return switcher;
+}
+
 export function renderOrviDashboard(
   model,
   { documentRef, appendValue } = {},
@@ -591,6 +727,16 @@ export function renderOrviDashboard(
   dashboard.dataset.forgeProductLayout = ORVI_PRODUCT_DASHBOARD_LAYOUT;
   dashboard.dataset.forgeProductTemplate = "vida_mujer_reusable";
   dashboard.dataset.forgeOrviViews = "protection,guaranteed_recovery";
+  dashboard.dataset.forgeOrviResponsiveContract = "r15m";
+
+  const switcher = createOrviDashboardViewSwitcher(model, {
+    documentRef,
+  });
+  switcher.__forgeOrviDashboard = dashboard;
+  dashboard.__forgeOrviViewButtons =
+    switcher.__forgeOrviViewButtons || [];
+  dashboard.__forgeOrviViewSections = [];
+  dashboard.appendChild(switcher);
 
   for (const modelSection of model.sections || []) {
     const card = createProductDashboardSection({
@@ -599,23 +745,29 @@ export function renderOrviDashboard(
       kind: modelSection.kind,
       documentRef,
     });
+    card.dataset.forgeOrviView = sectionViewId(
+      modelSection.kind,
+    );
     appendSectionItems(card, modelSection, {
       documentRef,
       appendValue,
     });
+    dashboard.__forgeOrviViewSections.push(card);
     dashboard.appendChild(card);
   }
 
   if (model.missingInformation?.length) {
-    dashboard.appendChild(
-      createMissingInformationSection({
-        title: "Información pendiente",
-        values: model.missingInformation,
-        documentRef,
-      }),
-    );
+    const missing = createMissingInformationSection({
+      title: "Información pendiente",
+      values: model.missingInformation,
+      documentRef,
+    });
+    missing.dataset.forgeOrviView = "shared";
+    dashboard.__forgeOrviViewSections.push(missing);
+    dashboard.appendChild(missing);
   }
 
+  activateOrviDashboardView(dashboard, ORVI_DEFAULT_VIEW);
   return dashboard;
 }
 
@@ -628,6 +780,8 @@ const api = Object.freeze({
   formatOrviNumber,
   formatOrviMoney,
   buildOrviDashboardModel,
+  createOrviDashboardViewSwitcher,
+  activateOrviDashboardView,
   renderOrviDashboard,
 });
 

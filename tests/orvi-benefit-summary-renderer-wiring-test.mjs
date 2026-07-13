@@ -11,7 +11,7 @@ const renderer = readFileSync(
 
 assert.match(
   renderer,
-  /from\s+["']\.\/forge-orvi-product-dashboard-adapter\.js["']/,
+  /from\s+["']\.\/forge-orvi-product-dashboard-adapter\.js(?:\?v=[A-Za-z0-9_.-]+)?["']/,
 );
 assert.match(renderer, /\bbuildOrviDashboardModel\b/);
 assert.match(renderer, /\bisOrviProduct\b/);

@@ -14936,3 +14936,26 @@ Status: `PASS_STATIC_PREVIEW_END_TO_END_WIRING / PRIVATE_VISUAL_PACKET_READY`
 
 NEXT: `R15M_ORVI_MANUAL_VISUAL_ACCEPTANCE_AND_RESPONSIVE_HARDENING`
 <!-- FORGE:R15L_ORVI_STATIC_PREVIEW_END_TO_END:END -->
+
+<!-- FORGE:R15M_ORVI_RESPONSIVE_AND_VISUAL_REVIEW:START -->
+## R15M ORVI Manual Visual Acceptance And Responsive Hardening
+
+Status: `PASS_RESPONSIVE_HARDENING / MANUAL_VISUAL_ACCEPTANCE_PENDING`
+
+- Existing Vida Mujer dashboard template remains authoritative.
+- ORVI view switcher: Protection and Guaranteed Recovery.
+- Default view: Protection.
+- Shared disclosures remain visible in both views.
+- Desktop contract: 12-column ORVI grid.
+- Tablet contract: 8-column ORVI grid.
+- Mobile contract: single-column cards and sticky two-button switcher.
+- Minimum switcher target: 44px.
+- Long labels and values use ORVI-scoped overflow wrapping.
+- Existing financial calculations and Product Intelligence are unchanged.
+- Existing Imagina Ser and SeguBeca adapters are unchanged.
+- A local PII-sanitized review packet and checklist are prepared.
+- Browser automation is not used.
+- Manual visual acceptance is not claimed by this module.
+
+NEXT: `R15M1_ORVI_MANUAL_VISUAL_ACCEPTANCE_SIGNOFF_AND_RELEASE_CLOSE`
+<!-- FORGE:R15M_ORVI_RESPONSIVE_AND_VISUAL_REVIEW:END -->

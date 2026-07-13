@@ -11759,3 +11759,17 @@ Status: `STATIC_PREVIEW_END_TO_END_READY`
 - Next: `R15M_ORVI_MANUAL_VISUAL_ACCEPTANCE_AND_RESPONSIVE_HARDENING`.
 
 <!-- FORGE:R15L_ORVI_STATIC_PREVIEW_END_TO_END:END -->
+
+<!-- FORGE:R15M_ORVI_RESPONSIVE_AND_VISUAL_REVIEW:START -->
+## Product Intelligence / ORVI R15M
+
+Status: `RESPONSIVE_HARDENING_READY_FOR_HUMAN_REVIEW`
+
+- Two-view navigation: ready.
+- Desktop/tablet/mobile contract: ready.
+- Private real-source fake-DOM regression: required.
+- Manual browser review: pending.
+- Release close: blocked until human signoff.
+- Next: `R15M1_ORVI_MANUAL_VISUAL_ACCEPTANCE_SIGNOFF_AND_RELEASE_CLOSE`.
+
+<!-- FORGE:R15M_ORVI_RESPONSIVE_AND_VISUAL_REVIEW:END -->
