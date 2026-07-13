@@ -15044,3 +15044,22 @@ Status: `PASS_RESPONSIVE_NAVIGATION_AND_DIRECT_PDF_STATUS_COPY_POLISH / MANUAL_V
 
 NEXT: `R15M3_ORVI_MANUAL_VISUAL_ACCEPTANCE_SIGNOFF_AND_RELEASE_CLOSE`
 <!-- FORGE:R15M2C_ORVI_RESPONSIVE_NAVIGATION_AND_PDF_COPY_POLISH:END -->
+
+<!-- FORGE:R15M3_ORVI_REPOSITORY_OWNER_VISUAL_SIGNOFF_AND_RELEASE_CLOSE:START -->
+## R15M3 ORVI Repository Owner Visual Signoff And Release Close
+
+MODULE_ID: `R15M3_ORVI_REPOSITORY_OWNER_VISUAL_SIGNOFF_AND_RELEASE_CLOSE`
+
+Status: `PASS_REPOSITORY_OWNER_VISUAL_SIGNOFF_AND_ORVI_RELEASE_CLOSE`
+
+- R15M2B repaired real-PDF extraction, projected-recovery mathematics and Protection presentation.
+- R15M2C repaired responsive navigation, tablet balance and direct-PDF status copy.
+- The repository owner explicitly recorded visual decision `PASS` for the approved criteria.
+- A final Chromium smoke against the exact inspected R15M2C commit passed before close.
+- R15M3 changes documentation and release evidence only; runtime and product truth remain unchanged.
+- Client PDF, temporary JSON, screenshots, client content and PII remain outside the repository.
+- Recommendation remains `null`; human decision remains required.
+- ORVI R15 is closed.
+
+NEXT: `BOARD_SCOPE_SELECTION_AFTER_ORVI_RELEASE_CLOSE`
+<!-- FORGE:R15M3_ORVI_REPOSITORY_OWNER_VISUAL_SIGNOFF_AND_RELEASE_CLOSE:END -->

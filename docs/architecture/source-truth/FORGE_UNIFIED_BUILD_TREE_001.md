@@ -11859,3 +11859,22 @@ Status: `PASS_RESPONSIVE_NAVIGATION_AND_DIRECT_PDF_STATUS_COPY_POLISH / PENDING_
 - Next: `R15M3_ORVI_MANUAL_VISUAL_ACCEPTANCE_SIGNOFF_AND_RELEASE_CLOSE`.
 
 <!-- FORGE:R15M2C_ORVI_RESPONSIVE_NAVIGATION_AND_PDF_COPY_POLISH:END -->
+
+<!-- FORGE:R15M3_ORVI_REPOSITORY_OWNER_VISUAL_SIGNOFF_AND_RELEASE_CLOSE:START -->
+## Product Intelligence / ORVI R15M3
+
+MODULE_ID: `R15M3_ORVI_REPOSITORY_OWNER_VISUAL_SIGNOFF_AND_RELEASE_CLOSE`
+
+Status: `PASS_REPOSITORY_OWNER_VISUAL_SIGNOFF_AND_ORVI_RELEASE_CLOSE`
+
+- R15M2B real-PDF and projected-recovery repair: PASS.
+- R15M2C responsive-navigation and direct-PDF-copy polish: PASS.
+- Repository-owner visual decision: PASS.
+- Exact-commit Chromium release smoke: PASS.
+- R15M3 runtime, Product Intelligence, parser, mapper, rate cache, calculations, selector, modal and UI changes: none.
+- Release evidence contains no client content and references screenshots only as external evidence.
+- Recommendation remains `null`; human decision remains required.
+- ORVI R15 release status: `PASS_ORVI_RELEASE_CLOSED`.
+- Next: `BOARD_SCOPE_SELECTION_AFTER_ORVI_RELEASE_CLOSE`.
+
+<!-- FORGE:R15M3_ORVI_REPOSITORY_OWNER_VISUAL_SIGNOFF_AND_RELEASE_CLOSE:END -->
