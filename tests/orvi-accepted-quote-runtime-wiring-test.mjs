@@ -46,7 +46,7 @@ assert.match(
 );
 assert.match(
   bridge,
-  /forge-benefit-summary-renderer\.js\?v=r15m2c_orvi_responsive_copy_20260713_1/,
+  /forge-benefit-summary-renderer\.js\?v=r16b_unified_dashboard_20260713_1/,
 );
 
 console.log("PASS R15L ORVI accepted-quote runtime wiring", {

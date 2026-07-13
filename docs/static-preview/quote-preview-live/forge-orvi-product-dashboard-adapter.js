@@ -6,7 +6,7 @@ import {
   createPrimaryMetric,
   createProductDashboard,
   createProductDashboardSection,
-} from "./forge-product-dashboard-template.js";
+} from "./forge-product-dashboard-template.js?v=r16b_unified_dashboard_20260713_1";
 
 export const ORVI_PRODUCT_TYPE = "orvi";
 export const ORVI_PRODUCT_DASHBOARD_LAYOUT = "orvi_dynamic_r15k";

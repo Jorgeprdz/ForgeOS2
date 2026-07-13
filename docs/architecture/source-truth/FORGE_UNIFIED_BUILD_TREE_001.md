@@ -11899,3 +11899,24 @@ Status: `PASS_QUOTE_INTAKE_EMPTY_STATE_AND_UPLOAD_CONTROL_RESPONSIVE_REPAIR`
 - Next: `BOARD_SCOPE_SELECTION_AFTER_R16A`.
 
 <!-- FORGE:R16A_QUOTE_INTAKE_EMPTY_STATE_RESPONSIVE_REPAIR:END -->
+
+<!-- FORGE:R16B_UNIFIED_PRODUCT_DASHBOARD_HERO_AND_GRID:START -->
+## Forge Alive / Unified Product Dashboard R16B
+
+MODULE_ID: `R16B_UNIFIED_PRODUCT_DASHBOARD_HERO_METRIC_AND_ALIGNED_RESPONSIVE_GRID`
+
+Status: `PASS_UNIFIED_PRODUCT_DASHBOARD_HERO_METRIC_AND_ALIGNED_RESPONSIVE_GRID`
+
+- Visual authority: the established ORVI dashboard system, preserved without R16B grid enrollment.
+- Shared READY-state presentation: semantic hero, compact metadata, deterministic spans, aligned equal-height peers, and balanced singleton rows.
+- Responsive grid: 12 desktop columns, 8 tablet columns, and one mobile column.
+- SeguBeca: canonical `Meta educativa` hero when no explicit plan-level sum assured exists; nested summary cards removed.
+- Imagina Ser and Vida Mujer: explicit canonical sum-assured heroes with product-specific semantics preserved.
+- Generic fallback: no hero without explicit sum-assured evidence.
+- Browser visual and responsive regressions: PASS for SeguBeca, ORVI, Imagina Ser, Vida Mujer, and READY routes.
+- R16A EMPTY/LOADING/ERROR isolation and READY reveal: PASS and unchanged.
+- Product Intelligence, parsers, mappers, rate cache, financial calculations, and ORVI R15 close: unchanged.
+- External visual evidence: inspected and not committed.
+- Next: `BOARD_SCOPE_SELECTION_AFTER_R16B`.
+
+<!-- FORGE:R16B_UNIFIED_PRODUCT_DASHBOARD_HERO_AND_GRID:END -->

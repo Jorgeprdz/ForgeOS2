@@ -1,4 +1,4 @@
-import { PRODUCT_DASHBOARD_THEME } from "./forge-product-dashboard-template.js";
+import { PRODUCT_DASHBOARD_THEME } from "./forge-product-dashboard-template.js?v=r16b_unified_dashboard_20260713_1";
 
 function benefitBlockKey107z15p2R9E(title) {
   const normalized = String(title || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
@@ -340,6 +340,196 @@ function installBenefitDashboardStyles107z15p2R11M() {
       .fq-benefit-mini-grid-107z15p2, .fq-benefit-dotal-chips-107z15p2, .fq-benefit-dotal-totals-107z15p2,
       .fq-benefit-pcf-grid-107z15p2, .fq-benefit-recommended-fields-107z15p2 { grid-template-columns: 1fr; }
     }
+  /* FORGE:R16B_UNIFIED_PRODUCT_DASHBOARD_GRID:START */
+  .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"] {
+    grid-auto-flow: row !important;
+    align-items: stretch !important;
+  }
+
+  .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"]
+  > .fq-benefit-card-107z15p2 {
+    height: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .fq-benefit-hero-metric-r16b {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 220px;
+    padding: 26px !important;
+    border-color: rgba(244, 216, 93, .24) !important;
+    background: linear-gradient(145deg, rgba(244, 216, 93, .105), rgba(79, 151, 255, .065)) !important;
+  }
+
+  .fq-benefit-hero-label-r16b {
+    margin: 0;
+    color: var(--fq-r11m-label);
+    font-size: .84rem;
+    font-weight: 850;
+    line-height: 1.3;
+  }
+
+  .fq-benefit-hero-value-r16b {
+    margin-top: 10px;
+    max-width: 100%;
+    color: var(--fq-r11m-udi);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 950;
+    line-height: 1.04;
+    letter-spacing: -.035em;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .fq-benefit-hero-value-r16b .fq-benefit-value-part-107z15p2 {
+    display: inline;
+  }
+
+  .fq-benefit-hero-secondary-r16b {
+    display: grid;
+    gap: 5px;
+    margin-top: 18px;
+    padding-top: 15px;
+    border-top: 1px solid var(--fq-r11m-line);
+  }
+
+  .fq-benefit-hero-secondary-label-r16b,
+  .fq-benefit-compact-metadata-label-r16b {
+    color: var(--fq-r11m-label);
+    font-size: .75rem;
+    font-weight: 800;
+    line-height: 1.3;
+  }
+
+  .fq-benefit-hero-secondary-value-r16b {
+    color: var(--fq-r11m-mxn);
+    font-size: 1rem;
+    font-weight: 900;
+    line-height: 1.3;
+  }
+
+  .fq-benefit-compact-metadata-r16b {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    margin: 0;
+  }
+
+  .fq-benefit-compact-metadata-item-r16b {
+    display: grid;
+    grid-template-columns: minmax(110px, .9fr) minmax(0, 1.1fr);
+    gap: 12px;
+    align-items: baseline;
+    min-width: 0;
+    padding: 12px 2px;
+    border-bottom: 1px solid var(--fq-r11m-line);
+  }
+
+  .fq-benefit-compact-metadata-item-r16b:first-child { padding-top: 2px; }
+  .fq-benefit-compact-metadata-item-r16b:last-child {
+    padding-bottom: 2px;
+    border-bottom: 0;
+  }
+
+  .fq-benefit-compact-metadata-value-r16b {
+    min-width: 0;
+    margin: 0;
+    color: var(--fq-r11m-udi);
+    font-size: .9rem;
+    font-weight: 900;
+    line-height: 1.3;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"]
+  .fq-benefit-recommended-grid-107z15p2 > :only-child {
+    grid-column: 1 / -1;
+  }
+
+  @media (min-width: 1181px) {
+    .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"] {
+      grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+      gap: 20px !important;
+    }
+    .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"]
+    > [data-forge-desktop-span="4"] { grid-column: span 4 !important; }
+    .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"]
+    > [data-forge-desktop-span="6"] { grid-column: span 6 !important; }
+    .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"]
+    > [data-forge-desktop-span="8"] { grid-column: span 8 !important; }
+    .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"]
+    > [data-forge-desktop-span="12"] { grid-column: 1 / -1 !important; }
+    .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"]
+    > [data-forge-desktop-centered="true"][data-forge-desktop-span="4"] {
+      grid-column: 5 / span 4 !important;
+    }
+    .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"]
+    > [data-forge-desktop-centered="true"][data-forge-desktop-span="6"] {
+      grid-column: 4 / span 6 !important;
+    }
+    .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"]
+    > [data-forge-desktop-centered="true"][data-forge-desktop-span="8"] {
+      grid-column: 3 / span 8 !important;
+    }
+  }
+
+  @media (max-width: 1180px) and (min-width: 761px) {
+    .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"] {
+      grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
+      gap: 16px !important;
+    }
+    .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"]
+    > [data-forge-tablet-span="4"] { grid-column: span 4 !important; }
+    .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"]
+    > [data-forge-tablet-span="8"] { grid-column: 1 / -1 !important; }
+    .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"]
+    > [data-forge-tablet-centered="true"][data-forge-tablet-span="4"] {
+      grid-column: 3 / span 4 !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"] {
+      display: grid !important;
+      grid-template-columns: minmax(0, 1fr) !important;
+      gap: 14px !important;
+    }
+    .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"]
+    > .fq-benefit-card-107z15p2 {
+      grid-column: 1 / -1 !important;
+      width: 100%;
+      margin: 0 !important;
+      padding: 16px;
+    }
+    .fq-benefit-hero-metric-r16b {
+      min-height: 0;
+      padding: 20px !important;
+    }
+    .fq-benefit-hero-value-r16b {
+      font-size: clamp(1.85rem, 10vw, 2.55rem);
+    }
+    .fq-benefit-compact-metadata-item-r16b {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 4px;
+      padding-block: 10px;
+    }
+    .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"]
+    .fq-benefit-mini-grid-107z15p2,
+    .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"]
+    .fq-benefit-recommended-grid-107z15p2 {
+      grid-template-columns: minmax(0, 1fr) !important;
+    }
+    .fq-benefit-dashboard-107z15p2[data-forge-unified-grid="true"]
+    .fq-benefit-row-107z15p2 {
+      grid-template-columns: minmax(0, 1fr) !important;
+      gap: 5px;
+    }
+  }
+  /* FORGE:R16B_UNIFIED_PRODUCT_DASHBOARD_GRID:END */
+
   /* FORGE:R15M_ORVI_RESPONSIVE_HARDENING:START */
   .fq-benefit-dashboard-107z15p2[data-forge-product-type="orvi"] {
     grid-auto-flow: dense;

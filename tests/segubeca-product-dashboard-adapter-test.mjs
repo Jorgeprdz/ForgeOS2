@@ -50,14 +50,19 @@ assert.equal(isSegubecaProduct({ product: "Vida Mujer" }), false);
 
 const model = buildSegubecaDashboardModel(benefitSummary);
 assert.equal(model.productType, "segubeca");
+assert.equal(model.hero.label, "Meta educativa");
+assert.equal(model.hero.value, "50,001 UDI");
+assert.equal(model.hero.secondaryValue, "≈ $441,497 MXN");
+assert.equal(model.hero.sourceField, "target_amount");
 assert.equal(model.sections[0].title, "Resumen del plan");
+assert.equal(model.sections[0].presentation, "compact_metadata");
 assert.equal(model.sections.find((section) => section.kind === "participants").title, "Quiénes quedan protegidos");
 assert.equal(model.sections.find((section) => section.kind === "participants").items[0].label, "Modalidad");
 assert.equal(model.sections.find((section) => section.kind === "participants").items[0].value, "Mancomunado");
 assert.equal(model.sections.find((section) => section.kind === "participants").items[1].label, "Asegurado principal");
 assert.equal(model.sections.find((section) => section.kind === "participants").items[2].label, "Asegurado adicional");
 assert.equal(model.sections.find((section) => section.kind === "participants").items[3].label, "Menor asociado");
-assert.equal(model.sections.find((section) => section.kind === "education_goal").title, "Meta educativa");
+assert.equal(model.sections.some((section) => section.kind === "education_goal"), false);
 assert.equal(model.sections.find((section) => section.kind === "payout").title, "Cómo se entrega");
 assert.equal(model.sections.find((section) => section.kind === "contribution").items[0].value, "≈ $12,500 MXN");
 assert.ok(model.missingInformation.includes("Confirmar forma final de entrega"));
@@ -70,10 +75,25 @@ assert.ok(sparseModel.missingInformation.includes("Falta forma de entrega con ev
 const documentRef = createFakeDocument();
 const dashboard = renderSegubecaDashboard(model, { documentRef });
 assert.equal(dashboard.dataset.forgeProductType, "segubeca");
-assert.equal(dashboard.dataset.forgeProductLayout, "segubeca_desktop_r14a");
+assert.equal(dashboard.dataset.forgeProductLayout, "segubeca_unified_r16b");
+assert.equal(dashboard.dataset.forgeUnifiedGrid, "true");
 assert.equal(dashboard.className, "fq-benefit-dashboard-107z15p2");
-assert.ok(dashboard.children.some((child) => child.dataset.forgeProductSection === "education_goal"));
+assert.equal(dashboard.children[0].dataset.forgeHeroMetric, "true");
+assert.equal(dashboard.children[1].dataset.forgeLayoutRole, "metadata");
+assert.equal(dashboard.children[1].children[1].tagName, "DL");
 assert.ok(dashboard.children.some((child) => child.dataset.forgeProductSection === "participants"));
+
+const explicitSumAssuredModel = buildSegubecaDashboardModel([
+  { type: "summary_plan", lines: [{ id: "sum_assured", label: "Suma asegurada", value: { udi: 40000, mxn: 350000 } }] },
+  { type: "education_goal", lines: [{ id: "target_amount", value: { udi: 30000, mxn: 260000 } }] },
+]);
+assert.equal(explicitSumAssuredModel.hero.label, "Suma asegurada");
+assert.equal(explicitSumAssuredModel.hero.value, "40,000 UDI");
+assert.equal(explicitSumAssuredModel.hero.sourceField, "sum_assured");
+assert.ok(explicitSumAssuredModel.sections.some((section) =>
+  section.kind === "education_goal" && section.items[0].label === "Meta educativa",
+));
+assert.notEqual(explicitSumAssuredModel.hero.label, "Prima");
 const recommendedModel = buildSegubecaDashboardModel([
   {
     type: "additional_coverages",

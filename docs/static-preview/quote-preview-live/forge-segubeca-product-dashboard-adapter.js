@@ -1,12 +1,15 @@
 import {
   PRODUCT_DASHBOARD_CLASSES,
+  applyAlignedDashboardGrid,
+  createCompactMetadataGrid,
+  createDashboardHeroMetric,
   createMetricRow,
   createMissingInformationSection,
   createPrimaryMetric,
   createProductDashboard,
   createProductDashboardSection,
   createRecommendedBenefitCard
-} from "./forge-product-dashboard-template.js";
+} from "./forge-product-dashboard-template.js?v=r16b_unified_dashboard_20260713_1";
 
 const SEGUBECA_PRODUCT_TYPE = "segubeca";
 
@@ -134,13 +137,72 @@ function unique(values) {
   return [...new Set(values.filter(Boolean))];
 }
 
-function section({ key, kind, title, presentation = "metric_rows", items = [] }) {
+function section({
+  key,
+  kind,
+  title,
+  presentation = "metric_rows",
+  layoutRole = kind,
+  order = null,
+  desktopSpan = 6,
+  tabletSpan = 4,
+  items = [],
+}) {
   return Object.freeze({
     key,
     kind,
     title,
     presentation,
+    layoutRole,
+    order,
+    desktopSpan,
+    tabletSpan,
     items: Object.freeze(items.filter((item) => item?.label && item?.value))
+  });
+}
+
+function splitHeroValue(value) {
+  const parts = String(value || "").split(/\s*·\s*/).filter(Boolean);
+  return {
+    value: parts[0] || null,
+    secondaryValue: parts.slice(1).join(" · ") || null,
+  };
+}
+
+function segubecaHeroCandidate(blocks) {
+  const eligible = blocks.filter((block) => ![
+    "included benefits",
+    "additional coverages",
+    "recommended benefits",
+  ].includes(blockType(block)));
+  const lines = eligible.flatMap((block) =>
+    blockLines(block).map((line) => ({ block, line })),
+  );
+  const explicit = lines.find(({ line }) => {
+    const key = normalizeKey(line?.id || line?.key || line?.label);
+    return key.includes("sum assured") || key.includes("suma asegurada");
+  });
+  const educationBlock = firstBlock(blocks, ["education_goal", "education_payout"]);
+  const education = blockLines(educationBlock).find((line) => {
+    const key = normalizeKey(line?.id || line?.key || line?.label);
+    return key.includes("target amount") || key.includes("education goal") || key.includes("meta educativa");
+  });
+  const candidate = explicit || (education ? { block: educationBlock, line: education } : null);
+  if (!candidate) return null;
+
+  const sourceField = candidate.line.id || candidate.line.key || normalizeKey(candidate.line.label);
+  const formatted = formatLineValue(candidate.line);
+  if (!formatted) return null;
+  const parts = splitHeroValue(formatted);
+  const explicitSumAssured = candidate === explicit;
+  return Object.freeze({
+    label: explicitSumAssured ? "Suma asegurada" : "Meta educativa",
+    value: parts.value,
+    secondaryLabel: parts.secondaryValue ? "Equivalencia en MXN" : null,
+    secondaryValue: parts.secondaryValue,
+    sourceField,
+    sourceBlockType: blockType(candidate.block),
+    evidence: candidate.line,
   });
 }
 
@@ -310,17 +372,27 @@ function buildSegubecaDashboardModel(benefitSummary) {
     "missing_information", "missing information"
   ].map(normalizeKey));
   const secondaryBlocks = blocks.filter((block) => !knownTypes.has(blockType(block)));
+  const hero = segubecaHeroCandidate(blocks);
+  const remainingEducationItems = blockItems(education).filter(
+    (item) => !(hero && hero.sourceBlockType === blockType(education) && item.id === hero.sourceField),
+  );
+  const heroOwnsEducationGoal = hero?.sourceBlockType === blockType(education);
+  const summaryItems = [
+    ...blockItems(summary),
+    ...(heroOwnsEducationGoal ? remainingEducationItems : []),
+  ];
+  const educationItems = heroOwnsEducationGoal ? [] : remainingEducationItems;
 
   const sections = [
-    section({ key: "summary", kind: "summary", title: "Resumen del plan", presentation: "primary_metrics", items: blockItems(summary) }),
-    section({ key: "participants", kind: "participants", title: "Quiénes quedan protegidos", presentation: "primary_metrics", items: participantItems(participants) }),
-    section({ key: "contribution", kind: "contribution", title: "Lo que aportas", presentation: "primary_metrics", items: blockItems(contribution) }),
-    section({ key: "education_goal", kind: "education_goal", title: "Meta educativa", presentation: "primary_metrics", items: blockItems(education) }),
-    section({ key: "payout", kind: "payout", title: "Cómo se entrega", items: blockItems(payout) }),
-    section({ key: "protection", kind: "protection", title: "Lo que proteges", items: blockItems(protection) }),
-    section({ key: "included_benefits", kind: "included_benefits", title: "Beneficios incluidos", items: recommendedItems(included) }),
-    section({ key: "additional_coverages", kind: "additional_coverages", title: "Coberturas u opciones adicionales", items: recommendedItems(additional) }),
-    section({ key: "other", kind: "secondary_details", title: "Otros detalles", items: secondaryBlocks.flatMap((block) => blockItems(block)) })
+    section({ key: "summary", kind: "summary", title: "Resumen del plan", presentation: "compact_metadata", layoutRole: "metadata", order: 2, desktopSpan: hero ? 4 : 12, tabletSpan: 8, items: summaryItems }),
+    section({ key: "participants", kind: "participants", title: "Quiénes quedan protegidos", presentation: "compact_metadata", order: 3, items: participantItems(participants) }),
+    section({ key: "contribution", kind: "contribution", title: "Lo que aportas", presentation: "primary_metrics", order: 4, items: blockItems(contribution) }),
+    section({ key: "education_goal", kind: "education_goal", title: "Meta educativa", presentation: "primary_metrics", order: 5, items: educationItems }),
+    section({ key: "payout", kind: "payout", title: "Cómo se entrega", order: 6, items: blockItems(payout) }),
+    section({ key: "protection", kind: "protection", title: "Lo que proteges", order: 7, items: blockItems(protection) }),
+    section({ key: "included_benefits", kind: "included_benefits", title: "Beneficios incluidos", order: 8, items: recommendedItems(included) }),
+    section({ key: "additional_coverages", kind: "additional_coverages", title: "Coberturas u opciones adicionales", order: 9, items: recommendedItems(additional) }),
+    section({ key: "other", kind: "secondary_details", title: "Otros detalles", order: 10, desktopSpan: 12, tabletSpan: 8, items: secondaryBlocks.flatMap((block) => blockItems(block)) })
   ].filter((item) => item.items.length);
 
   const missing = missingBlocks.flatMap((block) => [
@@ -337,6 +409,7 @@ function buildSegubecaDashboardModel(benefitSummary) {
 
   return Object.freeze({
     productType: SEGUBECA_PRODUCT_TYPE,
+    hero,
     sections: Object.freeze(sections),
     missingInformation: Object.freeze(unique(missing))
   });
@@ -347,6 +420,14 @@ function appendItemGrid(card, modelSection, { documentRef, appendValue } = {}) {
   const isPrimary = modelSection.presentation === "primary_metrics";
   const isRecommended = ["included_benefits", "additional_coverages", "recommended"].includes(modelSection.presentation) ||
     ["included_benefits", "additional_coverages"].includes(modelSection.kind);
+  if (modelSection.presentation === "compact_metadata") {
+    card.appendChild(createCompactMetadataGrid({
+      items: modelSection.items,
+      appendValue,
+      documentRef,
+    }));
+    return;
+  }
   const grid = documentTarget.createElement("div");
   grid.className = isRecommended
     ? PRODUCT_DASHBOARD_CLASSES.recommendedGrid
@@ -379,13 +460,30 @@ function renderSegubecaDashboard(model, { documentRef, appendValue } = {}) {
   if (!model || model.productType !== SEGUBECA_PRODUCT_TYPE) return null;
   const dashboard = createProductDashboard({ documentRef });
   dashboard.dataset.forgeProductType = SEGUBECA_PRODUCT_TYPE;
-  dashboard.dataset.forgeProductLayout = "segubeca_desktop_r14a";
+  dashboard.dataset.forgeProductLayout = "segubeca_unified_r16b";
+  dashboard.dataset.forgeUnifiedGrid = "true";
+
+  if (model.hero) {
+    dashboard.appendChild(createDashboardHeroMetric({
+      ...model.hero,
+      appendValue: appendValue ? (target) => appendValue(target, model.hero.value) : undefined,
+      appendSecondaryValue: appendValue && model.hero.secondaryValue
+        ? (target) => appendValue(target, model.hero.secondaryValue)
+        : undefined,
+      desktopSpan: model.sections.some((entry) => entry.kind === "summary") ? 8 : 12,
+      documentRef,
+    }));
+  }
 
   for (const modelSection of model.sections || []) {
     const card = createProductDashboardSection({
       title: modelSection.title,
       key: modelSection.key,
       kind: modelSection.kind,
+      layoutRole: modelSection.layoutRole,
+      order: modelSection.order,
+      desktopSpan: modelSection.desktopSpan,
+      tabletSpan: modelSection.tabletSpan,
       documentRef
     });
     appendItemGrid(card, modelSection, { documentRef, appendValue });
@@ -396,10 +494,14 @@ function renderSegubecaDashboard(model, { documentRef, appendValue } = {}) {
     dashboard.appendChild(createMissingInformationSection({
       title: "Información pendiente",
       values: model.missingInformation,
+      order: 11,
+      desktopSpan: 12,
+      tabletSpan: 8,
       documentRef
     }));
   }
 
+  applyAlignedDashboardGrid(dashboard);
   return dashboard;
 }
 

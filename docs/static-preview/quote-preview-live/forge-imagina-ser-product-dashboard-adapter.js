@@ -1,12 +1,15 @@
 import {
   PRODUCT_DASHBOARD_CLASSES,
+  applyAlignedDashboardGrid,
+  createCompactMetadataGrid,
+  createDashboardHeroMetric,
   createMetricRow,
   createMissingInformationSection,
   createPrimaryMetric,
   createProductDashboard,
   createProductDashboardSection,
   createRecommendedBenefitCard
-} from "./forge-product-dashboard-template.js";
+} from "./forge-product-dashboard-template.js?v=r16b_unified_dashboard_20260713_1";
 
 const IMAGINA_SER_PRODUCT_TYPE = "imagina_ser";
 
@@ -93,13 +96,55 @@ function lineValue(line) {
   return formatImaginaSerLineValue(line);
 }
 
-function section({ key, kind, title, presentation = "metric_rows", items = [] }) {
+function section({
+  key,
+  kind,
+  title,
+  presentation = "metric_rows",
+  layoutRole = kind,
+  order = null,
+  desktopSpan = 6,
+  tabletSpan = 4,
+  items = [],
+}) {
   return Object.freeze({
     key,
     kind,
     title,
     presentation,
+    layoutRole,
+    order,
+    desktopSpan,
+    tabletSpan,
     items: Object.freeze(items.filter((item) => item?.value !== null && item?.value !== undefined && item?.value !== ""))
+  });
+}
+
+function splitHeroValue(value) {
+  const parts = String(value || "").split(/\s*·\s*/).filter(Boolean);
+  return {
+    value: parts[0] || null,
+    secondaryValue: parts.slice(1).join(" · ") || null,
+  };
+}
+
+function imaginaSerHero(protectionItems, builtItems) {
+  const sumAssured = protectionItems.find((item) => {
+    const key = normalizeKey(`${item.id} ${item.label}`);
+    return key.includes("sum_assured") || key.includes("suma_asegurada");
+  });
+  const goal = builtItems.find((item) => item.id === "base_goal");
+  const candidate = sumAssured || goal || null;
+  if (!candidate) return null;
+  const parts = splitHeroValue(candidate.value);
+  return Object.freeze({
+    label: sumAssured ? "Suma asegurada" : candidate.label,
+    value: parts.value,
+    secondaryLabel: parts.secondaryValue ? "Equivalencia en MXN" : null,
+    secondaryValue: parts.secondaryValue,
+    sourceField: candidate.id,
+    sourceSection: sumAssured ? "protection" : "construction",
+    evidence: candidate.evidence,
   });
 }
 
@@ -213,14 +258,21 @@ function buildImaginaSerDashboardModel(benefitSummary, { formatAmount = formatIm
     ...blockItems(recovery),
     ...otherBlocks.flatMap(blockItems)
   ];
+  const hero = imaginaSerHero(protectionItems, builtItems);
+  const visibleProtectionItems = protectionItems.filter(
+    (item) => !(hero?.sourceSection === "protection" && item.id === hero.sourceField),
+  );
+  const visibleBuiltItems = builtItems.filter(
+    (item) => !(hero?.sourceSection === "construction" && item.id === hero.sourceField),
+  );
 
   const sections = [
-    section({ key: "summary", kind: "summary", title: "Resumen del plan", presentation: "primary_metrics", items: summaryItems }),
-    section({ key: "contribution", kind: "contribution", title: "Lo que aportas", presentation: "primary_metrics", items: contributionItems }),
-    section({ key: "contribution", kind: "construction", title: "Lo que construyes", presentation: "primary_metrics", items: builtItems }),
-    section({ key: "protection", kind: "protection", title: "Lo que proteges", items: protectionItems }),
-    section({ key: "recommended", kind: "recommended", title: "Beneficios recomendados", presentation: "recommended", items: recommendedItems }),
-    section({ key: "other", kind: "secondary_details", title: "Otros detalles", items: secondaryItems })
+    section({ key: "summary", kind: "summary", title: "Resumen del plan", presentation: "compact_metadata", layoutRole: "metadata", order: 2, desktopSpan: hero ? 4 : 12, tabletSpan: 8, items: summaryItems }),
+    section({ key: "contribution", kind: "contribution", title: "Lo que aportas", presentation: "primary_metrics", order: 3, desktopSpan: 4, items: contributionItems }),
+    section({ key: "contribution", kind: "construction", title: "Lo que construyes", presentation: "primary_metrics", order: 4, desktopSpan: 8, items: visibleBuiltItems }),
+    section({ key: "protection", kind: "protection", title: "Lo que proteges", order: 5, items: visibleProtectionItems }),
+    section({ key: "recommended", kind: "recommended", title: "Beneficios recomendados", presentation: "recommended", order: 6, items: recommendedItems }),
+    section({ key: "other", kind: "secondary_details", title: "Otros detalles", order: 7, items: secondaryItems })
   ].filter((item) => item.items.length);
 
   const missing = missingBlocks.flatMap((block) => [
@@ -238,6 +290,7 @@ function buildImaginaSerDashboardModel(benefitSummary, { formatAmount = formatIm
 
   return Object.freeze({
     productType: IMAGINA_SER_PRODUCT_TYPE,
+    hero,
     sections: Object.freeze(sections),
     missingInformation: Object.freeze(unique(missing))
   });
@@ -247,17 +300,40 @@ function renderImaginaSerDashboard(model, { documentRef, appendValue } = {}) {
   if (!model || model.productType !== IMAGINA_SER_PRODUCT_TYPE) return null;
   const dashboard = createProductDashboard({ documentRef });
   dashboard.dataset.forgeProductType = IMAGINA_SER_PRODUCT_TYPE;
-  dashboard.dataset.forgeProductLayout = "imagina_ser_desktop_r13g";
+  dashboard.dataset.forgeProductLayout = "imagina_ser_unified_r16b";
+  dashboard.dataset.forgeUnifiedGrid = "true";
+
+  if (model.hero) {
+    dashboard.appendChild(createDashboardHeroMetric({
+      ...model.hero,
+      appendValue: appendValue ? (target) => appendValue(target, model.hero.value) : undefined,
+      appendSecondaryValue: appendValue && model.hero.secondaryValue
+        ? (target) => appendValue(target, model.hero.secondaryValue)
+        : undefined,
+      desktopSpan: model.sections.some((entry) => entry.kind === "summary") ? 8 : 12,
+      documentRef,
+    }));
+  }
 
   for (const modelSection of model.sections || []) {
     const card = createProductDashboardSection({
       title: modelSection.title,
       key: modelSection.key,
       kind: modelSection.kind,
+      layoutRole: modelSection.layoutRole,
+      order: modelSection.order,
+      desktopSpan: modelSection.desktopSpan,
+      tabletSpan: modelSection.tabletSpan,
       documentRef
     });
 
-    if (modelSection.presentation === "recommended") {
+    if (modelSection.presentation === "compact_metadata") {
+      card.appendChild(createCompactMetadataGrid({
+        items: modelSection.items,
+        appendValue,
+        documentRef,
+      }));
+    } else if (modelSection.presentation === "recommended") {
       const grid = (documentRef || globalThis.document).createElement("div");
       grid.className = PRODUCT_DASHBOARD_CLASSES.recommendedGrid;
       for (const item of modelSection.items) {
@@ -293,10 +369,14 @@ function renderImaginaSerDashboard(model, { documentRef, appendValue } = {}) {
     dashboard.appendChild(createMissingInformationSection({
       title: "Información pendiente",
       values: model.missingInformation,
+      order: 8,
+      desktopSpan: 12,
+      tabletSpan: 8,
       documentRef
     }));
   }
 
+  applyAlignedDashboardGrid(dashboard);
   return dashboard;
 }
 

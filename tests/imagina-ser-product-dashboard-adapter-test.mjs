@@ -96,9 +96,12 @@ const model = buildImaginaSerDashboardModel(benefitSummary, {
 });
 
 assert.equal(model.productType, "imagina_ser");
+assert.equal(model.hero.label, "Suma asegurada");
+assert.equal(model.hero.value, "75,000 UDI");
+assert.equal(model.hero.sourceField, "sum_assured_udi");
 assert.deepEqual(
   model.sections.map((section) => section.title),
-  ["Resumen del plan", "Lo que aportas", "Lo que construyes", "Lo que proteges"]
+  ["Resumen del plan", "Lo que aportas", "Lo que construyes"]
 );
 assert.equal(model.sections.find((section) => section.kind === "summary").items[0].value, "15 años");
 assert.equal(model.sections.find((section) => section.kind === "summary").items[0].label, "Plazo de aportación");
@@ -119,9 +122,11 @@ assert.ok(model.missingInformation.includes("No hay otros detalles con evidencia
 
 const dashboard = renderImaginaSerDashboard(model, { documentRef });
 assert.equal(dashboard.dataset.forgeProductType, "imagina_ser");
-assert.equal(dashboard.dataset.forgeProductLayout, "imagina_ser_desktop_r13g");
+assert.equal(dashboard.dataset.forgeProductLayout, "imagina_ser_unified_r16b");
+assert.equal(dashboard.dataset.forgeUnifiedGrid, "true");
 assert.equal(dashboard.className, "fq-benefit-dashboard-107z15p2");
-assert.equal(dashboard.children[0].dataset.forgeProductSection, "summary");
+assert.equal(dashboard.children[0].dataset.forgeProductSection, "hero");
+assert.equal(dashboard.children[1].dataset.forgeProductSection, "summary");
 assert.equal(dashboard.children.at(-1).dataset.forgeProductSection, "missing_information");
 
 const sparseModel = buildImaginaSerDashboardModel([], { formatAmount: () => null });

@@ -6,6 +6,16 @@ const PRODUCT_DASHBOARD_CLASSES = Object.freeze({
   metricRow: "fq-benefit-row-107z15p2",
   primaryMetricGrid: "fq-benefit-mini-grid-107z15p2",
   primaryMetric: "fq-benefit-mini-card-107z15p2",
+  heroMetric: "fq-benefit-hero-metric-r16b",
+  heroLabel: "fq-benefit-hero-label-r16b",
+  heroValue: "fq-benefit-hero-value-r16b",
+  heroSecondary: "fq-benefit-hero-secondary-r16b",
+  heroSecondaryLabel: "fq-benefit-hero-secondary-label-r16b",
+  heroSecondaryValue: "fq-benefit-hero-secondary-value-r16b",
+  compactMetadata: "fq-benefit-compact-metadata-r16b",
+  compactMetadataItem: "fq-benefit-compact-metadata-item-r16b",
+  compactMetadataLabel: "fq-benefit-compact-metadata-label-r16b",
+  compactMetadataValue: "fq-benefit-compact-metadata-value-r16b",
   label: "fq-benefit-label-107z15p2",
   value: "fq-benefit-value-107z15p2",
   valuePart: "fq-benefit-value-part-107z15p2",
@@ -35,6 +45,9 @@ const PRODUCT_DASHBOARD_THEME = Object.freeze({
 });
 
 const PRODUCT_DASHBOARD_SECTION_KINDS = Object.freeze([
+  "hero",
+  "metadata",
+  "participants",
   "summary",
   "contribution",
   "construction",
@@ -70,8 +83,25 @@ function normalizeProductDashboardSection(section = {}) {
     kind: String(section.kind || key).trim() || "secondary_details",
     title: String(section.title || "").trim(),
     presentation: String(section.presentation || "metric_rows").trim() || "metric_rows",
+    layoutRole: String(section.layoutRole || section.kind || key).trim(),
+    order: Number.isInteger(section.order) ? section.order : null,
+    desktopSpan: Number.isInteger(section.desktopSpan) ? section.desktopSpan : null,
+    tabletSpan: Number.isInteger(section.tabletSpan) ? section.tabletSpan : null,
     items: Object.freeze(Array.isArray(section.items) ? [...section.items] : [])
   });
+}
+
+function applyProductDashboardLayoutData(node, {
+  layoutRole,
+  order,
+  desktopSpan,
+  tabletSpan,
+} = {}) {
+  if (layoutRole) node.dataset.forgeLayoutRole = String(layoutRole);
+  if (Number.isInteger(order)) node.dataset.forgeLayoutOrder = String(order);
+  if (Number.isInteger(desktopSpan)) node.dataset.forgeDesktopSpan = String(desktopSpan);
+  if (Number.isInteger(tabletSpan)) node.dataset.forgeTabletSpan = String(tabletSpan);
+  return node;
 }
 
 function createProductDashboard({ documentRef } = {}) {
@@ -82,12 +112,68 @@ function createProductDashboard({ documentRef } = {}) {
   return dashboard;
 }
 
-function createProductDashboardSection({ title, key, kind, documentRef } = {}) {
+function findCenteredGridItemIndexes(items, spanProperty, columns) {
+  const centered = new Set();
+  let row = [];
+  let used = 0;
+  const flush = () => {
+    if (row.length === 1 && row[0].span < columns) centered.add(row[0].index);
+    row = [];
+    used = 0;
+  };
+
+  items.forEach((item, index) => {
+    const rawSpan = Number(item?.[spanProperty]);
+    const span = Number.isInteger(rawSpan) && rawSpan > 0
+      ? Math.min(rawSpan, columns)
+      : columns;
+    if (used && used + span > columns) flush();
+    row.push({ index, span });
+    used += span;
+    if (used >= columns) flush();
+  });
+  if (row.length) flush();
+  return centered;
+}
+
+function applyAlignedDashboardGrid(dashboard) {
+  const children = Array.from(dashboard?.children || []).filter((node) =>
+    node?.dataset?.forgeDesktopSpan || node?.dataset?.forgeTabletSpan,
+  );
+  const items = children.map((node) => ({
+    desktopSpan: Number(node.dataset.forgeDesktopSpan),
+    tabletSpan: Number(node.dataset.forgeTabletSpan),
+  }));
+  const desktopCentered = findCenteredGridItemIndexes(items, "desktopSpan", 12);
+  const tabletCentered = findCenteredGridItemIndexes(items, "tabletSpan", 8);
+  children.forEach((node, index) => {
+    if (desktopCentered.has(index)) node.dataset.forgeDesktopCentered = "true";
+    if (tabletCentered.has(index)) node.dataset.forgeTabletCentered = "true";
+  });
+  return dashboard;
+}
+
+function createProductDashboardSection({
+  title,
+  key,
+  kind,
+  layoutRole,
+  order,
+  desktopSpan,
+  tabletSpan,
+  documentRef,
+} = {}) {
   const documentTarget = requireDocument(documentRef);
   const section = documentTarget.createElement("section");
   section.className = PRODUCT_DASHBOARD_CLASSES.card;
   section.dataset.forgeBenefitBlock = String(key || kind || "secondary_details");
   section.dataset.forgeProductSection = String(kind || key || "secondary_details");
+  applyProductDashboardLayoutData(section, {
+    layoutRole,
+    order,
+    desktopSpan,
+    tabletSpan,
+  });
 
   if (title) {
     const heading = documentTarget.createElement("h4");
@@ -97,6 +183,87 @@ function createProductDashboardSection({ title, key, kind, documentRef } = {}) {
   }
 
   return section;
+}
+
+function createDashboardHeroMetric({
+  label,
+  value,
+  appendValue,
+  secondaryLabel,
+  secondaryValue,
+  appendSecondaryValue,
+  sourceField,
+  order = 1,
+  desktopSpan = 8,
+  tabletSpan = 8,
+  documentRef,
+} = {}) {
+  const documentTarget = requireDocument(documentRef);
+  const hero = createProductDashboardSection({
+    key: "hero",
+    kind: "hero",
+    layoutRole: "hero",
+    order,
+    desktopSpan,
+    tabletSpan,
+    documentRef: documentTarget,
+  });
+  hero.className = `${PRODUCT_DASHBOARD_CLASSES.card} ${PRODUCT_DASHBOARD_CLASSES.heroMetric}`;
+  hero.dataset.forgeHeroMetric = "true";
+  if (sourceField) hero.dataset.forgeHeroSourceField = String(sourceField);
+
+  const labelNode = documentTarget.createElement("h4");
+  labelNode.className = PRODUCT_DASHBOARD_CLASSES.heroLabel;
+  labelNode.textContent = String(label || "");
+
+  const valueNode = documentTarget.createElement("div");
+  valueNode.className = PRODUCT_DASHBOARD_CLASSES.heroValue;
+  appendContent(valueNode, appendValue || value);
+  hero.append(labelNode, valueNode);
+
+  if (secondaryValue !== null && secondaryValue !== undefined && String(secondaryValue).trim()) {
+    const secondary = documentTarget.createElement("div");
+    secondary.className = PRODUCT_DASHBOARD_CLASSES.heroSecondary;
+    if (secondaryLabel) {
+      const secondaryLabelNode = documentTarget.createElement("div");
+      secondaryLabelNode.className = PRODUCT_DASHBOARD_CLASSES.heroSecondaryLabel;
+      secondaryLabelNode.textContent = String(secondaryLabel);
+      secondary.appendChild(secondaryLabelNode);
+    }
+    const secondaryValueNode = documentTarget.createElement("div");
+    secondaryValueNode.className = PRODUCT_DASHBOARD_CLASSES.heroSecondaryValue;
+    appendContent(secondaryValueNode, appendSecondaryValue || secondaryValue);
+    secondary.appendChild(secondaryValueNode);
+    hero.appendChild(secondary);
+  }
+
+  return hero;
+}
+
+function createCompactMetadataGrid({ items = [], appendValue, documentRef } = {}) {
+  const documentTarget = requireDocument(documentRef);
+  const list = documentTarget.createElement("dl");
+  list.className = PRODUCT_DASHBOARD_CLASSES.compactMetadata;
+  list.dataset.forgeCompactMetadata = "true";
+
+  for (const item of items) {
+    if (!item?.label || item?.value === null || item?.value === undefined || item?.value === "") continue;
+    const row = documentTarget.createElement("div");
+    row.className = PRODUCT_DASHBOARD_CLASSES.compactMetadataItem;
+
+    const labelNode = documentTarget.createElement("dt");
+    labelNode.className = PRODUCT_DASHBOARD_CLASSES.compactMetadataLabel;
+    labelNode.textContent = String(item.label);
+
+    const valueNode = documentTarget.createElement("dd");
+    valueNode.className = PRODUCT_DASHBOARD_CLASSES.compactMetadataValue;
+    appendContent(valueNode, appendValue ? (target) => appendValue(target, item.value) : item.value);
+
+    row.append(labelNode, valueNode);
+    list.appendChild(row);
+  }
+
+  return list;
 }
 
 function createMetricRow({ label, value, appendValue, documentRef } = {}) {
@@ -190,12 +357,25 @@ function createRecommendedBenefitCard({ name, fields = [], appendValue, document
   return card;
 }
 
-function createMissingInformationSection({ title = "Faltantes antes de presentar", values = [], key = "missing", documentRef } = {}) {
+function createMissingInformationSection({
+  title = "Faltantes antes de presentar",
+  values = [],
+  key = "missing",
+  layoutRole = "missing_information",
+  order = null,
+  desktopSpan = null,
+  tabletSpan = null,
+  documentRef,
+} = {}) {
   const documentTarget = requireDocument(documentRef);
   const section = createProductDashboardSection({
     title,
     key,
     kind: "missing_information",
+    layoutRole,
+    order,
+    desktopSpan,
+    tabletSpan,
     documentRef: documentTarget
   });
   const list = documentTarget.createElement("ul");
@@ -217,7 +397,11 @@ const api = Object.freeze({
   sectionKinds: PRODUCT_DASHBOARD_SECTION_KINDS,
   normalizeProductDashboardSection,
   createProductDashboard,
+  findCenteredGridItemIndexes,
+  applyAlignedDashboardGrid,
   createProductDashboardSection,
+  createDashboardHeroMetric,
+  createCompactMetadataGrid,
   createMetricRow,
   createPrimaryMetric,
   createDashboardChip,
@@ -233,7 +417,11 @@ export {
   PRODUCT_DASHBOARD_SECTION_KINDS,
   normalizeProductDashboardSection,
   createProductDashboard,
+  findCenteredGridItemIndexes,
+  applyAlignedDashboardGrid,
   createProductDashboardSection,
+  createDashboardHeroMetric,
+  createCompactMetadataGrid,
   createMetricRow,
   createPrimaryMetric,
   createDashboardChip,

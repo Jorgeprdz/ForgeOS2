@@ -1,31 +1,34 @@
 import {
   benefitBlockKey107z15p2R9E,
   normalizeBenefitLayout107z15p2R9E
-} from "./forge-benefit-summary-layout.js?v=r15m2c_orvi_responsive_copy_20260713_1";
+} from "./forge-benefit-summary-layout.js?v=r16b_unified_dashboard_20260713_1";
 import {
+  applyAlignedDashboardGrid,
+  createCompactMetadataGrid,
   createDashboardChip,
+  createDashboardHeroMetric,
   createMetricRow,
   createMissingInformationSection,
   createPrimaryMetric,
   createProductDashboard,
   createProductDashboardSection,
   createRecommendedBenefitCard
-} from "./forge-product-dashboard-template.js";
+} from "./forge-product-dashboard-template.js?v=r16b_unified_dashboard_20260713_1";
 import {
   buildImaginaSerDashboardModel,
   isImaginaSerProduct,
   renderImaginaSerDashboard
-} from "./forge-imagina-ser-product-dashboard-adapter.js";
+} from "./forge-imagina-ser-product-dashboard-adapter.js?v=r16b_unified_dashboard_20260713_1";
 import {
   buildSegubecaDashboardModel,
   isSegubecaProduct,
   renderSegubecaDashboard
-} from "./forge-segubeca-product-dashboard-adapter.js";
+} from "./forge-segubeca-product-dashboard-adapter.js?v=r16b_unified_dashboard_20260713_1";
 import {
   buildOrviDashboardModel,
   isOrviProduct,
   renderOrviDashboard
-} from "./forge-orvi-product-dashboard-adapter.js?v=r15m2c_orvi_responsive_copy_20260713_1";
+} from "./forge-orvi-product-dashboard-adapter.js?v=r16b_unified_dashboard_20260713_1";
 
 
 function hasValue(value) {
@@ -560,11 +563,75 @@ function appendSemanticValue(container, rawValue) {
   }
 }
 
+function canonicalHeroFromRows(rows) {
+  const candidates = [];
+  for (const row of rows || []) {
+    for (const item of tableRowsFromValue(row.label, row.value)) {
+      const key = normalizeVisibleSummaryLabel(item.concept);
+      if (!key.includes("suma asegurada")) continue;
+      if (key.includes("prima") || key.includes("recomendad")) continue;
+      candidates.push({ ...item, key });
+    }
+  }
+  const candidate = candidates.find((item) =>
+    item.key.includes("basica") || item.key.includes("fallecimiento"),
+  ) || candidates[0] || null;
+  if (!candidate) return null;
+  const parts = splitBenefitSegments(candidate.value);
+  return {
+    label: "Suma asegurada",
+    value: parts[0] || candidate.value,
+    secondaryLabel: parts.length > 1 ? "Equivalencia en MXN" : null,
+    secondaryValue: parts.slice(1).join(" · ") || null,
+    sourceField: candidate.concept,
+  };
+}
+
+function isVidaMujerDashboard(calc, benefitSummary) {
+  const identity = normalizeVisibleSummaryLabel([
+    calc?.productFamily,
+    calc?.product,
+    calc?.productName,
+    calc?.nativeResult?.product,
+    calc?.nativeResult?.productName,
+  ].filter(Boolean).join(" "));
+  if (identity.includes("vida mujer")) return true;
+  return normalizeBenefitBlocks(benefitSummary).some((block) =>
+    block?.type === "women_health_benefits",
+  );
+}
+
+function dashboardMetadataItems(calc = {}) {
+  const product = calc.product || calc.productName || calc.nativeResult?.product || calc.nativeResult?.productName;
+  const paymentYears = Number(calc.paymentYears || calc.nativeResult?.premiumPayingYears);
+  return [
+    product ? { label: "Producto", value: String(product) } : null,
+    calc.currency ? { label: "Moneda", value: String(calc.currency).toUpperCase() } : null,
+    Number.isInteger(paymentYears) && paymentYears > 0
+      ? { label: "Plazo de aportación", value: `${paymentYears} años` }
+      : null,
+  ].filter(Boolean);
+}
+
 function createBenefitRow(item) {
   return createMetricRow({
     label: humanizeTechnicalText(item.concept),
     appendValue: (value) => appendSemanticValue(value, item.value)
   });
+}
+
+function genericSectionLayout(key) {
+  const layouts = {
+    contribution: { order: 3, desktopSpan: 6, tabletSpan: 4 },
+    protection: { order: 4, desktopSpan: 6, tabletSpan: 4 },
+    endowments: { order: 5, desktopSpan: 12, tabletSpan: 8 },
+    recovery: { order: 6, desktopSpan: 6, tabletSpan: 4 },
+    women_health: { order: 7, desktopSpan: 6, tabletSpan: 4 },
+    recommended: { order: 8, desktopSpan: 6, tabletSpan: 4 },
+    other: { order: 9, desktopSpan: 12, tabletSpan: 8 },
+    missing_information: { order: 10, desktopSpan: 12, tabletSpan: 8 },
+  };
+  return layouts[key] || { order: 9, desktopSpan: 12, tabletSpan: 8 };
 }
 
 function appendTableBlock(container, title, sourceRows, blockKey = null) {
@@ -582,7 +649,10 @@ function appendTableBlock(container, title, sourceRows, blockKey = null) {
 
   const block = createProductDashboardSection({
     title,
-    key: blockKey || benefitBlockKey107z15p2R9E(title)
+    key: blockKey || benefitBlockKey107z15p2R9E(title),
+    kind: blockKey || benefitBlockKey107z15p2R9E(title),
+    layoutRole: blockKey || benefitBlockKey107z15p2R9E(title),
+    ...genericSectionLayout(blockKey || benefitBlockKey107z15p2R9E(title)),
   });
 
   for (const row of calendarRows) {
@@ -710,7 +780,10 @@ function appendRecommendedBlock(container, sourceRows) {
   if (!sourceRows.length) return;
   const block = createProductDashboardSection({
     title: "Beneficios recomendados",
-    key: "recommended"
+    key: "recommended",
+    kind: "recommended",
+    layoutRole: "recommended",
+    ...genericSectionLayout("recommended"),
   });
 
   const totalRow = sourceRows.find((row) => normalizeVisibleSummaryLabel(row.label).includes("prima total con beneficios recomendados"));
@@ -750,7 +823,14 @@ function appendMissingBlock(container, sourceRows) {
 
   if (!values.length) return;
 
-  container.appendChild(createMissingInformationSection({ values }));
+  const section = createMissingInformationSection({ values });
+  Object.assign(section.dataset, {
+    forgeLayoutRole: "missing_information",
+    forgeLayoutOrder: "10",
+    forgeDesktopSpan: "12",
+    forgeTabletSpan: "8",
+  });
+  container.appendChild(section);
 }
 
 function scenarioOrder(row) {
@@ -761,7 +841,10 @@ function scenarioOrder(row) {
   return 9;
 }
 
-function writeVisibleBenefitRuntimeGrid(rows, emptyText) {
+function writeVisibleBenefitRuntimeGrid(rows, emptyText, {
+  productType = "generic",
+  metadataItems = [],
+} = {}) {
   const target = findVisibleSummaryValueNode([
     "Valores, beneficios o escenarios relevantes",
     "Valores beneficios escenarios relevantes",
@@ -887,6 +970,38 @@ function writeVisibleBenefitRuntimeGrid(rows, emptyText) {
   groups.scenarios.sort((a, b) => scenarioOrder(a) - scenarioOrder(b));
 
   const wrapper = createProductDashboard();
+  wrapper.dataset.forgeProductType = productType;
+  wrapper.dataset.forgeProductLayout = "unified_product_dashboard_r16b";
+  wrapper.dataset.forgeUnifiedGrid = "true";
+
+  const hero = canonicalHeroFromRows(groups.protection);
+  if (hero) {
+    wrapper.appendChild(createDashboardHeroMetric({
+      ...hero,
+      appendValue: (target) => appendSemanticValue(target, hero.value),
+      appendSecondaryValue: hero.secondaryValue
+        ? (target) => appendSemanticValue(target, hero.secondaryValue)
+        : undefined,
+      desktopSpan: metadataItems.length ? 8 : 12,
+    }));
+  }
+
+  if (metadataItems.length) {
+    const metadata = createProductDashboardSection({
+      title: "Resumen del plan",
+      key: "summary",
+      kind: "metadata",
+      layoutRole: "metadata",
+      order: 2,
+      desktopSpan: hero ? 4 : 12,
+      tabletSpan: 8,
+    });
+    metadata.appendChild(createCompactMetadataGrid({
+      items: metadataItems,
+      appendValue: appendSemanticValue,
+    }));
+    wrapper.appendChild(metadata);
+  }
 
   if (groups.contribution.length) appendTableBlock(wrapper, "Lo que aportas", groups.contribution, "contribution");
   if (groups.protection.length) appendTableBlock(wrapper, "Lo que proteges", groups.protection, "protection");
@@ -909,6 +1024,7 @@ function writeVisibleBenefitRuntimeGrid(rows, emptyText) {
   if (otherRows.length) appendTableBlock(wrapper, "Otros detalles", otherRows, "other");
   if (groups.missing.length) appendMissingBlock(wrapper, groups.missing);
 
+  applyAlignedDashboardGrid(wrapper);
   target.appendChild(wrapper);
   normalizeBenefitLayout107z15p2R9E();
   return true;
@@ -1061,6 +1177,10 @@ function renderVisibleDynamicBenefitSummary(calc) {
   const fallbackRows = benefitFallbackRows(calc);
   const benefitSummary = buildDynamicBenefitSummary(calc);
   const dynamicRows = benefitSummaryToRuntimeRows(benefitSummary);
+  const genericDashboardOptions = {
+    productType: isVidaMujerDashboard(calc, benefitSummary) ? "vida_mujer" : "generic",
+    metadataItems: dashboardMetadataItems(calc),
+  };
 
   if (
     !renderOrviBenefitSummary(calc, benefitSummary) &&
@@ -1069,7 +1189,8 @@ function renderVisibleDynamicBenefitSummary(calc) {
   ) {
     writeVisibleBenefitRuntimeGrid(
       dynamicRows.length ? dynamicRows : fallbackRows,
-      "El PDF no entregó valores adicionales."
+      "El PDF no entregó valores adicionales.",
+      genericDashboardOptions,
     );
   }
 
@@ -1084,7 +1205,11 @@ function renderVisibleDynamicBenefitSummary(calc) {
       ) {
         writeVisibleBenefitRuntimeGrid(
           lateRows.length ? lateRows : fallbackRows,
-          "El PDF no entregó valores adicionales."
+          "El PDF no entregó valores adicionales.",
+          {
+            productType: isVidaMujerDashboard(calc, lateSummary) ? "vida_mujer" : "generic",
+            metadataItems: dashboardMetadataItems(calc),
+          },
         );
       }
     }, { once: true });

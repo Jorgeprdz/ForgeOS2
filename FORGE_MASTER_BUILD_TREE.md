@@ -15083,3 +15083,23 @@ Status: `PASS_QUOTE_INTAKE_EMPTY_STATE_AND_UPLOAD_CONTROL_RESPONSIVE_REPAIR`
 
 NEXT: `BOARD_SCOPE_SELECTION_AFTER_R16A`
 <!-- FORGE:R16A_QUOTE_INTAKE_EMPTY_STATE_RESPONSIVE_REPAIR:END -->
+
+<!-- FORGE:R16B_UNIFIED_PRODUCT_DASHBOARD_HERO_AND_GRID:START -->
+## R16B Unified Product Dashboard Hero Metric And Aligned Responsive Grid
+
+MODULE_ID: `R16B_UNIFIED_PRODUCT_DASHBOARD_HERO_METRIC_AND_ALIGNED_RESPONSIVE_GRID`
+
+Status: `PASS_UNIFIED_PRODUCT_DASHBOARD_HERO_METRIC_AND_ALIGNED_RESPONSIVE_GRID`
+
+- ORVI remains the visual authority and its established layout is unchanged.
+- The reusable dashboard template owns semantic hero metrics, compact metadata, explicit section spans, and balanced singleton rows.
+- READY dashboards use a deterministic 12-column desktop, 8-column tablet, and one-column mobile grid.
+- SeguBeca promotes its canonical education target as `Meta educativa` when no explicit plan-level sum assured exists and removes the nested four-card summary.
+- Imagina Ser and Vida Mujer promote their explicit canonical sum assured without changing product semantics or values.
+- The generic fallback never invents a hero and requires an explicit sum-assured concept.
+- Real Chrome inspection covers fourteen external screenshots across four products and READY routes with no horizontal overflow.
+- R16A intake states, ORVI R15, Product Intelligence, parsers, mappers, rate cache, and financial calculations remain unchanged.
+- Screenshots, PDFs, private JSON, and client content remain outside Git.
+
+NEXT: `BOARD_SCOPE_SELECTION_AFTER_R16B`
+<!-- FORGE:R16B_UNIFIED_PRODUCT_DASHBOARD_HERO_AND_GRID:END -->
