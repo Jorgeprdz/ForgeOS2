@@ -523,83 +523,91 @@ html.forge-mobile-widget-grid-polished-057l .primary-card.glass .fake-cta {
 
 /* FORGEOS:R16C5F_NAV_PILL_IOS_FROST_AND_ACTIVE_BUBBLE_REMOVAL:END */
 
-/* FORGEOS:R16D1_ORB_PULSING_GRADIENT_STAIN_HALO:START */
+/* FORGEOS:R16D1C_ORB_LAYER_STAIN_HALO_POSITION_SAFE:START */
 
 /*
-  Halo orgánico detrás del orb canónico.
-  No modifica la burbuja, el bow tie ni la transición a command bar.
+  El layer conserva toda su geometría original.
+  Solo crea un stacking context para alojar la mancha detrás del orb.
 */
-[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"] {
-  overflow: visible !important;
-}
-
-[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]
-.command-orb {
-  position: relative !important;
+[data-command-orb-layer]
+[data-forge-home-command-orb-r16c="canonical"] {
   isolation: isolate !important;
   overflow: visible !important;
 }
 
 /*
-  Mancha asimétrica de luz:
-  varios focos de gradiente, borde blando y forma orgánica mutable.
+  Desactiva el halo circular heredado del pseudo-elemento del orb.
+  La burbuja mantiene intactos tamaño, posición, fondo y bow tie.
 */
-[data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]
+[data-command-orb-layer]
+[data-forge-home-command-orb-r16c="canonical"]
 .command-orb::before {
+  opacity: 0 !important;
+  animation: none !important;
+  pointer-events: none !important;
+}
+
+/*
+  Mancha orgánica alojada en el layer.
+  En móvil queda centrada alrededor del orb anclado a right:0 / bottom:0.
+*/
+[data-command-orb-layer]
+[data-forge-home-command-orb-r16c="canonical"]::before {
   content: "" !important;
   position: absolute !important;
-  z-index: -1 !important;
-  left: 50% !important;
-  top: 50% !important;
-  inset: auto !important;
-  width: 112px !important;
-  height: 98px !important;
-  margin: -49px 0 0 -56px !important;
+  z-index: 0 !important;
+  right: -29px !important;
+  bottom: -20px !important;
+  width: 126px !important;
+  height: 108px !important;
+  margin: 0 !important;
   padding: 0 !important;
   border: 0 !important;
   border-radius:
-    58% 42% 64% 36% /
-    44% 61% 39% 56% !important;
-  clip-path: none !important;
+    61% 39% 57% 43% /
+    44% 62% 38% 56% !important;
   background:
     radial-gradient(
-      ellipse at 31% 30%,
+      ellipse at 28% 28%,
       rgba(255, 229, 151, 0.72) 0%,
-      rgba(255, 211, 112, 0.34) 24%,
-      rgba(255, 211, 112, 0.08) 48%,
-      transparent 70%
+      rgba(255, 205, 104, 0.34) 25%,
+      rgba(255, 205, 104, 0.08) 48%,
+      transparent 72%
     ),
     radial-gradient(
-      ellipse at 72% 65%,
-      rgba(93, 220, 255, 0.62) 0%,
-      rgba(76, 184, 255, 0.30) 28%,
-      rgba(73, 135, 255, 0.10) 52%,
-      transparent 76%
+      ellipse at 70% 68%,
+      rgba(93, 220, 255, 0.68) 0%,
+      rgba(66, 180, 255, 0.31) 30%,
+      rgba(63, 120, 255, 0.10) 55%,
+      transparent 78%
     ),
     radial-gradient(
-      ellipse at 52% 48%,
-      rgba(99, 189, 255, 0.28) 0%,
-      rgba(76, 126, 255, 0.12) 45%,
+      ellipse at 54% 48%,
+      rgba(93, 185, 255, 0.30) 0%,
+      rgba(58, 115, 255, 0.12) 46%,
       transparent 74%
     ) !important;
   background-color: transparent !important;
   box-shadow: none !important;
   filter:
-    blur(15px)
-    saturate(132%)
-    brightness(108%) !important;
-  opacity: 0.54 !important;
+    blur(16px)
+    saturate(138%)
+    brightness(110%) !important;
+  opacity: 0.58 !important;
   transform:
-    translate3d(-2px, 2px, 0)
-    rotate(-8deg)
+    translate3d(0, 0, 0)
+    rotate(-7deg)
     scale(0.91) !important;
-  transform-origin: 50% 50% !important;
+  transform-origin: center !important;
   pointer-events: none !important;
   animation:
-    forge-r16d1-orb-gradient-stain-pulse
-    4.4s
+    forge-r16d1c-orb-layer-stain-pulse
+    4.6s
     cubic-bezier(0.45, 0, 0.24, 1)
     infinite !important;
+  transition:
+    opacity 260ms ease,
+    transform 420ms cubic-bezier(0.16, 1, 0.3, 1) !important;
   will-change:
     opacity,
     transform,
@@ -607,68 +615,92 @@ html.forge-mobile-widget-grid-polished-057l .primary-card.glass .fake-cta {
     border-radius !important;
 }
 
-@keyframes forge-r16d1-orb-gradient-stain-pulse {
+/* La burbuja y la command bar permanecen por encima de la mancha. */
+[data-command-orb-layer]
+[data-forge-home-command-orb-r16c="canonical"]
+.command-orb {
+  z-index: 1 !important;
+}
+
+[data-command-orb-layer]
+[data-forge-home-command-orb-r16c="canonical"]
+.command-pill {
+  z-index: 2 !important;
+}
+
+/* La mancha desaparece al expandir la command bar. */
+[data-command-orb-layer]
+[data-forge-home-command-orb-r16c="canonical"].is-expanded::before {
+  opacity: 0 !important;
+  transform:
+    translate3d(8px, 2px, 0)
+    rotate(0deg)
+    scale(0.68) !important;
+  animation-play-state: paused !important;
+}
+
+@keyframes forge-r16d1c-orb-layer-stain-pulse {
   0%,
   100% {
-    opacity: 0.43;
+    opacity: 0.46;
     border-radius:
-      58% 42% 64% 36% /
-      44% 61% 39% 56%;
+      61% 39% 57% 43% /
+      44% 62% 38% 56%;
     transform:
-      translate3d(-3px, 2px, 0)
-      rotate(-9deg)
-      scale(0.89);
+      translate3d(-2px, 2px, 0)
+      rotate(-8deg)
+      scale(0.90);
     filter:
-      blur(14px)
-      saturate(126%)
-      brightness(104%);
+      blur(15px)
+      saturate(130%)
+      brightness(106%);
   }
 
-  46% {
-    opacity: 0.78;
+  48% {
+    opacity: 0.80;
     border-radius:
-      42% 58% 39% 61% /
-      57% 43% 62% 38%;
+      43% 57% 38% 62% /
+      59% 41% 64% 36%;
     transform:
-      translate3d(3px, -2px, 0)
+      translate3d(3px, -3px, 0)
       rotate(5deg)
-      scale(1.15);
+      scale(1.16);
     filter:
-      blur(20px)
-      saturate(148%)
-      brightness(114%);
+      blur(21px)
+      saturate(152%)
+      brightness(116%);
   }
 
-  72% {
-    opacity: 0.59;
+  74% {
+    opacity: 0.61;
     border-radius:
-      63% 37% 52% 48% /
-      39% 56% 44% 61%;
+      64% 36% 51% 49% /
+      38% 57% 43% 62%;
     transform:
       translate3d(1px, 1px, 0)
       rotate(-2deg)
-      scale(1.02);
+      scale(1.03);
     filter:
-      blur(17px)
-      saturate(138%)
-      brightness(109%);
+      blur(18px)
+      saturate(142%)
+      brightness(111%);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-command-orb-layer][data-forge-home-command-orb-r16c="canonical"]
-  .command-orb::before {
+  [data-command-orb-layer]
+  [data-forge-home-command-orb-r16c="canonical"]::before {
     animation: none !important;
-    opacity: 0.58 !important;
+    opacity: 0.62 !important;
     transform:
       translate3d(0, 0, 0)
       rotate(-4deg)
       scale(1) !important;
     filter:
-      blur(17px)
-      saturate(136%)
-      brightness(108%) !important;
+      blur(18px)
+      saturate(140%)
+      brightness(110%) !important;
   }
 }
 
-/* FORGEOS:R16D1_ORB_PULSING_GRADIENT_STAIN_HALO:END */
+/* FORGEOS:R16D1C_ORB_LAYER_STAIN_HALO_POSITION_SAFE:END */
