@@ -11941,3 +11941,193 @@ Status: `PASS_FORGE_ALIVE_HOME_RESTORATION_SMART_WIDGET_DEDUPLICATION_AND_PRODUC
 - Next: `BOARD_SCOPE_SELECTION_AFTER_R16C`.
 
 <!-- FORGE:R16C_HOME_RESTORATION_SMART_WIDGET_DEDUPLICATION:END -->
+
+<!-- FORGEOS:R16E2C_UNIFIED_BUILD_TREE_SYNC_37107CA:START -->
+## R16E2C Unified Build Tree Sync
+
+**Documentation status:** PASS checkpoint
+**Functional baseline:** `37107ca88cf42bb30cda867b34bb2bbf84cdccdd`
+**Branch:** `main`
+**Runtime sync at source checkpoint:** `0/0`
+**Owner confirmation:** Nueva Cotizacion vuelve a procesar el PDF.
+**Mobile UI:** PARKED, no terminada.
+
+### Canonical delivery chain
+
+| Track | Module | Commit | State | Canonical result |
+|---|---|---:|---|---|
+| Home navigation | R16C5K2 | `2c6efabe` | PASS | Inicio usa la replica visual canonica de Nueva Cotizacion sin perder el controlador legacy. |
+| SaaS quote module | R16C5L | `7069f142` | PASS | Nueva Cotizacion vive dentro del shell persistente, sin iframe, con `pushState` y regreso del navegador. |
+| Cascade isolation | R16C5M1 | `a9fe68ba` | PASS | Se aislo la cascada visual entre Home y Cotizaciones. |
+| CSS delivery | R16C5M2C | `930c5422` | PASS | Cache bust canonico para entregar el aislamiento corregido. |
+| Router DOM isolation | R16C5N | `572eea35` | PASS | Cotizaciones se aisla en la frontera DOM y restaura Home al salir. |
+| Orb positioning | R16D1C | `e81f876e` | PASS tecnico | El orb recupero el anclaje derecho. El halo no obtuvo aprobacion visual. |
+| Closed pill surface | R16D2A | `4b5174c4` | PASS tecnico | Se neutralizo la superficie cerrada y se preservo el vidrio abierto. |
+| Open and close state machine | R16D3 | `cb873045` | PASS tecnico | Se agregaron estados explicitos y captura del boton X. |
+| Compound state selectors | R16D3C | `b61d71f0` | PASS | Los estados quedaron unidos al layer canonico con conteos `3/3/4` y cero whitespace incorrecto. |
+| PDF runtime discovery | R16E0 + R16E0A | baseline `b61d71f0` | PASS discovery | Se probo que el input existia, pero el runtime del standalone no estaba montado en el modulo SaaS. |
+| PDF runtime parity | R16E1B | `37107ca8` | PASS owner-confirmed | Home monta los 10 scripts reales en orden canonico, el runtime inline exacto y el binding del input PDF. |
+
+### Current architecture tree
+
+```text
+ForgeOS main
+|
++-- Home SaaS shell                              [STABLE]
+|   +-- Canonical Home controller                [PRESERVED]
+|   +-- Mobile navigation replica                [PASS]
+|   +-- Persistent shell and browser history     [PASS]
+|   +-- Router DOM boundary isolation            [PASS]
+|
++-- Nueva Cotizacion                             [FUNCTIONAL]
+|   +-- Inline SaaS module                       [PASS]
+|   +-- Standalone fixture                       [PRESERVED]
+|   +-- PDF input: fq-solution-online-pdf-105dr  [BOUND]
+|   +-- Quote Preview external runtime x10       [MOUNTED]
+|   +-- Exact inline runtime                     [MOUNTED]
+|   +-- Accepted Quote Bridge                    [MOUNTED]
+|   +-- Quote Intake State                       [MOUNTED]
+|   +-- PDF Browser Parser                       [MOUNTED]
+|   +-- Real PDF selection and processing        [OWNER CONFIRMED]
+|
++-- Product and calculation truth                [PROTECTED]
+|   +-- Parsers                                   [UNCHANGED]
+|   +-- Calculators                               [UNCHANGED]
+|   +-- Product Intelligence                     [UNCHANGED]
+|   +-- Ley Zero                                  [ENFORCED]
+|
++-- Mobile UI                                    [PARKED]
+    +-- Orb closed presentation                  [NOT APPROVED]
+    +-- Open pill behavior                       [NEEDS POLISH]
+    +-- Close control                            [NEEDS OWNER RECHECK]
+    +-- Halo or gradient stain                   [VISIBLE, DESIGN REJECTED]
+    +-- Functional polish                        [PENDING]
+    +-- Aesthetic polish                         [PENDING]
+```
+
+### Parked mobile UI contract
+
+Mobile UI is deliberately parked and must not be interpreted as complete.
+
+Pending work includes:
+
+1. recover a clean closed orb with no residual capsule;
+2. preserve an intentional open pill deployment;
+3. verify close behavior under keyboard and viewport changes;
+4. redesign the halo instead of accepting the current stain;
+5. complete responsive, interaction and aesthetic polish;
+6. run regression checks against Home, Cotizaciones and the persistent nav.
+
+Do not resume this branch unless the owner explicitly reactivates Mobile UI.
+
+### New Quote runtime contract
+
+The current functional integration is authoritative:
+
+- PDF input ID: `fq-solution-online-pdf-105dr`;
+- 10 external scripts from `docs/static-preview/quote-preview-live`;
+- exact script order inherited from the standalone fixture;
+- exact inline runtime hash:
+  `dfe17fd28bbd07b69ce06f19a56eb3b62290d8077de4c739a57c2c2aa61e9cb2`;
+- Accepted Quote Bridge mounted;
+- Quote Intake State mounted;
+- PDF Browser Parser mounted;
+- no iframe;
+- parsers and calculators were not modified;
+- owner confirmed the PDF flow works again.
+
+### Rejected or non-canonical attempts
+
+The following executions are diagnostic history, not canonical tree nodes:
+
+- R16D1A: HOLD from selector validation;
+- R16D3A and R16D3B: HOLD from selector or validator defects;
+- R16E1: HOLD from a non-canonical runtime tree hash comparison;
+- R16E1A: created the valid local commit but produced a false push PASS after losing `import subprocess`;
+- R16E1B: validated and pushed the existing commit without creating another commit.
+
+### Current operating state
+
+- Functional baseline: `37107ca88cf42bb30cda867b34bb2bbf84cdccdd`;
+- owner-confirmed PDF intake: working;
+- worktree at source checkpoint: clean;
+- source sync: `0/0`;
+- Mobile UI: PARKED;
+- next active branch: not selected in this documentation module;
+- code changes in R16E2C: forbidden;
+- Build Tree and Unified Build Tree become the handoff source for the next branch.
+<!-- FORGEOS:R16E2C_UNIFIED_BUILD_TREE_SYNC_37107CA:END -->
+
+<!-- FORGEOS:R16E2C_BUILD_TREE_SYNC_37107CA:START -->
+## R16E2C Build Tree Checkpoint
+
+**Functional baseline:** `37107ca88cf42bb30cda867b34bb2bbf84cdccdd`
+**State:** stable functional checkpoint with Mobile UI parked.
+
+```text
+R16C5K2  Home nav canonical replica
+   |
+R16C5L   Nueva Cotizacion SaaS module
+   |
+R16C5M1  Cascade isolation
+   |
+R16C5M2C CSS cache delivery
+   |
+R16C5N   Router DOM isolation
+   |
+R16D1C   Orb right anchor restored
+   |
+R16D2A   Closed pill surface neutralization
+   |
+R16D3    Explicit open and close state machine
+   |
+R16D3C   Canonical compound state selectors
+   |
+R16E0    PDF selection discovery
+   |
+R16E0A   Exact runtime and binding evidence
+   |
+R16E1B   Existing commit validation and remote recovery
+   |
+37107ca8  CURRENT FUNCTIONAL BASELINE
+```
+
+### Branch status
+
+```text
+Home shell and routing        PASS
+Nueva Cotizacion module       PASS
+PDF selection and parser      PASS, owner confirmed
+Parser and calculator truth   PROTECTED
+Mobile UI                     PARKED, incomplete
+Documentation synchronization ACTIVE in R16E2C
+```
+
+### Mobile UI parked debt
+
+```text
+[ ] closed orb visual approval
+[ ] remove any residual pill or capsule
+[ ] open pill interaction polish
+[ ] X and keyboard behavior owner verification
+[ ] halo redesign
+[ ] responsive regression pass
+[ ] final aesthetic pass
+```
+
+### Protected functional contract
+
+```text
+PDF input        fq-solution-online-pdf-105dr
+External runtime 10 canonical scripts
+Inline runtime   dfe17fd28bbd07b69ce06f19a56eb3b62290d8077de4c739a57c2c2aa61e9cb2
+Bridge           mounted
+Intake state      mounted
+PDF parser        mounted
+Iframe            none
+Owner test        PASS
+```
+
+R16E2C updates documentation only. It does not alter runtime, UI, parsers,
+calculators, router, nav, orb or Cotizaciones.
+<!-- FORGEOS:R16E2C_BUILD_TREE_SYNC_37107CA:END -->
