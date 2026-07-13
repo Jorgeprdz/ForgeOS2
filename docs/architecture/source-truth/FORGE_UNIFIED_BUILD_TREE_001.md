@@ -11630,3 +11630,19 @@ Status: `PARSER_CONTRACT_IMPLEMENTED / PARSER_PENDING`
 
 NEXT: `R15E_ORVI_SOLUCIONLINE_PDF_TEXT_PARSER_IMPLEMENTATION_AND_CANONICAL_MAPPING`
 <!-- FORGE:R15D_ORVI_PDF_PARSER_CONTRACT_AND_SYNTHETIC_FIXTURE:END -->
+
+<!-- FORGE:R15E_ORVI_SOLUCIONLINE_PDF_TEXT_PARSER_IMPLEMENTATION_AND_CANONICAL_MAPPING:START -->
+## Product Intelligence / ORVI R15E
+
+Status: `TEXT_PARSER_IMPLEMENTED / CANONICAL_MAPPING_IMPLEMENTED`
+
+- Real Solucionline source remains outside Git.
+- Parser and canonical adapter implemented.
+- UDI and USD paths validated.
+- Payment term is source-derived.
+- Guaranteed surrender value, cash value, and total recovery are separate fields.
+- Private real-source structural regression: PASS.
+- No recommendation, MXN conversion, runtime, renderer, dashboard, or UI wiring.
+
+NEXT: `R15F_ORVI_GUARANTEED_VALUE_DYNAMIC_CHECKPOINT_ANALYTICS`
+<!-- FORGE:R15E_ORVI_SOLUCIONLINE_PDF_TEXT_PARSER_IMPLEMENTATION_AND_CANONICAL_MAPPING:END -->

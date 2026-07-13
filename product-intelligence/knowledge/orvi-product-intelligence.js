@@ -1,5 +1,8 @@
 export const ORVI_PRODUCT_INTELLIGENCE_SCHEMA_ID = "forge.product_intelligence.orvi";
 export const ORVI_PRODUCT_INTELLIGENCE_SCHEMA_VERSION = "R15A";
+export const ORVI_AUTHORIZED_PARSER_REFS = Object.freeze([
+  "product-intelligence/quotes/orvi-solucionline-pdf-text-parser.js",
+]);
 
 export const ORVI_EXISTING_ENGINE_BOUNDARIES = Object.freeze({
   extractor: Object.freeze({
@@ -46,6 +49,11 @@ function normalizeString(value) {
 function normalizeUpperString(value) {
   const normalized = normalizeString(value);
   return normalized ? normalized.toUpperCase() : null;
+}
+
+function normalizeAuthorizedParserRef(value) {
+  const normalized = normalizeString(value);
+  return ORVI_AUTHORIZED_PARSER_REFS.includes(normalized) ? normalized : null;
 }
 
 function normalizeFiniteNumber(value, { allowZero = false, explicitZero = false } = {}) {
@@ -143,6 +151,14 @@ function normalizeTimelineRow(row, index, defaultCurrency) {
     "cash_value_explicit_zero",
     "cashValueExplicitZero",
   ]);
+  const guaranteedSurrenderExplicitZero = normalizeExplicitZeroFlag(source, [
+    "guaranteed_surrender_value_explicit_zero",
+    "guaranteedSurrenderValueExplicitZero",
+  ]);
+  const totalRecoveryExplicitZero = normalizeExplicitZeroFlag(source, [
+    "total_recovery_explicit_zero",
+    "totalRecoveryExplicitZero",
+  ]);
 
   return {
     row_index: index,
@@ -170,11 +186,32 @@ function normalizeTimelineRow(row, index, defaultCurrency) {
       sourcePath: `guaranteed_value_timeline[${index}].total_annual_outflow`,
     }),
     guaranteed_cash_value: makeMoney({
-      value: firstDefined(source.cash_value_udi, source.cashValueUDI, source.guaranteed_cash_value),
+      value: firstDefined(source.cash_value_udi, source.cashValueUDI, source.guaranteed_cash_value, source.cash_value),
       currency,
       explicitZero: cashValueExplicitZero,
       guaranteeStatus: "guaranteed_if_source_confirmed",
       sourcePath: `guaranteed_value_timeline[${index}].guaranteed_cash_value`,
+    }),
+    guaranteed_surrender_value: makeMoney({
+      value: firstDefined(source.guaranteed_surrender_value_udi, source.guaranteedSurrenderValueUDI, source.guaranteed_surrender_value),
+      currency,
+      explicitZero: guaranteedSurrenderExplicitZero,
+      guaranteeStatus: "guaranteed_if_source_confirmed",
+      sourcePath: `guaranteed_value_timeline[${index}].guaranteed_surrender_value`,
+    }),
+    cash_value: makeMoney({
+      value: firstDefined(source.cash_value_udi, source.cashValueUDI, source.cash_value, source.guaranteed_cash_value),
+      currency,
+      explicitZero: cashValueExplicitZero,
+      guaranteeStatus: "guaranteed_if_source_confirmed",
+      sourcePath: `guaranteed_value_timeline[${index}].cash_value`,
+    }),
+    total_recovery: makeMoney({
+      value: firstDefined(source.total_recovery_udi, source.totalRecoveryUDI, source.total_recovery),
+      currency,
+      explicitZero: totalRecoveryExplicitZero,
+      guaranteeStatus: "guaranteed_if_source_confirmed",
+      sourcePath: `guaranteed_value_timeline[${index}].total_recovery`,
     }),
     source_status: normalizeString(source.source_status ?? source.sourceStatus) ?? "input_unverified",
   };
@@ -199,7 +236,9 @@ function collectMissingInformation(model) {
   push("premium_structure.total_annual_premium.value", model.premium_structure.total_annual_premium.value);
   push("premium_structure.payment_term_years", model.premium_structure.payment_term_years);
   push("protection_summary.basic_sum_assured.value", model.protection_summary.basic_sum_assured.value);
-  push("protection_summary.maturity_age", model.protection_summary.maturity_age);
+  if (model.protection_summary.maturity_age === null && model.protection_summary.coverage_duration_years === null) {
+    missing.push("protection_summary.maturity_age_or_coverage_duration_years");
+  }
 
   if (model.guaranteed_value_timeline.length === 0) {
     missing.push("guaranteed_value_timeline");
@@ -224,6 +263,7 @@ export function buildOrviProductIntelligence(input = {}) {
     : {};
   const premiumSource = isRecord(source.premium_structure) ? source.premium_structure : {};
   const protectionSource = isRecord(source.protection_summary) ? source.protection_summary : {};
+  const ownershipSource = isRecord(source.ownership) ? source.ownership : {};
 
   const currency = normalizeUpperString(
     firstDefined(identitySource.currency, source.currency),
@@ -273,7 +313,7 @@ export function buildOrviProductIntelligence(input = {}) {
     },
     ownership: {
       canonical_owner: "product-intelligence",
-      parser_ref: null,
+      parser_ref: normalizeAuthorizedParserRef(ownershipSource.parser_ref ?? source.parser_ref),
       runtime_ref: null,
       renderer_ref: null,
       existing_engine_boundaries: ORVI_EXISTING_ENGINE_BOUNDARIES,
@@ -314,6 +354,27 @@ export function buildOrviProductIntelligence(input = {}) {
         guaranteeStatus: "contractual_if_source_confirmed",
         sourcePath: "premium_structure.total_annual_premium",
       }),
+      displayed_total_with_recommended: makeMoney({
+        value: premiumSource.displayed_total_with_recommended?.value ?? premiumSource.displayed_total_with_recommended,
+        currency,
+        explicitZero: premiumSource.displayed_total_with_recommended_explicit_zero === true,
+        guaranteeStatus: "source_display_only",
+        sourcePath: "premium_structure.displayed_total_with_recommended",
+      }),
+      visible_line_item_sum: makeMoney({
+        value: premiumSource.visible_line_item_sum?.value ?? premiumSource.visible_line_item_sum,
+        currency,
+        explicitZero: premiumSource.visible_line_item_sum_explicit_zero === true,
+        guaranteeStatus: "derived_comparison_only",
+        sourcePath: "premium_structure.visible_line_item_sum",
+      }),
+      reconciliation: isRecord(premiumSource.reconciliation)
+        ? structuredClone(premiumSource.reconciliation)
+        : {
+          status: "not_evaluated",
+          source_total_preserved: true,
+          recomputed_override_applied: false,
+        },
       payment_term_years: normalizePositiveInteger(
         firstDefined(premiumSource.payment_term_years, source.paymentYears, source.payment_years),
       ),
@@ -331,6 +392,9 @@ export function buildOrviProductIntelligence(input = {}) {
       }),
       maturity_age: normalizeAge(
         firstDefined(protectionSource.maturity_age, source.maturityAge, source.maturity_age),
+      ),
+      coverage_duration_years: normalizePositiveInteger(
+        firstDefined(protectionSource.coverage_duration_years, source.coverageDurationYears, source.coverage_duration_years),
       ),
       included_coverages: Array.isArray(protectionSource.included_coverages)
         ? structuredClone(protectionSource.included_coverages)
@@ -363,7 +427,7 @@ export function buildOrviProductIntelligence(input = {}) {
     missing_information: [],
     readiness: {
       status: "PARTIAL",
-      parser_required: true,
+      parser_required: normalizeAuthorizedParserRef(ownershipSource.parser_ref ?? source.parser_ref) === null,
       runtime_wiring_authorized: false,
       dashboard_authorized: false,
     },
@@ -382,7 +446,12 @@ export function validateOrviProductIntelligence(model) {
   if (model?.schema?.id !== ORVI_PRODUCT_INTELLIGENCE_SCHEMA_ID) errors.push("SCHEMA_ID_INVALID");
   if (model?.identity?.product_type !== "orvi") errors.push("PRODUCT_TYPE_INVALID");
   if (model?.ownership?.canonical_owner !== "product-intelligence") errors.push("CANONICAL_OWNER_INVALID");
-  if (model?.ownership?.parser_ref !== null) errors.push("PARSER_REF_MUST_REMAIN_NULL_IN_R15A");
+  if (![null, ...ORVI_AUTHORIZED_PARSER_REFS].includes(model?.ownership?.parser_ref)) {
+    errors.push("PARSER_REF_NOT_AUTHORIZED");
+  }
+  if (model?.ownership?.parser_ref !== null && model?.readiness?.parser_required !== false) {
+    errors.push("PARSER_READINESS_INCONSISTENT");
+  }
   if (model?.decision_scenarios?.recommendation !== null) errors.push("RECOMMENDATION_NOT_AUTHORIZED");
   if (model?.decision_scenarios?.human_decision_required !== true) errors.push("HUMAN_DECISION_GATE_MISSING");
   if (model?.mxn_conversion?.status !== "not_evaluated") errors.push("MXN_CONVERSION_NOT_AUTHORIZED");

@@ -14666,3 +14666,22 @@ Owner-supplied commercial interpretation is recorded for later Product Intellige
 
 NEXT: `R15E_ORVI_SOLUCIONLINE_PDF_TEXT_PARSER_IMPLEMENTATION_AND_CANONICAL_MAPPING`
 <!-- FORGE:R15D_ORVI_PDF_PARSER_CONTRACT_AND_SYNTHETIC_FIXTURE:END -->
+
+<!-- FORGE:R15E_ORVI_SOLUCIONLINE_PDF_TEXT_PARSER_IMPLEMENTATION_AND_CANONICAL_MAPPING:START -->
+## R15E ORVI Solucionline PDF Text Parser And Canonical Mapping
+
+Status: `PASS_PARSER_IMPLEMENTATION / PRIVATE_REAL_SOURCE_REGRESSION_PASS`
+
+- Parser ID: `orvi.solucionline.pdf.text-parser.v1`.
+- Adapter ID: `orvi.pdf-to-product-intelligence.v1`.
+- Dynamic UDI/USD currency and payment-term extraction: implemented.
+- Stateful zero, `SIN COSTO`, `Amparado`, missing, unreadable, and not-applicable semantics: preserved.
+- Seven timeline columns map into Product Intelligence without conflating surrender value, cash value, and total recovery.
+- Displayed source total is preserved; recomputed override remains forbidden.
+- Private real-source regression runs outside Git and keeps only a sanitized structural receipt.
+- Product Intelligence remains canonical owner.
+- Recommendation, MXN projection, runtime, renderer, dashboard, and UI remain unauthorized.
+- Dynamic recovery checkpoints, protection view, recovery view, and projected MXN equivalents remain parked.
+
+NEXT: `R15F_ORVI_GUARANTEED_VALUE_DYNAMIC_CHECKPOINT_ANALYTICS`
+<!-- FORGE:R15E_ORVI_SOLUCIONLINE_PDF_TEXT_PARSER_IMPLEMENTATION_AND_CANONICAL_MAPPING:END -->

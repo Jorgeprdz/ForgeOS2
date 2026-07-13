@@ -1,6 +1,7 @@
 const CONTRACT_ID = "orvi.solucionline.pdf.parser-contract.v1";
 
 export const ORVI_PDF_PARSER_CONTRACT_ID = CONTRACT_ID;
+export const ORVI_PDF_PARSER_IMPLEMENTATION_REF = "product-intelligence/quotes/orvi-solucionline-pdf-text-parser.js";
 
 export const ORVI_PDF_VALUE_STATES = Object.freeze([
   "numeric",
@@ -30,12 +31,15 @@ export const ORVI_PDF_TO_PRODUCT_INTELLIGENCE_MAPPING = Object.freeze({
   "insured.age": "participants.primary_insured.age",
   "insured.gender": "participants.primary_insured.gender",
   "insured.smoker": "participants.primary_insured.smoker",
-  "premium_summary.base_annual_premium": "premium_structure.basic_annual_premium",
-  "premium_summary.total_annual_premium": "premium_structure.total_annual_premium",
+  "coverages[0].annual_premium": "premium_structure.basic_annual_premium",
+  "premium_summary.base_total_annual_premium": "premium_structure.total_annual_premium",
   "document.payment_term_years": "premium_structure.payment_term_years",
   "coverages[0].sum_assured": "protection_summary.basic_sum_assured",
   "document.coverage_duration_years": "protection_summary.coverage_duration_years",
   "guaranteed_values.rows": "guaranteed_value_timeline",
+  "guaranteed_values.rows[].guaranteed_surrender_value": "guaranteed_value_timeline[].guaranteed_surrender_value",
+  "guaranteed_values.rows[].cash_value": "guaranteed_value_timeline[].cash_value",
+  "guaranteed_values.rows[].total_recovery": "guaranteed_value_timeline[].total_recovery",
   "source_trace": "source_trace",
 });
 
@@ -223,7 +227,7 @@ export function validateOrviPdfParserEnvelope(envelope) {
   }
 
   if (envelope.contract_id !== CONTRACT_ID) errors.push("CONTRACT_ID_MISMATCH");
-  if (envelope.synthetic_fixture !== true) errors.push("SYNTHETIC_FIXTURE_REQUIRED_IN_R15D");
+  if (typeof envelope.synthetic_fixture !== "boolean") errors.push("SYNTHETIC_FIXTURE_BOOLEAN_REQUIRED");
   if (envelope.product_type !== "orvi") errors.push("PRODUCT_TYPE_MUST_BE_ORVI");
   if (envelope.source_type !== "solucionline_pdf") errors.push("SOURCE_TYPE_MUST_BE_SOLUCIONLINE_PDF");
 
@@ -373,7 +377,9 @@ export function validateOrviPdfParserEnvelope(envelope) {
     if (envelope.ownership.canonical_owner !== "product-intelligence") {
       errors.push("ownership.canonical_owner:MUST_BE_PRODUCT_INTELLIGENCE");
     }
-    if (envelope.ownership.parser_ref !== null) errors.push("ownership.parser_ref:MUST_REMAIN_NULL_IN_R15D");
+    if (![null, ORVI_PDF_PARSER_IMPLEMENTATION_REF].includes(envelope.ownership.parser_ref)) {
+      errors.push("ownership.parser_ref:NULL_OR_AUTHORIZED_IMPLEMENTATION_REQUIRED");
+    }
     if (envelope.ownership.runtime_ref !== null) errors.push("ownership.runtime_ref:MUST_REMAIN_NULL_IN_R15D");
     if (envelope.ownership.renderer_ref !== null) errors.push("ownership.renderer_ref:MUST_REMAIN_NULL_IN_R15D");
   }
