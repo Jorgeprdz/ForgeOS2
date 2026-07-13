@@ -11715,3 +11715,18 @@ Status: `DASHBOARD_VIEW_MODEL_CONTRACT_READY`
 
 NEXT: `R15J_ORVI_VERIFIED_RATE_METADATA_BRIDGE_AND_RUNTIME_ORCHESTRATION_READINESS`
 <!-- FORGE:R15I_ORVI_DASHBOARD_VIEW_MODEL_CONTRACT:END -->
+
+<!-- FORGE:R15J_ORVI_TEMPLATE_AUTHORITY_AND_ORCHESTRATION:START -->
+## Product Intelligence / ORVI R15J
+
+Status: `READY_FOR_EXISTING_TEMPLATE_PRODUCT_ADAPTER`
+
+- Existing reusable dashboard template: mandatory.
+- Vida Mujer design line: locked.
+- New ORVI dashboard system: forbidden.
+- Verified rate metadata bridge: ready.
+- R15H and R15I orchestration: ready.
+- Renderer and DOM wiring: not authorized.
+- Next: `R15K_ORVI_REUSABLE_PRODUCT_DASHBOARD_ADAPTER_AND_TEMPLATE_RENDERER_WIRING`.
+
+<!-- FORGE:R15J_ORVI_TEMPLATE_AUTHORITY_AND_ORCHESTRATION:END -->

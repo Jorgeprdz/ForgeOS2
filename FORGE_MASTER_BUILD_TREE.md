@@ -14856,3 +14856,39 @@ Status: `PASS_DASHBOARD_CONTRACT_IMPLEMENTATION / PRIVATE_REAL_SOURCE_STRUCTURE_
 
 NEXT: `R15J_ORVI_VERIFIED_RATE_METADATA_BRIDGE_AND_RUNTIME_ORCHESTRATION_READINESS`
 <!-- FORGE:R15I_ORVI_DASHBOARD_VIEW_MODEL_CONTRACT:END -->
+
+<!-- FORGE:R15J_ORVI_TEMPLATE_AUTHORITY_AND_ORCHESTRATION:START -->
+## R15J ORVI Verified Rate Metadata Bridge And Runtime Orchestration Readiness
+
+Status: `PASS_ORCHESTRATION_READINESS / REUSABLE_TEMPLATE_AUTHORITY_LOCKED`
+
+### Existing dashboard template authority
+
+- ORVI must reuse the established Vida Mujer product-dashboard system.
+- Canonical template test: `tests/product-dashboard-template-test.mjs`.
+- Shared layout: `docs/static-preview/quote-preview-live/forge-benefit-summary-layout.js`.
+- Shared renderer: `docs/static-preview/quote-preview-live/forge-benefit-summary-renderer.js`.
+- Imagina Ser and SeguBeca remain existing consumers of the same dashboard system.
+- Creating a separate ORVI dashboard system is forbidden.
+
+### Bridge
+
+- Binds caller-supplied verified rate metadata to R15H.
+- Builds the R15I dashboard view-model contract.
+- Exposes a payload ready for an ORVI product adapter.
+- Does not call a rate provider.
+- Does not read the repository cache directly.
+- Does not persist a production rate value.
+- Rejects stale rate metadata.
+
+### Still not wired
+
+- No ORVI product-dashboard adapter yet.
+- No renderer import.
+- No DOM insertion.
+- No CSS or layout change.
+- No browser execution.
+- No recommendation.
+
+NEXT: `R15K_ORVI_REUSABLE_PRODUCT_DASHBOARD_ADAPTER_AND_TEMPLATE_RENDERER_WIRING`
+<!-- FORGE:R15J_ORVI_TEMPLATE_AUTHORITY_AND_ORCHESTRATION:END -->
