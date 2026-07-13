@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="./forge-alive-home-command-bar-micro-fix-r16c1.css?v=r16c5f-ios-frost-no-active-bubble">
   <link rel="stylesheet" href="assets/forge-quote-preview-confirmation-modal-107q.css" data-forge-107q-confirmation-modal-css>
   <link rel="stylesheet" href="./forge-alive-mobile-nav-r16c5j.css?v=r16c5j-clean-nav">
+  <link rel="stylesheet" href="./forge-alive-home-nav-bridge-r16c5k.css?v=r16c5k-exact-quote-replica">
 </head>
 <body data-forge-mobile-nav-page-r16c5j="home">
   <main class="phone-shell" aria-label="Forge Alive vista estática">
@@ -633,9 +634,20 @@
     <div data-command-mobile-slot></div>
 
     <nav
-  class="bottom-nav forge-mobile-nav-r16c5j"
-  aria-label="Navegación principal"
+  class="bottom-nav forge-home-nav-controller-r16c5k"
   data-forge-home-navigation-r16c="canonical"
+  data-forge-home-nav-controller-r16c5k="true"
+  aria-hidden="true"
+  hidden
+>
+  <button type="button" data-forge-home-section="inicio">Inicio</button>
+  <button type="button" data-forge-home-section="pipeline">Pipeline</button>
+  <button type="button" data-forge-home-section="clientes">Clientes</button>
+  <button type="button" data-forge-home-section="mas">Más</button>
+</nav>
+<nav
+  class="forge-mobile-nav-r16c5j forge-mobile-nav-r16c5k-home-visual"
+  aria-label="Navegación principal"
   data-forge-mobile-nav-r16c5j="true"
   data-forge-active-key="inicio"
 >
@@ -644,26 +656,26 @@
     aria-hidden="true"
   ></span>
   <div class="forge-mobile-nav-r16c5j__items">
-    <button type="button" class="forge-mobile-nav-r16c5j__item" data-forge-nav-key="inicio" data-forge-home-section="inicio" aria-current="page">
+    <a class="active forge-mobile-nav-r16c5j__item" href="./?nav=inicio&v=r16c5k" data-forge-nav-key="inicio" aria-current="page">
       <span class="forge-mobile-nav-r16c5j__icon" aria-hidden="true">⌂</span>
       <span class="forge-mobile-nav-r16c5j__label">Inicio</span>
-    </button>
-    <button type="button" class="forge-mobile-nav-r16c5j__item" data-forge-nav-key="pipeline" data-forge-home-section="pipeline">
+    </a>
+    <a class="forge-mobile-nav-r16c5j__item" href="./?nav=pipeline&v=r16c5k" data-forge-nav-key="pipeline">
       <span class="forge-mobile-nav-r16c5j__icon" aria-hidden="true">◇</span>
       <span class="forge-mobile-nav-r16c5j__label">Pipeline</span>
-    </button>
-    <button type="button" class="forge-mobile-nav-r16c5j__item" data-forge-nav-key="clientes" data-forge-home-section="clientes">
+    </a>
+    <a class="forge-mobile-nav-r16c5j__item" href="./?nav=clientes&v=r16c5k" data-forge-nav-key="clientes">
       <span class="forge-mobile-nav-r16c5j__icon" aria-hidden="true">◎</span>
       <span class="forge-mobile-nav-r16c5j__label">Clientes</span>
-    </button>
-    <a class="forge-mobile-nav-r16c5j__item" data-forge-nav-key="cotizaciones" href="./nueva-cotizacion/?v=r16c5j-clean-nav" data-forge-local-navigation-only="true" data-forge-dedicated-static-route="true">
+    </a>
+    <a class="forge-mobile-nav-r16c5j__item" href="./nueva-cotizacion/?v=r16c5k" data-forge-nav-key="cotizaciones">
       <span class="forge-mobile-nav-r16c5j__icon" aria-hidden="true">▣</span>
       <span class="forge-mobile-nav-r16c5j__label">Cotizaciones</span>
     </a>
-    <button type="button" class="forge-mobile-nav-r16c5j__item" data-forge-nav-key="mas" data-forge-home-section="mas">
+    <a class="forge-mobile-nav-r16c5j__item" href="./?nav=mas&v=r16c5k" data-forge-nav-key="mas">
       <span class="forge-mobile-nav-r16c5j__icon" aria-hidden="true">•••</span>
       <span class="forge-mobile-nav-r16c5j__label">Más</span>
-    </button>
+    </a>
   </div>
 </nav>
   </main>
@@ -691,5 +703,6 @@
   <script src="./forge-mobile-widget-grid-dedup-057m.js?v=r16c_home_restoration_20260713_1" defer></script>
   <script src="assets/forge-quote-preview-confirmation-modal-107q.js" defer data-forge-107q-confirmation-modal-js></script>
   <script defer src="./forge-alive-mobile-nav-r16c5j.js?v=r16c5j-clean-nav"></script>
+  <script defer src="./forge-alive-home-nav-bridge-r16c5k.js?v=r16c5k-exact-quote-replica"></script>
 </body>
 </html>
