@@ -86,7 +86,10 @@
 
     const mobileSlot = document.querySelector("[data-command-mobile-slot]");
     const desktopSlot = document.querySelector("[data-command-desktop-slot]");
-    const target = isMobileSurface() ? mobileSlot : desktopSlot;
+    const desktopHost = desktopSlot && desktopSlot.closest(".alfred-desktop-app-056g7");
+    const target = isMobileSurface()
+      ? mobileSlot
+      : (desktopSlot && (!desktopHost || visible(desktopHost)) ? desktopSlot : document.body);
     if (target && layer.parentElement !== target) target.appendChild(layer);
     layer.dataset.forgeHomeCommandOrbR16c = "canonical";
   }

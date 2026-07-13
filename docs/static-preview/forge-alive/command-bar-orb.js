@@ -24,6 +24,7 @@ function normalizeCommand(value) {
 function openLayer() {
   if (!layer) return;
   layer.classList.add("is-expanded");
+  layer.setAttribute("aria-expanded", "true");
   const input = layer.querySelector(".command-pill-input");
   if (input) {
     window.requestAnimationFrame(() => input.focus());
@@ -37,6 +38,8 @@ function closeLayer() {
   if (input) input.value = "";
   if (results) results.hidden = true;
   layer.classList.remove("is-expanded", "is-typing");
+  layer.setAttribute("aria-expanded", "false");
+  updateCommandControls();
 }
 
 function renderResults(value) {
@@ -55,11 +58,38 @@ function renderResults(value) {
   layer.classList.toggle("is-typing", key.length > 0);
 }
 
-if (layer) {
+function updateCommandControls() {
+  if (!layer) return;
+  const input = layer.querySelector(".command-pill-input");
+  const send = layer.querySelector(".command-pill-send");
+  const hasValue = Boolean(input && input.value.trim());
+  if (send) send.disabled = !hasValue;
+  layer.classList.toggle("has-command-value", hasValue);
+}
+
+function submitCommand() {
+  if (!layer) return;
+  const input = layer.querySelector(".command-pill-input");
+  const command = input ? input.value.trim() : "";
+  if (!command) {
+    if (input) input.focus();
+    return;
+  }
+  renderResults(command);
+  layer.dispatchEvent(new CustomEvent("forge:home-command-submit", {
+    bubbles: true,
+    detail: { command, previewOnly: true },
+  }));
+}
+
+if (layer && layer.dataset.forgeCommandBarR16c1Bound !== "true") {
+  layer.dataset.forgeCommandBarR16c1Bound = "true";
+  layer.setAttribute("aria-expanded", "false");
   const orb = layer.querySelector(".command-orb");
   const pill = layer.querySelector(".command-pill");
   const close = layer.querySelector(".command-pill-close");
   const input = layer.querySelector(".command-pill-input");
+  const send = layer.querySelector(".command-pill-send");
 
   if (orb) {
     orb.addEventListener("click", openLayer);
@@ -79,12 +109,27 @@ if (layer) {
     });
   }
 
+  if (send) {
+    send.addEventListener("click", (event) => {
+      event.stopPropagation();
+      submitCommand();
+    });
+  }
+
   if (input) {
     input.addEventListener("focus", openLayer);
-    input.addEventListener("input", (event) => renderResults(event.target.value));
+    input.addEventListener("input", (event) => {
+      renderResults(event.target.value);
+      updateCommandControls();
+    });
     input.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
+        event.preventDefault();
         closeLayer();
+        if (orb) orb.focus();
+      } else if (event.key === "Enter") {
+        event.preventDefault();
+        submitCommand();
       }
     });
     input.addEventListener("blur", () => {
@@ -95,6 +140,7 @@ if (layer) {
       }, 120);
     });
   }
+  updateCommandControls();
 }
 
 // FORGEOS:DESKTOP_CONTEXT_DRAWER_054F:START
