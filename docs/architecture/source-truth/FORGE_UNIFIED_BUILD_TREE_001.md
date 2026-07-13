@@ -11878,3 +11878,24 @@ Status: `PASS_REPOSITORY_OWNER_VISUAL_SIGNOFF_AND_ORVI_RELEASE_CLOSE`
 - Next: `BOARD_SCOPE_SELECTION_AFTER_ORVI_RELEASE_CLOSE`.
 
 <!-- FORGE:R15M3_ORVI_REPOSITORY_OWNER_VISUAL_SIGNOFF_AND_RELEASE_CLOSE:END -->
+
+<!-- FORGE:R16A_QUOTE_INTAKE_EMPTY_STATE_RESPONSIVE_REPAIR:START -->
+## Forge Alive / Quote Intake R16A
+
+MODULE_ID: `R16A_FORGE_ALIVE_QUOTE_INTAKE_EMPTY_STATE_AND_UPLOAD_CONTROL_RESPONSIVE_REPAIR`
+
+Status: `PASS_QUOTE_INTAKE_EMPTY_STATE_AND_UPLOAD_CONTROL_RESPONSIVE_REPAIR`
+
+- Intake UI states: EMPTY, LOADING, ERROR, READY.
+- EMPTY authority: header plus the single existing local upload selector.
+- Lower result surfaces: hidden and removed from accessibility/layout until a valid accepted quote reaches READY.
+- Reset behavior: initial result markup restored; stale values and runtime grids removed.
+- Mobile upload control: `Seleccionar PDF`, minimum 44 px, no overflow at 320/360/390 px.
+- Local-processing privacy statement and secondary JSON support: explicit.
+- Existing PDF/JSON confirmation flow and product dashboards: preserved.
+- Vida Mujer, Imagina Ser, SeguBeca, ORVI, reusable template, modal, responsive, and accepted-quote regressions: PASS.
+- Product Intelligence, parsers, mappers, rate cache, financial calculations, and ORVI R15 release close: unchanged.
+- Visual evidence: external to the repository and inspected with real Chrome.
+- Next: `BOARD_SCOPE_SELECTION_AFTER_R16A`.
+
+<!-- FORGE:R16A_QUOTE_INTAKE_EMPTY_STATE_RESPONSIVE_REPAIR:END -->

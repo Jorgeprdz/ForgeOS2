@@ -92,7 +92,11 @@ assert.match(
 );
 assert.match(
   page,
-  /El PDF se procesa localmente en tu navegador\. No se sube ni se publica\./,
+  /Selecciona el PDF de Solución Online\. Se procesa localmente en tu navegador\./,
+);
+assert.match(
+  page,
+  /<p class="fq-help-105dr">No se sube ni se publica\.<\/p>/,
 );
 assert.doesNotMatch(
   page,

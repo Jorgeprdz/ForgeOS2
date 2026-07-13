@@ -115,7 +115,7 @@ assert.match(
 );
 assert.match(
   livePage,
-  /forge-accepted-quote-bridge\.js\?v=r15m2c_orvi_responsive_copy_20260713_1/,
+  /forge-accepted-quote-bridge\.js\?v=r16a_quote_intake_empty_state_20260713_1/,
 );
 assert.match(
   livePage,

@@ -990,6 +990,127 @@
 }
 /* FORGE:107Z15P2_R11G_DOTALES_AVE_DESKTOP_RESCUE:END */
 
+/* FORGE:R16A_QUOTE_INTAKE_EMPTY_STATE:START */
+[data-forge-module="dedicated-new-quote-static-route"] [hidden] {
+  display: none !important;
+}
+
+[data-forge-module="dedicated-new-quote-static-route"][data-forge-intake-state="empty"]
+.fq-hero-105dr {
+  grid-template-columns: minmax(0, 1fr);
+  padding-bottom: 18px;
+}
+
+[data-forge-module="dedicated-new-quote-static-route"][data-forge-intake-state="empty"]
+.fq-eyebrow-105dr,
+[data-forge-module="dedicated-new-quote-static-route"][data-forge-intake-state="empty"]
+.fq-subtitle-105dr,
+[data-forge-module="dedicated-new-quote-static-route"][data-forge-intake-state="empty"]
+.fq-badges-105dr {
+  display: none;
+}
+
+[data-forge-module="dedicated-new-quote-static-route"][data-forge-intake-state="empty"]
+.fq-upload-105dr {
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+.fq-upload-controls-105dr {
+  grid-template-columns: minmax(170px, auto) minmax(0, 1fr) auto;
+}
+
+.fq-file-choice-16a {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.fq-file-label-105dr {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  text-align: center;
+}
+
+.fq-file-label-105dr:focus-visible {
+  outline: 3px solid rgba(125, 249, 255, 0.48);
+  outline-offset: 3px;
+}
+
+.fq-upload-105dr[data-forge-intake-state="loading"] .fq-file-label-105dr {
+  pointer-events: none;
+  opacity: 0.62;
+}
+
+.fq-file-secondary-16a {
+  color: rgba(203, 213, 225, 0.72);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.fq-file-status-105dr {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.fq-upload-105dr[data-forge-intake-state="error"] .fq-file-status-105dr {
+  color: #fca5a5;
+}
+
+@media (max-width: 640px) {
+  .fq-upload-105dr {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .fq-upload-head-105dr {
+    margin-bottom: 10px;
+  }
+
+  .fq-upload-head-105dr p {
+    font-size: 0.86rem;
+  }
+
+  .fq-upload-pill-105dr {
+    display: none;
+  }
+
+  .fq-upload-controls-105dr {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .fq-file-choice-16a,
+  .fq-file-label-105dr,
+  .fq-send-pdf-105dr,
+  .fq-file-status-105dr {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .fq-file-label-105dr,
+  .fq-send-pdf-105dr {
+    min-height: 44px;
+    padding: 0.75rem 0.85rem;
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .fq-file-status-105dr {
+    text-align: center;
+  }
+}
+/* FORGE:R16A_QUOTE_INTAKE_EMPTY_STATE:END */
+
 </style>
 </head>
 <body>
@@ -1005,6 +1126,7 @@
     data-forge-pdf-read-allowed="false"
     data-forge-parser-execution-allowed="false"
     data-forge-presentation-generation-allowed="false"
+    data-forge-intake-state="empty"
   >
     <nav class="fq-top-105dr" aria-label="Navegación segura">
       <div class="fq-brand-105dr"><span class="fq-orb-105dr" aria-hidden="true"></span> Forge Alive · Nueva cotización</div>
@@ -1028,14 +1150,17 @@
       <section class="fq-upload-105dr" aria-label="Carga inicial de PDF de cotización">
         <div class="fq-upload-head-105dr">
           <div>
-            <h2>Sube el PDF de cotización</h2>
-            <p>Usa el PDF descargado desde Solución Online con la cotización emitida por Seguros Monterrey. En fases futuras, Forge leerá el documento y prellenará los campos posibles.</p>
+            <h2>Carga tu cotización</h2>
+            <p>Selecciona el PDF de Solución Online. Se procesa localmente en tu navegador.</p>
           </div>
           <span class="fq-upload-pill-105dr">Primer paso recomendado</span>
         </div>
 
         <div class="fq-upload-controls-105dr">
-          <label class="fq-file-label-105dr" for="fq-solution-online-pdf-105dr">Seleccionar PDF</label>
+          <div class="fq-file-choice-16a">
+            <label class="fq-file-label-105dr" for="fq-solution-online-pdf-105dr" tabindex="0">Seleccionar PDF</label>
+            <span class="fq-file-secondary-16a">También admite JSON extraído.</span>
+          </div>
           <input
             id="fq-solution-online-pdf-105dr"
             class="fq-file-native-105dr"
@@ -1050,19 +1175,21 @@
             class="fq-send-pdf-105dr"
             type="button"
             disabled
+            hidden
             aria-disabled="true"
+            aria-hidden="true"
             data-forge-pdf-submit-allowed="false"
             data-forge-pdf-read-allowed="false"
             data-forge-parser-execution-allowed="false"
             data-forge-real-effects-allowed="false"
           >Enviar PDF para extracción</button>
-          <span class="fq-file-status-105dr">Selecciona JSON extraído o PDF de Solucionline.</span>
+          <span class="fq-file-status-105dr" role="status" aria-live="polite">Selecciona un archivo para comenzar.</span>
         </div>
 
-        <p class="fq-help-105dr">El PDF se procesa localmente en tu navegador. No se sube ni se publica.</p>
+        <p class="fq-help-105dr">No se sube ni se publica.</p>
       </section>
 
-<div class="fq-grid-105dr">
+<div class="fq-grid-105dr" data-forge-intake-results hidden aria-hidden="true">
         <div>
           <section class="fq-card-105dr" aria-label="Campos de preparación">
             <h2>Datos autocompletables por Forge</h2>
@@ -1396,6 +1523,7 @@
 /* FORGE:107Z15P2_R5_BENEFIT_TABLES:END */
 
 </style>
+<script src="../../quote-preview-live/forge-quote-intake-state.js?v=r16a_quote_intake_empty_state_20260713_1"></script>
 <script src="../../quote-preview-live/forge-quote-preview-bundle.js"></script>
 <script type="module" src="../../quote-preview-live/forge-quote-calculators.js"></script>
 <script type="module" src="../../quote-preview-live/forge-udi-mxn-runtime.js"></script>
@@ -1972,7 +2100,7 @@
 <script type="module" src="../../quote-preview-live/forge-benefit-summary-renderer.js?v=r15m2c_orvi_responsive_copy_20260713_1"></script>
 <script type="module" src="../../quote-preview-live/forge-benefit-summary-layout.js?v=r15m2c_orvi_responsive_copy_20260713_1"></script>
   <script type="module" src="../../quote-preview-live/forge-pdf-browser-parser.js?v=r15m2c_orvi_responsive_copy_20260713_1"></script>
-<script type="module" src="../../quote-preview-live/forge-accepted-quote-bridge.js?v=r15m2c_orvi_responsive_copy_20260713_1"></script>
+<script type="module" src="../../quote-preview-live/forge-accepted-quote-bridge.js?v=r16a_quote_intake_empty_state_20260713_1"></script>
 <!-- FORGE:107Z15E8S_EXISTING_NUEVA_COTIZACION_REAL_PACKET_INTEGRATION:END -->
 
 </body>

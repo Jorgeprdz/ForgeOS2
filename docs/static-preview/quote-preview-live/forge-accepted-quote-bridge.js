@@ -118,6 +118,10 @@ function initAcceptedQuoteBridge(deps = globalThis.ForgeNuevaCotizacionAcceptedQ
 
   deps.__initialized = true;
 
+  const intakeState = globalThis.ForgeQuoteIntakeState;
+  const setIntakeState = (state, options) =>
+    intakeState?.setState?.(state, options);
+
   let packet = null;
   let sequence = 0;
 
@@ -152,11 +156,16 @@ function initAcceptedQuoteBridge(deps = globalThis.ForgeNuevaCotizacionAcceptedQ
           renderAcceptedQuote(calculation, { writeRuntimeGrid });
           status.textContent = "Cotización calculada y guardada durante esta sesión.";
           status.setAttribute("data-forge-state", "accepted");
+          setIntakeState("READY", { message: status.textContent });
           setReadiness?.("Cotización calculada · lista para revisión comercial", "accepted");
         })
         .catch(error => {
           status.textContent = error?.message || String(error);
           status.setAttribute("data-forge-state", "error");
+          setIntakeState("ERROR", {
+            message: "No se pudo calcular el resultado. Selecciona otro archivo.",
+            resetResults: true,
+          });
           setReadiness?.("La cotización fue confirmada, pero el cálculo requiere revisión.", "error");
           console.error("[107Z15F0_ACCEPT_CALCULATOR]", error);
         });
@@ -169,6 +178,10 @@ function initAcceptedQuoteBridge(deps = globalThis.ForgeNuevaCotizacionAcceptedQ
     onError(error) {
       status.textContent = "No se pudo guardar. El pop-up permanece abierto.";
       status.setAttribute("data-forge-state", "error");
+      setIntakeState("ERROR", {
+        message: status.textContent,
+        resetResults: true,
+      });
       console.error(`[${contractId}]`, error);
     }
   });
@@ -177,23 +190,24 @@ function initAcceptedQuoteBridge(deps = globalThis.ForgeNuevaCotizacionAcceptedQ
   input.setAttribute("data-forge-local-packet-input", "true");
   input.removeAttribute("data-forge-pdf-read-allowed");
 
-  label.textContent = "Seleccionar resultado extraído o PDF";
+  label.textContent = "Seleccionar PDF";
+  label.setAttribute("aria-label", "Seleccionar PDF de cotización");
   submit.textContent = "Revisar resultado";
   submit.disabled = true;
   submit.setAttribute("aria-disabled", "true");
-  status.textContent = "Selecciona JSON extraído o PDF de Solucionline.";
+  status.textContent = "Selecciona un archivo para comenzar.";
 
   if (uploadSection) {
     const heading = uploadSection.querySelector("h2");
     const description = uploadSection.querySelector("p");
 
     if (heading) {
-      heading.textContent = "Carga el resultado real de la cotización";
+      heading.textContent = "Carga tu cotización";
     }
 
     if (description) {
       description.textContent =
-        "En GitHub Pages, Forge procesa el PDF localmente y esta pantalla recibe el resultado extraído. El PDF y sus datos no se publican en el repositorio.";
+        "Selecciona el PDF de Solución Online. Se procesa localmente en tu navegador.";
     }
   }
 
@@ -207,7 +221,7 @@ function initAcceptedQuoteBridge(deps = globalThis.ForgeNuevaCotizacionAcceptedQ
     const file = input.files && input.files[0];
 
     if (!file) {
-      status.textContent = "Selecciona JSON extraído o PDF de Solucionline.";
+      setIntakeState("EMPTY", { resetResults: true });
       return;
     }
 
@@ -228,6 +242,8 @@ function initAcceptedQuoteBridge(deps = globalThis.ForgeNuevaCotizacionAcceptedQ
       submit.disabled = false;
       submit.setAttribute("aria-disabled", "false");
 
+      applyPacketToExistingPage?.(packet);
+
       const directPdfProcessed = isDirectPdfSyntheticPacketChange(
         input,
         file,
@@ -237,6 +253,7 @@ function initAcceptedQuoteBridge(deps = globalThis.ForgeNuevaCotizacionAcceptedQ
         ? "PDF procesado localmente. Listo para revisar."
         : `${file.name} cargado. Listo para revisar.`;
       status.setAttribute("data-forge-state", "ready");
+      setIntakeState("READY", { message: status.textContent });
       if (directPdfProcessed) {
         setReadiness?.(
           "PDF procesado localmente · listo para revisar",
@@ -246,6 +263,10 @@ function initAcceptedQuoteBridge(deps = globalThis.ForgeNuevaCotizacionAcceptedQ
     } catch (error) {
       status.textContent = error && error.message ? error.message : String(error);
       status.setAttribute("data-forge-state", "error");
+      setIntakeState("ERROR", {
+        message: status.textContent,
+        resetResults: true,
+      });
     }
   }, true);
 
@@ -275,6 +296,7 @@ function initAcceptedQuoteBridge(deps = globalThis.ForgeNuevaCotizacionAcceptedQ
 
     status.textContent = "Datos cargados. Confirma o solicita edición en el pop-up.";
     status.setAttribute("data-forge-state", "pending");
+    setIntakeState("READY", { message: status.textContent });
   }, true);
 
   globalThis.ForgeNuevaCotizacionRealPacket = Object.freeze({

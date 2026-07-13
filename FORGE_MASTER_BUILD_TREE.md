@@ -15063,3 +15063,23 @@ Status: `PASS_REPOSITORY_OWNER_VISUAL_SIGNOFF_AND_ORVI_RELEASE_CLOSE`
 
 NEXT: `BOARD_SCOPE_SELECTION_AFTER_ORVI_RELEASE_CLOSE`
 <!-- FORGE:R15M3_ORVI_REPOSITORY_OWNER_VISUAL_SIGNOFF_AND_RELEASE_CLOSE:END -->
+
+<!-- FORGE:R16A_QUOTE_INTAKE_EMPTY_STATE_RESPONSIVE_REPAIR:START -->
+## R16A Forge Alive Quote Intake Empty State And Upload Control Responsive Repair
+
+MODULE_ID: `R16A_FORGE_ALIVE_QUOTE_INTAKE_EMPTY_STATE_AND_UPLOAD_CONTROL_RESPONSIVE_REPAIR`
+
+Status: `PASS_QUOTE_INTAKE_EMPTY_STATE_AND_UPLOAD_CONTROL_RESPONSIVE_REPAIR`
+
+- The existing New Quote route now presents one clean upload surface in EMPTY.
+- EMPTY, LOADING, and ERROR hide the review action and all lower result surfaces without reserving layout space.
+- READY requires a contract-valid accepted quote and reveals the existing data, summary, Product Intelligence, readiness, actions, modal, and product dashboard flow.
+- Reset and replacement remove stale results before the next accepted packet.
+- The upload CTA is `Seleccionar PDF`, with JSON described as secondary support and truthful local-processing privacy copy.
+- Browser inspection passes at 320, 360, 390, 1024, and 1440 px with a minimum 44 px target and no horizontal overflow.
+- Direct PDF, JSON, Vida Mujer, Imagina Ser, SeguBeca, and ORVI regressions pass.
+- ORVI R15 remains closed; product truth, rate cache, financial calculations, modal, and product dashboards remain unchanged.
+- Screenshots and client content remain outside Git.
+
+NEXT: `BOARD_SCOPE_SELECTION_AFTER_R16A`
+<!-- FORGE:R16A_QUOTE_INTAKE_EMPTY_STATE_RESPONSIVE_REPAIR:END -->
