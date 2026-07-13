@@ -311,85 +311,92 @@ html.forge-mobile-widget-grid-polished-057l .primary-card.glass .fake-cta {
 
 /* FORGEOS:R16C4_COMMAND_ORB_CLEAN_RESET:END */
 
-/* FORGEOS:R16C5_BOTTOM_NAV_NEW_QUOTE_CTA:START */
+/* FORGEOS:R16C5A_BOTTOM_NAV_QUOTE_ITEM_ALIGNMENT:START */
 
 /*
-  El cuarto elemento de la navegación móvil es ahora un enlace real
-  hacia la página dedicada de Nueva Cotización.
+  Cotizaciones es un único hijo directo de la cuadrícula.
+  Replica la geometría de los cuatro botones sin spans internos.
 */
 .bottom-nav[data-forge-home-navigation-r16c="canonical"]
-  .forge-home-quote-nav-r16c5 {
-  -webkit-tap-highlight-color: transparent !important;
+  > a.forge-home-quote-nav-r16c5 {
+  -webkit-appearance: none !important;
   appearance: none !important;
+  -webkit-tap-highlight-color: transparent !important;
   box-sizing: border-box !important;
+  position: relative !important;
+  display: grid !important;
+  grid-template-rows: 25px 18px !important;
+  place-items: center !important;
+  align-content: center !important;
   min-width: 0 !important;
-  height: 100% !important;
+  min-height: 58px !important;
+  height: auto !important;
   margin: 0 !important;
-  padding: 8px 1px 7px !important;
+  padding: 4px 2px !important;
   border: 0 !important;
   border-radius: 22px !important;
-  outline: none !important;
+  color: rgba(220, 230, 244, 0.72) !important;
   background: transparent !important;
-  color: rgba(193, 205, 224, 0.82) !important;
-  text-decoration: none !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 4px !important;
-  font: inherit !important;
-  font-weight: 720 !important;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif !important;
+  font-size: clamp(8.5px, 2.35vw, 10px) !important;
+  font-weight: 760 !important;
   line-height: 1 !important;
-  touch-action: manipulation !important;
-  cursor: pointer !important;
-}
-
-.bottom-nav[data-forge-home-navigation-r16c="canonical"]
-  .forge-home-quote-nav-icon-r16c5 {
-  display: grid !important;
-  place-items: center !important;
-  width: 28px !important;
-  height: 25px !important;
-  color: rgba(195, 211, 233, 0.86) !important;
-  font-size: 23px !important;
-  line-height: 1 !important;
-  transform: translateY(-1px) !important;
-}
-
-.bottom-nav[data-forge-home-navigation-r16c="canonical"]
-  .forge-home-quote-nav-label-r16c5 {
-  display: block !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
-  color: inherit !important;
-  font-size: clamp(9px, 2.55vw, 12px) !important;
-  line-height: 1 !important;
-  letter-spacing: -0.42px !important;
+  letter-spacing: -0.32px !important;
   text-align: center !important;
-  text-overflow: clip !important;
+  text-decoration: none !important;
   white-space: nowrap !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+  cursor: pointer !important;
+  touch-action: manipulation !important;
 }
 
 .bottom-nav[data-forge-home-navigation-r16c="canonical"]
-  .forge-home-quote-nav-r16c5:active {
+  > a.forge-home-quote-nav-r16c5::before {
+  content: "▣" !important;
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  color: currentColor !important;
+  font-size: 21px !important;
+  font-weight: 500 !important;
+  line-height: 24px !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.bottom-nav[data-forge-home-navigation-r16c="canonical"]
+  > a.forge-home-quote-nav-r16c5:active {
   transform: scale(0.96) !important;
 }
 
 .bottom-nav[data-forge-home-navigation-r16c="canonical"]
-  .forge-home-quote-nav-r16c5:focus-visible {
-  color: #ffe29c !important;
-  background: rgba(255, 226, 156, 0.08) !important;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 226, 156, 0.34),
-    0 0 18px rgba(103, 215, 255, 0.12) !important;
+  > a.forge-home-quote-nav-r16c5:focus-visible {
+  outline: 3px solid #76dbff !important;
+  outline-offset: 2px !important;
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .bottom-nav[data-forge-home-navigation-r16c="canonical"]
+    > a.forge-home-quote-nav-r16c5 {
+    min-height: 52px !important;
+    grid-template-rows: 22px 17px !important;
+  }
 }
 
 @media (max-width: 340px) {
   .bottom-nav[data-forge-home-navigation-r16c="canonical"]
-    .forge-home-quote-nav-label-r16c5 {
-    font-size: 8.5px !important;
-    letter-spacing: -0.55px !important;
+    > a.forge-home-quote-nav-r16c5 {
+    font-size: 8.2px !important;
+    letter-spacing: -0.42px !important;
   }
 }
 
-/* FORGEOS:R16C5_BOTTOM_NAV_NEW_QUOTE_CTA:END */
+/* FORGEOS:R16C5A_BOTTOM_NAV_QUOTE_ITEM_ALIGNMENT:END */
