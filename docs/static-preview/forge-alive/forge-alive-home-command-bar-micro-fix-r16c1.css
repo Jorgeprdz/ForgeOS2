@@ -324,6 +324,7 @@ html.forge-mobile-widget-grid-polished-057l .primary-card.glass .fake-cta {
   -webkit-tap-highlight-color: transparent !important;
   box-sizing: border-box !important;
   position: relative !important;
+  top: 2px !important;
   display: grid !important;
   grid-template-rows: 25px 18px !important;
   place-items: center !important;
