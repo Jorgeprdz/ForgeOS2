@@ -9,6 +9,10 @@ import { buildSalesPresentationBrowserContext } from "./forge-sales-presentation
 import { buildSalesPresentationPromptReviewPacket } from "./forge-sales-presentation-prompt-builder.js?v=r16g2b3f_prompt_20260714_1";
 import { buildSalesPresentationSlidePlanReviewPacket } from "./forge-sales-presentation-slide-plan-generator.js?v=r16g2b3f_slides_20260714_1";
 import { buildSalesPresentationReviewPacket } from "./forge-sales-presentation-review-packet-builder.js?v=r16g2b3f_review_20260714_1";
+import { initializeSalesPresentationReviewState, getSalesPresentationReviewState, updateSalesPresentationSlide, applySalesPresentationApprovalDecision, revokeSalesPresentationApproval, applySalesPresentationExportAuthorization } from "./forge-sales-presentation-review-state-store.js?v=r16g5b_state_20260714_1";
+import { bindSalesPresentationReviewUi } from "./forge-sales-presentation-editable-preview.js?v=r16g5b_preview_20260714_1";
+import { approveSalesPresentationReview } from "./forge-sales-presentation-human-approval-gate.js?v=r16g5b_approval_20260714_1";
+import { authorizeSalesPresentationExport, printSalesPresentationToPdf } from "./forge-sales-presentation-export-adapter.js?v=r16g5b_export_20260714_1";
 
 function isRecord(value) {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
@@ -370,24 +374,89 @@ function initAcceptedQuoteBridge(deps = globalThis.ForgeNuevaCotizacionAcceptedQ
   return true;
 }
 
+function startSalesPresentationReviewSession(overrides = {}) {
+  const bundle = buildSalesPresentationCoreReviewBundle(overrides);
+  if (!bundle?.reviewPacket?.artifactsReadyForReview) return null;
+  return initializeSalesPresentationReviewState(bundle.reviewPacket);
+}
+
+function getCurrentSalesPresentationReviewState() {
+  return getSalesPresentationReviewState();
+}
+
+function updateSalesPresentationReviewSlide(slideId, patch) {
+  return updateSalesPresentationSlide(slideId, patch);
+}
+
+function approveCurrentSalesPresentationReview({ approvedBy, reviewerType = "HUMAN" } = {}) {
+  return applySalesPresentationApprovalDecision(
+    approveSalesPresentationReview({
+      reviewState: getSalesPresentationReviewState(),
+      approvedBy,
+      reviewerType,
+    }),
+  );
+}
+
+function revokeCurrentSalesPresentationApproval(reason = "HUMAN_REVOKED") {
+  return revokeSalesPresentationApproval(reason);
+}
+
+function authorizeCurrentSalesPresentationExport() {
+  return applySalesPresentationExportAuthorization(
+    authorizeSalesPresentationExport({
+      reviewState: getSalesPresentationReviewState(),
+    }),
+  );
+}
+
+function exportCurrentSalesPresentationToPrintPdf() {
+  return printSalesPresentationToPdf({
+    reviewState: getSalesPresentationReviewState(),
+  });
+}
+
 const api = Object.freeze({
   initAcceptedQuoteBridge,
   buildOrviConfirmationPreview,
   buildSalesPresentationCoreReviewBundle,
+  startSalesPresentationReviewSession,
   getAcceptedQuoteReviewSnapshot,
   getSalesPresentationContextReviewPacket,
+  getCurrentSalesPresentationReviewState,
+  updateSalesPresentationReviewSlide,
+  approveCurrentSalesPresentationReview,
+  revokeCurrentSalesPresentationApproval,
+  authorizeCurrentSalesPresentationExport,
+  exportCurrentSalesPresentationToPrintPdf,
   isDirectPdfSyntheticPacketChange,
 });
 
 globalThis.ForgeAcceptedQuoteBridge = api;
 
+bindSalesPresentationReviewUi({
+  buildReviewBundle: buildSalesPresentationCoreReviewBundle,
+  startReviewSession: startSalesPresentationReviewSession,
+  approveReview: approveCurrentSalesPresentationReview,
+  revokeApproval: revokeCurrentSalesPresentationApproval,
+  authorizeExport: authorizeCurrentSalesPresentationExport,
+  exportToPrintPdf: exportCurrentSalesPresentationToPrintPdf,
+});
+
 initAcceptedQuoteBridge();
 
 export {
+  approveCurrentSalesPresentationReview,
+  authorizeCurrentSalesPresentationExport,
   buildOrviConfirmationPreview,
   buildSalesPresentationCoreReviewBundle,
+  exportCurrentSalesPresentationToPrintPdf,
   getAcceptedQuoteReviewSnapshot,
+  getCurrentSalesPresentationReviewState,
   getSalesPresentationContextReviewPacket,
   initAcceptedQuoteBridge,
   isDirectPdfSyntheticPacketChange,
+  revokeCurrentSalesPresentationApproval,
+  startSalesPresentationReviewSession,
+  updateSalesPresentationReviewSlide,
 };

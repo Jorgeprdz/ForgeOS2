@@ -1,0 +1,15 @@
+import assert from "node:assert/strict";
+import { initializeSalesPresentationReviewState, updateSalesPresentationSlide, applySalesPresentationApprovalDecision, applySalesPresentationExportAuthorization, clearSalesPresentationReviewState } from "../../docs/static-preview/quote-preview-live/forge-sales-presentation-review-state-store.js";
+const pass=(n,s)=>console.log(`PASS ${n} - ${s}`);
+const packet={packetType:"SALES_PRESENTATION_REVIEW_PACKET",reviewId:"r1",status:"PENDING_HUMAN_REVIEW",artifactsReadyForReview:true,artifacts:{slidePlan:{slides:[{id:"cover",title:"Solución",purpose:"Portada",notes:["N"],facts:[{label:"Producto",value:"ORVI",sourcePath:"calculation.product"}]}]}}};
+clearSalesPresentationReviewState();
+let state=initializeSalesPresentationReviewState(packet);
+assert.equal(state.status,"EDITABLE_REVIEW");pass(1,"initializes review state");
+assert.equal(state.slides[0].facts[0].editable,false);pass(2,"facts are read-only");
+state=updateSalesPresentationSlide("cover",{title:"Nueva",notes:"A\nB"});assert.equal(state.contentRevision,1);assert.deepEqual(state.slides[0].notes,["A","B"]);pass(3,"edits allowed fields");
+assert.throws(()=>updateSalesPresentationSlide("cover",{facts:[]}),/not editable/);pass(4,"rejects fact edits");
+state=applySalesPresentationApprovalDecision({approved:true,approvalId:"a1",approvedBy:"Humano",approvedAt:"2026-07-14T00:00:00Z",sourceContentRevision:1});assert.equal(state.approval.approved,true);pass(5,"applies approval");
+state=applySalesPresentationExportAuthorization({authorized:true,authorizationId:"e1",authorizedAt:"2026-07-14T00:01:00Z",approvalId:"a1",sourceContentRevision:1,format:"PRINT_PDF"});assert.equal(state.exportAuthorization.authorized,true);pass(6,"applies export authorization");
+state=updateSalesPresentationSlide("cover",{purpose:"Cambio"});assert.equal(state.approval.approved,false);assert.equal(state.exportAuthorization.authorized,false);pass(7,"edit revokes gates");
+assert.equal(Object.isFrozen(state),true);assert.throws(()=>{state.status="x";},TypeError);pass(8,"state immutable");
+console.log("STATUS=PASS_R16G5B_PRESENTATION_REVIEW_STATE_STORE_TEST");console.log("Presentation Review State Store PASS 8/8");

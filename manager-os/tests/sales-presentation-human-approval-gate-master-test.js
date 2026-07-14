@@ -1,0 +1,15 @@
+import assert from "node:assert/strict";
+import { initializeSalesPresentationReviewState, updateSalesPresentationSlide, clearSalesPresentationReviewState } from "../../docs/static-preview/quote-preview-live/forge-sales-presentation-review-state-store.js";
+import { approveSalesPresentationReview, buildSalesPresentationApprovalRevocation } from "../../docs/static-preview/quote-preview-live/forge-sales-presentation-human-approval-gate.js";
+const pass=(n,s)=>console.log(`PASS ${n} - ${s}`);
+clearSalesPresentationReviewState();
+let state=initializeSalesPresentationReviewState({packetType:"SALES_PRESENTATION_REVIEW_PACKET",reviewId:"r3",status:"PENDING_HUMAN_REVIEW",artifactsReadyForReview:true,artifacts:{slidePlan:{slides:[{id:"cover",title:"Solución",purpose:"",notes:[],facts:[{label:"Producto",value:"ORVI",sourcePath:"calculation.product"}]}]}}});
+const first=approveSalesPresentationReview({reviewState:state,approvedBy:"Jorge",approvedAt:"2026-07-14T00:00:00Z"});assert.equal(first.approved,true);pass(1,"human approves");
+assert.equal(first.sourceContentRevision,0);assert.equal(first.exportAuthorized,false);pass(2,"approval is revision-bound");
+const duplicate=approveSalesPresentationReview({reviewState:state,approvedBy:"Jorge",approvedAt:"2026-07-14T01:00:00Z"});assert.equal(first.approvalId,duplicate.approvalId);pass(3,"approval id deterministic");
+assert.throws(()=>approveSalesPresentationReview({reviewState:state,approvedBy:""}),/approvedBy/);pass(4,"rejects anonymous approval");
+assert.throws(()=>approveSalesPresentationReview({reviewState:state,approvedBy:"Bot",reviewerType:"AI"}),/Only a human/);pass(5,"rejects AI approval");
+state=updateSalesPresentationSlide("cover",{title:"Nueva"});const changed=approveSalesPresentationReview({reviewState:state,approvedBy:"Jorge",approvedAt:"2026-07-14T02:00:00Z"});assert.notEqual(changed.approvalId,first.approvalId);pass(6,"new revision needs new approval");
+const revocation=buildSalesPresentationApprovalRevocation({reviewState:state,reason:"Ajustar"});assert.equal(revocation.approved,false);pass(7,"revocation explicit");
+assert.equal(Object.isFrozen(first),true);assert.throws(()=>{first.approved=false;},TypeError);pass(8,"decision immutable");
+console.log("STATUS=PASS_R16G5B_PRESENTATION_HUMAN_APPROVAL_GATE_TEST");console.log("Presentation Human Approval Gate PASS 8/8");
