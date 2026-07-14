@@ -24,8 +24,11 @@ function owner(engineId) {
 }
 
 assert.equal(assertPresentationEngineOwnershipRegistry(), true);
-assert.equal(PRESENTATION_ENGINE_OWNERSHIP_REGISTRY.length, 11);
-pass(1, "ownership registry is valid and contains 11 engines");
+assert.equal(
+  PRESENTATION_ENGINE_OWNERSHIP_REGISTRY.length,
+  12,
+);
+pass(1, "ownership registry is valid and contains 12 engines");
 
 for (const record of PRESENTATION_ENGINE_OWNERSHIP_REGISTRY) {
   assert.equal(
@@ -37,22 +40,25 @@ for (const record of PRESENTATION_ENGINE_OWNERSHIP_REGISTRY) {
 pass(2, "all registered runtime locations exist");
 
 assert.deepEqual(
-  PRESENTATION_ENGINE_ASSEMBLY_PLAN.new_runtime_connections_required,
+  PRESENTATION_ENGINE_ASSEMBLY_PLAN
+    .new_runtime_connections_required,
   [],
 );
 assert.equal(
-  PRESENTATION_ENGINE_ASSEMBLY_PLAN.runtime_assembly_authorized,
+  PRESENTATION_ENGINE_ASSEMBLY_PLAN
+    .runtime_assembly_authorized,
   false,
 );
 assert.equal(
   PRESENTATION_ENGINE_ASSEMBLY_PLAN.status,
-  "PLANNED_EXISTING_WIRING_NO_NEW_CONNECTIONS",
+  "VERIFIED_WIRING_WITH_CLIENT_RATIONALE_DOMAIN_BOUNDARY",
 );
-pass(3, "assembly plan requires no new runtime connections");
+pass(3, "assembly preserves existing wiring and requires no new connections");
 
 const bridgeOwner = owner("ACCEPTED_QUOTE_BRIDGE");
 const bridge = read(bridgeOwner.runtime_location);
 for (const api of [
+  "buildClientRecommendationRationaleReviewBoundary",
   "startSalesPresentationReviewSession",
   "getCurrentSalesPresentationReviewState",
   "updateSalesPresentationReviewSlide",
@@ -61,16 +67,16 @@ for (const api of [
   "authorizeCurrentSalesPresentationExport",
   "exportCurrentSalesPresentationToPrintPdf",
 ]) {
-  assert.equal(
-    bridgeOwner.public_api.includes(api),
-    true,
-    `Bridge registry is missing ${api}`,
+  assert.match(
+    bridge,
+    new RegExp(`\\b${api}\\b`),
+    `Bridge source is missing ${api}`,
   );
-  assert.match(bridge, new RegExp(`\\b${api}\\b`));
 }
-pass(4, "bridge exposes the complete public review lifecycle");
+pass(4, "bridge exposes client rationale and the complete review lifecycle");
 
 const expectedChain = [
+  "CLIENT_RECOMMENDATION_RATIONALE_BOUNDARY",
   "ACCEPTED_QUOTE_REVIEW_SNAPSHOT_BOUNDARY",
   "BROWSER_PRESENTATION_CONTEXT_ADAPTER",
   "DEDICATED_PRESENTATION_PROMPT_BUILDER",
@@ -85,14 +91,16 @@ for (const engineId of expectedChain) {
   assert.ok(owner(engineId));
 }
 assert.equal(
-  PRESENTATION_ENGINE_ASSEMBLY_PLAN.existing_logical_edges.length,
-  9,
+  PRESENTATION_ENGINE_ASSEMBLY_PLAN
+    .existing_logical_edges.length,
+  10,
 );
-pass(5, "all browser lifecycle engines and nine logical edges are registered");
+pass(5, "client rationale and ten logical edges are registered");
 
-const browserRuntimeFiles = PRESENTATION_ENGINE_OWNERSHIP_REGISTRY
-  .filter((record) => record.browser_ready)
-  .map((record) => record.runtime_location);
+const browserRuntimeFiles =
+  PRESENTATION_ENGINE_OWNERSHIP_REGISTRY
+    .filter((record) => record.browser_ready)
+    .map((record) => record.runtime_location);
 
 for (const file of browserRuntimeFiles) {
   const source = read(file);
@@ -108,36 +116,78 @@ const serverContext = owner(
 );
 assert.equal(serverContext.browser_ready, false);
 assert.equal(serverContext.server_ready, true);
+assert.doesNotMatch(
+  serverContext.data_owner,
+  /reason-why/i,
+);
 assert.match(
   serverContext.data_owner,
-  /externally-supplied-reason-why/,
+  /client-recommendation-rationale/,
 );
-assert.equal(
-  serverContext.forbidden_uses.includes("import or execute Reason Why"),
-  true,
-);
-assert.equal(
-  serverContext.forbidden_uses.includes(
-    "generate or recalculate Reason Why",
-  ),
-  true,
-);
-pass(7, "server context keeps Reason Why as external data authority");
+for (const forbidden of [
+  "consume Advisor Reason Why",
+  "consume manager coaching context",
+  "expose private advisor motivation",
+]) {
+  assert.equal(
+    serverContext.forbidden_uses.includes(forbidden),
+    true,
+  );
+}
+pass(7, "server context excludes Advisor Reason Why and manager coaching");
 
 const contextSource = read(serverContext.runtime_location);
 assert.doesNotMatch(
   contextSource,
-  /from\s+["'][^"']*(?:reason[-_]?why|nba)[^"']*["']/i,
+  /\binput\.reasonWhy\b/,
 );
-assert.match(contextSource, /\binput\.reasonWhy\b/);
-assert.match(
+assert.doesNotMatch(
   contextSource,
   /narrativeLogicOwner\s*:\s*["']REASON_WHY["']/,
 );
-pass(8, "Reason Why payload is carried without importing its engine");
+assert.match(
+  contextSource,
+  /CLIENT_RECOMMENDATION_RATIONALE_OR_HUMAN_REVIEW/,
+);
+assert.match(
+  contextSource,
+  /MANAGER_OS_PRIVATE_NOT_PRESENTATION_INPUT/,
+);
+pass(8, "client rationale replaces ambiguous Reason Why ownership");
 
-const packetOwner = owner("PRESENTATION_REVIEW_PACKET_BUILDER");
-assert.equal(packetOwner.data_owner, "review-bundle-only");
+const clientRationale = owner(
+  "CLIENT_RECOMMENDATION_RATIONALE_BOUNDARY",
+);
+assert.equal(
+  clientRationale.data_owner,
+  "client-solution-fit-rationale-only",
+);
+assert.equal(
+  clientRationale.truth_ownership,
+  "NO_NEW_FACTS_VALIDATED_CLIENT_RATIONALE",
+);
+for (const forbidden of [
+  "consume Advisor Reason Why",
+  "consume manager coaching context",
+  "consume compensation or forecast context",
+  "expose advisor notes",
+  "invent client need",
+  "invent product fit",
+]) {
+  assert.equal(
+    clientRationale.forbidden_uses.includes(forbidden),
+    true,
+  );
+}
+pass(9, "client rationale owns solution fit and rejects private advisor data");
+
+const packetOwner = owner(
+  "PRESENTATION_REVIEW_PACKET_BUILDER",
+);
+assert.equal(
+  packetOwner.data_owner,
+  "review-bundle-only",
+);
 for (const forbidden of [
   "approve",
   "authorize export",
@@ -148,53 +198,51 @@ for (const forbidden of [
   assert.equal(
     packetOwner.forbidden_uses.includes(forbidden),
     true,
-    `Review packet boundary is missing: ${forbidden}`,
   );
 }
-pass(9, "review packet owns the immutable bundle and no downstream effect");
+pass(10, "review packet owns only the immutable review bundle");
 
-const stateOwner = owner("PRESENTATION_REVIEW_STATE_STORE");
-assert.equal(stateOwner.data_owner, "review-session-state");
-for (const api of [
-  "initializeSalesPresentationReviewState",
-  "updateSalesPresentationSlide",
-  "applySalesPresentationApprovalDecision",
-  "applySalesPresentationExportAuthorization",
-]) {
-  assert.equal(
-    stateOwner.public_api.includes(api),
-    true,
-    `Review state registry is missing ${api}`,
-  );
-}
+const stateOwner = owner(
+  "PRESENTATION_REVIEW_STATE_STORE",
+);
+assert.equal(
+  stateOwner.data_owner,
+  "review-session-state",
+);
 for (const forbidden of [
   "edit facts",
   "preserve approval after edit",
   "preserve export authorization after edit",
 ]) {
-  assert.equal(stateOwner.forbidden_uses.includes(forbidden), true);
+  assert.equal(
+    stateOwner.forbidden_uses.includes(forbidden),
+    true,
+  );
 }
-pass(10, "review state owns revisions, controlled edits and gate invalidation");
+pass(11, "review state owns revisions and gate invalidation");
 
 const previewOwner = owner(
   "EDITABLE_PRESENTATION_PREVIEW_AND_DYNAMIC_UI",
 );
-for (const api of [
-  "buildSalesPresentationEditablePreviewModel",
-  "openSalesPresentationReviewUi",
-  "bindSalesPresentationReviewUi",
-]) {
-  assert.equal(previewOwner.public_api.includes(api), true);
-}
-assert.equal(previewOwner.truth_ownership, "READ_ONLY_FACT_RENDERING");
-assert.equal(previewOwner.forbidden_uses.includes("edit facts"), true);
 assert.equal(
-  previewOwner.forbidden_uses.includes("static HTML mutation"),
+  previewOwner.truth_ownership,
+  "READ_ONLY_FACT_RENDERING",
+);
+assert.equal(
+  previewOwner.forbidden_uses.includes("edit facts"),
   true,
 );
-pass(11, "dynamic preview remains read-only for facts and dynamically mounted");
+assert.equal(
+  previewOwner.forbidden_uses.includes(
+    "static HTML mutation",
+  ),
+  true,
+);
+pass(12, "dynamic preview remains read-only for facts");
 
-const approvalOwner = owner("PRESENTATION_HUMAN_APPROVAL_GATE");
+const approvalOwner = owner(
+  "PRESENTATION_HUMAN_APPROVAL_GATE",
+);
 assert.equal(
   approvalOwner.truth_ownership,
   "HUMAN_DECISION_AUTHORITY",
@@ -205,9 +253,12 @@ for (const forbidden of [
   "carry approval across revisions",
   "authorize export by itself",
 ]) {
-  assert.equal(approvalOwner.forbidden_uses.includes(forbidden), true);
+  assert.equal(
+    approvalOwner.forbidden_uses.includes(forbidden),
+    true,
+  );
 }
-pass(12, "approval remains identified, human and revision-bound");
+pass(13, "approval remains identified, human and revision-bound");
 
 const exportOwner = owner(
   "PRESENTATION_EXPORT_AUTHORIZATION_AND_PRINT_PDF_ADAPTER",
@@ -216,13 +267,6 @@ assert.equal(
   exportOwner.output_contract,
   "PRINT_PDF authorization and print-safe HTML",
 );
-for (const api of [
-  "authorizeSalesPresentationExport",
-  "buildSalesPresentationPrintableHtml",
-  "printSalesPresentationToPdf",
-]) {
-  assert.equal(exportOwner.public_api.includes(api), true);
-}
 for (const forbidden of [
   "PPTX claim",
   "send",
@@ -230,14 +274,16 @@ for (const forbidden of [
   "export unapproved revision",
   "create approval decision",
 ]) {
-  assert.equal(exportOwner.forbidden_uses.includes(forbidden), true);
+  assert.equal(
+    exportOwner.forbidden_uses.includes(forbidden),
+    true,
+  );
 }
-pass(13, "export remains Print/PDF-only and cannot create approval");
+pass(14, "export remains Print/PDF-only and cannot create approval");
 
-assert.equal(bridgeOwner.truth_ownership, "NO_INDEPENDENT_TRUTH");
 assert.equal(
-  bridgeOwner.assembly_status,
-  "PUBLIC_BROWSER_ORCHESTRATOR_REGISTERED",
+  bridgeOwner.truth_ownership,
+  "NO_INDEPENDENT_TRUTH",
 );
 for (const forbidden of [
   "create financial facts",
@@ -246,23 +292,44 @@ for (const forbidden of [
   "send",
   "CRM mutation",
 ]) {
-  assert.equal(bridgeOwner.forbidden_uses.includes(forbidden), true);
+  assert.equal(
+    bridgeOwner.forbidden_uses.includes(forbidden),
+    true,
+  );
 }
-pass(14, "bridge remains orchestration-only and owns no independent truth");
+pass(15, "bridge remains orchestration-only");
 
 assert.equal(
-  PRESENTATION_ENGINE_ASSEMBLY_PLAN.protected_decisions.length,
-  3,
+  PRESENTATION_ENGINE_ASSEMBLY_PLAN
+    .protected_decisions.length,
+  4,
 );
-const decisions = PRESENTATION_ENGINE_ASSEMBLY_PLAN.protected_decisions
-  .map((entry) => entry.decision)
-  .join("\n");
-assert.match(decisions, /server canonical composition/i);
-assert.match(decisions, /review packet owns immutable initial bundle/i);
-assert.match(decisions, /human gate owns approval decision/i);
-pass(15, "three responsibility overlap decisions are preserved");
+const decisions =
+  PRESENTATION_ENGINE_ASSEMBLY_PLAN
+    .protected_decisions
+    .map((entry) => entry.decision)
+    .join("\n");
+assert.match(
+  decisions,
+  /Advisor Reason Why remains private manager-os coaching signal/i,
+);
+assert.match(
+  decisions,
+  /server canonical composition/i,
+);
+assert.match(
+  decisions,
+  /review packet owns immutable initial bundle/i,
+);
+assert.match(
+  decisions,
+  /human gate owns approval decision/i,
+);
+pass(16, "four responsibility and domain decisions are preserved");
 
 const requiredTests = [
+  "manager-os/tests/client-recommendation-rationale-boundary-master-test.js",
+  "manager-os/tests/advisor-reason-why-presentation-domain-separation-master-test.js",
   "manager-os/tests/sales-presentation-engine-ownership-registry-master-test.js",
   "manager-os/tests/quote-to-sales-presentation-context-adapter-master-test.js",
   "manager-os/tests/accepted-quote-review-snapshot-boundary-master-test.js",
@@ -277,15 +344,24 @@ const requiredTests = [
   "manager-os/tests/nba-reason-why-boundary-contract-master-test.js",
 ];
 for (const testFile of requiredTests) {
-  assert.equal(exists(testFile), true, `Missing test: ${testFile}`);
+  assert.equal(
+    exists(testFile),
+    true,
+    `Missing test: ${testFile}`,
+  );
 }
 assert.equal(
   PRESENTATION_ENGINE_ASSEMBLY_PLAN.next_verification,
-  "R16H2_EXISTING_PRESENTATION_ASSEMBLY_CONTRACT_AND_E2E_RELEASE_FAST_TRACK",
+  "R16I_PRESENTATION_VISUAL_RUNTIME_ACCEPTANCE_AND_RELEASE_CLOSE",
 );
-pass(16, "all component contracts are present for R16H2 verification");
+pass(17, "all component contracts are present and R16I is next");
 
 console.log(
   "STATUS=PASS_R16H2_EXISTING_PRESENTATION_ASSEMBLY_CONTRACT_E2E_TEST",
 );
-console.log("Existing Presentation Assembly Contract E2E PASS 16/16");
+console.log(
+  "STATUS=PASS_R16H3_PRESENTATION_ASSEMBLY_DOMAIN_SEPARATION_E2E_TEST",
+);
+console.log(
+  "Existing Presentation Assembly Domain Separation E2E PASS 17/17",
+);

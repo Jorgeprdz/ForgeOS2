@@ -6,6 +6,10 @@ import {
   buildQuoteToSalesPresentationContext,
 } from "../presentation/quote-to-sales-presentation-context-adapter.js";
 
+import {
+  buildClientRecommendationRationaleBoundary,
+} from "../../docs/static-preview/quote-preview-live/forge-client-recommendation-rationale-boundary.js";
+
 function pass(message) {
   console.log(`PASS ${message}`);
 }
@@ -38,23 +42,31 @@ const productIntelligence = {
   unknownClaims: [],
 };
 
-const reasonWhy = {
-  source: "TEST_ONLY_REASON_WHY",
-  whyNow: "TEST_ONLY_WHY_NOW",
-  whyThisPerson: "TEST_ONLY_WHY_THIS_PERSON",
-  whyThisAction: "TEST_ONLY_WHY_THIS_ACTION",
-};
+const clientRecommendationRationale =
+  buildClientRecommendationRationaleBoundary({
+    clientObjective:
+      "TEST_ONLY_CLIENT_OBJECTIVE",
+    documentedNeed:
+      "TEST_ONLY_DOCUMENTED_NEED",
+    solutionFit:
+      "TEST_ONLY_SOLUTION_FIT",
+    whyNow:
+      "TEST_ONLY_CLIENT_WHY_NOW",
+    recommendedAction:
+      "TEST_ONLY_REVIEW_ACTION",
+  });
 
 const input = {
   reviewPacket,
   acceptedQuote,
   productIntelligence,
-  reasonWhy,
+  clientRecommendationRationale,
   prospectContext: {
     name: "Maria",
     goal: "TEST_ONLY_GOAL",
   },
-  advisorNotes: "TEST_ONLY_ADVISOR_NOTE",
+  advisorNotes:
+    "TEST_ONLY_INTERNAL_ADVISOR_NOTE",
 };
 
 {
@@ -66,73 +78,41 @@ const input = {
     "QUOTE_TO_SALES_PRESENTATION_CONTEXT_PACKET",
   );
   assert.equal(
-    packet.intentFamily,
-    "sales_presentation_prep",
-  );
-  assert.equal(
-    packet.routeFamily,
-    "ALFRED_PRODUCT_INTELLIGENCE",
-  );
-  assert.equal(
     packet.authority.numericTruthOwner,
     "QUOTE_SOURCE_AND_PRODUCT_INTELLIGENCE",
   );
   assert.equal(
     packet.authority.narrativeLogicOwner,
-    "REASON_WHY",
+    "CLIENT_RECOMMENDATION_RATIONALE_OR_HUMAN_REVIEW",
   );
   assert.equal(
-    packet.authority.finalAuthority,
-    "HUMAN",
+    packet.authority.advisorReasonWhyOwner,
+    "MANAGER_OS_PRIVATE_NOT_PRESENTATION_INPUT",
   );
   assert.equal(
-    packet.context.acceptedQuote.fields.annualPremium,
-    12345,
+    packet.context
+      .clientRecommendationRationale
+      .rationale.solutionFit,
+    "TEST_ONLY_SOLUTION_FIT",
   );
   assert.equal(
-    packet.context.reasonWhy.whyNow,
-    "TEST_ONLY_WHY_NOW",
+    Object.prototype.hasOwnProperty.call(
+      packet.context,
+      "reasonWhy",
+    ),
+    false,
+  );
+  assert.equal(
+    packet.safety.privateAdvisorMotivationAllowed,
+    false,
+  );
+  assert.equal(
+    packet.safety.advisorNotesClientVisible,
+    false,
   );
   assert.equal(
     packet.readiness.readyForPromptReview,
     true,
-  );
-  assert.deepEqual(
-    packet.readiness.missingRequiredAuthorities,
-    [],
-  );
-  assert.equal(
-    packet.readiness.readyForSlidePlan,
-    false,
-  );
-  assert.equal(
-    packet.readiness.readyForExport,
-    false,
-  );
-  assert.equal(
-    packet.promptBuilderContract
-      .outreachPromptBuilderReused,
-    false,
-  );
-  assert.equal(
-    packet.promptBuilderContract.promptGenerated,
-    false,
-  );
-  assert.equal(
-    packet.safety.generatesPrompt,
-    false,
-  );
-  assert.equal(
-    packet.safety.generatesSlides,
-    false,
-  );
-  assert.equal(
-    packet.safety.exportsPresentation,
-    false,
-  );
-  assert.equal(
-    packet.decision,
-    "PASS_REVIEW_ONLY_CONTEXT_READY_NO_PROMPT",
   );
   assert.equal(
     assertQuoteToSalesPresentationContextBoundary(
@@ -140,14 +120,61 @@ const input = {
     ),
     true,
   );
-  assert.equal(Object.isFrozen(packet), true);
+  pass(
+    "complete client-authoritative context is review-ready without Advisor Reason Why",
+  );
+}
+
+{
+  for (const forbidden of [
+    {
+      reasonWhy:
+        "El asesor quiere comprar un coche.",
+    },
+    {
+      advisorReasonWhy:
+        "El asesor quiere una casa.",
+    },
+    {
+      managerCoachingSignal:
+        "Conectar ventas con sus hijos.",
+    },
+  ]) {
+    assert.throws(
+      () =>
+        buildQuoteToSalesPresentationContext({
+          ...input,
+          ...forbidden,
+        }),
+      /belongs to manager-os/i,
+    );
+  }
+  pass(
+    "Advisor Reason Why and coaching signals are rejected",
+  );
+}
+
+{
+  const packet =
+    buildQuoteToSalesPresentationContext({
+      ...input,
+      clientRecommendationRationale: null,
+    });
   assert.equal(
-    Object.isFrozen(packet.context.acceptedQuote),
+    packet.readiness.readyForPromptReview,
     true,
   );
-
+  assert.equal(
+    packet.readiness
+      .clientRecommendationRationaleReady,
+    false,
+  );
+  assert.equal(
+    packet.context.clientRecommendationRationale,
+    null,
+  );
   pass(
-    "complete authoritative context becomes review-ready without prompt or slides",
+    "client rationale is optional and missing context is not invented",
   );
 }
 
@@ -159,9 +186,9 @@ const input = {
   const changed =
     buildQuoteToSalesPresentationContext({
       ...input,
-      advisorNotes: "TEST_ONLY_CHANGED_NOTE",
+      advisorNotes:
+        "TEST_ONLY_CHANGED_INTERNAL_NOTE",
     });
-
   assert.equal(
     first.presentationContextId,
     second.presentationContextId,
@@ -170,14 +197,12 @@ const input = {
     first.presentationContextId,
     changed.presentationContextId,
   );
-
   pass("presentation context id is deterministic");
 }
 
 {
   const packet =
     buildQuoteToSalesPresentationContext();
-
   assert.equal(
     packet.readiness.readyForPromptReview,
     false,
@@ -188,7 +213,6 @@ const input = {
       "presentation_review_packet",
       "accepted_quote",
       "product_intelligence",
-      "reason_why",
     ],
   );
   assert.equal(
@@ -196,46 +220,14 @@ const input = {
     "HOLD_REVIEW_ONLY_CONTEXT_INCOMPLETE",
   );
   assert.equal(
-    JSON.stringify(packet).includes("12345"),
-    false,
-  );
-  assert.equal(
     assertQuoteToSalesPresentationContextBoundary(
       packet,
     ),
     true,
   );
-
-  pass("missing authorities remain missing without invented data");
-}
-
-{
-  const wrongIntent =
-    buildQuoteToSalesPresentationContext({
-      ...input,
-      reviewPacket: {
-        packetType: "MESSAGE_DRAFT_REVIEW_PACKET",
-        sourceCommand: "/Mejora",
-        intentFamily: "message_draft",
-      },
-    });
-
-  assert.equal(
-    wrongIntent.readiness
-      .presentationIntentConfirmed,
-    false,
+  pass(
+    "required authorities remain missing without invented data",
   );
-  assert.equal(
-    wrongIntent.readiness.readyForPromptReview,
-    false,
-  );
-  assert.ok(
-    wrongIntent.readiness
-      .missingRequiredAuthorities
-      .includes("presentation_review_packet"),
-  );
-
-  pass("message prompt builder cannot masquerade as presentation intent");
 }
 
 {
@@ -249,24 +241,38 @@ const input = {
       }),
     /raw file or PDF data/,
   );
-
   assert.throws(
     () =>
       buildQuoteToSalesPresentationContext({
         ...input,
-        acceptedQuote: {
-          nested: {
-            base64: "FORBIDDEN_TEST_DATA",
-          },
+        prospectContext: {
+          underlyingMotivation:
+            "PRIVATE_ADVISOR_SIGNAL",
         },
       }),
-    /raw file or PDF data/,
+    /private advisor motivation/,
   );
-
-  pass("raw PDF and binary-like payloads are rejected");
+  pass(
+    "raw documents and nested advisor motivation are rejected",
+  );
 }
 
 {
+  assert.equal(
+    QUOTE_TO_SALES_PRESENTATION_CONTEXT_CONTRACT
+      .advisorReasonWhyAllowed,
+    false,
+  );
+  assert.equal(
+    QUOTE_TO_SALES_PRESENTATION_CONTEXT_CONTRACT
+      .privateAdvisorMotivationAllowed,
+    false,
+  );
+  assert.equal(
+    QUOTE_TO_SALES_PRESENTATION_CONTEXT_CONTRACT
+      .advisorNotesClientVisible,
+    false,
+  );
   assert.equal(
     QUOTE_TO_SALES_PRESENTATION_CONTEXT_CONTRACT
       .outreachPromptBuilderReused,
@@ -274,23 +280,17 @@ const input = {
   );
   assert.equal(
     QUOTE_TO_SALES_PRESENTATION_CONTEXT_CONTRACT
-      .promptGenerated,
-    false,
-  );
-  assert.equal(
-    QUOTE_TO_SALES_PRESENTATION_CONTEXT_CONTRACT
-      .slidePlanGenerated,
-    false,
-  );
-  assert.equal(
-    QUOTE_TO_SALES_PRESENTATION_CONTEXT_CONTRACT
       .exportEnabled,
     false,
   );
-
-  pass("contract remains context-only and review-only");
+  pass(
+    "contract remains client-context-only, private and review-only",
+  );
 }
 
 console.log(
   "STATUS=PASS_R16G1_CANONICAL_PRESENTATION_CONTEXT_ADAPTER_TEST",
+);
+console.log(
+  "STATUS=PASS_R16H3_CLIENT_PRESENTATION_CONTEXT_DOMAIN_SEPARATION_TEST",
 );

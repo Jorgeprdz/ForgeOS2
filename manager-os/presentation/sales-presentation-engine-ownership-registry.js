@@ -33,12 +33,12 @@ const registry = [
     engine_id: "QUOTE_TO_SALES_PRESENTATION_CONTEXT_ADAPTER",
     domain_owner: "manager-os/presentation",
     data_owner:
-      "accepted-quote|calculation|product-intelligence|externally-supplied-reason-why",
+      "accepted-quote|calculation|product-intelligence|client-recommendation-rationale",
     truth_ownership: "CANONICAL_CONTEXT_COMPOSITION_ONLY",
     purpose:
-      "compose canonical review-only presentation context without generating narrative or financial truth",
+      "compose canonical review-only presentation context while excluding private advisor motivation and financial invention",
     input_contract:
-      "acceptedQuote|calculation|required; productIntelligence|reasonWhy|prospectContext|advisorNotes|clientObjective|optional",
+      "acceptedQuote|calculation|required; productIntelligence|clientRecommendationRationale|prospectContext|advisorNotes|clientObjective|optional",
     output_contract: "immutable canonical presentation context",
     public_api: [
       "QUOTE_TO_SALES_PRESENTATION_CONTEXT_CONTRACT",
@@ -55,8 +55,9 @@ const registry = [
     forbidden_uses: [
       "invent facts",
       "alter values",
-      "import or execute Reason Why",
-      "generate or recalculate Reason Why",
+      "consume Advisor Reason Why",
+      "consume manager coaching context",
+      "expose private advisor motivation",
       "send",
       "export",
       "mount directly in static browser preview",
@@ -64,6 +65,47 @@ const registry = [
     browser_ready: false,
     server_ready: true,
     assembly_status: "SERVER_CONTRACT_REGISTERED_NOT_BROWSER_MOUNTED",
+  },
+  {
+    engine_id: "CLIENT_RECOMMENDATION_RATIONALE_BOUNDARY",
+    domain_owner: "sales-presentation-client-rationale",
+    data_owner: "client-solution-fit-rationale-only",
+    truth_ownership: "NO_NEW_FACTS_VALIDATED_CLIENT_RATIONALE",
+    purpose:
+      "validate client solution-fit rationale while rejecting private advisor motivation and manager coaching context",
+    input_contract:
+      "clientObjective|documentedNeed|solutionFit|whyNow|recommendedAction|evidenceRefs|sourceOwners|freshness",
+    output_contract:
+      "immutable CLIENT_RECOMMENDATION_RATIONALE_PACKET",
+    public_api: [
+      "buildClientRecommendationRationaleBoundary",
+    ],
+    runtime_location:
+      "docs/static-preview/quote-preview-live/forge-client-recommendation-rationale-boundary.js",
+    current_consumers: [
+      "docs/static-preview/quote-preview-live/forge-accepted-quote-bridge.js",
+      "docs/static-preview/quote-preview-live/forge-sales-presentation-browser-context-adapter.js",
+    ],
+    allowed_consumers: [
+      "ForgeAcceptedQuoteBridge",
+      "browser presentation context",
+      "presentation prompt builder",
+      "slide plan generator",
+      "tests",
+    ],
+    forbidden_uses: [
+      "consume Advisor Reason Why",
+      "consume manager coaching context",
+      "consume compensation or forecast context",
+      "expose advisor notes",
+      "invent client need",
+      "invent product fit",
+      "send",
+      "export",
+    ],
+    browser_ready: true,
+    server_ready: true,
+    assembly_status: "DOMAIN_SEPARATION_BOUNDARY_REGISTERED",
   },
   {
     engine_id: "ACCEPTED_QUOTE_REVIEW_SNAPSHOT_BOUNDARY",
@@ -431,11 +473,17 @@ const registry = [
 
 const assemblyPlan = {
   assembly_id: "R16H1_PRESENTATION_EXISTING_RUNTIME_ASSEMBLY_PLAN",
-  status: "PLANNED_EXISTING_WIRING_NO_NEW_CONNECTIONS",
+  status: "VERIFIED_WIRING_WITH_CLIENT_RATIONALE_DOMAIN_BOUNDARY",
   registry_authority: "SOURCE_TRUTH_AND_MACHINE_READABLE_GOVERNANCE",
   runtime_assembly_authorized: false,
   new_runtime_connections_required: [],
   protected_decisions: [
+    {
+      overlap:
+        "ADVISOR_REASON_WHY|CLIENT_RECOMMENDATION_RATIONALE_BOUNDARY",
+      decision:
+        "Advisor Reason Why remains private manager-os coaching signal; client rationale is a separate client solution-fit authority",
+    },
     {
       overlap:
         "QUOTE_TO_SALES_PRESENTATION_CONTEXT_ADAPTER|BROWSER_PRESENTATION_CONTEXT_ADAPTER",
@@ -456,6 +504,7 @@ const assemblyPlan = {
     },
   ],
   existing_logical_edges: [
+    "CLIENT_RECOMMENDATION_RATIONALE_BOUNDARY>BROWSER_PRESENTATION_CONTEXT_ADAPTER",
     "ACCEPTED_QUOTE_REVIEW_SNAPSHOT_BOUNDARY>BROWSER_PRESENTATION_CONTEXT_ADAPTER",
     "BROWSER_PRESENTATION_CONTEXT_ADAPTER>DEDICATED_PRESENTATION_PROMPT_BUILDER",
     "DEDICATED_PRESENTATION_PROMPT_BUILDER>SLIDE_PLAN_GENERATOR",
@@ -466,8 +515,7 @@ const assemblyPlan = {
     "PRESENTATION_HUMAN_APPROVAL_GATE>PRESENTATION_EXPORT_AUTHORIZATION_AND_PRINT_PDF_ADAPTER",
     "ACCEPTED_QUOTE_BRIDGE>ALL_BROWSER_LIFECYCLE_ORCHESTRATION",
   ],
-  next_verification:
-    "R16H2_EXISTING_PRESENTATION_ASSEMBLY_CONTRACT_AND_E2E_RELEASE_FAST_TRACK",
+  next_verification: "R16I_PRESENTATION_VISUAL_RUNTIME_ACCEPTANCE_AND_RELEASE_CLOSE",
 };
 
 export const PRESENTATION_ENGINE_OWNERSHIP_REQUIRED_FIELDS =
@@ -493,10 +541,10 @@ export function getPresentationEngineOwnershipById(engineId) {
 
 export function assertPresentationEngineOwnershipRegistry() {
   if (
-    PRESENTATION_ENGINE_OWNERSHIP_REGISTRY.length !== 11
+    PRESENTATION_ENGINE_OWNERSHIP_REGISTRY.length !== 12
   ) {
     throw new Error(
-      "Presentation ownership registry must contain exactly 11 engines",
+      "Presentation ownership registry must contain exactly 12 engines",
     );
   }
 

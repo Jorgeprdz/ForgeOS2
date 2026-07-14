@@ -5,9 +5,10 @@ import {
 } from "./forge-accepted-quote-adapter.js?v=r15l_orvi_end_to_end_20260712_1";
 import { renderAcceptedQuote } from "./forge-benefit-summary-renderer.js?v=r16b_unified_dashboard_20260713_1";
 import { createAcceptedQuoteReviewSnapshotBoundary } from "./forge-accepted-quote-review-snapshot.js?v=r16g2b1_review_snapshot_20260713_1";
-import { buildSalesPresentationBrowserContext } from "./forge-sales-presentation-browser-context-adapter.js?v=r16g2b3f_context_20260714_1";
-import { buildSalesPresentationPromptReviewPacket } from "./forge-sales-presentation-prompt-builder.js?v=r16g2b3f_prompt_20260714_1";
-import { buildSalesPresentationSlidePlanReviewPacket } from "./forge-sales-presentation-slide-plan-generator.js?v=r16g2b3f_slides_20260714_1";
+import { buildClientRecommendationRationaleBoundary } from "./forge-client-recommendation-rationale-boundary.js?v=r16h3_client_rationale_20260714_1";
+import { buildSalesPresentationBrowserContext } from "./forge-sales-presentation-browser-context-adapter.js?v=r16h3_context_20260714_1";
+import { buildSalesPresentationPromptReviewPacket } from "./forge-sales-presentation-prompt-builder.js?v=r16h3_prompt_20260714_1";
+import { buildSalesPresentationSlidePlanReviewPacket } from "./forge-sales-presentation-slide-plan-generator.js?v=r16h3_slides_20260714_1";
 import { buildSalesPresentationReviewPacket } from "./forge-sales-presentation-review-packet-builder.js?v=r16g2b3f_review_20260714_1";
 import { initializeSalesPresentationReviewState, getSalesPresentationReviewState, updateSalesPresentationSlide, applySalesPresentationApprovalDecision, revokeSalesPresentationApproval, applySalesPresentationExportAuthorization } from "./forge-sales-presentation-review-state-store.js?v=r16g5b_state_20260714_1";
 import { bindSalesPresentationReviewUi } from "./forge-sales-presentation-editable-preview.js?v=r16g5b_preview_20260714_1";
@@ -99,18 +100,44 @@ function getAcceptedQuoteReviewSnapshot() {
   return acceptedQuoteReviewSnapshotBoundary.getSnapshot();
 }
 
+function buildClientRecommendationRationaleReviewBoundary(
+  input = {},
+) {
+  return buildClientRecommendationRationaleBoundary(input);
+}
+
 function getSalesPresentationContextReviewPacket(overrides = {}) {
   const snapshot = getAcceptedQuoteReviewSnapshot();
   if (!snapshot) return null;
+
+  for (const key of [
+    "reasonWhy",
+    "advisorReasonWhy",
+    "advisorMotivation",
+    "managerCoachingSignal",
+  ]) {
+    if (Object.prototype.hasOwnProperty.call(overrides, key)) {
+      throw new TypeError(
+        `${key} belongs to manager-os and cannot enter a client presentation`,
+      );
+    }
+  }
+
+  const clientRecommendationRationale =
+    overrides.clientRecommendationRationale == null
+      ? null
+      : buildClientRecommendationRationaleReviewBoundary(
+          overrides.clientRecommendationRationale,
+        );
 
   return buildSalesPresentationBrowserContext({
     snapshot,
     prospectContext: overrides.prospectContext ?? null,
     advisorNotes: overrides.advisorNotes ?? null,
     clientObjective: overrides.clientObjective ?? null,
+    clientRecommendationRationale,
   });
 }
-
 function buildSalesPresentationCoreReviewBundle(overrides = {}) {
   const contextPacket = getSalesPresentationContextReviewPacket(overrides);
   if (!contextPacket) return null;
@@ -417,6 +444,7 @@ function exportCurrentSalesPresentationToPrintPdf() {
 }
 
 const api = Object.freeze({
+  buildClientRecommendationRationaleReviewBoundary,
   initAcceptedQuoteBridge,
   buildOrviConfirmationPreview,
   buildSalesPresentationCoreReviewBundle,
@@ -446,6 +474,7 @@ bindSalesPresentationReviewUi({
 initAcceptedQuoteBridge();
 
 export {
+  buildClientRecommendationRationaleReviewBoundary,
   approveCurrentSalesPresentationReview,
   authorizeCurrentSalesPresentationExport,
   buildOrviConfirmationPreview,
