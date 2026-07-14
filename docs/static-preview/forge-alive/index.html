@@ -32,6 +32,19 @@
   <link rel="stylesheet" href="./forge-alive-mobile-nav-r16c5j.css?v=r16c5j-clean-nav">
   <link rel="stylesheet" href="./forge-alive-home-nav-bridge-r16c5k.css?v=r16c5k-exact-quote-replica">
   <link rel="stylesheet" href="./forge-alive-new-quote-saas-module-r16c5l.css?v=r16f2-nested-main-layout-reset">
+  <style id="forge-r16i0l2-integrated-quote-halo-containment">
+    /*
+      Cotizaciones activa overflow visible para capas funcionales.
+      El halo heredado de .phone-shell::before usaba right:-10%
+      y expandía el scrollWidth del documento. Se conserva dentro
+      del shell sin recortar formularios, navegación ni controles.
+    */
+    body[data-forge-saas-active-module-r16c5l="cotizaciones"]
+      .phone-shell::before {
+      right: 0 !important;
+      inset-inline-end: 0 !important;
+    }
+  </style>
 </head>
 <body data-forge-mobile-nav-page-r16c5j="home">
   <main class="phone-shell" aria-label="Forge Alive vista estática">
@@ -906,10 +919,10 @@
   <script defer src="./forge-alive-mobile-nav-r16c5j.js?v=r16c5j-clean-nav"></script>
   <script defer src="./forge-alive-home-nav-bridge-r16c5k.js?v=r16c5k-exact-quote-replica"></script>
 <!-- FORGEOS:R16C5L_QUOTE_ASSETS:START -->
-<script src="./quote-preview-live/forge-quote-preview-bundle.js" data-forge-saas-module-asset-r16c5l="true"></script>
-<script type="module" src="./quote-preview-live/forge-quote-calculators.js" data-forge-saas-module-asset-r16c5l="true"></script>
-<script type="module" src="./quote-preview-live/forge-udi-mxn-runtime.js" data-forge-saas-module-asset-r16c5l="true"></script>
-<script type="module" src="./quote-preview-live/forge-quote-benefit-summary.js" data-forge-saas-module-asset-r16c5l="true"></script>
+<script src="../quote-preview-live/forge-quote-preview-bundle.js" data-forge-saas-module-asset-r16c5l="true"></script>
+<script type="module" src="../quote-preview-live/forge-quote-calculators.js" data-forge-saas-module-asset-r16c5l="true"></script>
+<script type="module" src="../quote-preview-live/forge-udi-mxn-runtime.js" data-forge-saas-module-asset-r16c5l="true"></script>
+<script type="module" src="../quote-preview-live/forge-quote-benefit-summary.js" data-forge-saas-module-asset-r16c5l="true"></script>
 <script data-forge-saas-module-inline-r16c5l="true">
 "use strict";
 
@@ -1477,9 +1490,9 @@
   };
 })();
 </script>
-<script type="module" src="./quote-preview-live/forge-accepted-quote-adapter.js?v=r14g_segubeca_renderer_20260712_1" data-forge-saas-module-asset-r16c5l="true"></script>
-<script type="module" src="./quote-preview-live/forge-benefit-summary-renderer.js?v=r16b_unified_dashboard_20260713_1" data-forge-saas-module-asset-r16c5l="true"></script>
-<script type="module" src="./quote-preview-live/forge-benefit-summary-layout.js?v=r16b_unified_dashboard_20260713_1" data-forge-saas-module-asset-r16c5l="true"></script>
+<script type="module" src="../quote-preview-live/forge-accepted-quote-adapter.js?v=r14g_segubeca_renderer_20260712_1" data-forge-saas-module-asset-r16c5l="true"></script>
+<script type="module" src="../quote-preview-live/forge-benefit-summary-renderer.js?v=r16b_unified_dashboard_20260713_1" data-forge-saas-module-asset-r16c5l="true"></script>
+<script type="module" src="../quote-preview-live/forge-benefit-summary-layout.js?v=r16b_unified_dashboard_20260713_1" data-forge-saas-module-asset-r16c5l="true"></script>
 <script defer src="./forge-alive-saas-router-r16c5l.js?v=r16c5n-dom-isolation"></script>
 <!-- FORGEOS:R16C5L_QUOTE_ASSETS:END -->
 
