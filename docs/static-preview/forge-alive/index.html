@@ -45,6 +45,62 @@
       inset-inline-end: 0 !important;
     }
   </style>
+  <style id="forge-r16i0m-mobile-quote-nav-dedup">
+    @media (max-width: 767px) {
+      body[data-forge-saas-active-module-r16c5l="cotizaciones"]
+        [data-forge-mobile-redundant-nav-r16i0m] {
+        display: none !important;
+      }
+    }
+  </style>
+
+  <script id="forge-r16i0m-mobile-quote-nav-dedup-runtime">
+    (() => {
+      const marker = "data-forge-mobile-redundant-nav-r16i0m";
+      const targets = [
+        { suffix: "Volver a Inicio", value: "home" },
+        { suffix: "Volver a Cotizaciones", value: "quotes" },
+      ];
+
+      const normalize = (value) =>
+        String(value || "").replace(/\s+/g, " ").trim();
+
+      const markRenderedControls = () => {
+        document
+          .querySelectorAll('a, button, [role="button"]')
+          .forEach((element) => {
+            const label = normalize(
+              element.getAttribute("aria-label") ||
+                element.textContent
+            );
+            const target = targets.find((candidate) =>
+              label.endsWith(candidate.suffix)
+            );
+            if (target) {
+              element.setAttribute(marker, target.value);
+            }
+          });
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener(
+          "DOMContentLoaded",
+          markRenderedControls,
+          { once: true }
+        );
+      } else {
+        markRenderedControls();
+      }
+
+      new MutationObserver(markRenderedControls).observe(
+        document.documentElement,
+        {
+          childList: true,
+          subtree: true,
+        }
+      );
+    })();
+  </script>
 </head>
 <body data-forge-mobile-nav-page-r16c5j="home">
   <main class="phone-shell" aria-label="Forge Alive vista estática">
