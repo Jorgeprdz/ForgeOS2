@@ -12131,3 +12131,88 @@ Owner test        PASS
 R16E2C updates documentation only. It does not alter runtime, UI, parsers,
 calculators, router, nav, orb or Cotizaciones.
 <!-- FORGEOS:R16E2C_BUILD_TREE_SYNC_37107CA:END -->
+
+<!-- FORGE:R16G2B2R_PRESENTATION_ROADMAP_REALIGNMENT:START -->
+## R16G2B2R Presentation Roadmap Realignment
+
+Status: CANONICAL
+
+This section supersedes the five-stage macro roadmap for all work created
+after R16G2B2R. Historical progress records remain unchanged.
+
+```text
+ROADMAP_TOTAL_STAGES=6
+ROADMAP_CURRENT_STAGE=3/6
+ROADMAP_STAGE_1=DISCOVERY_AND_ARCHITECTURE|COMPLETE
+ROADMAP_STAGE_2=CANONICAL_PRESENTATION_CONTEXT|COMPLETE
+ROADMAP_STAGE_3=BROWSER_AUTHORITY_AND_RUNTIME_BINDING|IN_PROGRESS
+ROADMAP_STAGE_4=PRESENTATION_PROMPT_AND_SLIDE_PLAN|PENDING
+ROADMAP_STAGE_5=REVIEW_UI_APPROVAL_AND_EXPORT|PENDING
+ROADMAP_STAGE_6=ENGINE_OWNERSHIP_CLASSIFICATION_AND_ASSEMBLY|PENDING
+```
+
+### Presentation-generator authority decision
+
+The sales-presentation generator does not depend on any artifact named
+Reason Why.
+
+```text
+PRESENTATION_REASON_WHY_REQUIRED=NO
+BENVENU_PURPOSE_SNAPSHOT_CONSUMPTION=FORBIDDEN
+NBA_REASON_WHY_CONSUMPTION=FORBIDDEN
+OUTREACH_PROMPT_BUILDER_REUSED=NO
+```
+
+The minimum authoritative presentation context is:
+
+```text
+ACCEPTED_QUOTE=REQUIRED
+CALCULATION=REQUIRED
+PRODUCT_INTELLIGENCE=REQUIRED
+PROSPECT_CONTEXT=OPTIONAL
+ADVISOR_NOTES=OPTIONAL
+CLIENT_OBJECTIVE=OPTIONAL_WHEN_GROUNDED
+```
+
+Missing optional narrative context must remain missing. It must not be
+invented and must not block construction of a factual presentation based on
+the accepted quote, authorized calculation, and Product Intelligence.
+
+The dedicated presentation Prompt Builder may organize and explain existing
+authoritative facts. It may not alter figures, create coverage, infer private
+advisor purpose, reuse outreach-message logic, or send/export without human
+approval.
+
+### Phase 6: Engine Ownership Classification and Assembly
+
+Phase 6 begins immediately after the presentation generator completes its
+review, approval, and export boundary.
+
+Every discovered engine must be classified before additional cross-domain
+assembly:
+
+```text
+ENGINE_ID
+DOMAIN_OWNER
+DATA_OWNER
+TRUTH_OWNERSHIP
+PURPOSE
+INPUT_CONTRACT
+OUTPUT_CONTRACT
+PUBLIC_API
+RUNTIME_LOCATION
+CURRENT_CONSUMERS
+ALLOWED_CONSUMERS
+FORBIDDEN_USES
+BROWSER_READY
+SERVER_READY
+ASSEMBLY_STATUS
+```
+
+The phase must identify duplicate names, overlapping responsibilities,
+unmounted engines, unauthorized consumers, and contracts that are implied
+rather than explicit.
+
+No engine may be connected solely because another component has a similar
+name.
+<!-- FORGE:R16G2B2R_PRESENTATION_ROADMAP_REALIGNMENT:END -->
