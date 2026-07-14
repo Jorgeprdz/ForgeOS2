@@ -143,3 +143,26 @@ Scope:
 - Add a presentation-only client mode.
 - Preserve revision-aware approval and explicit export authorization.
 <!-- FORGE:R16J1_ROADMAP:END -->
+
+<!-- FORGE:R16J1V_ROADMAP:START -->
+## R16J1V · Verification Reconciliation
+
+Status: PASS
+
+Verified commit:
+
+`afce5715261fac9cca9bc85dc5b4e3ed0338e571`
+
+Evidence:
+
+- Corrected gate uses the canonical `WORKSPACE` selector.
+- Chromium: PASS.
+- Firefox: PASS.
+- WebKit: PASS.
+- Three screenshots generated.
+- Runtime files changed by reconciliation: none.
+
+Next:
+
+`R16J2_SALES_PRESENTATION_VISUAL_COMPOSITION_AND_CLIENT_PREVIEW`
+<!-- FORGE:R16J1V_ROADMAP:END -->

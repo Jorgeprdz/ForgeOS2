@@ -12435,3 +12435,23 @@ Next node:
 
 `R16J2_SALES_PRESENTATION_VISUAL_COMPOSITION_AND_CLIENT_PREVIEW`
 <!-- FORGE:R16J1_UNIFIED_BUILD_TREE:END -->
+
+<!-- FORGE:R16J1V_UNIFIED_BUILD_TREE:START -->
+## R16J1V · Committed Runtime Verification
+
+Status: PASS
+
+Verified baseline: `afce5715261fac9cca9bc85dc5b4e3ed0338e571`
+
+Verification boundary:
+
+`committed R16J1 runtime → corrected gate → 3/3 engines`
+
+The reconciliation did not rewrite the workspace, cleanup runtime, bridge,
+or page assets. It only certifies the already-published R16J1 behavior and
+records the corrected evidence path.
+
+Next node:
+
+`R16J2_SALES_PRESENTATION_VISUAL_COMPOSITION_AND_CLIENT_PREVIEW`
+<!-- FORGE:R16J1V_UNIFIED_BUILD_TREE:END -->

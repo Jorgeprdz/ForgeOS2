@@ -15249,3 +15249,30 @@ Next:
 
 - `R16J2_SALES_PRESENTATION_VISUAL_COMPOSITION_AND_CLIENT_PREVIEW`
 <!-- FORGE:R16J1_MASTER_BUILD_TREE:END -->
+
+<!-- FORGE:R16J1V_MASTER_BUILD_TREE:START -->
+## R16J1V Editable Workspace Verification Reconciliation
+
+Status: PASS
+
+Verified baseline: `afce5715261fac9cca9bc85dc5b4e3ed0338e571`
+
+Reconciliation:
+
+- Confirmed that R16J1 was already committed and published before the
+  corrected verification run.
+- Replaced the invalid gate-local `selector` reference with the canonical
+  `WORKSPACE` selector constant.
+- Re-ran the committed runtime without reinstalling or modifying it.
+- Chromium, Firefox, and WebKit passed.
+- Three visual evidence captures were generated.
+- Debug remains hidden by default and available with `?debug=1`.
+- Sourced facts remain locked.
+- Human approval and export authorization remain revision-aware.
+
+Runtime mutation in this reconciliation: none.
+
+Next:
+
+- `R16J2_SALES_PRESENTATION_VISUAL_COMPOSITION_AND_CLIENT_PREVIEW`
+<!-- FORGE:R16J1V_MASTER_BUILD_TREE:END -->
