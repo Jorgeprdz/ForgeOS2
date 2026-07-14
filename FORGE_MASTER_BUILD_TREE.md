@@ -15203,3 +15203,49 @@ Next:
 
 - `R16J1_SALES_PRESENTATION_EDITABLE_REVIEW_WORKSPACE`
 <!-- FORGE:R16J0A_MASTER_BUILD_TREE:END -->
+
+<!-- FORGE:R16J1_MASTER_BUILD_TREE:START -->
+## R16J1 Sales Presentation Editable Review Workspace
+
+Status: PASS
+
+Baseline: `0c5f9cbffcf91d847e75edba7ce395c1c862805e`
+
+Implemented:
+
+- Replaced the technical all-slides overlay with a real presentation
+  workspace.
+- Added slide navigation, a client-facing canvas, and one-slide-at-a-time
+  editing.
+- Preserved the only editable fields: title, purpose, and advisor notes.
+- Kept sourced facts locked and visually separate from narrative.
+- Hid source paths by default and exposed them only with `?debug=1`.
+- Added revision-aware approval and export authorization controls.
+- Any content edit revokes approval and export authorization.
+- Cleaned Nueva Cotización by hiding technical Product Intelligence and
+  Readiness panels in production.
+- Added compact user states, a small `Forge · R16J1` watermark, and bottom
+  safe spacing so navigation does not cover content.
+
+Safety:
+
+- No automatic approval.
+- No automatic export.
+- No automatic send.
+- No quote mutation.
+- No sourced-fact mutation.
+- Print/PDF remains blocked until explicit human approval and separate
+  export authorization.
+
+Validation:
+
+- Chromium, Firefox, and WebKit: PASS.
+- Debug hidden by default and visible with `?debug=1`.
+- Facts remain non-editable.
+- Approval and authorization are revoked after an edit.
+- Three visual evidence captures generated.
+
+Next:
+
+- `R16J2_SALES_PRESENTATION_VISUAL_COMPOSITION_AND_CLIENT_PREVIEW`
+<!-- FORGE:R16J1_MASTER_BUILD_TREE:END -->

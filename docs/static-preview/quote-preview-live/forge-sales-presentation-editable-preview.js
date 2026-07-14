@@ -1,13 +1,770 @@
-import{REVIEW_STATE_TYPE,getSalesPresentationReviewState,subscribeSalesPresentationReviewState,updateSalesPresentationSlide}from"./forge-sales-presentation-review-state-store.js?v=r16g5b_state_20260714_1";
-let overlay=null,bound=false,unsubscribe=null;
-const esc=v=>String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
-const display=v=>typeof v==="string"?v:JSON.stringify(v,null,2);
-function buildSalesPresentationEditablePreviewModel(reviewState){if(reviewState?.packetType!==REVIEW_STATE_TYPE)throw new TypeError("Valid review state required");return Object.freeze({packetType:"SALES_PRESENTATION_EDITABLE_PREVIEW_MODEL",sessionId:reviewState.sessionId,contentRevision:reviewState.contentRevision,status:reviewState.status,approval:reviewState.approval,exportAuthorization:reviewState.exportAuthorization,slides:reviewState.slides.map(slide=>Object.freeze({...slide,editableFields:Object.freeze(["title","purpose","notes"]),facts:slide.facts.map(f=>Object.freeze({...f,editable:false}))}))});}
-function ensureUi(){if(typeof document==="undefined")return null;if(overlay&&document.contains(overlay))return overlay;const style=document.createElement("style");style.textContent=`.forge-pr5{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;padding:20px;background:rgba(3,8,20,.9);backdrop-filter:blur(12px)}.forge-pr5[hidden]{display:none}.forge-pr5__panel{width:min(1180px,100%);max-height:94vh;overflow:auto;border:1px solid #314158;border-radius:22px;background:#07111f;color:#eef7ff;box-shadow:0 30px 90px #0009}.forge-pr5__head,.forge-pr5__actions{position:sticky;z-index:3;display:flex;gap:10px;align-items:center;padding:16px 20px;background:#07111ff2}.forge-pr5__head{top:0;justify-content:space-between;border-bottom:1px solid #25344a}.forge-pr5__actions{bottom:0;border-top:1px solid #25344a}.forge-pr5__body{display:grid;gap:16px;padding:20px}.forge-pr5__slide{display:grid;gap:12px;padding:16px;border:1px solid #25344a;border-radius:16px;background:#0d1b2d}.forge-pr5 label{display:grid;gap:6px;font-size:12px;color:#b8c8da}.forge-pr5 input,.forge-pr5 textarea{width:100%;box-sizing:border-box;border:1px solid #354861;border-radius:10px;padding:10px;background:#071522;color:#fff}.forge-pr5 textarea{min-height:72px}.forge-pr5__fact{display:grid;grid-template-columns:minmax(130px,.4fr) 1fr;gap:10px;padding:9px;border-radius:10px;background:#06101d}.forge-pr5__fact small{display:block;color:#71859d;word-break:break-all}.forge-pr5 button{border:0;border-radius:10px;padding:10px 12px;font-weight:800;cursor:pointer}.forge-pr5 button:disabled{opacity:.4;cursor:not-allowed}.forge-pr5__primary{background:#77ecff;color:#03202b}.forge-pr5__secondary{background:#1e3149;color:#eef7ff}.forge-pr5__danger{background:#43202d;color:#ffdce5}@media(max-width:760px){.forge-pr5{padding:6px}.forge-pr5__actions{display:grid;grid-template-columns:1fr 1fr}.forge-pr5__actions input{grid-column:1/-1}.forge-pr5__fact{grid-template-columns:1fr}}`;document.head.appendChild(style);overlay=document.createElement("section");overlay.className="forge-pr5";overlay.hidden=true;overlay.innerHTML=`<div class="forge-pr5__panel"><header class="forge-pr5__head"><div><h2>Revisión de presentación</h2><p data-role="status"></p></div><button class="forge-pr5__secondary" data-action="close">Cerrar</button></header><main class="forge-pr5__body" data-role="slides"></main><footer class="forge-pr5__actions"><input data-role="reviewer" placeholder="Nombre de quien aprueba"><button class="forge-pr5__primary" data-action="approve">Aprobar</button><button class="forge-pr5__secondary" data-action="authorize">Autorizar exportación</button><button class="forge-pr5__secondary" data-action="export">Imprimir / PDF</button><button class="forge-pr5__danger" data-action="revoke">Revocar</button></footer></div>`;document.body.appendChild(overlay);return overlay;}
-function render(reviewState){const root=ensureUi();if(!root||!reviewState)return;const model=buildSalesPresentationEditablePreviewModel(reviewState);root.querySelector('[data-role="status"]').textContent=`Estado: ${model.status} · Revisión: ${model.contentRevision} · ${model.approval.approved?`Aprobada por ${model.approval.approvedBy}`:"Pendiente"} · ${model.exportAuthorization.authorized?"Exportación autorizada":"Exportación bloqueada"}`;root.querySelector('[data-role="slides"]').innerHTML=model.slides.map(slide=>`<article class="forge-pr5__slide" data-slide-id="${esc(slide.id)}"><strong>Diapositiva ${slide.position}</strong><label>Título<input data-edit-field="title" value="${esc(slide.title)}"></label><label>Propósito<textarea data-edit-field="purpose">${esc(slide.purpose)}</textarea></label><label>Notas<textarea data-edit-field="notes">${esc(slide.notes.join("\n"))}</textarea></label>${slide.facts.map(f=>`<div class="forge-pr5__fact" data-fact-editable="false"><strong>${esc(f.label)}</strong><div>${esc(display(f.value))}<small>${esc(f.sourcePath)}</small></div></div>`).join("")}</article>`).join("");root.querySelector('[data-action="authorize"]').disabled=!model.approval.approved;root.querySelector('[data-action="export"]').disabled=!model.exportAuthorization.authorized;}
-function openSalesPresentationReviewUi(){const root=ensureUi(),state=getSalesPresentationReviewState();if(!root||!state)return false;render(state);root.hidden=false;return true;}
-function closeSalesPresentationReviewUi(){if(overlay)overlay.hidden=true;}
-function bindSalesPresentationReviewUi({buildReviewBundle,startReviewSession,approveReview,revokeApproval,authorizeExport,exportToPrintPdf}={}){if(bound||typeof document==="undefined")return;for(const[name,fn]of Object.entries({buildReviewBundle,startReviewSession,approveReview,revokeApproval,authorizeExport,exportToPrintPdf}))if(typeof fn!=="function")throw new TypeError(`Missing callback: ${name}`);bound=true;const boot=()=>{const root=ensureUi();unsubscribe?.();unsubscribe=subscribeSalesPresentationReviewState(s=>{if(s&&!root.hidden)render(s);});root.addEventListener("change",event=>{const field=event.target.closest("[data-edit-field]"),slide=field?.closest("[data-slide-id]");if(field&&slide)updateSalesPresentationSlide(slide.dataset.slideId,{[field.dataset.editField]:field.value});});root.addEventListener("click",event=>{const action=event.target.closest("[data-action]")?.dataset.action;if(!action)return;if(action==="close")return closeSalesPresentationReviewUi();if(action==="revoke")return revokeApproval("HUMAN_REVOKED_FROM_UI");if(action==="approve"){try{approveReview({approvedBy:root.querySelector('[data-role="reviewer"]').value,reviewerType:"HUMAN"});}catch(error){globalThis.alert?.(error.message);}return;}if(action==="authorize"){try{authorizeExport();}catch(error){globalThis.alert?.(error.message);}return;}if(action==="export"){try{exportToPrintPdf();}catch(error){globalThis.alert?.(error.message);}}});const refresh=()=>{let ready=false;try{ready=Boolean(buildReviewBundle()?.reviewPacket?.artifactsReadyForReview);}catch{ready=false;}for(const button of document.querySelectorAll('button[data-forge-presentation-generation-allowed]')){if(!button.textContent.toLowerCase().includes("generar presentación"))continue;button.disabled=!ready;button.setAttribute("aria-disabled",String(!ready));button.dataset.forgePresentationGenerationAllowed=String(ready);button.dataset.forgePromptGenerationAllowed=String(ready);if(button.dataset.forgePresentationBound==="true")continue;button.dataset.forgePresentationBound="true";button.addEventListener("click",()=>{const value=document.querySelector("#fq-objective-105dr")?.value?.trim()||"";const review=startReviewSession({prospectContext:value?{documentedContext:value}:null});if(!review)return globalThis.alert?.("Confirma primero una cotización con Product Intelligence.");openSalesPresentationReviewUi();});}};refresh();globalThis.setInterval(refresh,700);};if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",boot,{once:true});else boot();}
-const api=Object.freeze({buildSalesPresentationEditablePreviewModel,openSalesPresentationReviewUi,closeSalesPresentationReviewUi,bindSalesPresentationReviewUi});
-globalThis.ForgeSalesPresentationEditablePreview=api;
-export{buildSalesPresentationEditablePreviewModel,openSalesPresentationReviewUi,closeSalesPresentationReviewUi,bindSalesPresentationReviewUi};
+import {
+  REVIEW_STATE_TYPE,
+  getSalesPresentationReviewState,
+  subscribeSalesPresentationReviewState,
+  updateSalesPresentationSlide,
+} from "./forge-sales-presentation-review-state-store.js?v=r16g5b_state_20260714_1";
+
+const VERSION = "R16J1";
+
+let overlay = null;
+let bound = false;
+let unsubscribe = null;
+let callbacks = null;
+let activeSlideId = null;
+let noticeTimer = 0;
+
+const esc = (value) =>
+  String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+
+const display = (value) => {
+  if (typeof value === "string") return value;
+  if (value === null || value === undefined) return "";
+  return JSON.stringify(value, null, 2);
+};
+
+const normalize = (value) =>
+  String(value ?? "")
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase()
+    .trim();
+
+function isDebugMode() {
+  const value = new URLSearchParams(location.search).get("debug");
+  return value === "1" || value === "true";
+}
+
+function buildSalesPresentationEditablePreviewModel(reviewState) {
+  if (reviewState?.packetType !== REVIEW_STATE_TYPE) {
+    throw new TypeError("Valid review state required");
+  }
+
+  return Object.freeze({
+    packetType: "SALES_PRESENTATION_EDITABLE_PREVIEW_MODEL",
+    version: VERSION,
+    sessionId: reviewState.sessionId,
+    contentRevision: reviewState.contentRevision,
+    status: reviewState.status,
+    approval: reviewState.approval,
+    exportAuthorization: reviewState.exportAuthorization,
+    safety: reviewState.safety,
+    slides: reviewState.slides.map((slide) =>
+      Object.freeze({
+        ...slide,
+        editableFields: Object.freeze([
+          "title",
+          "purpose",
+          "notes",
+        ]),
+        facts: slide.facts.map((fact) =>
+          Object.freeze({
+            ...fact,
+            editable: false,
+          }),
+        ),
+      }),
+    ),
+  });
+}
+
+function stateLabel(model) {
+  if (model.exportAuthorization.authorized) {
+    return "Exportación lista";
+  }
+
+  if (model.approval.approved) {
+    return "Aprobada";
+  }
+
+  return "Borrador editable";
+}
+
+function findFact(model, patterns) {
+  for (const slide of model.slides) {
+    for (const fact of slide.facts) {
+      const label = normalize(fact.label);
+
+      if (patterns.some((pattern) => label.includes(pattern))) {
+        return fact;
+      }
+    }
+  }
+
+  return null;
+}
+
+function contextValue(fact) {
+  const value = display(fact?.value).trim();
+  return value || "Sin dato confirmado";
+}
+
+function currentSlide(model) {
+  const candidate = model.slides.find(
+    (slide) => slide.id === activeSlideId,
+  );
+
+  if (candidate) return candidate;
+
+  const first = model.slides[0] || null;
+  activeSlideId = first?.id || null;
+  return first;
+}
+
+function ensureUi() {
+  if (typeof document === "undefined") return null;
+
+  if (overlay && document.contains(overlay)) {
+    return overlay;
+  }
+
+  overlay = document.createElement("section");
+  overlay.className = "forge-r16j1";
+  overlay.hidden = true;
+  overlay.setAttribute(
+    "data-forge-sales-presentation-workspace-r16j1",
+    "true",
+  );
+  overlay.setAttribute("role", "dialog");
+  overlay.setAttribute("aria-modal", "true");
+  overlay.setAttribute(
+    "aria-label",
+    "Workspace de presentación de venta",
+  );
+
+  overlay.innerHTML = `
+    <div class="forge-r16j1__panel">
+      <header class="forge-r16j1__header">
+        <div class="forge-r16j1__heading">
+          <span class="forge-r16j1__eyebrow">
+            Presentación de venta
+          </span>
+          <h2>Revisión editable</h2>
+          <p>
+            Ajusta la narrativa. Los datos confirmados permanecen
+            bloqueados.
+          </p>
+        </div>
+
+        <div class="forge-r16j1__header-actions">
+          <span
+            class="forge-r16j1__state"
+            data-role="workspace-state"
+          ></span>
+
+          <button
+            type="button"
+            class="forge-r16j1__icon-button"
+            data-action="close"
+            aria-label="Cerrar presentación"
+          >
+            ×
+          </button>
+        </div>
+      </header>
+
+      <div class="forge-r16j1__context" data-role="context">
+        <article>
+          <span>Objetivo del cliente</span>
+          <strong data-role="client-objective"></strong>
+        </article>
+
+        <article>
+          <span>Razón de recomendación</span>
+          <strong data-role="recommendation-rationale"></strong>
+        </article>
+
+        <article>
+          <span>Notas del asesor</span>
+          <strong data-role="advisor-notes"></strong>
+        </article>
+      </div>
+
+      <div class="forge-r16j1__layout">
+        <aside class="forge-r16j1__rail">
+          <div class="forge-r16j1__rail-title">
+            <span>Diapositivas</span>
+            <small data-role="slide-count"></small>
+          </div>
+
+          <nav
+            class="forge-r16j1__slide-nav"
+            data-role="slide-nav"
+            aria-label="Diapositivas"
+          ></nav>
+        </aside>
+
+        <main class="forge-r16j1__workspace">
+          <section
+            class="forge-r16j1__canvas"
+            data-role="client-canvas"
+          ></section>
+
+          <section
+            class="forge-r16j1__editor"
+            data-role="slide-editor"
+          ></section>
+        </main>
+      </div>
+
+      <footer class="forge-r16j1__footer">
+        <div class="forge-r16j1__footer-copy">
+          <strong data-role="notice">
+            Revisa cada diapositiva antes de aprobar.
+          </strong>
+          <small>
+            Forge · R16J1 · revisión local
+          </small>
+        </div>
+
+        <label class="forge-r16j1__reviewer">
+          <span>Aprueba</span>
+          <input
+            data-role="reviewer"
+            autocomplete="name"
+            placeholder="Nombre del revisor"
+          >
+        </label>
+
+        <div class="forge-r16j1__actions">
+          <button
+            type="button"
+            class="forge-r16j1__button forge-r16j1__button--primary"
+            data-action="approve"
+          >
+            Aprobar revisión
+          </button>
+
+          <button
+            type="button"
+            class="forge-r16j1__button"
+            data-action="authorize"
+          >
+            Autorizar PDF
+          </button>
+
+          <button
+            type="button"
+            class="forge-r16j1__button"
+            data-action="export"
+          >
+            Imprimir / PDF
+          </button>
+
+          <button
+            type="button"
+            class="forge-r16j1__button forge-r16j1__button--danger"
+            data-action="revoke"
+          >
+            Revocar
+          </button>
+        </div>
+      </footer>
+    </div>
+  `;
+
+  document.body.appendChild(overlay);
+  return overlay;
+}
+
+function setNotice(message, tone = "neutral") {
+  const root = ensureUi();
+  const notice = root?.querySelector('[data-role="notice"]');
+
+  if (!notice) return;
+
+  notice.textContent = message;
+  notice.dataset.tone = tone;
+
+  window.clearTimeout(noticeTimer);
+
+  if (tone !== "error") {
+    noticeTimer = window.setTimeout(() => {
+      const current = getSalesPresentationReviewState();
+
+      if (!current || root.hidden) return;
+
+      notice.textContent =
+        "Revisa cada diapositiva antes de aprobar.";
+      notice.dataset.tone = "neutral";
+    }, 2200);
+  }
+}
+
+function renderContext(root, model) {
+  const objective = findFact(model, [
+    "objetivo",
+    "meta del cliente",
+    "intencion",
+  ]);
+  const rationale = findFact(model, [
+    "razon",
+    "recomendacion",
+    "por que",
+  ]);
+
+  const notes = model.slides
+    .flatMap((slide) => slide.notes)
+    .filter(Boolean);
+
+  root.querySelector(
+    '[data-role="client-objective"]',
+  ).textContent = contextValue(objective);
+
+  root.querySelector(
+    '[data-role="recommendation-rationale"]',
+  ).textContent = contextValue(rationale);
+
+  root.querySelector(
+    '[data-role="advisor-notes"]',
+  ).textContent =
+    notes[0] || "Sin nota documentada";
+}
+
+function renderSlideNav(root, model, selected) {
+  root.querySelector('[data-role="slide-count"]').textContent =
+    `${model.slides.length}`;
+
+  root.querySelector('[data-role="slide-nav"]').innerHTML =
+    model.slides
+      .map(
+        (slide) => `
+          <button
+            type="button"
+            data-action="select-slide"
+            data-slide-id="${esc(slide.id)}"
+            aria-current="${
+              slide.id === selected.id ? "true" : "false"
+            }"
+          >
+            <span>${slide.position}</span>
+            <strong>${esc(slide.title)}</strong>
+          </button>
+        `,
+      )
+      .join("");
+}
+
+function renderCanvas(root, slide) {
+  const factPreview = slide.facts.slice(0, 3);
+
+  root.querySelector('[data-role="client-canvas"]').innerHTML = `
+    <div class="forge-r16j1__canvas-watermark">
+      Vista del cliente
+    </div>
+
+    <div class="forge-r16j1__slide-number">
+      ${slide.position.toString().padStart(2, "0")}
+    </div>
+
+    <h3>${esc(slide.title)}</h3>
+    <p>${esc(slide.purpose)}</p>
+
+    <div class="forge-r16j1__canvas-facts">
+      ${factPreview
+        .map(
+          (fact) => `
+            <article>
+              <span>${esc(fact.label)}</span>
+              <strong>${esc(display(fact.value))}</strong>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function renderEditor(root, slide) {
+  const debug = isDebugMode();
+
+  root.querySelector('[data-role="slide-editor"]').innerHTML = `
+    <div class="forge-r16j1__editor-heading">
+      <div>
+        <span>Narrativa editable</span>
+        <h3>Diapositiva ${slide.position}</h3>
+      </div>
+
+      <span class="forge-r16j1__lock">
+        Datos confirmados bloqueados
+      </span>
+    </div>
+
+    <label class="forge-r16j1__field">
+      <span>Título</span>
+      <input
+        data-edit-field="title"
+        data-role="field-title"
+        value="${esc(slide.title)}"
+      >
+    </label>
+
+    <label class="forge-r16j1__field">
+      <span>Propósito</span>
+      <textarea
+        data-edit-field="purpose"
+        data-role="field-purpose"
+      >${esc(slide.purpose)}</textarea>
+    </label>
+
+    <label class="forge-r16j1__field">
+      <span>Notas del asesor</span>
+      <textarea
+        data-edit-field="notes"
+        data-role="field-notes"
+      >${esc(slide.notes.join("\n"))}</textarea>
+    </label>
+
+    <section class="forge-r16j1__facts">
+      <div class="forge-r16j1__facts-heading">
+        <div>
+          <span>Datos confirmados</span>
+          <h4>No editables</h4>
+        </div>
+        <small>${slide.facts.length} datos</small>
+      </div>
+
+      ${slide.facts
+        .map(
+          (fact) => `
+            <article
+              class="forge-r16j1__fact"
+              data-fact-editable="false"
+            >
+              <div>
+                <span>${esc(fact.label)}</span>
+                <strong>${esc(display(fact.value))}</strong>
+              </div>
+
+              <small
+                data-role="source-path"
+                data-forge-debug-only-r16j1="true"
+                ${debug ? "" : "hidden"}
+              >
+                ${esc(fact.sourcePath)}
+              </small>
+            </article>
+          `,
+        )
+        .join("")}
+    </section>
+  `;
+}
+
+function render(reviewState) {
+  const root = ensureUi();
+
+  if (!root || !reviewState) return;
+
+  const reviewerValue =
+    root.querySelector('[data-role="reviewer"]')?.value || "";
+
+  const model =
+    buildSalesPresentationEditablePreviewModel(reviewState);
+  const slide = currentSlide(model);
+
+  if (!slide) {
+    setNotice("La sesión no contiene diapositivas.", "error");
+    return;
+  }
+
+  root.dataset.workspaceDebugMode = String(isDebugMode());
+
+  root.querySelector('[data-role="workspace-state"]').textContent =
+    `${stateLabel(model)} · revisión ${model.contentRevision}`;
+
+  renderContext(root, model);
+  renderSlideNav(root, model, slide);
+  renderCanvas(root, slide);
+  renderEditor(root, slide);
+
+  const reviewer =
+    root.querySelector('[data-role="reviewer"]');
+  const approve =
+    root.querySelector('[data-action="approve"]');
+  const authorize =
+    root.querySelector('[data-action="authorize"]');
+  const exportButton =
+    root.querySelector('[data-action="export"]');
+  const revoke =
+    root.querySelector('[data-action="revoke"]');
+
+  reviewer.value = reviewerValue;
+
+  approve.disabled =
+    model.approval.approved ||
+    !reviewer.value.trim();
+
+  authorize.disabled =
+    !model.approval.approved ||
+    model.exportAuthorization.authorized;
+
+  exportButton.disabled =
+    !model.exportAuthorization.authorized;
+
+  revoke.disabled =
+    !model.approval.approved &&
+    !model.exportAuthorization.authorized;
+
+  root.dataset.approved = String(model.approval.approved);
+  root.dataset.exportAuthorized = String(
+    model.exportAuthorization.authorized,
+  );
+  root.dataset.contentRevision = String(
+    model.contentRevision,
+  );
+}
+
+function openSalesPresentationReviewUi() {
+  const root = ensureUi();
+  const state = getSalesPresentationReviewState();
+
+  if (!root || !state) return false;
+
+  render(state);
+  root.hidden = false;
+  document.body.classList.add("forge-r16j1-open");
+
+  const selected =
+    root.querySelector(
+      '[data-action="select-slide"][aria-current="true"]',
+    ) ||
+    root.querySelector('[data-action="select-slide"]');
+
+  selected?.focus?.();
+
+  return true;
+}
+
+function closeSalesPresentationReviewUi() {
+  if (!overlay) return;
+
+  overlay.hidden = true;
+  document.body.classList.remove("forge-r16j1-open");
+}
+
+function updateActiveSlide(field) {
+  const state = getSalesPresentationReviewState();
+
+  if (!state || !activeSlideId) return;
+
+  const value =
+    field.dataset.editField === "notes"
+      ? field.value
+          .split("\n")
+          .map((line) => line.trim())
+          .filter(Boolean)
+      : field.value;
+
+  updateSalesPresentationSlide(activeSlideId, {
+    [field.dataset.editField]: value,
+  });
+
+  setNotice(
+    "Cambios guardados en esta revisión. La aprobación anterior quedó invalidada.",
+    "success",
+  );
+}
+
+function runAction(action, root) {
+  if (!callbacks) return;
+
+  if (action === "close") {
+    closeSalesPresentationReviewUi();
+    return;
+  }
+
+  if (action === "approve") {
+    const approvedBy =
+      root.querySelector('[data-role="reviewer"]').value.trim();
+
+    if (!approvedBy) {
+      setNotice(
+        "Escribe el nombre de quien aprueba.",
+        "error",
+      );
+      return;
+    }
+
+    try {
+      callbacks.approveReview({
+        approvedBy,
+        reviewerType: "HUMAN",
+      });
+      setNotice(
+        "Revisión aprobada. La exportación aún requiere autorización.",
+        "success",
+      );
+    } catch (error) {
+      setNotice(error.message, "error");
+    }
+
+    return;
+  }
+
+  if (action === "authorize") {
+    try {
+      callbacks.authorizeExport();
+      setNotice(
+        "Exportación autorizada para esta revisión.",
+        "success",
+      );
+    } catch (error) {
+      setNotice(error.message, "error");
+    }
+
+    return;
+  }
+
+  if (action === "export") {
+    try {
+      callbacks.exportToPrintPdf();
+    } catch (error) {
+      setNotice(error.message, "error");
+    }
+
+    return;
+  }
+
+  if (action === "revoke") {
+    callbacks.revokeApproval(
+      "HUMAN_REVOKED_FROM_R16J1_WORKSPACE",
+    );
+    setNotice("Aprobación revocada.", "success");
+  }
+}
+
+function bindSalesPresentationReviewUi({
+  buildReviewBundle,
+  startReviewSession,
+  approveReview,
+  revokeApproval,
+  authorizeExport,
+  exportToPrintPdf,
+} = {}) {
+  if (bound || typeof document === "undefined") return;
+
+  const supplied = {
+    buildReviewBundle,
+    startReviewSession,
+    approveReview,
+    revokeApproval,
+    authorizeExport,
+    exportToPrintPdf,
+  };
+
+  for (const [name, fn] of Object.entries(supplied)) {
+    if (typeof fn !== "function") {
+      throw new TypeError(`Missing callback: ${name}`);
+    }
+  }
+
+  callbacks = Object.freeze(supplied);
+  bound = true;
+
+  const boot = () => {
+    const root = ensureUi();
+
+    unsubscribe?.();
+    unsubscribe = subscribeSalesPresentationReviewState(
+      (state) => {
+        if (state && !root.hidden) {
+          render(state);
+        }
+      },
+    );
+
+    root.addEventListener("change", (event) => {
+      const field = event.target.closest(
+        "[data-edit-field]",
+      );
+
+      if (field) {
+        updateActiveSlide(field);
+      }
+    });
+
+    root.addEventListener("input", (event) => {
+      if (!event.target.matches('[data-role="reviewer"]')) {
+        return;
+      }
+
+      const state = getSalesPresentationReviewState();
+      const approve = root.querySelector(
+        '[data-action="approve"]',
+      );
+
+      approve.disabled =
+        Boolean(state?.approval?.approved) ||
+        !event.target.value.trim();
+    });
+
+    root.addEventListener("click", (event) => {
+      const slideButton = event.target.closest(
+        '[data-action="select-slide"]',
+      );
+
+      if (slideButton) {
+        activeSlideId = slideButton.dataset.slideId;
+        render(getSalesPresentationReviewState());
+        return;
+      }
+
+      const action = event.target.closest(
+        "[data-action]",
+      )?.dataset.action;
+
+      if (action) {
+        runAction(action, root);
+      }
+    });
+
+    root.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeSalesPresentationReviewUi();
+      }
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      boot,
+      { once: true },
+    );
+  } else {
+    boot();
+  }
+}
+
+const api = Object.freeze({
+  version: VERSION,
+  buildSalesPresentationEditablePreviewModel,
+  openSalesPresentationReviewUi,
+  closeSalesPresentationReviewUi,
+  bindSalesPresentationReviewUi,
+  getWorkspaceState() {
+    return Object.freeze({
+      open: Boolean(overlay && !overlay.hidden),
+      activeSlideId,
+      debugMode: isDebugMode(),
+      approvalAutomatic: false,
+      exportAutomatic: false,
+      factsEditable: false,
+    });
+  },
+});
+
+globalThis.ForgeSalesPresentationEditablePreview = api;
+
+export {
+  buildSalesPresentationEditablePreviewModel,
+  openSalesPresentationReviewUi,
+  closeSalesPresentationReviewUi,
+  bindSalesPresentationReviewUi,
+};

@@ -11,7 +11,7 @@ import { buildSalesPresentationPromptReviewPacket } from "./forge-sales-presenta
 import { buildSalesPresentationSlidePlanReviewPacket } from "./forge-sales-presentation-slide-plan-generator.js?v=r16h3_slides_20260714_1";
 import { buildSalesPresentationReviewPacket } from "./forge-sales-presentation-review-packet-builder.js?v=r16g2b3f_review_20260714_1";
 import { initializeSalesPresentationReviewState, getSalesPresentationReviewState, updateSalesPresentationSlide, applySalesPresentationApprovalDecision, revokeSalesPresentationApproval, applySalesPresentationExportAuthorization } from "./forge-sales-presentation-review-state-store.js?v=r16g5b_state_20260714_1";
-import { bindSalesPresentationReviewUi } from "./forge-sales-presentation-editable-preview.js?v=r16g5b_preview_20260714_1";
+import { bindSalesPresentationReviewUi } from "./forge-sales-presentation-editable-preview.js?v=r16j1_workspace_20260714_1";
 import { approveSalesPresentationReview } from "./forge-sales-presentation-human-approval-gate.js?v=r16g5b_approval_20260714_1";
 import { authorizeSalesPresentationExport, printSalesPresentationToPdf } from "./forge-sales-presentation-export-adapter.js?v=r16g5b_export_20260714_1";
 

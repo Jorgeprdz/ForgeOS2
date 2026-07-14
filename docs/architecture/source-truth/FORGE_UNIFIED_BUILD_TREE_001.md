@@ -12403,3 +12403,35 @@ Next node:
 
 `R16J1_SALES_PRESENTATION_EDITABLE_REVIEW_WORKSPACE`
 <!-- FORGE:R16J0A_UNIFIED_BUILD_TREE:END -->
+
+<!-- FORGE:R16J1_UNIFIED_BUILD_TREE:START -->
+## R16J1 · Editable Presentation Workspace and UI Cleanup
+
+Status: PASS
+
+Baseline: `0c5f9cbffcf91d847e75edba7ce395c1c862805e`
+
+Unified runtime path:
+
+1. Accepted quote creates a review session.
+2. The session opens in the R16J1 slide workspace.
+3. One slide is selected from the navigation rail.
+4. Title, purpose, and advisor notes remain editable.
+5. Confirmed facts remain locked.
+6. Human approval binds to the current content revision.
+7. Export authorization binds to the current approval.
+8. A later edit revokes both approval and export authorization.
+9. Print/PDF remains a separate human action.
+
+Production UI path:
+
+- Technical quote panels are hidden by default.
+- `?debug=1` restores technical panels and source paths.
+- Default watermark: `Forge · R16J1`.
+- Debug watermark: `DEBUG · Forge · R16J1`.
+- Bottom safe spacing prevents fixed navigation overlap.
+
+Next node:
+
+`R16J2_SALES_PRESENTATION_VISUAL_COMPOSITION_AND_CLIENT_PREVIEW`
+<!-- FORGE:R16J1_UNIFIED_BUILD_TREE:END -->

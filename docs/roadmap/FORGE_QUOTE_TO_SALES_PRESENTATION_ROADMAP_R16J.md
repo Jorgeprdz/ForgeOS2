@@ -86,7 +86,7 @@ Canonical ID:
 
 `R16J1_SALES_PRESENTATION_EDITABLE_REVIEW_WORKSPACE`
 
-Status: NEXT
+Status: PASS
 
 Scope:
 
@@ -96,3 +96,50 @@ Scope:
 - Make approval revision-aware.
 - Keep export blocked until explicit approval.
 <!-- FORGE:R16J0A_ROADMAP:END -->
+
+<!-- FORGE:R16J1_ROADMAP:START -->
+## R16J1 · Sales Presentation Editable Review Workspace
+
+Canonical ID:
+
+`R16J1_SALES_PRESENTATION_EDITABLE_REVIEW_WORKSPACE`
+
+Status: PASS
+
+Delivered:
+
+- Real single-slide editable workspace.
+- Slide navigation rail.
+- Client-facing slide canvas.
+- Editable title, purpose, and advisor notes.
+- Locked sourced facts.
+- Source paths visible only in debug mode.
+- Human approval bound to content revision.
+- Separate export authorization.
+- Approval and export authorization revoked after editing.
+- Nueva Cotización production UI cleanup.
+- Compact statuses and small technical watermark.
+- Bottom navigation overlap protection.
+
+Evidence:
+
+- Chromium: PASS.
+- Firefox: PASS.
+- WebKit: PASS.
+- Three screenshots: clean quote UI, editable workspace, and debug mode.
+
+## R16J2 · Sales Presentation Visual Composition and Client Preview
+
+Canonical ID:
+
+`R16J2_SALES_PRESENTATION_VISUAL_COMPOSITION_AND_CLIENT_PREVIEW`
+
+Status: NEXT
+
+Scope:
+
+- Turn reviewed slide content into a polished client presentation layout.
+- Add controlled visual themes without changing sourced facts.
+- Add a presentation-only client mode.
+- Preserve revision-aware approval and explicit export authorization.
+<!-- FORGE:R16J1_ROADMAP:END -->
