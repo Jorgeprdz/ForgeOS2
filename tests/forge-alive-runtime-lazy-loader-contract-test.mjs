@@ -19,7 +19,7 @@ const loader = await readFile(
 
 assert.match(
   page,
-  /forge-alive-runtime-lazy-loader-r16j1c1\.js\?v=r16j1c1-nav-authority-03a4-v5-20260715-1/,
+  /forge-alive-runtime-lazy-loader-r16j1c1\.js\?v=r16j1c1-auto-calculation-03b-20260715-1/,
 );
 
 assert.match(
@@ -28,7 +28,7 @@ assert.match(
 );
 
 for (const token of [
-  '"R16J1C1_RUNTIME_LAZY_NAV_SYNC_03A3"',
+  '"R16J1C1_RUNTIME_LAZY_03B_AUTO_CALC"',
   "const QUOTE_STYLES",
   "const QUOTE_SCRIPTS",
   "const DESKTOP_SCRIPTS",
@@ -43,7 +43,7 @@ for (const token of [
   "QUOTE_STYLES.map(loadStyle)",
   "ForgeMobileNavInstantAuthorityR16J1C1",
   "This lazy loader never measures or moves the selector",
-  "automaticCalculation: false",
+  "automaticCalculation: true",
   "automaticAcceptance: false",
 ]) {
   assert.ok(loader.includes(token), `missing ${token}`);
@@ -107,6 +107,6 @@ console.log("PASS R16J1C1 lazy runtime decoupled contract", {
   quoteRuntimeOnFileChange: true,
   lazyLoaderNavControl: false,
   dedicatedNavAuthority: true,
-  automaticCalculation: false,
+  automaticCalculation: true,
   automaticAcceptance: false,
 });

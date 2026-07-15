@@ -29,7 +29,7 @@ assert.match(
 );
 assert.match(
   page,
-  /forge-quote-intake-ui-simplification-r16j1c1\.js\?v=r16j1c1-intake-ui-03a2-20260715-1/,
+  /forge-quote-intake-ui-simplification-r16j1c1\.js\?v=r16j1c1-auto-calculation-03b-20260715-1/,
 );
 
 for (const token of [
@@ -42,7 +42,7 @@ for (const token of [
   'forge:quote-acceptance-state',
   'ForgeQuoteAcceptanceEntrypointR16J0A',
   'ForgeQuoteIntakeUiR16J1C1',
-  'automaticCalculation: false',
+  'automaticCalculation: true',
   'automaticAcceptance: false',
 ]) {
   assert.ok(ui.includes(token), `UI missing ${token}`);
@@ -78,6 +78,6 @@ console.log("PASS R16J1C1 quote intake beta and review UI contract", {
   duplicateReviewButton: false,
   reviewLabel: "Revisar PDF",
   reviewHiddenBeforeReady: true,
-  automaticCalculation: false,
+  automaticCalculation: true,
   automaticAcceptance: false,
 });

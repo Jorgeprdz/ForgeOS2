@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const VERSION = "R16J1C1_INTAKE_UI_03A2";
+  const VERSION = "R16J1C1_INTAKE_UI_03B_AUTO_CALC";
   const ROUTE_EVENT = "forge:route-change";
   const HISTORY_PATCH_FLAG =
     "__forgeQuoteIntakeHistoryPatchedR16J1C1";
@@ -361,8 +361,7 @@
       reviewLabel: normalizeText(button?.textContent),
       navigationSyncPending: framePending,
       globalMutationObserver: false,
-      automaticCalculation: false,
-      automaticAcceptance: false,
+      automaticCalculation: true, automaticAcceptance: false,
     });
   }
 
@@ -423,9 +422,21 @@
       scheduleSync,
     );
     globalThis.addEventListener(
-      "forge:accepted-quote-confirmed",
-      scheduleSync,
-    );
+    "forge:quote-preview-calculating",
+    scheduleSync,
+  );
+  globalThis.addEventListener(
+    "forge:quote-preview-calculated",
+    scheduleSync,
+  );
+  globalThis.addEventListener(
+    "forge:quote-preview-calculation-error",
+    scheduleSync,
+  );
+  globalThis.addEventListener(
+    "forge:accepted-quote-confirmed",
+    scheduleSync,
+  );
     globalThis.addEventListener(
       "forge:accepted-quote-confirmation-error",
       scheduleSync,

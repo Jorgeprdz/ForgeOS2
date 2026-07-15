@@ -145,6 +145,6 @@ console.log("PASS R16J1C1 constant-time route fastpath", {
   redundantActiveHomeClick: false,
   dedicatedNavAuthorityPreserved: true,
   lazyQuoteRuntimePreserved: true,
-  automaticCalculation: false,
+  automaticCalculation: true,
   automaticAcceptance: false,
 });

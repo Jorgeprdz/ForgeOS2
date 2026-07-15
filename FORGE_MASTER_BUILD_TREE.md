@@ -15480,3 +15480,70 @@ Roadmap disposition:
 - `03B_AUTOMATIC_CALCULATION_AFTER_EXTRACTION=NEXT_PRODUCT_WORK`
 
 <!-- /FORGEOS:R16J1C1_INCREMENTAL_03A6_ROUTE_PERFORMANCE_CODEX_DEFERRED_STATUS -->
+
+## 03B Automatic Calculation After Extraction
+
+<!-- FORGEOS:R16J1C1_INCREMENTAL_03B_AUTOMATIC_CALCULATION_AFTER_EXTRACTION -->
+
+Status: `IMPLEMENTED_PENDING_REAL_PDF_BROWSER_VALIDATION`
+
+Recorded: `2026-07-15`
+
+Baseline:
+
+- `38c25ab6e2ef7ecac096f328d220a868f0cdfdc8`
+- Resume from the latest `main`; the baseline is historical evidence only.
+
+Delivered flow:
+
+1. Select a Solucionline PDF or supported extracted packet.
+2. Extract locally.
+3. Establish the canonical quote candidate.
+4. Run the existing accepted-quote calculator automatically.
+5. Render the preliminary result.
+6. Enable the existing review action only after calculation succeeds.
+7. Require a human click to create the accepted review snapshot.
+8. Keep presentation, approval, export, send, CRM, and calendar actions manual.
+
+Authority boundaries:
+
+- `PREVIEW_CALCULATION=AUTOMATIC_AFTER_EXTRACTION`
+- `CALCULATION_RESULT_RENDERED_BEFORE_REVIEW=YES`
+- `ACCEPTED_SNAPSHOT_CREATED_ONLY_BY_HUMAN_CONFIRMATION=YES`
+- `AUTOMATIC_ACCEPTANCE=NO`
+- `AUTOMATIC_PRESENTATION=NO`
+- `AUTOMATIC_APPROVAL=NO`
+- `AUTOMATIC_EXPORT=NO`
+- `AUTOMATIC_SEND=NO`
+- `PDFS_COMMITTED=NO`
+
+Implementation contract:
+
+- The automatic calculation uses the existing `calculateAcceptedQuote`.
+- The preliminary result uses the existing `renderAcceptedQuote`.
+- The automatic path never calls the accepted snapshot boundary.
+- Human confirmation reuses the cached preliminary calculation when valid.
+- Calculation failures remain reviewable and retryable.
+- Candidate replacement invalidates the preliminary calculation cache.
+- The parser remains responsible for extraction only.
+- The bridge owns automatic preview calculation.
+- The review action remains hidden or disabled during calculation.
+
+Validation disposition:
+
+- Static and existing runtime contracts are blocking for this commit.
+- Real Solucionline PDFs are not committed.
+- Chromium and WebKit validation with the three local PDFs is deferred to 03C.
+- Required 03C order remains:
+  `SEGUBECA_01 | ORVI_01 | SEGUBECA_02`
+- Required 03C matrix remains:
+  `3 PDFs × 2 engines = 6 cases`
+- Firefox remains waived only under the previously evidenced PRoot boot-time limitation.
+
+Roadmap disposition:
+
+- `03B_AUTOMATIC_CALCULATION_AFTER_EXTRACTION=IMPLEMENTED_PENDING_REAL_PDF_VALIDATION`
+- `03C_REAL_PDF_AUTOMATIC_CALCULATION_GATE=NEXT`
+- `03A6_REAL_DEVICE_ROUTE_PERFORMANCE=PARKED_FOR_CODEX`
+
+<!-- /FORGEOS:R16J1C1_INCREMENTAL_03B_AUTOMATIC_CALCULATION_AFTER_EXTRACTION -->

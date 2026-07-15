@@ -37,11 +37,7 @@ assert.match(parser, /automaticAcceptance:\s*false/);
 assert.doesNotMatch(parser, /transfer\.items\.add\(jsonFile\)/);
 assert.doesNotMatch(parser, /new File\([\s\S]*application\/json/);
 
-assert.match(
-  bridge,
-  /`\$\{file\.name\} cargado\. Listo para revisar\.`/,
-  "manual JSON remains a separate supported upload path",
-);
+assert.match( bridge, /\$\{file\.name\} cargado\./, "manual JSON remains a separate supported upload path", ); assert.match( bridge, /Calculando resultado automáticamente/, );
 
 assert.match(
   page,

@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const VERSION = "R16J0A";
+  const VERSION = "R16J0A_03B_AUTO_PREVIEW_CALCULATION";
 
   const WRAPPER_SELECTOR =
     '[data-forge-quote-acceptance-r16j0a="true"]';
@@ -12,8 +12,7 @@
 
   const LABELS = Object.freeze({
     BRIDGE_WAIT: "Preparando confirmación…",
-    WAITING: "Confirmar cotización",
-    READY: "Confirmar cotización",
+    WAITING: "Confirmar cotización", CALCULATING_PREVIEW: "Calculando resultado…", READY: "Confirmar cotización",
     CONFIRMING: "Confirmando cotización…",
     ACCEPTED: "Cotización confirmada",
     ERROR: "Reintentar confirmación",
@@ -22,10 +21,7 @@
   const MESSAGES = Object.freeze({
     BRIDGE_WAIT:
       "Conectando el motor de confirmación de cotización.",
-    WAITING:
-      "Carga y revisa una cotización para poder confirmarla.",
-    READY:
-      "Revisa los valores extraídos. Al confirmar se calculará y guardará sólo durante esta sesión.",
+    WAITING: "Carga y revisa una cotización para poder confirmarla.", CALCULATING_PREVIEW: "El cálculo preliminar se ejecuta automáticamente antes de habilitar la revisión.", READY: "El resultado ya fue calculado automáticamente. Revisa los valores antes de confirmar.",
     CONFIRMING:
       "Validando los datos extraídos con el motor existente.",
     ACCEPTED:
@@ -59,9 +55,7 @@
     }
 
     const required = [
-      "getCurrentQuoteCandidate",
-      "confirmCurrentQuoteCandidate",
-      "getAcceptedQuoteReviewSnapshot",
+      "getCurrentQuoteCandidate", "getCurrentQuotePreviewCalculation", "getCurrentQuotePreviewCalculationState", "confirmCurrentQuoteCandidate", "getAcceptedQuoteReviewSnapshot",
     ];
 
     return required.every(
@@ -86,6 +80,17 @@
       return null;
     }
   }
+function safePreviewState(bridge) {
+  try {
+    return (
+      bridge
+        ?.getCurrentQuotePreviewCalculationState
+        ?.() || null
+    );
+  } catch {
+    return null;
+  }
+}
 
   function setState(nextState, options = {}) {
     state = nextState;
@@ -100,10 +105,7 @@
     }
 
     const disabled = [
-      "BRIDGE_WAIT",
-      "WAITING",
-      "CONFIRMING",
-      "ACCEPTED",
+      "BRIDGE_WAIT", "WAITING", "CALCULATING_PREVIEW", "CONFIRMING", "ACCEPTED",
     ].includes(nextState);
 
     button.disabled = disabled;
@@ -137,29 +139,61 @@
           version: VERSION,
           state: nextState,
           disabled,
-          humanClickRequired: true,
-          automaticAcceptance: false,
+          humanClickRequired: true, automaticCalculation: true, automaticAcceptance: false,
           automaticPresentation: false,
         }),
       }),
     );
   }
 
-  function refreshPresentationHandoff() {
-    const run = () => {
-      globalThis.ForgeSalesPresentationEntrypointR16J0
-        ?.refresh?.();
-    };
-
-    run();
-    queueMicrotask(run);
-
-    requestAnimationFrame(() => {
-      run();
-      window.setTimeout(run, 0);
-      window.setTimeout(run, 120);
-    });
+  function refresh() {
+  if (busy) {
+    return state;
   }
+
+  const bridge = getBridge();
+
+  if (!bridge) {
+    setState("BRIDGE_WAIT");
+    return state;
+  }
+
+  if (safeSnapshot(bridge)) {
+    setState("ACCEPTED");
+    refreshPresentationHandoff();
+    return state;
+  }
+
+  const candidate = safeCandidate(bridge);
+
+  if (!candidate) {
+    setState("WAITING");
+    return state;
+  }
+
+  const preview = safePreviewState(bridge);
+
+  if (preview?.state === "ERROR") {
+    setState("ERROR", {
+      error:
+        preview.error instanceof Error
+          ? preview.error
+          : new Error(
+              preview.error?.message ||
+              "No se pudo calcular el resultado.",
+            ),
+    });
+    return state;
+  }
+
+  if (preview?.calculation) {
+    setState("READY");
+    return state;
+  }
+
+  setState("CALCULATING_PREVIEW");
+  return state;
+}
 
   function refresh() {
     if (busy) {
@@ -298,9 +332,7 @@
       getState: () => state,
       getLastError: () => lastError,
       safety: Object.freeze({
-        humanClickRequired: true,
-        automaticAcceptance: false,
-        automaticPresentation: false,
+        humanClickRequired: true, automaticCalculation: true, automaticAcceptance: false, automaticPresentation: false,
         automaticApproval: false,
         automaticExport: false,
         automaticSend: false,
@@ -317,7 +349,19 @@
     refresh,
   );
   globalThis.addEventListener(
-    "forge:accepted-quote-confirmed",
+  "forge:quote-preview-calculating",
+  refresh,
+);
+globalThis.addEventListener(
+  "forge:quote-preview-calculated",
+  refresh,
+);
+globalThis.addEventListener(
+  "forge:quote-preview-calculation-error",
+  refresh,
+);
+globalThis.addEventListener(
+  "forge:accepted-quote-confirmed",
     () => {
       refresh();
       refreshPresentationHandoff();
