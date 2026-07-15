@@ -155,24 +155,28 @@
   async function loadQuoteShell() {
     if (quoteShellPromise) return quoteShellPromise;
 
-    quoteShellPromise = (async () => {
-      setQuoteState("shell-loading", "Preparando vista…");
-      try {
-        await Promise.all(QUOTE_STYLES.map(loadStyle));
-        setQuoteState("shell-ready");
-        globalThis.dispatchEvent(
-          new CustomEvent("forge:quote-shell-ready", {
-            detail: { module: MODULE_KEY, version: VERSION },
-          }),
-        );
-        return true;
-      } catch (error) {
-        quoteShellPromise = null;
-        setQuoteState("error");
-        console.error("[Forge lazy quote shell]", error);
-        throw error;
+    quoteShellPromise = Promise.resolve().then(() => {
+      const host = document.querySelector(HOST_SELECTOR);
+
+      if (host) {
+        host.dataset.forgeLazyRuntimeStateR16j1c1 =
+          "shell-ready";
       }
-    })();
+
+      document.body.dataset.forgeQuoteRuntimeStateR16j1c1 =
+        "shell-ready";
+
+      globalThis.dispatchEvent(
+        new CustomEvent("forge:quote-shell-ready", {
+          detail: {
+            module: MODULE_KEY,
+            version: VERSION,
+          },
+        }),
+      );
+
+      return true;
+    });
 
     return quoteShellPromise;
   }
@@ -181,24 +185,38 @@
     if (quoteRuntimePromise) return quoteRuntimePromise;
 
     quoteRuntimePromise = (async () => {
-      setQuoteState(
-        "loading",
-        "Preparando extractor local…",
-      );
       try {
         await loadQuoteShell();
+
+        setQuoteState(
+          "loading",
+          "Preparando extractor local…",
+        );
+
+        await Promise.all(
+          QUOTE_STYLES.map(loadStyle),
+        );
         await loadSequential(QUOTE_SCRIPTS);
+
         setQuoteState("ready");
+
         globalThis.dispatchEvent(
           new CustomEvent("forge:quote-runtime-ready", {
-            detail: { module: MODULE_KEY, version: VERSION },
+            detail: {
+              module: MODULE_KEY,
+              version: VERSION,
+            },
           }),
         );
+
         return true;
       } catch (error) {
         quoteRuntimePromise = null;
         setQuoteState("error");
-        console.error("[Forge lazy quote runtime]", error);
+        console.error(
+          "[Forge lazy quote runtime]",
+          error,
+        );
         throw error;
       }
     })();
@@ -224,114 +242,16 @@
     ) || null;
   }
 
-  function syncSelector(key, immediate = false) {
-    const nav = visualNav();
-    const selected = visualItem(key);
-    const selector = nav?.querySelector(
-      ":scope > .forge-mobile-nav-r16c5j__selector",
-    );
-    if (!nav || !selected || !selector) return false;
+  function syncSelector(key) {
+    const authority =
+      globalThis.ForgeMobileNavInstantAuthorityR16J1C1;
 
-    nav.querySelectorAll(
-      ":scope > .forge-mobile-nav-r16c5j__items > " +
-      NAV_ITEM_SELECTOR,
-    ).forEach((item) => {
-      const active = item === selected;
-      item.classList.toggle("active", active);
-      if (active) item.setAttribute("aria-current", "page");
-      else item.removeAttribute("aria-current");
-    });
-
-    nav.dataset.forgeActiveKey = key;
-
-    const navRect = nav.getBoundingClientRect();
-    const itemRect = selected.getBoundingClientRect();
-
-    if (immediate) selector.style.transition = "none";
-
-    const x = itemRect.left - navRect.left;
-    const y = itemRect.top - navRect.top;
-    const width = itemRect.width;
-    const height = itemRect.height;
-
-    nav.style.setProperty(
-      "--forge-mobile-nav-selector-x-r16c5j",
-      `${x}px`,
-    );
-    nav.style.setProperty(
-      "--forge-mobile-nav-selector-y-r16c5j",
-      `${y}px`,
-    );
-    nav.style.setProperty(
-      "--forge-mobile-nav-selector-w-r16c5j",
-      `${width}px`,
-    );
-    nav.style.setProperty(
-      "--forge-mobile-nav-selector-h-r16c5j",
-      `${height}px`,
-    );
-
-    /*
-     * Geometry authority:
-     * The canonical stylesheet intentionally starts the selector at
-     * width/height 0 and opacity 0. During lazy runtime activation some
-     * cascade layers can remain on those fallback values even after the
-     * nav data state is correct. Mirror the canonical geometry directly
-     * on the selector with inline !important values so the visual state
-     * cannot lag behind the semantic state.
-     */
-    selector.style.setProperty(
-      "display",
-      "block",
-      "important",
-    );
-    selector.style.setProperty(
-      "visibility",
-      "visible",
-      "important",
-    );
-    selector.style.setProperty(
-      "width",
-      `${width}px`,
-      "important",
-    );
-    selector.style.setProperty(
-      "height",
-      `${height}px`,
-      "important",
-    );
-    selector.style.setProperty(
-      "opacity",
-      "1",
-      "important",
-    );
-    selector.style.setProperty(
-      "transform",
-      `translate3d(${x}px, ${y}px, 0) scale(1)`,
-      "important",
-    );
-
-    nav.dataset.forgeMobileNavReadyR16c5j = "true";
-
-    if (immediate) {
-      selector.getBoundingClientRect();
-      selector.style.removeProperty("transition");
-    }
-    return true;
+    if (!authority) return false;
+    return authority.sync(key);
   }
 
-  function syncSelectorStable(key, immediate = false) {
-    syncSelector(key, immediate);
-
-    requestAnimationFrame(() => {
-      syncSelector(key, immediate);
-      requestAnimationFrame(() => {
-        syncSelector(key);
-      });
-    });
-
-    setTimeout(() => syncSelector(key), 80);
-    setTimeout(() => syncSelector(key), 240);
+  function syncSelectorStable(key) {
+    return syncSelector(key);
   }
 
   function requestedKey() {
@@ -393,56 +313,34 @@
   }
 
   function boot() {
-    document.addEventListener("click", onClick, true);
     globalThis.addEventListener(
       "change",
       onFileChangeCapture,
       true,
     );
 
-    globalThis.addEventListener("forge:saas-module-opened", (event) => {
-      if (event.detail?.module !== MODULE_KEY) return;
-
-      syncSelectorStable(MODULE_KEY, true);
-
-      loadQuoteShell()
-        .then(() => {
-          syncSelectorStable(MODULE_KEY, true);
-          globalThis.dispatchEvent(new Event("resize"));
-        })
-        .catch(() => {});
-    });
-
-    globalThis.addEventListener("forge:saas-module-closed", (event) => {
-      syncSelectorStable(
-        event.detail?.targetKey || "inicio",
-        true,
-      );
-    });
-
-    globalThis.addEventListener("popstate", () => {
-      syncRequestedKey();
-      if (requestedKey() === MODULE_KEY) {
+    globalThis.addEventListener(
+      "forge:saas-module-opened",
+      (event) => {
+        if (event.detail?.module !== MODULE_KEY) return;
         loadQuoteShell().catch(() => {});
-      }
-    });
-
-    globalThis.addEventListener("resize", syncRequestedKey, {
-      passive: true,
-    });
-    globalThis.addEventListener(
-      "orientationchange",
-      syncRequestedKey,
-      { passive: true },
+      },
     );
+
     globalThis.addEventListener(
-      "pageshow",
-      syncRequestedKey,
-      { passive: true },
+      "popstate",
+      () => {
+        if (requestedKey() === MODULE_KEY) {
+          loadQuoteShell().catch(() => {});
+        }
+      },
     );
 
     loadDesktopRuntime().catch((error) => {
-      console.error("[Forge lazy desktop runtime]", error);
+      console.error(
+        "[Forge lazy desktop runtime]",
+        error,
+      );
     });
 
     if (requestedKey() === MODULE_KEY) {
@@ -450,32 +348,33 @@
     }
 
     /*
-     * Opening Cotizaciones loads only its visual shell. The 21 extraction,
-     * calculation, acceptance and presentation scripts remain untouched
-     * until the user actually selects a file and the input emits change.
+     * Navigation visuals are deliberately owned by
+     * ForgeMobileNavInstantAuthorityR16J1C1.
+     * This lazy loader never measures or moves the selector on route taps.
      */
-    syncRequestedKey();
-
-    globalThis.ForgeRuntimeLazyLoaderR16J1C1 = Object.freeze({
-      version: VERSION,
-      loadQuoteShell,
-      loadQuoteRuntime,
-      loadDesktopRuntime,
-      syncSelector,
-      syncSelectorStable,
-      getState() {
-        return Object.freeze({
-          quoteRuntime:
-            document.body.dataset.forgeQuoteRuntimeStateR16j1c1 || "idle",
-          quoteScripts: QUOTE_SCRIPTS.length,
-          quoteStyles: QUOTE_STYLES.length,
-          desktopScripts: DESKTOP_SCRIPTS.length,
-          activeKey: requestedKey(),
-          automaticCalculation: false,
-          automaticAcceptance: false,
-        });
-      },
-    });
+    globalThis.ForgeRuntimeLazyLoaderR16J1C1 =
+      Object.freeze({
+        version: VERSION,
+        loadQuoteShell,
+        loadQuoteRuntime,
+        loadDesktopRuntime,
+        syncSelector,
+        syncSelectorStable,
+        getState() {
+          return Object.freeze({
+            quoteRuntime:
+              document.body.dataset
+                .forgeQuoteRuntimeStateR16j1c1 ||
+              "idle",
+            quoteScripts: QUOTE_SCRIPTS.length,
+            quoteStyles: QUOTE_STYLES.length,
+            desktopScripts: DESKTOP_SCRIPTS.length,
+            activeKey: requestedKey(),
+            automaticCalculation: false,
+            automaticAcceptance: false,
+          });
+        },
+      });
   }
 
   if (document.readyState === "loading") {

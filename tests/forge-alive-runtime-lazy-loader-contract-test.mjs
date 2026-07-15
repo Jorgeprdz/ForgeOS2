@@ -19,12 +19,12 @@ const loader = await readFile(
 
 assert.match(
   page,
-  /forge-alive-runtime-lazy-loader-r16j1c1\.js\?v=r16j1c1-runtime-lazy-nav-sync-20260715-1/,
+  /forge-alive-runtime-lazy-loader-r16j1c1\.js\?v=r16j1c1-nav-authority-03a4-v5-20260715-1/,
 );
 
-assert.doesNotMatch(
+assert.match(
   page,
-  /new\s+MutationObserver\(\s*markRenderedControls\s*\)/,
+  /forge-mobile-nav-instant-authority-r16j1c1\.js\?v=r16j1c1-nav-authority-03a4-v5-20260715-1/,
 );
 
 for (const token of [
@@ -39,26 +39,46 @@ for (const token of [
   "event.stopImmediatePropagation()",
   'new Event("change"',
   '"forge:quote-shell-ready"',
-  "function loadDesktopRuntime()",
-  "function syncSelector(key",
-  "function syncSelectorStable(key",
-  "Geometry authority:",
-  '"width"',
-  '"height"',
-  '"opacity"',
-  '"transform"',
-  '"important"',
-  ":scope > .forge-mobile-nav-r16c5j__items > ",
-  '"forge:saas-module-opened"',
-  '"forge:saas-module-closed"',
   '"forge:quote-runtime-ready"',
-  "Opening Cotizaciones loads only its visual shell.",
-  "The 21 extraction,",
+  "QUOTE_STYLES.map(loadStyle)",
+  "ForgeMobileNavInstantAuthorityR16J1C1",
+  "This lazy loader never measures or moves the selector",
   "automaticCalculation: false",
   "automaticAcceptance: false",
 ]) {
   assert.ok(loader.includes(token), `missing ${token}`);
 }
+
+for (const forbidden of [
+  "setTimeout(() => syncSelector(key), 80)",
+  "setTimeout(() => syncSelector(key), 240)",
+  'globalThis.dispatchEvent(new Event("resize"))',
+  'document.addEventListener("click", onClick, true)',
+  'setQuoteState("shell-loading"',
+  "requestIdleCallback",
+  "prefetchQuoteRuntime",
+  'rel = "prefetch"',
+]) {
+  assert.ok(
+    !loader.includes(forbidden),
+    `forbidden loader work remains: ${forbidden}`,
+  );
+}
+
+assert.equal(
+  loader.split("QUOTE_STYLES.map(loadStyle)").length - 1,
+  1,
+);
+
+assert.match(
+  loader,
+  /addEventListener\([\s\S]*"change"[\s\S]*onFileChangeCapture[\s\S]*true/,
+);
+
+assert.match(
+  loader,
+  /event\.stopImmediatePropagation\(\)[\s\S]*await loadQuoteRuntime\(\)[\s\S]*dispatchEvent\([\s\S]*new Event\("change"/,
+);
 
 for (const asset of [
   "forge-quote-preview-bundle.js",
@@ -74,48 +94,19 @@ assert.doesNotMatch(
   page,
   /<script[^>]+src="\.\.\/quote-preview-live\/forge-quote-preview-bundle\.js"/,
 );
+
 assert.doesNotMatch(
   page,
   /<script[^>]+src="\.\/desktop\//,
 );
 
-assert.doesNotMatch(
-  loader,
-  /requestIdleCallback|prefetchQuoteRuntime|rel = "prefetch"/,
-  "No quote prefetch path may remain",
-);
-
-assert.match(
-  loader,
-  /addEventListener\([\s\S]*"change"[\s\S]*onFileChangeCapture[\s\S]*true/,
-  "File change must be intercepted in capture phase",
-);
-
-assert.match(
-  loader,
-  /event\.stopImmediatePropagation\(\)[\s\S]*await loadQuoteRuntime\(\)[\s\S]*dispatchEvent\([\s\S]*new Event\("change"/,
-  "Change must be replayed only after runtime readiness",
-);
-
-assert.match(
-  page,
-  /forge-quote-intake-ui-simplification-r16j1c1\.css/,
-);
-assert.match(
-  page,
-  /forge-quote-intake-ui-simplification-r16j1c1\.js/,
-);
-assert.match(page, /forge-alive-mobile-nav-r16c5j\.css/);
-assert.match(page, /forge-alive-mobile-nav-r16c5j\.js/);
-assert.match(page, /forge-alive-home-nav-bridge-r16c5k\.js/);
-
-console.log("PASS R16J1C1 lazy runtime contract", {
+console.log("PASS R16J1C1 lazy runtime decoupled contract", {
   globalObserver: false,
   quoteHeavyRuntimeOnHome: false,
-  desktopRuntimeOnMobile: false,
-  intakeUiPreserved: true,
-  inAppRouterPreserved: true,
-  selectorBubbleEventDriven: true,
+  quoteStyleLoadOnRoute: false,
+  quoteRuntimeOnFileChange: true,
+  lazyLoaderNavControl: false,
+  dedicatedNavAuthority: true,
   automaticCalculation: false,
   automaticAcceptance: false,
 });

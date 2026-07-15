@@ -335,3 +335,27 @@
 }
 
 /* FORGEOS:R16C5J_NAV_PILL_CLEAN_REWRITE_FROM_ZERO:END */
+
+/* FORGE:R16J1C1_03A4_NAV_AUTHORITY_OVERRIDE:START */
+.forge-mobile-nav-r16c5k-home-visual[data-forge-mobile-nav-r16c5j] {
+  -webkit-backdrop-filter:
+    blur(24px) saturate(155%) !important;
+  backdrop-filter:
+    blur(24px) saturate(155%) !important;
+  contain: layout paint !important;
+  backface-visibility: hidden !important;
+}
+
+.forge-mobile-nav-r16c5k-home-visual[data-forge-mobile-nav-r16c5j]
+  > .forge-mobile-nav-r16c5j__selector {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transition: none !important;
+  -webkit-backdrop-filter:
+    blur(10px) saturate(150%) !important;
+  backdrop-filter:
+    blur(10px) saturate(150%) !important;
+  will-change: auto !important;
+}
+/* FORGE:R16J1C1_03A4_NAV_AUTHORITY_OVERRIDE:END */
