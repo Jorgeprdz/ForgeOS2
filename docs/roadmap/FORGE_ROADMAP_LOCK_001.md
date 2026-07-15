@@ -10330,3 +10330,118 @@ RECOMMENDED_ROUTE=reuse_existing_extractor_and_cache_contract
 
 NEXT=107Y_QUOTE_PREVIEW_EXISTING_PDF_CACHE_CONTRACT_LOCK
 <!-- FORGE:107X_QUOTE_PREVIEW_EXISTING_PDF_EXTRACTOR_CACHE_DISCOVERY:END -->
+
+## Route Performance Codex Resume Roadmap Note 03A6
+
+Roadmap disposition: park measured performance investigation for Codex while product delivery proceeds to 03B.
+
+# FORGEOS:R16J1C1_INCREMENTAL_03A6_ROUTE_PERFORMANCE_CODEX_DEFERRED_STATUS
+
+Status: `PARKED / DEFERRED_TO_CODEX / FUNCTIONAL_CORRECTNESS_PRESERVED`
+
+Recorded: `2026-07-15`
+
+Reference baseline:
+
+- `6612435539176bffbda09eb4d23e19c0e877b311`
+- Commit subject: `Make quote route switching constant time`
+- The reference commit is evidence only. A future Codex session must resume from the latest repository HEAD and must not reset later product work to this commit.
+
+Affected area:
+
+- Forge Alive mobile route switching between `Inicio` and `Cotizaciones`.
+- User-perceived route latency on the real mobile device.
+- This is performance debt, not a functional route-correctness rollback.
+
+Human-device finding:
+
+- After 03A5, the real mobile route still feels **super laggy** to the owner.
+- The finding is intentionally recorded as human-device evidence.
+- No unsupported numeric device latency is invented.
+- No numeric performance SLA is ratified yet.
+
+03A5 evidence preserved:
+
+- `STATIC_FUNCTIONAL_TESTS_PASS=6/6`
+- `BROWSER_GATE=PASS_2_OF_2`
+- Chromium and WebKit retained the Cotizaciones selector state.
+- Same-document navigation remained functional.
+- The dedicated navigation visual authority remained correct.
+- Automatic calculation remained disabled.
+- Automatic acceptance remained disabled.
+
+Observed diagnostic split:
+
+- PRoot Chromium remained slow in shell-route observations:
+  - first open: `2865 ms`
+  - warm open: `868 ms`
+  - Cotizaciones to Inicio: `3132 ms`
+- WebKit shell-route observations were approximately `20–27 ms`.
+- Browser click-handler observations were approximately `4–15.5 ms`.
+- These measurements suggest, but do not prove, that the remaining perceived lag may live outside the click handler.
+- PRoot measurements are environment evidence and must not be treated as equivalent to the real Android device.
+
+Decision:
+
+- Do not continue blind route-performance patches in the current workstream.
+- Park the unresolved performance debt until Codex is available with repository-wide analysis and real-device profiling capability.
+- Do not reopen or weaken the functional-correctness guarantees closed by 03A5.
+- Continue product development with `03B_AUTOMATIC_CALCULATION_AFTER_EXTRACTION`.
+- 03B may automate calculation after successful extraction, but it must not automate acceptance, presentation, approval, or export.
+
+Codex resume trigger:
+
+`CODEX_AVAILABLE_WITH_LATEST_REPOSITORY_AND_ANDROID_PROFILING_ACCESS`
+
+Mandatory Codex resume contract:
+
+1. Start from the latest `main`, then use `6612435` only as the historical 03A5 comparison point.
+2. Complete the Constitutional Gate and audit applicable UI, navigation, runtime, and performance guidelines before implementation.
+3. Measure both directions separately:
+   - `Inicio -> Cotizaciones`
+   - `Cotizaciones -> Inicio`
+4. Measure cold and warm navigation on the real Android device.
+5. Trace the complete path:
+   - `pointerdown`
+   - `click`
+   - router capture
+   - route-state write
+   - shell-class toggle
+   - module visibility
+   - style/layout work
+   - first visible frame
+   - next stable frame
+6. Use temporary, reviewable instrumentation such as `performance.mark`, `performance.measure`, `PerformanceObserver`, long-task observation, and Chrome remote debugging.
+7. Audit hidden Home controllers, MutationObservers, event listeners, CSS selector scope, synchronous layout reads, style invalidations, paint/compositing, and main-thread long tasks.
+8. Separate environment latency, lazy runtime loading, file chooser latency, and route-content latency.
+9. Establish a measured baseline before proposing a numeric target. The owner must approve any performance SLA.
+10. Remove temporary instrumentation before closure unless permanent telemetry is separately approved.
+11. Do not solve the issue by hiding delayed content, weakening accessibility, duplicating navigation authority, preloading the heavy quote runtime on Home, or reintroducing global observers.
+12. Require real-device owner validation before marking the performance debt closed.
+
+Resume success condition:
+
+- Functional contracts remain green.
+- Real-device route traces identify the dominant latency source.
+- A bounded fix is implemented against measured evidence.
+- The owner confirms that both route directions feel acceptably responsive.
+- No performance closure may be claimed from PRoot or desktop automation alone.
+
+Boundaries preserved:
+
+- `UI_VISUAL_CHANGE=NO`
+- `AUTOMATIC_CALCULATION=NO_IN_03A6`
+- `AUTOMATIC_ACCEPTANCE=NO`
+- `AUTOMATIC_PRESENTATION=NO`
+- `AUTOMATIC_APPROVAL=NO`
+- `AUTOMATIC_EXPORT=NO`
+- `NO_BLIND_OPTIMIZATION=YES`
+- `NO_RESET_TO_6612435_WHEN_RESUMING=YES`
+
+Roadmap disposition:
+
+- `03A5_FUNCTIONAL_ROUTE_FASTPATH=CLOSED`
+- `03A6_REAL_DEVICE_ROUTE_PERFORMANCE=PARKED_FOR_CODEX`
+- `03B_AUTOMATIC_CALCULATION_AFTER_EXTRACTION=NEXT_PRODUCT_WORK`
+
+<!-- /FORGEOS:R16J1C1_INCREMENTAL_03A6_ROUTE_PERFORMANCE_CODEX_DEFERRED_STATUS -->
