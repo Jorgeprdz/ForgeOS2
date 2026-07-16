@@ -19,6 +19,53 @@ function isRecord(value) {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
 }
 
+function perfEnabledR16J1C1() {
+  try {
+    return globalThis.__FORGE_PERF_DIAGNOSTICS__ === true ||
+      new URL(globalThis.location?.href || "http://localhost/")
+        .searchParams.get("forgePerf") === "1";
+  } catch {
+    return false;
+  }
+}
+
+function perfMarkR16J1C1(name) {
+  if (!perfEnabledR16J1C1()) return;
+  globalThis.performance?.mark?.(name);
+}
+
+function perfMeasureR16J1C1(name, start, end) {
+  if (!perfEnabledR16J1C1()) return;
+  try {
+    globalThis.performance?.measure?.(name, start, end);
+  } catch {}
+}
+
+function perfSummaryR16J1C1() {
+  if (!perfEnabledR16J1C1()) return null;
+  const duration = name =>
+    globalThis.performance
+      ?.getEntriesByName?.(name)
+      ?.at?.(-1)
+      ?.duration ?? null;
+  const summary = Object.freeze({
+    BOOT_MS: duration("BOOT_MS"),
+    QUOTE_ROUTE_MS: duration("QUOTE_ROUTE_MS"),
+    PDFJS_IMPORT_MS: duration("PDFJS_IMPORT_MS"),
+    ARRAYBUFFER_MS: duration("ARRAYBUFFER_MS"),
+    PDF_OPEN_MS: duration("PDF_OPEN_MS"),
+    TEXT_EXTRACTION_MS: duration("TEXT_EXTRACTION_MS"),
+    PACKET_BUILD_MS: duration("PACKET_BUILD_MS"),
+    CALCULATION_MS: duration("CALCULATION_MS"),
+    POPUP_OPEN_MS: duration("POPUP_OPEN_MS"),
+    APPROVAL_ACTIONS_READY_MS:
+      duration("APPROVAL_ACTIONS_READY_MS"),
+    TOTAL_PDF_FLOW_MS: duration("TOTAL_PDF_FLOW_MS"),
+  });
+  console.info("[Forge performance]", summary);
+  return summary;
+}
+
 function explicitCanonicalMoney(money) {
   if (!isRecord(money) || money.truth_status !== "source_provided") return null;
   if (money.value === null || money.value === undefined || money.value === "") {
@@ -179,6 +226,7 @@ async function calculateCurrentQuoteCandidatePreview(
   previewCalculationErrorR16J1C1 = null;
   previewCalculationStateR16J1C1 =
     "CALCULATING_PREVIEW";
+  perfMarkR16J1C1("CALCULATION_START");
 
   runtime.submit.disabled = true;
   runtime.submit.setAttribute("aria-disabled", "true");
@@ -216,6 +264,12 @@ async function calculateCurrentQuoteCandidatePreview(
       previewCalculationR16J1C1 = calculation;
       previewCalculationErrorR16J1C1 = null;
       previewCalculationStateR16J1C1 = "READY";
+      perfMarkR16J1C1("CALCULATION_END");
+      perfMeasureR16J1C1(
+        "CALCULATION_MS",
+        "CALCULATION_START",
+        "CALCULATION_END",
+      );
 
       renderAcceptedQuote(calculation, {
         writeRuntimeGrid: runtime.writeRuntimeGrid,
@@ -583,36 +637,27 @@ let packet = null;
     now: () => Date.now(),
     ttlMs: 24 * 60 * 60 * 1000,
     onPersisted() {
-      acceptedQuoteReviewSnapshotBoundary.clear();
-
-      if (packet) {
-        currentQuoteCandidateR16J0A = packet;
-
-        globalThis.dispatchEvent(
-          new CustomEvent("forge:quote-candidate-ready", {
-            detail: Object.freeze({
-              version: "R16J1B",
-              ready: true,
-              automatic: false,
-              source: "LEGACY_MODAL_PERSISTED",
-            }),
-          }),
+      void confirmCurrentQuoteCandidate().then(() => {
+        perfMarkR16J1C1("APPROVAL_ACTIONS_READY");
+        perfMeasureR16J1C1(
+          "APPROVAL_ACTIONS_READY_MS",
+          "PDF_SELECTED",
+          "APPROVAL_ACTIONS_READY",
         );
-      }
-
-      status.textContent =
-        "Resultado extraído.\nCalculando resultado automáticamente…";
-      status.setAttribute("data-forge-state", "ready");
-
-      setIntakeState("READY", {
-        message: status.textContent,
-        resetResults: false,
+        perfMeasureR16J1C1(
+          "TOTAL_PDF_FLOW_MS",
+          "PDF_SELECTED",
+          "APPROVAL_ACTIONS_READY",
+        );
+        globalThis.ForgeQuoteAcceptanceEntrypointR16J0A
+          ?.refresh?.();
+        globalThis.ForgeSalesPresentationEntrypointR16J0
+          ?.refresh?.();
+        globalThis.ForgeQuoteActionDockR16J1B?.sync?.();
+        perfSummaryR16J1C1();
+      }).catch((error) => {
+        console.error(`[${contractId}]`, error);
       });
-
-      setReadiness?.(
-        "Resultado extraído · cálculo automático en curso",
-        "ready",
-      );
     },
     onEditRequested() {
       acceptedQuoteReviewSnapshotBoundary.clear();
@@ -670,6 +715,12 @@ let packet = null;
               ? packet.source
               : {}
         });
+        perfMarkR16J1C1("POPUP_OPEN");
+        perfMeasureR16J1C1(
+          "POPUP_OPEN_MS",
+          "PACKET_READY",
+          "POPUP_OPEN",
+        );
 
         status.textContent =
           "Datos cargados. Confirma o solicita edición en el pop-up.";

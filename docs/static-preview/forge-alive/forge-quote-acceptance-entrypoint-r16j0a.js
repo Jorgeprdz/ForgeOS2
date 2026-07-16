@@ -33,7 +33,6 @@
   let state = "BRIDGE_WAIT";
   let busy = false;
   let lastError = null;
-  let refreshTimer = 0;
 
   function getWrapper() {
     return document.querySelector(WRAPPER_SELECTOR);
@@ -299,8 +298,6 @@ function safePreviewState(bridge) {
       );
     }
 
-    window.clearInterval(refreshTimer);
-    refreshTimer = window.setInterval(refresh, 250);
     refresh();
 
     return true;

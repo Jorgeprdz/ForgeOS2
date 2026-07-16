@@ -24,7 +24,6 @@
   const INPUT_SELECTOR =
     '[data-forge-local-packet-input="true"]';
 
-  let observer = null;
   let scheduled = false;
   let applying = false;
 
@@ -544,24 +543,14 @@
 
   function boot() {
     apply();
-
-    observer = new MutationObserver(schedule);
-    observer.observe(document.documentElement, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: [
-        "hidden",
-        "class",
-        "disabled",
-        "aria-disabled",
-        "data-forge-quote-acceptance-state-r16j0a",
-        "data-forge-sales-presentation-state-r16j0",
-        "data-forge-quote-acceptance-bound-r16j0a",
-        "data-forge-sales-presentation-bound-r16j0",
-        "data-forge-sales-presentation-entrypoint-bound-r16j0",
-      ],
-    });
+    for (const eventName of [
+      "forge:quote-runtime-ready",
+      "forge:quote-acceptance-state",
+      "forge:sales-presentation-entrypoint-state",
+      "forge:accepted-quote-confirmed",
+    ]) {
+      globalThis.addEventListener(eventName, schedule);
+    }
   }
 
   globalThis.ForgeQuoteActionDockR16J1B = Object.freeze({

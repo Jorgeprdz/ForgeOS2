@@ -12,7 +12,7 @@
   const NAV_ITEM_SELECTOR = ".forge-mobile-nav-r16c5j__item";
 
   const QUOTE_STYLES = Object.freeze([{"href": "assets/forge-quote-preview-confirmation-modal-107q.css", "media": ""}, {"href": "forge-sales-presentation-entrypoint-r16j0.css?v=r16j0-accepted-quote-sales-presentation-entrypoint-20260714-1", "media": ""}, {"href": "forge-quote-acceptance-entrypoint-r16j0a.css?v=r16j0a-quote-human-acceptance-20260714-1", "media": ""}, {"href": "forge-sales-presentation-workspace-r16j1.css?v=r16j1-workspace-ui-cleanup-20260714-1", "media": ""}, {"href": "forge-nueva-cotizacion-ui-cleanup-r16j1.css?v=r16j1-workspace-ui-cleanup-20260714-1", "media": ""}, {"href": "forge-quote-action-dock-r16j1b.css?v=r16j1b-segubeca-inline-orb-20260714-10", "media": ""}]);
-  const QUOTE_SCRIPTS = Object.freeze([{"src": "../quote-preview-live/forge-pdf-browser-parser.js?v=r16j1c1-popup-handoff-03c2-20260716-1", "type": "module"}, {"src": "assets/forge-quote-preview-confirmation-modal-107q.js", "type": ""}, {"src": "../quote-preview-live/forge-quote-preview-bundle.js", "type": ""}, {"src": "../quote-preview-live/forge-quote-calculators.js", "type": "module"}, {"src": "../quote-preview-live/forge-udi-mxn-runtime.js", "type": "module"}, {"src": "../quote-preview-live/forge-quote-benefit-summary.js", "type": "module"}, {"src": "../quote-preview-live/forge-accepted-quote-adapter.js?v=r14g_segubeca_renderer_20260712_1", "type": "module"}, {"src": "../quote-preview-live/forge-benefit-summary-renderer.js?v=r16b_unified_dashboard_20260713_1", "type": "module"}, {"src": "../quote-preview-live/forge-benefit-summary-layout.js?v=r16b_unified_dashboard_20260713_1", "type": "module"}, {"src": "../quote-preview-live/forge-quote-intake-state.js?v=r16a_quote_intake_empty_state_20260713_1", "type": ""}, {"src": "../quote-preview-live/forge-accepted-quote-bridge.js?v=r16j1c1-popup-handoff-03c2-20260716-1", "type": "module"}, {"src": "forge-sales-presentation-entrypoint-r16j0.js?v=r16j0-accepted-quote-sales-presentation-entrypoint-20260714-1", "type": ""}, {"src": "forge-quote-acceptance-entrypoint-r16j0a.js?v=r16j1c1-auto-calculation-03b-20260715-1", "type": ""}, {"src": "forge-quote-action-dock-r16j1b.js?v=r16j1b-segubeca-inline-orb-20260714-10", "type": ""}]);
+  const QUOTE_SCRIPTS = Object.freeze([{"src": "../quote-preview-live/forge-pdf-browser-parser.js?v=r16j1c1-performance-repair-03c3-20260716-1", "type": "module"}, {"src": "assets/forge-quote-preview-confirmation-modal-107q.js", "type": ""}, {"src": "../quote-preview-live/forge-quote-preview-bundle.js", "type": ""}, {"src": "../quote-preview-live/forge-quote-calculators.js", "type": "module"}, {"src": "../quote-preview-live/forge-udi-mxn-runtime.js", "type": "module"}, {"src": "../quote-preview-live/forge-quote-benefit-summary.js", "type": "module"}, {"src": "../quote-preview-live/forge-accepted-quote-adapter.js?v=r14g_segubeca_renderer_20260712_1", "type": "module"}, {"src": "../quote-preview-live/forge-benefit-summary-renderer.js?v=r16b_unified_dashboard_20260713_1", "type": "module"}, {"src": "../quote-preview-live/forge-benefit-summary-layout.js?v=r16b_unified_dashboard_20260713_1", "type": "module"}, {"src": "../quote-preview-live/forge-quote-intake-state.js?v=r16a_quote_intake_empty_state_20260713_1", "type": ""}, {"src": "../quote-preview-live/forge-accepted-quote-bridge.js?v=r16j1c1-performance-repair-03c3-20260716-1", "type": "module"}, {"src": "forge-sales-presentation-entrypoint-r16j0.js?v=r16j1c1-performance-repair-03c3-20260716-1", "type": ""}, {"src": "forge-quote-acceptance-entrypoint-r16j0a.js?v=r16j1c1-performance-repair-03c3-20260716-1", "type": ""}, {"src": "forge-quote-action-dock-r16j1b.js?v=r16j1c1-performance-repair-03c3-20260716-1", "type": ""}]);
   const DESKTOP_SCRIPTS = Object.freeze([{"src": "./alfred-desktop-dashboard.js?v=r16c_home_restoration_20260713_1", "type": ""}, {"src": "./alfred-desktop-command-workspace-056y.js?v=r16c_home_restoration_20260713_1", "type": ""}, {"src": "./desktop/forge-desktop-command-workspace-upgrade-058e.js?v=060n", "type": ""}, {"src": "./desktop/forge-local-read-model-preview-ui-binding-060l.js?v=060n", "type": ""}, {"src": "./desktop/forge-public-preview-interaction-visual-repair-060m.js?v=r16c_home_restoration_20260713_1", "type": ""}]);
 
   const loadedStyles = new Map();
@@ -22,6 +22,22 @@
   let quoteRuntimePromise = null;
   let desktopRuntimePromise = null;
   let replayingFileChange = false;
+
+  function perfEnabled() {
+    return new URL(location.href).searchParams.get("forgePerf") === "1";
+  }
+
+  function perfMark(name) {
+    if (!perfEnabled()) return;
+    performance.mark(name);
+  }
+
+  function perfMeasure(name, start, end) {
+    if (!perfEnabled()) return;
+    try {
+      performance.measure(name, start, end);
+    } catch {}
+  }
 
   function absoluteUrl(value) {
     return new URL(value, document.baseURI).href;
@@ -185,6 +201,7 @@
 
     quoteRuntimePromise = (async () => {
       try {
+        perfMark("QUOTE_ROUTE_OPEN_START");
         await loadQuoteShell();
 
         setQuoteState(
@@ -198,6 +215,12 @@
         await loadSequential(QUOTE_SCRIPTS);
 
         setQuoteState("ready");
+        perfMark("QUOTE_ROUTE_READY");
+        perfMeasure(
+          "QUOTE_ROUTE_MS",
+          "QUOTE_ROUTE_OPEN_START",
+          "QUOTE_ROUTE_READY",
+        );
 
         globalThis.dispatchEvent(
           new CustomEvent("forge:quote-runtime-ready", {
@@ -344,6 +367,7 @@
   }
 
   function boot() {
+    perfMark("FORGE_BOOT_START");
     globalThis.addEventListener(
       "change",
       onFileChangeCapture,
@@ -376,6 +400,13 @@
 
     if (requestedKey() === MODULE_KEY) {
       loadQuoteRuntime().catch(() => {});
+    } else {
+      perfMark("FORGE_HOME_READY");
+      perfMeasure(
+        "BOOT_MS",
+        "FORGE_BOOT_START",
+        "FORGE_HOME_READY",
+      );
     }
 
     /*

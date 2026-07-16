@@ -33,7 +33,6 @@
   let state = "BRIDGE_WAIT";
   let busy = false;
   let lastError = null;
-  let refreshTimer = 0;
   let observedButton = null;
   let buttonObserver = null;
   let reconcileQueued = false;
@@ -401,11 +400,6 @@
 
     observeButtonOwnership(button);
 
-    window.clearInterval(refreshTimer);
-    refreshTimer = window.setInterval(() => {
-      refresh();
-      queueButtonReconciliation(button);
-    }, 250);
     refresh();
     queueButtonReconciliation(button);
     return true;
@@ -438,6 +432,15 @@
       humanReviewRequired: true,
     }),
   });
+
+  globalThis.addEventListener(
+    "forge:accepted-quote-confirmed",
+    refresh,
+  );
+  globalThis.addEventListener(
+    "forge:sales-presentation-review-state",
+    refresh,
+  );
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot, { once: true });

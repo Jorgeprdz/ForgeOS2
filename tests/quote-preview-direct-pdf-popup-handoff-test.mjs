@@ -10,6 +10,18 @@ const [parser, bridge, loader] = await Promise.all([
   read("docs/static-preview/quote-preview-live/forge-accepted-quote-bridge.js"),
   read("docs/static-preview/forge-alive/forge-alive-runtime-lazy-loader-r16j1c1.js"),
 ]);
+const acceptance = await read(
+  "docs/static-preview/forge-alive/" +
+    "forge-quote-acceptance-entrypoint-r16j0a.js",
+);
+const presentation = await read(
+  "docs/static-preview/forge-alive/" +
+    "forge-sales-presentation-entrypoint-r16j0.js",
+);
+const actionDock = await read(
+  "docs/static-preview/forge-alive/" +
+    "forge-quote-action-dock-r16j1b.js",
+);
 
 assert.match(parser, /forge:accepted-quote-packet-ready/);
 assert.match(parser, /automaticAcceptance:\s*false/);
@@ -55,15 +67,26 @@ for (const field of [
 
 assert.match(
   loader,
-  /forge-accepted-quote-bridge\.js\?v=r16j1c1-popup-handoff-03c2-20260716-1/,
+  /forge-accepted-quote-bridge\.js\?v=r16j1c1-performance-repair-03c3-20260716-1/,
 );
 assert.match(
   loader,
-  /forge-quote-acceptance-entrypoint-r16j0a\.js\?v=r16j1c1-auto-calculation-03b-20260715-1/,
+  /forge-quote-acceptance-entrypoint-r16j0a\.js\?v=r16j1c1-performance-repair-03c3-20260716-1/,
 );
 assert.doesNotMatch(
   bridge,
   /confirmCurrentQuoteCandidate\(\);/,
 );
+assert.match(
+  bridge,
+  /onPersisted\(\)\s*\{[\s\S]*confirmCurrentQuoteCandidate\(\)\.then/,
+);
+assert.doesNotMatch(acceptance, /setInterval/);
+assert.doesNotMatch(presentation, /setInterval/);
+assert.doesNotMatch(
+  actionDock,
+  /observer\.observe\(document\.documentElement/,
+);
+assert.doesNotMatch(parser, /disableWorker:\s*true/);
 
 console.log("PASS direct PDF packet opens existing human confirmation popup");

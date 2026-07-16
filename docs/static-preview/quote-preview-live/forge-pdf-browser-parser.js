@@ -26,6 +26,28 @@ const PDFJS_LOCAL_WORKER_URL_107Z15P2_R11E = new URL(
 let pdfjsPromise107z15p2R11E = null;
 const PDF_COLUMN_GAP_THRESHOLD_107Z15P2_R15M2B = 8;
 
+function perfEnabledR16J1C1() {
+  try {
+    return globalThis.__FORGE_PERF_DIAGNOSTICS__ === true ||
+      new URL(globalThis.location?.href || "http://localhost/")
+        .searchParams.get("forgePerf") === "1";
+  } catch {
+    return false;
+  }
+}
+
+function perfMarkR16J1C1(name) {
+  if (!perfEnabledR16J1C1()) return;
+  globalThis.performance?.mark?.(name);
+}
+
+function perfMeasureR16J1C1(name, start, end) {
+  if (!perfEnabledR16J1C1()) return;
+  try {
+    globalThis.performance?.measure?.(name, start, end);
+  } catch {}
+}
+
 function normalizeText107z15p2R11E(value) {
   return String(value || "")
     .normalize("NFKC")
@@ -439,10 +461,17 @@ async function loadPdfJs107z15p2R11E() {
       let lastError = null;
       for (const candidate of candidates) {
         try {
+          perfMarkR16J1C1("PDFJS_IMPORT_START");
           const pdfjsLib = await withPdfTimeoutR16J1C1(
             import(candidate.module),
             12000,
             "La carga de PDF.js",
+          );
+          perfMarkR16J1C1("PDFJS_IMPORT_END");
+          perfMeasureR16J1C1(
+            "PDFJS_IMPORT_MS",
+            "PDFJS_IMPORT_START",
+            "PDFJS_IMPORT_END",
           );
           pdfjsLib.GlobalWorkerOptions.workerSrc = candidate.worker;
         globalThis.ForgePdfJsRuntimeR16J1C1 = Object.freeze({
@@ -535,15 +564,22 @@ export async function extractTextFromPdfFile107z15p2R11E(file) {
   }
 
   const pdfjsLib = await loadPdfJs107z15p2R11E();
+  perfMarkR16J1C1("ARRAYBUFFER_START");
   const arrayBuffer = await withPdfTimeoutR16J1C1(
     file.arrayBuffer(),
     12000,
     "La lectura del archivo PDF",
   );
+  perfMarkR16J1C1("ARRAYBUFFER_END");
+  perfMeasureR16J1C1(
+    "ARRAYBUFFER_MS",
+    "ARRAYBUFFER_START",
+    "ARRAYBUFFER_END",
+  );
 
+  perfMarkR16J1C1("PDF_DOCUMENT_OPEN_START");
   const documentTask = pdfjsLib.getDocument({
     data: arrayBuffer,
-    disableWorker: true,
     useWorkerFetch: false,
     isEvalSupported: false,
     stopAtErrors: false,
@@ -557,10 +593,21 @@ export async function extractTextFromPdfFile107z15p2R11E(file) {
       void documentTask.destroy?.();
     },
   );
+  perfMarkR16J1C1("PDF_DOCUMENT_OPEN_END");
+  perfMeasureR16J1C1(
+    "PDF_OPEN_MS",
+    "PDF_DOCUMENT_OPEN_START",
+    "PDF_DOCUMENT_OPEN_END",
+  );
 
   const pages = [];
+  perfMarkR16J1C1("PDF_TEXT_EXTRACTION_START");
   try {
-    for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
+    for (
+      let pageNumber = 1;
+      pageNumber <= pdf.numPages;
+      pageNumber += 1
+    ) {
       let page = null;
       try {
         page = await withPdfTimeoutR16J1C1(
@@ -576,13 +623,20 @@ export async function extractTextFromPdfFile107z15p2R11E(file) {
             page?.cleanup?.();
           },
         );
-        const rows = groupPdfItemsIntoRows107z15p2R11E(textContent.items);
+        const rows =
+          groupPdfItemsIntoRows107z15p2R11E(textContent.items);
         pages.push(rows.join("\n"));
       } finally {
-        page?.cleanup?.();
+          page?.cleanup?.();
       }
     }
   } finally {
+    perfMarkR16J1C1("PDF_TEXT_EXTRACTION_END");
+    perfMeasureR16J1C1(
+      "TEXT_EXTRACTION_MS",
+      "PDF_TEXT_EXTRACTION_START",
+      "PDF_TEXT_EXTRACTION_END",
+    );
     try {
       pdf.cleanup?.();
     } catch {}
@@ -1040,10 +1094,18 @@ export async function parsePdfFileToAcceptedQuotePacket(file, options = {}) {
     ...packetOptions
   } = options;
   const text = await extractTextFromPdfFile(file);
-  return parsePdfTextToAcceptedQuotePacket(text, {
+  perfMarkR16J1C1("PACKET_BUILD_START");
+  const packet = parsePdfTextToAcceptedQuotePacket(text, {
     ...packetOptions,
     fileName: packetOptions.fileName || file?.name || null
   });
+  perfMarkR16J1C1("PACKET_READY");
+  perfMeasureR16J1C1(
+    "PACKET_BUILD_MS",
+    "PACKET_BUILD_START",
+    "PACKET_READY",
+  );
+  return packet;
 }
 
 async function enrichPacketWithUdiRuntime107z15p2R11F2(packet) {
@@ -1089,6 +1151,7 @@ function setPdfStatus107z15p2R11E(input, message, tone = "info") {
 }
 
 async function convertPdfInputToJsonChange107z15p2R11E(input, file) {
+  perfMarkR16J1C1("PDF_SELECTED");
   setPdfStatus107z15p2R11E(
     input,
     "PDF recibido. Extrayendo renglones del estudio…",

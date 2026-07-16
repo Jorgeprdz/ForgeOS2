@@ -57,11 +57,15 @@ for (const token of [
   'source: "LOCAL_VENDOR"',
   "remoteRuntimeDependency: false",
   '"forge:pdfjs-runtime-ready"',
-  "disableWorker: true",
   "withPdfTimeoutR16J1C1",
 ]) {
   assert.ok(parser.includes(token), `missing ${token}`);
 }
+
+assert.ok(
+  !parser.includes("disableWorker: true"),
+  "local worker must keep PDF parsing off the main thread",
+);
 
 for (const forbidden of [
   "https://cdn.jsdelivr.net/npm/pdfjs-dist@",
@@ -77,7 +81,7 @@ for (const forbidden of [
 assert.ok(
   loader.includes(
     "forge-pdf-browser-parser.js" +
-      "?v=r16j1c1-popup-handoff-03c2-20260716-1",
+      "?v=r16j1c1-performance-repair-03c3-20260716-1",
   ),
 );
 assert.ok(
@@ -87,7 +91,7 @@ assert.ok(
 );
 assert.match(
   page,
-  /forge-alive-runtime-lazy-loader-r16j1c1\.js\?v=r16j1c1-popup-handoff-03c2-20260716-1/,
+  /forge-alive-runtime-lazy-loader-r16j1c1\.js\?v=r16j1c1-performance-repair-03c3-20260716-1/,
 );
 
 console.log(
