@@ -404,6 +404,13 @@ FORGE OS UNIFIED BUILD TREE 001
 │   ├── 🟢 Manager / Partner
 │   └── 🟢 Director
 │
+├── 🟢 Advisor Conversion Contract Hardening 067G3A
+│   ├── 🟢 Request / eligibility / human review contracts separated
+│   ├── 🟢 Identity allocation / materialized state / immutable receipt separated
+│   ├── 🟢 Failure / cancellation / append-only correction / event contracts
+│   ├── 🟢 Idempotency and privacy allowlist contract-tested
+│   └── 🔴 Contracts only: no writer, Advisor ID generation or activation
+│
 ├── 🔵 Open Work
 │   ├── 🔵 Advisor Lifecycle truth boundary
 │   ├── 🔵 Career OS Transition Engine

@@ -1,5 +1,22 @@
 # FORGE OS Master Build Tree
 
+<!-- FORGEOS:ADVISOR_CONVERSION_CONTRACT_HARDENING_067G3A:START -->
+## Advisor Conversion Contract Hardening 067G3A
+
+Status: IMPLEMENTED_AND_CLOSED_FOR_CONTRACTS_ONLY
+
+- Versioned V2 contract family separates request, eligibility, human review, identity allocation, materialized state, immutable receipt, failure, cancellation, append-only correction and audit event.
+- V1 AdvisorConversion schema remains fixture-compatible and is explicitly deprecated.
+- Human approval, authority domain, policy snapshot, evidence, idempotency and closed privacy payloads are required.
+- Conversion completion does not imply Advisor activation, Advisor OS access, Sales Pipeline creation or Project 200 handoff eligibility.
+- No conversion writer, Advisor repository, Advisor ID generator or activation service was created.
+- Activation authority actor and official evidence policy remain blocked.
+- Source truth: `docs/architecture/source-truth/FORGE_ADVISOR_CONVERSION_CONTRACT_HARDENING_DECISION_067G3A.md`.
+- Bounded recommendation only: `067G3B_ADVISOR_ACTIVATION_EVIDENCE_POLICY_RATIFICATION`.
+- The unrelated global `NEXT` sequence is unchanged.
+
+<!-- FORGEOS:ADVISOR_CONVERSION_CONTRACT_HARDENING_067G3A:END -->
+
 <!-- FORGEOS:ARTICLE_0_RATIFICATION_STATUS:START -->
 ## Article 0 Ratification 001
 

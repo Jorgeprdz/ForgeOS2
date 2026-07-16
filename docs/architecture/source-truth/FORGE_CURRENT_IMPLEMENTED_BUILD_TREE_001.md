@@ -35,7 +35,8 @@ FORGE CURRENT IMPLEMENTED BUILD TREE 001
 ├── Advisor signal surfaces: PARTIAL
 ├── Advisor-facing execution context: PARTIAL
 ├── Advisor Experience Intelligence: DOCUMENTED_NOT_IMPLEMENTED
-└── Advisor Lifecycle: PARTIAL / boundary-protected
+├── Advisor Lifecycle: PARTIAL / boundary-protected
+└── Advisor Conversion Contract Family V2 067G3A: IMPLEMENTED_AND_CLOSED_FOR_CONTRACTS_ONLY / no writer / no activation
 
 03 Manager OS
 ├── Recruitment Foundation: IMPLEMENTED_AND_CLOSED
