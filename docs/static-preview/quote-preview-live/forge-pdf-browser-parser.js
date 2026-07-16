@@ -650,7 +650,7 @@ export async function extractTextFromPdfFile107z15p2R11E(file) {
   return result;
 }
 
-function segubecaLineR14C(id, label, value, unit = undefined) {
+function segubecaLineR14C(id, label, value, unit = null) {
   return { id, label, value, unit };
 }
 

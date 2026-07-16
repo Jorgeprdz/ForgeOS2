@@ -91,6 +91,13 @@ function safePreviewState(bridge) {
   }
 }
 
+  function refreshPresentationHandoff() {
+    globalThis.ForgeSalesPresentationEntrypointR16J0
+      ?.refresh?.();
+    globalThis.ForgeQuoteActionDockR16J1B
+      ?.sync?.();
+  }
+
   function setState(nextState, options = {}) {
     state = nextState;
     lastError = options.error || null;
@@ -193,33 +200,6 @@ function safePreviewState(bridge) {
   setState("CALCULATING_PREVIEW");
   return state;
 }
-
-  function refresh() {
-    if (busy) {
-      return state;
-    }
-
-    const bridge = getBridge();
-
-    if (!bridge) {
-      setState("BRIDGE_WAIT");
-      return state;
-    }
-
-    if (safeSnapshot(bridge)) {
-      setState("ACCEPTED");
-      refreshPresentationHandoff();
-      return state;
-    }
-
-    if (safeCandidate(bridge)) {
-      setState("READY");
-      return state;
-    }
-
-    setState("WAITING");
-    return state;
-  }
 
   async function confirm() {
     if (busy) {

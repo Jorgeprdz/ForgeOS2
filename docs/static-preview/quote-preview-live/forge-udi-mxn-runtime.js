@@ -329,7 +329,7 @@ function enrichBenefitSummarySegubeca(benefitSummary, { nativeResult, projection
 
       if ((id === "total_contributed" || id === "total_contributed_udi") && totalContributionPair) {
         line.value = cloneObject(totalContributionPair);
-        line.unit = undefined;
+        line.unit = null;
         continue;
       }
 
@@ -340,7 +340,7 @@ function enrichBenefitSummarySegubeca(benefitSummary, { nativeResult, projection
         policyYear: policy.policyYear,
         policyYearSource: policy.policyYearSource
       });
-      line.unit = undefined;
+      line.unit = null;
     }
 
     const benefitValues = [

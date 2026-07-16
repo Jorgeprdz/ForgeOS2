@@ -87,7 +87,7 @@ assert.equal(entries.length, 14);
 assert.equal(new Set(keys).size, 14);
 assert.match(
   entries[0].src,
-  /forge-pdf-browser-parser\.js\?v=r16j1c1\-performance\-repair\-03c3\-20260716\-1/,
+  /forge-pdf-browser-parser\.js\?v=r16j1c1\-system\-performance\-repair\-20260716\-1/,
 );
 
 assert.ok(

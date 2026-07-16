@@ -42,7 +42,7 @@ assert.ok(segubecaIndex > vidaIndex);
 
 assert.match(
   bridge,
-  /forge-accepted-quote-adapter\.js\?v=r15l_orvi_end_to_end_20260712_1/,
+  /forge-accepted-quote-adapter\.js\?v=r16j1b_segubeca_acceptance_20260714_9/,
 );
 assert.match(
   bridge,

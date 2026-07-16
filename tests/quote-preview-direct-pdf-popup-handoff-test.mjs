@@ -71,7 +71,7 @@ assert.match(
 );
 assert.match(
   loader,
-  /forge-quote-acceptance-entrypoint-r16j0a\.js\?v=r16j1c1-performance-repair-03c3-20260716-1/,
+  /forge-quote-acceptance-entrypoint-r16j0a\.js\?v=r16j1c1-system-performance-repair-20260716-1/,
 );
 assert.doesNotMatch(
   bridge,
