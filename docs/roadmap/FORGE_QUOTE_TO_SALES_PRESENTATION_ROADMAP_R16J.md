@@ -247,11 +247,11 @@ Status: `PASS`
 <!-- FORGE:R16J2B_STAGE_ALIGNMENT_ROADMAP:START -->
 ## R16J2B · Accepted Quote Presentation Stage Alignment
 
-Status: `LOCAL_ACCEPTANCE_PASS_PENDING_PAGES`
+Status: `PASS`
 
 - Desktop controls use left, mathematical center and right zones.
 - Status and Presentation Editor CTA occupy independent full-width rows.
-- Tablet and mobile responsive acceptance is complete locally.
+- Tablet and mobile responsive acceptance passed locally and on GitHub Pages.
 - Presentation authority remains in Advisor OS.
 - Evidence:
   `docs/evidence/R16J2B_ACCEPTED_QUOTE_STAGE_ALIGNMENT_ACCEPTANCE.md`

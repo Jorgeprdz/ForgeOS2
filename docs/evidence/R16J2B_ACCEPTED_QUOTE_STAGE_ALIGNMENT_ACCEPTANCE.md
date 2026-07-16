@@ -90,7 +90,9 @@ Machine-readable index:
 `/storage/emulated/0/Download/R16J2B_STAGE_ALIGNMENT_EVIDENCE/R16J2B_EVIDENCE_INDEX.json`
 
 The evidence includes the required `1440x900` and `390x844` failure-before
-captures and local pass-after coverage for every required viewport.
+captures and local plus deployed Pages pass-after coverage for every required
+viewport. The final index contains 62 readable PNGs: 2 failure-before and 55
+pass-after captures. It contains no zero-byte or duplicate-name screenshots.
 
 ## Authority and non-regression
 
@@ -108,6 +110,19 @@ ORB_MODIFIED=NO
 
 ## Deployment gate
 
-REAL_PAGES_VERIFIED=PENDING_FIRST_HOTFIX_DEPLOYMENT
-CONSOLE_ERRORS=PENDING_PRODUCTION
-NETWORK_FAILURES=PENDING_PRODUCTION
+Deployment commit:
+`386c9d3f50efc194f0dce263311d46b89b4cbea3`
+
+GitHub Pages workflow `29537460900` completed successfully. The public Forge
+Alive URL then passed the complete PDF-to-editor flow in all 13 required
+viewports. Each run observed 43 relevant JavaScript module responses with valid
+status and MIME type. Console errors, page errors and failed requests were zero.
+
+REAL_PAGES_VERIFIED=YES
+DESKTOP_ALIGNMENT_PASS=YES
+TABLET_ACCEPTANCE_PASS=YES
+MOBILE_ACCEPTANCE_PASS=YES
+CONTEXT_SURVIVES_NAVIGATION=YES
+CONSOLE_ERRORS=0
+NETWORK_FAILURES=0
+PAGES_RUNTIME_REGRESSION=NO
