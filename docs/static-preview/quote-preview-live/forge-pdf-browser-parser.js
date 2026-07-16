@@ -14,10 +14,15 @@ import {
   validateOrviProductIntelligence,
 } from "./orvi-product-intelligence/knowledge/orvi-product-intelligence.js";
 
-const PDFJS_CDN_VERSION_107Z15P2_R11E = "4.10.38";
-const PDFJS_MODULE_URL_107Z15P2_R11E = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${PDFJS_CDN_VERSION_107Z15P2_R11E}/build/pdf.mjs`;
-const PDFJS_WORKER_URL_107Z15P2_R11E = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${PDFJS_CDN_VERSION_107Z15P2_R11E}/build/pdf.worker.mjs`;
-
+const PDFJS_VENDOR_VERSION_107Z15P2_R11E = "4.10.38";
+const PDFJS_LOCAL_MODULE_URL_107Z15P2_R11E = new URL(
+  "./vendor/pdfjs/4.10.38/pdf.mjs",
+  import.meta.url,
+).href;
+const PDFJS_LOCAL_WORKER_URL_107Z15P2_R11E = new URL(
+  "./vendor/pdfjs/4.10.38/pdf.worker.mjs",
+  import.meta.url,
+).href;
 let pdfjsPromise107z15p2R11E = null;
 const PDF_COLUMN_GAP_THRESHOLD_107Z15P2_R15M2B = 8;
 
@@ -425,12 +430,9 @@ async function loadPdfJs107z15p2R11E() {
     pdfjsPromise107z15p2R11E = (async () => {
       const candidates = [
         {
-          module: PDFJS_MODULE_URL_107Z15P2_R11E,
-          worker: PDFJS_WORKER_URL_107Z15P2_R11E,
-        },
-        {
-          module: `https://unpkg.com/pdfjs-dist@${PDFJS_CDN_VERSION_107Z15P2_R11E}/build/pdf.mjs`,
-          worker: `https://unpkg.com/pdfjs-dist@${PDFJS_CDN_VERSION_107Z15P2_R11E}/build/pdf.worker.mjs`,
+          source: "LOCAL_VENDOR",
+          module: PDFJS_LOCAL_MODULE_URL_107Z15P2_R11E,
+          worker: PDFJS_LOCAL_WORKER_URL_107Z15P2_R11E,
         },
       ];
 
@@ -443,7 +445,19 @@ async function loadPdfJs107z15p2R11E() {
             "La carga de PDF.js",
           );
           pdfjsLib.GlobalWorkerOptions.workerSrc = candidate.worker;
-          return pdfjsLib;
+        globalThis.ForgePdfJsRuntimeR16J1C1 = Object.freeze({
+          version: PDFJS_VENDOR_VERSION_107Z15P2_R11E,
+          source: candidate.source,
+          moduleUrl: candidate.module,
+          workerUrl: candidate.worker,
+          remoteRuntimeDependency: false,
+        });
+        globalThis.dispatchEvent(
+          new CustomEvent("forge:pdfjs-runtime-ready", {
+            detail: globalThis.ForgePdfJsRuntimeR16J1C1,
+          }),
+        );
+        return pdfjsLib;
         } catch (error) {
           lastError = error;
         }

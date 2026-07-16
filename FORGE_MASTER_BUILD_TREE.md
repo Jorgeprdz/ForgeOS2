@@ -15547,3 +15547,59 @@ Roadmap disposition:
 - `03A6_REAL_DEVICE_ROUTE_PERFORMANCE=PARKED_FOR_CODEX`
 
 <!-- /FORGEOS:R16J1C1_INCREMENTAL_03B_AUTOMATIC_CALCULATION_AFTER_EXTRACTION -->
+
+## 03B1 Local PDF.js Extraction Unblock
+
+<!-- FORGEOS:R16J1C1_INCREMENTAL_03B1_LOCAL_PDFJS_EXTRACTION_UNBLOCK -->
+
+Status: `IMPLEMENTED_PENDING_REAL_PDF_GATE`
+
+Recorded: `2026-07-15`
+
+Trigger:
+
+- Real Android evidence showed the intake remaining at
+  `PDF recibido. Extrayendo renglones del estudio…`.
+- The automatic calculation introduced in 03B cannot begin until
+  extraction produces a canonical candidate.
+- The browser parser depended at runtime on third-party PDF.js module
+  and worker URLs.
+
+Delivered:
+
+- Vendored official `pdfjs-dist@4.10.38` module and worker.
+- Preserved the upstream Apache-2.0 license and package metadata.
+- PDF.js module resolution is local to ForgeOS.
+- PDF.js worker resolution is local to ForgeOS.
+- Runtime CDN fallback was removed from the extraction path.
+- The parser publishes `forge:pdfjs-runtime-ready` with
+  `source=LOCAL_VENDOR`.
+- Existing extraction timeouts remain active.
+- 03B automatic preview calculation remains unchanged.
+
+Authority boundaries:
+
+- `PDFJS_RUNTIME_SOURCE=LOCAL_VENDOR`
+- `REMOTE_PDFJS_RUNTIME_DEPENDENCY=NO`
+- `PREVIEW_CALCULATION=AUTOMATIC_AFTER_EXTRACTION`
+- `AUTOMATIC_ACCEPTANCE=NO`
+- `AUTOMATIC_PRESENTATION=NO`
+- `AUTOMATIC_APPROVAL=NO`
+- `AUTOMATIC_EXPORT=NO`
+- `PDFS_COMMITTED=NO`
+
+Validation:
+
+- Local browser smoke opens a generated one-page PDF using the
+  vendored module and worker in Chromium and WebKit.
+- No real customer or Solucionline PDF is committed.
+- The real three-PDF matrix remains the blocking responsibility of 03C.
+
+Roadmap disposition:
+
+- `03B_AUTOMATIC_CALCULATION_AFTER_EXTRACTION=IMPLEMENTED`
+- `03B1_LOCAL_PDFJS_EXTRACTION_UNBLOCK=IMPLEMENTED_PENDING_REAL_PDF_GATE`
+- `03C_REAL_PDF_AUTOMATIC_CALCULATION_GATE=NEXT`
+- `03A6_REAL_DEVICE_ROUTE_PERFORMANCE=PARKED_FOR_CODEX`
+
+<!-- /FORGEOS:R16J1C1_INCREMENTAL_03B1_LOCAL_PDFJS_EXTRACTION_UNBLOCK -->
