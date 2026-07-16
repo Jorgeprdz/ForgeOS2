@@ -29,8 +29,9 @@ assert.match(
 );
 assert.match(
   parser,
-  /PDF extraído localmente\. Listo para continuar\./,
+  /PDF extraído localmente\. Abriendo confirmación para revisión humana…/,
 );
+assert.doesNotMatch(parser, /Listo para continuar/);
 assert.match(parser, /forge:accepted-quote-packet-ready/);
 assert.match(parser, /automaticCalculationRequested:\s*false/);
 assert.match(parser, /automaticAcceptance:\s*false/);

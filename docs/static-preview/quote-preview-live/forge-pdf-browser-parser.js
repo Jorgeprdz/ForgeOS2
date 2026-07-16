@@ -1106,7 +1106,7 @@ async function convertPdfInputToJsonChange107z15p2R11E(input, file) {
 
     setPdfStatus107z15p2R11E(
       input,
-      "PDF extraído localmente. Listo para continuar.",
+      "PDF extraído localmente. Abriendo confirmación para revisión humana…",
       "success",
     );
 

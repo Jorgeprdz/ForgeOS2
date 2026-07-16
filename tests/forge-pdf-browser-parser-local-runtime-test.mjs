@@ -77,7 +77,7 @@ for (const forbidden of [
 assert.ok(
   loader.includes(
     "forge-pdf-browser-parser.js" +
-      "?v=r16j1c1-parser-first-03c1-20260716-2",
+      "?v=r16j1c1-popup-handoff-03c2-20260716-1",
   ),
 );
 assert.ok(
@@ -87,7 +87,7 @@ assert.ok(
 );
 assert.match(
   page,
-  /forge-alive-runtime-lazy-loader-r16j1c1\.js\?v=r16j1c1-parser-first-03c1-20260716-2/,
+  /forge-alive-runtime-lazy-loader-r16j1c1\.js\?v=r16j1c1-popup-handoff-03c2-20260716-1/,
 );
 
 console.log(

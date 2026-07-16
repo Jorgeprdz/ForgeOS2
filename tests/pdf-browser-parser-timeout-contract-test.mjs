@@ -57,7 +57,7 @@ assert.doesNotMatch(parser, /transfer\.items\.add\(jsonFile\)/);
 
 assert.match(
   loader,
-  /forge-pdf-browser-parser\.js\?v=r16j1c1\-parser\-first\-03c1\-20260716\-2/,
+  /forge-pdf-browser-parser\.js\?v=r16j1c1\-popup\-handoff\-03c2\-20260716\-1/,
 );
 assert.doesNotMatch(
   loader,
@@ -78,7 +78,7 @@ console.log(
     pageCleaned: true,
     directPacketEventPreserved: true,
     parserReferenceAuthority: "lazy-loader",
-    parserCacheKey: "r16j1c1-parser-first-03c1-20260716-2",
+    parserCacheKey: "r16j1c1-popup-handoff-03c2-20260716-1",
     automaticCalculationRequested: false,
     automaticAcceptance: false,
   },

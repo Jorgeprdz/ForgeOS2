@@ -600,8 +600,8 @@ let packet = null;
         );
       }
 
-      status.textContent = "Resultado extraído.
-Calculando resultado automáticamente…";
+      status.textContent =
+        "Resultado extraído.\nCalculando resultado automáticamente…";
       status.setAttribute("data-forge-state", "ready");
 
       setIntakeState("READY", {
@@ -631,6 +631,65 @@ Calculando resultado automáticamente…";
       console.error(`[${contractId}]`, error);
     }
   });
+
+  globalThis.addEventListener(
+    "forge:accepted-quote-packet-ready",
+    async event => {
+      try {
+        packet = validatePacket(event?.detail?.packet);
+        currentQuoteCandidateR16J0A = packet;
+        clearCurrentQuotePreviewCalculation();
+
+        globalThis.dispatchEvent(
+          new CustomEvent("forge:quote-candidate-ready", {
+            detail: Object.freeze({
+              version: "R16J1C1_03C2",
+              ready: true,
+              automatic: true,
+              source: event?.detail?.source || null,
+            }),
+          }),
+        );
+
+        applyPacketToExistingPage?.(packet);
+        await calculateCurrentQuoteCandidatePreview();
+
+        const confirmationPreview =
+          buildOrviConfirmationPreview(packet);
+        invocation.present({
+          nativeResult: confirmationPreview.nativeResult,
+          context: confirmationPreview.context,
+          ambiguity:
+            packet.ambiguity &&
+            typeof packet.ambiguity === "object"
+              ? packet.ambiguity
+              : {},
+          source:
+            packet.source &&
+            typeof packet.source === "object"
+              ? packet.source
+              : {}
+        });
+
+        status.textContent =
+          "Datos cargados. Confirma o solicita edición en el pop-up.";
+        status.setAttribute("data-forge-state", "pending");
+        setIntakeState("READY", {
+          message: status.textContent,
+          resetResults: false,
+        });
+      } catch (error) {
+        status.textContent =
+          error?.message || String(error);
+        status.setAttribute("data-forge-state", "error");
+        setIntakeState("ERROR", {
+          message: status.textContent,
+          resetResults: false,
+        });
+        console.error(`[${contractId}]`, error);
+      }
+    },
+  );
 
   input.accept = ".json,application/json,.pdf,application/pdf";
   input.setAttribute("data-forge-local-packet-input", "true");
@@ -718,11 +777,9 @@ Calculando resultado automáticamente…";
         event,
       );
       status.textContent = directPdfProcessed
-        ? "PDF procesado localmente.
-"
+        ? "PDF procesado localmente.\n"
           + "Calculando resultado automáticamente…"
-        : `${file.name} cargado.
-`
+        : `${file.name} cargado.\n`
           + "Calculando resultado automáticamente…";
       status.setAttribute("data-forge-state", "ready");
       setIntakeState("READY", { message: status.textContent });
