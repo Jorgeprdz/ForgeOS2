@@ -227,7 +227,7 @@
         <p data-forge-quote-action-proxy-status-r16j1b="confirm"
            aria-live="polite"></p>
         <button type="button" ${PROXY_MARKER}="presentation">
-          Generar presentación de venta
+          Abrir editor de presentación
         </button>
         <p data-forge-quote-action-proxy-status-r16j1b="presentation"
            aria-live="polite"></p>
@@ -332,9 +332,9 @@
 
   function labelFor(kind, state) {
     if (kind === "confirm") return "Confirmar cotización";
-    if (state === "SESSION_READY") return "Abrir presentación de venta";
-    if (state === "ERROR") return "Reintentar presentación de venta";
-    return "Generar presentación de venta";
+    if (state === "SESSION_READY") return "Volver al editor de presentación";
+    if (state === "ERROR") return "Reintentar abrir editor";
+    return "Abrir editor de presentación";
   }
 
   function applyExistingVisualClass(kind, button, target, surface) {

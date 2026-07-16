@@ -357,7 +357,11 @@ try {
       resources: performance
         .getEntriesByType("resource")
         .map((entry) => entry.name)
-        .filter((name) => /advisor-os\/presentation/.test(name)),
+        .filter((name) =>
+          /(?:advisor-os\/presentation|advisor-presentation-runtime)/.test(
+            name,
+          ),
+        ),
       authority:
         document.querySelector(".forge-r16j1")
           ?.dataset.forgePresentationAuthority,

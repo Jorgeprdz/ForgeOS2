@@ -31,6 +31,33 @@ button[data-forge-sales-presentation-entrypoint-r16j0="true"] {
     opacity 160ms ease;
 }
 
+button[data-forge-quote-action-proxy-r16j1b="presentation"] {
+  appearance: none;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 520px) !important;
+  min-height: 52px !important;
+  padding: 13px 18px !important;
+  border: 1px solid rgba(112, 224, 255, 0.42) !important;
+  border-radius: 16px !important;
+  color: #041724 !important;
+  font: inherit;
+  font-weight: 850 !important;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 225, 151, 0.98),
+      rgba(105, 225, 255, 0.96)
+    ) !important;
+  box-shadow: 0 14px 34px rgba(22, 181, 225, 0.2) !important;
+}
+
+button[data-forge-quote-action-proxy-r16j1b="presentation"]:focus-visible {
+  outline: 3px solid rgba(116, 224, 255, 0.9);
+  outline-offset: 3px;
+}
+
 button[data-forge-sales-presentation-entrypoint-r16j0="true"][data-forge-sales-presentation-state-r16j0="READY"],
 button[data-forge-sales-presentation-entrypoint-r16j0="true"][data-forge-sales-presentation-state-r16j0="SESSION_READY"],
 button[data-forge-sales-presentation-entrypoint-r16j0="true"][data-forge-sales-presentation-state-r16j0="ERROR"] {

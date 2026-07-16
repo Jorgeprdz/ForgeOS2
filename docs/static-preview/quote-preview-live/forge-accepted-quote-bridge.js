@@ -6,14 +6,14 @@ import {
 import { renderAcceptedQuote } from "./forge-benefit-summary-renderer.js?v=r16b_unified_dashboard_20260713_1";
 import { createAcceptedQuoteReviewSnapshotBoundary } from "./forge-accepted-quote-review-snapshot.js?v=r16g2b1_review_snapshot_20260713_1";
 import { buildClientRecommendationRationaleBoundary } from "./forge-client-recommendation-rationale-boundary.js?v=r16h3_client_rationale_20260714_1";
-import { buildSalesPresentationBrowserContext } from "../../../advisor-os/presentation/browser/forge-sales-presentation-browser-context-adapter.js";
-import { buildSalesPresentationPromptReviewPacket } from "../../../advisor-os/presentation/browser/forge-sales-presentation-prompt-builder.js";
-import { buildSalesPresentationSlidePlanReviewPacket } from "../../../advisor-os/presentation/browser/forge-sales-presentation-slide-plan-generator.js";
-import { buildSalesPresentationReviewPacket } from "../../../advisor-os/presentation/browser/forge-sales-presentation-review-packet-builder.js";
-import { initializeSalesPresentationReviewState, getSalesPresentationReviewState, updateSalesPresentationSlide, applySalesPresentationApprovalDecision, revokeSalesPresentationApproval, applySalesPresentationExportAuthorization } from "../../../advisor-os/presentation/browser/forge-sales-presentation-review-state-store.js";
-import { bindSalesPresentationReviewUi } from "../../../advisor-os/presentation/browser/forge-sales-presentation-editable-preview.js";
-import { approveSalesPresentationReview } from "../../../advisor-os/presentation/browser/forge-sales-presentation-human-approval-gate.js";
-import { authorizeSalesPresentationExport, printSalesPresentationToPdf } from "../../../advisor-os/presentation/browser/forge-sales-presentation-export-adapter.js";
+import { buildSalesPresentationBrowserContext } from "../advisor-presentation-runtime/forge-sales-presentation-browser-context-adapter.js?v=r16j2a-pages-runtime-hotfix-20260716-1";
+import { buildSalesPresentationPromptReviewPacket } from "../advisor-presentation-runtime/forge-sales-presentation-prompt-builder.js?v=r16j2a-pages-runtime-hotfix-20260716-1";
+import { buildSalesPresentationSlidePlanReviewPacket } from "../advisor-presentation-runtime/forge-sales-presentation-slide-plan-generator.js?v=r16j2a-pages-runtime-hotfix-20260716-1";
+import { buildSalesPresentationReviewPacket } from "../advisor-presentation-runtime/forge-sales-presentation-review-packet-builder.js?v=r16j2a-pages-runtime-hotfix-20260716-1";
+import { initializeSalesPresentationReviewState, getSalesPresentationReviewState, updateSalesPresentationSlide, applySalesPresentationApprovalDecision, revokeSalesPresentationApproval, applySalesPresentationExportAuthorization } from "../advisor-presentation-runtime/forge-sales-presentation-review-state-store.js?v=r16j2a-pages-runtime-hotfix-20260716-1";
+import { bindSalesPresentationReviewUi } from "../advisor-presentation-runtime/forge-sales-presentation-editable-preview.js?v=r16j2a-pages-runtime-hotfix-20260716-1";
+import { approveSalesPresentationReview } from "../advisor-presentation-runtime/forge-sales-presentation-human-approval-gate.js?v=r16j2a-pages-runtime-hotfix-20260716-1";
+import { authorizeSalesPresentationExport, printSalesPresentationToPdf } from "../advisor-presentation-runtime/forge-sales-presentation-export-adapter.js?v=r16j2a-pages-runtime-hotfix-20260716-1";
 
 function isRecord(value) {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);

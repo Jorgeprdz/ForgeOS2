@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const VERSION = "R16J1C1_RUNTIME_LAZY_03C1_PARSER_FIRST";
+  const VERSION = "R16J2A_PAGES_RUNTIME_HOTFIX_20260716_1";
   const MODULE_KEY = "cotizaciones";
   const HOST_SELECTOR =
     '[data-forge-saas-module-host-r16c5l="cotizaciones"]';
@@ -11,8 +11,8 @@
     "[data-forge-mobile-nav-r16c5j]";
   const NAV_ITEM_SELECTOR = ".forge-mobile-nav-r16c5j__item";
 
-  const QUOTE_STYLES = Object.freeze([{"href": "assets/forge-quote-preview-confirmation-modal-107q.css", "media": ""}, {"href": "forge-sales-presentation-entrypoint-r16j0.css?v=r16j0-accepted-quote-sales-presentation-entrypoint-20260714-1", "media": ""}, {"href": "forge-quote-acceptance-entrypoint-r16j0a.css?v=r16j0a-quote-human-acceptance-20260714-1", "media": ""}, {"href": "forge-sales-presentation-workspace-r16j1.css?v=r16j1-workspace-ui-cleanup-20260714-1", "media": ""}, {"href": "forge-nueva-cotizacion-ui-cleanup-r16j1.css?v=r16j1-workspace-ui-cleanup-20260714-1", "media": ""}, {"href": "forge-quote-action-dock-r16j1b.css?v=r16j1b-segubeca-inline-orb-20260714-10", "media": ""}]);
-  const QUOTE_SCRIPTS = Object.freeze([{"src": "../quote-preview-live/forge-pdf-browser-parser.js?v=r16j1c1-main-thread-latency-20260716-1", "type": "module"}, {"src": "assets/forge-quote-preview-confirmation-modal-107q.js", "type": ""}, {"src": "../quote-preview-live/forge-quote-preview-bundle.js", "type": ""}, {"src": "../quote-preview-live/forge-quote-calculators.js", "type": "module"}, {"src": "../quote-preview-live/forge-udi-mxn-runtime.js?v=r16j1c1-system-performance-repair-20260716-1", "type": "module"}, {"src": "../quote-preview-live/forge-quote-benefit-summary.js", "type": "module"}, {"src": "../quote-preview-live/forge-accepted-quote-adapter.js?v=r14g_segubeca_renderer_20260712_1", "type": "module"}, {"src": "../quote-preview-live/forge-benefit-summary-renderer.js?v=r16b_unified_dashboard_20260713_1", "type": "module"}, {"src": "../quote-preview-live/forge-benefit-summary-layout.js?v=r16b_unified_dashboard_20260713_1", "type": "module"}, {"src": "../quote-preview-live/forge-quote-intake-state.js?v=r16a_quote_intake_empty_state_20260713_1", "type": ""}, {"src": "../quote-preview-live/forge-accepted-quote-bridge.js?v=r16j1c1-diagnostic-hotfix-20260716-1", "type": "module"}, {"src": "forge-sales-presentation-entrypoint-r16j0.js?v=r16j1c1-performance-repair-03c3-20260716-1", "type": ""}, {"src": "forge-quote-acceptance-entrypoint-r16j0a.js?v=r16j1c1-system-performance-repair-20260716-1", "type": ""}, {"src": "forge-quote-action-dock-r16j1b.js?v=r16j1c1-performance-repair-03c3-20260716-1", "type": ""}]);
+  const QUOTE_STYLES = Object.freeze([{"href": "assets/forge-quote-preview-confirmation-modal-107q.css", "media": ""}, {"href": "forge-sales-presentation-entrypoint-r16j0.css?v=r16j2a-pages-runtime-hotfix-20260716-1", "media": ""}, {"href": "forge-quote-acceptance-entrypoint-r16j0a.css?v=r16j2a-pages-runtime-hotfix-20260716-1", "media": ""}, {"href": "forge-sales-presentation-workspace-r16j1.css?v=r16j2a-pages-runtime-hotfix-20260716-1", "media": ""}, {"href": "forge-nueva-cotizacion-ui-cleanup-r16j1.css?v=r16j2a-pages-runtime-hotfix-20260716-1", "media": ""}, {"href": "forge-quote-action-dock-r16j1b.css?v=r16j2a-pages-runtime-hotfix-20260716-1", "media": ""}]);
+  const QUOTE_SCRIPTS = Object.freeze([{"src": "../quote-preview-live/forge-pdf-browser-parser.js?v=r16j2a-pages-runtime-hotfix-20260716-1", "type": "module"}, {"src": "assets/forge-quote-preview-confirmation-modal-107q.js", "type": ""}, {"src": "../quote-preview-live/forge-quote-preview-bundle.js", "type": ""}, {"src": "../quote-preview-live/forge-quote-calculators.js", "type": "module"}, {"src": "../quote-preview-live/forge-udi-mxn-runtime.js?v=r16j2a-pages-runtime-hotfix-20260716-1", "type": "module"}, {"src": "../quote-preview-live/forge-quote-benefit-summary.js", "type": "module"}, {"src": "../quote-preview-live/forge-accepted-quote-adapter.js?v=r16j2a-pages-runtime-hotfix-20260716-1", "type": "module"}, {"src": "../quote-preview-live/forge-benefit-summary-renderer.js?v=r16j2a-pages-runtime-hotfix-20260716-1", "type": "module"}, {"src": "../quote-preview-live/forge-benefit-summary-layout.js?v=r16j2a-pages-runtime-hotfix-20260716-1", "type": "module"}, {"src": "../quote-preview-live/forge-quote-intake-state.js?v=r16j2a-pages-runtime-hotfix-20260716-1", "type": ""}, {"src": "../quote-preview-live/forge-accepted-quote-bridge.js?v=r16j2a-pages-runtime-hotfix-20260716-1", "type": "module"}, {"src": "forge-sales-presentation-entrypoint-r16j0.js?v=r16j2a-pages-runtime-hotfix-20260716-1", "type": ""}, {"src": "forge-quote-acceptance-entrypoint-r16j0a.js?v=r16j2a-pages-runtime-hotfix-20260716-1", "type": ""}, {"src": "forge-quote-action-dock-r16j1b.js?v=r16j2a-pages-runtime-hotfix-20260716-1", "type": ""}]);
   const DESKTOP_SCRIPTS = Object.freeze([{"src": "./alfred-desktop-dashboard.js?v=r16c_home_restoration_20260713_1", "type": ""}, {"src": "./alfred-desktop-command-workspace-056y.js?v=r16c_home_restoration_20260713_1", "type": ""}, {"src": "./desktop/forge-desktop-command-workspace-upgrade-058e.js?v=060n", "type": ""}, {"src": "./desktop/forge-local-read-model-preview-ui-binding-060l.js?v=060n", "type": ""}, {"src": "./desktop/forge-public-preview-interaction-visual-repair-060m.js?v=r16c_home_restoration_20260713_1", "type": ""}]);
 
   const loadedStyles = new Map();
@@ -87,6 +87,32 @@
 
     if (existing) {
       const ready = Promise.resolve(existing);
+      loadedScripts.set(key, ready);
+      return ready;
+    }
+
+    if (entry.type === "module") {
+      const ready = import(key).catch((error) => {
+        const diagnostic = {
+          runtimeVersion: VERSION,
+          requestedModuleUrl: key,
+          failedDependencyUrl:
+            String(error?.message || "").match(/https?:\/\/[^\s)]+/)?.[0] ||
+            null,
+          errorName: error?.name || "Error",
+          message: error?.message || String(error),
+          pageUrl: location.href,
+          httpStatus: null,
+        };
+        globalThis.__FORGE_QUOTE_RUNTIME_LOAD_ERROR__ = Object.freeze(
+          diagnostic,
+        );
+        console.error("[Forge Quote Runtime Module Load Failure]", diagnostic);
+        throw Object.assign(
+          new Error(`No se pudo cargar ${entry.src}: ${diagnostic.message}`),
+          { cause: error, diagnostic },
+        );
+      });
       loadedScripts.set(key, ready);
       return ready;
     }
