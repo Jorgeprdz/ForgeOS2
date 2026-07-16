@@ -19,23 +19,23 @@ const page = await read(
 );
 const packageJson = JSON.parse(
   await read(
-    "docs/static-preview/quote-preview-live/vendor/" +
+    "docs/static-preview/quote-preview-live/assets/" +
     "pdfjs/4.10.38/package.json",
   ),
 );
 
 const pdfModuleUrl = new URL(
-  "docs/static-preview/quote-preview-live/vendor/" +
+  "docs/static-preview/quote-preview-live/assets/" +
   "pdfjs/4.10.38/pdf.mjs",
   root,
 );
 const workerUrl = new URL(
-  "docs/static-preview/quote-preview-live/vendor/" +
+  "docs/static-preview/quote-preview-live/assets/" +
   "pdfjs/4.10.38/pdf.worker.mjs",
   root,
 );
 const licenseUrl = new URL(
-  "docs/static-preview/quote-preview-live/vendor/" +
+  "docs/static-preview/quote-preview-live/assets/" +
   "pdfjs/4.10.38/LICENSE",
   root,
 );
@@ -77,7 +77,7 @@ for (const forbidden of [
 assert.ok(
   loader.includes(
     "forge-pdf-browser-parser.js" +
-      "?v=r16j1c1-local-pdfjs-03b1-20260715-1",
+      "?v=r16j1c1-local-pdfjs-03b2-20260716-1",
   ),
 );
 assert.ok(
@@ -87,7 +87,7 @@ assert.ok(
 );
 assert.match(
   page,
-  /forge-alive-runtime-lazy-loader-r16j1c1\.js\?v=r16j1c1-local-pdfjs-03b1-20260715-1/,
+  /forge-alive-runtime-lazy-loader-r16j1c1\.js\?v=r16j1c1-local-pdfjs-03b2-20260716-1/,
 );
 
 console.log(

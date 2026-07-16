@@ -19,7 +19,7 @@ const loader = await readFile(
 
 assert.match(
   page,
-  /forge-alive-runtime-lazy-loader-r16j1c1\.js\?v=r16j1c1-local-pdfjs-03b1-20260715-1/,
+  /forge-alive-runtime-lazy-loader-r16j1c1\.js\?v=r16j1c1-local-pdfjs-03b2-20260716-1/,
 );
 
 assert.match(
