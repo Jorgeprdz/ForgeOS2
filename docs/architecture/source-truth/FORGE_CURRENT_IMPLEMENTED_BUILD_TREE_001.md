@@ -35,6 +35,7 @@ FORGE CURRENT IMPLEMENTED BUILD TREE 001
 ├── Project 200 Contact Identity 067G5: CONTRACT_IMPLEMENTED / no automatic prospect creation
 ├── Project 200 CSV/JSON Parser 067G6: IMPLEMENTED / review output only / XLSX not ratified
 ├── Project 200 Handoff 067G7: CONTRACT_IMPLEMENTED / Advisor-reviewed / no cross-write
+├── Prospect Duplicate Match Review 067G8: ENGINE_AND_REVIEW_UI_IMPLEMENTED / no destructive merge
 ├── Advisor OS execution modules: PARTIAL
 ├── Advisor signal surfaces: PARTIAL
 ├── Advisor-facing execution context: PARTIAL
