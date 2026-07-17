@@ -31,14 +31,14 @@ assert.match(mount, /overflow: auto/);
 assert.ok(renderer.includes('ForgePipelineUI=PipelineUI'));
 assert.ok(renderer.includes('<h1 id="forge-pipeline-title">Pipeline de ventas</h1>'));
 assert.equal((renderer.match(/function renderPipelineUI/g) || []).length, 1);
-assert.ok(controller.includes("const VERSION = '067G16C_FORGE_ALIVE_STATIC_VIEW_V3'"));
+assert.ok(controller.includes("const VERSION = '067G16D_FORGE_ALIVE_PUBLIC_VIEW_V1'"));
 assert.ok(controller.includes("document.documentElement.setAttribute('data-forge-alive-static-view-067g16a', requestedView())"));
 assert.ok(controller.includes("addEventListener('popstate'"));
 assert.ok(controller.includes("addEventListener('pageshow'"));
 assert.ok(controller.includes("addEventListener('load'"));
 assert.ok(controller.includes("historyMode:'push'"));
-assert.ok(html.includes('pipeline-ui.css?v=067g16c-2'));
+assert.ok(html.includes('pipeline-ui.css?v=067g16d-1'));
 assert.ok(html.includes('forge-alive-pipeline-view-067g16a.css?v=067g16c-2'));
-assert.ok(html.includes('forge-alive-pipeline-view-067g16a.js?v=067g16c-2'));
+assert.ok(html.includes('forge-alive-pipeline-view-067g16a.js?v=067g16d-1'));
 
 console.log('067G16C RESPONSIVE LAYOUT AND CANONICAL TOKEN CONTRACT: PASS');

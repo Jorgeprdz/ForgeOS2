@@ -63,6 +63,8 @@ jobs:
         run: node scripts/build-advisor-presentation-pages-runtime.mjs
 
       - name: Build Pages artifact directory
+        env:
+          GITHUB_SHA: ${{ github.sha }}
         run: |
           node - <<'EOF'
           const fs = require('fs');
@@ -102,6 +104,9 @@ jobs:
           function isPublicFile(file) {
             if (file.startsWith('.github/')) return false;
             if (file.startsWith('docs/evidence/')) return false;
+            if (file.startsWith('advisor-os/sales-pipeline/')) {
+              return publicExtensions.has(path.extname(file).toLowerCase());
+            }
             if (!file.startsWith('docs/')) return publicRootFiles.has(file);
             if (file.includes('/tests/')) return false;
             if (/(^|\/)([^/]*-)?(master-)?test(s)?\.(js|json)$/i.test(file)) return false;
@@ -118,6 +123,14 @@ jobs:
           }
 
           fs.copyFileSync('env.js', path.join(siteDir, 'env.js'));
+          fs.writeFileSync(
+            path.join(siteDir, 'build-info.json'),
+            `${JSON.stringify({
+              commitSha: process.env.GITHUB_SHA,
+              generatedAt: new Date().toISOString(),
+              artifact: 'forge-pages',
+            }, null, 2)}\n`,
+          );
           console.log(`Prepared ${trackedFiles.filter(isPublicFile).length + 1} public file(s) in ${siteDir}`);
           EOF
           du -sh _site

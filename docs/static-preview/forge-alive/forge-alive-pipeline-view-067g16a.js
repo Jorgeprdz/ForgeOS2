@@ -1,8 +1,8 @@
-import '../../../advisor-os/sales-pipeline/sales-stage-registry.js';
-import '../../../advisor-os/sales-pipeline/pipeline-stage-read-model.js';
-import '../../../advisor-os/sales-pipeline/pipeline-ui.js';
+import '../../advisor-os/sales-pipeline/sales-stage-registry.js';
+import '../../advisor-os/sales-pipeline/pipeline-stage-read-model.js';
+import '../../advisor-os/sales-pipeline/pipeline-ui.js';
 
-const VERSION = '067G16C_FORGE_ALIVE_STATIC_VIEW_V3';
+const VERSION = '067G16D_FORGE_ALIVE_PUBLIC_VIEW_V1';
 const SUPPORTED_VIEWS = new Set(['inicio', 'pipeline', 'clientes', 'mas', 'alfred', 'reportes']);
 const requestedView = () => {
   const requested = new URL(location.href).searchParams.get('nav') || 'inicio';
@@ -98,7 +98,7 @@ function updateUrl(view, historyMode = 'push') {
   const current = url.searchParams.get('nav') || 'inicio';
   url.searchParams.delete('module');
   url.searchParams.set('nav', view);
-  url.searchParams.set('v', '067g16c-2');
+  url.searchParams.set('v', '067g16d-1');
   if (current === view) history.replaceState({ forgeAliveView: view }, '', url);
   else history[historyMode === 'replace' ? 'replaceState' : 'pushState']({ forgeAliveView: view }, '', url);
 }
