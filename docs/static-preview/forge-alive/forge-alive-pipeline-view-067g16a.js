@@ -2,13 +2,19 @@ import '../../../advisor-os/sales-pipeline/sales-stage-registry.js';
 import '../../../advisor-os/sales-pipeline/pipeline-stage-read-model.js';
 import '../../../advisor-os/sales-pipeline/pipeline-ui.js';
 
-const VERSION = '067G16B_FORGE_ALIVE_STATIC_VIEW_V2';
+const VERSION = '067G16C_FORGE_ALIVE_STATIC_VIEW_V3';
 const SUPPORTED_VIEWS = new Set(['inicio', 'pipeline', 'clientes', 'mas', 'alfred', 'reportes']);
+const requestedView = () => {
+  const requested = new URL(location.href).searchParams.get('nav') || 'inicio';
+  return SUPPORTED_VIEWS.has(requested) ? requested : 'inicio';
+};
+document.documentElement.setAttribute('data-forge-alive-static-view-067g16a', requestedView());
 const MOBILE_HOME_SELECTORS = [
   ':scope > .safety-ribbon',
   ':scope > .hero',
   ':scope > .assistant-card',
   ':scope > .primary-card',
+  '.command-orb-layer',
   ':scope > .forge-smart-widget-static-056u',
   ':scope > .grid',
   ':scope > .panel',
@@ -28,6 +34,7 @@ let navListenerCount = 0;
 const shell = () => document.querySelector('.phone-shell');
 const desktopWorkspace = () => document.querySelector('.forge-desktop-workspace-056y');
 const desktopMain = () => document.querySelector('.dw-main-056y');
+const desktopRail = () => document.querySelector('.dw-rail-056y');
 const alternateDesktop = () => document.querySelector('.alfred-dashboard-056g7');
 const visualNav = () => document.querySelector('[data-forge-mobile-nav-r16c5j]');
 
@@ -39,7 +46,7 @@ function markHomeNodes() {
       node.setAttribute('data-forge-static-home-node-067g16b', 'true');
     });
   });
-  [desktopMain(), alternateDesktop()].forEach(node => {
+  [desktopMain(), desktopRail(), alternateDesktop()].forEach(node => {
     if (node) node.setAttribute('data-forge-static-home-node-067g16a', 'true');
   });
 }
@@ -86,12 +93,14 @@ function syncNav(view) {
   });
 }
 
-function updateUrl(view) {
+function updateUrl(view, historyMode = 'push') {
   const url = new URL(location.href);
+  const current = url.searchParams.get('nav') || 'inicio';
   url.searchParams.delete('module');
   url.searchParams.set('nav', view);
-  url.searchParams.set('v', '067g16a-1');
-  history.replaceState({ forgeAliveView: view }, '', url);
+  url.searchParams.set('v', '067g16c-2');
+  if (current === view) history.replaceState({ forgeAliveView: view }, '', url);
+  else history[historyMode === 'replace' ? 'replaceState' : 'pushState']({ forgeAliveView: view }, '', url);
 }
 
 function pipelineModel(context = {}) {
@@ -164,7 +173,7 @@ async function open(view, options = {}) {
     currentView = requested;
     document.documentElement.setAttribute('data-forge-alive-static-view-067g16a', requested);
     syncNav(requested);
-    if (options.updateUrl !== false) updateUrl(requested);
+    if (options.updateUrl !== false) updateUrl(requested, options.historyMode);
     return true;
   } catch (error) {
     console.error('[067G16A STATIC VIEW]', error);
@@ -192,20 +201,23 @@ function bind() {
     event.preventDefault();
     void open(view, {
       updateUrl:true,
+      historyMode:'push',
       contextType:action?.dataset.forgeContextType || null,
       contextId:action?.dataset.forgeContextId || null,
     });
   });
   navListenerCount = 1;
   addEventListener('resize', placeHost, { passive:true });
+  addEventListener('popstate', () => void open(requestedView(), { updateUrl:false }));
+  addEventListener('pageshow', () => void open(requestedView(), { updateUrl:false }), { passive:true });
+  addEventListener('load', () => void open(requestedView(), { updateUrl:false }), { once:true });
 }
 
 function init() {
   markHomeNodes();
   ensureHost();
   bind();
-  const requested = new URL(location.href).searchParams.get('nav') || 'inicio';
-  void open(SUPPORTED_VIEWS.has(requested) ? requested : 'inicio', { updateUrl:false });
+  void open(requestedView(), { updateUrl:false });
 }
 
 globalThis.ForgeAliveStaticView067G16A = Object.freeze({

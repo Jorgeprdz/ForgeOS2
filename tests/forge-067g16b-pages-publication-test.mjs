@@ -7,9 +7,9 @@ const worker = readFileSync('service-worker.js', 'utf8');
 assert.match(workflow, /file\.startsWith\('docs\/'\) \? file\.slice\('docs\/'\.length\)/);
 assert.match(workflow, /path: _site/);
 for (const asset of [
-  'forge-alive-pipeline-view-067g16a.css?v=067g16b-1',
-  'pipeline-ui.css?v=067g16b-1',
-  'forge-alive-pipeline-view-067g16a.js?v=067g16b-1',
+  'forge-alive-pipeline-view-067g16a.css?v=067g16c-2',
+  'pipeline-ui.css?v=067g16c-2',
+  'forge-alive-pipeline-view-067g16a.js?v=067g16c-2',
 ]) assert.ok(html.includes(asset));
 assert.ok(worker.indexOf('await fetch(req)') < worker.indexOf('return cached'));
 assert.ok(!html.includes('serviceWorker.register'));

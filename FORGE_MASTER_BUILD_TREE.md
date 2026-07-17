@@ -15681,3 +15681,15 @@ Status: `PASS`
 - Pipeline data remains an honest read-model/empty state; production persistence and stage writers remain blocked.
 - No schema, database, product, financial, compensation, forecast or Rule Pack truth changed.
 <!-- FORGE:067G16B_ADVISOR_SALES_PIPELINE_RENDERER_TARGET_AND_ACCEPTANCE_REPAIR:END -->
+
+<!-- FORGE:067G16C_ADVISOR_SALES_PIPELINE_RESPONSIVE_LAYOUT_AND_CANONICAL_COLOR_TOKEN_REPAIR:START -->
+## 067G16C Advisor Sales Pipeline Responsive Layout and Canonical Color Token Repair
+
+Status: `PASS`
+
+- Preserves the 067G16B canonical `ForgePipelineUI.renderPipelineUI` renderer milestone while superseding its user-invalidated visual/layout acceptance claim.
+- Repairs desktop, tablet and mobile composition at `390x844`, `360x800`, `768x1024`, `1366x768`, and `1440x900` using the canonical Forge/Advisor shell token chains.
+- Hydrates fresh `?nav=pipeline`, reload, click and browser history from one route authority; Home primary content is absent while Pipeline is active.
+- Targeted, runner-integrity, non-regression, sequential Chromium geometry, color-token and recorded visual-review gates passed.
+- Production persistence and stage writers remain blocked; 067G17 and database work were not executed.
+<!-- FORGE:067G16C_ADVISOR_SALES_PIPELINE_RESPONSIVE_LAYOUT_AND_CANONICAL_COLOR_TOKEN_REPAIR:END -->
