@@ -37,7 +37,7 @@ assert.ok(controller.includes("addEventListener('popstate'"));
 assert.ok(controller.includes("addEventListener('pageshow'"));
 assert.ok(controller.includes("addEventListener('load'"));
 assert.ok(controller.includes("historyMode:'push'"));
-assert.ok(html.includes('pipeline-ui.css?v=067g16d-1'));
+assert.ok(html.includes('pipeline-ui.css?v=067g16d-2'));
 assert.ok(html.includes('forge-alive-pipeline-view-067g16a.css?v=067g16c-2'));
 assert.ok(html.includes('forge-alive-pipeline-view-067g16a.js?v=067g16d-1'));
 

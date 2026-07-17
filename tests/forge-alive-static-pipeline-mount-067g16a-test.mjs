@@ -16,7 +16,7 @@ for (const visible of [
 ]) assert.ok(html.includes(visible));
 
 assert.ok(html.includes('forge-alive-pipeline-view-067g16a.js?v=067g16d-1'));
-assert.ok(html.includes('../../advisor-os/sales-pipeline/pipeline-ui.css?v=067g16d-1'));
+assert.ok(html.includes('../../advisor-os/sales-pipeline/pipeline-ui.css?v=067g16d-2'));
 assert.ok(html.includes('data-forge-static-view="pipeline"'));
 assert.ok(html.includes('data-forge-static-open-pipeline="true"'));
 assert.ok(controller.includes("import '../../advisor-os/sales-pipeline/pipeline-ui.js'"));

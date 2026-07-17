@@ -10,7 +10,7 @@ assert.match(workflow, /file\.startsWith\('advisor-os\/sales-pipeline\/'\)/);
 assert.match(workflow, /commitSha: process\.env\.GITHUB_SHA/);
 for (const asset of [
   'forge-alive-pipeline-view-067g16a.css?v=067g16c-2',
-  '../../advisor-os/sales-pipeline/pipeline-ui.css?v=067g16d-1',
+  '../../advisor-os/sales-pipeline/pipeline-ui.css?v=067g16d-2',
   'forge-alive-pipeline-view-067g16a.js?v=067g16d-1',
 ]) assert.ok(html.includes(asset));
 assert.ok(worker.indexOf('await fetch(req)') < worker.indexOf('return cached'));
