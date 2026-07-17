@@ -32,6 +32,7 @@ FORGE CURRENT IMPLEMENTED BUILD TREE 001
 
 02 Advisor OS
 ├── Prospect Identity and Source Lineage 067G4: CONTRACT_IMPLEMENTED / production writer blocked
+├── Project 200 Contact Identity 067G5: CONTRACT_IMPLEMENTED / no automatic prospect creation
 ├── Advisor OS execution modules: PARTIAL
 ├── Advisor signal surfaces: PARTIAL
 ├── Advisor-facing execution context: PARTIAL
