@@ -1,0 +1,3 @@
+# Forge Advisor Prospect Ingestion Decision 067G9
+
+Status: `REPOSITORY_INTERFACE_AND_LOCAL_TEST_ADAPTER_IMPLEMENTED`; `PRODUCTION_WRITER_IMPLEMENTED=NO`. Ingestion validates Advisor ownership, idempotency, duplicate decision and source lineage, then creates or links without destructive merge and emits an ingestion receipt. The only adapter is explicitly in-memory/test and its read model declares productionTruth false. localStorage, IndexedDB and fixtures are not canonical. A server repository requires separately approved backend infrastructure. Next: 067G10 after mandatory UI-system discovery.
