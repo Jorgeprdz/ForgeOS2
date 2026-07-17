@@ -1,0 +1,3 @@
+# Prospect Detail and Commitments Decision 067G13
+
+Status: `CONTRACT_AND_UI_IMPLEMENTED_READ_MODEL_ONLY`. Record Detail workspace uses canonical Forge tokens and responsive shell conventions. Identity, relationships, opportunities, timeline/appointments, verified facts, commitments, notes, model interpretations, objections and follow-up are visibly separated. Commitment preserves verbatim source, normalized meaning, actors, source/due dates, verification/evidence and status. A model interpretation cannot become verified fact. Corrections are append-only and audited. No production persistence was introduced. Next: 067G14.

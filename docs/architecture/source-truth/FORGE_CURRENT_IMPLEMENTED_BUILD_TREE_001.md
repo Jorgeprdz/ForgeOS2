@@ -40,6 +40,7 @@ FORGE CURRENT IMPLEMENTED BUILD TREE 001
 ├── Advisor Sales Pipeline UI Foundation 067G10: UI_IMPLEMENTED_READ_MODEL_ONLY / Forge shell and tokens reused
 ├── Advisor Sales Stage Registry 067G11: REGISTRY_AND_OPPORTUNITY_CONTRACT_IMPLEMENTED / writer blocked
 ├── Pipeline UI Stage Integration 067G12: READ_MODEL_AND_UI_IMPLEMENTED / transitions preview-only
+├── Prospect Detail and Commitments 067G13: CONTRACT_AND_UI_IMPLEMENTED / read-model only
 ├── Advisor OS execution modules: PARTIAL
 ├── Advisor signal surfaces: PARTIAL
 ├── Advisor-facing execution context: PARTIAL
