@@ -30,7 +30,7 @@
   inset-block-start: max(14px, env(safe-area-inset-top));
   inset-inline-end: max(14px, env(safe-area-inset-right));
   position: fixed;
-  z-index: 9996;
+  z-index: 2147483001;
 }
 
 .forge-auth-floating-avatar-067g17b1[hidden] {
@@ -47,7 +47,7 @@
   overflow: auto;
   padding: max(18px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right)) max(96px, env(safe-area-inset-bottom));
   position: fixed;
-  z-index: 9998;
+  z-index: 2147483002;
 }
 
 .forge-auth-backdrop-067g17b1[hidden] {
