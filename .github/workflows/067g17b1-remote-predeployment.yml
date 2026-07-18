@@ -1,0 +1,119 @@
+name: 067G17B1 Remote Browser Predeployment
+
+on:
+  push:
+    branches:
+      - feature/067g17b1-auth-entry-session
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  remote-predeployment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      FORGE_PREDEPLOYMENT_EVIDENCE_DIR: artifacts/067g17b1-remote-predeployment
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install Chromium browser harness
+        run: npm install --no-save puppeteer@24.16.0
+
+      - name: Resolve Chromium
+        run: |
+          mkdir -p "$FORGE_PREDEPLOYMENT_EVIDENCE_DIR"
+          node --input-type=module <<'NODE' | tee "$FORGE_PREDEPLOYMENT_EVIDENCE_DIR/chromium-version.txt"
+          import puppeteer from 'puppeteer';
+          const path = puppeteer.executablePath();
+          console.log(`PUPPETEER_EXECUTABLE_PATH=${path}`);
+          NODE
+
+      - name: Auth directed suite
+        run: node tests/forge-067g17b1-auth-entry-static-test.mjs
+
+      - name: Prospect and security suites
+        run: |
+          node tests/forge-067g17b-prospect-service-test.js
+          node tests/forge-067g17b-prospect-ui-test.js
+          node tests/forge-067g17b-pipeline-productive-source-test.js
+          node tests/forge-067g17b-prospect-migration-security-test.mjs
+          node tests/forge-067g17a1-migration-security-test.mjs
+          node tests/forge-067g17a1-public-config-test.mjs
+
+      - name: Advisor isolation contract
+        run: node tests/forge-067g17b-prospect-service-test.js
+
+      - name: Alpha and non-regression suites
+        run: |
+          node tests/alpha-runtime/forge-alpha-runtime.test.js
+          node tests/services/forge-alpha-service.test.js
+          node tests/forge-067g16c-responsive-contract-test.mjs
+          node tests/forge-alive-constant-time-route-fastpath-test.mjs
+          node scripts/validate-semantic-extract-smoke.mjs
+          node tests/semantic-extract-edge-contract-test.mjs
+
+      - name: Runner integrity and portability
+        run: |
+          node tests/forge-067g17a1-runner-integrity-test.mjs
+          node tests/forge-067g16e-runner-integrity-test.mjs
+          node tests/forge-067g16b-runner-integrity-test.mjs
+          node tests/forge-067g16c-runner-integrity-test.mjs
+          node tests/forge-067g17b-deployment-workflow-test.mjs
+
+      - name: Workflow YAML validation
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          import { execFileSync } from 'node:child_process';
+          const files = execFileSync('git', ['ls-files', '.github/workflows/*.yml'], { encoding: 'utf8' }).trim().split('\n').filter(Boolean);
+          for (const file of files) {
+            const source = readFileSync(file, 'utf8');
+            if (!/^name:\s+/m.test(source)) throw new Error(`${file}: WORKFLOW_NAME_MISSING`);
+            if (!/(^|\n)on:\s*\n/.test(source)) throw new Error(`${file}: WORKFLOW_ON_MISSING`);
+          }
+          console.log('WORKFLOW_YAML_LIGHTWEIGHT_VALIDATION: PASS');
+          NODE
+
+      - name: Secret scan
+        run: |
+          if rg -n "(service[_-]?role|client[_-]?secret|refresh[_-]?token|access[_-]?token)\\s*[:=]\\s*['\\\"][A-Za-z0-9._~+/=-]{12,}|ADVISOR_[AB]_PASSWORD\\s*[:=]\\s*['\\\"][^'\\\"]{8,}" .github docs/static-preview advisor-os tests scripts --glob '!**/node_modules/**'; then
+            echo "REMOTE_SECRET_SCAN=FAIL"
+            exit 1
+          fi
+          echo "REMOTE_SECRET_SCAN=PASS"
+
+      - name: Browser auth and responsive suites
+        env:
+          FORGE_PUPPETEER_CORE_PATH: puppeteer
+        run: |
+          export FORGE_CHROMIUM_PATH="$(node --input-type=module -e "import puppeteer from 'puppeteer'; console.log(puppeteer.executablePath())")"
+          mkdir -p "$FORGE_PREDEPLOYMENT_EVIDENCE_DIR/browser"
+          FORGE_067G17B1_EVIDENCE_DIR="$FORGE_PREDEPLOYMENT_EVIDENCE_DIR/browser/auth" node tests/forge-067g17b1-auth-entry-browser-test.mjs
+          FORGE_067G16C_EVIDENCE_DIR="$FORGE_PREDEPLOYMENT_EVIDENCE_DIR/browser/responsive" node tests/forge-067g16c-responsive-browser-test.mjs
+          FORGE_067G16E_EVIDENCE_DIR="$FORGE_PREDEPLOYMENT_EVIDENCE_DIR/browser/geometry" node tests/forge-067g16e-geometry-browser-test.mjs
+          FORGE_067G16F_EVIDENCE_DIR="$FORGE_PREDEPLOYMENT_EVIDENCE_DIR/browser/cotizaciones" node tests/forge-067g16f-cotizaciones-route-browser-test.mjs
+
+      - name: Full combined predeployment verdict
+        run: |
+          printf '%s\n' "REMOTE_FULL_COMBINED_PREDEPLOYMENT=PASS" | tee "$FORGE_PREDEPLOYMENT_EVIDENCE_DIR/final-verdict.txt"
+          printf 'REMOTE_PREDEPLOYMENT_SHA=%s\n' "${GITHUB_SHA}" | tee -a "$FORGE_PREDEPLOYMENT_EVIDENCE_DIR/final-verdict.txt"
+          printf 'REMOTE_RUNNER_OS=%s\n' "${RUNNER_OS}" | tee -a "$FORGE_PREDEPLOYMENT_EVIDENCE_DIR/final-verdict.txt"
+
+      - name: Upload predeployment evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 067g17b1-remote-predeployment-evidence
+          path: artifacts/067g17b1-remote-predeployment
+          if-no-files-found: warn
