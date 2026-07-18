@@ -65,7 +65,8 @@ async function measure(page, zoomPercent) {
     const headerNode = document.querySelector('.forge-pipeline-header');
     const filtersNode = document.querySelector('.forge-pipeline-toolbar');
     const bodyNode = document.querySelector('.forge-pipeline-state,.forge-pipeline-layout');
-    const footerNode = document.querySelector('footer') || document.querySelector('.forge-mobile-nav-r16c5j');
+    const footerNode = document.querySelector('.forge-mobile-nav-r16c5j')
+      || Array.from(document.querySelectorAll('footer')).find(visible);
     const pipelineNode = document.querySelector('.forge-pipeline');
     const primaryNodes = [mainNode, pipelineNode, headerNode, filtersNode, bodyNode, footerNode].filter(Boolean);
     const contributors = Array.from(document.body.querySelectorAll('*')).flatMap(node => {
