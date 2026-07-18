@@ -47,7 +47,8 @@ async function authenticate() {
 }
 
 async function insertProspect(api, advisorId, suffix) {
-  const number = suffix === 'advisor-a' ? '+525500067171' : '+525500067172';
+  const runDigits = String(Date.now()).slice(-8);
+  const number = `+52${runDigits}${suffix === 'advisor-a' ? '01' : '02'}`;
   const { data, error } = await api.from('prospects').insert({ advisor_id: advisorId, display_name: `067g17b-${suffix}`, full_name:`067G17B ${suffix}`, phone_normalized:number, source:'acceptance_test', initial_context:'Controlled non-production fixture', status:'referred_new' }).select('id,advisor_id,phone_normalized').single();
   assert.ifError(error);
   fixtures.prospects.push({ api, id: data.id, advisorId });
@@ -75,9 +76,17 @@ async function cleanup() {
   if (failed) throw new Error('REMOTE_FIXTURE_CLEANUP_FAILED');
 }
 
+async function archivePriorControlledFixtures(api, advisorId) {
+  const { data, error } = await api.from('prospects').select('id').like('full_name','067G17B %').is('archived_at',null);
+  assert.ifError(error);
+  for (const row of data || []) await archive(api, 'prospects', row.id, advisorId, '067G17B prior acceptance cleanup');
+}
+
 let acceptanceError;
 try {
   await authenticate();
+  await archivePriorControlledFixtures(advisorA,userA.id);
+  await archivePriorControlledFixtures(advisorB,userB.id);
   const prospectA = await insertProspect(advisorA, userA.id, 'advisor-a');
   const prospectB = await insertProspect(advisorB, userB.id, 'advisor-b');
 

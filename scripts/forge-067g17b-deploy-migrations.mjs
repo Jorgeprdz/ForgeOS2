@@ -9,7 +9,8 @@ const files=[
  'supabase/migrations/20260619000200_supabase_rls_live_hardening.sql',
  'supabase/migrations/20260717000100_067g17a1_prospect_opportunity_security_foundation.sql',
  'supabase/migrations/20260718000200_067g17b_remove_legacy_prospect_delete.sql',
- 'supabase/migrations/20260718000100_067g17b_productive_prospect_crud.sql'
+ 'supabase/migrations/20260718000100_067g17b_productive_prospect_crud.sql',
+ 'supabase/migrations/20260718000300_067g17b_owned_archive_guard_repair.sql'
 ];
 const evidence='artifacts/067g17b-migration/ledger.jsonl';
 mkdirSync('artifacts/067g17b-migration',{recursive:true});

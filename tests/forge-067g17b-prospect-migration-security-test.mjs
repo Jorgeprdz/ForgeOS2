@@ -3,6 +3,7 @@ import fs from 'node:fs';
 
 const sql = fs.readFileSync('supabase/migrations/20260718000100_067g17b_productive_prospect_crud.sql','utf8');
 const deleteRepair = fs.readFileSync('supabase/migrations/20260718000200_067g17b_remove_legacy_prospect_delete.sql','utf8');
+const guardRepair = fs.readFileSync('supabase/migrations/20260718000300_067g17b_owned_archive_guard_repair.sql','utf8');
 for (const fragment of [
   'alter table public.prospect_audit_events enable row level security',
   'advisor_id is distinct from auth.uid()',
@@ -19,4 +20,6 @@ assert.match(sql, /revoke all on public\.prospect_audit_events from anon, authen
 assert.doesNotMatch(sql, /grant\s+(insert|update|delete)[^;]*prospect_audit_events/i);
 assert.match(deleteRepair,/drop policy if exists "prospects_delete_own_rows"/i);
 assert.match(deleteRepair,/revoke delete on table public\.prospects from authenticated/i);
+assert.match(guardRepair,/if tg_table_name = 'opportunity_status_history' then/i);
+assert.doesNotMatch(guardRepair,/tg_table_name = 'opportunity_status_history' and \(/i);
 console.log('067G17B PROSPECT MIGRATION SECURITY: PASS');
