@@ -8,7 +8,7 @@ function mock(userId=A){
   const q={select(){return q},insert(v){state.op='insert';state.payload=v;return q},update(v){state.op='update';state.payload=v;return q},eq(k,v){state.filters.push([k,v]);return q},is(k,v){state.filters.push([k,v]);return q},or(){return q},order:async()=>({data:rows.filter(r=>r.advisor_id===userId&&!r.archived_at),error:null}),single:async()=>{
    if(state.op==='insert'){if(state.payload.advisor_id!==userId)return{data:null,error:{code:'42501'}}; const row={id:crypto.randomUUID(),...state.payload,created_at:new Date().toISOString(),updated_at:new Date().toISOString()};rows.push(row);audits.push('prospect_created');return{data:row,error:null};}
    const row=rows.find(r=>state.filters.every(([k,v])=>k==='archived_at'?r[k]==v:r[k]===v)&&r.advisor_id===userId); if(!row)return{data:null,error:{code:'PGRST116'}}; Object.assign(row,state.payload);audits.push(row.archived_at?'prospect_archived':'prospect_updated');return{data:row,error:null};
-  },then(resolve){const data=rows.filter(r=>r.advisor_id===userId&&!r.archived_at);resolve({data,error:null})}}; return q;
+  },then(resolve){const data=rows.filter(r=>r.advisor_id===userId&&state.filters.every(([k,v])=>k==='archived_at'?r[k]==v:r[k]===v));resolve({data,error:null})}}; return q;
  }}; return {client,rows,audits};
 }
 (async()=>{
@@ -26,5 +26,7 @@ function mock(userId=A){
  await assert.rejects(()=>service.createProspect({...input,advisorId:'forged'}),e=>e.code==='OWNERSHIP_TRANSFER_DENIED');
  assert.equal(typeof service.deleteProspect,'undefined');
  assert.equal(Service.normalizeEmail(' X@Example.COM '),'x@example.com');
+ await assert.rejects(()=>service.createProspect({...input,phone:null,whatsapp:'+525512345679',email:'x@example.com,id.neq.null'}),e=>e.code==='VALIDATION_ERROR');
+ assert.doesNotMatch(Service.create.toString(),/\.or\(/);
  console.log('067G17B PROSPECT SERVICE: PASS');
 })().catch(e=>{console.error(e);process.exit(1)});

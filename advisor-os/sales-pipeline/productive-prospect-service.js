@@ -18,7 +18,12 @@
     if (digits.length>=8 && digits.length<=15) throw new ProspectError('VALIDATION_ERROR','Selecciona el país o escribe el número con código internacional.');
     throw new ProspectError('VALIDATION_ERROR','El número telefónico no es válido.');
   }
-  const normalizeEmail = value => value ? String(value).trim().toLowerCase() : null;
+  function normalizeEmail(value) {
+    if (!value) return null;
+    const email=String(value).trim().toLowerCase();
+    if(!/^[^\s@,()]+@[^\s@,()]+\.[^\s@,()]+$/.test(email)) throw new ProspectError('VALIDATION_ERROR','El correo no es válido.');
+    return email;
+  }
   function validate(input) {
     if (!input || input.advisorId || input.advisor_id || input.createdAt || input.created_at) throw new ProspectError('OWNERSHIP_TRANSFER_DENIED','La identidad del asesor y las fechas son autoritativas.');
     if (!String(input.fullName||'').trim()) throw new ProspectError('VALIDATION_ERROR','El nombre completo es obligatorio.');
@@ -43,10 +48,14 @@
     async function checkProspectDuplicates(input) {
       await authenticatedUser(client);
       const phone=normalizePhone(input.phone,defaultCountry), whatsapp=normalizePhone(input.whatsapp,defaultCountry), email=normalizeEmail(input.email);
-      const clauses=[]; if(phone) clauses.push(`phone_normalized.eq.${phone}`); if(whatsapp) clauses.push(`whatsapp_normalized.eq.${whatsapp}`); if(email) clauses.push(`email_normalized.eq.${email}`);
-      if(!clauses.length) return [];
-      const {data,error}=await client.from('prospects').select('id,full_name,phone_normalized,whatsapp_normalized,email_normalized,status').is('archived_at',null).or(clauses.join(','));
-      if(error) mapError(error); return (data||[]).map(rowToProspect);
+      const matches=[];
+      for(const [column,value] of [['phone_normalized',phone],['whatsapp_normalized',whatsapp],['email_normalized',email]]) {
+        if(!value) continue;
+        const {data,error}=await client.from('prospects').select('id,full_name,phone_normalized,whatsapp_normalized,email_normalized,status').eq(column,value).is('archived_at',null);
+        if(error) mapError(error);
+        for(const row of data||[]) if(!matches.some(existing=>existing.id===row.id)) matches.push(row);
+      }
+      return matches.map(rowToProspect);
     }
     async function createProspect(input) {
       validate(input); const user=await authenticatedUser(client); const duplicates=await checkProspectDuplicates(input);
