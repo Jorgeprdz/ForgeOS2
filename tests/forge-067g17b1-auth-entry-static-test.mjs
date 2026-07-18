@@ -19,6 +19,8 @@ assert.match(html, /forge-alive-public-config-067g17a1\.js\?v=__FORGE_BUILD_SHA_
 assert.match(script, /FORGE_AUTH_ENTRY_067G17B1_V1/);
 assert.match(script, /\.hero \.orb/);
 assert.match(script, /function renderCurrentAvatarState/);
+assert.match(script, /function ensureFallbackAvatar/);
+assert.match(script, /forgeAuthFallback/);
 assert.match(script, /forge:static-view-changed/);
 assert.match(script, /forge:pipeline-rendered/);
 assert.match(pipelineScript, /forge:pipeline-rendered/);
@@ -92,6 +94,7 @@ assert.doesNotMatch(productiveUi, /Tu sesión expiró\. Inicia sesión nuevament
 assert.match(styles, /focus-visible/);
 assert.match(styles, /min-height: 42px/);
 assert.match(styles, /position: fixed/);
+assert.match(styles, /forge-auth-floating-avatar-067g17b1/);
 assert.match(styles, /max-block-size: calc\(100vh - 36px\)/);
 assert.match(styles, /@media \(max-width: 640px\)/);
 assert.match(styles, /env\(safe-area-inset-bottom\)/);

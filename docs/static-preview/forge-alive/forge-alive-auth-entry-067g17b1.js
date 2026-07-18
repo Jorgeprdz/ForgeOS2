@@ -20,6 +20,7 @@
     authSubscription: null,
     listenerPromise: null,
     bootPromise: null,
+    fallbackAvatar: null,
   };
 
   function configApi() {
@@ -52,11 +53,45 @@
     return button;
   }
 
+  function ensureFallbackAvatar() {
+    if (state.fallbackAvatar?.isConnected) return state.fallbackAvatar;
+    const button = global.document.createElement('button');
+    button.type = 'button';
+    button.className = 'forge-auth-avatar-067g17b1 forge-auth-floating-avatar-067g17b1';
+    button.dataset.forgeAuthAvatar = '067g17b1';
+    button.dataset.forgeAuthFallback = 'true';
+    button.setAttribute('aria-label', 'Iniciar sesión o abrir perfil');
+    button.textContent = 'F';
+    button.addEventListener('click', () => openAuthPanel());
+    global.document.body.append(button);
+    state.fallbackAvatar = button;
+    return button;
+  }
+
+  function isVisibleAvatar(node) {
+    if (!node || node.hidden) return false;
+    const style = global.getComputedStyle(node);
+    return Boolean(node.getClientRects().length)
+      && style.visibility !== 'hidden'
+      && style.display !== 'none';
+  }
+
+  function syncFallbackAvatarVisibility() {
+    if (!state.fallbackAvatar) return;
+    const canonicalVisible = state.avatars
+      .filter((avatar) => avatar !== state.fallbackAvatar)
+      .some(isVisibleAvatar);
+    state.fallbackAvatar.hidden = canonicalVisible;
+  }
+
   function discoverAvatars() {
+    const fallback = ensureFallbackAvatar();
     state.avatars = Array.from(global.document.querySelectorAll(AVATAR_SELECTOR))
       .map(makeAvatarButton)
       .filter(Boolean);
+    if (!state.avatars.includes(fallback)) state.avatars.push(fallback);
     renderCurrentAvatarState();
+    syncFallbackAvatarVisibility();
   }
 
   function renderCurrentAvatarState() {

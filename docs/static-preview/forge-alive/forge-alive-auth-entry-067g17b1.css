@@ -23,6 +23,20 @@
   width: 100%;
 }
 
+.forge-auth-floating-avatar-067g17b1 {
+  border-radius: 999px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(112, 221, 255, 0.16);
+  inline-size: 46px;
+  inset-block-start: max(14px, env(safe-area-inset-top));
+  inset-inline-end: max(14px, env(safe-area-inset-right));
+  position: fixed;
+  z-index: 9996;
+}
+
+.forge-auth-floating-avatar-067g17b1[hidden] {
+  display: none !important;
+}
+
 .forge-auth-backdrop-067g17b1 {
   align-items: flex-start;
   background: rgba(2, 8, 20, 0.58);
