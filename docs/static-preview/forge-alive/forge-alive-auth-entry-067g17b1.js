@@ -87,6 +87,10 @@
 
   function syncFallbackAvatarVisibility() {
     if (!state.fallbackAvatar) return;
+    if (currentNav() === 'pipeline') {
+      state.fallbackAvatar.hidden = false;
+      return;
+    }
     const canonicalVisible = state.avatars
       .filter((avatar) => avatar !== state.fallbackAvatar)
       .some(isVisibleAvatar);
