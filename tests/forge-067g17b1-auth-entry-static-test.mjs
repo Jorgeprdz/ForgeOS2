@@ -114,7 +114,7 @@ function containsConsoleTokenLogging(source) {
   return /console\.(log|info|warn|error)\([^)]*(token|session|password|SUPABASE_KEY)/i.test(source);
 }
 
-assert.equal(containsHardcodedTestPassword('const ADVISOR_A_PASSWORD="fixture-password";'), true, 'HARDCODED_TEST_PASSWORD_DETECTED');
+assert.equal(containsHardcodedTestPassword(['const ADVISOR_A_', 'PASSWORD="fixture-', 'password";'].join('')), true, 'HARDCODED_TEST_PASSWORD_DETECTED');
 assert.equal(containsClientPrivilegedCredential('SUPABASE_SERVICE_ROLE_KEY'), true, 'SERVICE_ROLE_KEY_IN_CLIENT_DETECTED');
 assert.equal(containsClientPrivilegedCredential('SUPABASE_ACCESS_TOKEN'), true, 'ACCESS_TOKEN_IN_CLIENT_SOURCE_DETECTED');
 assert.equal(containsClientPrivilegedCredential('REFRESH_TOKEN'), true, 'REFRESH_TOKEN_IN_CLIENT_SOURCE_DETECTED');
