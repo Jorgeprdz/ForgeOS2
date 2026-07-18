@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 
 const html = readFileSync('docs/static-preview/forge-alive/index.html', 'utf8');
 const script = readFileSync('docs/static-preview/forge-alive/forge-alive-auth-entry-067g17b1.js', 'utf8');
+const pipelineScript = readFileSync('docs/static-preview/forge-alive/forge-alive-pipeline-view-067g16a.js', 'utf8');
 const styles = readFileSync('docs/static-preview/forge-alive/forge-alive-auth-entry-067g17b1.css', 'utf8');
 const config = readFileSync('docs/static-preview/forge-alive/forge-alive-public-config-067g17a1.js', 'utf8');
 const workflow = readFileSync('.github/workflows/pages.yml', 'utf8');
@@ -20,6 +21,7 @@ assert.match(script, /\.hero \.orb/);
 assert.match(script, /function renderCurrentAvatarState/);
 assert.match(script, /forge:static-view-changed/);
 assert.match(script, /forge:pipeline-rendered/);
+assert.match(pipelineScript, /forge:pipeline-rendered/);
 assert.match(script, /textContent = 'F'/);
 assert.match(script, /type = 'button'/);
 assert.match(script, /aria-label', 'Iniciar sesión o abrir perfil'/);

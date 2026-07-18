@@ -37,6 +37,16 @@ let navListenerCount = 0;
 let productivePipeline = null;
 let authListenerBound = false;
 
+function emitPipelineRendered() {
+  window.dispatchEvent(new CustomEvent('forge:pipeline-rendered', {
+    detail: {
+      contractId: VERSION,
+      view: 'pipeline',
+      productive: Boolean(productivePipeline),
+    },
+  }));
+}
+
 const shell = () => document.querySelector('.phone-shell');
 const desktopWorkspace = () => document.querySelector('.forge-desktop-workspace-056y');
 const desktopMain = () => document.querySelector('.dw-main-056y');
@@ -162,6 +172,7 @@ async function renderPipeline(context) {
   }
   outlet.querySelector('.forge-pipeline').dataset.routeId = 'advisor-sales-pipeline';
   outlet.dataset.activeStaticView = 'pipeline';
+  emitPipelineRendered();
 }
 
 function renderPlaceholder(view) {
