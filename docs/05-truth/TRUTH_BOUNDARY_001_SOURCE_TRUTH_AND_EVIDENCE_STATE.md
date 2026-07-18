@@ -259,6 +259,27 @@ OCR is not truth.
 
 Parser output is not truth until validated.
 
+## 067G16E + 067G16F + 067G17A1 Release Evidence State
+
+Recorded: `2026-07-18`
+
+This section records validated release evidence. It does not elevate fixtures,
+tests, forecasts, parser output or AI output into customer or financial truth.
+
+- `067G16E=ACCEPTED`
+- `067G16F=ACCEPTED`
+- `067G17A1=ACCEPTED`
+- `ALPHA_AUTHORITY_RECONCILED=YES`
+- `ADVISOR_ID_RLS_BOUNDARY_ENFORCED=YES`
+- `PAGES_VM_VALIDATOR_REPAIRED=YES`
+- `SEMANTIC_CANONICAL_VERSION=semantic-extract-v0.8`
+- `MAIN_RELEASE_COMPLETED=YES`
+- `PRODUCTION_ACCEPTED=YES`
+
+Scope remains closed for `067G17B`, `067G17C`, productive Prospect CRUD,
+Google Calendar, Chrome Notifications and Nash Activity Loop. No productive
+prospect record was created during release acceptance.
+
 Product PDFs can produce evidence packets.
 
 Product truth requires source/provenance.

@@ -15693,3 +15693,21 @@ Status: `PASS`
 - Targeted, runner-integrity, non-regression, sequential Chromium geometry, color-token and recorded visual-review gates passed.
 - Production persistence and stage writers remain blocked; 067G17 and database work were not executed.
 <!-- FORGE:067G16C_ADVISOR_SALES_PIPELINE_RESPONSIVE_LAYOUT_AND_CANONICAL_COLOR_TOKEN_REPAIR:END -->
+
+<!-- FORGE:067G16E_067G16F_067G17A1_PRODUCTION_ACCEPTANCE:START -->
+## 067G16E + 067G16F + 067G17A1 Production Acceptance
+
+Status: `PASS`
+
+Recorded: `2026-07-18`
+
+- `067G16E=ACCEPTED`: Pipeline geometry is contained at the accepted desktop, tablet and mobile viewports, including zoom 100% and 125%.
+- `067G16F=ACCEPTED`: Pipeline and Cotizaciones use canonical `nav` routes, render one matching body and expose exactly one active primary item.
+- `067G17A1=ACCEPTED`: public Supabase configuration, project authority, security runners, additive migration/RLS source and canonical semantic-extract source are version controlled.
+- `ALPHA_AUTHORITY_RECONCILED=YES`: English and Spanish advisor/prospect speech regression coverage passes.
+- `ADVISOR_ID_RLS_BOUNDARY_ENFORCED=YES`: Alpha persistence requires an explicit advisor identity and retains the `advisor_id = auth.uid()` ownership boundary.
+- `PAGES_VM_VALIDATOR_REPAIRED=YES`: the public-config validator executes browser-style `window.__ENV__` in a bounded VM context.
+- `SEMANTIC_CANONICAL_VERSION=semantic-extract-v0.8` with exact deployed implementation identifier `semantic-extract-v0.8-hdl-semantic-frame-lite`.
+- `MAIN_RELEASE_COMPLETED=YES` and `PRODUCTION_ACCEPTED=YES` after Pages, semantic smoke and read-only production browser acceptance passed.
+- `067G17B_EXECUTED=NO`; `067G17C_EXECUTED=NO`; productive Prospect CRUD, Google Calendar, Chrome Notifications and Nash Activity Loop remain unimplemented.
+<!-- FORGE:067G16E_067G16F_067G17A1_PRODUCTION_ACCEPTANCE:END -->
