@@ -5,6 +5,7 @@ on:
     branches:
       - feature/067g17b1-auth-entry-session
       - feature/067g17b2-prospect-create-entry-repair
+      - feature/067g17b3-prospect-create-modal
   workflow_dispatch:
 
 permissions:
@@ -48,6 +49,7 @@ jobs:
           node tests/forge-067g17b-prospect-service-test.js
           node tests/forge-067g17b-prospect-ui-test.js
           node tests/forge-067g17b2-create-entry-contract-test.mjs
+          node tests/forge-067g17b3-create-modal-contract-test.mjs
           node tests/forge-067g17b-pipeline-productive-source-test.js
           node tests/forge-067g17b-prospect-migration-security-test.mjs
           node tests/forge-067g17a1-migration-security-test.mjs
