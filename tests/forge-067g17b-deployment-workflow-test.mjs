@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+const workflow=readFileSync('.github/workflows/067g17b-migration-deployment.yml','utf8');
+const deployer=readFileSync('scripts/forge-067g17b-deploy-migrations.mjs','utf8');
+const remote=readFileSync('scripts/forge-067g17a1-remote-two-advisor-rls.mjs','utf8');
+assert.match(workflow,/feature\/067g17b-productive-prospect-crud/);
+assert.match(workflow,/SUPABASE_PROJECT_REF: rmlxigxysujsuwzgoimv/);
+assert.match(workflow,/forge-067g17b-deploy-migrations\.mjs/);
+assert.doesNotMatch(workflow,/pages|functions deploy|db reset|--force/i);
+assert.match(deployer,/20260717000100_067g17a1/);
+assert.match(deployer,/20260718000100_067g17b/);
+assert.match(deployer,/prospects_rls/);
+assert.match(deployer,/audit_rls/);
+assert.doesNotMatch(deployer,/console\.log\([^\n]*(ACCESS_TOKEN|Authorization)/);
+assert.match(remote,/duplicate_constraint/);
+assert.match(remote,/prospect_audit/);
+assert.match(remote,/cross_advisor_update_denied/);
+console.log('067G17B DEPLOYMENT WORKFLOW CONTRACT: PASS');

@@ -47,7 +47,8 @@ async function authenticate() {
 }
 
 async function insertProspect(api, advisorId, suffix) {
-  const { data, error } = await api.from('prospects').insert({ advisor_id: advisorId, display_name: `067g17a1-${suffix}` }).select('id,advisor_id').single();
+  const number = suffix === 'advisor-a' ? '+525500067171' : '+525500067172';
+  const { data, error } = await api.from('prospects').insert({ advisor_id: advisorId, display_name: `067g17b-${suffix}`, full_name:`067G17B ${suffix}`, phone_normalized:number, source:'acceptance_test', initial_context:'Controlled non-production fixture', status:'referred_new' }).select('id,advisor_id,phone_normalized').single();
   assert.ifError(error);
   fixtures.prospects.push({ api, id: data.id, advisorId });
   return data;
@@ -119,6 +120,20 @@ try {
   assert.ifError(crossArchiveError);
   assert.equal(crossArchive.length, 0, 'CROSS_ADVISOR_ARCHIVE_SUCCEEDED');
   record('cross_advisor_archive_denied', 'PASS');
+
+  const { data: crossUpdate, error: crossUpdateError } = await advisorB.from('prospects').update({ occupation:'Forbidden update' }).eq('id', prospectA.id).select('id');
+  assert.ifError(crossUpdateError);
+  assert.equal(crossUpdate.length, 0, 'CROSS_ADVISOR_UPDATE_SUCCEEDED');
+  record('cross_advisor_update_denied', 'PASS');
+
+  const { error: duplicateError } = await advisorA.from('prospects').insert({ advisor_id:userA.id, full_name:'067G17B duplicate', phone_normalized:prospectA.phone_normalized, source:'acceptance_test', initial_context:'Duplicate constraint fixture', status:'referred_new' });
+  assert.ok(duplicateError, 'DUPLICATE_CONSTRAINT_NOT_ENFORCED');
+  record('duplicate_constraint', 'PASS');
+
+  const { data: auditRows, error: auditError } = await advisorA.from('prospect_audit_events').select('event_type').eq('prospect_id',prospectA.id);
+  assert.ifError(auditError);
+  assert.ok(auditRows.some(row => row.event_type === 'prospect_created'), 'PROSPECT_CREATED_AUDIT_MISSING');
+  record('prospect_audit', 'PASS');
 
   const { error: deleteError } = await advisorA.from('prospects').delete().eq('id', prospectA.id);
   assert.ok(deleteError, 'FRONTEND_HARD_DELETE_SUCCEEDED');
