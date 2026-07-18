@@ -35,7 +35,12 @@ const authority = await readFile(
 
 assert.match(
   page,
-  /forge-alive-saas-router-r16c5l\.js\?v=r16j2a-pages-runtime-hotfix-20260716-1/,
+  /forge-alive-saas-router-r16c5l\.js\?v=067g16f-1/,
+);
+assert.equal(
+  (page.match(/forge-alive-saas-router-r16c5l\.js\?v=067g16f-1/g) || []).length,
+  1,
+  "exactly one canonical 067G16F router asset is required",
 );
 
 assert.match(
@@ -59,8 +64,10 @@ for (const token of [
   '"forge:saas-module-closed"',
   "history.pushState(",
   "ForgeMobileNavInstantAuthorityR16J1C1",
-  "?.sync(MODULE_KEY)",
-  "?.sync(targetKey)",
+  "syncPrimaryNavigation(MODULE_KEY)",
+  "syncPrimaryNavigation(targetKey)",
+  'url.searchParams.set("nav", MODULE_KEY)',
+  "normalizeLegacyCotizacionesRoute()",
   "forgeDesiredNavKeyR16j1c1",
   "automatic",
 ]) {

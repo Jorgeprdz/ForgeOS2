@@ -123,14 +123,33 @@ function assertGeometry(result, label, mode) {
   assert.equal(result.contributors.filter(item => primarySelectors.has(item.selector)).length, 0, `${label}: primary overflow contributors ${JSON.stringify(result.contributors.filter(item => primarySelectors.has(item.selector)))}`);
 }
 
-const report = { status:'PASS', directUrl, results:[], zoom:[] };
+async function navigateWithBoundedRetry(page, url, report, label) {
+  const attempts = [];
+  for (let attempt = 1; attempt <= 2; attempt += 1) {
+    const startedAt = Date.now();
+    try {
+      await page.goto(url, { waitUntil:'networkidle0', timeout:30000 });
+      attempts.push({ attempt, status:'PASS', durationMs:Date.now() - startedAt });
+      report.navigationAttempts.push({ label, attempts });
+      return;
+    } catch (error) {
+      attempts.push({ attempt, status:'FAIL', durationMs:Date.now() - startedAt, error:{ name:error.name, message:error.message } });
+      if (error.name !== 'TimeoutError' || attempt === 2) {
+        report.navigationAttempts.push({ label, attempts });
+        throw error;
+      }
+    }
+  }
+}
+
+const report = { status:'PASS', directUrl, results:[], zoom:[], navigationAttempts:[] };
 try {
   for (const [key,width,height,mode] of viewports) {
     const browser = await puppeteer.launch({ executablePath:chromiumPath, headless:true, args:['--no-sandbox','--disable-dev-shm-usage','--disable-gpu','--no-zygote','--disable-breakpad','--disable-crash-reporter'] });
     try {
       const page = await browser.newPage();
       await page.setViewport({ width, height, deviceScaleFactor:1, isMobile:mode === 'mobile', hasTouch:mode !== 'desktop' });
-      await page.goto(directUrl, { waitUntil:'networkidle0', timeout:30000 });
+      await navigateWithBoundedRetry(page, directUrl, report, key);
       const result = await measure(page, 100);
       report.results.push({ key,width,height,mode,result,status:'MEASURED' });
       assertGeometry(result, key, mode);
@@ -144,7 +163,7 @@ try {
     try {
       const page = await browser.newPage();
       await page.setViewport({ width:1366,height:768,deviceScaleFactor:1 });
-      await page.goto(directUrl, { waitUntil:'networkidle0', timeout:30000 });
+      await navigateWithBoundedRetry(page, directUrl, report, `zoom_${zoomPercent}`);
       const result = await measure(page, zoomPercent);
       report.zoom.push({ zoomPercent,result,status:'MEASURED' });
       assertGeometry(result, `zoom_${zoomPercent}`, 'desktop');

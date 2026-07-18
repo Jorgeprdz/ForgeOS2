@@ -165,7 +165,14 @@ const FORGE_QUOTE_PREVIEW_SAFE_STATIC_BOUNDARY_093B_WORKSPACE = Object.freeze({
   function revealDesktopWorkspace056Y2() {
     if (!window.matchMedia("(min-width: 901px)").matches) return;
     Array.prototype.forEach.call(document.querySelectorAll(".forge-desktop-workspace-056y"), function (node) {
-      node.style.display = "grid";
+      if (
+        document.body.dataset.forgeSaasActiveModuleR16c5l ===
+        "cotizaciones"
+      ) {
+        node.style.setProperty("display", "grid", "important");
+      } else {
+        node.style.display = "grid";
+      }
       node.style.visibility = "visible";
       node.style.opacity = "1";
       node.removeAttribute("hidden");

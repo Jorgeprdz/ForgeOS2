@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 EVIDENCE_DIR="${FORGE_067G16C_EVIDENCE_DIR:-${TMPDIR:-/tmp}/forge-067g16c-evidence}"
 LEDGER="$EVIDENCE_DIR/ledger.jsonl"
-PUPPETEER_PACKAGE="/data/data/com.termux/files/home/.forge-tools/r14h-browser-harness/node_modules/puppeteer-core"
+PUPPETEER_PACKAGE="${FORGE_PUPPETEER_PACKAGE:-/data/data/com.termux/files/home/.forge-tools/r14h-browser-harness/node_modules/puppeteer-core}"
 PUPPETEER_PATH="${FORGE_PUPPETEER_CORE_PATH:-$PUPPETEER_PACKAGE/lib/puppeteer/puppeteer-core.js}"
 CHROMIUM_PATH="${FORGE_CHROMIUM_PATH:-/data/data/com.termux/files/usr/bin/chromium-browser}"
 overall=0

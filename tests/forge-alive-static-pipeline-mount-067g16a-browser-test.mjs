@@ -16,7 +16,12 @@ mkdirSync(evidenceDir, { recursive:true });
 const types = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.svg':'image/svg+xml'};
 const server = http.createServer(async (request, response) => {
     const pathname = decodeURIComponent(new URL(request.url, 'http://127.0.0.1').pathname);
-    const relative = pathname === '/' ? 'index.html' : pathname.replace(/^\/+/, '');
+    if (pathname === '/docs/env.js') {
+        response.writeHead(200, {'Content-Type':'text/javascript','Cache-Control':'no-store'});
+        return response.end("window.__ENV__=Object.freeze({SUPABASE_URL:'',SUPABASE_KEY:'',DEMO_MODE:'true'});");
+    }
+    const publishedPath = pathname.startsWith('/docs/advisor-os/') ? pathname.slice('/docs'.length) : pathname;
+    const relative = publishedPath === '/' ? 'index.html' : publishedPath.replace(/^\/+/, '');
     const candidate = normalize(join(root, relative));
     if (!candidate.startsWith(root)) return response.writeHead(403).end();
     try {
@@ -60,7 +65,18 @@ const baseUrl = `http://127.0.0.1:${server.address().port}/docs/static-preview/f
 async function load(page, width, height, suffix = '') {
     await page.setViewport({width,height,deviceScaleFactor:1,isMobile:width <= 430,hasTouch:width <= 768});
     await page.goto(baseUrl + suffix, {waitUntil:'networkidle0',timeout:30000});
-    await page.waitForFunction(() => Boolean(globalThis.ForgeAliveStaticView067G16A));
+    try {
+        await page.waitForFunction(() => Boolean(globalThis.ForgeAliveStaticView067G16A));
+    } catch (error) {
+        console.error('PIPELINE_BOOT_DIAGNOSTIC', await page.evaluate(() => ({
+            configState: globalThis.__FORGE_PUBLIC_CONFIG_STATE__?.state || null,
+            loaderPresent: Boolean(globalThis.ForgeAlivePublicConfig067G17A1),
+            sampleDataPresent: Boolean(globalThis.FORGE_SAMPLE_DATA),
+            pipelinePresent: Boolean(globalThis.ForgeAliveStaticView067G16A),
+            scriptSources: Array.from(document.scripts).map(script => script.src).filter(Boolean).slice(-12),
+        })));
+        throw error;
+    }
     await page.waitForSelector('[data-forge-mobile-nav-r16c5j]');
 }
 

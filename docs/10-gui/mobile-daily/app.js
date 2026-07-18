@@ -1,8 +1,12 @@
-const CONFIG = window.__FORGE_MOBILE_DAILY_CONFIG__ || {};
+const PUBLIC_CONFIG_STATE = window.__FORGE_PUBLIC_CONFIG_STATE__ || {};
+const CONFIG = PUBLIC_CONFIG_STATE.publicConfig || {};
 const SUPABASE_URL = CONFIG.SUPABASE_URL || 'YOUR_SUPABASE_URL';
-const SUPABASE_ANON_KEY = CONFIG.SUPABASE_ANON_KEY || 'YOUR_SUPABASE_ANON_KEY';
+const SUPABASE_ANON_KEY = CONFIG.SUPABASE_KEY || 'YOUR_SUPABASE_ANON_KEY';
 
 function assertConfiguredSupabase() {
+  if (PUBLIC_CONFIG_STATE.canInitializePublicClient !== true) {
+    throw new Error('Public Supabase configuration is blocked. Productive bootstrap is unavailable.');
+  }
   if (
     SUPABASE_URL === 'YOUR_SUPABASE_URL' ||
     SUPABASE_ANON_KEY === 'YOUR_SUPABASE_ANON_KEY'

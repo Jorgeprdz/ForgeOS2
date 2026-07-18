@@ -6,9 +6,10 @@ const VERSION = '067G16D_FORGE_ALIVE_PUBLIC_VIEW_V1';
 const SUPPORTED_VIEWS = new Set(['inicio', 'pipeline', 'clientes', 'mas', 'alfred', 'reportes']);
 const requestedView = () => {
   const requested = new URL(location.href).searchParams.get('nav') || 'inicio';
+  if (requested === 'cotizaciones') return null;
   return SUPPORTED_VIEWS.has(requested) ? requested : 'inicio';
 };
-document.documentElement.setAttribute('data-forge-alive-static-view-067g16a', requestedView());
+document.documentElement.setAttribute('data-forge-alive-static-view-067g16a', requestedView() || 'cotizaciones');
 const MOBILE_HOME_SELECTORS = [
   ':scope > .safety-ribbon',
   ':scope > .hero',
@@ -84,8 +85,9 @@ function setHomeActive(active) {
 
 function syncNav(view) {
   globalThis.ForgeMobileNavInstantAuthorityR16J1C1?.sync(view);
-  document.querySelectorAll('[data-forge-static-view]').forEach(node => {
-    const active = node.dataset.forgeStaticView === view;
+  document.querySelectorAll('[data-forge-static-view], [data-forge-primary-nav-key]').forEach(node => {
+    const key = node.dataset.forgeStaticView || node.dataset.forgePrimaryNavKey;
+    const active = key === view;
     node.classList.toggle('active', active);
     node.classList.toggle('is-active', active);
     if (active) node.setAttribute('aria-current', 'page');
@@ -148,6 +150,14 @@ async function open(view, options = {}) {
   const requested = SUPPORTED_VIEWS.has(view) ? view : null;
   if (!requested) return false;
   try {
+    if (
+      document.body.dataset.forgeSaasActiveModuleR16c5l === 'cotizaciones'
+    ) {
+      globalThis.ForgeSaasRouterR16C5L?.closeNewQuote({
+        history:false,
+        targetKey:requested,
+      });
+    }
     markHomeNodes();
     ensureHost();
     if (requested === 'inicio') {

@@ -1,3 +1,4 @@
+if (window.ForgeAlivePublicConfig067G17A1?.allowsDemoFixtures() === true) {
 window.FORGE_SAMPLE_DATA = Object.freeze({
   label: 'MUESTRA SEGURA / SOLO LECTURA',
   product: 'Forge Alive Vista Estática',
@@ -34,3 +35,4 @@ window.FORGE_SAMPLE_DATA = Object.freeze({
     'Mantén advertencias y limitaciones visibles.',
   ],
 });
+}

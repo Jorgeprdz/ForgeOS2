@@ -9,6 +9,8 @@
     "[data-forge-mobile-nav-r16c5j]";
   const NAV_ITEM_SELECTOR =
     ".forge-mobile-nav-r16c5j__item";
+  const STATIC_NAV_SELECTOR =
+    "[data-forge-static-view]";
   const OPEN_SELECTOR =
     '[data-forge-open-saas-module-r16c5l="cotizaciones"]';
   const CLOSE_SELECTOR =
@@ -313,6 +315,31 @@
         > [data-forge-saas-module-host-r16c5l="cotizaciones"] {
         display: block !important;
       }
+
+      @media (min-width: 901px) {
+        .phone-shell.${FAST_CLASS}
+          > .forge-desktop-workspace-056y {
+          display: grid !important;
+        }
+
+        .phone-shell.${FAST_CLASS}
+          > .forge-desktop-workspace-056y
+          > :not(.dw-sidebar-056y):not(
+            [data-forge-saas-module-host-r16c5l="cotizaciones"]
+          ) {
+          display: none !important;
+        }
+
+        .phone-shell.${FAST_CLASS}
+          > .forge-desktop-workspace-056y
+          > [data-forge-saas-module-host-r16c5l="cotizaciones"] {
+          display: block !important;
+          grid-column: 2 / -1;
+          min-width: 0;
+          height: 100vh;
+          overflow: auto;
+        }
+      }
     `;
 
     document.head.appendChild(style);
@@ -329,12 +356,42 @@
     return true;
   }
 
+  function placeModuleHost(moduleHost) {
+    const shell = document.querySelector(SHELL_SELECTOR);
+    const workspace = document.querySelector(
+      ".forge-desktop-workspace-056y",
+    );
+
+    if (
+      matchMedia("(min-width: 901px)").matches &&
+      workspace
+    ) {
+      workspace.append(moduleHost);
+      workspace.style.setProperty(
+        "display",
+        "grid",
+        "important",
+      );
+      return true;
+    }
+
+    if (shell) {
+      shell.insertBefore(moduleHost, visualNav() || null);
+      return true;
+    }
+
+    return false;
+  }
+
   function restoreShellAfterModule() {
     const shell = host()?.closest(SHELL_SELECTOR);
 
     if (!shell) return false;
 
     shell.classList.remove(FAST_CLASS);
+    document
+      .querySelector(".forge-desktop-workspace-056y")
+      ?.style.removeProperty("display");
     return true;
   }
   /* FORGEOS:R16J1C1_03A5_CONSTANT_TIME_ROUTER:END */
@@ -378,6 +435,28 @@
     nav.dataset.forgeActiveKey = key;
   }
 
+  function syncPrimaryNavigation(key) {
+    globalThis
+      .ForgeMobileNavInstantAuthorityR16J1C1
+      ?.sync(key);
+
+    document
+      .querySelectorAll(
+        ".dw-nav-056y [data-forge-static-view], " +
+        ".dw-nav-056y [data-forge-primary-nav-key]",
+      )
+      .forEach((item) => {
+        const itemKey =
+          item.dataset.forgeStaticView ||
+          item.dataset.forgePrimaryNavKey;
+        const active = itemKey === key;
+        item.classList.toggle("active", active);
+        item.classList.toggle("is-active", active);
+        if (active) item.setAttribute("aria-current", "page");
+        else item.removeAttribute("aria-current");
+      });
+  }
+
   function moduleIsOpen() {
     return (
       document.body.dataset.forgeSaasActiveModuleR16c5l ===
@@ -404,6 +483,7 @@
     perfTimestamp("ROUTE_STATE_UPDATED_TS");
     perfMark("FORGE_ROUTE_DATASET_UPDATED");
 
+    placeModuleHost(moduleHost);
     isolateShellForModule(moduleHost);
     moduleHost.hidden = false;
     perfMark("FORGE_ROUTE_CLASSES_UPDATED");
@@ -414,13 +494,13 @@
      * authority. This also covers HTMLElement.click(), keyboard
      * activation and tests where pointerdown is intentionally absent.
      */
-    globalThis
-      .ForgeMobileNavInstantAuthorityR16J1C1
-      ?.sync(MODULE_KEY);
+    syncPrimaryNavigation(MODULE_KEY);
 
     const url = new URL(window.location.href);
-    url.searchParams.set("module", MODULE_KEY);
-    url.searchParams.set("v", "r16j1c1-fast");
+    url.searchParams.delete("module");
+    url.searchParams.set("nav", MODULE_KEY);
+    url.searchParams.set("v", "067g16f-1");
+    if (url.hash === "#cotizaciones") url.hash = "";
 
     if (options.history !== false) {
       history.pushState(
@@ -467,16 +547,14 @@
     document.body.dataset.forgeDesiredNavKeyR16j1c1 =
       targetKey;
 
-    globalThis
-      .ForgeMobileNavInstantAuthorityR16J1C1
-      ?.sync(targetKey);
+    syncPrimaryNavigation(targetKey);
 
     if (options.history !== false) {
       const url = cleanModuleParams(
         new URL(window.location.href),
       );
       url.searchParams.set("nav", targetKey);
-      url.searchParams.set("v", "r16j1c1-fast");
+      url.searchParams.set("v", "067g16f-1");
 
       history.pushState(
         {
@@ -504,9 +582,27 @@
   }
 
   function requestedModule() {
-    return new URLSearchParams(
-      window.location.search,
-    ).get("module");
+    return new URL(window.location.href).searchParams.get("nav");
+  }
+
+  function normalizeLegacyCotizacionesRoute() {
+    const url = new URL(window.location.href);
+    const legacyModule =
+      url.searchParams.get("module") === MODULE_KEY;
+    const legacyHash = url.hash === "#cotizaciones";
+
+    if (!legacyModule && !legacyHash) return false;
+
+    url.searchParams.delete("module");
+    url.searchParams.set("nav", MODULE_KEY);
+    url.searchParams.set("v", "067g16f-1");
+    url.hash = "";
+    history.replaceState(
+      { forgeModule: MODULE_KEY, forgeLegacyRouteNormalized: true },
+      "",
+      url,
+    );
+    return true;
   }
 
   function bindNavigationCapture() {
@@ -514,7 +610,7 @@
       "click",
       (event) => {
         if (event.target.closest?.(
-          `${OPEN_SELECTOR}, ${CLOSE_SELECTOR}, ${NAV_ITEM_SELECTOR}`,
+          `${OPEN_SELECTOR}, ${CLOSE_SELECTOR}, ${NAV_ITEM_SELECTOR}, ${STATIC_NAV_SELECTOR}`,
         )) {
           perfTimestamp("CLICK_EVENT_RECEIVED_TS", event.timeStamp || performance.now());
           perfTimestamp("CLICK_HANDLER_START_TS");
@@ -558,6 +654,18 @@
           }
 
           return;
+        }
+
+        const staticNavItem =
+          event.target.closest(STATIC_NAV_SELECTOR);
+
+        if (staticNavItem && moduleIsOpen()) {
+          closeModule({
+            history: false,
+            targetKey:
+              staticNavItem.dataset.forgeStaticView ||
+              "inicio",
+          });
         }
 
         const closeTarget = event.target.closest(CLOSE_SELECTOR);
@@ -610,6 +718,22 @@
     installPerfCopyAction();
     bindNavigationCapture();
     bindHistory();
+    normalizeLegacyCotizacionesRoute();
+
+    addEventListener(
+      "load",
+      () => {
+        if (moduleIsOpen()) placeModuleHost(host());
+      },
+      { once: true },
+    );
+    addEventListener(
+      "resize",
+      () => {
+        if (moduleIsOpen()) placeModuleHost(host());
+      },
+      { passive: true },
+    );
 
     if (requestedModule() === MODULE_KEY) {
       openModule({ history: false });
@@ -618,7 +742,7 @@
 
   window.ForgeSaasRouterR16C5L = Object.freeze({
     openNewQuote: () => openModule(),
-    closeNewQuote: () => closeModule(),
+    closeNewQuote: (options) => closeModule(options),
     isNewQuoteOpen: () => moduleIsOpen(),
   });
   globalThis.__FORGE_EXPORT_PERF_REPORT__ = exportPerformanceReport;
