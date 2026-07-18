@@ -75,6 +75,7 @@ assert.match(script, /bootstrap\.signOut/);
 assert.match(script, /applySession\(null, 'SIGNED_OUT'\)/);
 assert.match(script, /forge:auth-state-changed/);
 assert.match(script, /history\.replaceState/);
+assert.match(script, /eventName === 'SIGNED_IN'\) closeAuthPanel\(\)/);
 
 assert.match(bootstrap, /signInWithGoogle/);
 assert.match(bootstrap, /provider:"google"/);

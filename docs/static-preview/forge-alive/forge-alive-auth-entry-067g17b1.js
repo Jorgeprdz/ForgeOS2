@@ -344,6 +344,7 @@
       renderAnonymousAvatar();
     }
     if (state.panel) refreshPanel();
+    if (state.user?.id && eventName === 'SIGNED_IN') closeAuthPanel();
     emitAuthState(eventName);
   }
 
