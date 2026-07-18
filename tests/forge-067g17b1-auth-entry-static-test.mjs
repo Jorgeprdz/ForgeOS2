@@ -21,6 +21,7 @@ assert.match(script, /\.hero \.orb/);
 assert.match(script, /function renderCurrentAvatarState/);
 assert.match(script, /function ensureFallbackAvatar/);
 assert.match(script, /forgeAuthFallback/);
+assert.match(script, /elementFromPoint/);
 assert.match(script, /forge:static-view-changed/);
 assert.match(script, /forge:pipeline-rendered/);
 assert.match(pipelineScript, /forge:pipeline-rendered/);

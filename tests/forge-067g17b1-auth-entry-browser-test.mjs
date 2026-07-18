@@ -108,12 +108,17 @@ async function clickVisible(page, selector) {
       const style = getComputedStyle(node);
       if (style.display === 'none' || style.visibility === 'hidden' || style.pointerEvents === 'none') return false;
       const rect = node.getBoundingClientRect();
-      return rect.width > 0
+      if (!(rect.width > 0
         && rect.height > 0
         && rect.bottom > 0
         && rect.right > 0
         && rect.top < innerHeight
-        && rect.left < innerWidth;
+        && rect.left < innerWidth)) return false;
+      const target = document.elementFromPoint(
+        Math.min(Math.max(rect.left + rect.width / 2, 0), innerWidth - 1),
+        Math.min(Math.max(rect.top + rect.height / 2, 0), innerHeight - 1),
+      );
+      return target === node || node.contains(target);
     });
     if (clickable) {
       await handle.click();

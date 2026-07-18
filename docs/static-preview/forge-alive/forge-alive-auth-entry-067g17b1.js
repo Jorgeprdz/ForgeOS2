@@ -71,9 +71,18 @@
   function isVisibleAvatar(node) {
     if (!node || node.hidden) return false;
     const style = global.getComputedStyle(node);
-    return Boolean(node.getClientRects().length)
-      && style.visibility !== 'hidden'
-      && style.display !== 'none';
+    if (!node.getClientRects().length || style.visibility === 'hidden' || style.display === 'none' || style.pointerEvents === 'none') {
+      return false;
+    }
+    const rect = node.getBoundingClientRect();
+    if (rect.width <= 0 || rect.height <= 0 || rect.bottom <= 0 || rect.right <= 0 || rect.top >= global.innerHeight || rect.left >= global.innerWidth) {
+      return false;
+    }
+    const target = global.document.elementFromPoint(
+      Math.min(Math.max(rect.left + rect.width / 2, 0), global.innerWidth - 1),
+      Math.min(Math.max(rect.top + rect.height / 2, 0), global.innerHeight - 1),
+    );
+    return target === node || node.contains(target);
   }
 
   function syncFallbackAvatarVisibility() {
