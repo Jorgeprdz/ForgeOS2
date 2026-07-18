@@ -1,6 +1,9 @@
 import '../../advisor-os/sales-pipeline/sales-stage-registry.js';
 import '../../advisor-os/sales-pipeline/pipeline-stage-read-model.js';
 import '../../advisor-os/sales-pipeline/pipeline-ui.js';
+import '../../advisor-os/sales-pipeline/productive-prospect-service.js';
+import '../../advisor-os/sales-pipeline/productive-prospect-ui.js';
+import '../../advisor-os/sales-pipeline/productive-prospect-bootstrap.js';
 
 const VERSION = '067G16D_FORGE_ALIVE_PUBLIC_VIEW_V1';
 const SUPPORTED_VIEWS = new Set(['inicio', 'pipeline', 'clientes', 'mas', 'alfred', 'reportes']);
@@ -31,6 +34,7 @@ let host = null;
 let currentView = 'inicio';
 let pipelineMounted = false;
 let navListenerCount = 0;
+let productivePipeline = null;
 
 const shell = () => document.querySelector('.phone-shell');
 const desktopWorkspace = () => document.querySelector('.forge-desktop-workspace-056y');
@@ -124,7 +128,7 @@ function pipelineModel(context = {}) {
   };
 }
 
-function renderPipeline(context) {
+async function renderPipeline(context) {
   const outlet = ensureHost();
   if (!pipelineMounted) {
     outlet.innerHTML = globalThis.ForgePipelineUI.renderPipelineUI({
@@ -134,7 +138,27 @@ function renderPipeline(context) {
     pipelineMounted = true;
     outlet.dataset.pipelineMountCount = '1';
   }
-  outlet.innerHTML = globalThis.ForgePipelineUI.renderPipelineUI(pipelineModel(context));
+  const config = globalThis.ForgeAlivePublicConfig067G17A1?.current?.();
+  if (config?.state === 'READY' && globalThis.ForgeAlivePublicConfig067G17A1?.allowsProductiveProspectCrud?.()) {
+    try {
+      if (!productivePipeline) {
+        const client = globalThis.ForgeProductiveProspectBootstrap067G17B.getClient();
+        productivePipeline = globalThis.ForgeProductiveProspectUI067G17B.create({ client, root: outlet });
+      }
+      await productivePipeline.load();
+    } catch (error) {
+      console.error('[067G17B PRODUCTIVE PIPELINE]', error?.code || 'BOOTSTRAP_FAILED');
+      outlet.innerHTML = globalThis.ForgePipelineUI.renderPipelineUI({
+        state:'error',
+        message:'No pudimos iniciar la fuente productiva del Pipeline. Intenta nuevamente.'
+      });
+    }
+  } else {
+    const model = config?.state === 'DEMO_EXPLICIT'
+      ? pipelineModel(context)
+      : { state:'error', message:'No pudimos iniciar la fuente productiva del Pipeline. Revisa la configuración pública.' };
+    outlet.innerHTML = globalThis.ForgePipelineUI.renderPipelineUI(model);
+  }
   outlet.querySelector('.forge-pipeline').dataset.routeId = 'advisor-sales-pipeline';
   outlet.dataset.activeStaticView = 'pipeline';
 }
@@ -166,7 +190,7 @@ async function open(view, options = {}) {
       host.setAttribute('inert', '');
       setHomeActive(true);
     } else {
-      if (requested === 'pipeline') renderPipeline(options);
+      if (requested === 'pipeline') await renderPipeline(options);
       else renderPlaceholder(requested);
       setHomeActive(false);
       host.hidden = false;

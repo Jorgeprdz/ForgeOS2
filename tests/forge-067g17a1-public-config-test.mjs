@@ -30,6 +30,7 @@ const demo = execute({ DEMO_MODE: 'true' });
 assert.equal(demo.__FORGE_PUBLIC_CONFIG_STATE__.state, 'DEMO_EXPLICIT');
 assert.equal(demo.ForgeAlivePublicConfig067G17A1.allowsDemoFixtures(), true);
 assert.equal(demo.ForgeAlivePublicConfig067G17A1.allowsPublicClientInitialization(), false);
+assert.equal(demo.ForgeAlivePublicConfig067G17A1.allowsProductiveProspectCrud(), false);
 
 const ready = execute({
   SUPABASE_URL: 'https://public.example.invalid',
@@ -39,7 +40,7 @@ const ready = execute({
 assert.equal(ready.__FORGE_PUBLIC_CONFIG_STATE__.state, 'READY');
 assert.equal(ready.ForgeAlivePublicConfig067G17A1.allowsDemoFixtures(), false);
 assert.equal(ready.ForgeAlivePublicConfig067G17A1.allowsPublicClientInitialization(), true);
-assert.equal(ready.ForgeAlivePublicConfig067G17A1.allowsProductiveProspectCrud(), false);
+assert.equal(ready.ForgeAlivePublicConfig067G17A1.allowsProductiveProspectCrud(), true);
 assert.deepEqual(Array.from(ready.ForgeAlivePublicConfig067G17A1.allowedKeys), [
   'SUPABASE_URL', 'SUPABASE_KEY', 'DEMO_MODE'
 ]);

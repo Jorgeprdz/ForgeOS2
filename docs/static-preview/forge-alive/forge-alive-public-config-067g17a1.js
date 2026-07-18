@@ -47,7 +47,7 @@
       demoMode: false,
       configured: true,
       canInitializePublicClient: true,
-      productiveProspectCrudAuthorized: false,
+      productiveProspectCrudAuthorized: true,
       reason: null,
       publicConfig: Object.freeze({ SUPABASE_URL: supabaseUrl, SUPABASE_KEY: supabaseKey, DEMO_MODE: 'false' })
     });
@@ -75,7 +75,7 @@
     current: () => result,
     allowsDemoFixtures: () => result.state === 'DEMO_EXPLICIT',
     allowsPublicClientInitialization: () => result.canInitializePublicClient === true,
-    allowsProductiveProspectCrud: () => false
+    allowsProductiveProspectCrud: () => result.state === 'READY' && result.productiveProspectCrudAuthorized === true
   });
 
   global.ForgeAlivePublicConfig067G17A1 = api;
