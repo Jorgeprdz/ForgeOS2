@@ -17,6 +17,10 @@ mkdirSync(evidenceDir, { recursive: true });
 const mime = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css' };
 const server = http.createServer(async (request, response) => {
   const pathname = decodeURIComponent(new URL(request.url, 'http://127.0.0.1').pathname);
+  if (pathname === '/favicon.ico') {
+    response.writeHead(204, { 'Cache-Control': 'no-store' }).end();
+    return;
+  }
   const relative = pathname === '/' ? 'tests/fixture.html' : pathname.replace(/^\/+/, '');
   const candidate = normalize(join(root, relative));
   if (!candidate.startsWith(root)) return response.writeHead(403).end();
