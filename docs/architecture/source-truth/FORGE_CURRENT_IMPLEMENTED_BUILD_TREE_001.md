@@ -46,7 +46,9 @@ FORGE CURRENT IMPLEMENTED BUILD TREE 001
 ├── Advisor OS Pipeline Live Mount and Navigation 067G16: CANONICAL_ROUTE_AND_LIVE_MOUNT_IMPLEMENTED / production persistence and stage writer blocked
 ├── Forge Alive Static Entrypoint Pipeline Mount Reconciliation 067G16A: STATIC_VIEW_OUTLET_AND_EXISTING_PIPELINE_MOUNT_IMPLEMENTED / Legacy CRM separate / persistence blocked
 ├── Pipeline Renderer Target and Acceptance Repair 067G16B: CANONICAL_RENDERER_ALL_VIEWPORTS_ACCEPTED / functional renderer milestone preserved / prior visual-layout PASS superseded by 067G16C / persistence and stage writer blocked
-└── Pipeline Responsive Layout, Canonical Color and Route Hydration Repair 067G16C: RESPONSIVE_AND_DEEPLINK_ACCEPTED / five Chromium viewports / canonical token chains / persistence and stage writer blocked
+├── Pipeline Responsive Layout, Canonical Color and Route Hydration Repair 067G16C: RESPONSIVE_AND_DEEPLINK_ACCEPTED / five Chromium viewports / canonical token chains / persistence and stage writer blocked
+├── Forge Authentication Entry and Session Surface 067G17B1: PRODUCTION_ACCEPTED / Google session restores / advisorId from auth.uid / test advisor public entry disabled
+└── Productive Prospect Create Entry Wiring 067G17B2: PRODUCTION_ACCEPTED / both create CTAs wired / canonical form / Supabase create / Referido nuevo / detail auto-open / reload persistence / fixture cleanup
 ├── Advisor OS execution modules: PARTIAL
 ├── Advisor signal surfaces: PARTIAL
 ├── Advisor-facing execution context: PARTIAL

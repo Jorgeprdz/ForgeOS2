@@ -15711,3 +15711,23 @@ Recorded: `2026-07-18`
 - `MAIN_RELEASE_COMPLETED=YES` and `PRODUCTION_ACCEPTED=YES` after Pages, semantic smoke and read-only production browser acceptance passed.
 - `067G17B_EXECUTED=NO`; `067G17C_EXECUTED=NO`; productive Prospect CRUD, Google Calendar, Chrome Notifications and Nash Activity Loop remain unimplemented.
 <!-- FORGE:067G16E_067G16F_067G17A1_PRODUCTION_ACCEPTANCE:END -->
+
+<!-- FORGE:067G17B2_PRODUCTIVE_PROSPECT_CREATE_ENTRY_WIRING_REPAIR:START -->
+## 067G17B2 Productive Prospect Create Entry Wiring Repair
+
+Status: `PASS`
+
+Recorded: `2026-07-18`
+
+- `067G17B1_AUTH_ENTRY=ACCEPTED`: Google OAuth/session restoration is already productive, test-advisor public entry remains disabled, and Advisor ownership remains `advisor_id = auth.uid()`.
+- `067G17B2=ACCEPTED`: both Pipeline create CTAs (`+ Agregar prospecto` and empty-state `Agregar prospecto`) invoke one canonical productive create authority.
+- `PRODUCTIVE_CREATE_ENTRY=WIRED`: create entry is rooted in `ForgeProductiveProspectUI067G17B.openProductiveProspectCreate`, with root-level delegated listeners guarded by `AbortController` for remount/rerender safety.
+- `CREATE_FORM=PASS`: canonical productive prospect form opens from both CTAs, preserves required fields, prevents duplicate dialogs and submits through `ForgeProductiveProspectService067G17B`.
+- `PRODUCTIVE_CREATE=PASS`: production browser acceptance created a controlled fixture through the public Forge Alive surface and remote Supabase, received a canonical ID, placed it in `Referido nuevo`, auto-opened detail, survived reload, and archived the fixture for cleanup.
+- `EMPTY_STATE_CTA_GEOMETRY=PASS`: the empty-state CTA is constrained to a horizontal button geometry and no longer stretches into a vertical capsule.
+- `REMOTE_BROWSER_AUTHORITY=GitHub Actions Linux`: run `29662765835` passed full predeployment at SHA `f4fd72fded0c3d8a20bc4255eb0b427eaec1ef50`, including the 067G17B2 Chromium create-entry harness.
+- `PRODUCTION_ACCEPTANCE=PASS`: run `29662927082` passed public Pages + remote Supabase productive acceptance at SHA `f4fd72fded0c3d8a20bc4255eb0b427eaec1ef50`.
+- `NO_SCOPE_EXPANSION=YES`: Google OAuth, RLS, migrations, Alpha, Cotizaciones, Nash, Genesis, Calendar, Chrome Notifications and 067G17C were not implemented or modified.
+
+Next: `067G17C_CONTACT_CARD_STATUS_CALL_WHATSAPP_AND_GOOGLE_CALENDAR_ACTIONS` requires separate authorization.
+<!-- FORGE:067G17B2_PRODUCTIVE_PROSPECT_CREATE_ENTRY_WIRING_REPAIR:END -->
