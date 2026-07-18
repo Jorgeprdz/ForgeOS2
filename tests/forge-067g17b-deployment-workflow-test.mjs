@@ -4,6 +4,7 @@ const workflow=readFileSync('.github/workflows/067g17b-migration-deployment.yml'
 const deployer=readFileSync('scripts/forge-067g17b-deploy-migrations.mjs','utf8');
 const remote=readFileSync('scripts/forge-067g17a1-remote-two-advisor-rls.mjs','utf8');
 const e2e=readFileSync('scripts/forge-067g17b-remote-productive-e2e.mjs','utf8');
+const production=readFileSync('tests/forge-067g17b-production-browser-acceptance.mjs','utf8');
 assert.match(workflow,/feature\/067g17b-productive-prospect-crud/);
 assert.match(workflow,/SUPABASE_PROJECT_REF: rmlxigxysujsuwzgoimv/);
 assert.match(workflow,/forge-067g17b-deploy-migrations\.mjs/);
@@ -31,4 +32,8 @@ assert.match(e2e,/reload_persistence/);
 assert.match(e2e,/cross_advisor_isolation/);
 assert.match(e2e,/archiveProspect/);
 assert.doesNotMatch(e2e,/service.?role|delete\(\)/i);
+assert.match(production,/data-add-prospect/);
+assert.match(production,/archive_flow/);
+assert.match(production,/advisor_isolation/);
+assert.doesNotMatch(production,/service.?role|\.delete\(/i);
 console.log('067G17B DEPLOYMENT WORKFLOW CONTRACT: PASS');
