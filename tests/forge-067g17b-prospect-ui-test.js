@@ -8,8 +8,35 @@ test("productive Pipeline exposes canonical add action and empty state",()=>{
  const html=PipelineUI.renderPipelineUI({state:"empty",message:"Todavía no tienes prospectos.",writerAvailable:true});
  assert.match(html,/\+ Agregar prospecto/);
  assert.match(html,/data-add-prospect/);
+ assert.equal((html.match(/data-add-prospect/g)||[]).length,2);
  assert.match(html,/Todavía no tienes prospectos/);
  assert.doesNotMatch(html,/Datos de prueba/);
+});
+
+test("top and empty create buttons use one canonical create authority",()=>{
+ const fs=require("node:fs");
+ const uiSource=fs.readFileSync("advisor-os/sales-pipeline/productive-prospect-ui.js","utf8");
+ const css=fs.readFileSync("advisor-os/sales-pipeline/pipeline-ui.css","utf8");
+ const html=PipelineUI.renderPipelineUI({state:"empty",message:"Todavía no tienes prospectos.",writerAvailable:true});
+ assert.match(html,/<button type="button" class="forge-pipeline-primary" data-add-prospect>\+ Agregar prospecto<\/button>/);
+ assert.match(html,/<button type="button" class="forge-pipeline-action" data-add-prospect>Agregar prospecto<\/button>/);
+ assert.match(uiSource,/function openProductiveProspectCreate/);
+ assert.match(uiSource,/openForm: openProductiveProspectCreate/);
+ assert.match(uiSource,/openProductiveProspectCreate,/);
+ assert.match(uiSource,/event\.target\.closest\("\[data-add-prospect\]"\)/);
+ assert.match(uiSource,/root\.__forgeProductiveProspectCreateAbort067G17B\?\.abort\(\)/);
+ assert.match(uiSource,/new AbortController\(\)/);
+ assert.match(uiSource,/listenerAuthority: "root-delegated-abort-controller"/);
+ assert.match(uiSource,/const existing = root\.querySelector\("\[data-prospect-form-dialog\]"\)/);
+ assert.doesNotMatch(uiSource,/setInterval|MutationObserver/);
+ assert.match(css,/\.forge-pipeline>\.forge-pipeline-action/);
+ assert.match(css,/grid-area:auto/);
+ assert.match(css,/inline-size:auto/);
+ assert.match(css,/min-block-size:44px/);
+ assert.match(css,/max-inline-size:min\(100%,260px\)/);
+ assert.match(css,/flex:0 0 auto/);
+ assert.match(css,/writing-mode:horizontal-tb/);
+ assert.match(css,/aspect-ratio:auto/);
 });
 
 test("create form enforces name source context and phone-or-whatsapp in controller",()=>{
