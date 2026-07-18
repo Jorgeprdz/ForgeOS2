@@ -40,6 +40,8 @@ assert.match(script, /CANONICAL_AUTH_CLIENT_UNAVAILABLE/);
 assert.match(script, /bootstrapSession/);
 assert.match(script, /getSession/);
 assert.match(script, /onAuthStateChange/);
+assert.match(script, /listenerPromise/);
+assert.match(script, /bootPromise/);
 assert.match(script, /SIGNED_IN/);
 assert.match(script, /SIGNED_OUT/);
 assert.match(script, /TOKEN_REFRESHED/);
@@ -76,6 +78,7 @@ assert.match(productiveUi, /data-forge-auth-open-nav/);
 assert.match(productiveUi, /Volver a Inicio/);
 assert.match(productiveUi, /Cargando tu Pipeline/);
 assert.match(pipelineView, /forge:auth-state-changed/);
+assert.match(pipelineView, /authListenerBound/);
 assert.match(pipelineView, /productivePipeline = null/);
 assert.doesNotMatch(productiveUi, /Tu sesión expiró\. Inicia sesión nuevamente\./);
 
@@ -98,5 +101,31 @@ for (const source of [script, styles, config, workflow, bootstrap]) {
 assert.doesNotMatch(script, /localStorage\.setItem/);
 assert.doesNotMatch(script, /advisorId\\s*=\\s*['"]/);
 assert.doesNotMatch(script, /ADVISOR_A_EMAIL|ADVISOR_A_PASSWORD|ADVISOR_B_EMAIL|ADVISOR_B_PASSWORD/);
+
+function containsHardcodedTestPassword(source) {
+  return /ADVISOR_[AB]_PASSWORD|password\s*[:=]\s*['"][^'"]{8,}/i.test(source);
+}
+
+function containsClientPrivilegedCredential(source) {
+  return /SUPABASE_SERVICE_ROLE_KEY|SUPABASE_ACCESS_TOKEN|DATABASE_PASSWORD|REFRESH_TOKEN|ACCESS_TOKEN/i.test(source);
+}
+
+function containsConsoleTokenLogging(source) {
+  return /console\.(log|info|warn|error)\([^)]*(token|session|password|SUPABASE_KEY)/i.test(source);
+}
+
+assert.equal(containsHardcodedTestPassword('const ADVISOR_A_PASSWORD="fixture-password";'), true, 'HARDCODED_TEST_PASSWORD_DETECTED');
+assert.equal(containsClientPrivilegedCredential('SUPABASE_SERVICE_ROLE_KEY'), true, 'SERVICE_ROLE_KEY_IN_CLIENT_DETECTED');
+assert.equal(containsClientPrivilegedCredential('SUPABASE_ACCESS_TOKEN'), true, 'ACCESS_TOKEN_IN_CLIENT_SOURCE_DETECTED');
+assert.equal(containsClientPrivilegedCredential('REFRESH_TOKEN'), true, 'REFRESH_TOKEN_IN_CLIENT_SOURCE_DETECTED');
+assert.equal(containsConsoleTokenLogging('console.log("session token", token);'), true, 'TOKENS_LOGGED_TO_CONSOLE_DETECTED');
+
+assert.equal(containsHardcodedTestPassword(script), false, 'TEST_CREDENTIALS_EMBEDDED=NO');
+assert.equal(containsClientPrivilegedCredential(script), false, 'SERVICE_ROLE_KEY_EXPOSED=NO');
+assert.equal(containsConsoleTokenLogging(script), false, 'TOKENS_LOGGED=NO');
+assert.equal((script.match(/onAuthStateChange/g) || []).length <= 3, true, 'DUPLICATE_AUTH_LISTENER_DETECTED');
+assert.equal(script.includes('Continuar con Google'), true, 'AUTH_PANEL_MISSING_GOOGLE_BUTTON_DETECTED');
+assert.equal(productiveUi.includes('data-forge-auth-open'), true, 'PIPELINE_LOGIN_ACTION_MISSING_DETECTED');
+assert.equal(pipelineView.includes('forge:auth-state-changed'), true, 'PIPELINE_RELOADS_AFTER_LOGIN=YES');
 
 console.log('067G17B1 AUTH ENTRY STATIC: PASS');
