@@ -1,12 +1,17 @@
 // tests/services/forge-alpha-service.test.js
 const assert = require('assert');
 
+const AUTHENTICATED_ADVISOR_ID = '11111111-1111-4111-8111-111111111111';
+const FORGED_ADVISOR_ID = '22222222-2222-4222-8222-222222222222';
+
 // Mock SupabaseRuntime before requiring the service
 const mockSupabase = {
     from: () => ({
-        insert: () => ({
+        insert: (row) => ({
             select: () => ({
-                single: async () => ({ data: { id: 'mocked-id' }, error: null })
+                single: async () => row.advisor_id === AUTHENTICATED_ADVISOR_ID
+                    ? { data: { id: 'mocked-id' }, error: null }
+                    : { data: null, error: new Error('RLS advisor ownership denied') }
             })
         })
     })
@@ -55,7 +60,11 @@ async function testCases() {
 
   for (const c of cases) {
     console.log(`Running test: ${c.name}`);
-    const result = await processNote({ prospectId: c.prospectId, note: c.note });
+    const result = await processNote({
+      prospectId: c.prospectId,
+      advisorId: AUTHENTICATED_ADVISOR_ID,
+      note: c.note
+    });
     
     // Validate persistence succeeded
     assert(result.eventId, 'Missing eventId');
@@ -68,6 +77,22 @@ async function testCases() {
     
     console.log(`Test ${c.name} passed`);
   }
+
+  await assert.rejects(
+    () => processNote({ prospectId: 'missing-advisor', note: 'Follow up tomorrow.' }),
+    /advisorId is required/,
+    'Missing advisorId must remain rejected'
+  );
+
+  await assert.rejects(
+    () => processNote({
+      prospectId: 'forged-advisor',
+      advisorId: FORGED_ADVISOR_ID,
+      note: 'Marlene said she will review the proposal.'
+    }),
+    /RLS advisor ownership denied/,
+    'A forged advisorId must be denied by the ownership boundary'
+  );
 }
 
 testCases().catch(err => {

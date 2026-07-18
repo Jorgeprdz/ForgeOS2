@@ -7,6 +7,10 @@ const runtime = new ForgeAlphaRuntime();
 const cases = [
   { note: "Hablé con Lariza. Lo revisa con su novio. Quedamos de hablar el viernes.", expectedOwner: 'prospect' },
   { note: "Marlene: 'I'll look at it and call you by Friday'.", expectedOwner: 'prospect' },
+  { note: "Marlene said she will review the proposal and call me back by Friday.", expectedOwner: 'prospect' },
+  { note: "I'll send Marlene the revised proposal by Friday.", expectedOwner: 'advisor' },
+  { note: "Marlene me confirma mañana después de revisar la propuesta.", expectedOwner: 'prospect' },
+  { note: "Le enviaré a Marlene la propuesta mañana.", expectedOwner: 'advisor' },
   { note: "Ricardo Mejía exam scheduled.", expectedOwner: 'advisor' }, // simplified
 ];
 

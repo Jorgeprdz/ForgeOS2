@@ -12,17 +12,20 @@ class EventExtractionEngine {
     const prospectActionPhrases = [
         "me llama", "me avisa", "me confirma", "lo revisa", "lo revisan", 
         "me busca", "me contacta", "me escribe", "me manda documentos", 
-        "me comparte información", "quedó de mandarme", "mandarme"
+        "me comparte información", "quedó de mandarme", "mandarme",
+        "i'll look at it", "i will look at it", "she will review", "he will review",
+        "call you", "call me back"
     ];
     const advisorActionPhrases = [
         "quedé de enviar", "le enviaré", "voy a enviar", "le mando", 
         "le compartiré", "prepararé propuesta", "cotizaré", "agendé llamada", "enviar propuesta",
         "le paso una propuesta", "le paso opciones", "le comparto alternativas", "le envío información", "le comparto el comparativo",
-        "le paso", "le comparto"
+        "le paso", "le comparto", "i'll send", "i will send", "i'll prepare", "i will prepare",
+        "i'll call the prospect", "i will call the prospect"
     ];
     const temporalMarkers = [
         "el viernes", "mañana", "la próxima semana", "el lunes", 
-        "en unos días", "después de vacaciones"
+        "en unos días", "después de vacaciones", "by friday", "tomorrow", "next week", "on monday"
     ];
     const weakPatterns = ["luego hablamos", "ya veremos", "lo pienso"];
 
