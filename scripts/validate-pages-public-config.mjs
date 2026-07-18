@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 
-export const REQUIRED_PUBLIC_KEYS = ['DEMO_MODE', 'SUPABASE_KEY', 'SUPABASE_URL'];
+export const REQUIRED_PUBLIC_KEYS = ['DEMO_MODE', 'ENABLE_TEST_ADVISOR_LOGIN', 'SUPABASE_KEY', 'SUPABASE_URL'];
 export const FORBIDDEN_KEY_PATTERN = /(ACCESS_TOKEN|SERVICE_ROLE|DATABASE_PASSWORD|ADVISOR_[AB]_(EMAIL|PASSWORD)|REFRESH_TOKEN|SESSION_TOKEN|PRIVATE_KEY)/i;
 
 export function evaluatePublicEnv(source, filename = 'env.js') {
@@ -18,6 +18,8 @@ export function evaluatePublicEnv(source, filename = 'env.js') {
   assert.deepEqual(Object.keys(publicEnv).sort(), REQUIRED_PUBLIC_KEYS, 'PUBLIC_ENV_KEYS_MISMATCH');
   assert.equal(Object.keys(publicEnv).some((key) => FORBIDDEN_KEY_PATTERN.test(key)), false, 'PRIVILEGED_PUBLIC_ENV_KEY_FORBIDDEN');
   assert.equal(typeof publicEnv.DEMO_MODE, 'string', 'DEMO_MODE_STRING_REQUIRED');
+  assert.equal(typeof publicEnv.ENABLE_TEST_ADVISOR_LOGIN, 'string', 'ENABLE_TEST_ADVISOR_LOGIN_STRING_REQUIRED');
+  assert.match(publicEnv.ENABLE_TEST_ADVISOR_LOGIN, /^(true|false)$/, 'ENABLE_TEST_ADVISOR_LOGIN_BOOLEAN_STRING_REQUIRED');
   assert.equal(typeof publicEnv.SUPABASE_URL, 'string', 'SUPABASE_URL_STRING_REQUIRED');
   assert.equal(typeof publicEnv.SUPABASE_KEY, 'string', 'SUPABASE_KEY_STRING_REQUIRED');
   return { publicEnv, sandbox };

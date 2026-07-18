@@ -2,7 +2,7 @@
   'use strict';
 
   const CONTRACT_ID = 'FORGE_ALIVE_PUBLIC_CONFIG_067G17A1_V1';
-  const ALLOWED_KEYS = Object.freeze(['SUPABASE_URL', 'SUPABASE_KEY', 'DEMO_MODE']);
+  const ALLOWED_KEYS = Object.freeze(['SUPABASE_URL', 'SUPABASE_KEY', 'DEMO_MODE', 'ENABLE_TEST_ADVISOR_LOGIN']);
 
   function normalizedString(value) {
     return typeof value === 'string' ? value.trim() : '';
@@ -13,7 +13,14 @@
     const demoMode = source.DEMO_MODE === true || normalizedString(source.DEMO_MODE).toLowerCase() === 'true';
     const supabaseUrl = normalizedString(source.SUPABASE_URL);
     const supabaseKey = normalizedString(source.SUPABASE_KEY);
+    const enableTestAdvisorLogin = normalizedString(source.ENABLE_TEST_ADVISOR_LOGIN).toLowerCase() === 'true';
     const configured = Boolean(supabaseUrl && supabaseKey);
+    const publicConfig = Object.freeze({
+      SUPABASE_URL: supabaseUrl,
+      SUPABASE_KEY: supabaseKey,
+      DEMO_MODE: demoMode ? 'true' : 'false',
+      ENABLE_TEST_ADVISOR_LOGIN: enableTestAdvisorLogin ? 'true' : 'false'
+    });
 
     if (demoMode) {
       return Object.freeze({
@@ -23,8 +30,9 @@
         configured,
         canInitializePublicClient: false,
         productiveProspectCrudAuthorized: false,
+        testAdvisorLoginAuthorized: enableTestAdvisorLogin,
         reason: 'DEMO_MODE_EXPLICIT',
-        publicConfig: Object.freeze({ SUPABASE_URL: supabaseUrl, SUPABASE_KEY: supabaseKey, DEMO_MODE: 'true' })
+        publicConfig
       });
     }
 
@@ -36,8 +44,9 @@
         configured: false,
         canInitializePublicClient: false,
         productiveProspectCrudAuthorized: false,
+        testAdvisorLoginAuthorized: enableTestAdvisorLogin,
         reason: !supabaseUrl && !supabaseKey ? 'PUBLIC_CONFIG_MISSING' : 'PUBLIC_CONFIG_INCOMPLETE',
-        publicConfig: Object.freeze({ SUPABASE_URL: supabaseUrl, SUPABASE_KEY: supabaseKey, DEMO_MODE: 'false' })
+        publicConfig
       });
     }
 
@@ -48,8 +57,9 @@
       configured: true,
       canInitializePublicClient: true,
       productiveProspectCrudAuthorized: true,
+      testAdvisorLoginAuthorized: enableTestAdvisorLogin,
       reason: null,
-      publicConfig: Object.freeze({ SUPABASE_URL: supabaseUrl, SUPABASE_KEY: supabaseKey, DEMO_MODE: 'false' })
+      publicConfig
     });
   }
 
@@ -75,7 +85,8 @@
     current: () => result,
     allowsDemoFixtures: () => result.state === 'DEMO_EXPLICIT',
     allowsPublicClientInitialization: () => result.canInitializePublicClient === true,
-    allowsProductiveProspectCrud: () => result.state === 'READY' && result.productiveProspectCrudAuthorized === true
+    allowsProductiveProspectCrud: () => result.state === 'READY' && result.productiveProspectCrudAuthorized === true,
+    allowsTestAdvisorLogin: () => result.testAdvisorLoginAuthorized === true
   });
 
   global.ForgeAlivePublicConfig067G17A1 = api;

@@ -25,6 +25,7 @@ assert.equal(missing.ForgeAlivePublicConfig067G17A1.allowsDemoFixtures(), false)
 const incomplete = execute({ SUPABASE_URL: 'https://public.example.invalid', DEMO_MODE: 'false' });
 assert.equal(incomplete.__FORGE_PUBLIC_CONFIG_STATE__.state, 'BLOCKED');
 assert.equal(incomplete.__FORGE_PUBLIC_CONFIG_STATE__.reason, 'PUBLIC_CONFIG_INCOMPLETE');
+assert.equal(incomplete.ForgeAlivePublicConfig067G17A1.allowsTestAdvisorLogin(), false);
 
 const demo = execute({ DEMO_MODE: 'true' });
 assert.equal(demo.__FORGE_PUBLIC_CONFIG_STATE__.state, 'DEMO_EXPLICIT');
@@ -35,14 +36,16 @@ assert.equal(demo.ForgeAlivePublicConfig067G17A1.allowsProductiveProspectCrud(),
 const ready = execute({
   SUPABASE_URL: 'https://public.example.invalid',
   SUPABASE_KEY: 'public-anon-placeholder',
-  DEMO_MODE: 'false'
+  DEMO_MODE: 'false',
+  ENABLE_TEST_ADVISOR_LOGIN: 'true'
 });
 assert.equal(ready.__FORGE_PUBLIC_CONFIG_STATE__.state, 'READY');
 assert.equal(ready.ForgeAlivePublicConfig067G17A1.allowsDemoFixtures(), false);
 assert.equal(ready.ForgeAlivePublicConfig067G17A1.allowsPublicClientInitialization(), true);
 assert.equal(ready.ForgeAlivePublicConfig067G17A1.allowsProductiveProspectCrud(), true);
+assert.equal(ready.ForgeAlivePublicConfig067G17A1.allowsTestAdvisorLogin(), true);
 assert.deepEqual(Array.from(ready.ForgeAlivePublicConfig067G17A1.allowedKeys), [
-  'SUPABASE_URL', 'SUPABASE_KEY', 'DEMO_MODE'
+  'SUPABASE_URL', 'SUPABASE_KEY', 'DEMO_MODE', 'ENABLE_TEST_ADVISOR_LOGIN'
 ]);
 
 assert.match(html, /<script src="\.\.\/\.\.\/env\.js\?v=__FORGE_BUILD_SHA__"><\/script>[\s\S]*forge-alive-public-config-067g17a1\.js\?v=__FORGE_BUILD_SHA__[\s\S]*sample-data\.js/);
@@ -55,7 +58,9 @@ assert.match(loader, /Forge está bloqueado: falta la configuración pública re
 assert.match(loader, /No se usarán datos demo ni acceso productivo/);
 assert.match(workflow, /SUPABASE_URL: \$\{\{ secrets\.SUPABASE_URL \}\}/);
 assert.match(workflow, /SUPABASE_ANON_KEY: \$\{\{ secrets\.SUPABASE_ANON_KEY \}\}/);
+assert.match(workflow, /ENABLE_TEST_ADVISOR_LOGIN: \$\{\{ vars\.ENABLE_TEST_ADVISOR_LOGIN \|\| 'false' \}\}/);
 assert.match(workflow, /SUPABASE_KEY: process\.env\.SUPABASE_ANON_KEY \|\| ""/);
+assert.match(workflow, /ENABLE_TEST_ADVISOR_LOGIN: process\.env\.ENABLE_TEST_ADVISOR_LOGIN === "true" \? "true" : "false"/);
 assert.doesNotMatch(workflow, /secrets\.SUPABASE_KEY/);
 assert.match(workflow, /rmlxigxysujsuwzgoimv\.supabase\.co/);
 assert.match(workflow, /replaceAll\('__FORGE_BUILD_SHA__', process\.env\.GITHUB_SHA\)/);
