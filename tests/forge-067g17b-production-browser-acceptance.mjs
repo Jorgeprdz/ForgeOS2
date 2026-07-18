@@ -16,10 +16,6 @@ async function submitOpenForm(fields){
  const result=await page.evaluate(values=>{const dialog=document.querySelector('[data-prospect-form-dialog][open]');const form=dialog?.querySelector('[data-prospect-form]');if(!form)return {ok:false,missing:['form']};const missing=[];for(const [name,value] of Object.entries(values)){const field=form.elements.namedItem(name);if(!field){missing.push(name);continue;}field.value=value;field.dispatchEvent(new Event('input',{bubbles:true}));field.dispatchEvent(new Event('change',{bubbles:true}));}if(missing.length)return {ok:false,missing};form.requestSubmit();return {ok:true,missing:[]};},fields);
  assert.deepEqual(result,{ok:true,missing:[]},'PRODUCTIVE_FORM_CONTRACT_MISSING');
 }
-async function archiveOwnedAcceptanceFixtures(){
- const result=await page.evaluate(async()=>{const client=await globalThis.ForgeProductiveProspectBootstrap067G17B.getClient();const service=globalThis.ForgeProductiveProspectService067G17B.create(client);const prospects=await service.listProspects();const fixtures=prospects.filter(item=>item.fullName?.startsWith('067G17B PROD '));for(const fixture of fixtures)await service.archiveProspect(fixture.id);return fixtures.length;});
- record('prior_fixture_cleanup',String(result));
-}
 async function login(email,password){
  await page.goto(url,{waitUntil:'domcontentloaded',timeout:60000});
  await page.waitForFunction(()=>globalThis.ForgeProductiveProspectBootstrap067G17B?.getClient,{timeout:30000});
@@ -29,7 +25,6 @@ async function login(email,password){
 try{
  await page.setViewport({width:390,height:844,deviceScaleFactor:1});
  await login(process.env.ADVISOR_A_EMAIL,process.env.ADVISOR_A_PASSWORD);record('production_login','PASS');
- await archiveOwnedAcceptanceFixtures();
  const addClicked=await page.evaluate(()=>{const outlet=document.querySelector('[data-forge-alive-primary-outlet-067g16a]:not([hidden])');const pipeline=outlet?.querySelector('[data-productive-prospect-pipeline="067g17b"]');const button=Array.from(pipeline?.querySelectorAll('[data-add-prospect]')||[]).find(node=>node.getClientRects().length&&!node.disabled);if(!button)return false;button.click();return true;});assert.equal(addClicked,true,'VISIBLE_PRODUCTIVE_ADD_PROSPECT_ACTION_MISSING');await page.waitForSelector('[data-prospect-form-dialog][open] [name="fullName"]',{visible:true,timeout:30000});
  await submitOpenForm({fullName,phone:`+52${suffix}21`,source:'Evento',initialContext:'Controlled production acceptance fixture'});
  await page.waitForSelector('[data-prospect-detail-dialog][open]',{timeout:30000});
