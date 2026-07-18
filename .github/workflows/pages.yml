@@ -147,28 +147,8 @@ jobs:
         env:
           EXPECTED_DEMO_MODE: ${{ vars.DEMO_MODE || 'false' }}
         run: |
-          node - <<'EOF'
-          const assert = require('assert');
-          const fs = require('fs');
-          const vm = require('vm');
-          const context = {};
-          vm.runInNewContext(fs.readFileSync('_site/env.js', 'utf8'), context);
-          assert.deepStrictEqual(Object.keys(context.__ENV__).sort(), ['DEMO_MODE', 'SUPABASE_KEY', 'SUPABASE_URL']);
-          assert.equal(context.__ENV__.DEMO_MODE, process.env.EXPECTED_DEMO_MODE);
-          if (process.env.EXPECTED_DEMO_MODE !== 'true') {
-            assert.equal(new URL(context.__ENV__.SUPABASE_URL).hostname, 'rmlxigxysujsuwzgoimv.supabase.co');
-            assert.ok(context.__ENV__.SUPABASE_KEY);
-          }
-          for (const forbidden of ['SUPABASE_ACCESS_TOKEN', 'SERVICE_ROLE', 'DATABASE_PASSWORD', 'ADVISOR_A_PASSWORD', 'ADVISOR_B_PASSWORD', 'REFRESH_TOKEN', 'SESSION_TOKEN']) {
-            assert.equal(fs.readFileSync('_site/env.js', 'utf8').includes(forbidden), false);
-          }
-          const forgeAlive = fs.readFileSync('_site/static-preview/forge-alive/index.html', 'utf8');
-          const mobileDaily = fs.readFileSync('_site/10-gui/mobile-daily/index.html', 'utf8');
-          assert.match(forgeAlive, /env\.js\?v=[0-9a-f]{40}[\s\S]*forge-alive-public-config-067g17a1\.js\?v=[0-9a-f]{40}/);
-          assert.match(mobileDaily, /env\.js\?v=[0-9a-f]{40}[\s\S]*forge-alive-public-config-067g17a1\.js\?v=[0-9a-f]{40}[\s\S]*app\.js/);
-          assert.ok(fs.existsSync('_site/static-preview/forge-alive/forge-alive-public-config-067g17a1.js'));
-          console.log('067G17A1 PAGES PUBLIC CONFIG ARTIFACT: PASS');
-          EOF
+          node scripts/validate-pages-public-config.mjs _site/env.js
+          node -e "const assert=require('assert');const fs=require('fs');const forgeAlive=fs.readFileSync('_site/static-preview/forge-alive/index.html','utf8');const mobileDaily=fs.readFileSync('_site/10-gui/mobile-daily/index.html','utf8');assert.match(forgeAlive,/env\.js\?v=[0-9a-f]{40}[\s\S]*forge-alive-public-config-067g17a1\.js\?v=[0-9a-f]{40}/);assert.match(mobileDaily,/env\.js\?v=[0-9a-f]{40}[\s\S]*forge-alive-public-config-067g17a1\.js\?v=[0-9a-f]{40}[\s\S]*app\.js/);assert.ok(fs.existsSync('_site/static-preview/forge-alive/forge-alive-public-config-067g17a1.js'))"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
