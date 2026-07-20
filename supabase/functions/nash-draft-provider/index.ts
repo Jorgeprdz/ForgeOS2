@@ -1,4 +1,9 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { GoogleGenerativeAI } from "npm:@google/generative-ai";
+import {
+  buildGeminiDraftProviderResponse,
+  GEMINI_FLASH_MODEL_ID,
+} from "./gemini-provider.mjs";
 
 const FUNCTION_VERSION = "nash-draft-provider-shell-067g17n14";
 
@@ -43,7 +48,7 @@ type ProviderMetadata = {
 
 type ProviderEnvelope = {
   resultState: ResultState;
-  draftCandidate: null;
+  draftCandidate: unknown;
   metadata: ProviderMetadata;
   error: ProviderDraftError | null;
 };
@@ -113,7 +118,7 @@ function hasValidProspectMessageContext(body: Record<string, unknown>) {
   return Boolean(context && typeof context === "object" && !Array.isArray(context));
 }
 
-function buildProviderResponse(body: unknown, startedAt = Date.now()): ProviderEnvelope {
+async function buildProviderResponse(body: unknown, startedAt = Date.now()): Promise<ProviderEnvelope> {
   if (!body || typeof body !== "object" || Array.isArray(body)) {
     return envelope({
       resultState: RESULT_STATES.ERROR,
@@ -165,6 +170,18 @@ function buildProviderResponse(body: unknown, startedAt = Date.now()): ProviderE
     });
   }
 
+  if (providerId === PROVIDERS.GEMINI) {
+    return await buildGeminiDraftProviderResponse({
+      prospectMessageContext: request.prospectMessageContext,
+      env: Deno.env,
+      createModel: ({ apiKey }: { apiKey: string; modelId: string }) => {
+        const genAI = new GoogleGenerativeAI(apiKey);
+        return genAI.getGenerativeModel({ model: GEMINI_FLASH_MODEL_ID });
+      },
+      startedAt,
+    }) as ProviderEnvelope;
+  }
+
   return envelope({
     resultState: RESULT_STATES.ERROR,
     providerId,
@@ -188,10 +205,10 @@ serve(async (req) => {
 
   try {
     const body = await req.json();
-    return jsonResponse(buildProviderResponse(body));
+    return jsonResponse(await buildProviderResponse(body));
   } catch (_error) {
     return jsonResponse(
-      buildProviderResponse(null),
+      await buildProviderResponse(null),
       400,
     );
   }

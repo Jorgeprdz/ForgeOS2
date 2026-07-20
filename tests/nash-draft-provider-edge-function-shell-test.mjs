@@ -32,9 +32,10 @@ assert.match(source, /OPENAI: "openai"/);
 assert.match(source, /externalProviderEnabled: false/);
 assert.match(source, /deterministicFallbackRequired: true/);
 
-assert.doesNotMatch(source, /Deno\.env|get\(".*KEY|GEMINI_API_KEY|OPENAI_API_KEY|ANTHROPIC_API_KEY/);
-assert.doesNotMatch(source, /GoogleGenerativeAI|new OpenAI|fetch\(/);
-assert.doesNotMatch(source, /prompt|SYSTEM_PROMPT|Deno\.env|get\(["'][A-Z_]*KEY|secret/i);
+assert.match(source, /buildGeminiDraftProviderResponse/);
+assert.match(source, /providerId === PROVIDERS\.GEMINI/);
+assert.match(source, /Deno\.env/);
+assert.doesNotMatch(source, /new OpenAI|fetch\(|OPENAI_API_KEY|ANTHROPIC_API_KEY/);
 assert.doesNotMatch(source, /semantic-extract-v0\.8|semantic_extractor|buildSemanticExtractFrame/);
 
 console.log("067G17N14 NASH DRAFT PROVIDER EDGE FUNCTION SHELL: PASS");
