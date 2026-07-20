@@ -31,6 +31,38 @@
     lost: "Perdido",
   };
 
+  const DRAFT_VALIDATION_DECISIONS = Object.freeze({
+    ALLOW_WHATSAPP: "ALLOW_WHATSAPP",
+    BLOCK_WHATSAPP: "BLOCK_WHATSAPP",
+  });
+
+  const DRAFT_VALIDATION_RULES = Object.freeze([
+    {
+      code: "EXCLUDED_FIELD_PRESENT",
+      patterns: [/\badvisorid\b/i, /\bprospectid\b/i, /\bcandidateid\b/i, /\bnasat\b/i, /\bprivate motivation\b/i, /\bmotivacion privada\b/i, /\bingreso estimado\b/i],
+    },
+    {
+      code: "PROHIBITED_CLAIM_PRESENT",
+      patterns: [/\bcubre todo\b/i, /\bgarantizad[oa]\b/i, /\bmejor seguro\b/i, /\bproducto perfecto\b/i, /\b100%\s*seguro\b/i],
+    },
+    {
+      code: "INVENTED_COMMITMENT_PRESENT",
+      patterns: [/\bme confirmaste\b/i, /\bquedamos\b/i, /\bte prometo\b/i, /\bya agende\b/i, /\bcita confirmada\b/i],
+    },
+    {
+      code: "INVENTED_CONSENT_PRESENT",
+      patterns: [/\bme autorizaste\b/i, /\bcon tu consentimiento\b/i, /\baceptaste que te contacte\b/i, /\btenemos tu permiso\b/i],
+    },
+    {
+      code: "INVENTED_URGENCY_PRESENT",
+      patterns: [/\bsolo hoy\b/i, /\bultima oportunidad\b/i, /\bahora o nunca\b/i, /\bse acaba hoy\b/i, /\burgente sin falta\b/i],
+    },
+    {
+      code: "PROHIBITED_REFERRAL_WORDING_PRESENT",
+      patterns: [/\bme dieron tus datos\b/i, /\bte paso conmigo\b/i, /\bme dijo que necesitas\b/i, /\bme pidio que te vendiera\b/i],
+    },
+  ]);
+
   const field = (name, label, type = "text", extra = "") =>
     `<label>${esc(label)}<input name="${esc(name)}" type="${type}" ${extra}></label>`;
 
@@ -67,6 +99,34 @@
     const number = String(prospect.whatsappNormalized || prospect.phoneNormalized || prospect.whatsapp || prospect.phone || "").replace(/\D/g, "");
     const text = editedText ?? draftCandidate(prospect, tone).rawText;
     return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
+  }
+
+  function draftSafetyValidator({ draftText = "", draftCandidateSnapshot = null, humanApproval = null } = {}) {
+    const text = String(draftText ?? "");
+    const errors = [];
+    for (const rule of DRAFT_VALIDATION_RULES) {
+      if (rule.patterns.some(pattern => pattern.test(text))) {
+        errors.push({ code: rule.code, severity: "BLOCKING", action: DRAFT_VALIDATION_DECISIONS.BLOCK_WHATSAPP });
+      }
+    }
+    if (!draftCandidateSnapshot || draftCandidateSnapshot.sendsMessage !== false) {
+      errors.push({ code: "DRAFT_CANDIDATE_RULES_UNSATISFIED", severity: "BLOCKING", action: DRAFT_VALIDATION_DECISIONS.BLOCK_WHATSAPP });
+    }
+    if (!humanApproval || humanApproval.required !== true || humanApproval.finalAuthority !== "HUMAN") {
+      errors.push({ code: "HUMAN_APPROVAL_PATH_NOT_PRESERVED", severity: "BLOCKING", action: DRAFT_VALIDATION_DECISIONS.BLOCK_WHATSAPP });
+    }
+
+    return Object.freeze({
+      validatorId: "FORGE_DRAFT_SAFETY_VALIDATOR_067G17N10_V1",
+      decision: errors.length ? DRAFT_VALIDATION_DECISIONS.BLOCK_WHATSAPP : DRAFT_VALIDATION_DECISIONS.ALLOW_WHATSAPP,
+      errors: Object.freeze(errors),
+      rewritesDraft: false,
+      generatesDraft: false,
+      mutatesDraftCandidate: false,
+      mutatesPipeline: false,
+      callsAi: false,
+      humanApprovalRequired: true,
+    });
   }
 
   function toModel(prospects) {
@@ -335,6 +395,16 @@
       if (link && selected && draft) link.href = whatsappUrl(selected, tone, draft.value);
     }
 
+    function currentDraftSafetyResult() {
+      const draft = root.querySelector("[data-whatsapp-draft]");
+      const tone = root.querySelector("[data-whatsapp-tone]")?.value || "profesional";
+      return draftSafetyValidator({
+        draftText: draft?.value ?? "",
+        draftCandidateSnapshot: selected ? draftCandidate(selected, tone) : null,
+        humanApproval: { required: true, finalAuthority: "HUMAN" },
+      });
+    }
+
     root.addEventListener("input", event => {
       if (!event.target.matches("[data-whatsapp-draft]")) return;
       event.target.dataset.draftDirty = "true";
@@ -349,6 +419,18 @@
         draft.value = draftCandidate(selected, event.target.value).rawText;
       }
       refreshWhatsappAction(event.target.value);
+    }, { signal: controller.signal });
+
+    root.addEventListener("click", event => {
+      const action = event.target.closest("[data-whatsapp-action]");
+      if (!action) return;
+      const result = currentDraftSafetyResult();
+      action.dataset.draftSafetyDecision = result.decision;
+      if (result.decision === DRAFT_VALIDATION_DECISIONS.ALLOW_WHATSAPP) return;
+      event.preventDefault();
+      action.dataset.whatsappBlocked = "true";
+      action.title = result.errors.map(error => error.code).join(", ");
+      root.dispatchEvent(new global.CustomEvent("forge:draft-safety-validator:blocked", { detail: result }));
     }, { signal: controller.signal });
 
     return Object.freeze({
@@ -368,7 +450,7 @@
     });
   }
 
-  const api = Object.freeze({ create, formTemplate, detailTemplate, toModel, draftCandidate, whatsappUrl });
+  const api = Object.freeze({ create, formTemplate, detailTemplate, toModel, draftCandidate, whatsappUrl, draftSafetyValidator, DRAFT_VALIDATION_DECISIONS });
   global.ForgeProductiveProspectUI067G17B = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
 })(typeof globalThis !== "undefined" ? globalThis : window);
