@@ -36,6 +36,11 @@
     BLOCK_WHATSAPP: "BLOCK_WHATSAPP",
   });
 
+  const DRAFT_APPROVAL_DECISIONS = Object.freeze({
+    EXACT_DRAFT_APPROVED: "EXACT_DRAFT_APPROVED",
+    BLOCK_WHATSAPP: "BLOCK_WHATSAPP",
+  });
+
   const DRAFT_VALIDATION_RULES = Object.freeze([
     {
       code: "EXCLUDED_FIELD_PRESENT",
@@ -78,7 +83,7 @@
     const phone = prospect.phone || prospect.phoneNormalized || prospect.whatsapp || prospect.whatsappNormalized || "";
     const whatsapp = prospect.whatsapp || prospect.whatsappNormalized || prospect.phone || prospect.phoneNormalized || "";
     const draft = draftCandidate(prospect, "profesional");
-    return `<dialog class="forge-prospect-dialog forge-prospect-detail-dialog" data-prospect-detail-dialog aria-labelledby="prospect-detail-title"><article><header><div><p class="forge-pipeline-product">${esc(LABELS[prospect.status] || prospect.status)}</p><h2 id="prospect-detail-title">${esc(prospect.fullName)}</h2></div><button type="button" data-close-prospect-detail aria-label="Cerrar">×</button></header><dl class="forge-prospect-detail-list">${row("Teléfono", phone)}${row("WhatsApp", whatsapp)}${row("Correo", prospect.email)}${row("Fuente", prospect.source)}${row("Referido por", prospect.referrerName)}${row("Relación", prospect.referrerRelationship)}${row("Fecha de nacimiento", prospect.dateOfBirth)}${row("Edad", prospect.age)}${row("Estado civil", prospect.maritalStatus)}${row("Dependientes", prospect.dependents)}${row("Ocupación", prospect.occupation)}${row("Ingreso estimado", prospect.estimatedIncome)}${row("Productos de interés", Array.isArray(prospect.productsOfInterest) ? prospect.productsOfInterest.join(", ") : prospect.productsOfInterest)}${row("Contexto inicial", prospect.initialContext)}${row("Próxima acción", prospect.nextActionType)}${row("Fecha de seguimiento", prospect.nextActionAt)}${row("Fecha de creación", prospect.createdAt)}</dl><section class="forge-prospect-contact"><label>Tono de WhatsApp<select data-whatsapp-tone><option value="cercano">Cercano</option><option value="profesional" selected>Profesional</option><option value="ejecutivo">Ejecutivo</option></select></label><label>Draft editable<textarea data-whatsapp-draft data-draft-source="DraftCandidate">${esc(draft.rawText)}</textarea></label></section><footer><button type="button" data-edit-prospect>Editar</button><button type="button" data-archive-prospect>Eliminar</button><a class="forge-pipeline-action ${phone ? "" : "is-disabled"}" ${phone ? `href="tel:${esc(phone)}"` : "aria-disabled=\"true\" title=\"No hay un número válido\""}>Llamar</a><a class="forge-pipeline-action ${whatsapp ? "" : "is-disabled"}" data-whatsapp-action ${whatsapp ? `href="${esc(whatsappUrl(prospect, "profesional", draft.rawText))}" target="_blank" rel="noopener noreferrer"` : "aria-disabled=\"true\" title=\"No hay un número válido\""}>WhatsApp</a></footer></article></dialog>`;
+    return `<dialog class="forge-prospect-dialog forge-prospect-detail-dialog" data-prospect-detail-dialog aria-labelledby="prospect-detail-title"><article><header><div><p class="forge-pipeline-product">${esc(LABELS[prospect.status] || prospect.status)}</p><h2 id="prospect-detail-title">${esc(prospect.fullName)}</h2></div><button type="button" data-close-prospect-detail aria-label="Cerrar">×</button></header><dl class="forge-prospect-detail-list">${row("Teléfono", phone)}${row("WhatsApp", whatsapp)}${row("Correo", prospect.email)}${row("Fuente", prospect.source)}${row("Referido por", prospect.referrerName)}${row("Relación", prospect.referrerRelationship)}${row("Fecha de nacimiento", prospect.dateOfBirth)}${row("Edad", prospect.age)}${row("Estado civil", prospect.maritalStatus)}${row("Dependientes", prospect.dependents)}${row("Ocupación", prospect.occupation)}${row("Ingreso estimado", prospect.estimatedIncome)}${row("Productos de interés", Array.isArray(prospect.productsOfInterest) ? prospect.productsOfInterest.join(", ") : prospect.productsOfInterest)}${row("Contexto inicial", prospect.initialContext)}${row("Próxima acción", prospect.nextActionType)}${row("Fecha de seguimiento", prospect.nextActionAt)}${row("Fecha de creación", prospect.createdAt)}</dl><section class="forge-prospect-contact"><label>Tono de WhatsApp<select data-whatsapp-tone><option value="cercano">Cercano</option><option value="profesional" selected>Profesional</option><option value="ejecutivo">Ejecutivo</option></select></label><label>Draft editable<textarea data-whatsapp-draft data-draft-source="DraftCandidate">${esc(draft.rawText)}</textarea></label><button type="button" data-approve-whatsapp-draft>Aprobar draft exacto</button></section><footer><button type="button" data-edit-prospect>Editar</button><button type="button" data-archive-prospect>Eliminar</button><a class="forge-pipeline-action ${phone ? "" : "is-disabled"}" ${phone ? `href="tel:${esc(phone)}"` : "aria-disabled=\"true\" title=\"No hay un número válido\""}>Llamar</a><a class="forge-pipeline-action ${whatsapp ? "" : "is-disabled"}" data-whatsapp-action ${whatsapp ? `href="${esc(whatsappUrl(prospect, "profesional", draft.rawText))}" target="_blank" rel="noopener noreferrer"` : "aria-disabled=\"true\" title=\"No hay un número válido\""}>WhatsApp</a></footer></article></dialog>`;
   }
 
   function draftCandidate(prospect, tone) {
@@ -129,6 +134,45 @@
     });
   }
 
+  function approveExactDraft({ draftText = "", validationResult = null } = {}) {
+    const text = String(draftText ?? "");
+    const errors = [];
+    if (text.length === 0) errors.push({ code: "EMPTY_DRAFT_CANNOT_BE_APPROVED", severity: "BLOCKING", action: DRAFT_APPROVAL_DECISIONS.BLOCK_WHATSAPP });
+    if (!validationResult || validationResult.decision !== DRAFT_VALIDATION_DECISIONS.ALLOW_WHATSAPP) {
+      errors.push({ code: "VALIDATION_REQUIRED_BEFORE_APPROVAL", severity: "BLOCKING", action: DRAFT_APPROVAL_DECISIONS.BLOCK_WHATSAPP });
+    }
+    return Object.freeze({
+      decision: errors.length ? DRAFT_APPROVAL_DECISIONS.BLOCK_WHATSAPP : DRAFT_APPROVAL_DECISIONS.EXACT_DRAFT_APPROVED,
+      exactDraftApproved: errors.length === 0,
+      approvedDraftText: errors.length === 0 ? text : null,
+      errors: Object.freeze(errors),
+      persistsApproval: false,
+      mutatesPipeline: false,
+      mutatesProspect: false,
+    });
+  }
+
+  function exactDraftHumanApprovalGate({ draftText = "", validationResult = null, approvalSnapshot = null } = {}) {
+    const text = String(draftText ?? "");
+    const errors = [];
+    if (!validationResult || validationResult.decision !== DRAFT_VALIDATION_DECISIONS.ALLOW_WHATSAPP) {
+      errors.push({ code: "VALIDATION_REQUIRED", severity: "BLOCKING", action: DRAFT_APPROVAL_DECISIONS.BLOCK_WHATSAPP });
+    }
+    if (!approvalSnapshot || approvalSnapshot.exactDraftApproved !== true || approvalSnapshot.approvedDraftText !== text) {
+      errors.push({ code: "EXACT_DRAFT_APPROVAL_REQUIRED", severity: "BLOCKING", action: DRAFT_APPROVAL_DECISIONS.BLOCK_WHATSAPP });
+    }
+    return Object.freeze({
+      decision: errors.length ? DRAFT_APPROVAL_DECISIONS.BLOCK_WHATSAPP : DRAFT_VALIDATION_DECISIONS.ALLOW_WHATSAPP,
+      validationPass: Boolean(validationResult && validationResult.decision === DRAFT_VALIDATION_DECISIONS.ALLOW_WHATSAPP),
+      exactDraftApproved: errors.length === 0,
+      errors: Object.freeze(errors),
+      manualNavigationRequired: true,
+      persistsApproval: false,
+      mutatesPipeline: false,
+      mutatesProspect: false,
+    });
+  }
+
   function toModel(prospects) {
     const groups = new Map();
     for (const prospect of prospects) {
@@ -175,6 +219,7 @@
     let openCreateCount = 0;
     let createTrigger = null;
     let restoreBodyOverflow = "";
+    let exactDraftApproval = null;
 
     function render(model = toModel(prospects)) {
       root.innerHTML = renderPipeline(model);
@@ -296,6 +341,7 @@
 
     function openDetail(prospect) {
       selected = prospect;
+      exactDraftApproval = null;
       root.querySelector("[data-prospect-detail-dialog]")?.remove();
       root.insertAdjacentHTML("beforeend", detailTemplate(prospect));
       const dialog = root.querySelector("[data-prospect-detail-dialog]");
@@ -405,9 +451,24 @@
       });
     }
 
+    function markDraftApprovalInvalid() {
+      exactDraftApproval = null;
+      const action = root.querySelector("[data-whatsapp-action]");
+      const approve = root.querySelector("[data-approve-whatsapp-draft]");
+      if (action) {
+        delete action.dataset.exactDraftApproved;
+        delete action.dataset.whatsappBlocked;
+      }
+      if (approve) {
+        approve.dataset.exactDraftApproved = "NO";
+        approve.title = "Draft pendiente de aprobacion exacta.";
+      }
+    }
+
     root.addEventListener("input", event => {
       if (!event.target.matches("[data-whatsapp-draft]")) return;
       event.target.dataset.draftDirty = "true";
+      markDraftApprovalInvalid();
       const tone = root.querySelector("[data-whatsapp-tone]")?.value || "profesional";
       refreshWhatsappAction(tone);
     }, { signal: controller.signal });
@@ -418,19 +479,38 @@
       if (draft && selected && draft.dataset.draftDirty !== "true") {
         draft.value = draftCandidate(selected, event.target.value).rawText;
       }
+      markDraftApprovalInvalid();
       refreshWhatsappAction(event.target.value);
     }, { signal: controller.signal });
 
     root.addEventListener("click", event => {
+      const approve = event.target.closest("[data-approve-whatsapp-draft]");
+      if (approve) {
+        event.preventDefault();
+        const draft = root.querySelector("[data-whatsapp-draft]");
+        const validation = currentDraftSafetyResult();
+        const approval = approveExactDraft({ draftText: draft?.value ?? "", validationResult: validation });
+        approve.dataset.exactDraftApproved = approval.exactDraftApproved ? "YES" : "NO";
+        approve.dataset.draftApprovalDecision = approval.decision;
+        approve.title = approval.errors.map(error => error.code).join(", ");
+        exactDraftApproval = approval.exactDraftApproved ? approval : null;
+        return;
+      }
       const action = event.target.closest("[data-whatsapp-action]");
       if (!action) return;
-      const result = currentDraftSafetyResult();
-      action.dataset.draftSafetyDecision = result.decision;
-      if (result.decision === DRAFT_VALIDATION_DECISIONS.ALLOW_WHATSAPP) return;
+      const validation = currentDraftSafetyResult();
+      const approvalGate = exactDraftHumanApprovalGate({
+        draftText: root.querySelector("[data-whatsapp-draft]")?.value ?? "",
+        validationResult: validation,
+        approvalSnapshot: exactDraftApproval,
+      });
+      action.dataset.draftSafetyDecision = validation.decision;
+      action.dataset.exactDraftApproved = approvalGate.exactDraftApproved ? "YES" : "NO";
+      if (approvalGate.decision === DRAFT_VALIDATION_DECISIONS.ALLOW_WHATSAPP) return;
       event.preventDefault();
       action.dataset.whatsappBlocked = "true";
-      action.title = result.errors.map(error => error.code).join(", ");
-      root.dispatchEvent(new global.CustomEvent("forge:draft-safety-validator:blocked", { detail: result }));
+      action.title = [...validation.errors, ...approvalGate.errors].map(error => error.code).join(", ");
+      root.dispatchEvent(new global.CustomEvent("forge:draft-human-approval-gate:blocked", { detail: approvalGate }));
     }, { signal: controller.signal });
 
     return Object.freeze({
@@ -450,7 +530,19 @@
     });
   }
 
-  const api = Object.freeze({ create, formTemplate, detailTemplate, toModel, draftCandidate, whatsappUrl, draftSafetyValidator, DRAFT_VALIDATION_DECISIONS });
+  const api = Object.freeze({
+    create,
+    formTemplate,
+    detailTemplate,
+    toModel,
+    draftCandidate,
+    whatsappUrl,
+    draftSafetyValidator,
+    approveExactDraft,
+    exactDraftHumanApprovalGate,
+    DRAFT_VALIDATION_DECISIONS,
+    DRAFT_APPROVAL_DECISIONS,
+  });
   global.ForgeProductiveProspectUI067G17B = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
 })(typeof globalThis !== "undefined" ? globalThis : window);

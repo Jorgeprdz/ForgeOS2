@@ -63,3 +63,45 @@ test("067G17N10 pre-WhatsApp flow calls validator before manual WhatsApp action"
   assert.ok(preventIndex > validateIndex);
   assert.doesNotMatch(source, /openai|fetch\(|send\(|rewriteDraft|generateDraft/i);
 });
+
+test("067G17N11 exact draft approval gates manual WhatsApp navigation", () => {
+  const draft = "Hola, José.\n\nMe gustaría conversar contigo esta semana.";
+  const validation = validate(draft);
+  const approvalRequired = ProspectUI.exactDraftHumanApprovalGate({
+    draftText: draft,
+    validationResult: validation,
+    approvalSnapshot: null,
+  });
+  assert.equal(approvalRequired.decision, "BLOCK_WHATSAPP");
+  assert.ok(approvalRequired.errors.some(error => error.code === "EXACT_DRAFT_APPROVAL_REQUIRED"));
+
+  const approval = ProspectUI.approveExactDraft({ draftText: draft, validationResult: validation });
+  assert.equal(approval.decision, ProspectUI.DRAFT_APPROVAL_DECISIONS.EXACT_DRAFT_APPROVED);
+  const editedAfterApproval = ProspectUI.exactDraftHumanApprovalGate({
+    draftText: `${draft}\nCambio`,
+    validationResult: validate(`${draft}\nCambio`),
+    approvalSnapshot: approval,
+  });
+  assert.equal(editedAfterApproval.decision, "BLOCK_WHATSAPP");
+
+  const unsafeValidation = validate("Solo hoy me autorizaste");
+  const blockedApproval = ProspectUI.approveExactDraft({ draftText: "Solo hoy me autorizaste", validationResult: unsafeValidation });
+  assert.equal(blockedApproval.decision, "BLOCK_WHATSAPP");
+  assert.ok(blockedApproval.errors.some(error => error.code === "VALIDATION_REQUIRED_BEFORE_APPROVAL"));
+  assert.equal(ProspectUI.approveExactDraft({ draftText: "", validationResult: validate("") }).decision, "BLOCK_WHATSAPP");
+
+  const allowed = ProspectUI.exactDraftHumanApprovalGate({
+    draftText: draft,
+    validationResult: validation,
+    approvalSnapshot: approval,
+  });
+  assert.equal(allowed.decision, "ALLOW_WHATSAPP");
+  assert.equal(allowed.manualNavigationRequired, true);
+  assert.equal(allowed.persistsApproval, false);
+  assert.equal(allowed.mutatesPipeline, false);
+
+  const source = fs.readFileSync("advisor-os/sales-pipeline/productive-prospect-ui.js", "utf8");
+  assert.match(source, /data-approve-whatsapp-draft/);
+  assert.match(source, /exactDraftHumanApprovalGate/);
+  assert.match(source, /event\.preventDefault\(\)/);
+});
