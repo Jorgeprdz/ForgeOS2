@@ -1,4 +1,5 @@
 import { IntelligenceResult } from "../contracts/IntelligenceResult.js";
+import { ProviderRequest } from "../contracts/ProviderRequest.js";
 
 export class AlfredIntelligence {
 
@@ -10,10 +11,13 @@ export class AlfredIntelligence {
 
     const provider = this.providerManager.getDefault();
 
-    const response = await provider.generate({
-      request,
-      context
+    const providerRequest = new ProviderRequest({
+      prompt: request.message,
+      context,
+      metadata: request.metadata ?? {}
     });
+
+    const response = await provider.generate(providerRequest);
 
     return new IntelligenceResult({
       intelligence: "alfred",
