@@ -15768,3 +15768,18 @@ Recorded: `2026-07-20`
 - `TIMELINE_SCHEMA_RLS_AUTHORIZATION=DEFERRED`; no runtime, schema, RLS, migration, provider, or deployment change was authorized.
 - NFAST-02 through NFAST-12 remain independently gated. NFAST-02 is `READY_FOR_SEPARATE_STAGE_AUTHORIZATION` and is not authorized by this record.
 <!-- FORGE:NFAST_01_NASH_PRODUCTION_CONVERSATION_ARCHITECTURE:END -->
+
+<!-- FORGE:NFAST_02_PROSPECT_CONTEXT_INTAKE_CONTRACT:START -->
+## NFAST-02 Governed Prospect Context Intake Contract
+
+Status: `PASS`
+
+Recorded: `2026-07-20`
+
+- Implements a prospect-specific modern Context Intake boundary under `nash/context-intake/`; it does not import Manager semantics or productive Pipeline runtime.
+- Accepts only governed reference families with explicit source owner, evidence lineage, verification, and freshness metadata.
+- Preserves known, unknown, missing, stale, blocked, and candidate-interpretation boundaries; unsupported, sensitive, raw Pipeline, and unverified free-text input cannot become trusted facts.
+- Outputs immutable JSON-serializable context with `humanApprovalRequired=true`, `contextOnly=true`, and explicit false flags for message, draft, NBA, task, calendar, provider, network, persistence, and runtime execution.
+- Does not wire Pipeline, generate language, invoke a provider, persist context, change schema/RLS, or alter legacy NASH.
+- NFAST-03 is `READY_FOR_SEPARATE_STAGE_AUTHORIZATION`; it is not authorized by NFAST-02.
+<!-- FORGE:NFAST_02_PROSPECT_CONTEXT_INTAKE_CONTRACT:END -->
