@@ -3,9 +3,10 @@ import { GoogleGenerativeAI } from "npm:@google/generative-ai";
 import {
   buildGeminiDraftProviderResponse,
   GEMINI_FLASH_MODEL_ID,
+  validateProviderDraftRequest,
 } from "./gemini-provider.mjs";
 
-const FUNCTION_VERSION = "nash-draft-provider-shell-067g17n14";
+const FUNCTION_VERSION = "nash-draft-provider-nfast05-brief-only";
 
 const RESULT_STATES = {
   SUCCESS: "SUCCESS",
@@ -42,8 +43,10 @@ type ProviderMetadata = {
   generatedAt: string;
   durationMs?: number;
   functionVersion: string;
-  externalProviderEnabled: false;
+  externalProviderEnabled: boolean;
   deterministicFallbackRequired: true;
+  briefReference?: string | null;
+  briefVersion?: string | null;
 };
 
 type ProviderEnvelope = {
@@ -51,6 +54,18 @@ type ProviderEnvelope = {
   draftCandidate: unknown;
   metadata: ProviderMetadata;
   error: ProviderDraftError | null;
+  persistencePerformed: false;
+  pipelineMutationPerformed: false;
+  timelineEventCreated: false;
+  nbaExecuted: false;
+  taskCreated: false;
+  calendarEventCreated: false;
+  whatsappOpened: false;
+  messageSent: false;
+  externalActionPerformed: false;
+  humanApprovalRequired: true;
+  approved: false;
+  sent: false;
 };
 
 function jsonResponse(body: unknown, status = 200) {
@@ -94,6 +109,18 @@ function envelope({
     draftCandidate: null,
     metadata: metadata(providerId, generationMode, startedAt),
     error,
+    persistencePerformed: false,
+    pipelineMutationPerformed: false,
+    timelineEventCreated: false,
+    nbaExecuted: false,
+    taskCreated: false,
+    calendarEventCreated: false,
+    whatsappOpened: false,
+    messageSent: false,
+    externalActionPerformed: false,
+    humanApprovalRequired: true,
+    approved: false,
+    sent: false,
   };
 }
 
@@ -113,11 +140,6 @@ function isSupportedProvider(providerId: string): providerId is ProviderId {
     providerId === PROVIDERS.OPENAI;
 }
 
-function hasValidProspectMessageContext(body: Record<string, unknown>) {
-  const context = body.prospectMessageContext;
-  return Boolean(context && typeof context === "object" && !Array.isArray(context));
-}
-
 async function buildProviderResponse(body: unknown, startedAt = Date.now()): Promise<ProviderEnvelope> {
   if (!body || typeof body !== "object" || Array.isArray(body)) {
     return envelope({
@@ -126,14 +148,14 @@ async function buildProviderResponse(body: unknown, startedAt = Date.now()): Pro
       generationMode: "request_validation",
       startedAt,
       error: deterministicError(
-        "PROSPECT_MESSAGE_CONTEXT_INVALID",
-        "Request body must be an object containing prospectMessageContext.",
+        "REQUEST_INVALID",
+        "Request body must be an object containing a deterministic conversationBrief.",
       ),
     });
   }
 
   const request = body as Record<string, unknown>;
-  const providerId = normalizeProvider(request.providerId || request.requestedProvider);
+  const providerId = normalizeProvider(request.providerId);
 
   if (!isSupportedProvider(providerId)) {
     return envelope({
@@ -148,15 +170,16 @@ async function buildProviderResponse(body: unknown, startedAt = Date.now()): Pro
     });
   }
 
-  if (!hasValidProspectMessageContext(request)) {
+  const validation = validateProviderDraftRequest(request);
+  if (!validation.valid) {
     return envelope({
       resultState: RESULT_STATES.ERROR,
       providerId,
       generationMode: "request_validation",
       startedAt,
       error: deterministicError(
-        "PROSPECT_MESSAGE_CONTEXT_INVALID",
-        "prospectMessageContext must be a non-array object.",
+        validation.code,
+        validation.message,
       ),
     });
   }
@@ -171,8 +194,9 @@ async function buildProviderResponse(body: unknown, startedAt = Date.now()): Pro
   }
 
   if (providerId === PROVIDERS.GEMINI) {
-    return await buildGeminiDraftProviderResponse({
-      prospectMessageContext: request.prospectMessageContext,
+    const providerResponse = await buildGeminiDraftProviderResponse({
+      conversationBrief: request.conversationBrief,
+      requestMetadata: request.requestMetadata || {},
       env: Deno.env,
       createModel: ({ apiKey }: { apiKey: string; modelId: string }) => {
         const genAI = new GoogleGenerativeAI(apiKey);
@@ -180,6 +204,13 @@ async function buildProviderResponse(body: unknown, startedAt = Date.now()): Pro
       },
       startedAt,
     }) as ProviderEnvelope;
+    return {
+      ...providerResponse,
+      metadata: {
+        ...providerResponse.metadata,
+        functionVersion: FUNCTION_VERSION,
+      },
+    };
   }
 
   return envelope({

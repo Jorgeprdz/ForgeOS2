@@ -1,5 +1,9 @@
 "use strict";
 
+const {
+  validateConversationBrief
+} = require("./conversation-brief/nash-provider-request-contract");
+
 const DRAFT_PROVIDER_IDS = Object.freeze({
   DETERMINISTIC: "DETERMINISTIC",
   OPTIONAL_AI: "OPTIONAL_AI",
@@ -50,6 +54,7 @@ function buildOptionalAiDraftProviderBoundary({
   ctaGovernance = null,
   safetyValidator = null,
   humanApproval = null,
+  conversationBrief = null,
 } = {}) {
   const selectedProvider = normalizeProvider(requestedProvider);
   const missingGates = missingGateCodes({
@@ -60,6 +65,11 @@ function buildOptionalAiDraftProviderBoundary({
     humanApproval,
   });
   const errors = missingGates.map((code) => ({ code, severity: "BLOCKING" }));
+  const briefValidation = conversationBrief === null ? null : validateConversationBrief(conversationBrief);
+
+  if (briefValidation && !briefValidation.valid) {
+    errors.push({ code: briefValidation.code, severity: "BLOCKING" });
+  }
 
   if (selectedProvider !== DRAFT_PROVIDER_IDS.DETERMINISTIC && providerSelectionExplicit !== true) {
     errors.push({ code: "PROVIDER_SELECTION_MUST_BE_EXPLICIT", severity: "BLOCKING" });
@@ -85,6 +95,9 @@ function buildOptionalAiDraftProviderBoundary({
     providerSelectionExplicit: selectedProvider === DRAFT_PROVIDER_IDS.DETERMINISTIC || providerSelectionExplicit === true,
     optionalAiProviderEnabled: optionalAiProviderEnabled === true,
     providerMayReturnNoDraft: true,
+    conversationBriefOnly: true,
+    acceptsLegacyProspectMessageContext: false,
+    conversationBriefValid: briefValidation ? briefValidation.valid : null,
     providerResult: noDraft ? DRAFT_PROVIDER_RESULTS.NO_DRAFT : providerResult?.result || null,
     decision,
     deterministicFallbackRequired: true,

@@ -114,6 +114,10 @@ test("Valid minimal brief", () => {
     candidateInterpretations: undefined
   }));
   assert.strictEqual(result.status, NASH_CONVERSATION_BRIEF_STATUSES.SUCCESS);
+  assert.strictEqual(result.providerAllowed, true);
+  assert.strictEqual(result.humanApprovalRequired, true);
+  assert.strictEqual(result.draftGenerated, false);
+  assert.strictEqual(result.providerInvoked, false);
   assert.strictEqual(result.identity.prospectReference, "prospect-001");
   assert.strictEqual(result.providerSafeInstructions.noNewFacts, true);
 });

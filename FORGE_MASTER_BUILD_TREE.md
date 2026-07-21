@@ -1,5 +1,20 @@
 # FORGE OS Master Build Tree
 
+<!-- FORGEOS:NASH_FAST_TRACK_NFAST_05_PROVIDER_CONTRACT_HARDENING:START -->
+## NASH Fast Track NFAST-05 Provider Contract Hardening
+
+Status: IMPLEMENTED_AND_COMMITTED_FOR_BRIEF_ONLY_PROVIDER_CONTRACT
+
+- Provider request contract hardened to accept only the NFAST-04 deterministic Conversation Brief.
+- Request shape is versioned as `NFAST-05.1` and limited to `requestVersion`, `providerId`, `conversationBrief` and safe `requestMetadata`.
+- Optional AI provider boundary, remote client boundary, Supabase `nash-draft-provider` validation and Gemini prompt construction now reject legacy raw context paths.
+- Gemini is constrained to language rendering only and cannot own strategy, facts, claims, Quote/Product truth, approval, sending, persistence or external action.
+- Provider envelopes preserve human review and no-side-effect flags.
+- Source truth: `docs/architecture/source-truth/NASH_FAST_TRACK_NFAST_05_PROVIDER_CONTRACT_HARDENING_CLOSURE.md`.
+- Next stage readiness: `NFAST_06_READINESS_STATUS=READY_FOR_SEPARATE_STAGE_AUTHORIZATION`; `NFAST_06_AUTHORIZED=NO`.
+
+<!-- FORGEOS:NASH_FAST_TRACK_NFAST_05_PROVIDER_CONTRACT_HARDENING:END -->
+
 <!-- FORGEOS:NASH_FAST_TRACK_NFAST_04_DETERMINISTIC_CONVERSATION_BRIEF:START -->
 ## NASH Fast Track NFAST-04 Deterministic Conversation Brief
 

@@ -1,5 +1,10 @@
 "use strict";
 
+const {
+  PROVIDER_REQUEST_VERSION,
+  validateProviderDraftRequest
+} = require("./conversation-brief/nash-provider-request-contract");
+
 const FUNCTION_NAME = "nash-draft-provider";
 const DEFAULT_PROVIDER = "deterministic";
 const SUPPORTED_REMOTE_PROVIDERS = Object.freeze(["gemini", "openai"]);
@@ -37,6 +42,10 @@ function errorEnvelope(providerId, code, message, retryable, generationMode, sta
     error: { code, message, retryable },
     deterministicFallbackRequired: true,
     deterministicFallbackSelected: true,
+    humanApprovalRequired: true,
+    approved: false,
+    sent: false,
+    externalActionPerformed: false,
   };
 }
 
@@ -48,6 +57,10 @@ function noDraftEnvelope(providerId, generationMode, startedAt) {
     error: null,
     deterministicFallbackRequired: true,
     deterministicFallbackSelected: true,
+    humanApprovalRequired: true,
+    approved: false,
+    sent: false,
+    externalActionPerformed: false,
   };
 }
 
@@ -83,6 +96,10 @@ function normalizeEnvelope(value, providerId, startedAt) {
     ...value,
     deterministicFallbackRequired: value.resultState !== RESULT_STATES.SUCCESS,
     deterministicFallbackSelected: value.resultState !== RESULT_STATES.SUCCESS,
+    humanApprovalRequired: true,
+    approved: false,
+    sent: false,
+    externalActionPerformed: false,
   });
 }
 
@@ -112,9 +129,27 @@ function createRemoteDraftProviderClient({
 } = {}) {
   if (typeof invokeFunction !== "function") throw new Error("REMOTE_DRAFT_PROVIDER_INVOKE_REQUIRED");
 
-  async function requestDraft({ providerId = DEFAULT_PROVIDER, prospectMessageContext = null } = {}) {
+  async function requestDraft({
+    requestVersion = PROVIDER_REQUEST_VERSION,
+    providerId = DEFAULT_PROVIDER,
+    conversationBrief = null,
+    requestMetadata = {},
+    prospectMessageContext = undefined,
+    ...unsupported
+  } = {}) {
     const startedAt = Date.now();
     const selectedProvider = normalizeProvider(providerId);
+
+    if (prospectMessageContext !== undefined || Object.keys(unsupported).length > 0) {
+      return errorEnvelope(
+        selectedProvider,
+        "UNSUPPORTED_TOP_LEVEL_FIELD",
+        "Remote draft provider accepts only deterministic conversation brief requests.",
+        false,
+        "request_validation",
+        startedAt,
+      );
+    }
 
     if (selectedProvider === DEFAULT_PROVIDER) {
       return noDraftEnvelope(DEFAULT_PROVIDER, "local_deterministic_flow_required", startedAt);
@@ -131,11 +166,17 @@ function createRemoteDraftProviderClient({
       );
     }
 
-    if (!isObject(prospectMessageContext)) {
+    const validation = validateProviderDraftRequest({
+      requestVersion,
+      providerId: selectedProvider,
+      conversationBrief,
+      requestMetadata,
+    });
+    if (!validation.valid) {
       return errorEnvelope(
         selectedProvider,
-        "PROSPECT_MESSAGE_CONTEXT_INVALID",
-        "prospectMessageContext must be a non-array object.",
+        validation.code,
+        validation.message,
         false,
         "request_validation",
         startedAt,
@@ -145,8 +186,10 @@ function createRemoteDraftProviderClient({
     const remoteCall = Promise.resolve()
       .then(() => invokeFunction(FUNCTION_NAME, {
         body: {
+          requestVersion,
           providerId: selectedProvider,
-          prospectMessageContext,
+          conversationBrief,
+          requestMetadata,
         },
       }))
       .then((response) => {

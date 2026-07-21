@@ -333,6 +333,12 @@ function buildDeterministicBrief(input = {}) {
     engine: "NASH_DETERMINISTIC_CONVERSATION_BRIEF_BUILDER",
     version: NASH_DETERMINISTIC_CONVERSATION_BRIEF_BUILDER_VERSION,
     status: NASH_CONVERSATION_BRIEF_STATUSES.SUCCESS,
+    providerAllowed: true,
+    humanApprovalRequired: true,
+    contextOnly: true,
+    draftGenerated: false,
+    providerInvoked: false,
+    actionExecuted: false,
     identity: {
       briefId: requestMetadata.briefId || `NFAST-04:${projection.contextVersion}:${projection.prospectReference || conversationRequest.prospectReference}:${objectiveType}`,
       prospectReference: projection.prospectReference || conversationRequest.prospectReference,

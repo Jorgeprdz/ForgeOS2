@@ -19,8 +19,10 @@ assert.match(source, /generationMode/);
 assert.match(source, /generatedAt/);
 assert.match(source, /durationMs/);
 
-assert.match(source, /prospectMessageContext/);
-assert.match(source, /PROSPECT_MESSAGE_CONTEXT_INVALID/);
+assert.match(source, /conversationBrief/);
+assert.match(source, /validateProviderDraftRequest/);
+assert.match(source, /const validation = validateProviderDraftRequest\(request\)/);
+assert.match(source, /REQUEST_INVALID/);
 assert.match(source, /UNKNOWN_PROVIDER_ERROR/);
 assert.match(source, /PROVIDER_NOT_ENABLED/);
 assert.match(source, /local_deterministic_flow_required/);
@@ -37,5 +39,6 @@ assert.match(source, /providerId === PROVIDERS\.GEMINI/);
 assert.match(source, /Deno\.env/);
 assert.doesNotMatch(source, /new OpenAI|fetch\(|OPENAI_API_KEY|ANTHROPIC_API_KEY/);
 assert.doesNotMatch(source, /semantic-extract-v0\.8|semantic_extractor|buildSemanticExtractFrame/);
+assert.doesNotMatch(source, /prospectMessageContext must be|request\.prospectMessageContext|requestedProvider/);
 
-console.log("067G17N14 NASH DRAFT PROVIDER EDGE FUNCTION SHELL: PASS");
+console.log("NFAST-05 NASH DRAFT PROVIDER EDGE FUNCTION SHELL: PASS");
