@@ -7,7 +7,7 @@ import { EchoIntelligence } from "../intelligences/EchoIntelligence.js";
 import { IntelligenceRequest } from "../contracts/IntelligenceRequest.js";
 
 const registry = new IntelligenceRegistry();
-registry.register("echo", new EchoIntelligence());
+registry.register("alfred", new EchoIntelligence());
 registry.register("default", new EchoIntelligence());
 
 const runtime = new ForgeIntelligenceRuntime({
@@ -21,7 +21,7 @@ const result = await runtime.execute(
   new IntelligenceRequest({
     message: "Forge Runtime Online",
     metadata: {
-      intent: "echo"
+      intent: "alfred"
     }
   })
 );
