@@ -1,5 +1,5 @@
 export const GEMINI_PROVIDER_ID = "gemini";
-export const GEMINI_FLASH_MODEL_ID = "gemini-1.5-flash";
+export const GEMINI_FLASH_MODEL_ID = "gemini-3.5-flash";
 export const GEMINI_PROVIDER_ENABLED_ENV = "NASH_GEMINI_DRAFT_PROVIDER_ENABLED";
 export const GEMINI_API_KEY_ENV = "GEMINI_API_KEY";
 export const GEMINI_TIMEOUT_MS = 8000;

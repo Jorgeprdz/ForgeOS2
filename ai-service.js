@@ -11,7 +11,7 @@ const AI_CONFIG = {
 
     CACHE_TTL: 1000 * 60 * 5,
 
-    MODEL: 'gemini-1.5-flash'
+    MODEL: 'gemini-3.5-flash'
 };
 
 class AIService {
