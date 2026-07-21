@@ -34,10 +34,16 @@ export class ForgeIntelligenceRuntime {
       });
     }
 
-    return intelligence.execute({
-      request,
-      context,
-      runtime: this
-    });
+    
+const result = await intelligence.execute({
+request,
+context,
+runtime: this
+});
+
+this.authorityGate?.evaluate(result);
+
+return result;
+
   }
 }
