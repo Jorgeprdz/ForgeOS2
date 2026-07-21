@@ -164,10 +164,11 @@ export async function buildGeminiDraftProviderResponse({
   let model = null;
   try {
     model = createModel({ apiKey, modelId: GEMINI_FLASH_MODEL_ID });
-  } catch (_error) {
+  } catch (error) {
+    console.error("Gemini transport initialization failed:", error);
     return errorEnvelope(
       "PROVIDER_UNAVAILABLE",
-      "Experimental Gemini draft provider transport is unavailable.",
+      error instanceof Error ? error.message : String(error),
       true,
       "transport_unavailable",
       startedAt,
