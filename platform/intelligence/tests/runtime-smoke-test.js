@@ -19,7 +19,7 @@ const runtime = new ForgeIntelligenceRuntime({
 
 const result = await runtime.execute(
   new IntelligenceRequest({
-    message: "Forge Runtime Online",
+    message: "Hello ProviderManager",
     metadata: {
       intent: "alfred"
     }
