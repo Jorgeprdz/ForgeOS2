@@ -1,11 +1,19 @@
-export class MockProvider {
+import { BaseProvider } from "./BaseProvider.js";
+
+export class MockProvider extends BaseProvider {
+
+  constructor() {
+    super("mock");
+  }
 
   async generate({ request, context }) {
+
     return {
-      provider: "mock",
+      provider: this.name,
       output: `Mock response: ${request.message}`,
       contextReceived: !!context
     };
+
   }
 
 }

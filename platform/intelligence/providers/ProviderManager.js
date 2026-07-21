@@ -5,7 +5,12 @@ export class ProviderManager {
   }
 
   register(name, provider) {
-    this.providers.set(name, provider);
+    
+if (typeof provider.generate !== "function") {
+throw new Error("Invalid provider");
+}
+this.providers.set(name, provider);
+
   }
 
   get(name) {
