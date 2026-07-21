@@ -15752,3 +15752,19 @@ Recorded: `2026-07-18`
 
 Next: `067G17C_CONTACT_CARD_STATUS_CALL_WHATSAPP_AND_GOOGLE_CALENDAR_ACTIONS` requires separate authorization.
 <!-- FORGE:067G17B3_PROSPECT_CREATE_CANONICAL_MODAL:END -->
+
+<!-- FORGE:NFAST_01_NASH_PRODUCTION_CONVERSATION_ARCHITECTURE:START -->
+## NFAST-01 NASH Production Conversation Architecture and Ownership Lock
+
+Status: `RATIFIED`
+
+Recorded: `2026-07-20`
+
+- `SOURCE_HEAD=c43761bbcf27c3ca081dba81e3ce005cf48a8050`; Miranda and Board authorization apply to NFAST-01 only.
+- Canonical source: `docs/architecture/source-truth/FORGE_NASH_PRODUCTION_CONVERSATION_ARCHITECTURE_NFAST_01.md`.
+- NASH owns conversation composition and the deterministic Conversation Brief; it does not own source facts, NBA/Product/Quote truth, persistence, delivery, or human approval.
+- Modern governed Context Intake is the sole future production input path; Gemini is only an optional language renderer.
+- Root legacy NASH defaults to `DO_NOT_EXECUTE`; physical deletion, movement, and archival are not authorized.
+- `TIMELINE_SCHEMA_RLS_AUTHORIZATION=DEFERRED`; no runtime, schema, RLS, migration, provider, or deployment change was authorized.
+- NFAST-02 through NFAST-12 remain independently gated. NFAST-02 is `READY_FOR_SEPARATE_STAGE_AUTHORIZATION` and is not authorized by this record.
+<!-- FORGE:NFAST_01_NASH_PRODUCTION_CONVERSATION_ARCHITECTURE:END -->
