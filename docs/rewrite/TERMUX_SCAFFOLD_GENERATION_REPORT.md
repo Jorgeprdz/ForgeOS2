@@ -223,13 +223,50 @@ Final dependency metrics:
 - Hard dependencies: 26.
 - Soft dependencies: 0.
 - Event relationships: 103.
-- Parallel build groups: 5.
-- Critical path length: 5.
-- Ready modules: 16.
-- Blocked modules: 16.
+- Active execution waves: 4.
+- Critical path length: 4.
+- Scaffold-eligible modules: 11.
+- Implementation-eligible modules: 9.
+- Waiting for dependencies: 0.
+- Waiting for decisions: 15.
+- Waiting for evidence: 1.
 - Deferred modules: 3.
 - Rejected modules: 2.
 
 Validation added:
 
 - `validate-dependency-graph` fails on cycles, missing modules, missing contracts, missing capabilities, missing producers/consumers, orphan capabilities, invalid stage references, unsafe parallel groups and invalid topological ordering.
+
+## Dependency Semantic Repair Annex
+
+Created:
+
+- `docs/rewrite/DEPENDENCY_GRAPH_SEMANTIC_REPAIR.md`
+- `scaffolds/manifest/execution-eligibility.json`
+- `scaffolds/manifest/rejected-module-denylist.json`
+- `scaffolds/reports/dependency-semantic-audit.json`
+- `scaffolds/reports/execution-safety-report.json`
+
+Semantic corrections:
+
+- Split readiness into definition, scaffold, implementation, execution, validation and promotion dimensions.
+- Recomputed the critical path as one directed mandatory chain rather than the full topological order.
+- Removed rejected and deferred modules from active execution queues.
+- Added operation-specific eligibility for `SCAFFOLD`, `IMPLEMENT`, `VALIDATE` and `PROMOTE`.
+- Added structured blocking conditions to blocked and waiting modules.
+- Replaced single next-module selection with dynamic eligible-set selection.
+- Separated build, domain, integration, audit and forbidden events.
+- Replaced rollback dependency copying with an explicit rollback model.
+
+Semantic validation added:
+
+- critical path integrity;
+- rejected/deferred active execution exclusion;
+- blocking condition completeness;
+- readiness dependency consistency;
+- phase-specific dependency enforcement;
+- event taxonomy safety;
+- dynamic eligible-set consistency;
+- execution wave independence;
+- promotion gate schema correctness;
+- rollback model correctness.

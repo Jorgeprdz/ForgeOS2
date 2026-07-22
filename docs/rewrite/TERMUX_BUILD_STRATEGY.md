@@ -1,67 +1,46 @@
 # Termux Build Strategy
 
-Strategy ID: `FORGE_TERMUX_BUILD_STRATEGY_001`
+Strategy ID: `FORGE_TERMUX_BUILD_STRATEGY_002`
 
-The future rewrite is dependency-driven. Termux must use `scaffolds/manifest/rewrite-execution-plan.json` and must not guess the next module.
+The future Termux rewrite is dependency-driven. It must read `scaffolds/manifest/rewrite-execution-plan.json` and choose from `next_eligible_modules`, not from a single linear next pointer.
 
-Recommended command pattern:
+Stage IDs are governance ownership only and must not be sorted numerically to determine execution order.
 
-```sh
-"./tools/termux/rewrite/forge-rewrite-plan.sh" SG-001
-"./tools/termux/rewrite/forge-rewrite-stage.sh" SG-001 --plan
-"./tools/termux/rewrite/forge-rewrite-stage.sh" SG-001 --dry-run
-```
+Current scaffold-eligible modules:
 
-Do not execute `--apply` until the owner approves the selected module/stage.
-
-## Wave 1
-
-- `MOD-AUTONOMOUS-AI-DECISIONING`
-- `MOD-GENERIC-CRM-CLONE`
-- `MOD-TRUTH-GOVERNANCE`
-
-## Wave 2
-
-- `MOD-ADVISOR-LIFECYCLE`
-- `MOD-CARRIER-SCOPE`
-- `MOD-CONVERSATION-INTELLIGENCE`
-- `MOD-DECISION-CORE`
 - `MOD-GOVERNANCE-GATE`
-- `MOD-MICK-BEHAVIOR`
-- `MOD-READONLY-ADAPTERS`
-
-## Wave 3
-
-- `MOD-ACTION-PLANNING`
-- `MOD-CLIENT-CRM-READMODEL`
 - `MOD-HUMAN-APPROVAL-GATE`
-- `MOD-LEGACY-REINTRODUCTION-GUARD`
-- `MOD-MANAGER-COACHING`
+- `MOD-ADVISOR-CONVERSION`
+- `MOD-ADVISOR-ACTIVATION`
+- `MOD-READONLY-ADAPTERS`
+- `MOD-PRODUCT-CATALOG`
+- `MOD-ADVISOR-WORKSPACE`
+- `MOD-ADVISOR-LIFECYCLE`
+- `MOD-CLIENT-CRM-READMODEL`
 - `MOD-NBA-REASON-WHY`
 - `MOD-OPPORTUNITY-PIPELINE`
-- `MOD-POLICY-OPERATIONS`
-- `MOD-PRODUCT-CATALOG`
-- `MOD-RULE-PACK-CONTRACT`
-- `MOD-TERMUX-REWRITE-TOOLS`
 
-## Wave 4
+## Active Wave 2
+
+- `MOD-GOVERNANCE-GATE`
+- `MOD-READONLY-ADAPTERS`
+- `MOD-ADVISOR-LIFECYCLE`
+
+## Active Wave 3
+
+- `MOD-HUMAN-APPROVAL-GATE`
+- `MOD-PRODUCT-CATALOG`
+- `MOD-CLIENT-CRM-READMODEL`
+- `MOD-NBA-REASON-WHY`
+- `MOD-OPPORTUNITY-PIPELINE`
+
+## Active Wave 4
 
 - `MOD-ADVISOR-CONVERSION`
 - `MOD-ADVISOR-WORKSPACE`
-- `MOD-CALCULATION-CONTRACT`
-- `MOD-ELIGIBILITY-CONTRACT`
-- `MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE`
-- `MOD-LLM-DRAFT-INTAKE`
-- `MOD-MANAGER-WORKSPACE`
-- `MOD-PRODUCT-SOURCE-PACK`
-- `MOD-RECRUITMENT-PRECONTRACT`
-- `MOD-RELATIONSHIP-INTELLIGENCE`
 
-## Wave 5
+## Active Wave 5
 
 - `MOD-ADVISOR-ACTIVATION`
-- `MOD-ADVISOR-EXPERIENCE`
-- `MOD-COMPENSATION-ECONOMIC`
-- `MOD-MESSAGE-SAFETY-VALIDATOR`
-- `MOD-QUOTE-PREVIEW`
-- `MOD-REVENUE-INTELLIGENCE`
+
+Rejected and deferred modules are excluded from active execution. Blocked modules remain visible in waiting sections with structured blocking conditions.
