@@ -12,7 +12,7 @@
   ],
   "prohibited_roots": [
     "legacy/",
-    "constitutional-rewrite-pack/",
+    "temporary-governance-rewrite-pack/",
     "nash/",
     "app/",
     "src/legacy/",
