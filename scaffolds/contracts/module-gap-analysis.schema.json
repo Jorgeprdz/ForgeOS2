@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forge-os.local/scaffolds/contracts/module-gap-analysis.schema.json",
+  "title": "Forge Module Gap Analysis",
+  "type": "object",
+  "required": ["schema", "analysis_id", "module_registry", "summary", "matrix"],
+  "properties": {
+    "schema": { "type": "string" },
+    "analysis_id": { "type": "string" },
+    "module_registry": { "type": "string" },
+    "summary": { "type": "object" },
+    "matrix": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["module_id", "status", "gap"]
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forge-os.local/scaffolds/contracts/product-surface.schema.json",
+  "title": "Forge Product Surface Map",
+  "type": "object",
+  "required": ["schema", "surface_map_id", "surfaces"],
+  "properties": {
+    "schema": { "type": "string" },
+    "surface_map_id": { "type": "string" },
+    "surfaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "type", "purpose", "owner", "user_type", "navigation_entry", "supporting_capabilities", "responsible_module", "evidence_sources", "implementation_status"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^SURF-[A-Z0-9-]+$" },
+          "name": { "type": "string" },
+          "type": { "enum": ["WORKSPACE", "DOMAIN", "FEATURE", "SERVICE", "CROSS_CUTTING_CAPABILITY", "NAVIGATION", "SYSTEM"] },
+          "purpose": { "type": "string" },
+          "owner": { "type": "string" },
+          "user_type": { "type": "string" },
+          "navigation_entry": { "type": "string" },
+          "supporting_capabilities": { "type": "array", "items": { "type": "string" } },
+          "responsible_module": { "type": "string" },
+          "evidence_sources": { "type": "array", "items": { "type": "string" } },
+          "implementation_status": { "enum": ["IMPLEMENTED", "PARTIALLY_IMPLEMENTED", "NOT_IMPLEMENTED"] }
+        }
+      }
+    }
+  }
+}

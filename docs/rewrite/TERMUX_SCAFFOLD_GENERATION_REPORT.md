@@ -34,9 +34,9 @@ This report records the constitution-first scaffold system created for future Fo
 
 - Product spec created: `docs/product/FORGE_PRODUCT_SPEC.md`
 - Traceability matrix created: `docs/product/FORGE_REQUIREMENTS_TRACEABILITY_MATRIX.md`
-- Capabilities identified: 23
+- Capabilities identified: 24
 - `PRESERVE`: 6
-- `REDESIGN`: 11
+- `REDESIGN`: 12
 - `DEFER`: 2
 - `REJECT`: 2
 - `REQUIRES_OWNER_DECISION`: 2
@@ -166,3 +166,30 @@ Key changes:
 - Modeled Advisor Experience as a transversal capability.
 - Split Legacy Reintroduction Guard from Legacy Functional Evidence Intake.
 - Reframed Generic CRM rejection to permit Forge-specific relationship, task, opportunity, policy, history, reminder and activity workflows.
+
+## Product Surface And Module Registry Annex
+
+Created:
+
+- `docs/product/FORGE_PRODUCT_SURFACE_MAP.md`
+- `scaffolds/manifest/forge-product-surfaces.json`
+- `docs/architecture/FORGE_MODULE_REGISTRY.md`
+- `scaffolds/manifest/forge-module-registry.json`
+- `docs/architecture/FORGE_MODULE_GAP_ANALYSIS.md`
+- `scaffolds/manifest/module-gap-analysis.json`
+
+Final product inventory metrics:
+
+- Total product surfaces: 21.
+- Total modules: 37.
+- Implemented modules: 5.
+- Partially implemented modules: 8.
+- Build-new modules: 20.
+- Deferred modules: 2.
+- Rejected modules: 2.
+- Product completeness percentage: 37.
+- Rewrite coverage percentage: 100.
+
+Validation added:
+
+- `validate-product-surfaces` fails if a surface has no responsible module, a module has no capability, a capability has no module, or key Build Tree modules disappear from the registry.

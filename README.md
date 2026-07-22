@@ -116,7 +116,10 @@ Start with:
 
 - Full cleanup report: `docs/migration/FULL_REPOSITORY_CLEANUP_REPORT.md`
 - Product spec: `docs/product/FORGE_PRODUCT_SPEC.md`
+- Product surface map: `docs/product/FORGE_PRODUCT_SURFACE_MAP.md`
 - Requirements traceability: `docs/product/FORGE_REQUIREMENTS_TRACEABILITY_MATRIX.md`
+- Module registry: `docs/architecture/FORGE_MODULE_REGISTRY.md`
+- Module gap analysis: `docs/architecture/FORGE_MODULE_GAP_ANALYSIS.md`
 - Termux rewrite runbook: `docs/rewrite/TERMUX_REWRITE_RUNBOOK.md`
 - Scaffold manifest: `scaffolds/manifest/rewrite-manifest.json`
 - Build tree: `governance/architecture/FORGE_MASTER_BUILD_TREE.md`
