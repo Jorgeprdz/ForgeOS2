@@ -89,9 +89,9 @@ The processable capability source is `scaffolds/manifest/forge-product-capabilit
 
 Current counts:
 
-- Total capabilities: 23.
+- Total capabilities: 24.
 - `PRESERVE`: 6.
-- `REDESIGN`: 11.
+- `REDESIGN`: 12.
 - `DEFER`: 2.
 - `REJECT`: 2.
 - `REQUIRES_OWNER_DECISION`: 2.
