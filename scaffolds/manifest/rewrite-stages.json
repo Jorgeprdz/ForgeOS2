@@ -328,7 +328,7 @@
     },
     {
       "id": "SG-018",
-      "previous_stage_id": "SG-018",
+      "previous_stage_id": null,
       "canonical_order": 4,
       "dependency_layer": "LEGACY_CONTROL",
       "name": "Legacy Reintroduction Guard",
@@ -360,7 +360,9 @@
       "allowed_paths": [
         "scaffolds/",
         "tools/termux/rewrite/",
-        "docs/rewrite/"
+        "docs/rewrite/",
+        "scaffolds/policies/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -372,12 +374,14 @@
         "scaffolds/templates/documentation/stage-plan.template.md"
       ],
       "files_to_generate": [
+        "scaffolds/policies/legacy-reintroduction-denylist.json",
+        "scaffolds/policies/legacy-absence-validation-policy.json",
         "scaffolds/reports/SG-018-evidence.json"
       ],
       "allowed_operations": [
         "plan",
         "dry-run",
-        "apply guard evidence",
+        "materialize legacy reintroduction controls",
         "validate absence",
         "validate"
       ],
@@ -396,7 +400,7 @@
       "acceptance_criteria": [
         "Legacy reintroduction is guarded before any product scaffold can consume historical evidence."
       ],
-      "rollback": "Remove only SG-018 generated evidence when hashes match.",
+      "rollback": "Remove only SG-018 materialized policies and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-021",
         "SG-019",
