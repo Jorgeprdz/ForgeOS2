@@ -23,6 +23,19 @@
       "validation_method": "Stage manifests must block final authority transfer to generated code."
     },
     {
+      "id": "BOUND-HUMAN-AUTHORITY",
+      "source": "Unified Constitution",
+      "path": "governance/constitution/CONSTITUTION_UNIFIED.md",
+      "section": "Article 0 / human authority",
+      "description": "Human approval and accountability remain required for governed actions and interpretation of consequential outputs.",
+      "scope": ["advisor", "manager", "termux", "governance"],
+      "permitted_operations": ["request approval", "record approval state", "block missing approval"],
+      "prohibited_operations": ["bypass owner decision", "apply consequential changes without human authority"],
+      "affected_components": ["Promotion Gates", "Action Planning", "Relationship Intelligence"],
+      "severity": "CRITICAL",
+      "validation_method": "Validators require blocked or approval-gated status when owner authority is missing."
+    },
+    {
       "id": "BOUND-EVIDENCE-OWNERSHIP",
       "source": "Unified Constitution",
       "path": "governance/constitution/CONSTITUTION_UNIFIED.md",

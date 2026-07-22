@@ -3,7 +3,9 @@
   "private": true,
   "scripts": {
     "test": "node tools/run-tests.mjs",
-    "lint": "node tools/validate-imports.mjs && node tools/validate-markdown-links.mjs"
+    "lint": "node tools/validate-imports.mjs && node tools/validate-markdown-links.mjs",
+    "scaffold:validate": "node scaffolds/validation/validate-product-spec.mjs && node scaffolds/validation/validate-boundaries.mjs && node scaffolds/validation/validate-traceability.mjs && node scaffolds/validation/validate-manifest.mjs && node scaffolds/validation/validate-scaffold.mjs && node scaffolds/validation/validate-paths.mjs && node scaffolds/validation/validate-evidence.mjs && node scaffolds/validation/validate-stage.mjs",
+    "termux:rewrite:validate": "bash tools/termux/rewrite/forge-rewrite-validate.sh"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",
