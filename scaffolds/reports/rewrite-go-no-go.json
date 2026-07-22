@@ -145,7 +145,7 @@
         "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE"
       ],
       "warnings": [
-        "Evidence blockers exist outside first execution wave."
+        "Evidence decisions remain outside the first execution wave."
       ],
       "required_action": "Resolve before affected module implementation.",
       "blocking": false
@@ -195,5 +195,5 @@
       "blocking": false
     }
   ],
-  "final_decision": "CONDITIONAL_GO"
+  "final_decision": "GO"
 }

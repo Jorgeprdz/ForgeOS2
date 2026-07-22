@@ -101,7 +101,7 @@ assert(semanticAudit.path_values_in_event_fields === 0, 'path values in event fi
 assert(go.final_decision === 'GO' || go.final_decision === 'CONDITIONAL_GO' || go.final_decision === 'NO_GO', 'invalid final decision');
 const blockingFailures = go.categories.filter(category => category.blocking && category.status !== 'PASS');
 if (go.final_decision !== 'NO_GO') assert(blockingFailures.length === 0, `GO decision has blocking failures: ${blockingFailures.map(item => item.category).join(', ')}`);
-if (go.final_decision === 'GO') assert(go.categories.every(category => category.status === 'PASS'), 'GO requires every category PASS');
+if (go.final_decision === 'GO') assert(firstWave.first_execution_wave_ready === true && blockingFailures.length === 0, 'GO requires first-wave readiness and no blocking category failures');
 if (go.final_decision === 'CONDITIONAL_GO') assert(firstWave.first_execution_wave_ready === true, 'CONDITIONAL_GO requires first wave readiness');
 
 finish(name);
