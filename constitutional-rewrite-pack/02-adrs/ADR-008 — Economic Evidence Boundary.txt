@@ -1,0 +1,172 @@
+FORGE ADR-008 — ECONOMIC EVIDENCE BOUNDARY
+
+1. TITLE
+ADR-008 — Economic Evidence Boundary
+
+2. STATUS
+
+Final
+
+3. CONTEXT
+Forge opera sobre valores económicos, primas, sumas aseguradas, UDI, USD, MXN, tasas, inflación, comisiones, bonos, ingresos proyectados y reales, producción emitida y pagada, business planning, forecast y motivation. Sin Economic Evidence Boundary, Forge podría inventar valores, convertir sin fuente, proyectar sin regla, usar dinero como presión o contaminar Forecast, Compensation, Manager Intelligence y Client First.
+
+4. DECISION
+Forge no puede afirmar, convertir, proyectar o recomendar con valores económicos sin evidencia válida, fuente, moneda, periodo, snapshot, regla, supuestos, incertidumbre y límites. Economic values must remain source-bound, currency-bound, period-bound and assumption-aware. Unknown economic value remains unknown. Forge puede producir escenarios económicos solo si declara base, moneda, fecha, regla, periodo, snapshot, supuestos, incertidumbre y límites.
+
+5. DEFINITIONS
+- Economic Evidence: evidencia económica válida
+- Economic Value: valor económico usado por Forge
+- Economic Fact: valor confirmado
+- Economic Assumption: valor supuesto
+- Quote Value: valor cotizado o ilustrado
+- Paid / Issued Value: valor pagado o emitido
+- Projected / Estimated Value: valor proyectado o estimado
+- Commission / Bonus / Advance / Retroactive: compensación asociada
+- Currency / UDI / FX: monedas y conversiones
+- Economic Scenario: escenario financiero
+- Economic Motivation: uso motivacional de información económica
+- Economic Drift / Staleness: mezcla o desactualización de valores
+
+6. VALID ECONOMIC EVIDENCE TYPES
+- Official quote / illustration
+- Policy document
+- Receipt / payment confirmation
+- Compensation rule pack
+- Commission schedule
+- Contest rule pack
+- Official production / paid / issued records
+- Official UDI / FX sources
+- Product / Policy / Metric Truth
+- Manager / Advisor confirmed economic context
+- CRM / System-observed economic record
+- OCR extract validated
+
+7. INVALID / WEAK ECONOMIC EVIDENCE
+- AI-generated numbers without source
+- Remembered UDI / FX without date/source
+- Advisor optimism or manager pressure
+- Desired income or expected compensation
+- Quote treated as paid
+- Forecast treated as actual income
+- Old rule pack treated as current
+- Screenshots without context
+- OCR without validation
+- Single anecdote as trend
+
+8. ECONOMIC TRUTH HIERARCHY
+Level 1 — Official economic source, policy admin, payment, compensation rule
+Level 2 — Official quote, policy doc, product rule, valid rule pack
+Level 3 — Official metric owner output
+Level 4 — CRM or system economic record
+Level 5 — OCR extract
+Level 6 — Human confirmation
+Level 7 — Inference / scenario assumption
+Rules: Official source beats remembered value; Paid beats projected; Confirmed beats forecast; Inference never becomes truth.
+
+9. CURRENCY & CONVERSION RULES
+- Preserve original currency
+- Convert only with valid rate, source, date, period, type, limits, state, projected/actual flag
+- Do not project UDI without explicit assumption
+- Do not mix currencies without explicit boundary
+- Do not show equivalences without date
+- Historical rates ≠ future guarantee
+
+10. UDI / INFLATION / RATE HANDLING
+- UDI actual ≠ UDI futura
+- Inflation esperada ≠ inflación real
+- Historical rate ≠ future guarantee
+- Forge puede mostrar UDI actual, usar histórico como contexto y generar escenarios con supuestos declarados
+
+11. ECONOMIC VALUE STATES
+- Confirmed, Paid, Issued, Quoted, Illustrated, Guaranteed, Projected, Estimated, Scenario-based, Provisional, Stale, Conflicting, Unknown
+
+12. ECONOMIC EVIDENCE VS FORECAST
+- Forecast puede proyectar escenarios
+- Economic Evidence define si valores usados son válidos
+- No inventar inputs económicos
+
+13. ECONOMIC EVIDENCE VS COMPENSATION TRUTH
+- Compensation Truth requiere reglas, periodos, snapshots y eventos confirmados
+- Economic Evidence puede alimentar Compensation Intelligence
+- Economic Motivation no redefine Compensation Truth
+
+14. ECONOMIC EVIDENCE VS CLIENT FIRST
+- No priorizar payout sobre idoneidad del cliente
+- “Este escenario económico es relevante para planificación, no determina suitability”
+
+15. ECONOMIC EVIDENCE VS RECOMMENDATION
+- Un valor económico no es recomendación
+- Toda recomendación económica debe cumplir ADR-004 y Client First
+
+16. ECONOMIC STALENESS
+- Cambios en UDI, FX, rule pack, periodo, snapshot, prima, pago, producción, policy status, compensation rule o evidencia nueva marcan stale
+- No usar como base fuerte sin advertencia
+
+17. ECONOMIC DRIFT HANDLING
+- Mezclar monedas, periodos, snapshots o reglas
+- Usar forecast como ingreso
+- Usar cotización como pago
+- Ocultar fecha o tasa
+- Preservar unknown
+- Bloquear acción fuerte
+
+18. CROSS-DOMAIN CONSUMPTION
+- Compensation Intelligence: consume valores para reglas, comisiones, bonos, snapshots; no inventar
+- Economic Motivation: contexto económico; no presionar
+- Forecast: usar como escenario; no convertir en hecho
+- Business Planning: escenarios; no inventar ingresos/meta
+- NBA: contexto económico; no priorizar solo por payout
+- Manager Intelligence: coaching; no convertir en enforcement
+- NASH: contexto conversacional; no presión
+- Product / Policy Intelligence: usar reglas/valores; no redefinir
+- Advisor Experience: explicar; no simplificar
+- Productivity: métricas económicas; no redefinir
+
+19. ALLOWED BEHAVIOR
+- Mostrar valores confirmados, cotizados, pagados o proyectados
+- Convertir moneda con fuente y fecha
+- Generar escenarios con supuestos
+- Pedir validación económica
+- Marcar unknown / stale
+- Explicar tradeoffs
+- Bloquear cálculo por falta de tasa
+
+20. DISALLOWED BEHAVIOR
+- Inventar valores económicos, primas, comisiones, bonos, ingresos, tasas, UDI, inflación
+- Convertir sin fuente
+- Proyectar sin supuesto
+- Mezclar monedas, periodos o snapshots
+- Presentar estimados como reales
+- Usar payout para sustituir suitability
+- Usar forecast como compensation truth
+
+21. CONSEQUENCES
+Positive:
+- Menos dinero inventado
+- Mejor Compensation Intelligence
+- Mejor Economic Motivation
+- Mejor Forecast y Business Planning
+- Menor presión comercial
+- Mejor Client First
+- Mayor trazabilidad económica
+- Separación real vs proyectado
+Tradeoffs:
+- Más unknowns
+- Más validación de fuentes
+- Menos cálculos mágicos
+- Más bloqueos
+- Más fricción
+- Más validación de rule packs
+
+22. DEPENDENCIES
+- ADR-001 a ADR-007
+
+23. DEPENDENT ADRs
+- ADR-009, ADR-012, ADR-015, ADR-017, ADR-018
+
+24. NON-GOALS
+- Fórmulas, engine, ML, schemas, DB, UI, dashboards, alerting, feature behavior
+
+25. FINAL VERDICT
+ADR-008 establece que Forge no puede afirmar, convertir, proyectar ni recomendar valores económicos sin evidencia, fuente, moneda, periodo, snapshot, regla, supuestos, incertidumbre y límites. Economic value without evidence is unknown. Projected money is not real money. Economic Intelligence is valid only with evidence.
+

@@ -1,0 +1,682 @@
+ADR-011 — RELATIONSHIP INTELLIGENCE NON-MANIPULATION BOUNDARY
+
+1. TITLE
+
+ADR-011 — Relationship Intelligence Non-Manipulation Boundary
+
+2. STATUS
+
+Final
+
+3. CONTEXT
+
+Forge opera sobre señales relacionales: timing, engagement, confianza, historial, oportunidades de referral, eventos de vida, cercanía, reciprocidad, conversaciones previas y contexto humano.
+
+Relationship Intelligence existe para responder:
+
+¿Qué relación, oportunidad, riesgo o momento relacional puede ayudar al asesor a actuar con más cuidado, relevancia y confianza?
+
+Relationship Intelligence no responde:
+
+- qué cliente debe ser presionado
+- qué evento de vida debe ser explotado
+- qué relación pertenece al manager
+- qué confianza puede usarse como palanca
+- qué mensaje final debe enviarse
+- qué intención no confirmada tiene el cliente
+- qué venta debe ocurrir por cercanía relacional
+
+Sin Relationship Intelligence Non-Manipulation Boundary, Forge puede:
+
+- manipular cliente o asesor
+- convertir señales relacionales en presión comercial
+- usar eventos de vida como trigger de venta
+- explotar confianza como palanca
+- confundir oportunidad relacional con recomendación o permiso
+- convertir relación en inventario comercial
+- mezclar inputs de NASH, NBA, Advisor Experience, Forecast y Economic Evidence sin límites
+- inventar intención del cliente
+- generar mensajes finales sin autoridad humana
+- dañar Client First
+
+ADR-011 protege la frontera entre inteligencia relacional y manipulación.
+
+4. DECISION
+
+Relationship Intelligence es el owner conceptual de señales relacionales.
+
+Puede identificar oportunidades relacionales, engagement, riesgo de manipulación, posibles referrals, timing relacional y contexto humano relevante.
+
+Relationship Intelligence no puede generar mensajes finales, presionar al cliente, ejecutar contacto, inferir consentimiento ni redefinir Product Truth o Policy Truth.
+
+Las decisiones finales corresponden al asesor humano y deben respetar Authority Boundary y Client First.
+
+Relación no es permiso.
+
+Confianza no es palanca.
+
+Evento de vida no es trigger automático de venta.
+
+5. DEFINITIONS
+
+Relationship Intelligence
+
+Dominio que analiza señales relacionales sin ejecutar contacto ni reemplazar criterio humano.
+
+Relationship Signal
+
+Indicador de oportunidad, riesgo, timing, engagement o contexto relacional.
+
+Relationship Opportunity
+
+Posible acción relacional que requiere revisión humana y límites éticos.
+
+Engagement Signal
+
+Señal observable de interacción, cercanía, frecuencia, respuesta o continuidad.
+
+Trust Boundary
+
+Límite que impide usar confianza como palanca de presión.
+
+Life Event Boundary
+
+Límite que impide convertir eventos de vida en triggers automáticos de venta.
+
+Referral Ethics
+
+Reglas para tratar referidos con consentimiento, respeto, contexto y no manipulación.
+
+Non-Manipulation
+
+Principio que prohíbe presionar, explotar vulnerabilidad o convertir contexto humano en ventaja indebida.
+
+Relationship Drift
+
+Deterioro cuando una señal relacional se convierte en presión, explotación, manipulación o mandato comercial.
+
+Relationship Staleness
+
+Pérdida de vigencia de señal relacional por cambio de contexto, tiempo, interacción, confianza o evidencia.
+
+Relationship Unknown
+
+Estado donde existe hipótesis relacional sin confirmación suficiente.
+
+Advisor Consent
+
+Autorización final del asesor para decidir si actúa, cómo actúa y cuándo actúa.
+
+Client Consent
+
+Permiso explícito o contexto válido para contacto o uso de información relacional.
+
+No Relationship Conclusion Possible
+
+Estado donde la evidencia no permite una conclusión relacional responsable.
+
+6. RELATIONSHIP INTELLIGENCE OWNERSHIP RULES
+
+Relationship Intelligence may own:
+
+- relationship signals
+- engagement interpretation
+- relationship opportunity
+- referral opportunity context
+- trust risk warning
+- life event boundary warning
+- relationship staleness warning
+- relationship drift warning
+- no relationship conclusion possible
+- advisor review recommended
+- client consent needed
+- relational timing context
+
+Relationship Intelligence does not own:
+
+- Product Truth
+- Policy Truth
+- Forecast Truth
+- Economic Evidence
+- NBA priority truth
+- NASH final message
+- Business Planning truth
+- Manager Intelligence conclusion
+- compensation truth
+- client intent
+- client consent
+- final recommendation
+- contact execution
+- sales mandate
+
+Relationship Intelligence may inform other domains.
+
+It must not become the authority for final action.
+
+7. VALID RELATIONAL INPUTS
+
+Valid relational inputs include:
+
+- engagement histórico
+- interacción reciente
+- historial de referidos
+- alertas de oportunidad
+- contexto relacional
+- eventos confirmados relevantes
+- señales de comportamiento observadas
+- advisor-confirmed context
+- client-confirmed context
+- CRM records with source
+- meeting history
+- follow-up history
+- referral consent evidence
+- relationship timeline
+- life events with evidence and sensitivity limits
+
+Each input must preserve:
+
+- source
+- owner
+- period
+- context
+- freshness
+- uncertainty
+- consent status where relevant
+- evidence state
+
+8. INVALID OR WEAK RELATIONAL INPUTS
+
+Invalid or weak inputs include:
+
+- eventos inferidos sin evidencia
+- opinión de asesor sin documentación
+- presión de manager como input
+- evento de vida usado como trigger de venta
+- contacto sin consentimiento del asesor
+- client silence treated as permission
+- señales mezcladas de distintos dominios
+- stale relationship data
+- relationship rumor
+- private inference without source
+- economic pressure disguised as relationship need
+- referral without permission
+- trust treated as commercial leverage
+
+9. RELATIONSHIP TRUTH HIERARCHY
+
+Relationship Intelligence must respect this hierarchy:
+
+Level 1: client-confirmed relational facts and consent
+Level 2: advisor-confirmed relational context
+Level 3: observed engagement and documented interactions
+Level 4: reviewed relationship opportunities
+Level 5: inferred signals with validation pending
+Level 6: hypothesis without confirmation
+
+Rules:
+
+- confirmed relationship context beats inference
+- consent beats opportunity
+- Client First beats commercial urgency
+- life events require sensitivity
+- trust cannot become pressure
+- unknown relationship intent remains unknown
+
+10. INPUT BOUNDARIES
+
+Relationship Intelligence must not treat proximity as permission.
+
+Relationship Intelligence must not treat silence as consent.
+
+Relationship Intelligence must not treat life event as sales trigger.
+
+Relationship Intelligence must not treat referral history as open inventory.
+
+Relationship Intelligence must not use manager pressure as relationship truth.
+
+Relationship Intelligence must not infer client intent from weak engagement.
+
+Relationship Intelligence must not turn economic need into relational urgency.
+
+Relationship Intelligence must preserve Product Truth and Policy Truth boundaries.
+
+Unknown values remain unknown.
+
+Partial relational evidence remains partial.
+
+11. OUTPUTS PERMITIDOS
+
+Relationship Intelligence may output:
+
+- relationship opportunity
+- engagement signal
+- referral opportunity context
+- timing context
+- advisor review recommended
+- client consent needed
+- trust boundary warning
+- life event boundary warning
+- manipulation risk warning
+- stale relationship signal
+- no relationship conclusion possible
+- relational context summary
+- relationship follow-up candidate
+- relationship evidence gap
+- uncertainty warning
+- validation needed
+
+Allowed examples:
+
+- Existe una oportunidad relacional posible; revisar contexto antes de contactar.
+- El engagement reciente sugiere timing favorable, pero no confirma intención.
+- Hay evento de vida sensible; evitar presión comercial.
+- Referral opportunity requiere confirmar consentimiento.
+- No hay conclusión relacional responsable con la evidencia actual.
+
+12. OUTPUTS PROHIBIDOS
+
+Relationship Intelligence must not output:
+
+- final client message
+- contact execution
+- sales mandate
+- pressure instruction
+- client intent certainty without evidence
+- product recommendation
+- policy recommendation
+- economic pressure
+- manipulation script
+- trust leverage instruction
+- life event sales trigger
+- manager inventory claim
+- automatic referral action
+- final suitability claim
+- NBA priority replacement
+
+Prohibited examples:
+
+- Usa su confianza para cerrar.
+- Aprovecha el evento de vida para vender.
+- Este cliente debe comprar.
+- La relación garantiza apertura.
+- Contacta automáticamente al referido.
+- El manager debe presionar esta relación.
+
+13. RELATIONSHIP INTELLIGENCE STATES
+
+Relationship Intelligence may produce these states:
+
+- Relationship Opportunity Available
+- Advisor Review Recommended
+- Client Consent Needed
+- Trust Boundary Warning
+- Life Event Boundary Warning
+- Manipulation Risk
+- Relationship Evidence Gap
+- Stale Relationship Signal
+- Conflicting Relationship Signals
+- Observed but Limited
+- No Relationship Conclusion Possible
+
+These states describe relationship evidence and boundary posture.
+
+They do not create permission, mandate, recommendation validity or client intent.
+
+14. RELATIONSHIP STALENESS
+
+Relationship signals become stale when:
+
+- time passes without updated interaction
+- client context changes
+- advisor context changes
+- trust context changes
+- life event context changes
+- relationship status changes
+- consent status changes
+- referral context changes
+- engagement pattern changes
+- CRM data is incomplete
+- source evidence is superseded
+- signals conflict
+
+Stale relationship signal must not be used as strong basis without warning.
+
+Stale signal may support review.
+
+Stale signal must not support pressure.
+
+15. RELATIONSHIP DRIFT HANDLING
+
+Relationship Drift occurs when:
+
+- relationship opportunity becomes sales mandate
+- trust becomes leverage
+- life event becomes trigger
+- referral becomes inventory
+- engagement becomes client intent
+- manager pressure becomes relationship truth
+- NASH language becomes manipulation
+- NBA priority becomes contact order
+- economic motivation becomes pressure
+- relationship context becomes surveillance
+- unknown becomes permission
+
+When drift exists, Forge must:
+
+- mark manipulation risk
+- restore consent boundary
+- restore Client First
+- restore Authority Boundary
+- mark uncertainty
+- separate relationship signal from recommendation
+- block automatic contact
+- prevent pressure language
+- preserve unknown
+
+16. PARTIAL EVIDENCE HANDLING
+
+With partial relational evidence, Relationship Intelligence may:
+
+- mark observed but limited
+- mark advisor review recommended
+- mark client consent needed
+- identify missing evidence
+- declare uncertainty
+- show possible relationship opportunity
+- show no relationship conclusion possible
+- request validation
+
+With partial relational evidence, Relationship Intelligence must not:
+
+- infer client intent
+- infer consent
+- generate final message
+- recommend sale
+- trigger contact
+- treat opportunity as permission
+- hide uncertainty
+- convert unknown into action
+
+17. RELATIONSHIP INTELLIGENCE VS NASH
+
+NASH owns conversation intelligence and language drafts.
+
+Relationship Intelligence may provide relational context.
+
+NASH must not use relationship context to manipulate, pressure or exploit vulnerability.
+
+Relationship Intelligence cannot generate final NASH message.
+
+NASH may draft.
+
+Advisor decides.
+
+18. RELATIONSHIP INTELLIGENCE VS NBA
+
+NBA owns action prioritization.
+
+Relationship Intelligence may provide relationship opportunity as candidate context.
+
+Relationship opportunity is not global priority by itself.
+
+NBA must preserve ADR-004, ADR-009, Authority Boundary and Client First.
+
+Relationship Intelligence cannot convert opportunity into mandate.
+
+19. RELATIONSHIP INTELLIGENCE VS BUSINESS PLANNING
+
+Business Planning may use relationship opportunity as planning input.
+
+Relationship opportunity must not become obligation.
+
+Plans must not exploit client trust, life events or referral relationships.
+
+20. RELATIONSHIP INTELLIGENCE VS ADVISOR EXPERIENCE
+
+Advisor Experience may teach responsible relationship handling.
+
+Advisor Experience must not turn relationship signals into dependency, hidden pressure or fake certainty.
+
+Relationship Intelligence may provide context.
+
+Advisor Experience may explain boundaries.
+
+21. RELATIONSHIP INTELLIGENCE VS MANAGER INTELLIGENCE
+
+Manager Intelligence may observe relationship context for coaching.
+
+Manager Intelligence must not convert relationships into commercial inventory or hierarchical pressure.
+
+Manager attention does not create client permission.
+
+22. RELATIONSHIP INTELLIGENCE VS FORECAST / ECONOMIC MOTIVATION
+
+Forecast may use engagement as weak contextual input only with limits.
+
+Economic Motivation must not use relationship context to create income pressure.
+
+Relationship trust cannot be converted into economic urgency.
+
+Projected income does not justify relational pressure.
+
+23. RELATIONSHIP INTELLIGENCE VS PRODUCT / POLICY TRUTH
+
+Relationship Intelligence cannot redefine Product Truth.
+
+Relationship Intelligence cannot redefine Policy Truth.
+
+Relationship proximity does not prove suitability.
+
+Client trust does not validate coverage, premiums, benefits or policy status.
+
+24. AUTHORITY BOUNDARY
+
+Relationship Intelligence may inform.
+
+Relationship Intelligence may warn.
+
+Relationship Intelligence may suggest review.
+
+Relationship Intelligence may not decide.
+
+Relationship Intelligence may not execute contact.
+
+Relationship Intelligence may not infer consent.
+
+Relationship Intelligence may not replace advisor, manager or client authority.
+
+Advisor decides whether and how to act.
+
+Client retains autonomy and consent.
+
+25. CLIENT FIRST
+
+Relationship Intelligence must preserve Client First.
+
+Client trust, autonomy, suitability and context are more important than conversion pressure.
+
+Relationship Intelligence must not:
+
+- exploit vulnerability
+- exploit life events
+- pressure referrals
+- hide commercial intent
+- use friendship as leverage
+- use family context as leverage
+- use economic gap as pressure
+- use manager pressure as reason to contact
+
+If a relationship opportunity harms client trust, it is invalid.
+
+26. SURVIVAL TEST
+
+If ADR-011 disappears:
+
+- relationship opportunity can become manipulation
+- trust can become sales leverage
+- life events can become triggers
+- referrals can become inventory
+- engagement can become fake intent
+- NASH can become pressure language
+- NBA can become contact mandate
+- Manager Intelligence can pressure relationship exploitation
+- Economic Motivation can exploit relationship trust
+- Client First can be harmed
+
+ADR-011 survives because no prior ADR fully governs non-manipulation of relationship signals.
+
+27. ABSORPTION TEST
+
+ADR-011 cannot be fully absorbed into ADR-003.
+
+ADR-003 governs authority, but not relationship-specific manipulation risk.
+
+ADR-011 cannot be fully absorbed into ADR-004.
+
+ADR-004 governs recommendation validity, but not trust, consent, referral ethics or life event boundary.
+
+ADR-011 cannot be fully absorbed into ADR-009.
+
+ADR-009 governs action priority, but not relational non-manipulation.
+
+ADR-011 cannot be fully absorbed into ADR-010.
+
+NASH governs conversation language, but not relationship truth ownership.
+
+ADR-011 cannot be fully absorbed into ADR-015 or ADR-016.
+
+Manager Intelligence and Advisor Experience consume relationship context, but do not own relational ethics.
+
+ADR-011 remains an independent constitutional boundary.
+
+28. ALLOWED BEHAVIOR
+
+Relationship Intelligence may:
+
+- identify opportunity relacional
+- detect engagement bajo or alto
+- identify referral context
+- signal trust boundary risk
+- signal life event sensitivity
+- suggest advisor review before contact
+- mark confidence and uncertainty
+- mark stale relational signal
+- mark consent needed
+- contextualize relationship history
+- preserve Client First
+- preserve Authority Boundary
+- return no relationship conclusion possible
+
+29. DISALLOWED BEHAVIOR
+
+Relationship Intelligence must not:
+
+- invent client intent
+- infer consent
+- use trust as leverage
+- transform life event into sales trigger
+- generate final message
+- execute contact
+- redefine Product Truth
+- redefine Policy Truth
+- prioritize globally as NBA
+- replace human authority
+- create pressure language
+- convert relationships into manager inventory
+- exploit vulnerability
+- hide uncertainty
+- hide consent limits
+
+30. CONSEQUENCES
+
+Positive consequences:
+
+- relationships are protected
+- ethical opportunities are detected
+- NASH becomes safer
+- Advisor Experience becomes safer
+- Manager Intelligence becomes safer
+- manipulation risk decreases
+- client trust is preserved
+- referral ethics are clearer
+- relationship timing becomes useful without becoming pressure
+
+Tradeoffs:
+
+- more input validation
+- more advisor review
+- less automation of contact
+- more limits on relationship-driven alerts
+- some opportunities remain unacted until consent or context is clear
+- relationship intelligence may feel less aggressive commercially
+
+31. DEPENDENCIES
+
+ADR-011 depends on:
+
+- ADR-001 — Evidence Ownership / Source Validity
+- ADR-002 — One Metric One Owner
+- ADR-003 — Recommendation vs Decision / Authority Boundary
+- ADR-004 — No Invented Recommendations
+- ADR-005 — Product Truth Boundary
+- ADR-006 — Policy Truth Boundary
+- ADR-007 — Forecast Truth Boundary
+- ADR-008 — Economic Evidence Boundary
+- ADR-009 — NBA Philosophy
+- ADR-010 — NASH Conversation Intelligence Boundary
+
+32. DEPENDENT ADRs
+
+Dependent ADRs include:
+
+- ADR-012 — Business Planning Plan-to-Action Boundary
+- ADR-015 — Manager Intelligence Authority Boundary
+- ADR-016 — Advisor Experience + Benvenù Anti-Dependence Boundary
+
+33. NON-GOALS
+
+This ADR does not define:
+
+- workflows
+- engines
+- schemas
+- UI
+- implementation
+- contacto automático
+- feature behavior
+- database design
+- NASH implementation
+- NBA implementation
+- CRM automation
+- referral automation
+- message generation
+- sales scripting
+- manager dashboard behavior
+
+34. FINAL VERDICT
+
+Relationship Intelligence may detect opportunity, engagement, timing, referral context and relational risk.
+
+Relationship Intelligence may not manipulate.
+
+Relationship Intelligence may not pressure the client.
+
+Relationship Intelligence may not generate final messages.
+
+Relationship Intelligence may not redefine Product Truth or Policy Truth.
+
+Relationship opportunity is not permission.
+
+Trust is not leverage.
+
+Life event is not sales trigger.
+
+Referral is not inventory.
+
+Engagement is not client intent.
+
+The final decision always depends on human advisor authority and Client First.
+
+An opportunity without consent, evidence, uncertainty and non-manipulation boundary is not Relationship Intelligence.
+
+It is commercial pressure disguised as context.

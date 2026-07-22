@@ -1,0 +1,923 @@
+ADR-018 — ECONOMIC MOTIVATION CLIENT FIRST BOUNDARY
+
+1. TITLE
+
+ADR-018 — Economic Motivation Client First Boundary
+
+2. STATUS
+
+Final
+
+3. CONTEXT
+
+Forge ya cuenta con ADR-001 a ADR-017.
+
+ADR-018 define cómo Forge puede usar contexto económico, metas de ingreso, escenarios de compensación, motivación financiera, business planning, gaps económicos y objetivos comerciales para ayudar al asesor sin crear ansiedad, presión indebida, payout-first behavior, manipulación del cliente o violación de Client First.
+
+Economic Motivation existe para responder:
+
+¿Cómo puede Forge presentar implicaciones económicas, motivación financiera y escenarios de ingreso sin inducir presión indebida, ansiedad, manipulación o recomendaciones payout-first?
+
+Economic Motivation no responde:
+
+- qué valor económico existe sin evidencia
+- qué compensación está confirmada
+- qué producto debe recomendarse por comisión
+- qué cliente debe ser presionado por ingreso del asesor
+- qué NBA debe convertirse en orden
+- qué manager debe presionar al asesor
+- qué relación debe explotarse para cerrar un gap
+- qué ingreso está garantizado
+- qué asesor vale más por dinero
+
+Sin Economic Motivation Client First Boundary, Forge puede:
+
+- convertir income goal en presión al cliente
+- convertir compensation scenario en promesa
+- convertir economic gap en mandato comercial
+- convertir productividad en vergüenza económica
+- convertir manager context en presión jerárquica
+- convertir relationship context en explotación
+- convertir NBA en orden por dinero
+- convertir NASH en script manipulativo
+- convertir payout en razón de recomendación
+- subordinar Client First al ingreso del asesor
+- ocultar uncertainty para motivar
+- presentar dinero proyectado como dinero real
+- crear anxiety-driven sales
+- degradar Advisor Experience con miedo económico
+
+ADR-018 protege Client First cuando dinero, metas o compensación entran en la experiencia.
+
+4. DECISION
+
+Economic Motivation es el owner conceptual de la presentación responsable de contexto económico motivacional para el asesor.
+
+Economic Motivation puede explicar escenarios económicos, gaps de ingreso, tradeoffs, metas económicas y contexto de compensación solo como información limitada, evidencia-aware y Client First.
+
+Economic Motivation no puede crear evidencia económica, compensation truth, forecast truth, business planning truth, NBA priority, NASH language final, manager enforcement o relationship permission.
+
+Economic Motivation no puede usar dinero como palanca de manipulación.
+
+Money is context, not pressure.
+
+Income goal is direction, not mandate.
+
+Compensation scenario is not promise.
+
+Economic gap is not client pressure.
+
+Client First remains above economic motivation.
+
+5. DEFINITIONS
+
+Economic Motivation
+
+Dominio responsable de presentar contexto económico al asesor de forma responsable, limitada, evidence-aware y Client First.
+
+Economic Motivation Context
+
+Explicación de cómo un valor económico, escenario, meta, gap o tradeoff puede orientar reflexión o planeación sin presionar.
+
+Income Goal
+
+Meta de ingreso declarada, oficial o personal. No equivale a ingreso real ni justifica presión comercial.
+
+Economic Gap
+
+Diferencia entre una meta económica y un estado actual o escenario. No es mandato.
+
+Compensation Scenario Explanation
+
+Explicación motivacional de un escenario de compensación provisto por Compensation Intelligence, preservando límites y uncertainty.
+
+Payout-First Behavior
+
+Conducta donde payout, comisión, bono o ingreso se prioriza sobre suitability, Client First, evidencia o autoridad humana.
+
+Financial Anxiety
+
+Estado de presión, miedo o angustia económica que puede inducir decisiones comerciales inseguras.
+
+Fear-Based UX
+
+Experiencia que usa miedo económico para empujar acción.
+
+Shame Prompt
+
+Mensaje que usa vergüenza económica, productividad o comparación para presionar al asesor.
+
+Client First Reminder
+
+Advertencia explícita de que el interés, autonomía, suitability y confianza del cliente permanecen por encima de ingreso, comisión o meta.
+
+No Economic Motivation Possible
+
+Estado donde no existe evidencia, contexto o límite suficiente para presentar motivación económica responsable.
+
+Motivation Blocked by Missing Evidence
+
+Estado donde Forge bloquea motivación económica fuerte porque falta evidencia económica, compensation context, forecast limit, plan context o Client First boundary.
+
+6. ECONOMIC MOTIVATION OWNERSHIP RULES
+
+Economic Motivation may own:
+
+- economic context explanation
+- income goal context
+- compensation scenario explanation
+- economic gap context
+- planning motivation context
+- tradeoff explanation
+- validation needed
+- human review suggested
+- uncertainty warning
+- Client First reminder
+- no economic motivation possible
+- motivation blocked by missing evidence
+- scenario under assumptions
+- responsible next review suggestion
+
+Economic Motivation does not own:
+
+- Economic Evidence
+- Compensation Intelligence
+- Forecast Truth
+- Business Planning truth
+- NBA priority truth
+- NASH conversation truth
+- Manager Intelligence conclusion
+- Relationship Intelligence truth
+- Advisor Experience learning state
+- Product Truth
+- Policy Truth
+- Metric Truth
+- client suitability
+- product recommendation
+- sales mandate
+- payment truth
+- income guarantee
+- motivation score
+- behavior model
+
+Economic Motivation consumes limited context.
+
+It does not redefine the source domain.
+
+7. VALID ECONOMIC MOTIVATION INPUTS
+
+Economic Motivation may consume:
+
+- Economic Evidence
+- Compensation Intelligence outputs
+- Forecast scenarios
+- Business Planning outputs
+- Productivity Metrics
+- Manager Intelligence context
+- Advisor Experience context
+- advisor-stated income goals
+- official goals
+- campaign goals
+- CRM records
+- Policy Truth
+- Product Truth
+- Relationship Intelligence context
+- NASH outputs
+- NBA outputs
+- advisor-confirmed context
+- manager-confirmed context
+- constraints
+- evidence gaps
+- uncertainty states
+
+Each input must preserve:
+
+- source
+- owner
+- period
+- context
+- freshness
+- uncertainty
+- limits
+- evidence state
+- Client First risk where applicable
+
+8. INPUT BOUNDARIES
+
+Economic Evidence
+
+Can provide valid economic values, currency, period, conversion, state and limits.
+
+Must not be reinterpreted as motivation without preserving uncertainty.
+
+Compensation Intelligence outputs
+
+Can provide paid, earned, estimated, projected, provisional or unknown compensation context.
+
+Must not become promise, pressure or product recommendation.
+
+Forecast scenarios
+
+Can provide future context.
+
+Must remain scenario and cannot become real income.
+
+Business Planning outputs
+
+Can provide routes, gaps, constraints and review loops.
+
+Must not become mandate because of economic motivation.
+
+Productivity Metrics
+
+Can explain activity/income tradeoffs when evidence supports it.
+
+Must not become shame or human worth.
+
+Manager Intelligence context
+
+Can provide coaching context.
+
+Must not become manager pressure loop.
+
+Advisor Experience context
+
+Can help adjust explanation clarity.
+
+Must not hide uncertainty to increase adoption.
+
+Advisor-stated income goals
+
+Can provide personal context.
+
+Must not become official goal or client pressure.
+
+Official goals and campaign goals
+
+Can provide objective context.
+
+Must preserve source, period and rules.
+
+CRM records
+
+Can provide candidate context.
+
+Must not replace Economic Evidence or Compensation Intelligence.
+
+Policy Truth and Product Truth
+
+Can provide client/product/policy facts.
+
+Must not be subordinated to payout.
+
+Relationship Intelligence context
+
+Can provide relational timing.
+
+Must not convert relationships into inventory for economic gaps.
+
+NASH outputs
+
+Can provide conversational draft context.
+
+Must not become economic pressure script.
+
+NBA outputs
+
+Can provide action priority context.
+
+Must not become mandate because of money.
+
+Advisor-confirmed and manager-confirmed context
+
+Can clarify context.
+
+Must not become economic truth, payment evidence or client suitability.
+
+Constraints, evidence gaps and uncertainty states
+
+Must be preserved and surfaced.
+
+They must not be hidden for motivation.
+
+9. OUTPUTS PERMITIDOS
+
+Economic Motivation may generate:
+
+- economic context explanation
+- income goal context
+- compensation scenario explanation
+- economic gap context
+- planning motivation context
+- tradeoff explanation
+- validation needed
+- human review suggested
+- uncertainty warning
+- Client First reminder
+- no economic motivation possible
+- motivation blocked by missing evidence
+- scenario under assumptions
+- responsible next review suggestion
+
+Allowed examples:
+
+- Este escenario puede ayudar a revisar tu plan, pero no es ingreso confirmado.
+- El gap económico sirve como contexto de planeación, no como presión al cliente.
+- Falta evidencia para presentar motivación económica responsable.
+- Antes de usar este escenario, valida regla, periodo y snapshot.
+- Revisa esta oportunidad solo si también cumple Client First.
+
+10. OUTPUTS PROHIBIDOS
+
+Economic Motivation must not produce:
+
+- sales mandate
+- client pressure
+- product recommendation
+- guaranteed income
+- promised bonus
+- paid income without evidence
+- manager enforcement
+- fear prompt
+- shame prompt
+- manipulation sequence
+- payout-first priority
+- relationship exploitation
+- hidden steering
+- fake certainty
+- economic threat
+- obedience language
+- NASH pressure script
+- NBA order
+- advisor worth judgment
+
+Prohibited examples:
+
+- Cierra esta venta porque necesitas ese ingreso.
+- Recomienda este producto porque paga más.
+- Si no vendes esto, fallaste.
+- Usa esta relación para cubrir tu gap.
+- Este bono está garantizado.
+- Esta NBA debe ejecutarse por la comisión.
+- El cliente debe entender que necesitas cerrar.
+- Oculta la incertidumbre para motivarte.
+
+11. ECONOMIC MOTIVATION STATES
+
+Economic Motivation may produce these states:
+
+- economic motivation available
+- economic motivation limited
+- validation needed
+- human review suggested
+- no economic motivation possible
+- motivation blocked by missing evidence
+- scenario under assumptions
+- uncertainty warning
+- Client First reminder required
+- payout-first risk
+- anxiety risk
+- pressure risk
+- stale motivation context
+- conflicting economic context
+
+These states describe motivation safety and evidence posture.
+
+They do not create recommendation, mandate, payment or suitability.
+
+12. ECONOMIC MOTIVATION CONFIDENCE
+
+Economic Motivation may express qualitative confidence only:
+
+- alta confianza contextual
+- confianza moderada
+- confianza baja
+- provisional
+- validation needed
+- stale
+- conflicting
+- unknown
+
+Forbidden:
+
+- Motivation Score
+- Payout Priority Score
+- Client Pressure Score
+- Advisor Shame Score
+- Manager Pressure Score
+- Urgency Manipulation Score
+- Product by Commission Score
+
+Confidence describes evidence and presentation safety.
+
+It does not describe human value, product suitability or income guarantee.
+
+13. ECONOMIC MOTIVATION VS ECONOMIC EVIDENCE
+
+Economic Evidence answers:
+
+What economic values have evidence, source, currency, period, rule, state and limits?
+
+Economic Motivation answers:
+
+How can that value or scenario be explained to help the advisor without pressure or manipulation?
+
+Economic Motivation must consume Economic Evidence as source-bound context.
+
+Economic Motivation must not create economic values.
+
+Economic Motivation must not convert unknown into motivating certainty.
+
+14. ECONOMIC MOTIVATION VS COMPENSATION INTELLIGENCE
+
+Compensation Intelligence answers:
+
+What compensation, commission, bonus, qualification, advance or retroactive state can be affirmed, estimated or projected with rules, snapshots and evidence?
+
+Economic Motivation answers:
+
+How can that compensation context be presented responsibly without promising money or pressuring action?
+
+Economic Motivation must preserve paid, earned, estimated, projected, provisional, stale, conflicting and unknown compensation states.
+
+Compensation scenario is not motivation permission.
+
+15. ECONOMIC MOTIVATION VS FORECAST
+
+Forecast answers:
+
+What could happen?
+
+Economic Motivation may explain forecast implications only as scenario.
+
+Forecast does not become income.
+
+Forecast does not become urgency.
+
+Projected money must remain projected.
+
+16. ECONOMIC MOTIVATION VS BUSINESS PLANNING
+
+Business Planning creates action paths.
+
+Economic Motivation provides economic context that may explain why a route matters.
+
+Economic Motivation does not create the plan.
+
+Business Planning must not use economic motivation as pressure.
+
+An economic gap may inform a plan.
+
+It must not turn a plan into mandate.
+
+17. ECONOMIC MOTIVATION VS NBA
+
+NBA prioritizes valid action candidates.
+
+Economic Motivation provides economic context.
+
+Economic Motivation must not convert NBA into order.
+
+NBA must not prioritize payout over Client First.
+
+Money may be one contextual factor.
+
+Money is not sufficient reason for priority.
+
+18. ECONOMIC MOTIVATION VS NASH
+
+NASH produces conversational guidance and drafts.
+
+Economic Motivation provides internal economic context.
+
+Economic Motivation must not generate or authorize scripts that pressure clients based on advisor economic needs.
+
+NASH must not turn advisor income gaps into client-facing manipulation.
+
+19. ECONOMIC MOTIVATION VS MANAGER INTELLIGENCE
+
+Manager Intelligence supports coaching.
+
+Economic Motivation supports responsible advisor economic clarity.
+
+Economic Motivation must not become pressure loop from manager to advisor to client.
+
+Manager context may suggest review.
+
+It must not become economic threat.
+
+20. ECONOMIC MOTIVATION VS RELATIONSHIP INTELLIGENCE
+
+Relationship Intelligence identifies relationship opportunity and timing.
+
+Economic Motivation provides advisor economic context.
+
+Economic Motivation must not convert relationships into inventory for closing income gaps.
+
+Relationship trust is not economic leverage.
+
+21. ECONOMIC MOTIVATION VS ADVISOR EXPERIENCE
+
+Advisor Experience explains, teaches and reduces friction.
+
+Economic Motivation provides economic context with Client First.
+
+Advisor Experience may present Economic Motivation in clear language.
+
+It must not hide uncertainty, create fear UX or make money feel more certain than it is.
+
+22. MONEY AS CONTEXT, NOT PRESSURE
+
+Money can explain business context.
+
+Money can clarify tradeoffs.
+
+Money can reveal planning constraints.
+
+Money can help the advisor understand sustainability.
+
+Money cannot become:
+
+- client pressure
+- product recommendation
+- sales mandate
+- manager enforcement
+- shame prompt
+- fear prompt
+- hidden steering
+- substitute for suitability
+
+Economic Motivation must keep money in context.
+
+It must not turn money into pressure.
+
+23. PAYOUT-FIRST PROHIBITION
+
+Forge must not recommend, prioritize, explain or frame actions primarily because payout is higher.
+
+Payout-first behavior is prohibited when it conflicts with:
+
+- Client First
+- Product Truth
+- Policy Truth
+- suitability
+- relationship trust
+- authority boundary
+- evidence limits
+- uncertainty
+
+Compensation may be visible as context.
+
+It cannot be sufficient reason to act.
+
+24. PARTIAL EVIDENCE HANDLING
+
+With partial evidence, Economic Motivation may:
+
+- explain limits
+- show unknown
+- suggest validation
+- suggest human review
+- show provisional scenario
+- block strong motivation
+- remind Client First
+- mark uncertainty warning
+- mark motivation blocked by missing evidence
+- produce no economic motivation possible
+
+With partial evidence, Economic Motivation must not:
+
+- fake certainty
+- hide uncertainty
+- promise income
+- pressure action
+- convert scenario into mandate
+- use money to manipulate
+- create false urgency
+- pressure client
+- invent income
+- invent bonus
+- invent commission
+
+25. ECONOMIC MOTIVATION STALENESS
+
+Economic Motivation becomes stale when:
+
+- Economic Evidence changed
+- compensation scenario changed
+- Forecast changed
+- Business Planning changed
+- income goal changed
+- advisor context changed
+- manager context changed
+- campaign goal changed
+- Policy Truth changed
+- Product Truth changed
+- Productivity changed
+- Relationship Intelligence context changed
+- rule pack changed
+- snapshot changed
+- new uncertainty appeared
+- economic evidence became stale
+
+Stale Economic Motivation must be marked stale.
+
+Stale motivation may support review.
+
+It must not support pressure.
+
+26. ECONOMIC MOTIVATION DRIFT HANDLING
+
+Economic Motivation Drift occurs when:
+
+- income goal becomes client pressure
+- compensation scenario becomes promise
+- economic gap becomes commercial mandate
+- productivity becomes economic shame
+- manager context becomes hierarchical pressure
+- relationship context becomes exploitation
+- NBA becomes order because of money
+- NASH becomes manipulative script
+- payout becomes recommendation reason
+- Client First becomes subordinate to advisor income
+- uncertainty is hidden for motivation
+- projected money is presented as real money
+
+When drift exists, Forge must:
+
+- mark payout-first risk
+- mark pressure risk
+- restore uncertainty
+- restore Client First
+- restore source boundaries
+- restore Authority Boundary
+- block pressure language
+- block shame language
+- block client manipulation
+- require validation or human review
+- preserve unknown
+
+27. CLIENT FIRST
+
+Client First is the controlling boundary for Economic Motivation.
+
+Advisor income does not justify unsuitable advice.
+
+Bonus opportunity does not justify product push.
+
+Commission does not justify client pressure.
+
+Economic gap does not justify manipulation.
+
+Campaign goal does not justify violating client trust.
+
+Relationship opportunity does not justify exploiting client context.
+
+Economic Motivation is valid only when it preserves client suitability, autonomy, trust and truth.
+
+28. AUTHORITY BOUNDARY
+
+Economic Motivation may inform.
+
+Economic Motivation may explain.
+
+Economic Motivation may contextualize.
+
+Economic Motivation may suggest review.
+
+Economic Motivation may not decide.
+
+Economic Motivation may not mandate.
+
+Economic Motivation may not execute.
+
+Economic Motivation may not replace advisor, manager or client authority.
+
+Economic Motivation may not promise money.
+
+Economic Motivation may not create enforcement.
+
+Human authority remains governed by ADR-003.
+
+29. SURVIVAL TEST
+
+If ADR-018 disappears:
+
+- Economic Motivation can become anxiety-driven sales
+- Advisor Experience can become fear-based UX
+- NASH can become client pressure script
+- NBA can become payout-first order
+- Business Planning can become money-pressure checklist
+- Manager Intelligence can create pressure loop
+- Relationship Intelligence can become exploitation of network
+- Compensation Intelligence can be used as promise
+- Economic Evidence can be used as motivation without limits
+- Client First can be subordinated to advisor income
+- Authority Boundary can be weakened by financial pressure
+
+ADR-018 survives because no prior ADR fully governs how economic context is presented motivationally without pressure, shame, anxiety or manipulation.
+
+30. ABSORPTION TEST
+
+ADR-018 cannot be absorbed into ADR-008.
+
+ADR-008 governs economic evidence, not motivational presentation.
+
+ADR-018 cannot be absorbed into ADR-017.
+
+ADR-017 governs compensation evidence, not motivation or pressure.
+
+ADR-018 cannot be absorbed into ADR-012.
+
+ADR-012 governs planning, not economic motivation posture.
+
+ADR-018 cannot be absorbed into ADR-009.
+
+ADR-009 governs priority, not motivation.
+
+ADR-018 cannot be absorbed into ADR-010.
+
+ADR-010 governs conversation language, not advisor economic motivation.
+
+ADR-018 cannot be absorbed into ADR-015.
+
+ADR-015 governs manager coaching, not advisor economic motivation.
+
+ADR-018 cannot be absorbed into ADR-016.
+
+ADR-016 governs advisor experience and learning, not economic motivation truth.
+
+ADR-018 cannot be absorbed into ADR-011.
+
+ADR-011 governs relationship non-manipulation, not economic motivation.
+
+ADR-018 must survive as independent boundary.
+
+31. ALLOWED BEHAVIOR
+
+Economic Motivation may:
+
+- explain economic scenarios with limits
+- show economic gaps as context
+- connect income goals with responsible plans
+- explain activity/income tradeoffs without shame
+- explain estimated compensation without promising payment
+- show tradeoffs without inducing pressure
+- help prioritize review of opportunities without payout-first logic
+- suggest validation of economic evidence
+- suggest human review when scenario is sensitive
+- help advisor understand business impact
+- reinforce Client First
+- reduce anxiety by explaining uncertainty
+- block economic motivation when evidence is missing
+- produce no economic motivation possible
+
+32. DISALLOWED BEHAVIOR
+
+Economic Motivation must not:
+
+- pressure advisor with money
+- pressure client for advisor money
+- recommend product by commission
+- prioritize payout over suitability
+- convert income gap into mandate
+- convert compensation scenario into promise
+- convert forecast into real income
+- use economic fear
+- use economic shame
+- use Manager Intelligence for pressure
+- use Productivity for shame
+- use Relationship Intelligence to exploit network
+- use NASH for manipulation
+- use NBA as order
+- hide uncertainty for motivation
+- invent income
+- invent bonuses
+- invent commissions
+- present money as sufficient reason for commercial recommendation
+- create motivation score
+- create behavior model
+- create urgency logic
+
+33. CONSEQUENCES
+
+Positive consequences:
+
+- economic context becomes safer
+- Client First is protected
+- payout-first behavior decreases
+- advisor anxiety decreases
+- Business Planning becomes more responsible
+- NASH avoids economic pressure scripts
+- NBA avoids payout distortion
+- Manager Intelligence avoids pressure loops
+- Relationship Intelligence avoids exploitation
+- Advisor Experience can explain money without false certainty
+- Compensation Intelligence can be consumed without becoming promise
+
+Tradeoffs:
+
+- less aggressive motivation language
+- more visible uncertainty
+- more blocked motivational outputs
+- more human review for sensitive scenarios
+- less ability to use money as urgency
+- more friction when economic evidence is missing
+- fewer payout-first shortcuts
+
+These tradeoffs are acceptable because economic motivation that violates Client First is not intelligence.
+
+34. DEPENDENCIES
+
+ADR-018 depends on:
+
+- ADR-001 — Evidence Ownership / Source Validity
+- ADR-002 — One Metric One Owner
+- ADR-003 — Recommendation vs Decision / Authority Boundary
+- ADR-004 — No Invented Recommendations
+- ADR-007 — Forecast Truth Boundary
+- ADR-008 — Economic Evidence Boundary
+- ADR-009 — NBA Philosophy
+- ADR-010 — NASH Conversation Intelligence Boundary
+- ADR-011 — Relationship Intelligence Non-Manipulation Boundary
+- ADR-012 — Business Planning Plan-to-Action Boundary
+- ADR-014 — Productivity Metric Ownership Boundary
+- ADR-015 — Manager Intelligence Authority Boundary
+- ADR-016 — Advisor Experience + Benvenù Anti-Dependence Boundary
+- ADR-017 — Compensation Intelligence Evidence Boundary
+
+35. DEPENDENT ADRs
+
+Future ADRs involving economic motivation, advisor income experience, compensation presentation, sales motivation, campaign motivation, manager economic coaching, contest motivation or advisor retention economics must respect ADR-018.
+
+ADR-018 closes the first constitutional block ADR-001 through ADR-018 for economic motivation boundaries.
+
+36. NON-GOALS
+
+This ADR does not define:
+
+- formulas
+- engines
+- scores
+- schemas
+- Build Tree changes
+- feature design
+- domain expansion
+- database design
+- UI design
+- workflows
+- automation logic
+- compensation formulas
+- motivation engine
+- behavioral manipulation
+- motivation score
+- behavior model
+- urgency logic
+- NASH scripts
+- NBA implementation
+- manager workflow
+- product recommendation logic
+- compensation rule logic
+- economic value creation
+- implementation plan
+
+This ADR does not invent:
+
+- economic rules
+- income
+- bonuses
+- commissions
+- compensation states
+- product rates
+- motivational sequences
+- pressure scripts
+
+37. FINAL VERDICT
+
+ADR-018 establishes that Forge may use economic context to help the advisor understand goals, gaps, scenarios and tradeoffs.
+
+Forge may not use money as pressure.
+
+Forge may not use compensation as product recommendation.
+
+Forge may not use income gaps to pressure clients.
+
+Forge may not hide uncertainty to motivate action.
+
+Money is context, not pressure.
+
+Payout is not suitability.
+
+Economic gap is not mandate.
+
+Compensation scenario is not promise.
+
+Forecast money is not real money.
+
+Client First remains above advisor income.
+
+Economic Motivation is valid only when it preserves evidence, uncertainty, human authority and Client First.
+
+Economic motivation that causes client pressure, advisor shame, payout-first behavior or hidden steering is not Forge intelligence.
+
+It is financial anxiety with a product mask.

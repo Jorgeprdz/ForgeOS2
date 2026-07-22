@@ -1,0 +1,767 @@
+ADR-005 — PRODUCT TRUTH BOUNDARY
+
+1. TITLE
+
+ADR-005 — Product Truth Boundary
+
+2. STATUS
+
+Final
+
+3. CONTEXT
+
+ADR-001 establece cómo Forge reconoce evidencia válida, fuente, owner, estados de evidencia y manejo de unknown.
+
+ADR-002 establece que las métricas importantes deben tener un owner conceptual.
+
+ADR-003 establece la diferencia entre recomendación, decisión y autoridad humana.
+
+ADR-004 establece que Forge no debe generar recomendaciones inventadas.
+
+ADR-005 establece el boundary de Product Truth.
+
+Forge usará información de productos para múltiples dominios:
+
+- Product Intelligence
+- Policy Intelligence
+- NASH
+- NBA
+- Forecast Intelligence
+- Business Planning
+- Relationship Intelligence
+- Advisor Experience
+- Compensation Intelligence
+- Economic Motivation
+- Presentation Builder
+- Product Knowledge Library
+
+Sin un boundary explícito de Product Truth, Forge puede:
+
+- inventar beneficios
+- inventar coberturas
+- inventar exclusiones
+- inventar riders
+- inventar elegibilidad
+- inventar primas
+- inventar comparativos
+- mezclar versiones de producto
+- mezclar carriers
+- interpretar OCR como verdad final
+- usar cotizaciones como si fueran condiciones generales
+- usar presentaciones comerciales como si fueran manuales
+- recomendar productos desconocidos
+- producir NASH, NBA, presentaciones o planes basados en producto falso
+
+ADR-005 define qué afirmaciones sobre un producto tienen derecho a existir dentro de Forge.
+
+4. DECISION
+
+Product Intelligence es el owner conceptual de Product Truth.
+
+Product Truth es la representación oficial, contextual, versionada y verificable de lo que un producto puede, no puede, debe o requiere hacer.
+
+Product Truth describe el producto.
+
+Product Truth no describe:
+
+- una póliza específica
+- un cliente específico
+- una venta específica
+- una recomendación específica
+- un forecast específico
+- una compensación específica
+- la idoneidad del producto para un cliente específico
+
+Ningún dominio puede redefinir Product Truth.
+
+Otros dominios pueden consumir Product Truth, interpretarlo dentro de su boundary y usarlo como input, pero no pueden inventarlo, modificarlo o sustituirlo.
+
+Product Truth debe ser:
+
+- evidence-backed
+- source-aware
+- carrier-aware
+- version-aware
+- period-aware
+- context-aware
+- uncertainty-aware
+
+Unknown product remains unknown.
+
+5. DEFINITIONS
+
+Product Truth
+
+Representación oficial y verificable de beneficios, coberturas, exclusiones, condiciones, reglas, riders, elegibilidad, primas, versiones, límites y comportamiento esperado de un producto.
+
+Product Intelligence
+
+Dominio responsable de interpretar, mantener y proteger Product Truth dentro de Forge.
+
+Product Evidence
+
+Fuente válida que sustenta una afirmación sobre un producto.
+
+Product Source
+
+Documento, manual, condición general, ficha técnica, rule pack, cotización, ilustración o fuente validada que contiene información de producto.
+
+Product Version
+
+Versión del producto aplicable a un periodo, carrier, canal, país, rule pack o contexto específico.
+
+Product Family
+
+Categoría conceptual de producto, por ejemplo: retiro, vida, gastos médicos, educación, ahorro, protección, negocio u otra familia validada.
+
+Known Product
+
+Producto identificado con suficiente evidencia de nombre oficial, carrier, versión, familia y documentación válida.
+
+Unknown Product
+
+Producto que Forge no puede confirmar con evidencia suficiente.
+
+Product Claim
+
+Afirmación sobre lo que un producto ofrece, excluye, requiere, permite, limita o calcula.
+
+Product Comparison
+
+Comparación entre productos, beneficios, condiciones, costos, coberturas o reglas.
+
+Product Drift
+
+Deterioro de verdad causado por mezclar versiones, carriers, manuales, condiciones, rule packs o periodos incompatibles.
+
+OCR Product Evidence
+
+Texto extraído automáticamente de documentos de producto, cotizaciones o PDFs.
+
+OCR puede generar evidencia candidata, pero no crea Product Truth por sí mismo.
+
+Product Suitability
+
+Evaluación de si un producto es adecuado para un cliente, necesidad, contexto, capacidad, prioridad o riesgo específico.
+
+Product Suitability no vive dentro de Product Truth.
+
+6. VALID PRODUCT EVIDENCE TYPES
+
+Official Product Manual
+
+Manual oficial del producto.
+
+Puede sostener Product Truth si la versión, carrier, periodo y contexto son aplicables.
+
+General Conditions
+
+Condiciones generales o contractuales del producto.
+
+Tienen alta autoridad para beneficios, exclusiones, límites, condiciones y reglas.
+
+Official Carrier Documentation
+
+Documentación oficial emitida por carrier o fuente institucional autorizada.
+
+Debe validarse por versión, fecha y contexto.
+
+Validated Rule Pack
+
+Reglas estructuradas aprobadas para interpretar producto, beneficios, elegibilidad, cálculos o condiciones.
+
+Debe aplicarse solo dentro de su snapshot y periodo.
+
+Quote / Illustration
+
+Cotización, ilustración o propuesta específica.
+
+Puede complementar Product Truth para un caso, edad, moneda, suma asegurada, prima, vigencia o escenario específico.
+
+Una cotización o ilustración puede establecer valores específicos para ese escenario.
+
+No establece Product Truth general salvo que esté confirmada por documentación oficial de producto o rule pack validado.
+
+No puede reescribir condiciones generales del producto.
+
+Product Brochure / Sales Material
+
+Material comercial de producto.
+
+Puede servir como evidencia débil o contextual.
+
+No debe sustituir manuales, condiciones generales o rule packs.
+
+OCR Extract
+
+Texto extraído de documentos.
+
+Puede ayudar a identificar producto, valores o secciones.
+
+Debe validarse contra fuente, contexto y versión.
+
+Human Confirmation
+
+Confirmación de asesor, manager o usuario.
+
+Puede aclarar contexto o guiar validación.
+
+No puede redefinir documentación oficial.
+
+7. INVALID OR WEAK PRODUCT EVIDENCE
+
+No debe tratarse como Product Truth fuerte:
+
+- texto generado por IA sin fuente
+- memoria sin fuente trazable
+- presentación comercial sin respaldo oficial
+- screenshot sin contexto
+- OCR sin validación
+- cotización caducada tratada como regla general
+- conversación tratada como manual
+- asesor diciendo “creo que cubre X”
+- manager opinando sin documento
+- producto similar usado como proxy
+- versión anterior usada como actual
+- beneficios de otro carrier
+- comparativo sin criterio
+- inferencia de familia sin confirmación
+- forecast usado como evidencia de producto
+- compensación usada como evidencia de idoneidad de producto
+
+8. PRODUCT TRUTH HIERARCHY
+
+Cuando exista conflicto entre fuentes, Forge debe aplicar jerarquía de verdad.
+
+Level 1 — Official Current Product Documentation
+
+Incluye:
+
+- manual oficial vigente
+- condiciones generales vigentes
+- documentación oficial del carrier
+- rule pack validado y aplicable
+
+Esta evidencia tiene prioridad para definir Product Truth.
+
+Level 2 — Valid Specific Quote / Illustration
+
+Puede complementar el producto en un caso específico.
+
+No puede reescribir el producto.
+
+Una cotización puede decir qué fue calculado para un escenario.
+
+No necesariamente define todas las reglas generales del producto.
+
+Level 3 — OCR Extract
+
+OCR puede extraer texto o valores.
+
+OCR no gana contra documentación oficial vigente.
+
+OCR conflict detected debe conservarse cuando el OCR contradiga fuente oficial.
+
+Level 4 — Human Confirmation
+
+Puede aclarar contexto, validar identidad de producto o confirmar uso.
+
+No puede redefinir documentación oficial.
+
+Level 5 — Inference
+
+Puede orientar clasificación provisional.
+
+Nunca gana contra evidencia documental.
+
+No puede convertirse en Product Truth.
+
+9. VERSION AWARENESS RULE
+
+No existe Product Truth sin versión o contexto suficiente.
+
+Forge no debe tratar un producto como entidad genérica cuando la versión, periodo o carrier alteran su comportamiento.
+
+Incorrecto:
+
+Vida Mujer.
+
+Correcto:
+
+Vida Mujer + carrier + versión + periodo + contexto aplicable.
+
+Product Truth debe preservar:
+
+- carrier
+- nombre oficial
+- versión
+- periodo efectivo
+- familia de producto
+- rule pack aplicable
+- moneda aplicable cuando sea relevante
+- país o canal cuando sea relevante
+- límites de vigencia
+
+Forge no debe mezclar:
+
+- Vida Mujer 2022 con Vida Mujer 2026
+- condiciones de un carrier con otro
+- rule packs de periodos distintos
+- beneficios de una familia con otra
+- cotizaciones de un contexto con reglas generales
+
+Historical product truth must remain historical product truth.
+
+Una versión anterior no debe reescribirse silenciosamente con reglas futuras.
+
+10. OCR HANDLING
+
+OCR nunca crea Product Truth por sí solo.
+
+OCR genera evidencia candidata.
+
+Product Intelligence debe validar OCR contra:
+
+- documento fuente
+- versión
+- carrier
+- contexto
+- sección del documento
+- manual aplicable
+- condiciones generales
+- rule pack
+- cotización específica
+
+Si OCR detecta:
+
+Supervivencia 80%
+
+pero el manual oficial vigente dice:
+
+Hasta 80%
+
+Forge debe conservar:
+
+OCR conflict detected.
+
+Manual wins.
+
+OCR puede usarse para:
+
+- detectar producto probable
+- extraer datos candidatos
+- encontrar secciones relevantes
+- acelerar revisión
+- alimentar validación
+
+OCR no debe usarse para:
+
+- inventar beneficio
+- redefinir regla
+- confirmar cobertura sin validación
+- resolver conflicto contra manual oficial
+- crear ficha de producto automáticamente sin revisión suficiente
+
+11. UNKNOWN PRODUCT HANDLING
+
+Un producto debe permanecer como Unknown Product cuando Forge no pueda confirmar:
+
+- nombre oficial
+- carrier
+- versión
+- familia
+- documentación válida
+- condiciones principales
+- rule pack aplicable cuando sea necesario
+
+Para Unknown Product, Forge puede:
+
+- clasificar provisionalmente
+- solicitar documentación
+- pedir confirmación
+- marcar evidencia faltante
+- crear tarea de validación
+- evitar recomendación fuerte
+- generar hipótesis limitada
+
+Para Unknown Product, Forge no puede:
+
+- inventar beneficios
+- inventar coberturas
+- inventar exclusiones
+- inventar riders
+- inventar elegibilidad
+- inventar primas
+- inventar comparativos
+- generar presentación de producto como verdad
+- recomendar venta fuerte
+- producir NASH con claims de producto no confirmados
+
+Unknown product remains unknown.
+
+12. PRODUCT CLAIM RULES
+
+Forge puede afirmar un Product Claim solo si existe Product Truth suficiente.
+
+Product Claims incluyen:
+
+- beneficios
+- coberturas
+- exclusiones
+- riders
+- elegibilidad
+- condiciones
+- primas
+- monedas
+- vigencias
+- plazos
+- pagos
+- valores garantizados
+- límites
+- requisitos
+- restricciones
+- reglas de cálculo
+- escenarios permitidos
+
+Todo Product Claim debe ser:
+
+- evidence-backed
+- source-aware
+- version-aware
+- context-aware
+- limited when necessary
+
+Forge no debe afirmar:
+
+- “este producto cubre X” sin fuente
+- “este producto es mejor” sin criterio
+- “este beneficio aplica” sin contexto
+- “esta prima corresponde” sin cotización o regla válida
+- “este rider está incluido” sin evidencia
+- “este producto es ideal” sin análisis de cliente y boundary de recomendación
+
+13. PRODUCT COMPARISON RULES
+
+Forge no debe hacer comparaciones absolutas sin criterio explícito.
+
+Prohibido:
+
+Producto A es mejor que Producto B.
+
+Permitido:
+
+Producto A ofrece mayor cobertura de X bajo esta fuente.
+
+Producto B tiene menor costo en este escenario.
+
+Producto A requiere condición Z.
+
+Producto B permite opción Y según esta versión.
+
+Toda comparación debe ser:
+
+- criterion-aware
+- evidence-backed
+- context-aware
+- version-aware
+- limited
+- non-absolute unless formally justified
+
+Comparar productos requiere identificar:
+
+- criterio de comparación
+- producto A
+- versión de producto A
+- producto B
+- versión de producto B
+- fuente de ambos
+- contexto de cliente o caso
+- incertidumbre
+- límites
+
+Forge no debe usar comparativos para manipular cliente ni para orientar hacia mayor compensación cuando contradiga Client First.
+
+14. PRODUCT TRUTH VS POLICY TRUTH
+
+Product Truth responde:
+
+¿Qué puede hacer este producto bajo su documentación, versión y reglas?
+
+Policy Truth responde:
+
+¿Qué tiene contratado este cliente en esta póliza específica?
+
+Ejemplo:
+
+Product Truth:
+
+Vida Mujer puede tener beneficios de supervivencia bajo ciertas condiciones.
+
+Policy Truth:
+
+Esta póliza específica tiene suma asegurada X, moneda Y, vigencia Z, beneficios contratados A/B/C y estado operativo determinado.
+
+Product Intelligence no debe inventar estado de póliza.
+
+Policy Intelligence no debe redefinir producto.
+
+Ambos deben consumir evidence y respetar owners.
+
+15. PRODUCT TRUTH VS RECOMMENDATION
+
+Product Truth no es recomendación.
+
+Product Truth puede decir:
+
+Este producto permite X.
+
+Una recomendación debe decir:
+
+Dado este cliente, esta evidencia, este contexto, esta necesidad, esta incertidumbre y este authority boundary, esta acción parece razonable.
+
+ADR-005 no autoriza recomendaciones de producto por sí mismo.
+
+Las recomendaciones deben cumplir ADR-004.
+
+Product Truth tampoco determina suitability.
+
+Que un producto permita un beneficio no significa que sea adecuado para un cliente.
+
+La idoneidad requiere contexto del cliente, necesidad, capacidad, prioridad, riesgo, autoridad y Recommendation Validity.
+
+16. CROSS-DOMAIN CONSUMPTION
+
+NASH
+
+Puede consumir Product Truth para generar lenguaje conversacional.
+
+No puede inventar beneficios, prometer resultados ni redefinir condiciones.
+
+NBA
+
+Puede consumir Product Truth para priorizar action candidates válidos.
+
+No puede recomendar productos inexistentes ni transformar Product Truth en mandato.
+
+Forecast
+
+Puede consumir reglas de producto cuando sean necesarias para escenarios.
+
+No puede convertir producto en forecast sin supuestos claros.
+
+Business Planning
+
+Puede consumir Product Truth para construir rutas y acciones.
+
+No puede crear caminos basados en producto no validado.
+
+Relationship Intelligence
+
+Puede consumir Product Truth para contextualizar oportunidad relacional.
+
+No puede usar producto como presión relacional.
+
+Policy Intelligence
+
+Puede consumir Product Truth para interpretar lo que una póliza podría contener.
+
+No puede asumir que una póliza específica tiene un beneficio solo porque el producto lo permite.
+
+Advisor Experience
+
+Puede consumir Product Truth para enseñar, orientar o explicar.
+
+No puede simplificar tanto que altere la verdad del producto.
+
+Compensation Intelligence
+
+Puede consumir Product Truth cuando reglas económicas dependan de producto.
+
+No puede usar compensación para redefinir valor o idoneidad del producto.
+
+Economic Motivation
+
+Puede consumir Product Truth para explicar implicaciones económicas.
+
+No puede usar producto como vehículo de presión económica contra Client First.
+
+Presentation Builder
+
+Puede consumir Product Truth para crear presentaciones.
+
+No puede presentar beneficios, comparativos o valores sin fuente.
+
+Product Knowledge Library
+
+Puede almacenar, versionar y reutilizar Product Truth validado.
+
+No puede mezclar productos privados, datos de clientes o información no validada como conocimiento compartido.
+
+Product Knowledge Library no es automáticamente Product Truth.
+
+Puede contener candidatos, versiones, fuentes, estados de validación y pendientes de revisión.
+
+Solo el Product Truth validado puede usarse como verdad de producto consumible por otros dominios.
+
+17. PRODUCT DRIFT HANDLING
+
+Forge debe prevenir Product Drift.
+
+Product Drift ocurre cuando:
+
+- se mezclan versiones
+- se mezclan carriers
+- se mezclan familias
+- se mezclan rule packs
+- se mezclan periodos
+- se reutilizan beneficios fuera de contexto
+- se interpreta una cotización como manual
+- se usa OCR como verdad final
+- se generaliza desde un caso particular
+
+Cuando exista riesgo de Product Drift, Forge debe:
+
+- marcar conflicto
+- conservar incertidumbre
+- pedir validación
+- separar versiones
+- identificar source
+- evitar recomendación fuerte
+
+18. PROHIBITIONS
+
+Forge no debe:
+
+- inventar productos
+- inventar beneficios
+- inventar coberturas
+- inventar exclusiones
+- inventar riders
+- inventar elegibilidad
+- inventar primas
+- inventar condiciones
+- inventar comparativos
+- inventar ventajas competitivas
+- mezclar carriers
+- mezclar versiones
+- mezclar productos similares
+- mezclar familias
+- mezclar periodos
+- presentar OCR como Product Truth final
+- presentar cotización como condición general
+- presentar material comercial como manual oficial
+- tratar conversación como documentación de producto
+- recomendar Unknown Product como si fuera Known Product
+- usar Product Truth para violar Client First
+- usar compensación para redefinir idoneidad de producto
+- usar NASH para prometer beneficios no confirmados
+- usar NBA para priorizar producto no validado
+
+19. CONSEQUENCES
+
+Positive Consequences
+
+Este ADR habilita:
+
+- Product Truth confiable
+- Product Knowledge Library más segura
+- NASH menos alucinado
+- NBA más confiable
+- Presentation Builder más seguro
+- Forecast menos contaminado por reglas falsas
+- Business Planning basado en producto real
+- mejor separación entre Product Truth y Policy Truth
+- menor riesgo de productos inventados
+- mejor control de versiones
+- mejor manejo de OCR
+- mayor protección de Client First
+
+Tradeoffs
+
+Este ADR introduce:
+
+- más validación documental
+- más unknown products
+- menos velocidad al cargar productos nuevos
+- más necesidad de version awareness
+- más conflictos explícitos
+- menos respuestas mágicas
+- más límites en NASH y presentaciones
+- menor libertad para comparativos rápidos
+
+Estos tradeoffs son aceptables porque Forge no puede ser confiable si inventa productos o altera su verdad.
+
+20. DEPENDENCIES
+
+Este ADR depende de:
+
+- ADR-001 — Evidence Ownership / Source Validity
+- ADR-002 — One Metric One Owner
+- ADR-003 — Recommendation vs Decision / Authority Boundary
+- ADR-004 — No Invented Recommendations
+
+ADR-001 define evidencia válida.
+
+ADR-002 define ownership de métricas.
+
+ADR-003 define autoridad.
+
+ADR-004 define validez de recomendaciones.
+
+ADR-005 define verdad de producto.
+
+21. DEPENDENT ADRs
+
+Dependen de este ADR:
+
+- ADR-006 — Policy Truth Boundary
+- ADR-007 — Forecast Truth Boundary
+- ADR-008 — Economic Evidence Boundary
+- ADR-009 — NBA Philosophy
+- ADR-010 — NASH Conversation Intelligence Boundary
+- ADR-011 — Relationship Intelligence Non-Manipulation Boundary
+- ADR-012 — Business Planning Plan-to-Action Boundary
+- ADR-016 — Advisor Experience + Benvenù Anti-Dependence Boundary
+- ADR-017 — Compensation Intelligence Evidence Boundary
+- Product Knowledge Library future ADR
+- Presentation Builder future ADR
+
+22. NON-GOALS
+
+Este ADR no define:
+
+- schemas
+- engines
+- storage
+- OCR pipeline
+- Product Knowledge Library implementation
+- product parser implementation
+- product detection algorithm
+- UI
+- workflows
+- approval flows
+- confidence scoring
+- database structure
+- product taxonomy final
+- feature behavior
+- implementation plan
+
+Este ADR no aprueba implementación.
+
+23. FINAL VERDICT
+
+ADR-005 establece que Forge no puede afirmar, explicar, comparar, presentar o recomendar productos sin Product Truth validado.
+
+Product Intelligence es el owner conceptual de Product Truth.
+
+Otros dominios pueden consumir Product Truth, pero no pueden redefinirlo.
+
+OCR puede extraer evidencia candidata, pero no crea Product Truth.
+
+Las cotizaciones pueden complementar escenarios específicos, pero no reescriben condiciones oficiales.
+
+Los productos desconocidos permanecen unknown.
+
+Una afirmación de producto sin evidencia suficiente no es Product Intelligence.
+
+Es alucinación comercial.

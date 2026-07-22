@@ -1,0 +1,604 @@
+ADR-009 — NBA PHILOSOPHY
+
+1. TITLE
+
+ADR-009 — NBA Philosophy
+
+2. STATUS
+
+Final
+
+3. CONTEXT
+
+ADR-001 establece evidencia válida.
+
+ADR-002 establece ownership de métricas.
+
+ADR-003 establece la diferencia entre recomendación, decisión, autoridad y ejecución.
+
+ADR-004 establece que Forge no debe inventar recomendaciones.
+
+ADR-005 establece Product Truth.
+
+ADR-006 establece Policy Truth.
+
+ADR-007 establece Forecast Truth Boundary.
+
+ADR-008 establece Economic Evidence Boundary.
+
+ADR-009 establece la filosofía de NBA: Next Best Action.
+
+Forge producirá múltiples action candidates desde dominios como:
+
+- NASH
+- Relationship Intelligence
+- Forecast Intelligence
+- Business Planning
+- Policy Intelligence
+- Product Intelligence
+- Manager Intelligence
+- Productivity
+- Mick
+- Compensation Intelligence
+- Economic Motivation
+- Advisor Experience
+
+Sin una filosofía explícita de NBA, Forge puede:
+
+- convertir una recomendación en mandato
+- priorizar acciones sin evidencia suficiente
+- priorizar por revenue sobre Client First
+- priorizar por forecast como si fuera hecho
+- priorizar por compensación o payout
+- ocultar alternativas relevantes
+- confundir urgencia con importancia
+- confundir actividad con valor
+- crear dependencia del asesor
+- convertir NBA en obediencia algorítmica
+- recomendar acciones válidas pero mal ordenadas
+- contaminar NASH, Business Planning, Manager Intelligence y Advisor Experience
+
+ADR-009 define cómo Forge debe priorizar acciones sin inventar recomendaciones ni reemplazar autoridad humana.
+
+4. DECISION
+
+NBA puede priorizar action candidates válidos.
+
+NBA no crea truth.
+
+NBA no crea autoridad.
+
+NBA no convierte forecast en hecho.
+
+NBA no convierte recomendación en decisión.
+
+NBA no convierte prioridad en mandato.
+
+NBA debe operar solo sobre recomendaciones o action candidates que cumplan:
+
+- ADR-001 Evidence Ownership
+- ADR-002 Metric Ownership cuando aplique
+- ADR-003 Authority Boundary
+- ADR-004 No Invented Recommendations
+- ADR-005 Product Truth cuando aplique
+- ADR-006 Policy Truth cuando aplique
+- ADR-007 Forecast Truth cuando aplique
+- ADR-008 Economic Evidence cuando aplique
+
+NBA debe explicar:
+
+- qué acción prioriza
+- por qué la prioriza
+- qué evidencia la sostiene
+- qué alternativas existen
+- qué tradeoffs aplica
+- qué incertidumbre permanece
+- qué boundary de autoridad existe
+- quién conserva la decisión final
+
+NBA debe ayudar a decidir mejor.
+
+NBA no debe hacer que el asesor obedezca sin pensar.
+
+5. DEFINITIONS
+
+NBA
+
+Next Best Action. Mecanismo de priorización que selecciona o propone la acción más razonable entre action candidates válidos bajo evidencia, contexto, límites, tradeoffs e incertidumbre.
+
+Action Candidate
+
+Acción posible generada por un dominio antes de ser priorizada por NBA.
+
+Valid Action Candidate
+
+Action candidate que cumple evidencia, contexto, owner, límites y authority boundary.
+
+Invalid Action Candidate
+
+Acción que no tiene evidencia suficiente, viola boundary, inventa truth, confunde forecast con fact o contradice Client First.
+
+Priority
+
+Orden o preferencia asignada a una acción frente a otras alternativas.
+
+Priority Reason
+
+Razón explícita por la cual una acción tiene mayor relevancia, urgencia, valor o seguridad que otra.
+
+Recommendation
+
+Acción sugerida por Forge con evidencia y límites.
+
+Decision
+
+Elección humana responsable.
+
+NBA Output
+
+Resultado de priorización producido por NBA. Puede ser una acción priorizada, lista ordenada, recomendación provisional, validación necesaria o decisión de no recomendar.
+
+NBA Boundary
+
+Límite que define qué puede priorizar NBA y qué no puede redefinir.
+
+Human Authority
+
+Autoridad final del asesor, manager o cliente sobre decisiones sensibles.
+
+6. NBA INPUT REQUIREMENTS
+
+NBA puede consumir:
+
+- valid recommendations
+- action candidates validados
+- official metrics
+- relationship opportunities
+- policy truth
+- product truth
+- forecast scenarios
+- business planning gaps
+- economic evidence
+- behavior patterns
+- productivity signals
+- advisor experience context
+- manager coaching context
+
+NBA no puede consumir como base fuerte:
+
+- evidencia débil sin advertencia
+- forecast tratado como hecho
+- economic scenario tratado como ingreso real
+- product claim no validado
+- policy state unknown tratado como confirmado
+- client silence tratado como intención
+- manager pressure tratado como prioridad
+- payout tratado como suitability
+- actividad tratada como valor absoluto
+- AI-generated action sin source
+
+7. NBA PRIORITIZATION CRITERIA
+
+NBA puede priorizar considerando:
+
+- Client First
+- evidencia disponible
+- urgencia real
+- impacto potencial
+- riesgo de no actuar
+- oportunidad relacional
+- timing
+- policy lifecycle
+- forecast scenario
+- business planning gap
+- productividad responsable
+- capacidad del asesor
+- menor dependencia futura
+- esfuerzo requerido
+- tradeoffs
+- incertidumbre
+- authority boundary
+
+NBA no debe priorizar únicamente por:
+
+- revenue
+- comisión
+- payout
+- presión de manager
+- ansiedad de forecast
+- facilidad de acción
+- volumen de actividad
+- probabilidad comercial aislada
+- velocidad de cierre
+- conveniencia del sistema
+
+8. NBA PRIORITY STATES
+
+NBA puede producir:
+
+Primary Next Best Action
+
+Acción prioritaria más razonable bajo la evidencia y límites actuales.
+
+Alternative Action
+
+Acción secundaria válida que conserva relevancia.
+
+Validation Needed
+
+Cuando la mejor acción es validar evidencia antes de actuar.
+
+Human Review Required
+
+Cuando la acción puede ser relevante pero requiere criterio humano antes de continuar.
+
+No Recommendation
+
+Cuando no existe evidencia suficiente para priorizar una acción.
+
+Blocked Action
+
+Acción que no debe recomendarse por violar evidencia, Client First, Authority Boundary o recommendation validity.
+
+9. NBA VS RECOMMENDATION VALIDITY
+
+ADR-004 define si una recomendación puede existir.
+
+ADR-009 define cómo priorizar recomendaciones válidas.
+
+NBA no convierte una acción inválida en válida.
+
+NBA no puede arreglar una recomendación inventada.
+
+NBA solo puede operar sobre action candidates válidos o recomendar validación.
+
+Si no existe recomendación válida, NBA debe decir:
+
+- no hay evidencia suficiente
+- validation needed
+- human review required
+- unknown remains unknown
+
+10. NBA VS AUTHORITY BOUNDARY
+
+NBA puede sugerir.
+
+NBA puede priorizar.
+
+NBA puede explicar.
+
+NBA no puede decidir.
+
+NBA no puede mandar.
+
+NBA no puede ejecutar.
+
+NBA no puede aprobar.
+
+NBA no puede reemplazar criterio profesional.
+
+La salida correcta de NBA debe conservar lenguaje de recomendación:
+
+Permitido:
+
+“Prioridad sugerida.”
+
+“Acción recomendada con evidencia actual.”
+
+“Parece razonable revisar primero X.”
+
+“Requiere confirmación antes de actuar.”
+
+Prohibido:
+
+“Haz esto.”
+
+“Tienes que hacer esto.”
+
+“Esta es la decisión correcta.”
+
+“Contacta al cliente ahora” sin approval boundary.
+
+“Escala al manager” sin autoridad explícita.
+
+11. NBA VS CLIENT FIRST
+
+NBA debe subordinarse a Client First.
+
+Una acción con mayor revenue, mayor comisión, mayor probabilidad de cierre o mayor impacto económico no debe ganar si daña:
+
+- idoneidad
+- confianza
+- autonomía
+- relación de largo plazo
+- claridad del cliente
+- valor real para el cliente
+
+NBA debe poder priorizar:
+
+- esperar
+- validar
+- explicar mejor
+- no contactar todavía
+- revisar idoneidad
+- proteger relación
+- pedir información adicional
+
+aunque esas acciones sean menos comerciales a corto plazo.
+
+12. NBA VS FORECAST
+
+Forecast produce escenarios.
+
+NBA puede consumir escenarios.
+
+NBA no puede tratar escenarios como hechos.
+
+Ejemplo permitido:
+
+“Dado el escenario de brecha proyectada, parece razonable revisar pipeline.”
+
+Ejemplo prohibido:
+
+“Como no vas a llegar a la meta, contacta a estos clientes.”
+
+Forecast puede aumentar prioridad.
+
+Forecast no puede crear certeza.
+
+13. NBA VS ECONOMIC EVIDENCE
+
+Economic Evidence puede aportar contexto económico.
+
+NBA puede usar ese contexto como una señal.
+
+NBA no debe priorizar solo por:
+
+- comisión
+- payout
+- bono
+- ingreso esperado
+- brecha económica del asesor
+- economic motivation
+
+Ejemplo permitido:
+
+“Este caso tiene impacto económico potencial, pero requiere validar suitability y Policy Truth.”
+
+Ejemplo prohibido:
+
+“Prioriza este producto porque paga más.”
+
+14. NBA VS BUSINESS PLANNING
+
+Business Planning produce rutas, objetivos, gaps y planes.
+
+NBA puede priorizar la siguiente acción dentro de una ruta.
+
+Business Planning no debe convertir sus planes en mandates.
+
+NBA no debe convertir el plan en obligación.
+
+Ejemplo permitido:
+
+“Dentro del plan actual, la siguiente acción sugerida es validar X.”
+
+Ejemplo prohibido:
+
+“El plan dice que debes hacer X, por lo tanto hazlo.”
+
+15. NBA VS NASH
+
+NASH produce guidance conversacional.
+
+NBA puede priorizar una acción conversacional.
+
+NBA no debe inventar mensajes.
+
+NASH no debe crear NBA local que viole ADR-004 o ADR-009.
+
+Ejemplo permitido:
+
+“Prioridad sugerida: enviar follow-up humano y breve, con el mensaje generado por NASH.”
+
+Ejemplo prohibido:
+
+“Presiona al cliente con este script porque hay forecast risk.”
+
+16. NBA VS RELATIONSHIP INTELLIGENCE
+
+Relationship Intelligence identifica oportunidad relacional.
+
+NBA puede priorizar una acción relacional.
+
+NBA no debe explotar confianza ni convertir relación en presión.
+
+Ejemplo permitido:
+
+“Parece razonable retomar contacto por revisión pendiente.”
+
+Ejemplo prohibido:
+
+“Usa su evento personal para cerrar.”
+
+17. NBA VS MANAGER INTELLIGENCE
+
+Manager Intelligence puede consumir NBA para coaching.
+
+NBA no debe convertirse en enforcement.
+
+Manager Intelligence no debe usar NBA como castigo, consecuencia automática o mandato laboral.
+
+Ejemplo permitido:
+
+“Acción sugerida para coaching: revisar bloqueo de actividad con el asesor.”
+
+Ejemplo prohibido:
+
+“Este asesor debe ser sancionado porque no ejecutó NBA.”
+
+18. NBA VS ADVISOR CAPABILITY GROWTH
+
+NBA debe desarrollar capacidad, no obediencia.
+
+Una buena NBA debe ayudar al asesor a entender:
+
+- por qué esta acción importa
+- qué evidencia la sostiene
+- qué tradeoff existe
+- cuándo no aplicaría
+- qué debería aprender para casos similares
+
+NBA no debe crear dependencia innecesaria.
+
+Si NBA siempre dice qué hacer sin transferir criterio, viola Advisor Capability Growth.
+
+19. NBA OUTPUT REQUIREMENTS
+
+Todo NBA Output importante debe incluir:
+
+- acción sugerida
+- razón principal
+- evidencia base
+- incertidumbre
+- alternativas relevantes
+- tradeoff
+- authority boundary
+- next validation step cuando aplique
+
+Cuando el contexto sea simple, NBA puede ser breve.
+
+Cuando la acción sea sensible, NBA debe ser explícita sobre límites.
+
+20. ALLOWED BEHAVIOR
+
+Forge NBA puede:
+
+- priorizar action candidates válidos
+- sugerir siguiente mejor acción
+- explicar por qué una acción gana prioridad
+- mostrar alternativas
+- marcar validation needed
+- marcar human review required
+- bloquear acciones inválidas
+- usar forecast como señal limitada
+- usar economic evidence como señal limitada
+- priorizar acciones client-safe
+- priorizar no actuar cuando sea razonable
+- priorizar aprendizaje o validación
+- ayudar al asesor a decidir mejor
+
+21. DISALLOWED BEHAVIOR
+
+Forge NBA no debe:
+
+- inventar acciones
+- priorizar sin evidencia
+- convertir recomendación en mandato
+- convertir forecast en certeza
+- convertir payout en prioridad dominante
+- ocultar alternativas
+- ocultar incertidumbre
+- violar Client First
+- violar Authority Boundary
+- usar Economic Motivation como presión
+- usar Manager Intelligence como enforcement
+- convertir Relationship Intelligence en manipulación
+- presentar actividad como valor absoluto
+- tratar unknown como baja prioridad automática
+- tratar unknown como cero
+- recomendar acción sensible sin approval boundary
+- ejecutar acciones automáticamente
+
+22. CONSEQUENCES
+
+Positive Consequences
+
+Este ADR habilita:
+
+- NBA más confiable
+- mejor Decision Clarity
+- menor autoridad algorítmica oculta
+- mejor NASH
+- mejor Business Planning
+- mejor Manager Intelligence
+- mejor Advisor Experience
+- menor riesgo de presión comercial
+- mejor protección de Client First
+- mayor trazabilidad de prioridades
+- mejores acciones con menos obediencia pasiva
+
+Tradeoffs
+
+Este ADR introduce:
+
+- menos automatización agresiva
+- más explicación en acciones sensibles
+- más casos de validation needed
+- menos recomendaciones mágicas
+- más límites para ranking automático
+- más fricción cuando el usuario quiere “solo dime qué hacer”
+- menor velocidad cuando falta evidencia
+
+Estos tradeoffs son aceptables porque Forge debe priorizar decisiones responsables, no obediencia algorítmica.
+
+23. DEPENDENCIES
+
+Este ADR depende de:
+
+- ADR-001 — Evidence Ownership / Source Validity
+- ADR-002 — One Metric One Owner
+- ADR-003 — Recommendation vs Decision / Authority Boundary
+- ADR-004 — No Invented Recommendations
+- ADR-005 — Product Truth Boundary
+- ADR-006 — Policy Truth Boundary
+- ADR-007 — Forecast Truth Boundary
+- ADR-008 — Economic Evidence Boundary
+
+24. DEPENDENT ADRs
+
+Dependen de este ADR:
+
+- ADR-010 — NASH Conversation Intelligence Boundary
+- ADR-011 — Relationship Intelligence Non-Manipulation Boundary
+- ADR-012 — Business Planning Plan-to-Action Boundary
+- ADR-015 — Manager Intelligence Authority Boundary
+- ADR-016 — Advisor Experience + Benvenù Anti-Dependence Boundary
+- ADR-018 — Economic Motivation Client First Boundary
+
+25. NON-GOALS
+
+Este ADR no define:
+
+- ranking algorithm
+- scoring model
+- priority formula
+- ML model
+- schemas
+- database
+- UI
+- notification logic
+- automation logic
+- action execution
+- approval flows
+- task engine
+- feature behavior
+- implementation plan
+
+Este ADR no aprueba implementación.
+
+26. FINAL VERDICT
+
+ADR-009 establece que NBA puede priorizar acciones válidas, pero no puede inventarlas, decidirlas, mandarlas ni ejecutarlas.
+
+NBA consumes valid recommendations.
+
+NBA does not create truth.
+
+NBA does not create authority.
+
+NBA prioritizes; humans decide.
+
+Una NBA sin evidencia, límites, alternativas, incertidumbre y Authority Boundary no es Decision Intelligence.
+
+Es obediencia algorítmica disfrazada de ayuda.

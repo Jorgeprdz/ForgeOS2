@@ -1,0 +1,871 @@
+ADR-013 — MICK BEHAVIOR INTELLIGENCE BOUNDARY
+
+1. TITLE
+
+ADR-013 — Mick Behavior Intelligence Boundary
+
+2. STATUS
+
+Final
+
+3. CONTEXT
+
+Forge ya cuenta con ADR-001 a ADR-012.
+
+ADR-013 define cómo Mick puede observar patrones de comportamiento del asesor sin convertirlos en juicio humano, vigilancia, diagnóstico psicológico, score humano o enforcement gerencial.
+
+Mick puede observar:
+
+- hábitos observables
+- consistencia
+- cadence
+- seguimiento
+- ejecución
+- actividad generada
+- task completion
+- follow-through
+- coachability observable
+- disciplina operativa observable
+- patrones de fricción
+- patrones de abandono
+- ejecución sostenida
+
+Mick no puede convertir esos patrones en:
+
+- personalidad
+- motivación interna
+- carácter
+- actitud moral
+- talento fijo
+- valor humano
+- potencial definitivo
+- juicio laboral automático
+- diagnóstico emocional
+- diagnóstico psicológico
+- diagnóstico de salud
+- ranking humano
+
+Mick observa comportamiento externo.
+
+Mick no interpreta el alma del asesor.
+
+Mick no debe convertirse en sistema de vigilancia.
+
+Sin este boundary, Forge puede:
+
+- convertir conducta observable en juicio humano
+- tratar baja actividad como flojera
+- tratar inconsistencia como falta de compromiso
+- tratar response latency como desinterés
+- tratar task missed como incompetencia
+- tratar coachability como obediencia
+- permitir que Manager Intelligence use señales como castigo
+- permitir que Advisor Experience manipule conducta
+- convertir Mick en vigilancia
+- crear behavior scores
+- crear rankings humanos
+- violar Authority Boundary
+- dañar Advisor Capability Growth
+
+ADR-013 protege la frontera entre Behavior Intelligence y juicio humano.
+
+4. DECISION
+
+Mick es el owner conceptual de observable behavior patterns.
+
+Mick puede observar, describir y contextualizar patrones conductuales externos.
+
+Mick no puede diagnosticar, juzgar, rankear, castigar, automatizar consecuencias o inferir estados internos del asesor.
+
+Mick owns behavior patterns.
+
+Mick does not own productivity truth.
+
+Mick does not own manager conclusions.
+
+Mick does not own human worth.
+
+Mick does not own advisor potential.
+
+Mick does not own psychological truth.
+
+Mick does not own health truth.
+
+Una señal de conducta puede informar planning, coaching o advisor experience.
+
+Una señal de conducta no es evidencia suficiente para definir valor humano, motivación interna, personalidad, carácter, disciplina moral, salud, estado emocional o potencial fijo.
+
+Mick puede decir:
+
+“Se observa interrupción de seguimiento.”
+
+Mick no debe decir:
+
+“El asesor no está comprometido.”
+
+Mick ve lo que haces.
+
+Mick no decide quién eres.
+
+5. DEFINITIONS
+
+Mick
+
+Dominio de Behavior Intelligence responsable de observar patrones conductuales externos relacionados con ejecución, cadence, consistencia, hábitos, fricción y follow-through.
+
+Behavior Pattern
+
+Patrón observable de acciones, omisiones, frecuencia, continuidad o interrupción en la operación del asesor.
+
+Observable Behavior
+
+Conducta registrada por sistema, CRM, tarea, calendario, interacción, uso o confirmación humana.
+
+Cadence
+
+Ritmo observable de actividad, seguimiento o ejecución durante un periodo.
+
+Consistency
+
+Continuidad observable de conducta dentro de un periodo o contexto.
+
+Task Completion
+
+Registro de tareas completadas, omitidas, pausadas, vencidas o interrumpidas.
+
+Follow-Through
+
+Continuidad observable entre intención, tarea, compromiso y ejecución posterior.
+
+Execution Interruption
+
+Ruptura o pausa observable en una secuencia de ejecución.
+
+Friction Signal
+
+Señal observable de posible fricción operativa, uso incompleto, abandono, bloqueo o interrupción.
+
+Coachability Observable
+
+Señal externa de respuesta a coaching, guía, revisión o feedback.
+
+Coachability observable no equivale a obediencia.
+
+Behavior Signal
+
+Señal limitada derivada de conducta observable.
+
+Behavior Interpretation
+
+Lectura limitada de un patrón conductual.
+
+Debe preservar incertidumbre y límites.
+
+Behavior Drift
+
+Deterioro del boundary cuando una señal conductual se convierte en juicio humano, diagnóstico, enforcement, vigilancia o score.
+
+Behavior Staleness
+
+Pérdida de vigencia de una señal conductual por cambio de contexto, periodo, evidencia o condiciones.
+
+Observed but Limited
+
+Estado donde existe conducta observada, pero no suficiente para conclusión fuerte.
+
+Pattern Not Established
+
+Estado donde no existe evidencia suficiente para afirmar un patrón.
+
+Human Context Required
+
+Estado donde se requiere interpretación humana antes de usar una señal conductual de forma relevante.
+
+6. MICK OWNERSHIP RULES
+
+Mick puede poseer:
+
+- behavior pattern observations
+- consistency signals
+- cadence signals
+- follow-through signals
+- execution interruption signals
+- habit pattern observations
+- friction signals
+- observable coachability signals
+- behavior context for planning
+- behavior context for coaching
+- behavior context for advisor experience
+
+Mick no posee:
+
+- productivity truth
+- compensation truth
+- business planning truth
+- manager conclusions
+- employment evaluation
+- personality profile
+- motivation truth
+- emotional state
+- health state
+- psychological state
+- human worth
+- advisor potential
+- advisor value ranking
+
+Mick puede aportar señales a otros dominios.
+
+Otros dominios no deben convertir señales de Mick en juicio humano automático.
+
+7. VALID MICK INPUTS
+
+Mick puede consumir:
+
+- system-observed activity
+- task completion
+- cadence
+- follow-up behavior
+- CRM activity records
+- logged interactions
+- calendar/task behavior cuando exista
+- response latency
+- consistency patterns
+- planning execution signals
+- NASH usage patterns
+- NBA acceptance/rejection patterns
+- Advisor Experience usage signals
+- manager-confirmed context
+- advisor-confirmed context
+
+Cada input debe conservar fuente, periodo, contexto, freshness, owner y límites.
+
+8. INPUT BOUNDARIES
+
+System-Observed Activity
+
+Puede mostrar acciones registradas.
+
+No prueba motivación interna.
+
+Task Completion
+
+Puede mostrar tareas completadas u omitidas.
+
+No prueba flojera, incompetencia o falta de compromiso.
+
+Cadence
+
+Puede mostrar ritmo observable.
+
+No prueba disciplina moral.
+
+Follow-Up Behavior
+
+Puede mostrar continuidad o interrupción.
+
+No prueba intención interna.
+
+CRM Activity Records
+
+Pueden aportar evidencia operativa.
+
+No representan necesariamente toda la realidad del asesor.
+
+Logged Interactions
+
+Pueden mostrar uso o interacción.
+
+No prueban calidad humana de la conversación.
+
+Calendar / Task Behavior
+
+Puede mostrar agenda, cambios, completions o cancelaciones.
+
+No prueba responsabilidad moral.
+
+Response Latency
+
+Puede mostrar tiempo de respuesta.
+
+No prueba desinterés, emoción, respeto, salud, estado mental o intención.
+
+NASH Usage Patterns
+
+Pueden mostrar uso, edición, aceptación o rechazo de guía conversacional.
+
+No prueban talento conversacional fijo.
+
+NBA Acceptance / Rejection Patterns
+
+Pueden mostrar adopción, rechazo o adaptación de recomendaciones.
+
+No prueban rebeldía, mala actitud o falta de coachability.
+
+Advisor Experience Usage Signals
+
+Pueden mostrar fricción, abandono o uso de ayuda.
+
+No prueban capacidad fija.
+
+Manager-Confirmed Context
+
+Puede aportar contexto humano.
+
+No es diagnóstico final.
+
+Advisor-Confirmed Context
+
+Puede aclarar situación.
+
+No debe extrapolarse más allá de lo confirmado.
+
+9. OUTPUTS PERMITIDOS
+
+Mick puede generar:
+
+- behavior pattern observation
+- consistency signal
+- cadence signal
+- follow-through signal
+- execution interruption
+- habit pattern
+- friction signal
+- observable coachability signal
+- validation needed
+- human review recommended
+- human context required
+- behavior context for planning
+- behavior context for coaching
+- behavior context for advisor experience
+- pattern changed
+- pattern not established
+- observed but limited
+- no behavioral conclusion possible
+
+Ejemplos permitidos:
+
+“Se observa interrupción de seguimiento durante los últimos días registrados.”
+
+“El patrón de task completion es consistente en este periodo.”
+
+“La señal es observable but limited.”
+
+“No hay suficiente evidencia para establecer patrón.”
+
+“Requiere contexto humano antes de interpretar.”
+
+10. OUTPUTS PROHIBIDOS
+
+Mick no debe producir:
+
+- personality profile
+- character judgment
+- emotional diagnosis
+- psychological diagnosis
+- health diagnosis
+- fixed potential
+- employment evaluation
+- manager enforcement
+- productivity truth
+- human worth score
+- motivation score
+- discipline score
+- coachability score
+- advisor value ranking
+- good/bad advisor label
+- moral judgment
+
+Ejemplos prohibidos:
+
+“El asesor es flojo.”
+
+“El asesor no está comprometido.”
+
+“El asesor no tiene disciplina.”
+
+“El asesor no es coachable.”
+
+“El asesor no sirve.”
+
+“El asesor tiene bajo potencial.”
+
+“El asesor debe ser sancionado.”
+
+“El asesor vale menos para el equipo.”
+
+“El asesor está emocionalmente mal.”
+
+“El asesor tiene un problema psicológico.”
+
+11. MICK VS PRODUCTIVITY
+
+Mick responde:
+
+¿Qué patrón conductual observable existe?
+
+Productivity responde:
+
+¿Qué relación existe entre actividad, conversión, throughput y output comercial?
+
+Mick no debe redefinir productivity truth.
+
+Productivity no debe convertir output bajo en juicio humano.
+
+Ejemplo permitido:
+
+Mick:
+“Hay interrupción observable en la cadence de seguimiento.”
+
+Productivity:
+“La conversión de citas a cierres bajó en este periodo.”
+
+Prohibido:
+
+“Mick detectó baja cadence, por lo tanto el asesor es improductivo.”
+
+12. MICK VS MANAGER INTELLIGENCE
+
+Mick aporta señales conductuales.
+
+Manager Intelligence puede consumirlas para coaching responsable.
+
+Mick no produce consecuencias humanas.
+
+Manager Intelligence no debe convertir señales de Mick en castigo automático, promoción, separación, sanción o evaluación laboral final.
+
+Mick puede decir:
+
+“Human review recommended.”
+
+No debe decir:
+
+“Manager action required: sanction advisor.”
+
+13. MICK VS BUSINESS PLANNING
+
+Mick puede aportar señales de consistencia, cadence, fricción o ejecución observable.
+
+Business Planning puede usar esas señales como constraints o inputs.
+
+Business Planning no debe convertir behavior patterns en diagnóstico humano.
+
+Ejemplo permitido:
+
+“El plan debe considerar que el seguimiento ha sido inconsistente y proponer una ruta más simple.”
+
+Ejemplo prohibido:
+
+“El asesor no tiene disciplina, por eso necesita plan correctivo.”
+
+14. MICK VS ADVISOR EXPERIENCE
+
+Mick puede detectar patrones de uso, fricción, abandono o ejecución.
+
+Advisor Experience puede adaptar ayuda, aprendizaje, progresión o reducción de fricción.
+
+Advisor Experience no debe usar Mick para manipular conducta, ocultar lógica, crear dependencia o hacer steering oculto.
+
+Ejemplo permitido:
+
+“Mostrar ayuda contextual porque se detectó fricción observable.”
+
+Ejemplo prohibido:
+
+“Empujar al asesor hacia una acción sin explicar por qué, usando su patrón de conducta.”
+
+15. MICK VS NASH / NBA
+
+Mick puede observar uso, aceptación, rechazo o ejecución de recomendaciones.
+
+NASH y NBA pueden consumir señales de Mick como contexto limitado.
+
+No pueden convertirlas en presión.
+
+Mick no debe concluir:
+
+- “el asesor no quiere”
+- “el asesor es malo”
+- “el asesor no sirve”
+- “el asesor no tiene disciplina”
+- “el asesor no es coachable”
+
+Rechazar NBA no equivale a falta de coachability.
+
+Usar poco NASH no equivale a incapacidad conversacional.
+
+16. COACHABILITY BOUNDARY
+
+Coachability observable puede referirse a señales externas como:
+
+- revisa feedback
+- ajusta conducta después de coaching
+- prueba una recomendación
+- pide aclaración
+- itera una acción
+- mantiene follow-through después de orientación
+
+Coachability observable no debe significar:
+
+- obediencia
+- sumisión
+- aceptar todo lo que Forge dice
+- aceptar todo lo que manager dice
+- ejecutar NBA sin criterio
+
+Coachability signal no es coachability score.
+
+Coachability signal no es valor humano.
+
+17. OBSERVABILITY VS SURVEILLANCE
+
+Mick puede observar señales necesarias para mejorar claridad operativa, planeación, coaching y experiencia del asesor.
+
+Mick no debe convertir observabilidad en vigilancia.
+
+Observabilidad responsable:
+
+- conserva fuente
+- conserva contexto
+- conserva periodo
+- declara incertidumbre
+- limita inferencias
+- permite revisión humana
+- ayuda al asesor a mejorar
+
+Vigilancia indebida:
+
+- maximiza control
+- oculta criterios
+- genera miedo
+- produce rankings humanos
+- convierte señales en castigos
+- interpreta estados internos
+- reduce al asesor a comportamiento medido
+
+Mick debe permanecer del lado de observabilidad responsable.
+
+18. BEHAVIOR STATES
+
+Mick puede clasificar conceptualmente una señal como:
+
+Observed
+
+Conducta observada con fuente y periodo.
+
+Observed but Limited
+
+Existe señal, pero no es suficiente para conclusión fuerte.
+
+Pattern Not Established
+
+No existe evidencia suficiente para afirmar patrón.
+
+Pattern Changed
+
+El patrón cambió respecto a un periodo anterior.
+
+Validation Needed
+
+Se requiere validar información o contexto.
+
+Human Context Required
+
+Se requiere interpretación humana antes de usar la señal.
+
+Stale Signal
+
+La señal pudo perder vigencia.
+
+Conflicting Signal
+
+Existen señales contradictorias.
+
+No Behavioral Conclusion Possible
+
+No hay base suficiente para conclusión conductual.
+
+19. PARTIAL EVIDENCE HANDLING
+
+Con evidencia parcial, Mick puede:
+
+- marcar observed but limited
+- marcar pattern not established
+- pedir validación
+- sugerir human context required
+- declarar uncertainty
+- negar conclusión conductual
+- aportar contexto limitado
+
+Con evidencia parcial, Mick no puede:
+
+- establecer patrón fuerte
+- inferir motivación
+- inferir personalidad
+- inferir intención
+- inferir valor humano
+- inferir estado emocional
+- inferir salud o estado mental
+- crear score
+- recomendar enforcement
+- crear juicio humano
+
+20. BEHAVIOR STALENESS
+
+Una señal conductual puede volverse stale por:
+
+- cambio de contexto
+- vacaciones
+- enfermedad
+- carga familiar
+- etapa de carrera
+- cambio de manager
+- cambio de campaña
+- cambio de mercado
+- cambio de herramientas
+- periodo corto
+- evidencia incompleta
+- CRM incompleto
+- sistema parcialmente usado
+- cambios operativos
+- cambios de objetivos
+
+Stale behavior signal no debe usarse como base fuerte sin advertencia.
+
+21. BEHAVIOR DRIFT HANDLING
+
+Behavior Drift ocurre cuando:
+
+- conducta se trata como personalidad
+- baja actividad se trata como flojera
+- inconsistencia se trata como falta de compromiso
+- response latency se trata como desinterés
+- task missed se trata como incompetencia
+- coachability signal se trata como obediencia
+- manager usa señal de Mick como castigo
+- Advisor Experience usa Mick para steering oculto
+- uso bajo de NASH se trata como incapacidad
+- rechazo de NBA se trata como falta de coachability
+- CRM incompleto se trata como realidad total
+- behavior signal se convierte en score humano
+- observabilidad se convierte en vigilancia
+
+Cuando exista Behavior Drift, Forge debe:
+
+- marcar boundary risk
+- declarar uncertainty
+- requerir contexto humano
+- bloquear juicio humano automático
+- impedir enforcement automático
+- separar señal de interpretación
+- conservar unknown
+
+22. AUTHORITY BOUNDARY
+
+Mick no decide por asesor, manager ni cliente.
+
+Mick no automatiza consecuencias.
+
+Mick no crea enforcement.
+
+Mick no sustituye coaching humano.
+
+Mick puede informar.
+
+Mick puede contextualizar.
+
+Mick puede sugerir revisión humana.
+
+La autoridad humana permanece con asesor, manager y cliente según ADR-003.
+
+23. ADVISOR CAPABILITY GROWTH
+
+Mick debe fortalecer capacidad del asesor.
+
+Una señal conductual útil debe ayudar a entender:
+
+- qué patrón se observa
+- qué evidencia lo sostiene
+- qué incertidumbre existe
+- qué contexto falta
+- qué ajuste podría revisarse
+- qué no debe concluirse
+
+Mick no debe crear dependencia, vigilancia o miedo al sistema.
+
+Mick debe ayudar al asesor a verse con claridad operativa, no sentirse juzgado por una máquina.
+
+24. ALLOWED BEHAVIOR
+
+Mick puede:
+
+- observar patrones conductuales
+- detectar consistencia
+- detectar interrupciones de ejecución
+- detectar cadence
+- detectar task completion
+- detectar follow-through
+- detectar fricción observable
+- detectar señales de coachability observable
+- detectar cambios de patrón
+- aportar señales a Business Planning
+- aportar señales a Manager Intelligence
+- aportar señales a Advisor Experience
+- sugerir revisión humana
+- marcar uncertainty
+- distinguir comportamiento observado de interpretación
+- negar conclusión conductual cuando no hay evidencia suficiente
+
+25. DISALLOWED BEHAVIOR
+
+Mick no debe:
+
+- diagnosticar personalidad
+- inferir motivación interna
+- inferir carácter
+- inferir flojera
+- inferir disciplina moral
+- inferir compromiso interno
+- inferir intención
+- inferir estado emocional
+- inferir salud o estado mental
+- determinar valor humano
+- determinar potencial fijo
+- clasificar al asesor como bueno/malo
+- automatizar consecuencias
+- reemplazar manager coaching
+- convertir baja actividad en juicio personal
+- convertir patrones en castigo
+- convertir behavior signal en enforcement
+- convertir observabilidad en vigilancia
+- crear score humano
+- crear ranking humano
+- crear motivation score
+- crear discipline score
+- crear coachability score
+- crear advisor value ranking
+
+26. CONSEQUENCES
+
+Positive Consequences
+
+Este ADR habilita:
+
+- Behavior Intelligence responsable
+- mejor separación entre conducta observada y juicio humano
+- mejores inputs para Business Planning
+- mejores inputs para Manager Intelligence
+- mejores inputs para Advisor Experience
+- menor riesgo de vigilancia conductual
+- menor riesgo de manager enforcement automático
+- menor riesgo de score humano
+- mayor protección de Authority Boundary
+- mayor protección de Advisor Capability Growth
+- mayor claridad operativa sin juicio personal
+
+Tradeoffs
+
+Este ADR introduce:
+
+- más human review
+- más uncertainty visible
+- menos automatización de conclusiones
+- menos “diagnósticos rápidos”
+- más límites para Manager Intelligence
+- más límites para Advisor Experience
+- más cuidado con datos incompletos
+- menos capacidad de convertir conducta en etiquetas simples
+
+Estos tradeoffs son aceptables porque Forge debe observar conducta sin juzgar personas.
+
+27. DEPENDENCIES
+
+Este ADR depende de:
+
+- ADR-001 — Evidence Ownership / Source Validity
+- ADR-002 — One Metric One Owner
+- ADR-003 — Recommendation vs Decision / Authority Boundary
+- ADR-009 — NBA Philosophy
+- ADR-012 — Business Planning Plan-to-Action Boundary
+
+También se alinea con:
+
+- ADR-010 — NASH Conversation Intelligence Boundary
+- ADR-011 — Relationship Intelligence Non-Manipulation Boundary
+
+28. DEPENDENT ADRs
+
+Dependen de este ADR:
+
+- ADR-014 — Productivity Metric Ownership Boundary
+- ADR-015 — Manager Intelligence Authority Boundary
+- ADR-016 — Advisor Experience + Benvenù Anti-Dependence Boundary
+
+29. NON-GOALS
+
+Este ADR no define:
+
+- behavior engine
+- scoring model
+- human ranking
+- psychological model
+- personality model
+- productivity formula
+- manager workflow
+- enforcement logic
+- coaching playbook
+- UI
+- dashboard
+- notification logic
+- implementation plan
+- feature behavior
+- database schema
+- automation logic
+
+Este ADR no crea:
+
+- Human Worth Score
+- Motivation Score
+- Discipline Score
+- Coachability Score
+- Advisor Value Ranking
+- Good/Bad Advisor Label
+
+Este ADR no aprueba implementación.
+
+30. FINAL VERDICT
+
+ADR-013 establece que Mick puede observar patrones de conducta, consistencia, cadence, fricción y ejecución observable.
+
+Mick may observe behavior patterns.
+
+Mick does not diagnose people.
+
+Mick does not judge human worth.
+
+Mick does not create enforcement.
+
+Mick does not create human scores.
+
+Mick does not convert observability into surveillance.
+
+Conducta no es personalidad.
+
+Inconsistencia no es carácter.
+
+Baja actividad no es valor humano.
+
+Rechazar NBA no es falta de coachability.
+
+Usar poco NASH no es incapacidad conversacional.
+
+Mick observa señales.
+
+Humanos interpretan contexto.
+
+Mick ve lo que haces.
+
+Mick no decide quién eres.
+
+Una señal conductual sin evidencia, contexto, uncertainty y boundary no es Behavior Intelligence.
+
+Es vigilancia con traje.
