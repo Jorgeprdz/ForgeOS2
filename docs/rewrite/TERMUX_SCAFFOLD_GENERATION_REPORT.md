@@ -193,3 +193,43 @@ Final product inventory metrics:
 Validation added:
 
 - `validate-product-surfaces` fails if a surface has no responsible module, a module has no capability, a capability has no module, or key Build Tree modules disappear from the registry.
+
+## Dependency Graph And Build Order Annex
+
+Created:
+
+- `docs/architecture/FORGE_DEPENDENCY_GRAPH.md`
+- `docs/architecture/FORGE_BUILD_ORDER.md`
+- `docs/architecture/FORGE_MODULE_DEPENDENCIES.md`
+- `docs/rewrite/TERMUX_BUILD_STRATEGY.md`
+- `scaffolds/manifest/dependency-graph.json`
+- `scaffolds/manifest/build-order.json`
+- `scaffolds/manifest/module-dependencies.json`
+- `scaffolds/manifest/rewrite-execution-plan.json`
+
+Generated reports:
+
+- `docs/rewrite/DEPENDENCY_SUMMARY_REPORT.md`
+- `docs/rewrite/CRITICAL_PATH_REPORT.md`
+- `docs/rewrite/PARALLEL_BUILD_REPORT.md`
+- `docs/rewrite/MODULE_READINESS_REPORT.md`
+- `docs/rewrite/ARCHITECTURAL_RISK_REPORT.md`
+- `docs/rewrite/REWRITE_EXECUTION_REPORT.md`
+
+Final dependency metrics:
+
+- Modules analyzed: 37.
+- Dependencies discovered: 44.
+- Hard dependencies: 26.
+- Soft dependencies: 0.
+- Event relationships: 103.
+- Parallel build groups: 5.
+- Critical path length: 5.
+- Ready modules: 16.
+- Blocked modules: 16.
+- Deferred modules: 3.
+- Rejected modules: 2.
+
+Validation added:
+
+- `validate-dependency-graph` fails on cycles, missing modules, missing contracts, missing capabilities, missing producers/consumers, orphan capabilities, invalid stage references, unsafe parallel groups and invalid topological ordering.
