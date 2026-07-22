@@ -1,0 +1,28 @@
+{
+  "stage": "SG-023",
+  "generated_at": "2026-07-22T23:50:15.689Z",
+  "operator": "termux",
+  "inputs": [
+    "docs/product/FORGE_PRODUCT_SPEC.md",
+    "scaffolds/manifest/rewrite-stages.json"
+  ],
+  "outputs": [
+    "scaffolds/artifacts/SG-023/ownership-registry.artifact.json",
+    "scaffolds/artifacts/SG-023/source-of-truth-registry.artifact.json",
+    "scaffolds/artifacts/SG-023/metric-ownership-registry.artifact.json",
+    "scaffolds/artifacts/SG-023/productivity-metric-contract.artifact.json",
+    "scaffolds/artifacts/SG-023/parallel-truth-deny-policy.artifact.json",
+    "scaffolds/reports/SG-023-evidence.json"
+  ],
+  "hashes": {
+    "scaffolds/artifacts/SG-023/ownership-registry.artifact.json": "45b7cd886db2ff3b7bccdd65e57dec750ffcc6ece527eb42bbc1e5f4c02bd99a",
+    "scaffolds/artifacts/SG-023/source-of-truth-registry.artifact.json": "117958e2cd0dce0b7b0db5d90c6ebc23cff4d52540e091c907bd0c9a360af675",
+    "scaffolds/artifacts/SG-023/metric-ownership-registry.artifact.json": "cf88261b078d3fae48167d88a9cd05a59ac33dbec5f45d87b8cfce8b5d7a9c9f",
+    "scaffolds/artifacts/SG-023/productivity-metric-contract.artifact.json": "743ba2ddf7fe66f8ccbf2b0e36782e2b00eb63581645fe072c4759756ee98d2e",
+    "scaffolds/artifacts/SG-023/parallel-truth-deny-policy.artifact.json": "1814c5374fa19c13a1a5e7024ff65fcba1e40ffea987f443913cb9933e84a1f0"
+  },
+  "validations": [
+    "scaffold:validate"
+  ],
+  "status": "PASS"
+}
