@@ -1,8 +1,8 @@
 node_modules/
 
-# Forge Termux rewrite local state
-.forge/rewrite/state.json
-.forge/rewrite/current-stage
+# Forge local runtime and rewrite state
+.forge/
+
 .forge/rewrite/completed-stages.json
 .forge/rewrite/logs/
 .forge/rewrite/locks/

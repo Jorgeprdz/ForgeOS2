@@ -49,8 +49,7 @@ elif [ "$mode" = "--apply" ]; then
   [ "$status" = "READY" ] || forge_die "stage $stage is not READY: $status"
 
   generator="$SCRIPT_DIR/generators/${stage}.sh"
-  [ -f "$generator" ] || forge_die "missing stage generator: $generator"
-  bash -n "$generator"
+  forge_validate_bash_runner "$generator"
 
   if [ "$force" -ne 1 ] && [ -f "$FORGE_ROOT/.forge/rewrite/current-stage" ]; then
     forge_die "another stage appears active; use resume or rollback"
@@ -93,7 +92,7 @@ NODE
 
   printf '%s\n' "$stage" > "$FORGE_ROOT/.forge/rewrite/current-stage"
 
-  FORGE_ROOT="$FORGE_ROOT" FORGE_STAGE="$stage" "$generator" 2>&1 | tee "$out"
+  FORGE_ROOT="$FORGE_ROOT" FORGE_STAGE="$stage" bash "$generator" 2>&1 | tee "$out"
 
   for path in "${material[@]}"; do
     [ -f "$path" ] || forge_die "missing generated output: $path"

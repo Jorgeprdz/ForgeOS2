@@ -47,7 +47,7 @@ forge_record_validation_stamp
   printf 'BRANCH=%s\n' "$(forge_current_branch)"
   printf 'STAGES:\n'
   forge_list_stages
-  printf 'NEXT_COMMAND="./tools/termux/rewrite/forge-rewrite-stage.sh SG-001 --plan"\n'
+  printf 'NEXT_COMMAND=bash "%s/tools/termux/rewrite/forge-rewrite-stage.sh" SG-001 --plan\n' "$FORGE_ROOT"
 } | tee "$FORGE_ROOT/.forge/rewrite/logs/bootstrap.out"
 [ "$copy" -eq 1 ] && forge_copy_result < "$FORGE_ROOT/.forge/rewrite/logs/bootstrap.out"
 [ "$export_android" -eq 1 ] && forge_export_android

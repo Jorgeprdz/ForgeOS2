@@ -14,5 +14,5 @@ Canonical sources:
 Future Termux execution starts with:
 
 ```sh
-"./tools/termux/rewrite/forge-rewrite-bootstrap.sh"
+bash tools/termux/rewrite/forge-rewrite-bootstrap.sh
 ```

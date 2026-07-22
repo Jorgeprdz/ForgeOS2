@@ -33,5 +33,5 @@ Dependency-driven artifacts:
 Start with:
 
 ```sh
-"./tools/termux/rewrite/forge-rewrite-bootstrap.sh"
+bash tools/termux/rewrite/forge-rewrite-bootstrap.sh
 ```

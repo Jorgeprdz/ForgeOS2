@@ -2,7 +2,7 @@
 
 Report ID: `FORGE_REWRITE_GO_NO_GO_001`
 
-Final decision: `CONDITIONAL_GO`.
+Final decision: `GO`.
 
 The decision is repository-evidence based. Documents alone are not treated as proof; manifests, validators, contract existence and execution safety reports are checked.
 

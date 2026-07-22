@@ -24,6 +24,14 @@ forge_require_cmd() {
   command -v "$1" >/dev/null 2>&1 || forge_die "missing required command: $1"
 }
 
+forge_validate_bash_runner() {
+  local runner="$1"
+  [ -f "$runner" ] || forge_die "RUNNER_NOT_FOUND:$runner"
+  [ -r "$runner" ] || forge_die "RUNNER_NOT_READABLE:$runner"
+  forge_require_cmd bash
+  bash -n "$runner" || forge_die "RUNNER_SYNTAX_INVALID:$runner"
+}
+
 forge_now() {
   date -u +"%Y-%m-%dT%H:%M:%SZ"
 }

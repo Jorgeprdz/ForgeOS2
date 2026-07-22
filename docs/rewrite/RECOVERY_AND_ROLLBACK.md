@@ -15,13 +15,13 @@ scaffolds/reports/
 Resume:
 
 ```sh
-"./tools/termux/rewrite/forge-rewrite-resume.sh"
+bash tools/termux/rewrite/forge-rewrite-resume.sh
 ```
 
 Rollback:
 
 ```sh
-"./tools/termux/rewrite/forge-rewrite-rollback.sh" SG-001
+bash tools/termux/rewrite/forge-rewrite-rollback.sh SG-001
 ```
 
 Rollback removes only uncommitted evidence/state for the requested stage. It does not run `git reset`, does not rewrite history and does not touch previous commits.

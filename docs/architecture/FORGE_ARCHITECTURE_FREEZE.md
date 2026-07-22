@@ -12,7 +12,7 @@ Freeze ID: `FORGE_ARCHITECTURE_FREEZE_001`
 - Product surfaces: 21.
 - Capabilities: 24.
 - Stages: 20.
-- Contracts: 29.
+- Contracts: 31.
 - Dependency edges: 44.
 - Execution waves: 4.
 
