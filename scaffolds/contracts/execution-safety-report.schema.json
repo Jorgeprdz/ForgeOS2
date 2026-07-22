@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forge-os.local/scaffolds/contracts/execution-safety-report.schema.json",
+  "title": "Forge Execution Safety Report",
+  "type": "object",
+  "required": ["schema", "report_id", "active_modules", "eligible_scaffold_modules", "eligible_implementation_modules", "waiting_for_dependencies", "waiting_for_decisions", "waiting_for_evidence", "deferred_modules", "rejected_modules", "active_execution_waves", "stage_id_rule", "functional_rewrite_executed", "legacy_code_copied"]
+}

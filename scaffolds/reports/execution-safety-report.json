@@ -1,0 +1,16 @@
+{
+  "schema": "../contracts/execution-safety-report.schema.json",
+  "report_id": "FORGE_EXECUTION_SAFETY_REPORT_001",
+  "active_modules": 32,
+  "eligible_scaffold_modules": 11,
+  "eligible_implementation_modules": 9,
+  "waiting_for_dependencies": 0,
+  "waiting_for_decisions": 15,
+  "waiting_for_evidence": 1,
+  "deferred_modules": 3,
+  "rejected_modules": 2,
+  "active_execution_waves": 4,
+  "stage_id_rule": "stage_id does not determine build order",
+  "functional_rewrite_executed": false,
+  "legacy_code_copied": false
+}

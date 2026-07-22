@@ -1,0 +1,25 @@
+{
+  "schema": "../contracts/rejected-module-denylist.schema.json",
+  "denylist_id": "FORGE_REJECTED_MODULE_DENYLIST_001",
+  "rejected_modules": [
+    {
+      "module_id": "MOD-AUTONOMOUS-AI-DECISIONING",
+      "capability_ids": [
+        "CAP-AUTONOMOUS-AI-DECISIONING"
+      ],
+      "forbidden_events": [
+        "ai.final_decision",
+        "message.sent_without_human_approval"
+      ],
+      "validation": "must_not_appear_in_active_execution"
+    },
+    {
+      "module_id": "MOD-GENERIC-CRM-CLONE",
+      "capability_ids": [
+        "CAP-GENERIC-CRM-CLONE"
+      ],
+      "forbidden_events": [],
+      "validation": "must_not_appear_in_active_execution"
+    }
+  ]
+}

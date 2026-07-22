@@ -1,11 +1,14 @@
 {
   "schema": "../contracts/build-order.schema.json",
-  "build_order_id": "FORGE_BUILD_ORDER_001",
+  "build_order_id": "FORGE_BUILD_ORDER_002",
   "generated_from": "scaffolds/manifest/dependency-graph.json",
-  "algorithm": "deterministic_topological_sort_lexicographic_tiebreak",
+  "algorithm": "deterministic_topological_sort_lexicographic_tiebreak_with_rejected_deferred_exclusion",
+  "stage_id_rule": "stage_id is governance ownership and does not determine build order",
   "cycles": [],
-  "critical_path_length": 5,
-  "critical_path": [
+  "topological_order": [
+    "MOD-AUTONOMOUS-AI-DECISIONING",
+    "MOD-GENERIC-CRM-CLONE",
+    "MOD-TRUTH-GOVERNANCE",
     "MOD-ADVISOR-LIFECYCLE",
     "MOD-CARRIER-SCOPE",
     "MOD-CONVERSATION-INTELLIGENCE",
@@ -41,481 +44,1752 @@
     "MOD-QUOTE-PREVIEW",
     "MOD-REVENUE-INTELLIGENCE"
   ],
-  "parallel_groups": [
+  "active_topological_order": [
+    "MOD-TRUTH-GOVERNANCE",
+    "MOD-ADVISOR-LIFECYCLE",
+    "MOD-CARRIER-SCOPE",
+    "MOD-CONVERSATION-INTELLIGENCE",
+    "MOD-DECISION-CORE",
+    "MOD-GOVERNANCE-GATE",
+    "MOD-MICK-BEHAVIOR",
+    "MOD-READONLY-ADAPTERS",
+    "MOD-ACTION-PLANNING",
+    "MOD-CLIENT-CRM-READMODEL",
+    "MOD-HUMAN-APPROVAL-GATE",
+    "MOD-LEGACY-REINTRODUCTION-GUARD",
+    "MOD-MANAGER-COACHING",
+    "MOD-NBA-REASON-WHY",
+    "MOD-OPPORTUNITY-PIPELINE",
+    "MOD-POLICY-OPERATIONS",
+    "MOD-PRODUCT-CATALOG",
+    "MOD-RULE-PACK-CONTRACT",
+    "MOD-TERMUX-REWRITE-TOOLS",
+    "MOD-ADVISOR-CONVERSION",
+    "MOD-ADVISOR-WORKSPACE",
+    "MOD-CALCULATION-CONTRACT",
+    "MOD-ELIGIBILITY-CONTRACT",
+    "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
+    "MOD-LLM-DRAFT-INTAKE",
+    "MOD-MANAGER-WORKSPACE",
+    "MOD-PRODUCT-SOURCE-PACK",
+    "MOD-RELATIONSHIP-INTELLIGENCE",
+    "MOD-ADVISOR-ACTIVATION",
+    "MOD-ADVISOR-EXPERIENCE",
+    "MOD-MESSAGE-SAFETY-VALIDATOR",
+    "MOD-QUOTE-PREVIEW"
+  ],
+  "critical_path": {
+    "modules": [
+      "MOD-TRUTH-GOVERNANCE",
+      "MOD-GOVERNANCE-GATE",
+      "MOD-HUMAN-APPROVAL-GATE",
+      "MOD-ADVISOR-CONVERSION",
+      "MOD-ADVISOR-ACTIVATION"
+    ],
+    "edges": [
+      {
+        "from": "MOD-TRUTH-GOVERNANCE",
+        "to": "MOD-GOVERNANCE-GATE",
+        "dependency_edge": "MOD-GOVERNANCE-GATE->MOD-TRUTH-GOVERNANCE",
+        "type": "SECURITY"
+      },
+      {
+        "from": "MOD-GOVERNANCE-GATE",
+        "to": "MOD-HUMAN-APPROVAL-GATE",
+        "dependency_edge": "MOD-HUMAN-APPROVAL-GATE->MOD-GOVERNANCE-GATE",
+        "type": "SECURITY"
+      },
+      {
+        "from": "MOD-HUMAN-APPROVAL-GATE",
+        "to": "MOD-ADVISOR-CONVERSION",
+        "dependency_edge": "MOD-ADVISOR-CONVERSION->MOD-HUMAN-APPROVAL-GATE",
+        "type": "SECURITY"
+      },
+      {
+        "from": "MOD-ADVISOR-CONVERSION",
+        "to": "MOD-ADVISOR-ACTIVATION",
+        "dependency_edge": "MOD-ADVISOR-ACTIVATION->MOD-ADVISOR-CONVERSION",
+        "type": "HARD"
+      }
+    ],
+    "length": 4,
+    "start_module": "MOD-TRUTH-GOVERNANCE",
+    "end_module": "MOD-ADVISOR-ACTIVATION",
+    "total_weight": 4
+  },
+  "active_execution_waves": [
     {
-      "group": 1,
+      "wave": 2,
       "modules": [
-        "MOD-AUTONOMOUS-AI-DECISIONING",
-        "MOD-GENERIC-CRM-CLONE",
-        "MOD-TRUTH-GOVERNANCE"
-      ]
-    },
-    {
-      "group": 2,
-      "modules": [
-        "MOD-ADVISOR-LIFECYCLE",
-        "MOD-CARRIER-SCOPE",
-        "MOD-CONVERSATION-INTELLIGENCE",
-        "MOD-DECISION-CORE",
         "MOD-GOVERNANCE-GATE",
-        "MOD-MICK-BEHAVIOR",
-        "MOD-READONLY-ADAPTERS"
+        "MOD-READONLY-ADAPTERS",
+        "MOD-ADVISOR-LIFECYCLE"
       ]
     },
     {
-      "group": 3,
+      "wave": 3,
       "modules": [
-        "MOD-ACTION-PLANNING",
-        "MOD-CLIENT-CRM-READMODEL",
         "MOD-HUMAN-APPROVAL-GATE",
-        "MOD-LEGACY-REINTRODUCTION-GUARD",
-        "MOD-MANAGER-COACHING",
-        "MOD-NBA-REASON-WHY",
-        "MOD-OPPORTUNITY-PIPELINE",
-        "MOD-POLICY-OPERATIONS",
         "MOD-PRODUCT-CATALOG",
-        "MOD-RULE-PACK-CONTRACT",
-        "MOD-TERMUX-REWRITE-TOOLS"
+        "MOD-CLIENT-CRM-READMODEL",
+        "MOD-NBA-REASON-WHY",
+        "MOD-OPPORTUNITY-PIPELINE"
       ]
     },
     {
-      "group": 4,
+      "wave": 4,
       "modules": [
         "MOD-ADVISOR-CONVERSION",
-        "MOD-ADVISOR-WORKSPACE",
-        "MOD-CALCULATION-CONTRACT",
-        "MOD-ELIGIBILITY-CONTRACT",
-        "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
-        "MOD-LLM-DRAFT-INTAKE",
-        "MOD-MANAGER-WORKSPACE",
-        "MOD-PRODUCT-SOURCE-PACK",
-        "MOD-RECRUITMENT-PRECONTRACT",
-        "MOD-RELATIONSHIP-INTELLIGENCE"
-      ]
-    },
-    {
-      "group": 5,
-      "modules": [
-        "MOD-ADVISOR-ACTIVATION",
-        "MOD-ADVISOR-EXPERIENCE",
-        "MOD-COMPENSATION-ECONOMIC",
-        "MOD-MESSAGE-SAFETY-VALIDATOR",
-        "MOD-QUOTE-PREVIEW",
-        "MOD-REVENUE-INTELLIGENCE"
-      ]
-    }
-  ],
-  "modules": [
-    {
-      "module_id": "MOD-AUTONOMOUS-AI-DECISIONING",
-      "build_priority": 1,
-      "build_stage": "SG-019",
-      "parallelization_group": 1,
-      "blocking_conditions": [],
-      "promotion_gate": "REJECTED",
-      "rollback_dependency": []
-    },
-    {
-      "module_id": "MOD-GENERIC-CRM-CLONE",
-      "build_priority": 2,
-      "build_stage": "SG-019",
-      "parallelization_group": 1,
-      "blocking_conditions": [],
-      "promotion_gate": "REJECTED",
-      "rollback_dependency": []
-    },
-    {
-      "module_id": "MOD-TRUTH-GOVERNANCE",
-      "build_priority": 3,
-      "build_stage": "SG-001",
-      "parallelization_group": 1,
-      "blocking_conditions": [],
-      "promotion_gate": "validation_and_evidence_required",
-      "rollback_dependency": []
-    },
-    {
-      "module_id": "MOD-ADVISOR-LIFECYCLE",
-      "build_priority": 4,
-      "build_stage": "SG-001",
-      "parallelization_group": 2,
-      "blocking_conditions": [],
-      "promotion_gate": "READY_FOR_SCAFFOLD",
-      "rollback_dependency": [
-        "MOD-TRUTH-GOVERNANCE"
-      ]
-    },
-    {
-      "module_id": "MOD-CARRIER-SCOPE",
-      "build_priority": 5,
-      "build_stage": "SG-008",
-      "parallelization_group": 2,
-      "blocking_conditions": [],
-      "promotion_gate": "BLOCKED",
-      "rollback_dependency": [
-        "MOD-TRUTH-GOVERNANCE"
-      ]
-    },
-    {
-      "module_id": "MOD-CONVERSATION-INTELLIGENCE",
-      "build_priority": 6,
-      "build_stage": "SG-004",
-      "parallelization_group": 2,
-      "blocking_conditions": [],
-      "promotion_gate": "BLOCKED",
-      "rollback_dependency": [
-        "MOD-TRUTH-GOVERNANCE"
-      ]
-    },
-    {
-      "module_id": "MOD-DECISION-CORE",
-      "build_priority": 7,
-      "build_stage": "SG-002",
-      "parallelization_group": 2,
-      "blocking_conditions": [],
-      "promotion_gate": "validation_and_evidence_required",
-      "rollback_dependency": [
-        "MOD-TRUTH-GOVERNANCE"
-      ]
-    },
-    {
-      "module_id": "MOD-GOVERNANCE-GATE",
-      "build_priority": 8,
-      "build_stage": "SG-001",
-      "parallelization_group": 2,
-      "blocking_conditions": [],
-      "promotion_gate": "READY_FOR_SCAFFOLD",
-      "rollback_dependency": [
-        "MOD-TRUTH-GOVERNANCE"
-      ]
-    },
-    {
-      "module_id": "MOD-MICK-BEHAVIOR",
-      "build_priority": 9,
-      "build_stage": "SG-014",
-      "parallelization_group": 2,
-      "blocking_conditions": [],
-      "promotion_gate": "BLOCKED",
-      "rollback_dependency": [
-        "MOD-TRUTH-GOVERNANCE"
-      ]
-    },
-    {
-      "module_id": "MOD-READONLY-ADAPTERS",
-      "build_priority": 10,
-      "build_stage": "SG-002",
-      "parallelization_group": 2,
-      "blocking_conditions": [],
-      "promotion_gate": "READY_FOR_SCAFFOLD",
-      "rollback_dependency": [
-        "MOD-TRUTH-GOVERNANCE"
-      ]
-    },
-    {
-      "module_id": "MOD-ACTION-PLANNING",
-      "build_priority": 11,
-      "build_stage": "SG-002",
-      "parallelization_group": 3,
-      "blocking_conditions": [],
-      "promotion_gate": "validation_and_evidence_required",
-      "rollback_dependency": [
-        "MOD-DECISION-CORE"
-      ]
-    },
-    {
-      "module_id": "MOD-CLIENT-CRM-READMODEL",
-      "build_priority": 12,
-      "build_stage": "SG-002",
-      "parallelization_group": 3,
-      "blocking_conditions": [],
-      "promotion_gate": "READY_FOR_SCAFFOLD",
-      "rollback_dependency": [
-        "MOD-READONLY-ADAPTERS"
-      ]
-    },
-    {
-      "module_id": "MOD-HUMAN-APPROVAL-GATE",
-      "build_priority": 13,
-      "build_stage": "SG-001",
-      "parallelization_group": 3,
-      "blocking_conditions": [],
-      "promotion_gate": "READY_FOR_SCAFFOLD",
-      "rollback_dependency": [
-        "MOD-GOVERNANCE-GATE"
-      ]
-    },
-    {
-      "module_id": "MOD-LEGACY-REINTRODUCTION-GUARD",
-      "build_priority": 14,
-      "build_stage": "SG-018",
-      "parallelization_group": 3,
-      "blocking_conditions": [],
-      "promotion_gate": "validation_and_evidence_required",
-      "rollback_dependency": [
-        "MOD-GOVERNANCE-GATE"
-      ]
-    },
-    {
-      "module_id": "MOD-MANAGER-COACHING",
-      "build_priority": 15,
-      "build_stage": "SG-013",
-      "parallelization_group": 3,
-      "blocking_conditions": [],
-      "promotion_gate": "BLOCKED",
-      "rollback_dependency": [
-        "MOD-MICK-BEHAVIOR",
-        "MOD-TRUTH-GOVERNANCE"
-      ]
-    },
-    {
-      "module_id": "MOD-NBA-REASON-WHY",
-      "build_priority": 16,
-      "build_stage": "SG-002",
-      "parallelization_group": 3,
-      "blocking_conditions": [],
-      "promotion_gate": "READY_FOR_SCAFFOLD",
-      "rollback_dependency": [
-        "MOD-CONVERSATION-INTELLIGENCE",
-        "MOD-MICK-BEHAVIOR"
-      ]
-    },
-    {
-      "module_id": "MOD-OPPORTUNITY-PIPELINE",
-      "build_priority": 17,
-      "build_stage": "SG-002",
-      "parallelization_group": 3,
-      "blocking_conditions": [],
-      "promotion_gate": "READY_FOR_SCAFFOLD",
-      "rollback_dependency": [
-        "MOD-READONLY-ADAPTERS"
-      ]
-    },
-    {
-      "module_id": "MOD-POLICY-OPERATIONS",
-      "build_priority": 18,
-      "build_stage": "SG-005",
-      "parallelization_group": 3,
-      "blocking_conditions": [],
-      "promotion_gate": "BLOCKED",
-      "rollback_dependency": [
-        "MOD-TRUTH-GOVERNANCE",
-        "MOD-READONLY-ADAPTERS"
-      ]
-    },
-    {
-      "module_id": "MOD-PRODUCT-CATALOG",
-      "build_priority": 19,
-      "build_stage": "SG-006",
-      "parallelization_group": 3,
-      "blocking_conditions": [],
-      "promotion_gate": "READY_FOR_SCAFFOLD",
-      "rollback_dependency": [
-        "MOD-CARRIER-SCOPE"
-      ]
-    },
-    {
-      "module_id": "MOD-RULE-PACK-CONTRACT",
-      "build_priority": 20,
-      "build_stage": "SG-009",
-      "parallelization_group": 3,
-      "blocking_conditions": [],
-      "promotion_gate": "BLOCKED",
-      "rollback_dependency": [
-        "MOD-CARRIER-SCOPE"
-      ]
-    },
-    {
-      "module_id": "MOD-TERMUX-REWRITE-TOOLS",
-      "build_priority": 21,
-      "build_stage": "SG-001",
-      "parallelization_group": 3,
-      "blocking_conditions": [],
-      "promotion_gate": "validation_and_evidence_required",
-      "rollback_dependency": [
-        "MOD-GOVERNANCE-GATE"
-      ]
-    },
-    {
-      "module_id": "MOD-ADVISOR-CONVERSION",
-      "build_priority": 22,
-      "build_stage": "SG-001",
-      "parallelization_group": 4,
-      "blocking_conditions": [],
-      "promotion_gate": "READY_FOR_SCAFFOLD",
-      "rollback_dependency": [
-        "MOD-HUMAN-APPROVAL-GATE"
-      ]
-    },
-    {
-      "module_id": "MOD-ADVISOR-WORKSPACE",
-      "build_priority": 23,
-      "build_stage": "SG-002",
-      "parallelization_group": 4,
-      "blocking_conditions": [],
-      "promotion_gate": "READY_FOR_SCAFFOLD",
-      "rollback_dependency": [
-        "MOD-DECISION-CORE",
-        "MOD-ACTION-PLANNING"
-      ]
-    },
-    {
-      "module_id": "MOD-CALCULATION-CONTRACT",
-      "build_priority": 24,
-      "build_stage": "SG-011",
-      "parallelization_group": 4,
-      "blocking_conditions": [],
-      "promotion_gate": "BLOCKED",
-      "rollback_dependency": [
-        "MOD-RULE-PACK-CONTRACT"
-      ]
-    },
-    {
-      "module_id": "MOD-ELIGIBILITY-CONTRACT",
-      "build_priority": 25,
-      "build_stage": "SG-010",
-      "parallelization_group": 4,
-      "blocking_conditions": [],
-      "promotion_gate": "BLOCKED",
-      "rollback_dependency": [
-        "MOD-RULE-PACK-CONTRACT"
-      ]
-    },
-    {
-      "module_id": "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
-      "build_priority": 26,
-      "build_stage": "SG-020",
-      "parallelization_group": 4,
-      "blocking_conditions": [],
-      "promotion_gate": "BLOCKED",
-      "rollback_dependency": [
-        "MOD-LEGACY-REINTRODUCTION-GUARD"
-      ]
-    },
-    {
-      "module_id": "MOD-LLM-DRAFT-INTAKE",
-      "build_priority": 27,
-      "build_stage": "SG-004",
-      "parallelization_group": 4,
-      "blocking_conditions": [],
-      "promotion_gate": "BLOCKED",
-      "rollback_dependency": [
-        "MOD-HUMAN-APPROVAL-GATE"
-      ]
-    },
-    {
-      "module_id": "MOD-MANAGER-WORKSPACE",
-      "build_priority": 28,
-      "build_stage": "SG-013",
-      "parallelization_group": 4,
-      "blocking_conditions": [],
-      "promotion_gate": "BLOCKED",
-      "rollback_dependency": [
-        "MOD-MANAGER-COACHING"
-      ]
-    },
-    {
-      "module_id": "MOD-PRODUCT-SOURCE-PACK",
-      "build_priority": 29,
-      "build_stage": "SG-007",
-      "parallelization_group": 4,
-      "blocking_conditions": [],
-      "promotion_gate": "BLOCKED",
-      "rollback_dependency": [
-        "MOD-PRODUCT-CATALOG"
-      ]
-    },
-    {
-      "module_id": "MOD-RECRUITMENT-PRECONTRACT",
-      "build_priority": 30,
-      "build_stage": "SG-017",
-      "parallelization_group": 4,
-      "blocking_conditions": [],
-      "promotion_gate": "DEFERRED",
-      "rollback_dependency": [
-        "MOD-MANAGER-COACHING",
-        "MOD-TRUTH-GOVERNANCE"
-      ]
-    },
-    {
-      "module_id": "MOD-RELATIONSHIP-INTELLIGENCE",
-      "build_priority": 31,
-      "build_stage": "SG-003",
-      "parallelization_group": 4,
-      "blocking_conditions": [],
-      "promotion_gate": "BLOCKED",
-      "rollback_dependency": [
-        "MOD-TRUTH-GOVERNANCE",
-        "MOD-ACTION-PLANNING"
-      ]
-    },
-    {
-      "module_id": "MOD-ADVISOR-ACTIVATION",
-      "build_priority": 32,
-      "build_stage": "SG-001",
-      "parallelization_group": 5,
-      "blocking_conditions": [],
-      "promotion_gate": "READY_FOR_SCAFFOLD",
-      "rollback_dependency": [
-        "MOD-ADVISOR-CONVERSION"
-      ]
-    },
-    {
-      "module_id": "MOD-ADVISOR-EXPERIENCE",
-      "build_priority": 33,
-      "build_stage": "SG-015",
-      "parallelization_group": 5,
-      "blocking_conditions": [],
-      "promotion_gate": "BLOCKED",
-      "rollback_dependency": [
         "MOD-ADVISOR-WORKSPACE"
       ]
     },
     {
-      "module_id": "MOD-COMPENSATION-ECONOMIC",
-      "build_priority": 34,
-      "build_stage": "SG-016",
-      "parallelization_group": 5,
-      "blocking_conditions": [],
-      "promotion_gate": "DEFERRED",
-      "rollback_dependency": [
-        "MOD-CALCULATION-CONTRACT",
-        "MOD-RULE-PACK-CONTRACT"
+      "wave": 5,
+      "modules": [
+        "MOD-ADVISOR-ACTIVATION"
       ]
+    }
+  ],
+  "rejected_modules": [
+    "MOD-AUTONOMOUS-AI-DECISIONING",
+    "MOD-GENERIC-CRM-CLONE"
+  ],
+  "deferred_modules": [
+    "MOD-COMPENSATION-ECONOMIC",
+    "MOD-RECRUITMENT-PRECONTRACT",
+    "MOD-REVENUE-INTELLIGENCE"
+  ],
+  "eligible_now": {
+    "SCAFFOLD": [
+      "MOD-GOVERNANCE-GATE",
+      "MOD-HUMAN-APPROVAL-GATE",
+      "MOD-ADVISOR-CONVERSION",
+      "MOD-ADVISOR-ACTIVATION",
+      "MOD-READONLY-ADAPTERS",
+      "MOD-PRODUCT-CATALOG",
+      "MOD-ADVISOR-WORKSPACE",
+      "MOD-ADVISOR-LIFECYCLE",
+      "MOD-CLIENT-CRM-READMODEL",
+      "MOD-NBA-REASON-WHY",
+      "MOD-OPPORTUNITY-PIPELINE"
+    ],
+    "IMPLEMENT": [
+      "MOD-GOVERNANCE-GATE",
+      "MOD-HUMAN-APPROVAL-GATE",
+      "MOD-ADVISOR-CONVERSION",
+      "MOD-ADVISOR-ACTIVATION",
+      "MOD-READONLY-ADAPTERS",
+      "MOD-ADVISOR-WORKSPACE",
+      "MOD-ADVISOR-LIFECYCLE",
+      "MOD-CLIENT-CRM-READMODEL",
+      "MOD-OPPORTUNITY-PIPELINE"
+    ],
+    "VALIDATE": [
+      "MOD-GOVERNANCE-GATE",
+      "MOD-HUMAN-APPROVAL-GATE",
+      "MOD-ADVISOR-CONVERSION",
+      "MOD-ADVISOR-ACTIVATION",
+      "MOD-READONLY-ADAPTERS",
+      "MOD-PRODUCT-CATALOG",
+      "MOD-ADVISOR-WORKSPACE",
+      "MOD-ADVISOR-LIFECYCLE",
+      "MOD-CLIENT-CRM-READMODEL",
+      "MOD-NBA-REASON-WHY",
+      "MOD-OPPORTUNITY-PIPELINE"
+    ],
+    "PROMOTE": []
+  },
+  "waiting_for_dependencies": [],
+  "waiting_for_decisions": [
+    "MOD-ADVISOR-EXPERIENCE",
+    "MOD-CALCULATION-CONTRACT",
+    "MOD-CARRIER-SCOPE",
+    "MOD-CONVERSATION-INTELLIGENCE",
+    "MOD-ELIGIBILITY-CONTRACT",
+    "MOD-LLM-DRAFT-INTAKE",
+    "MOD-MANAGER-COACHING",
+    "MOD-MANAGER-WORKSPACE",
+    "MOD-MESSAGE-SAFETY-VALIDATOR",
+    "MOD-MICK-BEHAVIOR",
+    "MOD-POLICY-OPERATIONS",
+    "MOD-PRODUCT-SOURCE-PACK",
+    "MOD-QUOTE-PREVIEW",
+    "MOD-RELATIONSHIP-INTELLIGENCE",
+    "MOD-RULE-PACK-CONTRACT"
+  ],
+  "waiting_for_evidence": [
+    "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE"
+  ],
+  "modules": [
+    {
+      "module_id": "MOD-TRUTH-GOVERNANCE",
+      "topological_index": 1,
+      "active_priority": null,
+      "execution_wave": 1,
+      "dependency_depth": 1,
+      "stage_id": "SG-001",
+      "blocking_conditions": [],
+      "promotion_gate_id": "MOD-TRUTH-GOVERNANCE-PROMOTION-GATE",
+      "promotion_gate_state": "NOT_EVALUATED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "REMOVE_GENERATED_FILES_AND_EVIDENCE_IF_HASHES_MATCH",
+      "rollback_checkpoint": "MOD-TRUTH-GOVERNANCE-pre-apply"
+    },
+    {
+      "module_id": "MOD-ADVISOR-LIFECYCLE",
+      "topological_index": 2,
+      "active_priority": 8,
+      "execution_wave": 2,
+      "dependency_depth": 2,
+      "stage_id": "SG-001",
+      "blocking_conditions": [],
+      "promotion_gate_id": "MOD-ADVISOR-LIFECYCLE-PROMOTION-GATE",
+      "promotion_gate_state": "NOT_EVALUATED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "REMOVE_GENERATED_FILES_AND_EVIDENCE_IF_HASHES_MATCH",
+      "rollback_checkpoint": "MOD-ADVISOR-LIFECYCLE-pre-apply"
+    },
+    {
+      "module_id": "MOD-CARRIER-SCOPE",
+      "topological_index": 3,
+      "active_priority": null,
+      "execution_wave": 2,
+      "dependency_depth": 2,
+      "stage_id": "SG-008",
+      "blocking_conditions": [
+        {
+          "id": "BLOCK-MOD-CARRIER-SCOPE-ARCHITECTURAL-DECISION-REQUIRED-SCAFFOLD-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-008 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "SCAFFOLD",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-008",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-CARRIER-SCOPE-ARCHITECTURAL-DECISION-REQUIRED-IMPLEMENT-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-008 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-008",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-CARRIER-SCOPE-ARCHITECTURAL-DECISION-REQUIRED-VALIDATE-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-008 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "VALIDATE",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-008",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-CARRIER-SCOPE-ARCHITECTURAL-DECISION-REQUIRED-PROMOTE-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-008 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "PROMOTE",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-008",
+          "machine_checkable": true
+        }
+      ],
+      "promotion_gate_id": "MOD-CARRIER-SCOPE-PROMOTION-GATE",
+      "promotion_gate_state": "BLOCKED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "NOT_DEFINED",
+      "rollback_checkpoint": null
+    },
+    {
+      "module_id": "MOD-CONVERSATION-INTELLIGENCE",
+      "topological_index": 4,
+      "active_priority": null,
+      "execution_wave": 2,
+      "dependency_depth": 2,
+      "stage_id": "SG-004",
+      "blocking_conditions": [
+        {
+          "id": "BLOCK-MOD-CONVERSATION-INTELLIGENCE-OWNER-DECISION-REQUIRED-SCAFFOLD-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "SCAFFOLD",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-004",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-CONVERSATION-INTELLIGENCE-OWNER-DECISION-REQUIRED-IMPLEMENT-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-004",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-CONVERSATION-INTELLIGENCE-OWNER-DECISION-REQUIRED-VALIDATE-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "VALIDATE",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-004",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-CONVERSATION-INTELLIGENCE-OWNER-DECISION-REQUIRED-PROMOTE-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "PROMOTE",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-004",
+          "machine_checkable": true
+        }
+      ],
+      "promotion_gate_id": "MOD-CONVERSATION-INTELLIGENCE-PROMOTION-GATE",
+      "promotion_gate_state": "BLOCKED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "NOT_DEFINED",
+      "rollback_checkpoint": null
+    },
+    {
+      "module_id": "MOD-DECISION-CORE",
+      "topological_index": 5,
+      "active_priority": null,
+      "execution_wave": 2,
+      "dependency_depth": 2,
+      "stage_id": "SG-002",
+      "blocking_conditions": [],
+      "promotion_gate_id": "MOD-DECISION-CORE-PROMOTION-GATE",
+      "promotion_gate_state": "NOT_EVALUATED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "REMOVE_GENERATED_FILES_AND_EVIDENCE_IF_HASHES_MATCH",
+      "rollback_checkpoint": "MOD-DECISION-CORE-pre-apply"
+    },
+    {
+      "module_id": "MOD-GOVERNANCE-GATE",
+      "topological_index": 6,
+      "active_priority": 1,
+      "execution_wave": 2,
+      "dependency_depth": 2,
+      "stage_id": "SG-001",
+      "blocking_conditions": [],
+      "promotion_gate_id": "MOD-GOVERNANCE-GATE-PROMOTION-GATE",
+      "promotion_gate_state": "NOT_EVALUATED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "REMOVE_GENERATED_FILES_AND_EVIDENCE_IF_HASHES_MATCH",
+      "rollback_checkpoint": "MOD-GOVERNANCE-GATE-pre-apply"
+    },
+    {
+      "module_id": "MOD-MICK-BEHAVIOR",
+      "topological_index": 7,
+      "active_priority": null,
+      "execution_wave": 2,
+      "dependency_depth": 2,
+      "stage_id": "SG-014",
+      "blocking_conditions": [
+        {
+          "id": "BLOCK-MOD-MICK-BEHAVIOR-ARCHITECTURAL-DECISION-REQUIRED-SCAFFOLD-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-014 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "SCAFFOLD",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-014",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-MICK-BEHAVIOR-ARCHITECTURAL-DECISION-REQUIRED-IMPLEMENT-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-014 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-014",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-MICK-BEHAVIOR-ARCHITECTURAL-DECISION-REQUIRED-VALIDATE-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-014 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "VALIDATE",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-014",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-MICK-BEHAVIOR-ARCHITECTURAL-DECISION-REQUIRED-PROMOTE-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-014 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "PROMOTE",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-014",
+          "machine_checkable": true
+        }
+      ],
+      "promotion_gate_id": "MOD-MICK-BEHAVIOR-PROMOTION-GATE",
+      "promotion_gate_state": "BLOCKED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "NOT_DEFINED",
+      "rollback_checkpoint": null
+    },
+    {
+      "module_id": "MOD-READONLY-ADAPTERS",
+      "topological_index": 8,
+      "active_priority": 5,
+      "execution_wave": 2,
+      "dependency_depth": 2,
+      "stage_id": "SG-002",
+      "blocking_conditions": [],
+      "promotion_gate_id": "MOD-READONLY-ADAPTERS-PROMOTION-GATE",
+      "promotion_gate_state": "NOT_EVALUATED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "REMOVE_GENERATED_FILES_AND_EVIDENCE_IF_HASHES_MATCH",
+      "rollback_checkpoint": "MOD-READONLY-ADAPTERS-pre-apply"
+    },
+    {
+      "module_id": "MOD-ACTION-PLANNING",
+      "topological_index": 9,
+      "active_priority": null,
+      "execution_wave": 3,
+      "dependency_depth": 3,
+      "stage_id": "SG-002",
+      "blocking_conditions": [],
+      "promotion_gate_id": "MOD-ACTION-PLANNING-PROMOTION-GATE",
+      "promotion_gate_state": "NOT_EVALUATED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "REMOVE_GENERATED_FILES_AND_EVIDENCE_IF_HASHES_MATCH",
+      "rollback_checkpoint": "MOD-ACTION-PLANNING-pre-apply"
+    },
+    {
+      "module_id": "MOD-CLIENT-CRM-READMODEL",
+      "topological_index": 10,
+      "active_priority": 9,
+      "execution_wave": 3,
+      "dependency_depth": 3,
+      "stage_id": "SG-002",
+      "blocking_conditions": [],
+      "promotion_gate_id": "MOD-CLIENT-CRM-READMODEL-PROMOTION-GATE",
+      "promotion_gate_state": "NOT_EVALUATED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "REMOVE_GENERATED_FILES_AND_EVIDENCE_IF_HASHES_MATCH",
+      "rollback_checkpoint": "MOD-CLIENT-CRM-READMODEL-pre-apply"
+    },
+    {
+      "module_id": "MOD-HUMAN-APPROVAL-GATE",
+      "topological_index": 11,
+      "active_priority": 2,
+      "execution_wave": 3,
+      "dependency_depth": 3,
+      "stage_id": "SG-001",
+      "blocking_conditions": [],
+      "promotion_gate_id": "MOD-HUMAN-APPROVAL-GATE-PROMOTION-GATE",
+      "promotion_gate_state": "NOT_EVALUATED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "REMOVE_GENERATED_FILES_AND_EVIDENCE_IF_HASHES_MATCH",
+      "rollback_checkpoint": "MOD-HUMAN-APPROVAL-GATE-pre-apply"
+    },
+    {
+      "module_id": "MOD-LEGACY-REINTRODUCTION-GUARD",
+      "topological_index": 12,
+      "active_priority": null,
+      "execution_wave": 3,
+      "dependency_depth": 3,
+      "stage_id": "SG-018",
+      "blocking_conditions": [],
+      "promotion_gate_id": "MOD-LEGACY-REINTRODUCTION-GUARD-PROMOTION-GATE",
+      "promotion_gate_state": "NOT_EVALUATED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "REMOVE_GENERATED_FILES_AND_EVIDENCE_IF_HASHES_MATCH",
+      "rollback_checkpoint": "MOD-LEGACY-REINTRODUCTION-GUARD-pre-apply"
+    },
+    {
+      "module_id": "MOD-MANAGER-COACHING",
+      "topological_index": 13,
+      "active_priority": null,
+      "execution_wave": 3,
+      "dependency_depth": 3,
+      "stage_id": "SG-013",
+      "blocking_conditions": [
+        {
+          "id": "BLOCK-MOD-MANAGER-COACHING-ARCHITECTURAL-DECISION-REQUIRED-SCAFFOLD-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-013 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "SCAFFOLD",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-013",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-MANAGER-COACHING-ARCHITECTURAL-DECISION-REQUIRED-IMPLEMENT-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-013 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-013",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-MANAGER-COACHING-ARCHITECTURAL-DECISION-REQUIRED-VALIDATE-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-013 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "VALIDATE",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-013",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-MANAGER-COACHING-ARCHITECTURAL-DECISION-REQUIRED-PROMOTE-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-013 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "PROMOTE",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-013",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-MANAGER-COACHING-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-MICK-BEHAVIOR",
+          "type": "DEPENDENCY_NOT_READY",
+          "description": "Implementation dependency MOD-MICK-BEHAVIOR is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve dependency MOD-MICK-BEHAVIOR before implementation.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": "MOD-MICK-BEHAVIOR",
+          "decision_reference": "SG-014",
+          "machine_checkable": true
+        }
+      ],
+      "promotion_gate_id": "MOD-MANAGER-COACHING-PROMOTION-GATE",
+      "promotion_gate_state": "BLOCKED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "NOT_DEFINED",
+      "rollback_checkpoint": null
+    },
+    {
+      "module_id": "MOD-NBA-REASON-WHY",
+      "topological_index": 14,
+      "active_priority": 10,
+      "execution_wave": 3,
+      "dependency_depth": 3,
+      "stage_id": "SG-002",
+      "blocking_conditions": [
+        {
+          "id": "BLOCK-MOD-NBA-REASON-WHY-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-CONVERSATION-INTELLIGENCE",
+          "type": "DEPENDENCY_NOT_READY",
+          "description": "Implementation dependency MOD-CONVERSATION-INTELLIGENCE is blocked by BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve dependency MOD-CONVERSATION-INTELLIGENCE before implementation.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": "MOD-CONVERSATION-INTELLIGENCE",
+          "decision_reference": "SG-004",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-NBA-REASON-WHY-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-MICK-BEHAVIOR",
+          "type": "DEPENDENCY_NOT_READY",
+          "description": "Implementation dependency MOD-MICK-BEHAVIOR is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve dependency MOD-MICK-BEHAVIOR before implementation.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": "MOD-MICK-BEHAVIOR",
+          "decision_reference": "SG-014",
+          "machine_checkable": true
+        }
+      ],
+      "promotion_gate_id": "MOD-NBA-REASON-WHY-PROMOTION-GATE",
+      "promotion_gate_state": "BLOCKED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "REMOVE_GENERATED_FILES_AND_EVIDENCE_IF_HASHES_MATCH",
+      "rollback_checkpoint": "MOD-NBA-REASON-WHY-pre-apply"
+    },
+    {
+      "module_id": "MOD-OPPORTUNITY-PIPELINE",
+      "topological_index": 15,
+      "active_priority": 11,
+      "execution_wave": 3,
+      "dependency_depth": 3,
+      "stage_id": "SG-002",
+      "blocking_conditions": [],
+      "promotion_gate_id": "MOD-OPPORTUNITY-PIPELINE-PROMOTION-GATE",
+      "promotion_gate_state": "NOT_EVALUATED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "REMOVE_GENERATED_FILES_AND_EVIDENCE_IF_HASHES_MATCH",
+      "rollback_checkpoint": "MOD-OPPORTUNITY-PIPELINE-pre-apply"
+    },
+    {
+      "module_id": "MOD-POLICY-OPERATIONS",
+      "topological_index": 16,
+      "active_priority": null,
+      "execution_wave": 3,
+      "dependency_depth": 3,
+      "stage_id": "SG-005",
+      "blocking_conditions": [
+        {
+          "id": "BLOCK-MOD-POLICY-OPERATIONS-OWNER-DECISION-REQUIRED-SCAFFOLD-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-005 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "SCAFFOLD",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-005",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-POLICY-OPERATIONS-OWNER-DECISION-REQUIRED-IMPLEMENT-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-005 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-005",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-POLICY-OPERATIONS-OWNER-DECISION-REQUIRED-VALIDATE-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-005 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "VALIDATE",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-005",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-POLICY-OPERATIONS-OWNER-DECISION-REQUIRED-PROMOTE-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-005 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "PROMOTE",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-005",
+          "machine_checkable": true
+        }
+      ],
+      "promotion_gate_id": "MOD-POLICY-OPERATIONS-PROMOTION-GATE",
+      "promotion_gate_state": "BLOCKED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "NOT_DEFINED",
+      "rollback_checkpoint": null
+    },
+    {
+      "module_id": "MOD-PRODUCT-CATALOG",
+      "topological_index": 17,
+      "active_priority": 6,
+      "execution_wave": 3,
+      "dependency_depth": 3,
+      "stage_id": "SG-006",
+      "blocking_conditions": [
+        {
+          "id": "BLOCK-MOD-PRODUCT-CATALOG-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-CARRIER-SCOPE",
+          "type": "DEPENDENCY_NOT_READY",
+          "description": "Implementation dependency MOD-CARRIER-SCOPE is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve dependency MOD-CARRIER-SCOPE before implementation.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": "MOD-CARRIER-SCOPE",
+          "decision_reference": "SG-008",
+          "machine_checkable": true
+        }
+      ],
+      "promotion_gate_id": "MOD-PRODUCT-CATALOG-PROMOTION-GATE",
+      "promotion_gate_state": "BLOCKED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "REMOVE_GENERATED_FILES_AND_EVIDENCE_IF_HASHES_MATCH",
+      "rollback_checkpoint": "MOD-PRODUCT-CATALOG-pre-apply"
+    },
+    {
+      "module_id": "MOD-RULE-PACK-CONTRACT",
+      "topological_index": 18,
+      "active_priority": null,
+      "execution_wave": 3,
+      "dependency_depth": 3,
+      "stage_id": "SG-009",
+      "blocking_conditions": [
+        {
+          "id": "BLOCK-MOD-RULE-PACK-CONTRACT-ARCHITECTURAL-DECISION-REQUIRED-SCAFFOLD-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-009 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "SCAFFOLD",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-009",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-RULE-PACK-CONTRACT-ARCHITECTURAL-DECISION-REQUIRED-IMPLEMENT-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-009 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-009",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-RULE-PACK-CONTRACT-ARCHITECTURAL-DECISION-REQUIRED-VALIDATE-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-009 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "VALIDATE",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-009",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-RULE-PACK-CONTRACT-ARCHITECTURAL-DECISION-REQUIRED-PROMOTE-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-009 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "PROMOTE",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-009",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-RULE-PACK-CONTRACT-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-CARRIER-SCOPE",
+          "type": "DEPENDENCY_NOT_READY",
+          "description": "Implementation dependency MOD-CARRIER-SCOPE is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve dependency MOD-CARRIER-SCOPE before implementation.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": "MOD-CARRIER-SCOPE",
+          "decision_reference": "SG-008",
+          "machine_checkable": true
+        }
+      ],
+      "promotion_gate_id": "MOD-RULE-PACK-CONTRACT-PROMOTION-GATE",
+      "promotion_gate_state": "BLOCKED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "NOT_DEFINED",
+      "rollback_checkpoint": null
+    },
+    {
+      "module_id": "MOD-TERMUX-REWRITE-TOOLS",
+      "topological_index": 19,
+      "active_priority": null,
+      "execution_wave": 3,
+      "dependency_depth": 3,
+      "stage_id": "SG-001",
+      "blocking_conditions": [],
+      "promotion_gate_id": "MOD-TERMUX-REWRITE-TOOLS-PROMOTION-GATE",
+      "promotion_gate_state": "NOT_EVALUATED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "REMOVE_GENERATED_FILES_AND_EVIDENCE_IF_HASHES_MATCH",
+      "rollback_checkpoint": "MOD-TERMUX-REWRITE-TOOLS-pre-apply"
+    },
+    {
+      "module_id": "MOD-ADVISOR-CONVERSION",
+      "topological_index": 20,
+      "active_priority": 3,
+      "execution_wave": 4,
+      "dependency_depth": 4,
+      "stage_id": "SG-001",
+      "blocking_conditions": [],
+      "promotion_gate_id": "MOD-ADVISOR-CONVERSION-PROMOTION-GATE",
+      "promotion_gate_state": "NOT_EVALUATED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "REMOVE_GENERATED_FILES_AND_EVIDENCE_IF_HASHES_MATCH",
+      "rollback_checkpoint": "MOD-ADVISOR-CONVERSION-pre-apply"
+    },
+    {
+      "module_id": "MOD-ADVISOR-WORKSPACE",
+      "topological_index": 21,
+      "active_priority": 7,
+      "execution_wave": 4,
+      "dependency_depth": 4,
+      "stage_id": "SG-002",
+      "blocking_conditions": [],
+      "promotion_gate_id": "MOD-ADVISOR-WORKSPACE-PROMOTION-GATE",
+      "promotion_gate_state": "NOT_EVALUATED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "REMOVE_GENERATED_FILES_AND_EVIDENCE_IF_HASHES_MATCH",
+      "rollback_checkpoint": "MOD-ADVISOR-WORKSPACE-pre-apply"
+    },
+    {
+      "module_id": "MOD-CALCULATION-CONTRACT",
+      "topological_index": 22,
+      "active_priority": null,
+      "execution_wave": 4,
+      "dependency_depth": 4,
+      "stage_id": "SG-011",
+      "blocking_conditions": [
+        {
+          "id": "BLOCK-MOD-CALCULATION-CONTRACT-ARCHITECTURAL-DECISION-REQUIRED-SCAFFOLD-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-011 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "SCAFFOLD",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-011",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-CALCULATION-CONTRACT-ARCHITECTURAL-DECISION-REQUIRED-IMPLEMENT-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-011 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-011",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-CALCULATION-CONTRACT-ARCHITECTURAL-DECISION-REQUIRED-VALIDATE-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-011 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "VALIDATE",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-011",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-CALCULATION-CONTRACT-ARCHITECTURAL-DECISION-REQUIRED-PROMOTE-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-011 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "PROMOTE",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-011",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-CALCULATION-CONTRACT-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-RULE-PACK-CONTRACT",
+          "type": "DEPENDENCY_NOT_READY",
+          "description": "Implementation dependency MOD-RULE-PACK-CONTRACT is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve dependency MOD-RULE-PACK-CONTRACT before implementation.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": "MOD-RULE-PACK-CONTRACT",
+          "decision_reference": "SG-009",
+          "machine_checkable": true
+        }
+      ],
+      "promotion_gate_id": "MOD-CALCULATION-CONTRACT-PROMOTION-GATE",
+      "promotion_gate_state": "BLOCKED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "NOT_DEFINED",
+      "rollback_checkpoint": null
+    },
+    {
+      "module_id": "MOD-ELIGIBILITY-CONTRACT",
+      "topological_index": 23,
+      "active_priority": null,
+      "execution_wave": 4,
+      "dependency_depth": 4,
+      "stage_id": "SG-010",
+      "blocking_conditions": [
+        {
+          "id": "BLOCK-MOD-ELIGIBILITY-CONTRACT-OWNER-DECISION-REQUIRED-SCAFFOLD-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-010 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "SCAFFOLD",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-010",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-ELIGIBILITY-CONTRACT-OWNER-DECISION-REQUIRED-IMPLEMENT-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-010 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-010",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-ELIGIBILITY-CONTRACT-OWNER-DECISION-REQUIRED-VALIDATE-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-010 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "VALIDATE",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-010",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-ELIGIBILITY-CONTRACT-OWNER-DECISION-REQUIRED-PROMOTE-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-010 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "PROMOTE",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-010",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-ELIGIBILITY-CONTRACT-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-RULE-PACK-CONTRACT",
+          "type": "DEPENDENCY_NOT_READY",
+          "description": "Implementation dependency MOD-RULE-PACK-CONTRACT is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve dependency MOD-RULE-PACK-CONTRACT before implementation.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": "MOD-RULE-PACK-CONTRACT",
+          "decision_reference": "SG-009",
+          "machine_checkable": true
+        }
+      ],
+      "promotion_gate_id": "MOD-ELIGIBILITY-CONTRACT-PROMOTION-GATE",
+      "promotion_gate_state": "BLOCKED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "NOT_DEFINED",
+      "rollback_checkpoint": null
+    },
+    {
+      "module_id": "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
+      "topological_index": 24,
+      "active_priority": null,
+      "execution_wave": 4,
+      "dependency_depth": 4,
+      "stage_id": "SG-020",
+      "blocking_conditions": [
+        {
+          "id": "BLOCK-MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE-EVIDENCE-REQUIRED-SCAFFOLD-SELF",
+          "type": "EVIDENCE_REQUIRED",
+          "description": "Owning stage SG-020 is BLOCKED_REQUIRES_LEGACY_EVIDENCE.",
+          "blocked_operation": "SCAFFOLD",
+          "required_resolution": "Resolve legacy evidence.",
+          "resolution_owner": "owner",
+          "evidence_required": true,
+          "dependency_module": null,
+          "decision_reference": "SG-020",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE-EVIDENCE-REQUIRED-IMPLEMENT-SELF",
+          "type": "EVIDENCE_REQUIRED",
+          "description": "Owning stage SG-020 is BLOCKED_REQUIRES_LEGACY_EVIDENCE.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve legacy evidence.",
+          "resolution_owner": "owner",
+          "evidence_required": true,
+          "dependency_module": null,
+          "decision_reference": "SG-020",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE-EVIDENCE-REQUIRED-VALIDATE-SELF",
+          "type": "EVIDENCE_REQUIRED",
+          "description": "Owning stage SG-020 is BLOCKED_REQUIRES_LEGACY_EVIDENCE.",
+          "blocked_operation": "VALIDATE",
+          "required_resolution": "Resolve legacy evidence.",
+          "resolution_owner": "owner",
+          "evidence_required": true,
+          "dependency_module": null,
+          "decision_reference": "SG-020",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE-EVIDENCE-REQUIRED-PROMOTE-SELF",
+          "type": "EVIDENCE_REQUIRED",
+          "description": "Owning stage SG-020 is BLOCKED_REQUIRES_LEGACY_EVIDENCE.",
+          "blocked_operation": "PROMOTE",
+          "required_resolution": "Resolve legacy evidence.",
+          "resolution_owner": "owner",
+          "evidence_required": true,
+          "dependency_module": null,
+          "decision_reference": "SG-020",
+          "machine_checkable": true
+        }
+      ],
+      "promotion_gate_id": "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE-PROMOTION-GATE",
+      "promotion_gate_state": "BLOCKED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "NOT_DEFINED",
+      "rollback_checkpoint": null
+    },
+    {
+      "module_id": "MOD-LLM-DRAFT-INTAKE",
+      "topological_index": 25,
+      "active_priority": null,
+      "execution_wave": 4,
+      "dependency_depth": 4,
+      "stage_id": "SG-004",
+      "blocking_conditions": [
+        {
+          "id": "BLOCK-MOD-LLM-DRAFT-INTAKE-OWNER-DECISION-REQUIRED-SCAFFOLD-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "SCAFFOLD",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-004",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-LLM-DRAFT-INTAKE-OWNER-DECISION-REQUIRED-IMPLEMENT-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-004",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-LLM-DRAFT-INTAKE-OWNER-DECISION-REQUIRED-VALIDATE-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "VALIDATE",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-004",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-LLM-DRAFT-INTAKE-OWNER-DECISION-REQUIRED-PROMOTE-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "PROMOTE",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-004",
+          "machine_checkable": true
+        }
+      ],
+      "promotion_gate_id": "MOD-LLM-DRAFT-INTAKE-PROMOTION-GATE",
+      "promotion_gate_state": "BLOCKED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "NOT_DEFINED",
+      "rollback_checkpoint": null
+    },
+    {
+      "module_id": "MOD-MANAGER-WORKSPACE",
+      "topological_index": 26,
+      "active_priority": null,
+      "execution_wave": 4,
+      "dependency_depth": 4,
+      "stage_id": "SG-013",
+      "blocking_conditions": [
+        {
+          "id": "BLOCK-MOD-MANAGER-WORKSPACE-ARCHITECTURAL-DECISION-REQUIRED-SCAFFOLD-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-013 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "SCAFFOLD",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-013",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-MANAGER-WORKSPACE-ARCHITECTURAL-DECISION-REQUIRED-IMPLEMENT-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-013 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-013",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-MANAGER-WORKSPACE-ARCHITECTURAL-DECISION-REQUIRED-VALIDATE-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-013 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "VALIDATE",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-013",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-MANAGER-WORKSPACE-ARCHITECTURAL-DECISION-REQUIRED-PROMOTE-SELF",
+          "type": "ARCHITECTURAL_DECISION_REQUIRED",
+          "description": "Owning stage SG-013 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "PROMOTE",
+          "required_resolution": "Resolve architectural decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-013",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-MANAGER-WORKSPACE-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-MANAGER-COACHING",
+          "type": "DEPENDENCY_NOT_READY",
+          "description": "Implementation dependency MOD-MANAGER-COACHING is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve dependency MOD-MANAGER-COACHING before implementation.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": "MOD-MANAGER-COACHING",
+          "decision_reference": "SG-013",
+          "machine_checkable": true
+        }
+      ],
+      "promotion_gate_id": "MOD-MANAGER-WORKSPACE-PROMOTION-GATE",
+      "promotion_gate_state": "BLOCKED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "NOT_DEFINED",
+      "rollback_checkpoint": null
+    },
+    {
+      "module_id": "MOD-PRODUCT-SOURCE-PACK",
+      "topological_index": 27,
+      "active_priority": null,
+      "execution_wave": 4,
+      "dependency_depth": 4,
+      "stage_id": "SG-007",
+      "blocking_conditions": [
+        {
+          "id": "BLOCK-MOD-PRODUCT-SOURCE-PACK-OWNER-DECISION-REQUIRED-SCAFFOLD-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-007 is BLOCKED_REQUIRES_OWNER_DECISION.",
+          "blocked_operation": "SCAFFOLD",
+          "required_resolution": "Resolve owner decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-007",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-PRODUCT-SOURCE-PACK-OWNER-DECISION-REQUIRED-IMPLEMENT-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-007 is BLOCKED_REQUIRES_OWNER_DECISION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve owner decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-007",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-PRODUCT-SOURCE-PACK-OWNER-DECISION-REQUIRED-VALIDATE-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-007 is BLOCKED_REQUIRES_OWNER_DECISION.",
+          "blocked_operation": "VALIDATE",
+          "required_resolution": "Resolve owner decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-007",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-PRODUCT-SOURCE-PACK-OWNER-DECISION-REQUIRED-PROMOTE-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-007 is BLOCKED_REQUIRES_OWNER_DECISION.",
+          "blocked_operation": "PROMOTE",
+          "required_resolution": "Resolve owner decision.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-007",
+          "machine_checkable": true
+        }
+      ],
+      "promotion_gate_id": "MOD-PRODUCT-SOURCE-PACK-PROMOTION-GATE",
+      "promotion_gate_state": "BLOCKED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "NOT_DEFINED",
+      "rollback_checkpoint": null
+    },
+    {
+      "module_id": "MOD-RELATIONSHIP-INTELLIGENCE",
+      "topological_index": 28,
+      "active_priority": null,
+      "execution_wave": 4,
+      "dependency_depth": 4,
+      "stage_id": "SG-003",
+      "blocking_conditions": [
+        {
+          "id": "BLOCK-MOD-RELATIONSHIP-INTELLIGENCE-OWNER-DECISION-REQUIRED-SCAFFOLD-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-003 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "SCAFFOLD",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-003",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-RELATIONSHIP-INTELLIGENCE-OWNER-DECISION-REQUIRED-IMPLEMENT-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-003 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-003",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-RELATIONSHIP-INTELLIGENCE-OWNER-DECISION-REQUIRED-VALIDATE-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-003 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "VALIDATE",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-003",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-RELATIONSHIP-INTELLIGENCE-OWNER-DECISION-REQUIRED-PROMOTE-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-003 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "PROMOTE",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-003",
+          "machine_checkable": true
+        }
+      ],
+      "promotion_gate_id": "MOD-RELATIONSHIP-INTELLIGENCE-PROMOTION-GATE",
+      "promotion_gate_state": "BLOCKED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "NOT_DEFINED",
+      "rollback_checkpoint": null
+    },
+    {
+      "module_id": "MOD-ADVISOR-ACTIVATION",
+      "topological_index": 29,
+      "active_priority": 4,
+      "execution_wave": 5,
+      "dependency_depth": 5,
+      "stage_id": "SG-001",
+      "blocking_conditions": [],
+      "promotion_gate_id": "MOD-ADVISOR-ACTIVATION-PROMOTION-GATE",
+      "promotion_gate_state": "NOT_EVALUATED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "REMOVE_GENERATED_FILES_AND_EVIDENCE_IF_HASHES_MATCH",
+      "rollback_checkpoint": "MOD-ADVISOR-ACTIVATION-pre-apply"
+    },
+    {
+      "module_id": "MOD-ADVISOR-EXPERIENCE",
+      "topological_index": 30,
+      "active_priority": null,
+      "execution_wave": 5,
+      "dependency_depth": 5,
+      "stage_id": "SG-015",
+      "blocking_conditions": [
+        {
+          "id": "BLOCK-MOD-ADVISOR-EXPERIENCE-OWNER-DECISION-REQUIRED-SCAFFOLD-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-015 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "SCAFFOLD",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-015",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-ADVISOR-EXPERIENCE-OWNER-DECISION-REQUIRED-IMPLEMENT-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-015 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-015",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-ADVISOR-EXPERIENCE-OWNER-DECISION-REQUIRED-VALIDATE-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-015 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "VALIDATE",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-015",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-ADVISOR-EXPERIENCE-OWNER-DECISION-REQUIRED-PROMOTE-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-015 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "PROMOTE",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-015",
+          "machine_checkable": true
+        }
+      ],
+      "promotion_gate_id": "MOD-ADVISOR-EXPERIENCE-PROMOTION-GATE",
+      "promotion_gate_state": "BLOCKED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "NOT_DEFINED",
+      "rollback_checkpoint": null
     },
     {
       "module_id": "MOD-MESSAGE-SAFETY-VALIDATOR",
-      "build_priority": 35,
-      "build_stage": "SG-004",
-      "parallelization_group": 5,
-      "blocking_conditions": [],
-      "promotion_gate": "BLOCKED",
-      "rollback_dependency": [
-        "MOD-LLM-DRAFT-INTAKE"
-      ]
+      "topological_index": 31,
+      "active_priority": null,
+      "execution_wave": 5,
+      "dependency_depth": 5,
+      "stage_id": "SG-004",
+      "blocking_conditions": [
+        {
+          "id": "BLOCK-MOD-MESSAGE-SAFETY-VALIDATOR-OWNER-DECISION-REQUIRED-SCAFFOLD-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "SCAFFOLD",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-004",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-MESSAGE-SAFETY-VALIDATOR-OWNER-DECISION-REQUIRED-IMPLEMENT-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-004",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-MESSAGE-SAFETY-VALIDATOR-OWNER-DECISION-REQUIRED-VALIDATE-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "VALIDATE",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-004",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-MESSAGE-SAFETY-VALIDATOR-OWNER-DECISION-REQUIRED-PROMOTE-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "PROMOTE",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-004",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-MESSAGE-SAFETY-VALIDATOR-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-LLM-DRAFT-INTAKE",
+          "type": "DEPENDENCY_NOT_READY",
+          "description": "Implementation dependency MOD-LLM-DRAFT-INTAKE is blocked by BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve dependency MOD-LLM-DRAFT-INTAKE before implementation.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": "MOD-LLM-DRAFT-INTAKE",
+          "decision_reference": "SG-004",
+          "machine_checkable": true
+        }
+      ],
+      "promotion_gate_id": "MOD-MESSAGE-SAFETY-VALIDATOR-PROMOTION-GATE",
+      "promotion_gate_state": "BLOCKED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "NOT_DEFINED",
+      "rollback_checkpoint": null
     },
     {
       "module_id": "MOD-QUOTE-PREVIEW",
-      "build_priority": 36,
-      "build_stage": "SG-012",
-      "parallelization_group": 5,
-      "blocking_conditions": [],
-      "promotion_gate": "BLOCKED",
-      "rollback_dependency": [
-        "MOD-PRODUCT-CATALOG",
-        "MOD-PRODUCT-SOURCE-PACK",
-        "MOD-ELIGIBILITY-CONTRACT",
-        "MOD-CALCULATION-CONTRACT"
-      ]
-    },
-    {
-      "module_id": "MOD-REVENUE-INTELLIGENCE",
-      "build_priority": 37,
-      "build_stage": "SG-016",
-      "parallelization_group": 5,
-      "blocking_conditions": [],
-      "promotion_gate": "DEFERRED",
-      "rollback_dependency": [
-        "MOD-CALCULATION-CONTRACT"
-      ]
+      "topological_index": 32,
+      "active_priority": null,
+      "execution_wave": 5,
+      "dependency_depth": 5,
+      "stage_id": "SG-012",
+      "blocking_conditions": [
+        {
+          "id": "BLOCK-MOD-QUOTE-PREVIEW-OWNER-DECISION-REQUIRED-SCAFFOLD-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-012 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "SCAFFOLD",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-012",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-QUOTE-PREVIEW-OWNER-DECISION-REQUIRED-IMPLEMENT-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-012 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-012",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-QUOTE-PREVIEW-OWNER-DECISION-REQUIRED-VALIDATE-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-012 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "VALIDATE",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-012",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-QUOTE-PREVIEW-OWNER-DECISION-REQUIRED-PROMOTE-SELF",
+          "type": "OWNER_DECISION_REQUIRED",
+          "description": "Owning stage SG-012 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "PROMOTE",
+          "required_resolution": "Resolve product definition.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": null,
+          "decision_reference": "SG-012",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-QUOTE-PREVIEW-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-PRODUCT-SOURCE-PACK",
+          "type": "DEPENDENCY_NOT_READY",
+          "description": "Implementation dependency MOD-PRODUCT-SOURCE-PACK is blocked by BLOCKED_REQUIRES_OWNER_DECISION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve dependency MOD-PRODUCT-SOURCE-PACK before implementation.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": "MOD-PRODUCT-SOURCE-PACK",
+          "decision_reference": "SG-007",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-QUOTE-PREVIEW-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-ELIGIBILITY-CONTRACT",
+          "type": "DEPENDENCY_NOT_READY",
+          "description": "Implementation dependency MOD-ELIGIBILITY-CONTRACT is blocked by BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve dependency MOD-ELIGIBILITY-CONTRACT before implementation.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": "MOD-ELIGIBILITY-CONTRACT",
+          "decision_reference": "SG-010",
+          "machine_checkable": true
+        },
+        {
+          "id": "BLOCK-MOD-QUOTE-PREVIEW-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-CALCULATION-CONTRACT",
+          "type": "DEPENDENCY_NOT_READY",
+          "description": "Implementation dependency MOD-CALCULATION-CONTRACT is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "blocked_operation": "IMPLEMENT",
+          "required_resolution": "Resolve dependency MOD-CALCULATION-CONTRACT before implementation.",
+          "resolution_owner": "architecture",
+          "evidence_required": false,
+          "dependency_module": "MOD-CALCULATION-CONTRACT",
+          "decision_reference": "SG-011",
+          "machine_checkable": true
+        }
+      ],
+      "promotion_gate_id": "MOD-QUOTE-PREVIEW-PROMOTION-GATE",
+      "promotion_gate_state": "BLOCKED",
+      "promotion_requirements": [
+        "contracts_valid",
+        "evidence_present",
+        "dependency_graph_valid",
+        "rollback_defined",
+        "owner_approval_if_required"
+      ],
+      "rollback_strategy": "NOT_DEFINED",
+      "rollback_checkpoint": null
     }
   ]
 }

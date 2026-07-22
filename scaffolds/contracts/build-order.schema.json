@@ -3,5 +3,32 @@
   "$id": "https://forge-os.local/scaffolds/contracts/build-order.schema.json",
   "title": "Forge Build Order",
   "type": "object",
-  "required": ["schema", "build_order_id", "generated_from", "algorithm", "cycles", "critical_path_length", "critical_path", "parallel_groups", "modules"]
+  "required": ["schema", "build_order_id", "generated_from", "algorithm", "stage_id_rule", "cycles", "topological_order", "active_topological_order", "critical_path", "active_execution_waves", "rejected_modules", "deferred_modules", "eligible_now", "waiting_for_dependencies", "waiting_for_decisions", "waiting_for_evidence", "modules"],
+  "properties": {
+    "cycles": { "type": "array" },
+    "topological_order": { "type": "array", "items": { "type": "string" } },
+    "active_topological_order": { "type": "array", "items": { "type": "string" } },
+    "active_execution_waves": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["wave", "modules"],
+        "properties": {
+          "wave": { "type": "integer" },
+          "modules": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "eligible_now": {
+      "type": "object",
+      "required": ["SCAFFOLD", "IMPLEMENT", "VALIDATE", "PROMOTE"]
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["module_id", "topological_index", "active_priority", "execution_wave", "dependency_depth", "stage_id", "blocking_conditions", "promotion_gate_id", "promotion_gate_state", "promotion_requirements", "rollback_strategy", "rollback_checkpoint"]
+      }
+    }
+  }
 }

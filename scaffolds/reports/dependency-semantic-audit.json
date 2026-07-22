@@ -1,0 +1,12 @@
+{
+  "schema": "../contracts/dependency-semantic-audit.schema.json",
+  "audit_id": "FORGE_DEPENDENCY_SEMANTIC_AUDIT_001",
+  "modules_analyzed": 37,
+  "dependencies_discovered": 44,
+  "rejected_in_active_order": 0,
+  "deferred_in_active_order": 0,
+  "blocked_without_conditions": [],
+  "critical_path_valid": true,
+  "path_values_in_event_fields": 0,
+  "dynamic_next_selection": true
+}
