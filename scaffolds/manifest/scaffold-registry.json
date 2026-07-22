@@ -1,6 +1,6 @@
 {
   "schema": "../contracts/scaffold-contract.schema.json",
-  "registry_id": "FORGE_SCAFFOLD_REGISTRY_001",
+  "registry_id": "FORGE_SCAFFOLD_REGISTRY_002",
   "scaffolds": [
     {
       "id": "SCF-DOC-STAGE-PLAN",
@@ -43,20 +43,40 @@
       "files": ["scaffolds/templates/domain/blocked-domain.template.md"]
     },
     {
-      "id": "SCF-UI-DEFERRED",
-      "stage": "SG-005",
+      "id": "SCF-PRODUCT-CATALOG-CONTRACT",
+      "stage": "SG-006",
+      "capability_id": "CAP-PRODUCT-CATALOG",
+      "requirement_id": "REQ-PRODUCT-CATALOG-CONTRACT",
+      "authority": ["CONSTITUTION_ARTICLE_III", "CONSTITUTION_ARTICLE_V"],
+      "boundaries": ["BOUND-PRODUCT-TRUTH", "BOUND-UNKNOWN-REMAINS-UNKNOWN"],
+      "status": "READY",
+      "files": ["scaffolds/templates/domain/blocked-domain.template.md"]
+    },
+    {
+      "id": "SCF-UI-TRANSVERSAL",
+      "stage": "SG-015",
       "capability_id": "CAP-ADVISOR-EXPERIENCE",
-      "requirement_id": "REQ-BENVENU-FIRST-VALUE",
+      "requirement_id": "REQ-ADVISOR-EXPERIENCE-TRANSVERSAL",
       "authority": ["CONSTITUTION_ARTICLE_0"],
       "boundaries": ["BOUND-ADVISOR-EXPERIENCE-ANTI-DEPENDENCE"],
-      "status": "DEFERRED",
+      "status": "BLOCKED",
       "files": ["scaffolds/templates/ui/deferred-ui.template.md"]
     },
     {
-      "id": "SCF-MIGRATION-EVIDENCE",
-      "stage": "SG-006",
-      "capability_id": "CAP-LEGACY-ORIGINAL-EVIDENCE",
-      "requirement_id": "REQ-LEGACY-EVIDENCE-OWNER-DECISION",
+      "id": "SCF-LEGACY-REINTRODUCTION-GUARD",
+      "stage": "SG-018",
+      "capability_id": "CAP-LEGACY-REINTRODUCTION-GUARD",
+      "requirement_id": "REQ-LEGACY-REINTRODUCTION-GUARD",
+      "authority": ["CONSTITUTION_ARTICLE_V", "DIRECTIVE_SECTION_4"],
+      "boundaries": ["BOUND-NO-LEGACY-REINTRODUCTION", "BOUND-NO-LEGACY-CODE-COPY"],
+      "status": "READY",
+      "files": ["scaffolds/templates/documentation/stage-plan.template.md"]
+    },
+    {
+      "id": "SCF-LEGACY-FUNCTIONAL-EVIDENCE",
+      "stage": "SG-020",
+      "capability_id": "CAP-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
+      "requirement_id": "REQ-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
       "authority": ["DIRECTIVE_SECTION_4"],
       "boundaries": ["BOUND-NO-LEGACY-CODE-COPY"],
       "status": "BLOCKED",

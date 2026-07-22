@@ -1,5 +1,5 @@
-# SG-003 Advisor Domain Redesign Definition
+# SG-003 Relationship Intelligence Contract
 
-Status: `BLOCKED_REQUIRES_OWNER_DECISION`
+Status: `BLOCKED_REQUIRES_PRODUCT_DEFINITION`
 
-Relationship, conversation, policy and quote preview redesign require owner decisions and source evidence before generation.
+Relationship Intelligence is modeled independently from conversation, policy and quote domains.

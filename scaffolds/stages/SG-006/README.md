@@ -1,5 +1,5 @@
-# SG-006 Legacy And Rejection Guard
+# SG-006 Product Catalog Contract
 
-Status: `BLOCKED_REQUIRES_LEGACY_EVIDENCE`
+Status: `READY`
 
-Rejected capabilities and legacy-original evidence review are blocked. No original Forge code may be copied.
+Product Catalog contract scaffolding is allowed before commercial source packs exist. Missing commercial values remain unknown.

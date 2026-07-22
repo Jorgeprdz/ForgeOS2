@@ -1,5 +1,5 @@
-# SG-005 Deferred Advanced Domains
+# SG-005 Policy Operations Contract
 
-Status: `DEFERRED`
+Status: `BLOCKED_REQUIRES_PRODUCT_DEFINITION`
 
-Advisor Experience, compensation/economic and recruitment/precontract capabilities remain deferred.
+Policy Operations is modeled independently from quote preview, forecast and paid-premium truth.

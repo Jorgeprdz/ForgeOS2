@@ -1,5 +1,5 @@
-# SG-004 Manager And Behavior Architecture Decision
+# SG-004 Conversation Intelligence Contract
 
-Status: `BLOCKED_REQUIRES_ARCHITECTURAL_DECISION`
+Status: `BLOCKED_REQUIRES_PRODUCT_DEFINITION`
 
-Manager and Mick behavior scaffolds are blocked until people-domain architecture is ratified.
+Conversation Intelligence is modeled independently from Relationship Intelligence and cannot own truth, decide or send messages.
