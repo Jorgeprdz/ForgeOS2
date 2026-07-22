@@ -1,0 +1,10 @@
+name: ErrorState
+status: draft
+purpose: Errores
+states:
+  - default
+  - hover
+  - focus
+  - disabled
+accessibility:
+  contrast: WCAG-AA

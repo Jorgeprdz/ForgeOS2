@@ -1,0 +1,10 @@
+name: Card
+status: draft
+purpose: Contenedor principal
+states:
+  - default
+  - hover
+  - focus
+  - disabled
+accessibility:
+  contrast: WCAG-AA

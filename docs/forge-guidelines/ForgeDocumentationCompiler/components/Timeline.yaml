@@ -1,0 +1,10 @@
+name: Timeline
+status: draft
+purpose: Cronología
+states:
+  - default
+  - hover
+  - focus
+  - disabled
+accessibility:
+  contrast: WCAG-AA

@@ -1,0 +1,10 @@
+name: Dialog
+status: draft
+purpose: Diálogos
+states:
+  - default
+  - hover
+  - focus
+  - disabled
+accessibility:
+  contrast: WCAG-AA

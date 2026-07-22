@@ -1,0 +1,10 @@
+name: FAB
+status: draft
+purpose: Acción flotante
+states:
+  - default
+  - hover
+  - focus
+  - disabled
+accessibility:
+  contrast: WCAG-AA

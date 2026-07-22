@@ -1,0 +1,10 @@
+name: NavigationRail
+status: draft
+purpose: Navegación lateral
+states:
+  - default
+  - hover
+  - focus
+  - disabled
+accessibility:
+  contrast: WCAG-AA

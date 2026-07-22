@@ -1,0 +1,10 @@
+name: SectionHeader
+status: draft
+purpose: Encabezado
+states:
+  - default
+  - hover
+  - focus
+  - disabled
+accessibility:
+  contrast: WCAG-AA

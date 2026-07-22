@@ -1,0 +1,10 @@
+name: UserAvatar
+status: draft
+purpose: Avatar
+states:
+  - default
+  - hover
+  - focus
+  - disabled
+accessibility:
+  contrast: WCAG-AA

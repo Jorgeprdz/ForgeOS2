@@ -1,0 +1,10 @@
+name: LoadingState
+status: draft
+purpose: Carga
+states:
+  - default
+  - hover
+  - focus
+  - disabled
+accessibility:
+  contrast: WCAG-AA

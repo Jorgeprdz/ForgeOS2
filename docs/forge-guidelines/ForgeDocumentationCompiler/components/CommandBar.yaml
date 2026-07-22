@@ -1,0 +1,10 @@
+name: CommandBar
+status: draft
+purpose: Barra de comandos
+states:
+  - default
+  - hover
+  - focus
+  - disabled
+accessibility:
+  contrast: WCAG-AA

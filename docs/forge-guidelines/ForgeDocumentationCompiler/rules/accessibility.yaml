@@ -1,0 +1,5 @@
+title: Accessibility
+rules:
+  - Contraste mínimo WCAG AA.
+  - Todos los controles navegables por teclado.
+  - No depender solo del color.

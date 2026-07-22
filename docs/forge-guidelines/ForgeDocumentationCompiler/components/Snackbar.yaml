@@ -1,0 +1,10 @@
+name: Snackbar
+status: draft
+purpose: Notificaciones
+states:
+  - default
+  - hover
+  - focus
+  - disabled
+accessibility:
+  contrast: WCAG-AA

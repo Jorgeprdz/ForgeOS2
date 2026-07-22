@@ -1,0 +1,10 @@
+name: SearchBox
+status: draft
+purpose: Búsqueda global
+states:
+  - default
+  - hover
+  - focus
+  - disabled
+accessibility:
+  contrast: WCAG-AA

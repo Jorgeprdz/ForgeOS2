@@ -1,0 +1,10 @@
+name: MetricCard
+status: draft
+purpose: Resumen de indicadores
+states:
+  - default
+  - hover
+  - focus
+  - disabled
+accessibility:
+  contrast: WCAG-AA

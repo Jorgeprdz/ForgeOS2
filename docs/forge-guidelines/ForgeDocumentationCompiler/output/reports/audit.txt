@@ -1,0 +1,47 @@
+========================================
+Forge Documentation Compiler Audit
+========================================
+
+Fecha:
+Wed Jul 22 00:28:19 CST 2026
+
+REGLAS
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/rules/accessibility.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/rules/color.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/rules/motion.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/rules/philosophy.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/rules/typography.yaml
+
+COMPONENTES
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/AIRecommendation.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/ActivityFeed.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/Button.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/Card.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/CommandBar.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/DashboardHero.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/DataTable.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/Dialog.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/EmptyState.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/ErrorState.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/FAB.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/HeroDecision.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/KPI.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/LoadingState.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/MetricCard.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/NavigationRail.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/SearchBox.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/SectionHeader.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/Snackbar.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/Timeline.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/components/UserAvatar.yaml
+
+PATRONES
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/patterns/dashboard.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/patterns/forms.yaml
+/storage/emulated/0/Forge OS V2/docs/forge-guidelines/ForgeDocumentationCompiler/patterns/navigation.yaml
+
+RESUMEN
+Rules:      5
+Components: 21
+Patterns:   3
+Templates:  2

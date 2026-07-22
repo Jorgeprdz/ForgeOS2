@@ -1,0 +1,10 @@
+name: ActivityFeed
+status: draft
+purpose: Actividad
+states:
+  - default
+  - hover
+  - focus
+  - disabled
+accessibility:
+  contrast: WCAG-AA
