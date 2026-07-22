@@ -29,7 +29,9 @@ const mode = process.argv[2];
 const freeze = JSON.parse(fs.readFileSync('scaffolds/manifest/architecture-freeze.json','utf8'));
 const wave = JSON.parse(fs.readFileSync('scaffolds/manifest/first-execution-wave.json','utf8'));
 const roadmap = JSON.parse(fs.readFileSync('scaffolds/manifest/final-rewrite-roadmap.json','utf8'));
-const decisions = JSON.parse(fs.readFileSync('scaffolds/manifest/owner-decision-packet.json','utf8'));
+const decisions = fs.existsSync('scaffolds/manifest/canonical-owner-decisions.json')
+  ? JSON.parse(fs.readFileSync('scaffolds/manifest/canonical-owner-decisions.json','utf8'))
+  : JSON.parse(fs.readFileSync('scaffolds/manifest/owner-decision-packet.json','utf8'));
 const go = JSON.parse(fs.readFileSync('scaffolds/reports/rewrite-go-no-go.json','utf8'));
 const graph = JSON.parse(fs.readFileSync('scaffolds/manifest/dependency-graph.json','utf8'));
 const registry = JSON.parse(fs.readFileSync('scaffolds/manifest/forge-module-registry.json','utf8')).modules;
