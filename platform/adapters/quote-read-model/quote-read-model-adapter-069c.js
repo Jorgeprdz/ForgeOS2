@@ -1,9 +1,9 @@
-import { summarizeGmmQuote } from '../../../gmm-quote-summary-engine.js';
+import { summarizeGmmQuote } from './gmm-quote-summary-engine.js';
 
 export const QUOTE_READ_MODEL_ADAPTER_ID = 'forge.quote.read_model.adapter.v1';
 export const QUOTE_READ_MODEL_SAFE_ERROR = 'QUOTE_READ_MODEL_NOT_MODELED';
 export const QUOTE_READ_MODEL_SCHEMA_VERSION = 'forge.backend.read_model.v1';
-export const QUOTE_READ_MODEL_SOURCE_ENGINE = 'gmm-quote-summary-engine.js';
+export const QUOTE_READ_MODEL_SOURCE_ENGINE = 'platform/adapters/quote-read-model/gmm-quote-summary-engine.js';
 
 const PREVIEW_QUOTE_ID = 'quote_preview_gmm_lariza_alfa_medical_069c';
 const PREVIEW_EVIDENCE_ID = 'quote_evidence_gmm_lariza_static_text_069c';

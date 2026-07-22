@@ -4,7 +4,7 @@ import {
   canDomainConsume,
   checkReinterpretationRisk,
   evaluateOwnership
-} from './source-ownership-registry.js';
+} from '../source-ownership-registry.js';
 
 const results = [];
 
