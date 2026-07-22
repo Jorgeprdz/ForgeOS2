@@ -15,6 +15,7 @@ Status: `RATIFIED / ACTIVE`
 | Architecture decisions | `adr/` active files and status lineage |
 | Specifications | `governance/specifications/` |
 | Constitutional readiness | ROBOCOP LOCK 001 as incorporated/referenced by `AGENTS.md` |
+| Scaffold Generation 001 authorization | `governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md` |
 
 ## Enforcement and review
 
@@ -23,3 +24,9 @@ ROBOCOP performs readiness/compliance enforcement. Miranda performs mandatory qu
 ## Status rule
 
 Only the registered active version is normative. Predecessors remain immutable evidence. Navigation, Build Tree, inventories, reports, discoveries and code never create authority.
+
+## Active execution gates
+
+| Gate | Scope | Status |
+|---|---|---|
+| `SG-001` | First-generation canonical documentary scaffolds and direct indexes, inventories, references, Build Tree registration and traceability matrices | `APPROVED / ACTIVE FOR SG-001 ONLY` |

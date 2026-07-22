@@ -15850,3 +15850,25 @@ Recorded: `2026-07-21`
 - Russell remains DISCOVERY / no authority.
 - No runtime, engine, schema, UI, automation, service, pipeline or software behavior changed.
 <!-- FORGE:CONSTITUTIONAL_UNIFICATION_001:END -->
+
+<!-- FORGE:SCAFFOLD_GENERATION_GATE_001:START -->
+## Scaffold Generation Gate 001
+
+Status: `PASS / SG-001 DOCUMENTARY SCAFFOLDS GENERATED`
+
+Recorded: `2026-07-21`
+
+- Location: Constitutional Rewrite → Post-Rewrite Architecture → Scaffold Generation 001.
+- Purpose: generate constitution-derived canonical documentary scaffolds and direct indexes, inventories, references and traceability matrices.
+- Prerequisites: Constitutional Unification successful; final lock review PASS; SG-001 PAQ YES; Miranda APPROVED; Board APPROVED 1-of-1.
+- Dependencies: Unified Constitution v4.0, Constitution Map, ADR-020, applicable ADR-001 through ADR-018, ROBOCOP LOCK 001, Governance Registry and active Constitutional Locks.
+- Authorized surfaces: Markdown-only scaffold documentation under `docs/architecture/scaffolds/` and `governance/scaffolds/`, `docs/architecture/source-truth/SCAFFOLD_SOURCE_OF_TRUTH_INDEX.md`, and the SG-001 block in this Build Tree.
+- Prohibited: software, runtime, engines, interfaces, UI, routes, schemas, migrations, RLS, services, providers, business rules and automatic restoration of removed artifacts.
+- Source of Truth changes require direct SG-001 consequence, existing owner authority, explicit provenance and no parallel truth.
+- Commit and push are authorized only after every SG-001 validation is PASS; otherwise STOP.
+- Canonical gate: `governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md`.
+- Generated: four canonical scaffold templates, five required architecture/catalog/matrix/changelog deliverables, governance standard/index/inventory and existing-owner Source of Truth index.
+- Validation: all SG-001 constitutional, governance, ADR, Source of Truth, documentation, inventory, Build Tree, scaffold and historical comparison checks PASS.
+- Next stage: `REQUIRES_SEPARATE_AUTHORIZATION`; SG-001 authorizes no populated domain scaffold or software implementation.
+- No phase after SG-001 is authorized.
+<!-- FORGE:SCAFFOLD_GENERATION_GATE_001:END -->
