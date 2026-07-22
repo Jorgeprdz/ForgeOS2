@@ -1,0 +1,26 @@
+{
+  "stage": "SG-022",
+  "generated_at": "2026-07-22T23:51:39.556Z",
+  "operator": "termux",
+  "inputs": [
+    "docs/product/FORGE_PRODUCT_SPEC.md",
+    "scaffolds/manifest/rewrite-stages.json"
+  ],
+  "outputs": [
+    "scaffolds/artifacts/SG-022/canonical-identity-contract.artifact.json",
+    "scaffolds/artifacts/SG-022/actor-authority-contract.artifact.json",
+    "scaffolds/artifacts/SG-022/advisor-role-model.artifact.json",
+    "scaffolds/artifacts/SG-022/identity-alias-policy.artifact.json",
+    "scaffolds/reports/SG-022-evidence.json"
+  ],
+  "hashes": {
+    "scaffolds/artifacts/SG-022/canonical-identity-contract.artifact.json": "cb3a6eecb67cab06157820c0e7461da76e642e781fcffd31d6295b9f65083890",
+    "scaffolds/artifacts/SG-022/actor-authority-contract.artifact.json": "672fbfc907f79940ad9adc1cd4d6b4b69058856fa3e32bce85757e28e8d5125f",
+    "scaffolds/artifacts/SG-022/advisor-role-model.artifact.json": "5203078d53e03a53a31ddc4786c1b6fc82125c6ccedae667a73c95d19e1449c2",
+    "scaffolds/artifacts/SG-022/identity-alias-policy.artifact.json": "c07542dc22cba12705505718f58ec3a651f89e3969ab86e93d6cb265b1560f9c"
+  },
+  "validations": [
+    "scaffold:validate"
+  ],
+  "status": "PASS"
+}
