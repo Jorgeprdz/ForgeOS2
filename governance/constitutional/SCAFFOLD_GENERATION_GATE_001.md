@@ -18,7 +18,7 @@ Authorize the first post-Constitutional-Rewrite generation of canonical document
 
 Applicable Constitution:
 
-- `CONSTITUTION_UNIFIED.md`, especially Article 0 / Ley Zero, Articles II, III, IV, V, VIII, IX and X.
+- `governance/constitution/CONSTITUTION_UNIFIED.md`, especially Article 0 / Ley Zero, Articles II, III, IV, V, VIII, IX and X.
 
 Applicable ADRs:
 
@@ -90,7 +90,7 @@ The following are the only writable surfaces for the subsequent SG-001 execution
 | `docs/architecture/scaffolds/` | New Markdown scaffold documents and the five required SG-001 architecture/catalog/matrix/changelog deliverables. |
 | `docs/architecture/source-truth/SCAFFOLD_SOURCE_OF_TRUTH_INDEX.md` | The single SG-001 Source of Truth registration index; it may register only owners already established by current authority. |
 | `governance/scaffolds/` | Markdown governance index, inventory and traceability documents for SG-001; no Constitution, axiom, ADR or lock mutation. |
-| `FORGE_MASTER_BUILD_TREE.md` | SG-001 registration, evidence-backed status and next-stage field only. |
+| `governance/architecture/FORGE_MASTER_BUILD_TREE.md` | SG-001 registration, evidence-backed status and next-stage field only. |
 
 No other path is implied by terms such as index, inventory, reference or Source of Truth. If SG-001 discovers that another path is necessary, execution must stop and obtain a versioned gate amendment.
 
@@ -110,7 +110,7 @@ The SG-001 execution must first determine, through read-only comparison, which m
 
 SG-001 may not modify:
 
-- `CONSTITUTION_UNIFIED.md`, `FORGE_CONSTITUTION_V3.md` or constitutional provenance;
+- `governance/constitution/CONSTITUTION_UNIFIED.md`, `docs/migration/constitutional-history/FORGE_CONSTITUTION_V3.md` or constitutional provenance;
 - `AGENTS.md`, Article 0 records, axioms, Constitutional Locks or ratification records;
 - `adr/` or ADR meaning/status;
 - governance policies and records outside `governance/scaffolds/`;
@@ -190,12 +190,12 @@ Prerequisites:
 
 Dependencies:
 
-- `CONSTITUTION_UNIFIED.md`;
-- `FORGE_CONSTITUTION_MAP.md`;
+- `governance/constitution/CONSTITUTION_UNIFIED.md`;
+- `governance/constitution/FORGE_CONSTITUTION_MAP.md`;
 - ADR-020 and applicable ADR-001 through ADR-018;
-- `FORGE_ROBOCOP_DIRECTIVES.md`;
+- `governance/validation/FORGE_ROBOCOP_DIRECTIVES.md`;
 - `FORGE_GOVERNANCE_REGISTRY.md`;
-- `FORGE_MASTER_BUILD_TREE.md`;
+- `governance/architecture/FORGE_MASTER_BUILD_TREE.md`;
 - active Constitutional Locks and Source of Truth registry.
 
 Next phase: `Scaffold Generation 001` execution.

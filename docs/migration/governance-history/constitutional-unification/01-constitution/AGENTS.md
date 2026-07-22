@@ -1,13 +1,5 @@
 # FORGE OS - AGENTS.md
 
-## Canonical Constitutional Authority
-
-- Active Constitution: `governance/constitution/CONSTITUTION_UNIFIED.md` (`FORGE-CONSTITUTION-UNIFIED-001`, v4.0).
-- Article 0 and Ley Zero are one canonical principle: `CONSTITUTION_ARTICLE_0`, the first article inside the Unified Constitution.
-- `docs/migration/constitutional-history/FORGE_CONSTITUTION_V3.md` and standalone Article 0 ratification remain immutable provenance, not parallel active constitutional roots.
-- Active axioms are indexed by `governance/axioms/INDEX_V2.md`.
-- ROBOCOP and Miranda enforce/review the hierarchy; they do not replace or amend it.
-
 ## Project Identity
 
 Forge OS is a Sales Operating System built for financial advisors, managers and commercial organizations.

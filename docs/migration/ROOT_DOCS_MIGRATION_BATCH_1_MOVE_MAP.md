@@ -4,7 +4,7 @@ Status: GENERATED BEFORE PHYSICAL MOVE
 
 Scope: tracked root-level `.md` and `.txt` documentation files only.
 
-Explicit exclusions: `AGENTS.md`, `FORGE_CONSTITUTION_V3.md`, `FORGE_MASTER_BUILD_TREE.md`, files with `test`/`validation` in the filename, code/runtime files, untracked root docs that cannot be moved with `git mv` alone.
+Explicit exclusions: `AGENTS.md`, `docs/migration/constitutional-history/FORGE_CONSTITUTION_V3.md`, `governance/architecture/FORGE_MASTER_BUILD_TREE.md`, files with `test`/`validation` in the filename, code/runtime files, untracked root docs that cannot be moved with `git mv` alone.
 
 ## Summary
 
@@ -22,7 +22,7 @@ Explicit exclusions: `AGENTS.md`, `FORGE_CONSTITUTION_V3.md`, `FORGE_MASTER_BUIL
 | EXECUTED_GIT_MV | 322 | Moved with `git mv`; no code/runtime files moved. |
 | SKIP_DEST_EXISTS | 1 | `FORGE_CONSTITUTION_AMENDMENT_v1.1.md` was not moved because `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` already existed. |
 | BLOCKED_UNTRACKED | 5 | Left in root because `git mv` cannot move untracked files without first changing tracking state. |
-| SKIP_PROTECTED | 3 | `AGENTS.md`, `FORGE_CONSTITUTION_V3.md`, `FORGE_MASTER_BUILD_TREE.md`. |
+| SKIP_PROTECTED | 3 | `AGENTS.md`, `docs/migration/constitutional-history/FORGE_CONSTITUTION_V3.md`, `governance/architecture/FORGE_MASTER_BUILD_TREE.md`. |
 | SKIP_TEST_DOC | 10 | Left in root due user exclusion for any test file. |
 
 ## Move Map
@@ -111,7 +111,7 @@ Explicit exclusions: `AGENTS.md`, `FORGE_CONSTITUTION_V3.md`, `FORGE_MASTER_BUIL
 | MOVE | `FORGE_CONSTITUTION_AMENDMENT_v1.1.txt` | `docs/01-constitution/FORGE_CONSTITUTION_AMENDMENT_v1.1.txt` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_CONSTITUTION_CANDIDATES.md` | `docs/01-constitution/FORGE_CONSTITUTION_CANDIDATES.md` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_CONSTITUTION_LOCK_PREPARATION.md` | `docs/01-constitution/FORGE_CONSTITUTION_LOCK_PREPARATION.md` | Tracked root documentation file within batch scope. |
-| SKIP_PROTECTED | `FORGE_CONSTITUTION_V3.md` | - | Protected root governance anchor. |
+| SKIP_PROTECTED | `docs/migration/constitutional-history/FORGE_CONSTITUTION_V3.md` | - | Protected root governance anchor. |
 | MOVE | `FORGE_CORPORATE_VS_FIELD_INTELLIGENCE_COMPARISON.md` | `docs/99-archive/FORGE_CORPORATE_VS_FIELD_INTELLIGENCE_COMPARISON.md` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_CURRENCY_INTELLIGENCE_AUDIT_REPORT.txt` | `docs/99-archive/FORGE_CURRENCY_INTELLIGENCE_AUDIT_REPORT.txt` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_DECISION_VS_TRANSACTION_DISCOVERY.md` | `docs/03-discovery/FORGE_DECISION_VS_TRANSACTION_DISCOVERY.md` | Tracked root documentation file within batch scope. |
@@ -221,7 +221,7 @@ Explicit exclusions: `AGENTS.md`, `FORGE_CONSTITUTION_V3.md`, `FORGE_MASTER_BUIL
 | MOVE | `FORGE_LOCK_PRIORITY_ORDER.txt` | `docs/99-archive/FORGE_LOCK_PRIORITY_ORDER.txt` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_MANAGER_FRICTION_DISCOVERY.md` | `docs/04-manager-os/FORGE_MANAGER_FRICTION_DISCOVERY.md` | Tracked root documentation file within batch scope. |
 | BLOCKED_UNTRACKED | `FORGE_MANAGER_OS_BLUEPRINT.md` | `docs/04-manager-os/FORGE_MANAGER_OS_BLUEPRINT.md` | Untracked root doc; git mv cannot move it without first changing tracking state. |
-| SKIP_PROTECTED | `FORGE_MASTER_BUILD_TREE.md` | - | Protected root governance anchor. |
+| SKIP_PROTECTED | `governance/architecture/FORGE_MASTER_BUILD_TREE.md` | - | Protected root governance anchor. |
 | MOVE | `FORGE_MISSING_SOURCES_REPORT.md` | `docs/99-archive/FORGE_MISSING_SOURCES_REPORT.md` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_NEXT_DISCOVERY_PRIORITY_REPORT.md` | `docs/03-discovery/FORGE_NEXT_DISCOVERY_PRIORITY_REPORT.md` | Tracked root documentation file within batch scope. |
 | MOVE | `FORGE_OS_CURRENT_STATE_DOMAIN_COMPENSATION_ADVISOR_EXPERIENCE.md` | `docs/99-archive/FORGE_OS_CURRENT_STATE_DOMAIN_COMPENSATION_ADVISOR_EXPERIENCE.md` | Tracked root documentation file within batch scope. |

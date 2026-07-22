@@ -25,7 +25,7 @@ SG-001 allowlisted Markdown artifacts and the Build Tree registration update.
 | `docs/architecture/scaffolds/SCAFFOLD_DECISION_MATRIX.md` | Decision matrix | Active | SG-001 scaffold governance |
 | `docs/architecture/scaffolds/SCAFFOLD_CHANGELOG.md` | Changelog | Active | SG-001 scaffold governance |
 | `docs/architecture/source-truth/SCAFFOLD_SOURCE_OF_TRUTH_INDEX.md` | Existing-owner index | Active | SG-001 scaffold governance |
-| `FORGE_MASTER_BUILD_TREE.md` SG-001 block | Build Tree registration | Updated on validation PASS | Build Tree authority unchanged |
+| `governance/architecture/FORGE_MASTER_BUILD_TREE.md` SG-001 block | Build Tree registration | Updated on validation PASS | Build Tree authority unchanged |
 
 ## Authority
 

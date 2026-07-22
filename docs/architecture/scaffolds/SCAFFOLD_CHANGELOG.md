@@ -25,7 +25,7 @@ Added:
 
 Updated:
 
-- SG-001 registration block in `FORGE_MASTER_BUILD_TREE.md` after validation.
+- SG-001 registration block in `governance/architecture/FORGE_MASTER_BUILD_TREE.md` after validation.
 
 Not changed:
 

@@ -76,7 +76,7 @@ Subcarpetas recomendadas para la primera migracion controlada:
 | Archivo | Motivo |
 | --- | --- |
 | `AGENTS.md` | Ruta raiz o runtime/governance con alto acoplamiento externo; requiere ADR o compat layer antes de mover. |
-| `FORGE_MASTER_BUILD_TREE.md` | Ruta raiz o runtime/governance con alto acoplamiento externo; requiere ADR o compat layer antes de mover. |
+| `governance/architecture/FORGE_MASTER_BUILD_TREE.md` | Ruta raiz o runtime/governance con alto acoplamiento externo; requiere ADR o compat layer antes de mover. |
 | `app.js` | Ruta raiz o runtime/governance con alto acoplamiento externo; requiere ADR o compat layer antes de mover. |
 | `manifest.json` | Ruta raiz o runtime/governance con alto acoplamiento externo; requiere ADR o compat layer antes de mover. |
 | `service-worker.js` | Ruta raiz o runtime/governance con alto acoplamiento externo; requiere ADR o compat layer antes de mover. |
@@ -767,7 +767,7 @@ Criterio mecanico: JS/TS sin imports relativos y sin referencias entrantes detec
 | `FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | docs | `docs/99-archive/FORGE_CONSTITUTION_AMENDMENT_v1.1.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_CONSTITUTION_CANDIDATES.md` | manager-os | `manager-os/FORGE_CONSTITUTION_CANDIDATES.md` | BAJO | - | 8 - Manager OS |
 | `FORGE_CONSTITUTION_LOCK_PREPARATION.md` | docs | `docs/99-archive/FORGE_CONSTITUTION_LOCK_PREPARATION.md` | BAJO | - | 1 - Docs y arquitectura |
-| `FORGE_CONSTITUTION_V3.md` | docs | `docs/99-archive/FORGE_CONSTITUTION_V3.md` | BAJO | - | 1 - Docs y arquitectura |
+| `docs/migration/constitutional-history/FORGE_CONSTITUTION_V3.md` | docs | `docs/99-archive/docs/migration/constitutional-history/FORGE_CONSTITUTION_V3.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_CORPORATE_VS_FIELD_INTELLIGENCE_COMPARISON.md` | docs | `docs/99-archive/FORGE_CORPORATE_VS_FIELD_INTELLIGENCE_COMPARISON.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_DECISION_VS_TRANSACTION_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_DECISION_VS_TRANSACTION_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
 | `FORGE_DEPENDENCY_SIGNAL_DISCOVERY.md` | advisor-os | `advisor-os/FORGE_DEPENDENCY_SIGNAL_DISCOVERY.md` | BAJO | - | 7 - Advisor OS |
@@ -833,7 +833,7 @@ Criterio mecanico: JS/TS sin imports relativos y sin referencias entrantes detec
 | `FORGE_LOCK_CANDIDATE_REVIEW.md` | manager-os | `manager-os/FORGE_LOCK_CANDIDATE_REVIEW.md` | BAJO | - | 8 - Manager OS |
 | `FORGE_MANAGER_FRICTION_DISCOVERY.md` | manager-os | `manager-os/FORGE_MANAGER_FRICTION_DISCOVERY.md` | BAJO | - | 8 - Manager OS |
 | `FORGE_MANAGER_OS_BLUEPRINT.md` | manager-os | `manager-os/FORGE_MANAGER_OS_BLUEPRINT.md` | BAJO | - | 8 - Manager OS |
-| `FORGE_MASTER_BUILD_TREE.md` | docs/root-governance | `FORGE_MASTER_BUILD_TREE.md` | NO_MOVER | - | 0 - No mover |
+| `governance/architecture/FORGE_MASTER_BUILD_TREE.md` | docs/root-governance | `governance/architecture/FORGE_MASTER_BUILD_TREE.md` | NO_MOVER | - | 0 - No mover |
 | `FORGE_REPOSITORY_MIGRATION_PLAN.md` | docs/root-governance | `FORGE_REPOSITORY_MIGRATION_PLAN.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_MISSING_SOURCES_REPORT.md` | docs | `docs/99-archive/FORGE_MISSING_SOURCES_REPORT.md` | BAJO | - | 1 - Docs y arquitectura |
 | `FORGE_NEXT_DISCOVERY_PRIORITY_REPORT.md` | advisor-os | `advisor-os/FORGE_NEXT_DISCOVERY_PRIORITY_REPORT.md` | BAJO | - | 7 - Advisor OS |
@@ -1056,7 +1056,7 @@ Criterio mecanico: JS/TS sin imports relativos y sin referencias entrantes detec
 | `docs/05-shared-commercial-model/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md` | docs | `docs/05-shared-commercial-model/PAQ-04-METRICS-OWNERSHIP-FINALIZATION.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/05-shared-commercial-model/PAQ-05-RULE-SNAPSHOT-HARDENING.md` | docs | `docs/05-shared-commercial-model/PAQ-05-RULE-SNAPSHOT-HARDENING.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/05-shared-commercial-model/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md` | docs | `docs/05-shared-commercial-model/PAQ-06-COMMERCIAL-EVENTS-TAXONOMY.md` | BAJO | - | 1 - Docs y arquitectura |
-| `docs/constitution/FORGE_CONSTITUTION_MAP.md` | docs | `docs/constitution/FORGE_CONSTITUTION_MAP.md` | BAJO | - | 1 - Docs y arquitectura |
+| `docs/constitution/governance/constitution/FORGE_CONSTITUTION_MAP.md` | docs | `docs/constitution/governance/constitution/FORGE_CONSTITUTION_MAP.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/03-discovery/FD-0001_BETTER_DECISIONS_UNDER_UNCERTAINTY.md` | docs | `docs/03-discovery/FD-0001_BETTER_DECISIONS_UNDER_UNCERTAINTY.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/03-discovery/PROCESS_ADVANCEMENT_IMPLEMENTATION_READINESS.md` | docs | `docs/03-discovery/PROCESS_ADVANCEMENT_IMPLEMENTATION_READINESS.md` | BAJO | - | 1 - Docs y arquitectura |
 | `docs/03-discovery/PROCESS_ADVANCEMENT_IMPLEMENTATION_READINESS_DISCOVERY.md` | docs | `docs/03-discovery/PROCESS_ADVANCEMENT_IMPLEMENTATION_READINESS_DISCOVERY.md` | BAJO | - | 1 - Docs y arquitectura |

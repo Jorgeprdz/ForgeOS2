@@ -20,14 +20,14 @@ Version: `1.0`
 | Final lock review | `FINAL_CONSTITUTIONAL_LOCK_REVIEW.md` | PASS baseline preserved; its prior no-implementation result is superseded only for SG-001 documentary scope by this later gate. | PASS |
 | Unification closure | `FINAL_EXECUTION_REPORT_002.md` | Successful unification is a prerequisite, not blanket implementation authority. | PASS |
 | Source of Truth | Governance Registry and SG-001 gate | Only direct evidence-backed registration is allowed; no new conceptual owner may be invented. | PASS |
-| Build Tree | `FORGE_MASTER_BUILD_TREE.md` | SG-001 stage registered with exact scope and next-stage boundary. | PASS |
+| Build Tree | `governance/architecture/FORGE_MASTER_BUILD_TREE.md` | SG-001 stage registered with exact scope and next-stage boundary. | PASS |
 | Remote operations | SG-001 gate | Commit/push only after all SG-001 validations PASS; no deploy/merge authority. | PASS |
 
 ## Bidirectional Traceability
 
 - Authority to gate: the Unified Constitution, ADR-020, ROBOCOP and active locks are cited by `SCAFFOLD_GENERATION_GATE_001.md`.
 - Gate to registry: `FORGE_GOVERNANCE_REGISTRY.md` identifies the SG-001 gate as the active scaffold-generation authorization.
-- Gate to Build Tree: `FORGE_MASTER_BUILD_TREE.md` registers the authorized stage.
+- Gate to Build Tree: `governance/architecture/FORGE_MASTER_BUILD_TREE.md` registers the authorized stage.
 - Gate to execution: every future SG-001 scaffold and matrix must cite `SG-001`.
 - Execution to authority: every generated scaffold must identify its constitutional sections, applicable ADRs and Source of Truth owner.
 

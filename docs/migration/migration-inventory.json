@@ -18,8 +18,8 @@
   },
   "protectedRootAssets": [
     "AGENTS.md",
-    "FORGE_CONSTITUTION_V3.md",
-    "FORGE_MASTER_BUILD_TREE.md",
+    "docs/migration/constitutional-history/FORGE_CONSTITUTION_V3.md",
+    "governance/architecture/FORGE_MASTER_BUILD_TREE.md",
     "app.js",
     "index.html",
     "manifest.json",
@@ -28,8 +28,8 @@
   ],
   "protectedAssets": [
     "AGENTS.md",
-    "FORGE_CONSTITUTION_V3.md",
-    "FORGE_MASTER_BUILD_TREE.md",
+    "docs/migration/constitutional-history/FORGE_CONSTITUTION_V3.md",
+    "governance/architecture/FORGE_MASTER_BUILD_TREE.md",
     "app.js",
     "index.html",
     "manifest.json",
@@ -42,7 +42,7 @@
     "Concursos SMNYL",
     "Crmaddlife.zip",
     "FORGE_CONSTITUTION_AMENDMENT_v1.1.md",
-    "FORGE_CONSTITUTION_V3.md",
+    "docs/migration/constitutional-history/FORGE_CONSTITUTION_V3.md",
     "FORGE_DUAL_INTELLIGENCE_OPERATIONAL_BLUEPRINT.md",
     "FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt",
     "FORGE_GMM_EVIDENCE_PACKET_VALIDATION.md",
@@ -53,7 +53,7 @@
     "FORGE_IMPLEMENTATION_READINESS_001C_TRUTH_VALIDATION_RESULT_CONTRACT.txt",
     "FORGE_LARIZA_PEDRO_CAMARENA_TEST.md",
     "FORGE_MANAGER_OS_BLUEPRINT.md",
-    "FORGE_MASTER_BUILD_TREE.md",
+    "governance/architecture/FORGE_MASTER_BUILD_TREE.md",
     "FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt",
     "FORGE_REPOSITORY_MIGRATION_PLAN.md",
     "FORGE_UDI_PROJECTION_VALIDATION_REPORT.txt",
@@ -566,7 +566,7 @@
     "docs/99-archive/SCHEMA_CATALOG.md",
     "docs/99-archive/SHARED_POLICY_CURRENCY_TIMELINE_ENGINE_REPORT.txt",
     "docs/99-archive/forge-inventory.txt",
-    "docs/constitution/FORGE_CONSTITUTION_MAP.md",
+    "docs/constitution/governance/constitution/FORGE_CONSTITUTION_MAP.md",
     "docs/03-discovery/FD-0001_BETTER_DECISIONS_UNDER_UNCERTAINTY.md",
     "docs/03-discovery/PROCESS_ADVANCEMENT_IMPLEMENTATION_READINESS.md",
     "docs/03-discovery/PROCESS_ADVANCEMENT_IMPLEMENTATION_READINESS_DISCOVERY.md",
@@ -1252,7 +1252,7 @@
     "AGENTS.md",
     "Concursos SMNYL",
     "FORGE_CONSTITUTION_AMENDMENT_v1.1.md",
-    "FORGE_CONSTITUTION_V3.md",
+    "docs/migration/constitutional-history/FORGE_CONSTITUTION_V3.md",
     "FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt",
     "FORGE_GMM_EVIDENCE_PACKET_VALIDATION.md",
     "FORGE_GMM_RED_TEAM_RETEST_REPORT.txt",
@@ -1260,7 +1260,7 @@
     "FORGE_IMAGINA_SER_REAL_QUOTE_VALIDATION_REPORT.txt",
     "FORGE_IMPLEMENTATION_READINESS_001C_TRUTH_VALIDATION_RESULT_CONTRACT.txt",
     "FORGE_LARIZA_PEDRO_CAMARENA_TEST.md",
-    "FORGE_MASTER_BUILD_TREE.md",
+    "governance/architecture/FORGE_MASTER_BUILD_TREE.md",
     "FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt",
     "FORGE_UDI_PROJECTION_VALIDATION_REPORT.txt",
     "FORGE_VALIDATION_REQUIREMENTS_REPORT.md",
@@ -1744,7 +1744,7 @@
     "docs/99-archive/SCHEMA_CATALOG.md",
     "docs/99-archive/SHARED_POLICY_CURRENCY_TIMELINE_ENGINE_REPORT.txt",
     "docs/99-archive/forge-inventory.txt",
-    "docs/constitution/FORGE_CONSTITUTION_MAP.md",
+    "docs/constitution/governance/constitution/FORGE_CONSTITUTION_MAP.md",
     "docs/03-discovery/FD-0001_BETTER_DECISIONS_UNDER_UNCERTAINTY.md",
     "docs/03-discovery/PROCESS_ADVANCEMENT_IMPLEMENTATION_READINESS.md",
     "docs/03-discovery/PROCESS_ADVANCEMENT_IMPLEMENTATION_READINESS_DISCOVERY.md",
@@ -2428,7 +2428,7 @@
     "Concursos SMNYL",
     "Crmaddlife.zip",
     "FORGE_CONSTITUTION_AMENDMENT_v1.1.md",
-    "FORGE_CONSTITUTION_V3.md",
+    "docs/migration/constitutional-history/FORGE_CONSTITUTION_V3.md",
     "FORGE_DUAL_INTELLIGENCE_OPERATIONAL_BLUEPRINT.md",
     "FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt",
     "FORGE_GMM_EVIDENCE_PACKET_VALIDATION.md",
@@ -2439,7 +2439,7 @@
     "FORGE_IMPLEMENTATION_READINESS_001C_TRUTH_VALIDATION_RESULT_CONTRACT.txt",
     "FORGE_LARIZA_PEDRO_CAMARENA_TEST.md",
     "FORGE_MANAGER_OS_BLUEPRINT.md",
-    "FORGE_MASTER_BUILD_TREE.md",
+    "governance/architecture/FORGE_MASTER_BUILD_TREE.md",
     "FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt",
     "FORGE_REPOSITORY_MIGRATION_PLAN.md",
     "FORGE_UDI_PROJECTION_VALIDATION_REPORT.txt",
@@ -3146,7 +3146,7 @@
   "rootDocs": [
     "AGENTS.md",
     "FORGE_CONSTITUTION_AMENDMENT_v1.1.md",
-    "FORGE_CONSTITUTION_V3.md",
+    "docs/migration/constitutional-history/FORGE_CONSTITUTION_V3.md",
     "FORGE_DUAL_INTELLIGENCE_OPERATIONAL_BLUEPRINT.md",
     "FORGE_GLOBAL_UDI_PROJECTION_VALIDATION_REPORT.txt",
     "FORGE_GMM_EVIDENCE_PACKET_VALIDATION.md",
@@ -3157,7 +3157,7 @@
     "FORGE_IMPLEMENTATION_READINESS_001C_TRUTH_VALIDATION_RESULT_CONTRACT.txt",
     "FORGE_LARIZA_PEDRO_CAMARENA_TEST.md",
     "FORGE_MANAGER_OS_BLUEPRINT.md",
-    "FORGE_MASTER_BUILD_TREE.md",
+    "governance/architecture/FORGE_MASTER_BUILD_TREE.md",
     "FORGE_PROJECTION_ENGINE_VS_EXCEL_VALIDATION_REPORT.txt",
     "FORGE_REPOSITORY_MIGRATION_PLAN.md",
     "FORGE_UDI_PROJECTION_VALIDATION_REPORT.txt",
@@ -3962,7 +3962,7 @@
       "reason": "Destination already exists; harness refuses overwrite."
     },
     {
-      "source": "FORGE_CONSTITUTION_V3.md",
+      "source": "docs/migration/constitutional-history/FORGE_CONSTITUTION_V3.md",
       "destination": null,
       "action": "SKIP_PROTECTED",
       "reason": "Protected root asset; harness must reject movement."
@@ -4028,7 +4028,7 @@
       "reason": "Untracked file; git mv cannot be used without explicit tracking decision."
     },
     {
-      "source": "FORGE_MASTER_BUILD_TREE.md",
+      "source": "governance/architecture/FORGE_MASTER_BUILD_TREE.md",
       "destination": null,
       "action": "SKIP_PROTECTED",
       "reason": "Protected root asset; harness must reject movement."
@@ -4108,7 +4108,7 @@
       "reason": "Destination already exists; harness refuses overwrite."
     },
     {
-      "source": "FORGE_CONSTITUTION_V3.md",
+      "source": "docs/migration/constitutional-history/FORGE_CONSTITUTION_V3.md",
       "destination": null,
       "action": "SKIP_PROTECTED",
       "reason": "Protected root asset; harness must reject movement."
@@ -4174,7 +4174,7 @@
       "reason": "Untracked file; git mv cannot be used without explicit tracking decision."
     },
     {
-      "source": "FORGE_MASTER_BUILD_TREE.md",
+      "source": "governance/architecture/FORGE_MASTER_BUILD_TREE.md",
       "destination": null,
       "action": "SKIP_PROTECTED",
       "reason": "Protected root asset; harness must reject movement."

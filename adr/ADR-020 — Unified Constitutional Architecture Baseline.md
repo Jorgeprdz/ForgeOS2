@@ -30,4 +30,4 @@ No runtime, engine, schema, route, UI or software change is authorized.
 
 ## Dependencies
 
-`CONSTITUTION_UNIFIED.md`, AX-003A, ADR-001 through ADR-018 and the ADR-0019 status reconciliation.
+`governance/constitution/CONSTITUTION_UNIFIED.md`, AX-003A, ADR-001 through ADR-018 and the ADR-0019 status reconciliation.

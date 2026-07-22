@@ -29,12 +29,12 @@ Register `Scaffold Generation 001` in the canonical Build Tree without represent
 
 ## Build Tree Mutation Boundary
 
-Only the SG-001 registration block in `FORGE_MASTER_BUILD_TREE.md` is changed by this gate. Future SG-001 status changes require evidence from the authorized execution and may not imply authority for a later phase.
+Only the SG-001 registration block in `governance/architecture/FORGE_MASTER_BUILD_TREE.md` is changed by this gate. Future SG-001 status changes require evidence from the authorized execution and may not imply authority for a later phase.
 
 ## Authority
 
 - `governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md`
-- `CONSTITUTION_UNIFIED.md`
+- `governance/constitution/CONSTITUTION_UNIFIED.md`
 - `adr/ADR-020 — Unified Constitutional Architecture Baseline.md`
 - ROBOCOP LOCK 001
 

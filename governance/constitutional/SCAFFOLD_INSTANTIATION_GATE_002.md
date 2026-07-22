@@ -12,7 +12,7 @@ Status: `RATIFIED / APPROVED / ACTIVE FOR SG-002 ONLY`
 
 ## Constitutional Gate
 
-- Applicable Constitution: `CONSTITUTION_UNIFIED.md` v4.0, including Article 0 / Ley Zero and Articles II–X.
+- Applicable Constitution: `governance/constitution/CONSTITUTION_UNIFIED.md` v4.0, including Article 0 / Ley Zero and Articles II–X.
 - Applicable ADRs: ADR-001–018 according to each named instance and ADR-020 for the architecture baseline.
 - Excluded authority: ADR-016A, historical ADR-0019 references, SKYNET, Russell and historical/candidate documents.
 - Build Tree Area: Constitutional Rewrite → Post-Rewrite Architecture → Scaffold Instantiation 002.
@@ -117,7 +117,7 @@ Only the following existing files may be modified:
 - `docs/architecture/source-truth/SCAFFOLD_SOURCE_OF_TRUTH_INDEX.md`
 - `governance/scaffolds/INDEX.md`
 - `governance/scaffolds/SCAFFOLD_INVENTORY.md`
-- the SG-002 registration block inside `FORGE_MASTER_BUILD_TREE.md`
+- the SG-002 registration block inside `governance/architecture/FORGE_MASTER_BUILD_TREE.md`
 
 Directory permission is not implied. Any path absent from this manifest is read-only.
 

@@ -17,7 +17,7 @@ Applies only to Markdown scaffolds registered in `docs/architecture/scaffolds/` 
 
 ## Authority
 
-`CONSTITUTION_UNIFIED.md`, ADR-001, ADR-002, ADR-003, ADR-004, ADR-020 and `governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md`.
+`governance/constitution/CONSTITUTION_UNIFIED.md`, ADR-001, ADR-002, ADR-003, ADR-004, ADR-020 and `governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md`.
 
 ## Boundaries
 

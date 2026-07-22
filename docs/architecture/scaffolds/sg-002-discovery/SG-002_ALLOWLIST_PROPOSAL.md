@@ -20,7 +20,7 @@
 - `docs/architecture/source-truth/SCAFFOLD_SOURCE_OF_TRUTH_INDEX.md`
 - `governance/scaffolds/INDEX.md`
 - `governance/scaffolds/SCAFFOLD_INVENTORY.md`
-- SG-002 registration block inside `FORGE_MASTER_BUILD_TREE.md`
+- SG-002 registration block inside `governance/architecture/FORGE_MASTER_BUILD_TREE.md`
 
 ## Ratification Requirement
 

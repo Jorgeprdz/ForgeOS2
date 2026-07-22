@@ -6,7 +6,7 @@ Status: `RATIFIED / ACTIVE`
 
 | Concept | Active Source of Truth |
 |---|---|
-| Constitution / Article 0 / Ley Zero | `CONSTITUTION_UNIFIED.md` |
+| Constitution / Article 0 / Ley Zero | `governance/constitution/CONSTITUTION_UNIFIED.md` |
 | Axiom status/navigation | `governance/axioms/INDEX_V2.md` |
 | Ratification rule | `governance/axioms/AX-002-Governance-by-Ratification.md` |
 | Documentary immutability | `governance/axioms/AX-004-Documentary-Immutability.md` |
@@ -14,7 +14,9 @@ Status: `RATIFIED / ACTIVE`
 | Governance lifecycle | `governance/GOVERNANCE_DOCUMENT_LIFECYCLE.md` |
 | Architecture decisions | `adr/` active files and status lineage |
 | Specifications | `governance/specifications/` |
-| Constitutional readiness | ROBOCOP LOCK 001 as incorporated/referenced by `AGENTS.md` |
+| Build Tree | `governance/architecture/FORGE_MASTER_BUILD_TREE.md` |
+| Constitutional readiness | `governance/validation/FORGE_ROBOCOP_DIRECTIVES.md` |
+| AI interpretation addendum | `governance/validation/FORGE_ROBOCOP_AI_INTERPRETATION_ADDENDUM.md` |
 | Scaffold Generation 001 authorization | `governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md` |
 | Scaffold Instantiation 002 authorization | `governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md` |
 

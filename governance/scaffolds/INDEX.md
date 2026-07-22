@@ -42,7 +42,7 @@ Owns SG-001 navigation only.
 
 ## Related Documents
 
-`governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md` and `FORGE_MASTER_BUILD_TREE.md`.
+`governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md` and `governance/architecture/FORGE_MASTER_BUILD_TREE.md`.
 
 ## Related ADRs
 
