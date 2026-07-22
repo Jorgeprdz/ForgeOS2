@@ -1,4 +1,10 @@
 {
+  "name": "forge-os-2",
+  "private": true,
+  "scripts": {
+    "test": "node tools/run-tests.mjs",
+    "lint": "node tools/validate-imports.mjs"
+  },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",
     "dotenv": "^17.4.2"
