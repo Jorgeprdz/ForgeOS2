@@ -1,0 +1,608 @@
+ADR-001 — EVIDENCE OWNERSHIP / SOURCE VALIDITY
+
+1. TITLE
+
+ADR-001 — Evidence Ownership / Source Validity
+
+2. STATUS
+
+Proposed / Draft
+
+3. CONTEXT
+
+Forge OS conectará múltiples dominios, fuentes, documentos, productos, pólizas, métricas, conversaciones, forecasts, managers, asesores y acciones.
+
+Para que Forge funcione como Decision Intelligence confiable, cada interpretación, recomendación, priorización, forecast, explicación o salida importante debe estar sustentada por evidencia reconocible y limitada.
+
+Sin reglas de ownership y validez de evidencia, Forge puede:
+
+- inventar hechos
+- mezclar fuentes
+- presentar inferencias como verdad
+- usar evidencia débil como certeza
+- duplicar owners
+- crear recomendaciones sin base
+- contaminar Forecast, NBA, NASH, Product Intelligence, Policy Intelligence, Compensation Intelligence y Manager Intelligence
+- convertir lenguaje generado por IA en aparente evidencia
+- ocultar incertidumbre
+- presentar unknown como dato
+
+Este ADR deriva directamente de Forge Constitution v1.0 y Forge Constitutional Commentary v1.0.
+
+Principios aplicables:
+
+- Evidence First
+- Decision Clarity First
+- Client First
+- Authority Boundary
+- Advisor Capability Growth
+- Causal Clarity
+
+4. DECISION
+
+Forge debe conectar toda interpretación, recomendación, priorización, forecast, explicación o salida importante a:
+
+- evidencia identificable
+- fuente válida
+- owner conceptual
+- contexto
+- periodo
+- incertidumbre
+- límites de inferencia
+
+Unknown remains unknown.
+
+Cuando Forge no tenga evidencia suficiente, debe conservar lo desconocido como desconocido.
+
+Forge puede operar con evidencia parcial, pero debe declarar su límite y no presentar conclusiones fuertes como si fueran hechos confirmados.
+
+5. DEFINITIONS
+
+Evidence
+
+Información identificable que puede sustentar una afirmación, interpretación, recomendación, forecast, explicación o decisión dentro de Forge.
+
+Source
+
+Origen de la evidencia.
+
+Puede ser documento, registro, regla, evento observado, confirmación humana, fuente oficial externa validada o historial conversacional con contexto.
+
+Source Validity
+
+Grado en que una fuente es apropiada, vigente, contextual y confiable para sostener una afirmación específica.
+
+Evidence Owner
+
+Dominio, regla o contexto conceptual autorizado para interpretar una evidencia como verdad dentro de su boundary.
+
+El owner no es necesariamente quien subió el archivo ni quien muestra la evidencia.
+
+Consumer Domain
+
+Dominio que usa evidencia o interpretaciones oficiales de otro owner para producir su propia salida sin redefinir la verdad original.
+
+Derived Interpretation
+
+Conclusión, lectura o significado producido a partir de evidencia existente.
+
+Debe conservar trazabilidad a la evidencia base.
+
+Fact
+
+Afirmación confirmada por evidencia suficiente y fuente válida dentro de un contexto definido.
+
+Assumption
+
+Supuesto usado para razonar cuando falta confirmación completa.
+
+Debe etiquetarse como supuesto y no como hecho.
+
+Inference
+
+Conclusión razonable derivada de evidencia, pero no confirmada directamente.
+
+Debe expresar incertidumbre.
+
+Forecast
+
+Escenario, proyección, estimación o expectativa futura basada en evidencia y supuestos.
+
+Forecast no es hecho.
+
+Recommendation
+
+Acción sugerida por Forge con base en evidencia, contexto, prioridad y límites.
+
+Una recomendación no es decisión final.
+
+Unknown
+
+Dato, estado, valor, intención, regla o contexto que Forge no puede confirmar con evidencia suficiente.
+
+Confidence
+
+Nivel cualitativo de confianza asociado a una interpretación, inferencia, recomendación o forecast.
+
+Este ADR no crea scores de confidence.
+
+Evidence Boundary
+
+Límite que define qué puede y qué no puede afirmarse con la evidencia disponible.
+
+6. VALID EVIDENCE TYPES
+
+Uploaded Official Documents
+
+Documentos oficiales cargados por usuario o fuente autorizada.
+
+Limitación:
+Deben considerarse dentro de versión, fecha, contexto, carrier, producto y vigencia.
+
+Policy Documents
+
+Documentos de póliza, estados, renovaciones, endosos o eventos operativos.
+
+Limitación:
+Pueden sostener Policy Truth, pero deben verificarse contra contexto y vigencia.
+
+Product Manuals
+
+Manuales, condiciones, fichas, guías o documentación oficial de producto.
+
+Limitación:
+No deben mezclarse productos, versiones, carriers o periodos.
+
+Quotes / Illustrations
+
+Cotizaciones, ilustraciones, propuestas o simulaciones.
+
+Limitación:
+No son póliza emitida ni ingreso confirmado. Pueden caducar o depender de supuestos.
+
+Rule Packs
+
+Reglas configuradas para carrier, canal, compensación, concurso, carrera o contexto operativo.
+
+Limitación:
+Deben aplicarse solo dentro de su periodo, snapshot y contexto.
+
+CRM Records
+
+Registros de clientes, prospectos, tareas, actividades, oportunidades o eventos.
+
+Limitación:
+Pueden estar incompletos, desactualizados o depender de captura manual.
+
+User-Entered Data
+
+Datos capturados por asesor, manager u otro usuario.
+
+Limitación:
+No siempre son confirmados. Deben distinguirse de datos document-backed o system-observed.
+
+Advisor-Confirmed Facts
+
+Hechos confirmados explícitamente por el asesor.
+
+Limitación:
+Son confirmaciones humanas, no necesariamente evidencia documental.
+
+Manager-Confirmed Facts
+
+Hechos confirmados explícitamente por manager.
+
+Limitación:
+No deben confundirse con evaluación final, consecuencia laboral o verdad documental.
+
+System Logs / Observed Behavior
+
+Eventos observados por Forge: acciones, tiempos, completions, cambios, cadencias o uso.
+
+Limitación:
+Observan comportamiento externo, no motivación interna.
+
+Conversation History
+
+Historial conversacional registrado con contexto.
+
+Limitación:
+No debe inferir intención interna, emoción o consentimiento sin evidencia explícita.
+
+External Official Sources When Explicitly Validated
+
+Fuentes oficiales externas validadas para el contexto.
+
+Limitación:
+Deben distinguirse de fuentes web genéricas, contenido no oficial o información no versionada.
+
+7. INVALID OR WEAK EVIDENCE
+
+No debe tratarse como evidencia fuerte:
+
+AI-Generated Text Without Source
+
+Texto generado por IA sin fuente verificable no es evidencia.
+
+Inferred Client Intent Without Confirmation
+
+La intención del cliente no debe asumirse sin confirmación explícita o evidencia suficiente.
+
+Outdated Documents Without Version Awareness
+
+Documentos desactualizados no deben usarse como verdad vigente sin revisión de versión.
+
+Screenshots Without Context
+
+Screenshots pueden servir como indicio, pero no como verdad fuerte si carecen de fecha, fuente, owner o contexto.
+
+Memory Without Source
+
+Memoria no trazable no debe funcionar como evidencia fuerte.
+
+Forecast Treated As Fact
+
+Forecast es escenario, no hecho.
+
+Manager Opinion Treated As Fact
+
+Opinión de manager puede ser señal, no verdad final.
+
+Advisor Assumption Treated As Fact
+
+Supuesto del asesor puede orientar validación, no reemplazar evidencia.
+
+Client Silence Treated As Intent
+
+Silencio del cliente no debe interpretarse automáticamente como rechazo, interés o consentimiento.
+
+Correlation Treated As Causation
+
+Correlación no debe presentarse como causalidad.
+
+8. OWNERSHIP RULES
+
+Toda evidencia debe tener owner conceptual cuando aplique.
+
+Un dominio puede consumir evidencia, pero no redefinir la verdad de otro owner.
+
+Owner no significa:
+
+- usuario que subió el archivo
+- dominio que muestra la evidencia
+- pantalla donde aparece
+- engine que la consume
+
+Owner significa:
+
+dominio, regla o contexto autorizado para interpretar esa evidencia como verdad dentro de un boundary.
+
+Ejemplos:
+
+Product Intelligence owns Product Truth.
+
+Policy Intelligence owns Policy Truth.
+
+Compensation Intelligence owns compensation rule interpretation.
+
+Mick owns observable behavior patterns.
+
+Productivity owns activity-to-output interpretation.
+
+Forecast consumes facts but owns scenarios, not facts.
+
+Business Planning consumes official facts, metrics and forecasts to create action paths, but does not redefine source truth.
+
+NASH consumes relationship, product, policy and context evidence to produce conversation guidance, but does not invent product truth or policy truth.
+
+Relationship Intelligence owns relationship opportunities and relationship context, but does not own product, policy or compensation truth.
+
+Manager Intelligence consumes evidence from other domains to support coaching and development, but does not redefine metric truth or automate consequences.
+
+9. EVIDENCE STATES
+
+Forge may classify evidence conceptually as:
+
+Confirmed
+
+Evidence sufficiently supported within its proper source and context.
+
+Advisor-Confirmed
+
+Confirmed by advisor statement or explicit advisor input.
+
+Manager-Confirmed
+
+Confirmed by manager statement or explicit manager input.
+
+Client-Confirmed
+
+Confirmed by client statement, consent, response or documented client input.
+
+Document-Backed
+
+Supported by document evidence.
+
+System-Observed
+
+Observed directly through Forge logs or system activity.
+
+Inferred
+
+Derived from evidence, but not directly confirmed.
+
+Provisional
+
+Usable with limits pending stronger confirmation.
+
+Stale
+
+Potentially outdated due to age, version, period or changed context.
+
+Conflicting
+
+Evidence conflicts with another source or owner.
+
+Unknown
+
+Not confirmed with sufficient evidence.
+
+10. PARTIAL EVIDENCE HANDLING
+
+Forge may operate with partial evidence.
+
+With partial evidence, Forge may:
+
+- suggest hypotheses
+- ask for confirmation
+- recommend a validation step
+- produce a provisional recommendation
+- explain uncertainty
+- identify what evidence is missing
+
+With partial evidence, Forge may not:
+
+- present a strong conclusion
+- hide uncertainty
+- convert assumption into fact
+- treat provisional interpretation as confirmed truth
+- recommend high-impact action without limitation
+- invent missing values
+
+11. UNKNOWN HANDLING
+
+Unknown remains unknown.
+
+Unknown may generate:
+
+- a question
+- a validation task
+- a lower-confidence recommendation
+- a blocked strong recommendation
+- a request for source
+- a provisional interpretation
+- a safe next step to gather evidence
+
+Unknown may not become:
+
+- invented fact
+- invented value
+- invented recommendation
+- hidden assumption
+- fake confidence
+- implied consent
+- implied intent
+
+12. CROSS-DOMAIN CONSUMPTION
+
+Product Intelligence
+
+May consume:
+official product documents, manuals, rule packs, validated product data.
+
+May not redefine:
+policy status, compensation outcomes, client intent or forecast.
+
+Policy Intelligence
+
+May consume:
+policy documents, operational records, renewal data, event history.
+
+May not redefine:
+product truth, compensation rules or advisor behavior patterns.
+
+Forecast
+
+May consume:
+official facts, production data, policy data, productivity metrics, business planning context.
+
+May not redefine:
+facts, paid income, policy status, compensation truth or production truth.
+
+Forecast owns scenarios, not facts.
+
+NBA
+
+May consume:
+evidence-backed recommendations, relationship context, business priorities, policy/product facts, forecast scenarios and action candidates.
+
+May not redefine:
+source truth, client intent, product truth, policy truth or authority boundary.
+
+NASH
+
+May consume:
+conversation history, relationship context, product truth, policy truth, objections, intent signals and recommendation context.
+
+May not invent:
+products, benefits, premiums, client intent, coverage, policy facts or recommendations without source.
+
+Relationship Intelligence
+
+May consume:
+CRM records, engagement history, life events, client interactions, referral context and relationship activity.
+
+May not redefine:
+product suitability, compensation, forecast truth or client consent.
+
+Manager Intelligence
+
+May consume:
+behavior evidence, productivity metrics, development signals, business planning context and performance indicators.
+
+May not redefine:
+human worth, final employment conclusions, metric truth or advisor intent.
+
+Business Planning
+
+May consume:
+goals, forecast scenarios, productivity metrics, compensation context, relationship opportunities and known constraints.
+
+May not redefine:
+official metrics, policy truth, product truth or forecast as fact.
+
+Mick
+
+May consume:
+system-observed behavior, activity patterns, task completion, cadence and consistency signals.
+
+May not infer:
+personality, motivation, character, emotion or internal intent without evidence.
+
+Productivity
+
+May consume:
+activity records, conversion data, throughput, outcomes and official metrics.
+
+May not redefine:
+behavioral intent, relationship quality, product truth or compensation truth.
+
+Compensation Intelligence
+
+May consume:
+production events, rule packs, compensation schedules, snapshots, periods and official economic evidence.
+
+May not invent:
+income, commission, payout, qualification or economic outcomes.
+
+Economic Motivation
+
+May consume:
+compensation context, business goals, income scenarios and evidence-backed economic signals.
+
+May not override:
+Client First, product suitability, advisor authority or unknown handling.
+
+Advisor Experience
+
+May consume:
+learning state, feature usage, context, advisor progression, help signals and system behavior.
+
+May not redefine:
+business truth, product truth, policy truth, compensation truth, metric truth or recommendations as mandates.
+
+13. PROHIBITIONS
+
+Forge must not:
+
+- invent evidence
+- hide source
+- mix evidence owners
+- present inference as fact
+- present forecast as fact
+- convert unknown into data
+- use weak evidence as certainty
+- generate recommendation without sufficient evidence
+- allow a consumer domain to redefine truth
+- use AI language as substitute for evidence
+- treat correlation as causation
+- infer client intent from silence
+- infer advisor motivation from behavior alone
+- treat manager opinion as confirmed fact
+- merge historical periods without rule context
+- mix rule packs without explicit boundary
+- present provisional interpretation as confirmed truth
+
+14. CONSEQUENCES
+
+Positive Consequences
+
+This ADR creates:
+
+- greater traceability
+- lower hallucination risk
+- stronger Evidence First enforcement
+- foundation for One Metric One Owner
+- foundation for Product Truth
+- foundation for Policy Truth
+- foundation for Forecast Truth Boundary
+- foundation for Recommendation Validity
+- foundation for reliable NBA
+- foundation for responsible NASH
+- foundation for fair Manager Intelligence
+- stronger unknown handling
+- clearer domain boundaries
+
+Tradeoffs
+
+This ADR may introduce:
+
+- more initial friction
+- more need for metadata
+- more visible unknowns
+- fewer “magical” answers
+- more validation work
+- slower recommendations in weak-evidence contexts
+- stricter boundaries between domains
+- less tolerance for persuasive but unsupported output
+
+These tradeoffs are acceptable because Forge must remain a reliable Decision Intelligence System.
+
+15. DEPENDENT ADRs
+
+Dependent ADRs include:
+
+- ADR-002 — One Metric One Owner
+- Product Truth Boundary ADR
+- Policy Truth Boundary ADR
+- Forecast Truth Boundary ADR
+- No Invented Recommendations ADR
+- NBA Philosophy ADR
+- NASH Boundary ADR
+- Relationship Boundary ADR
+- Compensation Evidence Boundary ADR
+- Economic Motivation Boundary ADR
+- Manager Intelligence Boundary ADR
+- Productivity Metric Ownership ADR
+- Mick Behavior Intelligence Boundary ADR
+- Business Planning Plan-to-Action Boundary ADR
+- Advisor Experience Anti-Dependence Boundary ADR
+
+16. NON-GOALS
+
+This ADR does not:
+
+- design schemas
+- create engines
+- define database structure
+- define UI
+- approve implementation
+- create evidence scoring
+- create a truth registry
+- modify build tree
+- expand domains
+- create features
+- define storage mechanics
+- define extraction pipelines
+- define confidence scoring
+- define validation workflows
+
+17. FINAL VERDICT
+
+ADR-001 establishes that Forge cannot operate as reliable Decision Intelligence without evidence ownership and source validity.
+
+Evidence First becomes operational through this ADR.
+
+Forge may interpret, recommend, prioritize, forecast and explain only when it can identify the evidence, source, owner, context, period, uncertainty and limits that support the output.
+
+Unknown remains unknown.

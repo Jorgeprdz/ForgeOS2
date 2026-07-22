@@ -1,3 +1,0 @@
-# Explained Sales NBA Decision 067G14
-
-Status: `RULE_BASED_ENGINE_IMPLEMENTED`. Deterministic rules use verified due commitments and quote-follow-up dates to produce domain/subject/action, why now, supporting/counter signals, outcome, channel, argument, uncertainty, evidence strength, lineage, expiry, limitations and Advisor controls. With insufficient evidence it explains the limitation and issues no commercial action. No probability or black-box score exists; do-not-contact returns no recommendation. Advisor response is a separate event and executes no client effect. ML/DL and outcome learning remain out of scope. Next: 067G15.
