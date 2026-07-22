@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forge-os.local/scaffolds/contracts/scaffold-contract.schema.json",
+  "title": "Forge Scaffold Contract",
+  "type": "object",
+  "required": ["id", "stage", "capability_id", "requirement_id", "authority", "boundaries", "status", "files"],
+  "properties": {
+    "id": { "type": "string" },
+    "stage": { "type": "string", "pattern": "^SG-[0-9]{3}$" },
+    "capability_id": { "type": "string", "pattern": "^CAP-[A-Z0-9-]+$" },
+    "requirement_id": { "type": "string", "pattern": "^REQ-[A-Z0-9-]+$" },
+    "authority": { "type": "array", "items": { "type": "string" } },
+    "boundaries": { "type": "array", "items": { "type": "string", "pattern": "^BOUND-[A-Z0-9-]+$" } },
+    "status": { "enum": ["READY", "BLOCKED", "DEFERRED", "REJECTED"] },
+    "files": { "type": "array", "items": { "type": "string" } }
+  }
+}

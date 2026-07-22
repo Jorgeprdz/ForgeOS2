@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forge-os.local/scaffolds/contracts/validation-result.schema.json",
+  "title": "Forge Validation Result",
+  "type": "object",
+  "required": ["validator", "status", "checked_at", "errors"],
+  "properties": {
+    "validator": { "type": "string" },
+    "status": { "enum": ["PASS", "FAIL", "SKIPPED"] },
+    "checked_at": { "type": "string" },
+    "errors": { "type": "array", "items": { "type": "string" } }
+  }
+}

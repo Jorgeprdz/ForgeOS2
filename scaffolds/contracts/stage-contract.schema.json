@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forge-os.local/scaffolds/contracts/stage-contract.schema.json",
+  "title": "Forge Rewrite Stage Contract",
+  "type": "object",
+  "required": ["id", "name", "purpose", "capabilities", "functional_requirements", "constitutional_authority", "boundaries", "adr", "contracts", "prerequisites", "allowed_paths", "prohibited_paths", "templates", "files_to_generate", "allowed_operations", "prohibited_operations", "validations", "evidence", "acceptance_criteria", "rollback", "next_stage_allowed", "status"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^SG-[0-9]{3}$" },
+    "name": { "type": "string" },
+    "purpose": { "type": "string" },
+    "capabilities": { "type": "array", "items": { "type": "string", "pattern": "^CAP-[A-Z0-9-]+$" } },
+    "functional_requirements": { "type": "array", "items": { "type": "string", "pattern": "^REQ-[A-Z0-9-]+$" } },
+    "constitutional_authority": { "type": "array", "items": { "type": "string" } },
+    "boundaries": { "type": "array", "items": { "type": "string", "pattern": "^BOUND-[A-Z0-9-]+$" } },
+    "adr": { "type": "array", "items": { "type": "string" } },
+    "contracts": { "type": "array", "items": { "type": "string" } },
+    "prerequisites": { "type": "array", "items": { "type": "string" } },
+    "allowed_paths": { "type": "array", "items": { "type": "string" } },
+    "prohibited_paths": { "type": "array", "items": { "type": "string" } },
+    "templates": { "type": "array", "items": { "type": "string" } },
+    "files_to_generate": { "type": "array", "items": { "type": "string" } },
+    "allowed_operations": { "type": "array", "items": { "type": "string" } },
+    "prohibited_operations": { "type": "array", "items": { "type": "string" } },
+    "validations": { "type": "array", "items": { "type": "string" } },
+    "evidence": { "type": "array", "items": { "type": "string" } },
+    "acceptance_criteria": { "type": "array", "items": { "type": "string" } },
+    "rollback": { "type": "string" },
+    "next_stage_allowed": { "type": "array", "items": { "type": "string" } },
+    "status": { "enum": ["READY", "BLOCKED_REQUIRES_PRODUCT_DEFINITION", "BLOCKED_REQUIRES_OWNER_DECISION", "BLOCKED_REQUIRES_ARCHITECTURAL_DECISION", "BLOCKED_REQUIRES_LEGACY_EVIDENCE", "BLOCKED_CONSTITUTIONAL_VIOLATION", "DEFERRED", "REJECTED", "COMPLETED"] }
+  }
+}
