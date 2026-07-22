@@ -27,6 +27,7 @@ for (const decision of canonical.decisions) {
 }
 assert(canonical.initial_owner_decisions === original.length, 'initial decision count mismatch');
 assert(canonical.duplicates_removed === original.length - canonical.decisions.length, 'duplicate removal count mismatch');
+assert(Array.isArray(canonical.resolved_original_decision_ids), 'resolved original decision ids missing');
 assert(canonical.summary.first_wave_blocking_decisions === 0, 'first-wave decisions remain after collapse');
 assert(go.final_decision === canonical.summary.final_decision, 'GO/NO-GO decision was not recomputed from canonical decision set');
 assert(go.final_decision === 'GO', `expected GO after first-wave decision collapse, got ${go.final_decision}`);
@@ -50,7 +51,10 @@ for (const decision of canonical.decisions) {
 }
 
 const originalIds = new Set(original.map(decision => decision.decision_id));
-const referencedOriginals = new Set(canonical.decisions.flatMap(decision => decision.derived_from.original_decision_ids));
+const referencedOriginals = new Set([
+  ...canonical.resolved_original_decision_ids,
+  ...canonical.decisions.flatMap(decision => decision.derived_from.original_decision_ids)
+]);
 for (const id of originalIds) assert(referencedOriginals.has(id), `original decision not accounted for: ${id}`);
 
 finish(name);

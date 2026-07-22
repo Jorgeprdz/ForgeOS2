@@ -1,5 +1,13 @@
-# SG-008 Carrier Scope Contract
+# SG-008 - Carrier Scope Contract
 
-Status: `BLOCKED_REQUIRES_ARCHITECTURAL_DECISION`
+Canonical order: 11.
 
-Carrier, channel and period scope must remain separate from universal Forge Core.
+Layer: `DOMAIN_BASE_PRODUCT_RULE_FOUNDATION`.
+
+Status: `undefined`.
+
+Depends on: `SG-023`, `SG-026`.
+
+Produces: `carrier_scope_contract`.
+
+This stage is part of the dependency-ordered Forge OS 2 rewrite sequence. It must be executed through Bash-based Termux tooling and must not be selected by numeric SG order.

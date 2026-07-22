@@ -69,7 +69,10 @@
         "MOD-DECISION-CORE"
       ],
       "depended_on_by": [
+        "MOD-ADVISOR-EXPERIENCE",
         "MOD-ADVISOR-WORKSPACE",
+        "MOD-HUMAN-APPROVAL-GATE",
+        "MOD-OPPORTUNITY-PIPELINE",
         "MOD-RELATIONSHIP-INTELLIGENCE"
       ],
       "dependencies": [
@@ -130,16 +133,22 @@
       "depends_on": [],
       "depended_on_by": [
         "MOD-ADVISOR-LIFECYCLE",
+        "MOD-CALCULATION-CONTRACT",
         "MOD-CARRIER-SCOPE",
+        "MOD-CLIENT-CRM-READMODEL",
+        "MOD-COMPENSATION-ECONOMIC",
         "MOD-CONVERSATION-INTELLIGENCE",
         "MOD-DECISION-CORE",
+        "MOD-ELIGIBILITY-CONTRACT",
         "MOD-GOVERNANCE-GATE",
-        "MOD-MANAGER-COACHING",
         "MOD-MICK-BEHAVIOR",
         "MOD-POLICY-OPERATIONS",
+        "MOD-PRODUCT-CATALOG",
+        "MOD-PRODUCT-SOURCE-PACK",
         "MOD-READONLY-ADAPTERS",
         "MOD-RECRUITMENT-PRECONTRACT",
-        "MOD-RELATIONSHIP-INTELLIGENCE"
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-RULE-PACK-CONTRACT"
       ],
       "dependencies": [],
       "contracts": [
@@ -244,12 +253,20 @@
     {
       "id": "MOD-READONLY-ADAPTERS",
       "depends_on": [
-        "MOD-TRUTH-GOVERNANCE"
+        "MOD-TRUTH-GOVERNANCE",
+        "MOD-LEGACY-REINTRODUCTION-GUARD"
       ],
       "depended_on_by": [
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-ADVISOR-WORKSPACE",
         "MOD-CLIENT-CRM-READMODEL",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-MANAGER-COACHING",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-MICK-BEHAVIOR",
         "MOD-OPPORTUNITY-PIPELINE",
-        "MOD-POLICY-OPERATIONS"
+        "MOD-POLICY-OPERATIONS",
+        "MOD-RELATIONSHIP-INTELLIGENCE"
       ],
       "dependencies": [
         {
@@ -262,6 +279,17 @@
             "PROMOTE"
           ],
           "direction": "MOD-READONLY-ADAPTERS->MOD-TRUTH-GOVERNANCE"
+        },
+        {
+          "module_id": "MOD-LEGACY-REINTRODUCTION-GUARD",
+          "type": "VALIDATION",
+          "required_for": [
+            "SCAFFOLD",
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-READONLY-ADAPTERS->MOD-LEGACY-REINTRODUCTION-GUARD"
         }
       ],
       "contracts": [
@@ -281,7 +309,8 @@
         "mod.readonly.adapters.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.truth.governance.contract_ready"
+        "mod.truth.governance.contract_ready",
+        "mod.legacy.reintroduction.guard.contract_ready"
       ],
       "domain_events_published": [],
       "domain_events_consumed": [],
@@ -305,11 +334,16 @@
       "id": "MOD-ADVISOR-WORKSPACE",
       "depends_on": [
         "MOD-DECISION-CORE",
-        "MOD-ACTION-PLANNING"
-      ],
-      "depended_on_by": [
+        "MOD-ACTION-PLANNING",
+        "MOD-READONLY-ADAPTERS",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-MICK-BEHAVIOR",
         "MOD-ADVISOR-EXPERIENCE"
       ],
+      "depended_on_by": [],
       "dependencies": [
         {
           "module_id": "MOD-DECISION-CORE",
@@ -330,6 +364,76 @@
             "PROMOTE"
           ],
           "direction": "MOD-ADVISOR-WORKSPACE->MOD-ACTION-PLANNING"
+        },
+        {
+          "module_id": "MOD-READONLY-ADAPTERS",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-ADVISOR-WORKSPACE->MOD-READONLY-ADAPTERS"
+        },
+        {
+          "module_id": "MOD-ADVISOR-LIFECYCLE",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-ADVISOR-WORKSPACE->MOD-ADVISOR-LIFECYCLE"
+        },
+        {
+          "module_id": "MOD-RELATIONSHIP-INTELLIGENCE",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-ADVISOR-WORKSPACE->MOD-RELATIONSHIP-INTELLIGENCE"
+        },
+        {
+          "module_id": "MOD-CONVERSATION-INTELLIGENCE",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-ADVISOR-WORKSPACE->MOD-CONVERSATION-INTELLIGENCE"
+        },
+        {
+          "module_id": "MOD-POLICY-OPERATIONS",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-ADVISOR-WORKSPACE->MOD-POLICY-OPERATIONS"
+        },
+        {
+          "module_id": "MOD-MICK-BEHAVIOR",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-ADVISOR-WORKSPACE->MOD-MICK-BEHAVIOR"
+        },
+        {
+          "module_id": "MOD-ADVISOR-EXPERIENCE",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-ADVISOR-WORKSPACE->MOD-ADVISOR-EXPERIENCE"
         }
       ],
       "contracts": [
@@ -352,7 +456,14 @@
       ],
       "build_events_consumed": [
         "mod.decision.core.contract_ready",
-        "mod.action.planning.contract_ready"
+        "mod.action.planning.contract_ready",
+        "mod.readonly.adapters.contract_ready",
+        "mod.advisor.lifecycle.contract_ready",
+        "mod.relationship.intelligence.contract_ready",
+        "mod.conversation.intelligence.contract_ready",
+        "mod.policy.operations.contract_ready",
+        "mod.mick.behavior.contract_ready",
+        "mod.advisor.experience.contract_ready"
       ],
       "domain_events_published": [],
       "domain_events_consumed": [],
@@ -375,7 +486,9 @@
     {
       "id": "MOD-MANAGER-WORKSPACE",
       "depends_on": [
-        "MOD-MANAGER-COACHING"
+        "MOD-MANAGER-COACHING",
+        "MOD-HUMAN-APPROVAL-GATE",
+        "MOD-READONLY-ADAPTERS"
       ],
       "depended_on_by": [],
       "dependencies": [
@@ -388,6 +501,27 @@
             "PROMOTE"
           ],
           "direction": "MOD-MANAGER-WORKSPACE->MOD-MANAGER-COACHING"
+        },
+        {
+          "module_id": "MOD-HUMAN-APPROVAL-GATE",
+          "type": "SECURITY",
+          "required_for": [
+            "SCAFFOLD",
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-MANAGER-WORKSPACE->MOD-HUMAN-APPROVAL-GATE"
+        },
+        {
+          "module_id": "MOD-READONLY-ADAPTERS",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-MANAGER-WORKSPACE->MOD-READONLY-ADAPTERS"
         }
       ],
       "contracts": [
@@ -397,78 +531,19 @@
         "CAP-MANAGER-COACHING"
       ],
       "definition_readiness": "DEFINED",
-      "scaffold_readiness": "BLOCKED",
-      "implementation_readiness": "BLOCKED",
-      "execution_readiness": "WAITING_FOR_DECISION",
-      "validation_readiness": "BLOCKED",
+      "scaffold_readiness": "READY",
+      "implementation_readiness": "READY",
+      "execution_readiness": "ELIGIBLE",
+      "validation_readiness": "READY",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-MANAGER-WORKSPACE-ARCHITECTURAL-DECISION-REQUIRED-SCAFFOLD-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-013 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "SCAFFOLD",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-013",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-MANAGER-WORKSPACE-ARCHITECTURAL-DECISION-REQUIRED-IMPLEMENT-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-013 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-013",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-MANAGER-WORKSPACE-ARCHITECTURAL-DECISION-REQUIRED-VALIDATE-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-013 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "VALIDATE",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-013",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-MANAGER-WORKSPACE-ARCHITECTURAL-DECISION-REQUIRED-PROMOTE-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-013 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "PROMOTE",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-013",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-MANAGER-WORKSPACE-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-MANAGER-COACHING",
-          "type": "DEPENDENCY_NOT_READY",
-          "description": "Implementation dependency MOD-MANAGER-COACHING is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve dependency MOD-MANAGER-COACHING before implementation.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": "MOD-MANAGER-COACHING",
-          "decision_reference": "SG-013",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.manager.workspace.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.manager.coaching.contract_ready"
+        "mod.manager.coaching.contract_ready",
+        "mod.human.approval.gate.contract_ready",
+        "mod.readonly.adapters.contract_ready"
       ],
       "domain_events_published": [
         "manager.coaching.recommendation_proposed"
@@ -497,9 +572,15 @@
       "id": "MOD-RELATIONSHIP-INTELLIGENCE",
       "depends_on": [
         "MOD-TRUTH-GOVERNANCE",
-        "MOD-ACTION-PLANNING"
+        "MOD-ACTION-PLANNING",
+        "MOD-HUMAN-APPROVAL-GATE",
+        "MOD-READONLY-ADAPTERS",
+        "MOD-ADVISOR-LIFECYCLE"
       ],
-      "depended_on_by": [],
+      "depended_on_by": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-CONVERSATION-INTELLIGENCE"
+      ],
       "dependencies": [
         {
           "module_id": "MOD-TRUTH-GOVERNANCE",
@@ -521,6 +602,37 @@
             "PROMOTE"
           ],
           "direction": "MOD-RELATIONSHIP-INTELLIGENCE->MOD-ACTION-PLANNING"
+        },
+        {
+          "module_id": "MOD-HUMAN-APPROVAL-GATE",
+          "type": "SECURITY",
+          "required_for": [
+            "SCAFFOLD",
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-RELATIONSHIP-INTELLIGENCE->MOD-HUMAN-APPROVAL-GATE"
+        },
+        {
+          "module_id": "MOD-READONLY-ADAPTERS",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-RELATIONSHIP-INTELLIGENCE->MOD-READONLY-ADAPTERS"
+        },
+        {
+          "module_id": "MOD-ADVISOR-LIFECYCLE",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-RELATIONSHIP-INTELLIGENCE->MOD-ADVISOR-LIFECYCLE"
         }
       ],
       "contracts": [
@@ -530,67 +642,21 @@
         "CAP-RELATIONSHIP-INTELLIGENCE"
       ],
       "definition_readiness": "DEFINED",
-      "scaffold_readiness": "BLOCKED",
-      "implementation_readiness": "BLOCKED",
-      "execution_readiness": "WAITING_FOR_DECISION",
-      "validation_readiness": "BLOCKED",
+      "scaffold_readiness": "READY",
+      "implementation_readiness": "READY",
+      "execution_readiness": "ELIGIBLE",
+      "validation_readiness": "READY",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-RELATIONSHIP-INTELLIGENCE-OWNER-DECISION-REQUIRED-SCAFFOLD-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-003 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "SCAFFOLD",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-003",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-RELATIONSHIP-INTELLIGENCE-OWNER-DECISION-REQUIRED-IMPLEMENT-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-003 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-003",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-RELATIONSHIP-INTELLIGENCE-OWNER-DECISION-REQUIRED-VALIDATE-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-003 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "VALIDATE",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-003",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-RELATIONSHIP-INTELLIGENCE-OWNER-DECISION-REQUIRED-PROMOTE-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-003 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "PROMOTE",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-003",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.relationship.intelligence.contract_ready"
       ],
       "build_events_consumed": [
         "mod.truth.governance.contract_ready",
-        "mod.action.planning.contract_ready"
+        "mod.action.planning.contract_ready",
+        "mod.human.approval.gate.contract_ready",
+        "mod.readonly.adapters.contract_ready",
+        "mod.advisor.lifecycle.contract_ready"
       ],
       "domain_events_published": [
         "relationship.next_action.proposed"
@@ -613,9 +679,14 @@
     {
       "id": "MOD-CONVERSATION-INTELLIGENCE",
       "depends_on": [
-        "MOD-TRUTH-GOVERNANCE"
+        "MOD-TRUTH-GOVERNANCE",
+        "MOD-HUMAN-APPROVAL-GATE",
+        "MOD-READONLY-ADAPTERS",
+        "MOD-RELATIONSHIP-INTELLIGENCE"
       ],
       "depended_on_by": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-LLM-DRAFT-INTAKE",
         "MOD-NBA-REASON-WHY"
       ],
       "dependencies": [
@@ -629,6 +700,37 @@
             "PROMOTE"
           ],
           "direction": "MOD-CONVERSATION-INTELLIGENCE->MOD-TRUTH-GOVERNANCE"
+        },
+        {
+          "module_id": "MOD-HUMAN-APPROVAL-GATE",
+          "type": "SECURITY",
+          "required_for": [
+            "SCAFFOLD",
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-CONVERSATION-INTELLIGENCE->MOD-HUMAN-APPROVAL-GATE"
+        },
+        {
+          "module_id": "MOD-READONLY-ADAPTERS",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-CONVERSATION-INTELLIGENCE->MOD-READONLY-ADAPTERS"
+        },
+        {
+          "module_id": "MOD-RELATIONSHIP-INTELLIGENCE",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-CONVERSATION-INTELLIGENCE->MOD-RELATIONSHIP-INTELLIGENCE"
         }
       ],
       "contracts": [
@@ -638,66 +740,20 @@
         "CAP-CONVERSATION-INTELLIGENCE"
       ],
       "definition_readiness": "DEFINED",
-      "scaffold_readiness": "BLOCKED",
-      "implementation_readiness": "BLOCKED",
-      "execution_readiness": "WAITING_FOR_DECISION",
-      "validation_readiness": "BLOCKED",
+      "scaffold_readiness": "READY",
+      "implementation_readiness": "READY",
+      "execution_readiness": "ELIGIBLE",
+      "validation_readiness": "READY",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-CONVERSATION-INTELLIGENCE-OWNER-DECISION-REQUIRED-SCAFFOLD-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "SCAFFOLD",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-004",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-CONVERSATION-INTELLIGENCE-OWNER-DECISION-REQUIRED-IMPLEMENT-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-004",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-CONVERSATION-INTELLIGENCE-OWNER-DECISION-REQUIRED-VALIDATE-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "VALIDATE",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-004",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-CONVERSATION-INTELLIGENCE-OWNER-DECISION-REQUIRED-PROMOTE-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "PROMOTE",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-004",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.conversation.intelligence.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.truth.governance.contract_ready"
+        "mod.truth.governance.contract_ready",
+        "mod.human.approval.gate.contract_ready",
+        "mod.readonly.adapters.contract_ready",
+        "mod.relationship.intelligence.contract_ready"
       ],
       "domain_events_published": [
         "conversation.guidance.proposed"
@@ -731,7 +787,9 @@
         "MOD-TRUTH-GOVERNANCE",
         "MOD-READONLY-ADAPTERS"
       ],
-      "depended_on_by": [],
+      "depended_on_by": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
       "dependencies": [
         {
           "module_id": "MOD-TRUTH-GOVERNANCE",
@@ -762,61 +820,12 @@
         "CAP-POLICY-OPERATIONS"
       ],
       "definition_readiness": "DEFINED",
-      "scaffold_readiness": "BLOCKED",
-      "implementation_readiness": "BLOCKED",
-      "execution_readiness": "WAITING_FOR_DECISION",
-      "validation_readiness": "BLOCKED",
+      "scaffold_readiness": "READY",
+      "implementation_readiness": "READY",
+      "execution_readiness": "ELIGIBLE",
+      "validation_readiness": "READY",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-POLICY-OPERATIONS-OWNER-DECISION-REQUIRED-SCAFFOLD-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-005 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "SCAFFOLD",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-005",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-POLICY-OPERATIONS-OWNER-DECISION-REQUIRED-IMPLEMENT-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-005 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-005",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-POLICY-OPERATIONS-OWNER-DECISION-REQUIRED-VALIDATE-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-005 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "VALIDATE",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-005",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-POLICY-OPERATIONS-OWNER-DECISION-REQUIRED-PROMOTE-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-005 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "PROMOTE",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-005",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.policy.operations.contract_ready"
       ],
@@ -847,7 +856,8 @@
     {
       "id": "MOD-PRODUCT-CATALOG",
       "depends_on": [
-        "MOD-CARRIER-SCOPE"
+        "MOD-CARRIER-SCOPE",
+        "MOD-TRUTH-GOVERNANCE"
       ],
       "depended_on_by": [
         "MOD-PRODUCT-SOURCE-PACK",
@@ -863,6 +873,17 @@
             "PROMOTE"
           ],
           "direction": "MOD-PRODUCT-CATALOG->MOD-CARRIER-SCOPE"
+        },
+        {
+          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "type": "SECURITY",
+          "required_for": [
+            "SCAFFOLD",
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-PRODUCT-CATALOG->MOD-TRUTH-GOVERNANCE"
         }
       ],
       "contracts": [
@@ -873,29 +894,17 @@
       ],
       "definition_readiness": "DEFINED",
       "scaffold_readiness": "READY",
-      "implementation_readiness": "BLOCKED",
+      "implementation_readiness": "READY",
       "execution_readiness": "ELIGIBLE",
       "validation_readiness": "READY",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-PRODUCT-CATALOG-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-CARRIER-SCOPE",
-          "type": "DEPENDENCY_NOT_READY",
-          "description": "Implementation dependency MOD-CARRIER-SCOPE is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve dependency MOD-CARRIER-SCOPE before implementation.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": "MOD-CARRIER-SCOPE",
-          "decision_reference": "SG-008",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.product.catalog.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.carrier.scope.contract_ready"
+        "mod.carrier.scope.contract_ready",
+        "mod.truth.governance.contract_ready"
       ],
       "domain_events_published": [],
       "domain_events_consumed": [
@@ -920,7 +929,8 @@
     {
       "id": "MOD-PRODUCT-SOURCE-PACK",
       "depends_on": [
-        "MOD-PRODUCT-CATALOG"
+        "MOD-PRODUCT-CATALOG",
+        "MOD-TRUTH-GOVERNANCE"
       ],
       "depended_on_by": [
         "MOD-QUOTE-PREVIEW"
@@ -935,6 +945,17 @@
             "PROMOTE"
           ],
           "direction": "MOD-PRODUCT-SOURCE-PACK->MOD-PRODUCT-CATALOG"
+        },
+        {
+          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "type": "SECURITY",
+          "required_for": [
+            "SCAFFOLD",
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-PRODUCT-SOURCE-PACK->MOD-TRUTH-GOVERNANCE"
         }
       ],
       "contracts": [
@@ -944,66 +965,18 @@
         "CAP-PRODUCT-SOURCE-PACK"
       ],
       "definition_readiness": "DEFINED",
-      "scaffold_readiness": "BLOCKED",
-      "implementation_readiness": "BLOCKED",
-      "execution_readiness": "WAITING_FOR_DECISION",
-      "validation_readiness": "BLOCKED",
+      "scaffold_readiness": "READY",
+      "implementation_readiness": "READY",
+      "execution_readiness": "ELIGIBLE",
+      "validation_readiness": "READY",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-PRODUCT-SOURCE-PACK-OWNER-DECISION-REQUIRED-SCAFFOLD-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-007 is BLOCKED_REQUIRES_OWNER_DECISION.",
-          "blocked_operation": "SCAFFOLD",
-          "required_resolution": "Resolve owner decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-007",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-PRODUCT-SOURCE-PACK-OWNER-DECISION-REQUIRED-IMPLEMENT-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-007 is BLOCKED_REQUIRES_OWNER_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve owner decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-007",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-PRODUCT-SOURCE-PACK-OWNER-DECISION-REQUIRED-VALIDATE-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-007 is BLOCKED_REQUIRES_OWNER_DECISION.",
-          "blocked_operation": "VALIDATE",
-          "required_resolution": "Resolve owner decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-007",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-PRODUCT-SOURCE-PACK-OWNER-DECISION-REQUIRED-PROMOTE-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-007 is BLOCKED_REQUIRES_OWNER_DECISION.",
-          "blocked_operation": "PROMOTE",
-          "required_resolution": "Resolve owner decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-007",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.product.source.pack.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.product.catalog.contract_ready"
+        "mod.product.catalog.contract_ready",
+        "mod.truth.governance.contract_ready"
       ],
       "domain_events_published": [
         "product.source_pack.received"
@@ -1026,7 +999,8 @@
     {
       "id": "MOD-CARRIER-SCOPE",
       "depends_on": [
-        "MOD-TRUTH-GOVERNANCE"
+        "MOD-TRUTH-GOVERNANCE",
+        "MOD-LEGACY-REINTRODUCTION-GUARD"
       ],
       "depended_on_by": [
         "MOD-PRODUCT-CATALOG",
@@ -1043,6 +1017,17 @@
             "PROMOTE"
           ],
           "direction": "MOD-CARRIER-SCOPE->MOD-TRUTH-GOVERNANCE"
+        },
+        {
+          "module_id": "MOD-LEGACY-REINTRODUCTION-GUARD",
+          "type": "VALIDATION",
+          "required_for": [
+            "SCAFFOLD",
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-CARRIER-SCOPE->MOD-LEGACY-REINTRODUCTION-GUARD"
         }
       ],
       "contracts": [
@@ -1052,66 +1037,18 @@
         "CAP-CARRIER-SCOPE"
       ],
       "definition_readiness": "DEFINED",
-      "scaffold_readiness": "BLOCKED",
-      "implementation_readiness": "BLOCKED",
-      "execution_readiness": "WAITING_FOR_DECISION",
-      "validation_readiness": "BLOCKED",
+      "scaffold_readiness": "READY",
+      "implementation_readiness": "READY",
+      "execution_readiness": "ELIGIBLE",
+      "validation_readiness": "READY",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-CARRIER-SCOPE-ARCHITECTURAL-DECISION-REQUIRED-SCAFFOLD-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-008 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "SCAFFOLD",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-008",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-CARRIER-SCOPE-ARCHITECTURAL-DECISION-REQUIRED-IMPLEMENT-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-008 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-008",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-CARRIER-SCOPE-ARCHITECTURAL-DECISION-REQUIRED-VALIDATE-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-008 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "VALIDATE",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-008",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-CARRIER-SCOPE-ARCHITECTURAL-DECISION-REQUIRED-PROMOTE-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-008 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "PROMOTE",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-008",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.carrier.scope.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.truth.governance.contract_ready"
+        "mod.truth.governance.contract_ready",
+        "mod.legacy.reintroduction.guard.contract_ready"
       ],
       "domain_events_published": [],
       "domain_events_consumed": [],
@@ -1132,7 +1069,8 @@
     {
       "id": "MOD-RULE-PACK-CONTRACT",
       "depends_on": [
-        "MOD-CARRIER-SCOPE"
+        "MOD-CARRIER-SCOPE",
+        "MOD-TRUTH-GOVERNANCE"
       ],
       "depended_on_by": [
         "MOD-CALCULATION-CONTRACT",
@@ -1149,6 +1087,17 @@
             "PROMOTE"
           ],
           "direction": "MOD-RULE-PACK-CONTRACT->MOD-CARRIER-SCOPE"
+        },
+        {
+          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "type": "SECURITY",
+          "required_for": [
+            "SCAFFOLD",
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-RULE-PACK-CONTRACT->MOD-TRUTH-GOVERNANCE"
         }
       ],
       "contracts": [
@@ -1158,78 +1107,18 @@
         "CAP-RULE-PACK-CONTRACT"
       ],
       "definition_readiness": "DEFINED",
-      "scaffold_readiness": "BLOCKED",
-      "implementation_readiness": "BLOCKED",
-      "execution_readiness": "WAITING_FOR_DECISION",
-      "validation_readiness": "BLOCKED",
+      "scaffold_readiness": "READY",
+      "implementation_readiness": "READY",
+      "execution_readiness": "ELIGIBLE",
+      "validation_readiness": "READY",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-RULE-PACK-CONTRACT-ARCHITECTURAL-DECISION-REQUIRED-SCAFFOLD-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-009 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "SCAFFOLD",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-009",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-RULE-PACK-CONTRACT-ARCHITECTURAL-DECISION-REQUIRED-IMPLEMENT-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-009 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-009",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-RULE-PACK-CONTRACT-ARCHITECTURAL-DECISION-REQUIRED-VALIDATE-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-009 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "VALIDATE",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-009",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-RULE-PACK-CONTRACT-ARCHITECTURAL-DECISION-REQUIRED-PROMOTE-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-009 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "PROMOTE",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-009",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-RULE-PACK-CONTRACT-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-CARRIER-SCOPE",
-          "type": "DEPENDENCY_NOT_READY",
-          "description": "Implementation dependency MOD-CARRIER-SCOPE is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve dependency MOD-CARRIER-SCOPE before implementation.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": "MOD-CARRIER-SCOPE",
-          "decision_reference": "SG-008",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.rule.pack.contract.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.carrier.scope.contract_ready"
+        "mod.carrier.scope.contract_ready",
+        "mod.truth.governance.contract_ready"
       ],
       "domain_events_published": [],
       "domain_events_consumed": [],
@@ -1250,7 +1139,8 @@
     {
       "id": "MOD-ELIGIBILITY-CONTRACT",
       "depends_on": [
-        "MOD-RULE-PACK-CONTRACT"
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-TRUTH-GOVERNANCE"
       ],
       "depended_on_by": [
         "MOD-QUOTE-PREVIEW"
@@ -1265,6 +1155,17 @@
             "PROMOTE"
           ],
           "direction": "MOD-ELIGIBILITY-CONTRACT->MOD-RULE-PACK-CONTRACT"
+        },
+        {
+          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "type": "SECURITY",
+          "required_for": [
+            "SCAFFOLD",
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-ELIGIBILITY-CONTRACT->MOD-TRUTH-GOVERNANCE"
         }
       ],
       "contracts": [
@@ -1274,78 +1175,18 @@
         "CAP-ELIGIBILITY-CONTRACT"
       ],
       "definition_readiness": "DEFINED",
-      "scaffold_readiness": "BLOCKED",
-      "implementation_readiness": "BLOCKED",
-      "execution_readiness": "WAITING_FOR_DECISION",
-      "validation_readiness": "BLOCKED",
+      "scaffold_readiness": "READY",
+      "implementation_readiness": "READY",
+      "execution_readiness": "ELIGIBLE",
+      "validation_readiness": "READY",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-ELIGIBILITY-CONTRACT-OWNER-DECISION-REQUIRED-SCAFFOLD-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-010 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "SCAFFOLD",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-010",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-ELIGIBILITY-CONTRACT-OWNER-DECISION-REQUIRED-IMPLEMENT-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-010 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-010",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-ELIGIBILITY-CONTRACT-OWNER-DECISION-REQUIRED-VALIDATE-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-010 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "VALIDATE",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-010",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-ELIGIBILITY-CONTRACT-OWNER-DECISION-REQUIRED-PROMOTE-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-010 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "PROMOTE",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-010",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-ELIGIBILITY-CONTRACT-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-RULE-PACK-CONTRACT",
-          "type": "DEPENDENCY_NOT_READY",
-          "description": "Implementation dependency MOD-RULE-PACK-CONTRACT is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve dependency MOD-RULE-PACK-CONTRACT before implementation.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": "MOD-RULE-PACK-CONTRACT",
-          "decision_reference": "SG-009",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.eligibility.contract.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.rule.pack.contract.contract_ready"
+        "mod.rule.pack.contract.contract_ready",
+        "mod.truth.governance.contract_ready"
       ],
       "domain_events_published": [],
       "domain_events_consumed": [],
@@ -1366,7 +1207,8 @@
     {
       "id": "MOD-CALCULATION-CONTRACT",
       "depends_on": [
-        "MOD-RULE-PACK-CONTRACT"
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-TRUTH-GOVERNANCE"
       ],
       "depended_on_by": [
         "MOD-COMPENSATION-ECONOMIC",
@@ -1383,6 +1225,17 @@
             "PROMOTE"
           ],
           "direction": "MOD-CALCULATION-CONTRACT->MOD-RULE-PACK-CONTRACT"
+        },
+        {
+          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "type": "SECURITY",
+          "required_for": [
+            "SCAFFOLD",
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-CALCULATION-CONTRACT->MOD-TRUTH-GOVERNANCE"
         }
       ],
       "contracts": [
@@ -1392,78 +1245,18 @@
         "CAP-CALCULATION-CONTRACT"
       ],
       "definition_readiness": "DEFINED",
-      "scaffold_readiness": "BLOCKED",
-      "implementation_readiness": "BLOCKED",
-      "execution_readiness": "WAITING_FOR_DECISION",
-      "validation_readiness": "BLOCKED",
+      "scaffold_readiness": "READY",
+      "implementation_readiness": "READY",
+      "execution_readiness": "ELIGIBLE",
+      "validation_readiness": "READY",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-CALCULATION-CONTRACT-ARCHITECTURAL-DECISION-REQUIRED-SCAFFOLD-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-011 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "SCAFFOLD",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-011",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-CALCULATION-CONTRACT-ARCHITECTURAL-DECISION-REQUIRED-IMPLEMENT-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-011 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-011",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-CALCULATION-CONTRACT-ARCHITECTURAL-DECISION-REQUIRED-VALIDATE-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-011 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "VALIDATE",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-011",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-CALCULATION-CONTRACT-ARCHITECTURAL-DECISION-REQUIRED-PROMOTE-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-011 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "PROMOTE",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-011",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-CALCULATION-CONTRACT-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-RULE-PACK-CONTRACT",
-          "type": "DEPENDENCY_NOT_READY",
-          "description": "Implementation dependency MOD-RULE-PACK-CONTRACT is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve dependency MOD-RULE-PACK-CONTRACT before implementation.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": "MOD-RULE-PACK-CONTRACT",
-          "decision_reference": "SG-009",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.calculation.contract.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.rule.pack.contract.contract_ready"
+        "mod.rule.pack.contract.contract_ready",
+        "mod.truth.governance.contract_ready"
       ],
       "domain_events_published": [],
       "domain_events_consumed": [],
@@ -1539,97 +1332,12 @@
         "CAP-QUOTE-PREVIEW"
       ],
       "definition_readiness": "DEFINED",
-      "scaffold_readiness": "BLOCKED",
-      "implementation_readiness": "BLOCKED",
-      "execution_readiness": "WAITING_FOR_DECISION",
-      "validation_readiness": "BLOCKED",
+      "scaffold_readiness": "READY",
+      "implementation_readiness": "READY",
+      "execution_readiness": "ELIGIBLE",
+      "validation_readiness": "READY",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-QUOTE-PREVIEW-OWNER-DECISION-REQUIRED-SCAFFOLD-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-012 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "SCAFFOLD",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-012",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-QUOTE-PREVIEW-OWNER-DECISION-REQUIRED-IMPLEMENT-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-012 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-012",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-QUOTE-PREVIEW-OWNER-DECISION-REQUIRED-VALIDATE-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-012 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "VALIDATE",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-012",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-QUOTE-PREVIEW-OWNER-DECISION-REQUIRED-PROMOTE-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-012 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "PROMOTE",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-012",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-QUOTE-PREVIEW-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-PRODUCT-SOURCE-PACK",
-          "type": "DEPENDENCY_NOT_READY",
-          "description": "Implementation dependency MOD-PRODUCT-SOURCE-PACK is blocked by BLOCKED_REQUIRES_OWNER_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve dependency MOD-PRODUCT-SOURCE-PACK before implementation.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": "MOD-PRODUCT-SOURCE-PACK",
-          "decision_reference": "SG-007",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-QUOTE-PREVIEW-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-ELIGIBILITY-CONTRACT",
-          "type": "DEPENDENCY_NOT_READY",
-          "description": "Implementation dependency MOD-ELIGIBILITY-CONTRACT is blocked by BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve dependency MOD-ELIGIBILITY-CONTRACT before implementation.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": "MOD-ELIGIBILITY-CONTRACT",
-          "decision_reference": "SG-010",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-QUOTE-PREVIEW-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-CALCULATION-CONTRACT",
-          "type": "DEPENDENCY_NOT_READY",
-          "description": "Implementation dependency MOD-CALCULATION-CONTRACT is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve dependency MOD-CALCULATION-CONTRACT before implementation.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": "MOD-CALCULATION-CONTRACT",
-          "decision_reference": "SG-011",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.quote.preview.contract_ready"
       ],
@@ -1668,9 +1376,11 @@
     {
       "id": "MOD-MICK-BEHAVIOR",
       "depends_on": [
-        "MOD-TRUTH-GOVERNANCE"
+        "MOD-TRUTH-GOVERNANCE",
+        "MOD-READONLY-ADAPTERS"
       ],
       "depended_on_by": [
+        "MOD-ADVISOR-WORKSPACE",
         "MOD-MANAGER-COACHING",
         "MOD-NBA-REASON-WHY"
       ],
@@ -1685,6 +1395,16 @@
             "PROMOTE"
           ],
           "direction": "MOD-MICK-BEHAVIOR->MOD-TRUTH-GOVERNANCE"
+        },
+        {
+          "module_id": "MOD-READONLY-ADAPTERS",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-MICK-BEHAVIOR->MOD-READONLY-ADAPTERS"
         }
       ],
       "contracts": [
@@ -1694,66 +1414,18 @@
         "CAP-MICK-BEHAVIOR"
       ],
       "definition_readiness": "DEFINED",
-      "scaffold_readiness": "BLOCKED",
-      "implementation_readiness": "BLOCKED",
-      "execution_readiness": "WAITING_FOR_DECISION",
-      "validation_readiness": "BLOCKED",
+      "scaffold_readiness": "READY",
+      "implementation_readiness": "READY",
+      "execution_readiness": "ELIGIBLE",
+      "validation_readiness": "READY",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-MICK-BEHAVIOR-ARCHITECTURAL-DECISION-REQUIRED-SCAFFOLD-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-014 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "SCAFFOLD",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-014",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-MICK-BEHAVIOR-ARCHITECTURAL-DECISION-REQUIRED-IMPLEMENT-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-014 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-014",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-MICK-BEHAVIOR-ARCHITECTURAL-DECISION-REQUIRED-VALIDATE-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-014 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "VALIDATE",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-014",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-MICK-BEHAVIOR-ARCHITECTURAL-DECISION-REQUIRED-PROMOTE-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-014 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "PROMOTE",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-014",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.mick.behavior.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.truth.governance.contract_ready"
+        "mod.truth.governance.contract_ready",
+        "mod.readonly.adapters.contract_ready"
       ],
       "domain_events_published": [
         "behavior.signal.observed"
@@ -1782,7 +1454,8 @@
       "id": "MOD-MANAGER-COACHING",
       "depends_on": [
         "MOD-MICK-BEHAVIOR",
-        "MOD-TRUTH-GOVERNANCE"
+        "MOD-HUMAN-APPROVAL-GATE",
+        "MOD-READONLY-ADAPTERS"
       ],
       "depended_on_by": [
         "MOD-MANAGER-WORKSPACE",
@@ -1800,7 +1473,7 @@
           "direction": "MOD-MANAGER-COACHING->MOD-MICK-BEHAVIOR"
         },
         {
-          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "module_id": "MOD-HUMAN-APPROVAL-GATE",
           "type": "SECURITY",
           "required_for": [
             "SCAFFOLD",
@@ -1808,7 +1481,17 @@
             "VALIDATE",
             "PROMOTE"
           ],
-          "direction": "MOD-MANAGER-COACHING->MOD-TRUTH-GOVERNANCE"
+          "direction": "MOD-MANAGER-COACHING->MOD-HUMAN-APPROVAL-GATE"
+        },
+        {
+          "module_id": "MOD-READONLY-ADAPTERS",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-MANAGER-COACHING->MOD-READONLY-ADAPTERS"
         }
       ],
       "contracts": [
@@ -1818,79 +1501,19 @@
         "CAP-MANAGER-COACHING"
       ],
       "definition_readiness": "DEFINED",
-      "scaffold_readiness": "BLOCKED",
-      "implementation_readiness": "BLOCKED",
-      "execution_readiness": "WAITING_FOR_DECISION",
-      "validation_readiness": "BLOCKED",
+      "scaffold_readiness": "READY",
+      "implementation_readiness": "READY",
+      "execution_readiness": "ELIGIBLE",
+      "validation_readiness": "READY",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-MANAGER-COACHING-ARCHITECTURAL-DECISION-REQUIRED-SCAFFOLD-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-013 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "SCAFFOLD",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-013",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-MANAGER-COACHING-ARCHITECTURAL-DECISION-REQUIRED-IMPLEMENT-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-013 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-013",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-MANAGER-COACHING-ARCHITECTURAL-DECISION-REQUIRED-VALIDATE-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-013 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "VALIDATE",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-013",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-MANAGER-COACHING-ARCHITECTURAL-DECISION-REQUIRED-PROMOTE-SELF",
-          "type": "ARCHITECTURAL_DECISION_REQUIRED",
-          "description": "Owning stage SG-013 is BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "PROMOTE",
-          "required_resolution": "Resolve architectural decision.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-013",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-MANAGER-COACHING-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-MICK-BEHAVIOR",
-          "type": "DEPENDENCY_NOT_READY",
-          "description": "Implementation dependency MOD-MICK-BEHAVIOR is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve dependency MOD-MICK-BEHAVIOR before implementation.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": "MOD-MICK-BEHAVIOR",
-          "decision_reference": "SG-014",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.manager.coaching.contract_ready"
       ],
       "build_events_consumed": [
         "mod.mick.behavior.contract_ready",
-        "mod.truth.governance.contract_ready"
+        "mod.human.approval.gate.contract_ready",
+        "mod.readonly.adapters.contract_ready"
       ],
       "domain_events_published": [
         "manager.coaching.recommendation_proposed"
@@ -1918,17 +1541,55 @@
     {
       "id": "MOD-ADVISOR-EXPERIENCE",
       "depends_on": [
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-HUMAN-APPROVAL-GATE",
+        "MOD-READONLY-ADAPTERS",
+        "MOD-ACTION-PLANNING"
+      ],
+      "depended_on_by": [
         "MOD-ADVISOR-WORKSPACE"
       ],
-      "depended_on_by": [],
       "dependencies": [
         {
-          "module_id": "MOD-ADVISOR-WORKSPACE",
-          "type": "UI",
+          "module_id": "MOD-ADVISOR-LIFECYCLE",
+          "type": "HARD",
           "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
             "PROMOTE"
           ],
-          "direction": "MOD-ADVISOR-EXPERIENCE->MOD-ADVISOR-WORKSPACE"
+          "direction": "MOD-ADVISOR-EXPERIENCE->MOD-ADVISOR-LIFECYCLE"
+        },
+        {
+          "module_id": "MOD-HUMAN-APPROVAL-GATE",
+          "type": "SECURITY",
+          "required_for": [
+            "SCAFFOLD",
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-ADVISOR-EXPERIENCE->MOD-HUMAN-APPROVAL-GATE"
+        },
+        {
+          "module_id": "MOD-READONLY-ADAPTERS",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-ADVISOR-EXPERIENCE->MOD-READONLY-ADAPTERS"
+        },
+        {
+          "module_id": "MOD-ACTION-PLANNING",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-ADVISOR-EXPERIENCE->MOD-ACTION-PLANNING"
         }
       ],
       "contracts": [
@@ -1938,66 +1599,20 @@
         "CAP-ADVISOR-EXPERIENCE"
       ],
       "definition_readiness": "DEFINED",
-      "scaffold_readiness": "BLOCKED",
-      "implementation_readiness": "BLOCKED",
-      "execution_readiness": "WAITING_FOR_DECISION",
-      "validation_readiness": "BLOCKED",
+      "scaffold_readiness": "READY",
+      "implementation_readiness": "READY",
+      "execution_readiness": "ELIGIBLE",
+      "validation_readiness": "READY",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-ADVISOR-EXPERIENCE-OWNER-DECISION-REQUIRED-SCAFFOLD-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-015 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "SCAFFOLD",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-015",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-ADVISOR-EXPERIENCE-OWNER-DECISION-REQUIRED-IMPLEMENT-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-015 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-015",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-ADVISOR-EXPERIENCE-OWNER-DECISION-REQUIRED-VALIDATE-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-015 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "VALIDATE",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-015",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-ADVISOR-EXPERIENCE-OWNER-DECISION-REQUIRED-PROMOTE-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-015 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "PROMOTE",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-015",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.advisor.experience.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.advisor.workspace.contract_ready"
+        "mod.advisor.lifecycle.contract_ready",
+        "mod.human.approval.gate.contract_ready",
+        "mod.readonly.adapters.contract_ready",
+        "mod.action.planning.contract_ready"
       ],
       "domain_events_published": [],
       "domain_events_consumed": [],
@@ -2019,9 +1634,12 @@
       "id": "MOD-COMPENSATION-ECONOMIC",
       "depends_on": [
         "MOD-CALCULATION-CONTRACT",
-        "MOD-RULE-PACK-CONTRACT"
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-TRUTH-GOVERNANCE"
       ],
-      "depended_on_by": [],
+      "depended_on_by": [
+        "MOD-REVENUE-INTELLIGENCE"
+      ],
       "dependencies": [
         {
           "module_id": "MOD-CALCULATION-CONTRACT",
@@ -2042,6 +1660,17 @@
             "PROMOTE"
           ],
           "direction": "MOD-COMPENSATION-ECONOMIC->MOD-RULE-PACK-CONTRACT"
+        },
+        {
+          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "type": "SECURITY",
+          "required_for": [
+            "SCAFFOLD",
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-COMPENSATION-ECONOMIC->MOD-TRUTH-GOVERNANCE"
         }
       ],
       "contracts": [
@@ -2056,38 +1685,14 @@
       "execution_readiness": "DEFERRED",
       "validation_readiness": "NOT_APPLICABLE",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-COMPENSATION-ECONOMIC-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-CALCULATION-CONTRACT",
-          "type": "DEPENDENCY_NOT_READY",
-          "description": "Implementation dependency MOD-CALCULATION-CONTRACT is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve dependency MOD-CALCULATION-CONTRACT before implementation.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": "MOD-CALCULATION-CONTRACT",
-          "decision_reference": "SG-011",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-COMPENSATION-ECONOMIC-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-RULE-PACK-CONTRACT",
-          "type": "DEPENDENCY_NOT_READY",
-          "description": "Implementation dependency MOD-RULE-PACK-CONTRACT is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve dependency MOD-RULE-PACK-CONTRACT before implementation.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": "MOD-RULE-PACK-CONTRACT",
-          "decision_reference": "SG-009",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.compensation.economic.contract_ready"
       ],
       "build_events_consumed": [
         "mod.calculation.contract.contract_ready",
-        "mod.rule.pack.contract.contract_ready"
+        "mod.rule.pack.contract.contract_ready",
+        "mod.truth.governance.contract_ready"
       ],
       "domain_events_published": [],
       "domain_events_consumed": [],
@@ -2110,11 +1715,22 @@
     {
       "id": "MOD-RECRUITMENT-PRECONTRACT",
       "depends_on": [
+        "MOD-ADVISOR-LIFECYCLE",
         "MOD-MANAGER-COACHING",
         "MOD-TRUTH-GOVERNANCE"
       ],
       "depended_on_by": [],
       "dependencies": [
+        {
+          "module_id": "MOD-ADVISOR-LIFECYCLE",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-RECRUITMENT-PRECONTRACT->MOD-ADVISOR-LIFECYCLE"
+        },
         {
           "module_id": "MOD-MANAGER-COACHING",
           "type": "HARD",
@@ -2149,24 +1765,12 @@
       "execution_readiness": "DEFERRED",
       "validation_readiness": "NOT_APPLICABLE",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-RECRUITMENT-PRECONTRACT-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-MANAGER-COACHING",
-          "type": "DEPENDENCY_NOT_READY",
-          "description": "Implementation dependency MOD-MANAGER-COACHING is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve dependency MOD-MANAGER-COACHING before implementation.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": "MOD-MANAGER-COACHING",
-          "decision_reference": "SG-013",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.recruitment.precontract.contract_ready"
       ],
       "build_events_consumed": [
+        "mod.advisor.lifecycle.contract_ready",
         "mod.manager.coaching.contract_ready",
         "mod.truth.governance.contract_ready"
       ],
@@ -2192,11 +1796,20 @@
     {
       "id": "MOD-HUMAN-APPROVAL-GATE",
       "depends_on": [
-        "MOD-GOVERNANCE-GATE"
+        "MOD-GOVERNANCE-GATE",
+        "MOD-ACTION-PLANNING"
       ],
       "depended_on_by": [
+        "MOD-ADVISOR-ACTIVATION",
         "MOD-ADVISOR-CONVERSION",
-        "MOD-LLM-DRAFT-INTAKE"
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-MANAGER-COACHING",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-RELATIONSHIP-INTELLIGENCE"
       ],
       "dependencies": [
         {
@@ -2209,6 +1822,16 @@
             "PROMOTE"
           ],
           "direction": "MOD-HUMAN-APPROVAL-GATE->MOD-GOVERNANCE-GATE"
+        },
+        {
+          "module_id": "MOD-ACTION-PLANNING",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-HUMAN-APPROVAL-GATE->MOD-ACTION-PLANNING"
         }
       ],
       "contracts": [
@@ -2229,7 +1852,8 @@
         "mod.human.approval.gate.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.governance.gate.contract_ready"
+        "mod.governance.gate.contract_ready",
+        "mod.action.planning.contract_ready"
       ],
       "domain_events_published": [
         "human.approval.recorded"
@@ -2252,7 +1876,8 @@
     {
       "id": "MOD-LLM-DRAFT-INTAKE",
       "depends_on": [
-        "MOD-HUMAN-APPROVAL-GATE"
+        "MOD-HUMAN-APPROVAL-GATE",
+        "MOD-CONVERSATION-INTELLIGENCE"
       ],
       "depended_on_by": [
         "MOD-MESSAGE-SAFETY-VALIDATOR"
@@ -2268,6 +1893,16 @@
             "PROMOTE"
           ],
           "direction": "MOD-LLM-DRAFT-INTAKE->MOD-HUMAN-APPROVAL-GATE"
+        },
+        {
+          "module_id": "MOD-CONVERSATION-INTELLIGENCE",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-LLM-DRAFT-INTAKE->MOD-CONVERSATION-INTELLIGENCE"
         }
       ],
       "contracts": [
@@ -2277,66 +1912,18 @@
         "CAP-CONVERSATION-INTELLIGENCE"
       ],
       "definition_readiness": "DEFINED",
-      "scaffold_readiness": "BLOCKED",
-      "implementation_readiness": "BLOCKED",
-      "execution_readiness": "WAITING_FOR_DECISION",
-      "validation_readiness": "BLOCKED",
+      "scaffold_readiness": "READY",
+      "implementation_readiness": "READY",
+      "execution_readiness": "ELIGIBLE",
+      "validation_readiness": "READY",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-LLM-DRAFT-INTAKE-OWNER-DECISION-REQUIRED-SCAFFOLD-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "SCAFFOLD",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-004",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-LLM-DRAFT-INTAKE-OWNER-DECISION-REQUIRED-IMPLEMENT-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-004",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-LLM-DRAFT-INTAKE-OWNER-DECISION-REQUIRED-VALIDATE-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "VALIDATE",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-004",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-LLM-DRAFT-INTAKE-OWNER-DECISION-REQUIRED-PROMOTE-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "PROMOTE",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-004",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.llm.draft.intake.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.human.approval.gate.contract_ready"
+        "mod.human.approval.gate.contract_ready",
+        "mod.conversation.intelligence.contract_ready"
       ],
       "domain_events_published": [],
       "domain_events_consumed": [],
@@ -2357,7 +1944,8 @@
     {
       "id": "MOD-MESSAGE-SAFETY-VALIDATOR",
       "depends_on": [
-        "MOD-LLM-DRAFT-INTAKE"
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-HUMAN-APPROVAL-GATE"
       ],
       "depended_on_by": [],
       "dependencies": [
@@ -2370,6 +1958,17 @@
             "PROMOTE"
           ],
           "direction": "MOD-MESSAGE-SAFETY-VALIDATOR->MOD-LLM-DRAFT-INTAKE"
+        },
+        {
+          "module_id": "MOD-HUMAN-APPROVAL-GATE",
+          "type": "SECURITY",
+          "required_for": [
+            "SCAFFOLD",
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-MESSAGE-SAFETY-VALIDATOR->MOD-HUMAN-APPROVAL-GATE"
         }
       ],
       "contracts": [
@@ -2379,78 +1978,18 @@
         "CAP-CONVERSATION-INTELLIGENCE"
       ],
       "definition_readiness": "DEFINED",
-      "scaffold_readiness": "BLOCKED",
-      "implementation_readiness": "BLOCKED",
-      "execution_readiness": "WAITING_FOR_DECISION",
-      "validation_readiness": "BLOCKED",
+      "scaffold_readiness": "READY",
+      "implementation_readiness": "READY",
+      "execution_readiness": "ELIGIBLE",
+      "validation_readiness": "READY",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-MESSAGE-SAFETY-VALIDATOR-OWNER-DECISION-REQUIRED-SCAFFOLD-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "SCAFFOLD",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-004",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-MESSAGE-SAFETY-VALIDATOR-OWNER-DECISION-REQUIRED-IMPLEMENT-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-004",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-MESSAGE-SAFETY-VALIDATOR-OWNER-DECISION-REQUIRED-VALIDATE-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "VALIDATE",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-004",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-MESSAGE-SAFETY-VALIDATOR-OWNER-DECISION-REQUIRED-PROMOTE-SELF",
-          "type": "OWNER_DECISION_REQUIRED",
-          "description": "Owning stage SG-004 is BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "PROMOTE",
-          "required_resolution": "Resolve product definition.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": null,
-          "decision_reference": "SG-004",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-MESSAGE-SAFETY-VALIDATOR-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-LLM-DRAFT-INTAKE",
-          "type": "DEPENDENCY_NOT_READY",
-          "description": "Implementation dependency MOD-LLM-DRAFT-INTAKE is blocked by BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve dependency MOD-LLM-DRAFT-INTAKE before implementation.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": "MOD-LLM-DRAFT-INTAKE",
-          "decision_reference": "SG-004",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.message.safety.validator.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.llm.draft.intake.contract_ready"
+        "mod.llm.draft.intake.contract_ready",
+        "mod.human.approval.gate.contract_ready"
       ],
       "domain_events_published": [],
       "domain_events_consumed": [],
@@ -2510,36 +2049,11 @@
       ],
       "definition_readiness": "DEFINED",
       "scaffold_readiness": "READY",
-      "implementation_readiness": "BLOCKED",
+      "implementation_readiness": "READY",
       "execution_readiness": "ELIGIBLE",
       "validation_readiness": "READY",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-NBA-REASON-WHY-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-CONVERSATION-INTELLIGENCE",
-          "type": "DEPENDENCY_NOT_READY",
-          "description": "Implementation dependency MOD-CONVERSATION-INTELLIGENCE is blocked by BLOCKED_REQUIRES_PRODUCT_DEFINITION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve dependency MOD-CONVERSATION-INTELLIGENCE before implementation.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": "MOD-CONVERSATION-INTELLIGENCE",
-          "decision_reference": "SG-004",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-NBA-REASON-WHY-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-MICK-BEHAVIOR",
-          "type": "DEPENDENCY_NOT_READY",
-          "description": "Implementation dependency MOD-MICK-BEHAVIOR is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve dependency MOD-MICK-BEHAVIOR before implementation.",
-          "resolution_owner": "architecture",
-          "evidence_required": false,
-          "dependency_module": "MOD-MICK-BEHAVIOR",
-          "decision_reference": "SG-014",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.nba.reason.why.contract_ready"
       ],
@@ -2566,9 +2080,16 @@
     {
       "id": "MOD-ADVISOR-LIFECYCLE",
       "depends_on": [
-        "MOD-TRUTH-GOVERNANCE"
+        "MOD-TRUTH-GOVERNANCE",
+        "MOD-HUMAN-APPROVAL-GATE"
       ],
-      "depended_on_by": [],
+      "depended_on_by": [
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-RECRUITMENT-PRECONTRACT",
+        "MOD-RELATIONSHIP-INTELLIGENCE"
+      ],
       "dependencies": [
         {
           "module_id": "MOD-TRUTH-GOVERNANCE",
@@ -2580,6 +2101,17 @@
             "PROMOTE"
           ],
           "direction": "MOD-ADVISOR-LIFECYCLE->MOD-TRUTH-GOVERNANCE"
+        },
+        {
+          "module_id": "MOD-HUMAN-APPROVAL-GATE",
+          "type": "SECURITY",
+          "required_for": [
+            "SCAFFOLD",
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-ADVISOR-LIFECYCLE->MOD-HUMAN-APPROVAL-GATE"
         }
       ],
       "contracts": [
@@ -2599,7 +2131,8 @@
         "mod.advisor.lifecycle.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.truth.governance.contract_ready"
+        "mod.truth.governance.contract_ready",
+        "mod.human.approval.gate.contract_ready"
       ],
       "domain_events_published": [],
       "domain_events_consumed": [],
@@ -2620,12 +2153,23 @@
     {
       "id": "MOD-ADVISOR-CONVERSION",
       "depends_on": [
+        "MOD-ADVISOR-LIFECYCLE",
         "MOD-HUMAN-APPROVAL-GATE"
       ],
       "depended_on_by": [
         "MOD-ADVISOR-ACTIVATION"
       ],
       "dependencies": [
+        {
+          "module_id": "MOD-ADVISOR-LIFECYCLE",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-ADVISOR-CONVERSION->MOD-ADVISOR-LIFECYCLE"
+        },
         {
           "module_id": "MOD-HUMAN-APPROVAL-GATE",
           "type": "SECURITY",
@@ -2656,6 +2200,7 @@
         "mod.advisor.conversion.contract_ready"
       ],
       "build_events_consumed": [
+        "mod.advisor.lifecycle.contract_ready",
         "mod.human.approval.gate.contract_ready"
       ],
       "domain_events_published": [],
@@ -2677,7 +2222,8 @@
     {
       "id": "MOD-ADVISOR-ACTIVATION",
       "depends_on": [
-        "MOD-ADVISOR-CONVERSION"
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-HUMAN-APPROVAL-GATE"
       ],
       "depended_on_by": [],
       "dependencies": [
@@ -2690,6 +2236,17 @@
             "PROMOTE"
           ],
           "direction": "MOD-ADVISOR-ACTIVATION->MOD-ADVISOR-CONVERSION"
+        },
+        {
+          "module_id": "MOD-HUMAN-APPROVAL-GATE",
+          "type": "SECURITY",
+          "required_for": [
+            "SCAFFOLD",
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-ADVISOR-ACTIVATION->MOD-HUMAN-APPROVAL-GATE"
         }
       ],
       "contracts": [
@@ -2710,7 +2267,8 @@
         "mod.advisor.activation.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.advisor.conversion.contract_ready"
+        "mod.advisor.conversion.contract_ready",
+        "mod.human.approval.gate.contract_ready"
       ],
       "domain_events_published": [],
       "domain_events_consumed": [],
@@ -2731,7 +2289,8 @@
     {
       "id": "MOD-REVENUE-INTELLIGENCE",
       "depends_on": [
-        "MOD-CALCULATION-CONTRACT"
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-COMPENSATION-ECONOMIC"
       ],
       "depended_on_by": [],
       "dependencies": [
@@ -2744,6 +2303,16 @@
             "PROMOTE"
           ],
           "direction": "MOD-REVENUE-INTELLIGENCE->MOD-CALCULATION-CONTRACT"
+        },
+        {
+          "module_id": "MOD-COMPENSATION-ECONOMIC",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-REVENUE-INTELLIGENCE->MOD-COMPENSATION-ECONOMIC"
         }
       ],
       "contracts": [
@@ -2761,15 +2330,15 @@
       "promotion_readiness": "BLOCKED",
       "blocking_conditions": [
         {
-          "id": "BLOCK-MOD-REVENUE-INTELLIGENCE-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-CALCULATION-CONTRACT",
+          "id": "BLOCK-MOD-REVENUE-INTELLIGENCE-DEPENDENCY-NOT-READY-IMPLEMENT-MOD-COMPENSATION-ECONOMIC",
           "type": "DEPENDENCY_NOT_READY",
-          "description": "Implementation dependency MOD-CALCULATION-CONTRACT is blocked by BLOCKED_REQUIRES_ARCHITECTURAL_DECISION.",
+          "description": "Mandatory dependency MOD-COMPENSATION-ECONOMIC is DEFER.",
           "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve dependency MOD-CALCULATION-CONTRACT before implementation.",
+          "required_resolution": "Remove mandatory edge or unblock dependency.",
           "resolution_owner": "architecture",
           "evidence_required": false,
-          "dependency_module": "MOD-CALCULATION-CONTRACT",
-          "decision_reference": "SG-011",
+          "dependency_module": "MOD-COMPENSATION-ECONOMIC",
+          "decision_reference": null,
           "machine_checkable": true
         }
       ],
@@ -2777,7 +2346,8 @@
         "mod.revenue.intelligence.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.calculation.contract.contract_ready"
+        "mod.calculation.contract.contract_ready",
+        "mod.compensation.economic.contract_ready"
       ],
       "domain_events_published": [],
       "domain_events_consumed": [],
@@ -2800,7 +2370,8 @@
     {
       "id": "MOD-OPPORTUNITY-PIPELINE",
       "depends_on": [
-        "MOD-READONLY-ADAPTERS"
+        "MOD-READONLY-ADAPTERS",
+        "MOD-ACTION-PLANNING"
       ],
       "depended_on_by": [],
       "dependencies": [
@@ -2813,6 +2384,16 @@
             "PROMOTE"
           ],
           "direction": "MOD-OPPORTUNITY-PIPELINE->MOD-READONLY-ADAPTERS"
+        },
+        {
+          "module_id": "MOD-ACTION-PLANNING",
+          "type": "HARD",
+          "required_for": [
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-OPPORTUNITY-PIPELINE->MOD-ACTION-PLANNING"
         }
       ],
       "contracts": [
@@ -2833,7 +2414,8 @@
         "mod.opportunity.pipeline.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.readonly.adapters.contract_ready"
+        "mod.readonly.adapters.contract_ready",
+        "mod.action.planning.contract_ready"
       ],
       "domain_events_published": [],
       "domain_events_consumed": [],
@@ -2856,7 +2438,8 @@
     {
       "id": "MOD-CLIENT-CRM-READMODEL",
       "depends_on": [
-        "MOD-READONLY-ADAPTERS"
+        "MOD-READONLY-ADAPTERS",
+        "MOD-TRUTH-GOVERNANCE"
       ],
       "depended_on_by": [],
       "dependencies": [
@@ -2869,6 +2452,17 @@
             "PROMOTE"
           ],
           "direction": "MOD-CLIENT-CRM-READMODEL->MOD-READONLY-ADAPTERS"
+        },
+        {
+          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "type": "SECURITY",
+          "required_for": [
+            "SCAFFOLD",
+            "IMPLEMENT",
+            "VALIDATE",
+            "PROMOTE"
+          ],
+          "direction": "MOD-CLIENT-CRM-READMODEL->MOD-TRUTH-GOVERNANCE"
         }
       ],
       "contracts": [
@@ -2889,7 +2483,8 @@
         "mod.client.crm.readmodel.contract_ready"
       ],
       "build_events_consumed": [
-        "mod.readonly.adapters.contract_ready"
+        "mod.readonly.adapters.contract_ready",
+        "mod.truth.governance.contract_ready"
       ],
       "domain_events_published": [],
       "domain_events_consumed": [],
@@ -2972,7 +2567,9 @@
         "MOD-GOVERNANCE-GATE"
       ],
       "depended_on_by": [
-        "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE"
+        "MOD-CARRIER-SCOPE",
+        "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
+        "MOD-READONLY-ADAPTERS"
       ],
       "dependencies": [
         {
@@ -3051,61 +2648,12 @@
         "CAP-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE"
       ],
       "definition_readiness": "DEFINED",
-      "scaffold_readiness": "BLOCKED",
-      "implementation_readiness": "BLOCKED",
-      "execution_readiness": "WAITING_FOR_EVIDENCE",
-      "validation_readiness": "BLOCKED",
+      "scaffold_readiness": "NOT_APPLICABLE",
+      "implementation_readiness": "DEFERRED",
+      "execution_readiness": "DEFERRED",
+      "validation_readiness": "NOT_APPLICABLE",
       "promotion_readiness": "BLOCKED",
-      "blocking_conditions": [
-        {
-          "id": "BLOCK-MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE-EVIDENCE-REQUIRED-SCAFFOLD-SELF",
-          "type": "EVIDENCE_REQUIRED",
-          "description": "Owning stage SG-020 is BLOCKED_REQUIRES_LEGACY_EVIDENCE.",
-          "blocked_operation": "SCAFFOLD",
-          "required_resolution": "Resolve legacy evidence.",
-          "resolution_owner": "owner",
-          "evidence_required": true,
-          "dependency_module": null,
-          "decision_reference": "SG-020",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE-EVIDENCE-REQUIRED-IMPLEMENT-SELF",
-          "type": "EVIDENCE_REQUIRED",
-          "description": "Owning stage SG-020 is BLOCKED_REQUIRES_LEGACY_EVIDENCE.",
-          "blocked_operation": "IMPLEMENT",
-          "required_resolution": "Resolve legacy evidence.",
-          "resolution_owner": "owner",
-          "evidence_required": true,
-          "dependency_module": null,
-          "decision_reference": "SG-020",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE-EVIDENCE-REQUIRED-VALIDATE-SELF",
-          "type": "EVIDENCE_REQUIRED",
-          "description": "Owning stage SG-020 is BLOCKED_REQUIRES_LEGACY_EVIDENCE.",
-          "blocked_operation": "VALIDATE",
-          "required_resolution": "Resolve legacy evidence.",
-          "resolution_owner": "owner",
-          "evidence_required": true,
-          "dependency_module": null,
-          "decision_reference": "SG-020",
-          "machine_checkable": true
-        },
-        {
-          "id": "BLOCK-MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE-EVIDENCE-REQUIRED-PROMOTE-SELF",
-          "type": "EVIDENCE_REQUIRED",
-          "description": "Owning stage SG-020 is BLOCKED_REQUIRES_LEGACY_EVIDENCE.",
-          "blocked_operation": "PROMOTE",
-          "required_resolution": "Resolve legacy evidence.",
-          "resolution_owner": "owner",
-          "evidence_required": true,
-          "dependency_module": null,
-          "decision_reference": "SG-020",
-          "machine_checkable": true
-        }
-      ],
+      "blocking_conditions": [],
       "build_events_published": [
         "mod.legacy.functional.evidence.intake.contract_ready"
       ],

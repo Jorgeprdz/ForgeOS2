@@ -6,19 +6,17 @@ SG numeric order is not execution order. Dependency depth and active execution w
 
 ## Eligible Now
 
-- SCAFFOLD: 11
-- IMPLEMENT: 9
-- VALIDATE: 11
+- SCAFFOLD: 26
+- IMPLEMENT: 26
+- VALIDATE: 26
 - PROMOTE: 0
 
 ## Next Wave
 
 - `MOD-GOVERNANCE-GATE`
-- `MOD-READONLY-ADAPTERS`
-- `MOD-ADVISOR-LIFECYCLE`
 
 ## Waiting
 
-- Decisions: 15
-- Evidence: 1
+- Decisions: 0
+- Evidence: 0
 - Dependencies: 0

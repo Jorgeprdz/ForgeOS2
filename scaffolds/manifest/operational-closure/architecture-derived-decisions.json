@@ -1,0 +1,13 @@
+{
+  "schema": "FORGE_ARCHITECTURE_DERIVED_DECISIONS_V1",
+  "status": "DERIVED",
+  "version": "1",
+  "decisions": {
+    "CarrierScopeContract": "Carrier, channel, period and rule-pack scope precede product and rule consumers.",
+    "RulePackContract": "Rule packs interpret facts and preserve RuleSnapshot context; Forge Core does not hardcode carrier logic.",
+    "CalculationContract": "Calculations require provenance, source-of-truth registry, rule snapshot and event receipt evidence.",
+    "ObservableBehaviorSignalContract": "Mick emits observable behavior signals only and never human worth or consequences.",
+    "ManagerCoachingContract": "Manager coaching consumes evidence and produces recommendations for human leaders only.",
+    "ManagerWorkspaceSurfaceContract": "Manager workspace consumes coaching and read models; it cannot automate consequences."
+  }
+}

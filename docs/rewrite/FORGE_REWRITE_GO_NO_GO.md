@@ -20,7 +20,7 @@ The decision is repository-evidence based. Documents alone are not treated as pr
 | legacy_guard | PASS | NO |
 | Termux_tooling | PASS | NO |
 | rollback_readiness | PASS | NO |
-| evidence_readiness | PASS_WITH_WARNINGS | NO |
+| evidence_readiness | PASS | NO |
 | first_wave_readiness | PASS | NO |
 | deterministic_regeneration | PASS | NO |
 | branch_safety | PASS | NO |

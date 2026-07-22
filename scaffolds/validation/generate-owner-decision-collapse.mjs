@@ -66,7 +66,19 @@ for (const decision of original) {
   groups.get(key).push(decision);
 }
 
-const canonical = [...groups.entries()].map(([key, decisions], index) => {
+const resolvedOriginalDecisionIds = [];
+const unresolvedGroups = [...groups.entries()].filter(([key, decisions]) => {
+  const module = moduleById.get(decisions[0]?.module_id);
+  const stageId = key.split(':')[0] || module?.stage_id;
+  const stage = stageById.get(stageId);
+  if (!stage || !String(stage.status).startsWith('BLOCKED_')) {
+    resolvedOriginalDecisionIds.push(...decisions.map(item => item.decision_id));
+    return false;
+  }
+  return true;
+});
+
+const canonical = unresolvedGroups.map(([key, decisions], index) => {
   const moduleIds = [...new Set(decisions.map(item => item.module_id))].sort();
   const stageId = key.split(':')[0];
   const stage = stageById.get(stageId);
@@ -135,10 +147,11 @@ const packet = {
   packet_id: 'FORGE_CANONICAL_OWNER_DECISIONS_001',
   source_commit: sourceCommit,
   initial_owner_decisions: original.length,
-  automatically_resolved: original.length - canonical.length,
+  automatically_resolved: resolvedOriginalDecisionIds.length,
   merged: canonical.length,
   duplicates_removed: original.length - canonical.length,
   obsolete_removed: 0,
+  resolved_original_decision_ids: resolvedOriginalDecisionIds.sort(),
   decisions: canonical,
   summary: {
     owner_decisions_remaining: ownerRemaining,
@@ -169,7 +182,7 @@ for (const category of go.categories) {
 }
 writeJson('scaffolds/reports/rewrite-go-no-go.json', go);
 
-writeText('docs/decisions/FORGE_CANONICAL_OWNER_DECISIONS.md', `# Forge Canonical Owner Decisions\n\nPacket ID: \`${packet.packet_id}\`\n\n- Original decisions: ${original.length}.\n- Automatically resolved operation-level duplicates: ${packet.automatically_resolved}.\n- Canonical decisions remaining: ${canonical.length}.\n- Owner decisions remaining: ${ownerRemaining}.\n- Architect decisions remaining: ${architectRemaining}.\n- Evidence decisions remaining: ${evidenceRemaining}.\n- First-wave blockers: ${firstWaveBlockers}.\n\n| Decision | Category | Scope | Modules | Unblock value |\n|---|---|---|---|---:|\n${canonical.map(item => `| \`${item.decision_id}\` | ${item.category} | ${item.blocking_scope} | ${item.affected_modules.map(id => '\\`' + id + '\\`').join(', ')} | ${item.estimated_unblocked_modules} |`).join('\n')}\n`);
+writeText('docs/decisions/FORGE_CANONICAL_OWNER_DECISIONS.md', `# Forge Canonical Owner Decisions\n\nPacket ID: \`${packet.packet_id}\`\n\n- Original decisions: ${original.length}.\n- Automatically resolved decisions: ${packet.automatically_resolved}.\n- Canonical decisions remaining: ${canonical.length}.\n- Owner decisions remaining: ${ownerRemaining}.\n- Architect decisions remaining: ${architectRemaining}.\n- Evidence decisions remaining: ${evidenceRemaining}.\n- First-wave blockers: ${firstWaveBlockers}.\n\n| Decision | Category | Scope | Modules | Unblock value |\n|---|---|---|---|---:|\n${canonical.length ? canonical.map(item => `| \`${item.decision_id}\` | ${item.category} | ${item.blocking_scope} | ${item.affected_modules.map(id => '\\`' + id + '\\`').join(', ')} | ${item.estimated_unblocked_modules} |`).join('\n') : '| none | none | none | none | 0 |'}\n`);
 writeText('docs/decisions/FORGE_OWNER_DECISION_EXECUTION_ORDER.md', `# Forge Owner Decision Execution Order\n\nOrder is by architectural unblock value, then blocking scope, not module order.\n\n${canonical.map((item, index) => `${index + 1}. \`${item.decision_id}\` - ${item.title} (${item.blocking_scope}, unblock value ${item.estimated_unblocked_modules})`).join('\n')}\n`);
 writeText('docs/decisions/FORGE_DECISION_DASHBOARD.md', `# Forge Decision Dashboard\n\n- Original decisions: ${original.length}.\n- Resolved automatically: ${packet.automatically_resolved}.\n- Merged groups: ${packet.merged}.\n- Duplicates removed: ${packet.duplicates_removed}.\n- Obsolete removed: ${packet.obsolete_removed}.\n- Repository-derived duplicate resolutions: ${packet.automatically_resolved}.\n- Owner-required remaining: ${ownerRemaining}.\n- Architect-required remaining: ${architectRemaining}.\n- Evidence-required remaining: ${evidenceRemaining}.\n- First-wave blockers: ${firstWaveBlockers}.\n- Implementation blockers: ${implementationBlockers}.\n- Release blockers: ${releaseBlockers}.\n- Future blockers: ${futureBlockers}.\n- Final decision after collapse: \`${finalDecision}\`.\n\n## Maximum Unblock Value\n\n${maxUnblock ? `\`${maxUnblock.decision_id}\` - ${maxUnblock.title}` : 'none'}\n`);
 writeJson('scaffolds/reports/owner-decision-collapse-report.json', {

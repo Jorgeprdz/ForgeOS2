@@ -2,9 +2,9 @@
 
 Baseline ID: `FORGE_CONTRACT_BASELINE_001`
 
-- Contracts analyzed: 32.
-- Frozen: 3.
-- Provisionally frozen: 29.
+- Contracts analyzed: 31.
+- Frozen: 4.
+- Provisionally frozen: 27.
 - Missing: 0.
 - Conflicted: 0.
 
@@ -21,7 +21,7 @@ Baseline ID: `FORGE_CONTRACT_BASELINE_001`
 | `MOD-CONVERSATION-INTELLIGENCE` | `scaffolds/contracts/stage-contract.schema.json` | PROVISIONALLY_FROZEN |
 | `MOD-POLICY-OPERATIONS` | `scaffolds/contracts/stage-contract.schema.json` | PROVISIONALLY_FROZEN |
 | `MOD-PRODUCT-CATALOG` | `scaffolds/contracts/scaffold-contract.schema.json` | PROVISIONALLY_FROZEN |
-| `MOD-PRODUCT-SOURCE-PACK` | `scaffolds/contracts/evidence-contract.schema.json` | PROVISIONALLY_FROZEN |
+| `MOD-PRODUCT-SOURCE-PACK` | `scaffolds/contracts/evidence-contract.schema.json` | FROZEN |
 | `MOD-CARRIER-SCOPE` | `scaffolds/contracts/scaffold-contract.schema.json` | PROVISIONALLY_FROZEN |
 | `MOD-RULE-PACK-CONTRACT` | `scaffolds/contracts/stage-contract.schema.json` | PROVISIONALLY_FROZEN |
 | `MOD-ELIGIBILITY-CONTRACT` | `scaffolds/contracts/stage-contract.schema.json` | PROVISIONALLY_FROZEN |
@@ -41,4 +41,3 @@ Baseline ID: `FORGE_CONTRACT_BASELINE_001`
 | `MOD-CLIENT-CRM-READMODEL` | `scaffolds/contracts/scaffold-contract.schema.json` | PROVISIONALLY_FROZEN |
 | `MOD-TERMUX-REWRITE-TOOLS` | `scaffolds/contracts/execution-state.schema.json` | FROZEN |
 | `MOD-LEGACY-REINTRODUCTION-GUARD` | `scaffolds/contracts/path-policy.schema.json` | FROZEN |
-| `MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE` | `scaffolds/contracts/evidence-contract.schema.json` | PROVISIONALLY_FROZEN |

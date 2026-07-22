@@ -1,5 +1,13 @@
-# SG-019 Rejected Capability Guard
+# SG-019 - Rejected Capability Guard
 
-Status: `REJECTED`
+Canonical order: 28.
 
-Final AI authority and generic CRM clone behavior remain rejected. Relationship, task, policy and activity management remain allowed when serving Forge decision/action workflows.
+Layer: `REJECTION_GUARD`.
+
+Status: `undefined`.
+
+Depends on: `SG-001`, `SG-018`.
+
+Produces: `rejected_capability_denylist`.
+
+This stage is part of the dependency-ordered Forge OS 2 rewrite sequence. It must be executed through Bash-based Termux tooling and must not be selected by numeric SG order.

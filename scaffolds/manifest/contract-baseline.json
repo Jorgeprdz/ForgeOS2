@@ -470,9 +470,7 @@
         "VALIDATE",
         "PROMOTE"
       ],
-      "consumers": [
-        "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE"
-      ],
+      "consumers": [],
       "producers": [
         "MOD-PRODUCT-SOURCE-PACK"
       ],
@@ -483,7 +481,7 @@
         "scaffold validator",
         "consumer validation before promotion"
       ],
-      "classification": "PROVISIONALLY_FROZEN"
+      "classification": "FROZEN"
     },
     {
       "module_id": "MOD-CARRIER-SCOPE",
@@ -1311,44 +1309,12 @@
         "consumer validation before promotion"
       ],
       "classification": "FROZEN"
-    },
-    {
-      "module_id": "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
-      "required_contracts": [
-        "scaffolds/contracts/evidence-contract.schema.json"
-      ],
-      "contract_owner": "MOD-PRODUCT-SOURCE-PACK",
-      "contract_path": "scaffolds/contracts/evidence-contract.schema.json",
-      "contract_version": "schema-baseline-001",
-      "schema_valid": true,
-      "canonical": true,
-      "implementation_required": true,
-      "required_for_operations": [
-        "SCAFFOLD",
-        "IMPLEMENT",
-        "VALIDATE",
-        "PROMOTE"
-      ],
-      "consumers": [
-        "MOD-PRODUCT-SOURCE-PACK"
-      ],
-      "producers": [
-        "MOD-PRODUCT-SOURCE-PACK"
-      ],
-      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
-      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
-      "test_requirements": [
-        "JSON parse",
-        "scaffold validator",
-        "consumer validation before promotion"
-      ],
-      "classification": "PROVISIONALLY_FROZEN"
     }
   ],
   "summary": {
-    "analyzed": 32,
-    "frozen": 3,
-    "provisional": 29,
+    "analyzed": 31,
+    "frozen": 4,
+    "provisional": 27,
     "missing": 0,
     "conflicted": 0,
     "active_modules_without_contract_baseline": []

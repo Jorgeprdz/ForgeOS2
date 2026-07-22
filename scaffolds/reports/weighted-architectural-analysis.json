@@ -5,51 +5,81 @@
   "mandatory_critical_path": {
     "modules": [
       "MOD-TRUTH-GOVERNANCE",
-      "MOD-GOVERNANCE-GATE",
+      "MOD-DECISION-CORE",
+      "MOD-ACTION-PLANNING",
       "MOD-HUMAN-APPROVAL-GATE",
-      "MOD-ADVISOR-CONVERSION",
-      "MOD-ADVISOR-ACTIVATION"
+      "MOD-ADVISOR-LIFECYCLE",
+      "MOD-RELATIONSHIP-INTELLIGENCE",
+      "MOD-CONVERSATION-INTELLIGENCE",
+      "MOD-LLM-DRAFT-INTAKE",
+      "MOD-MESSAGE-SAFETY-VALIDATOR"
     ],
     "edges": [
       {
         "from": "MOD-TRUTH-GOVERNANCE",
-        "to": "MOD-GOVERNANCE-GATE",
-        "dependency_edge": "MOD-GOVERNANCE-GATE->MOD-TRUTH-GOVERNANCE",
+        "to": "MOD-DECISION-CORE",
+        "dependency_edge": "MOD-DECISION-CORE->MOD-TRUTH-GOVERNANCE",
         "type": "SECURITY"
       },
       {
-        "from": "MOD-GOVERNANCE-GATE",
+        "from": "MOD-DECISION-CORE",
+        "to": "MOD-ACTION-PLANNING",
+        "dependency_edge": "MOD-ACTION-PLANNING->MOD-DECISION-CORE",
+        "type": "HARD"
+      },
+      {
+        "from": "MOD-ACTION-PLANNING",
         "to": "MOD-HUMAN-APPROVAL-GATE",
-        "dependency_edge": "MOD-HUMAN-APPROVAL-GATE->MOD-GOVERNANCE-GATE",
-        "type": "SECURITY"
+        "dependency_edge": "MOD-HUMAN-APPROVAL-GATE->MOD-ACTION-PLANNING",
+        "type": "HARD"
       },
       {
         "from": "MOD-HUMAN-APPROVAL-GATE",
-        "to": "MOD-ADVISOR-CONVERSION",
-        "dependency_edge": "MOD-ADVISOR-CONVERSION->MOD-HUMAN-APPROVAL-GATE",
+        "to": "MOD-ADVISOR-LIFECYCLE",
+        "dependency_edge": "MOD-ADVISOR-LIFECYCLE->MOD-HUMAN-APPROVAL-GATE",
         "type": "SECURITY"
       },
       {
-        "from": "MOD-ADVISOR-CONVERSION",
-        "to": "MOD-ADVISOR-ACTIVATION",
-        "dependency_edge": "MOD-ADVISOR-ACTIVATION->MOD-ADVISOR-CONVERSION",
+        "from": "MOD-ADVISOR-LIFECYCLE",
+        "to": "MOD-RELATIONSHIP-INTELLIGENCE",
+        "dependency_edge": "MOD-RELATIONSHIP-INTELLIGENCE->MOD-ADVISOR-LIFECYCLE",
+        "type": "HARD"
+      },
+      {
+        "from": "MOD-RELATIONSHIP-INTELLIGENCE",
+        "to": "MOD-CONVERSATION-INTELLIGENCE",
+        "dependency_edge": "MOD-CONVERSATION-INTELLIGENCE->MOD-RELATIONSHIP-INTELLIGENCE",
+        "type": "HARD"
+      },
+      {
+        "from": "MOD-CONVERSATION-INTELLIGENCE",
+        "to": "MOD-LLM-DRAFT-INTAKE",
+        "dependency_edge": "MOD-LLM-DRAFT-INTAKE->MOD-CONVERSATION-INTELLIGENCE",
+        "type": "HARD"
+      },
+      {
+        "from": "MOD-LLM-DRAFT-INTAKE",
+        "to": "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "dependency_edge": "MOD-MESSAGE-SAFETY-VALIDATOR->MOD-LLM-DRAFT-INTAKE",
         "type": "HARD"
       }
     ],
-    "length": 4,
+    "length": 8,
     "start_module": "MOD-TRUTH-GOVERNANCE",
-    "end_module": "MOD-ADVISOR-ACTIVATION",
-    "total_weight": 4
+    "end_module": "MOD-MESSAGE-SAFETY-VALIDATOR",
+    "total_weight": 8
   },
   "weighted_architectural_path": {
     "modules": [
-      "MOD-TRUTH-GOVERNANCE",
-      "MOD-CARRIER-SCOPE",
-      "MOD-RULE-PACK-CONTRACT",
-      "MOD-CALCULATION-CONTRACT",
-      "MOD-QUOTE-PREVIEW"
+      "MOD-DECISION-CORE",
+      "MOD-ACTION-PLANNING",
+      "MOD-HUMAN-APPROVAL-GATE",
+      "MOD-ADVISOR-LIFECYCLE",
+      "MOD-RELATIONSHIP-INTELLIGENCE",
+      "MOD-CONVERSATION-INTELLIGENCE",
+      "MOD-ADVISOR-WORKSPACE"
     ],
-    "score": 218
+    "score": 317
   },
   "weights": {
     "dependency": {
@@ -89,148 +119,141 @@
   },
   "highest_fan_in_modules": [
     {
+      "module_id": "MOD-ADVISOR-WORKSPACE",
+      "value": 9
+    },
+    {
+      "module_id": "MOD-RELATIONSHIP-INTELLIGENCE",
+      "value": 5
+    },
+    {
+      "module_id": "MOD-ADVISOR-EXPERIENCE",
+      "value": 4
+    },
+    {
+      "module_id": "MOD-CONVERSATION-INTELLIGENCE",
+      "value": 4
+    },
+    {
       "module_id": "MOD-QUOTE-PREVIEW",
       "value": 4
     },
     {
-      "module_id": "MOD-ADVISOR-WORKSPACE",
-      "value": 2
-    },
-    {
       "module_id": "MOD-COMPENSATION-ECONOMIC",
-      "value": 2
+      "value": 3
     },
     {
       "module_id": "MOD-MANAGER-COACHING",
-      "value": 2
+      "value": 3
     },
     {
-      "module_id": "MOD-NBA-REASON-WHY",
-      "value": 2
-    },
-    {
-      "module_id": "MOD-POLICY-OPERATIONS",
-      "value": 2
-    },
-    {
-      "module_id": "MOD-RECRUITMENT-PRECONTRACT",
-      "value": 2
-    },
-    {
-      "module_id": "MOD-RELATIONSHIP-INTELLIGENCE",
-      "value": 2
+      "module_id": "MOD-MANAGER-WORKSPACE",
+      "value": 3
     }
   ],
   "highest_fan_out_modules": [
     {
       "module_id": "MOD-TRUTH-GOVERNANCE",
-      "value": 11
+      "value": 17
+    },
+    {
+      "module_id": "MOD-HUMAN-APPROVAL-GATE",
+      "value": 10
+    },
+    {
+      "module_id": "MOD-READONLY-ADAPTERS",
+      "value": 10
+    },
+    {
+      "module_id": "MOD-ACTION-PLANNING",
+      "value": 5
+    },
+    {
+      "module_id": "MOD-ADVISOR-LIFECYCLE",
+      "value": 5
     },
     {
       "module_id": "MOD-CALCULATION-CONTRACT",
+      "value": 3
+    },
+    {
+      "module_id": "MOD-CONVERSATION-INTELLIGENCE",
       "value": 3
     },
     {
       "module_id": "MOD-GOVERNANCE-GATE",
       "value": 3
-    },
-    {
-      "module_id": "MOD-READONLY-ADAPTERS",
-      "value": 3
-    },
-    {
-      "module_id": "MOD-RULE-PACK-CONTRACT",
-      "value": 3
-    },
-    {
-      "module_id": "MOD-ACTION-PLANNING",
-      "value": 2
-    },
-    {
-      "module_id": "MOD-CARRIER-SCOPE",
-      "value": 2
-    },
-    {
-      "module_id": "MOD-DECISION-CORE",
-      "value": 2
     }
   ],
   "highest_risk_modules": [
     {
-      "module_id": "MOD-QUOTE-PREVIEW",
-      "value": 70
-    },
-    {
-      "module_id": "MOD-MANAGER-COACHING",
-      "value": 46
+      "module_id": "MOD-ADVISOR-WORKSPACE",
+      "value": 95
     },
     {
       "module_id": "MOD-RELATIONSHIP-INTELLIGENCE",
+      "value": 53
+    },
+    {
+      "module_id": "MOD-ADVISOR-EXPERIENCE",
       "value": 44
     },
     {
-      "module_id": "MOD-POLICY-OPERATIONS",
-      "value": 43
+      "module_id": "MOD-QUOTE-PREVIEW",
+      "value": 44
     },
     {
-      "module_id": "MOD-CALCULATION-CONTRACT",
-      "value": 37
+      "module_id": "MOD-CONVERSATION-INTELLIGENCE",
+      "value": 42
     },
     {
-      "module_id": "MOD-ELIGIBILITY-CONTRACT",
-      "value": 37
+      "module_id": "MOD-MANAGER-COACHING",
+      "value": 34
     },
     {
       "module_id": "MOD-MANAGER-WORKSPACE",
-      "value": 37
+      "value": 34
     },
     {
-      "module_id": "MOD-MESSAGE-SAFETY-VALIDATOR",
-      "value": 37
+      "module_id": "MOD-COMPENSATION-ECONOMIC",
+      "value": 29
     }
   ],
   "highest_unblock_value_modules": [
     {
       "module_id": "MOD-TRUTH-GOVERNANCE",
-      "value": 11
+      "value": 17
+    },
+    {
+      "module_id": "MOD-HUMAN-APPROVAL-GATE",
+      "value": 10
+    },
+    {
+      "module_id": "MOD-READONLY-ADAPTERS",
+      "value": 10
+    },
+    {
+      "module_id": "MOD-ACTION-PLANNING",
+      "value": 5
+    },
+    {
+      "module_id": "MOD-ADVISOR-LIFECYCLE",
+      "value": 5
     },
     {
       "module_id": "MOD-CALCULATION-CONTRACT",
       "value": 3
     },
     {
+      "module_id": "MOD-CONVERSATION-INTELLIGENCE",
+      "value": 3
+    },
+    {
       "module_id": "MOD-GOVERNANCE-GATE",
       "value": 3
-    },
-    {
-      "module_id": "MOD-READONLY-ADAPTERS",
-      "value": 3
-    },
-    {
-      "module_id": "MOD-RULE-PACK-CONTRACT",
-      "value": 3
-    },
-    {
-      "module_id": "MOD-ACTION-PLANNING",
-      "value": 2
-    },
-    {
-      "module_id": "MOD-CARRIER-SCOPE",
-      "value": 2
-    },
-    {
-      "module_id": "MOD-DECISION-CORE",
-      "value": 2
     }
   ],
-  "architectural_bottlenecks": [
-    "MOD-MANAGER-WORKSPACE",
-    "MOD-CARRIER-SCOPE",
-    "MOD-RULE-PACK-CONTRACT",
-    "MOD-CALCULATION-CONTRACT",
-    "MOD-MICK-BEHAVIOR",
-    "MOD-MANAGER-COACHING"
-  ],
+  "architectural_bottlenecks": [],
   "governance_bottlenecks": [
     "MOD-ADVISOR-WORKSPACE",
     "MOD-NBA-REASON-WHY",
@@ -238,18 +261,6 @@
     "MOD-ADVISOR-ACTIVATION",
     "MOD-TERMUX-REWRITE-TOOLS"
   ],
-  "product_bottlenecks": [
-    "MOD-RELATIONSHIP-INTELLIGENCE",
-    "MOD-CONVERSATION-INTELLIGENCE",
-    "MOD-POLICY-OPERATIONS",
-    "MOD-PRODUCT-SOURCE-PACK",
-    "MOD-ELIGIBILITY-CONTRACT",
-    "MOD-QUOTE-PREVIEW",
-    "MOD-ADVISOR-EXPERIENCE",
-    "MOD-LLM-DRAFT-INTAKE",
-    "MOD-MESSAGE-SAFETY-VALIDATOR"
-  ],
-  "evidence_bottlenecks": [
-    "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE"
-  ]
+  "product_bottlenecks": [],
+  "evidence_bottlenecks": []
 }

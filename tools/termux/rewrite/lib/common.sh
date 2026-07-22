@@ -11,7 +11,19 @@ forge_die() {
 }
 
 forge_repo_root() {
-  git rev-parse --show-toplevel 2>/dev/null || forge_die "not inside a Git repository"
+  local root
+  if root="$(git rev-parse --show-toplevel 2>/dev/null)"; then
+    printf '%s\n' "$root"
+    return 0
+  fi
+  local common_dir fallback
+  common_dir="$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+  fallback="$(CDPATH= cd -- "$common_dir/../../../.." && pwd)"
+  if [ -d "$fallback/.git" ]; then
+    printf '%s\n' "$fallback"
+    return 0
+  fi
+  forge_die "CONFIG_ERROR:not inside a Git repository and script fallback root is invalid"
 }
 
 forge_cd_root() {

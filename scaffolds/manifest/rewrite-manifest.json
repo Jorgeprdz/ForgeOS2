@@ -15,6 +15,8 @@
     "The functional Forge OS 2 rewrite is not executed by this scaffold system task.",
     "Ready stages may generate only files declared by the stage and permitted by path policy.",
     "Blocked stages must fail closed with the declared blocked status.",
-    "No stage may write secrets, run production migrations, push main, or promote itself."
-  ]
+    "No stage may write secrets, run production migrations, push main, or promote itself.",
+    "Rewrite execution order is generated from stage produces/consumes artifacts in scaffolds/manifest/rewrite-artifact-graph.json and materialized in scaffolds/manifest/canonical-rewrite-sequence.json; SG numeric order is never execution order."
+  ],
+  "stage_sequence": "scaffolds/manifest/canonical-rewrite-sequence.json"
 }

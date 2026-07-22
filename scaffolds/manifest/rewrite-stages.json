@@ -1,26 +1,3113 @@
 {
   "schema": "../contracts/stage-contract.schema.json",
-  "manifest_id": "FORGE_REWRITE_STAGES_002",
+  "manifest_id": "FORGE_REWRITE_STAGES_003_DEPENDENCY_ORDERED",
+  "stage_id_rule": "stage_id is governance identity only; produces/consumes artifact dependencies define execution order.",
   "stages": [
-    {"id":"SG-001","name":"Governed Termux Bootstrap","purpose":"Prepare local rewrite state and validate product definition, boundaries and traceability.","capabilities":["CAP-GOVERNANCE-GATE","CAP-TRUTH-EVIDENCE"],"functional_requirements":["REQ-ROBOCOP-GATE","REQ-TRUTH-OWNER-VALIDATION"],"constitutional_authority":["CONSTITUTION_ARTICLE_III","CONSTITUTION_ARTICLE_VIII"],"boundaries":["BOUND-ROBOCOP-GATE","BOUND-NO-SILENT-RATIFICATION","BOUND-EVIDENCE-OWNERSHIP"],"adr":["ROBOCOP_LOCK_001","ADR-001","ADR-002"],"contracts":["scaffolds/contracts/promotion-gate.schema.json","scaffolds/contracts/evidence-contract.schema.json"],"prerequisites":["clean working tree","product spec exists"],"allowed_paths":[".forge/rewrite/","scaffolds/reports/"],"prohibited_paths":["platform/","shared/","supabase/","app.js","index.html"],"templates":["scaffolds/templates/documentation/stage-plan.template.md"],"files_to_generate":["scaffolds/reports/SG-001-evidence.json"],"allowed_operations":["plan","dry-run","apply evidence","validate"],"prohibited_operations":["functional rewrite","production data writes","main push"],"validations":["validate-product-spec","validate-boundaries","validate-traceability","validate-manifest","validate-paths"],"evidence":["scaffolds/reports/SG-001-evidence.json"],"acceptance_criteria":["Product spec, capabilities, boundaries and traceability validate.","No functional implementation files are generated."],"rollback":"Remove only SG-001 uncommitted generated evidence if hashes match state.","next_stage_allowed":["SG-002"],"status":"READY"},
-    {"id":"SG-002","name":"Core Contract Skeletons","purpose":"Prepare future-safe contract stubs for Decision Core, Action Planning and read-only adapter boundaries.","capabilities":["CAP-DECISION-CORE","CAP-ACTION-PLANNING","CAP-READ-ONLY-ADAPTERS"],"functional_requirements":["REQ-DECISION-EVIDENCE-ACTION","REQ-ACTION-RECOMMENDATION-NOT-EXECUTION","REQ-READ-ONLY-NO-WRITES"],"constitutional_authority":["CONSTITUTION_ARTICLE_III","CONSTITUTION_ARTICLE_IV","CONSTITUTION_ARTICLE_V"],"boundaries":["BOUND-EVIDENCE-OWNERSHIP","BOUND-ACTION-NO-EXECUTION","BOUND-READ-ONLY","BOUND-ONE-METRIC-ONE-OWNER"],"adr":["ADR-001","ADR-002","ADR-003","ADR-004","ADR-020"],"contracts":["scaffolds/contracts/scaffold-contract.schema.json","scaffolds/contracts/evidence-contract.schema.json"],"prerequisites":["SG-001 completed","traceability complete"],"allowed_paths":["platform/","shared/","scaffolds/reports/"],"prohibited_paths":["supabase/migrations/","app.js","index.html","legacy/"],"templates":["scaffolds/templates/module/module-contract.template.mjs","scaffolds/templates/service/read-only-service.template.mjs","scaffolds/templates/test/not-implemented.test.template.mjs"],"files_to_generate":["platform/core/generated/decision-contract.mjs","platform/actions/generated/action-contract.mjs","platform/read-models/generated/read-only-adapter-contract.mjs","scaffolds/reports/SG-002-evidence.json"],"allowed_operations":["plan","dry-run","apply stubs","validate","record evidence"],"prohibited_operations":["business logic","AI provider calls","external effects","secrets"],"validations":["validate-traceability","validate-scaffold","validate-stage","validate-paths"],"evidence":["scaffolds/reports/SG-002-evidence.json"],"acceptance_criteria":["Generated stubs fail with FORGE_SCAFFOLD_NOT_IMPLEMENTED.","No production behavior is implemented."],"rollback":"Remove only SG-002 generated files listed in state when hashes match.","next_stage_allowed":["SG-003","SG-006","SG-018"],"status":"READY"},
-    {"id":"SG-003","name":"Relationship Intelligence Contract","purpose":"Define the Relationship Intelligence contract independently from conversation, policy and quote domains.","capabilities":["CAP-RELATIONSHIP-INTELLIGENCE"],"functional_requirements":["REQ-RELATIONSHIP-NON-MANIPULATION"],"constitutional_authority":["CONSTITUTION_ARTICLE_III","CONSTITUTION_ARTICLE_IV","CONSTITUTION_ARTICLE_VI"],"boundaries":["BOUND-RELATIONSHIP-NON-MANIPULATION","BOUND-HUMAN-AUTHORITY","BOUND-EVIDENCE-OWNERSHIP"],"adr":["ADR-011","ADR-020"],"contracts":["scaffolds/contracts/stage-contract.schema.json"],"prerequisites":["relationship acceptance criteria ratified"],"allowed_paths":["docs/product/","adr/"],"prohibited_paths":["legacy/","temporary-governance-rewrite-pack/","app.js","index.html"],"templates":["scaffolds/templates/domain/blocked-domain.template.md"],"files_to_generate":[],"allowed_operations":["plan","record blocked evidence"],"prohibited_operations":["apply product code","copy legacy runtime"],"validations":["validate-stage","validate-evidence"],"evidence":["scaffolds/reports/SG-003-evidence.json"],"acceptance_criteria":["Relationship stage has its own evidence and acceptance and does not wait on conversation, policy or quote decisions."],"rollback":"No generated product files are allowed while blocked.","next_stage_allowed":[],"status":"BLOCKED_REQUIRES_PRODUCT_DEFINITION"},
-    {"id":"SG-004","name":"Conversation Intelligence Contract","purpose":"Define Nash conversation guidance independently from relationship truth and messaging execution.","capabilities":["CAP-CONVERSATION-INTELLIGENCE"],"functional_requirements":["REQ-NASH-DRAFTS-NOT-TRUTH"],"constitutional_authority":["CONSTITUTION_ARTICLE_VI"],"boundaries":["BOUND-NASH-NO-TRUTH","BOUND-AI-EXPLAINS-FORGE-DECIDES","BOUND-ACTION-NO-EXECUTION"],"adr":["ADR-010","ADR-020"],"contracts":["scaffolds/contracts/stage-contract.schema.json"],"prerequisites":["conversation output contract ratified"],"allowed_paths":["docs/product/","adr/"],"prohibited_paths":["platform/","supabase/","legacy/"],"templates":["scaffolds/templates/domain/blocked-domain.template.md"],"files_to_generate":[],"allowed_operations":["plan","record blocked evidence"],"prohibited_operations":["send messages","own truth","apply AI decisioning"],"validations":["validate-stage","validate-boundaries"],"evidence":["scaffolds/reports/SG-004-evidence.json"],"acceptance_criteria":["Conversation output drafts or explains only."],"rollback":"No generated product files are allowed while blocked.","next_stage_allowed":[],"status":"BLOCKED_REQUIRES_PRODUCT_DEFINITION"},
-    {"id":"SG-005","name":"Policy Operations Contract","purpose":"Define policy operational truth independently from quote preview, forecast and paid-premium truth.","capabilities":["CAP-POLICY-OPERATIONS"],"functional_requirements":["REQ-POLICY-TRUTH-SEPARATION"],"constitutional_authority":["CONSTITUTION_ARTICLE_III","CONSTITUTION_ARTICLE_V"],"boundaries":["BOUND-POLICY-TRUTH","BOUND-EVIDENCE-OWNERSHIP","BOUND-CAPTURE-ONCE"],"adr":["ADR-006"],"contracts":["scaffolds/contracts/stage-contract.schema.json"],"prerequisites":["policy evidence ownership accepted"],"allowed_paths":["docs/product/","adr/"],"prohibited_paths":["platform/","supabase/","legacy/"],"templates":["scaffolds/templates/domain/blocked-domain.template.md"],"files_to_generate":[],"allowed_operations":["plan","record blocked evidence"],"prohibited_operations":["apply policy runtime","write production policy data"],"validations":["validate-stage","validate-evidence"],"evidence":["scaffolds/reports/SG-005-evidence.json"],"acceptance_criteria":["Policy Operations has independent evidence and acceptance."],"rollback":"No generated product files are allowed while blocked.","next_stage_allowed":[],"status":"BLOCKED_REQUIRES_PRODUCT_DEFINITION"},
-    {"id":"SG-006","name":"Product Catalog Contract","purpose":"Define the Product Catalog contract without requiring commercial source packs or invented products.","capabilities":["CAP-PRODUCT-CATALOG"],"functional_requirements":["REQ-PRODUCT-CATALOG-CONTRACT"],"constitutional_authority":["CONSTITUTION_ARTICLE_III","CONSTITUTION_ARTICLE_V"],"boundaries":["BOUND-PRODUCT-TRUTH","BOUND-UNKNOWN-REMAINS-UNKNOWN"],"adr":["ADR-005"],"contracts":["scaffolds/contracts/scaffold-contract.schema.json"],"prerequisites":["SG-001 completed"],"allowed_paths":["platform/","shared/","scaffolds/reports/"],"prohibited_paths":["supabase/migrations/","legacy/","app.js","index.html"],"templates":["scaffolds/templates/domain/blocked-domain.template.md"],"files_to_generate":["platform/product/generated/product-catalog-contract.mjs","scaffolds/reports/SG-006-evidence.json"],"allowed_operations":["plan","dry-run","apply contract stub","validate"],"prohibited_operations":["invent products","load commercial values","implement quote logic"],"validations":["validate-stage","validate-paths"],"evidence":["scaffolds/reports/SG-006-evidence.json"],"acceptance_criteria":["Catalog contract can be scaffolded before source packs; unknown commercial values remain unknown."],"rollback":"Remove only SG-006 generated files listed in state when hashes match.","next_stage_allowed":["SG-007","SG-008"],"status":"READY"},
-    {"id":"SG-007","name":"Product Source Pack Intake","purpose":"Block commercial facts until owner-approved product source documents exist.","capabilities":["CAP-PRODUCT-SOURCE-PACK"],"functional_requirements":["REQ-PRODUCT-SOURCE-PACK-INTAKE"],"constitutional_authority":["CONSTITUTION_ARTICLE_III"],"boundaries":["BOUND-PRODUCT-TRUTH","BOUND-NO-LEGACY-CODE-COPY"],"adr":["ADR-005"],"contracts":["scaffolds/contracts/evidence-contract.schema.json"],"prerequisites":["owner-approved commercial documentation"],"allowed_paths":["docs/product/","scaffolds/reports/"],"prohibited_paths":["platform/","shared/","supabase/","legacy/"],"templates":["scaffolds/templates/migration/legacy-evidence.template.md"],"files_to_generate":[],"allowed_operations":["plan","record blocked evidence"],"prohibited_operations":["invent products","copy legacy code"],"validations":["validate-evidence","validate-stage"],"evidence":["scaffolds/reports/SG-007-evidence.json"],"acceptance_criteria":["Source Pack intake remains blocked until approved documents exist."],"rollback":"No generated product files are allowed while blocked.","next_stage_allowed":[],"status":"BLOCKED_REQUIRES_OWNER_DECISION"},
-    {"id":"SG-008","name":"Carrier Scope Contract","purpose":"Define carrier/channel/period scope independently from product catalog and Rule Packs.","capabilities":["CAP-CARRIER-SCOPE"],"functional_requirements":["REQ-CARRIER-SCOPE-SEPARATION"],"constitutional_authority":["CONSTITUTION_ARTICLE_V"],"boundaries":["BOUND-RULE-PACK-SEPARATION","BOUND-PRODUCT-TRUTH"],"adr":["ADR-005","ADR-008"],"contracts":["scaffolds/contracts/scaffold-contract.schema.json"],"prerequisites":["carrier scope naming convention ratified"],"allowed_paths":["docs/product/","adr/"],"prohibited_paths":["platform/","shared/","supabase/","legacy/"],"templates":["scaffolds/templates/domain/blocked-domain.template.md"],"files_to_generate":[],"allowed_operations":["plan","record blocked evidence"],"prohibited_operations":["hardcode carrier logic in core"],"validations":["validate-stage","validate-boundaries"],"evidence":["scaffolds/reports/SG-008-evidence.json"],"acceptance_criteria":["Carrier scope is explicit and not hardcoded into Forge Core."],"rollback":"No generated product files are allowed while blocked.","next_stage_allowed":[],"status":"BLOCKED_REQUIRES_ARCHITECTURAL_DECISION"},
-    {"id":"SG-009","name":"Rule Pack Contract","purpose":"Define Rule Pack interpretation boundary separately from product catalog, eligibility and calculations.","capabilities":["CAP-RULE-PACK-CONTRACT"],"functional_requirements":["REQ-RULE-PACK-CONTRACT"],"constitutional_authority":["CONSTITUTION_ARTICLE_V"],"boundaries":["BOUND-RULE-PACK-SEPARATION","BOUND-FORECAST-NOT-FACT"],"adr":["ADR-008","ADR-017","ADR-018"],"contracts":["scaffolds/contracts/stage-contract.schema.json"],"prerequisites":["carrier scope contract","rule snapshot decision"],"allowed_paths":["docs/product/","adr/"],"prohibited_paths":["platform/","shared/","supabase/","legacy/"],"templates":["scaffolds/templates/domain/blocked-domain.template.md"],"files_to_generate":[],"allowed_operations":["plan","record blocked evidence"],"prohibited_operations":["hardcode carrier rules","mix periods"],"validations":["validate-stage","validate-boundaries"],"evidence":["scaffolds/reports/SG-009-evidence.json"],"acceptance_criteria":["Rule Pack boundary remains outside Forge Core."],"rollback":"No generated product files are allowed while blocked.","next_stage_allowed":[],"status":"BLOCKED_REQUIRES_ARCHITECTURAL_DECISION"},
-    {"id":"SG-010","name":"Eligibility Contract","purpose":"Define eligibility result shape independently from calculations and quote preview.","capabilities":["CAP-ELIGIBILITY-CONTRACT"],"functional_requirements":["REQ-ELIGIBILITY-CONTRACT"],"constitutional_authority":["CONSTITUTION_ARTICLE_III","CONSTITUTION_ARTICLE_V"],"boundaries":["BOUND-RULE-PACK-SEPARATION","BOUND-UNKNOWN-REMAINS-UNKNOWN"],"adr":["ADR-008"],"contracts":["scaffolds/contracts/stage-contract.schema.json"],"prerequisites":["rule pack contract ratified"],"allowed_paths":["docs/product/","adr/"],"prohibited_paths":["platform/","shared/","supabase/","legacy/"],"templates":["scaffolds/templates/domain/blocked-domain.template.md"],"files_to_generate":[],"allowed_operations":["plan","record blocked evidence"],"prohibited_operations":["invent eligibility rules"],"validations":["validate-stage","validate-boundaries"],"evidence":["scaffolds/reports/SG-010-evidence.json"],"acceptance_criteria":["Eligibility contract exposes facts, rules, confidence and unknown states."],"rollback":"No generated product files are allowed while blocked.","next_stage_allowed":[],"status":"BLOCKED_REQUIRES_PRODUCT_DEFINITION"},
-    {"id":"SG-011","name":"Calculation Contract","purpose":"Define calculation result shape independently from eligibility, quote preview and compensation outputs.","capabilities":["CAP-CALCULATION-CONTRACT"],"functional_requirements":["REQ-CALCULATION-CONTRACT"],"constitutional_authority":["CONSTITUTION_ARTICLE_III"],"boundaries":["BOUND-ECONOMIC-EVIDENCE","BOUND-FORECAST-NOT-FACT","BOUND-RULE-PACK-SEPARATION"],"adr":["ADR-008","ADR-017"],"contracts":["scaffolds/contracts/stage-contract.schema.json"],"prerequisites":["rule snapshot calculation decision"],"allowed_paths":["docs/product/","adr/"],"prohibited_paths":["platform/","shared/","supabase/","legacy/"],"templates":["scaffolds/templates/domain/blocked-domain.template.md"],"files_to_generate":[],"allowed_operations":["plan","record blocked evidence"],"prohibited_operations":["invent values","mix rule periods"],"validations":["validate-stage","validate-boundaries"],"evidence":["scaffolds/reports/SG-011-evidence.json"],"acceptance_criteria":["Calculation contract cannot invent values or mix periods."],"rollback":"No generated product files are allowed while blocked.","next_stage_allowed":[],"status":"BLOCKED_REQUIRES_ARCHITECTURAL_DECISION"},
-    {"id":"SG-012","name":"Quote Preview Contract","purpose":"Define non-binding Quote Preview separately from catalog, source packs, eligibility and calculation.","capabilities":["CAP-QUOTE-PREVIEW"],"functional_requirements":["REQ-QUOTE-PREVIEW-NON-BINDING"],"constitutional_authority":["CONSTITUTION_ARTICLE_III","CONSTITUTION_ARTICLE_V"],"boundaries":["BOUND-PRODUCT-TRUTH","BOUND-FORECAST-NOT-FACT","BOUND-ACTION-NO-EXECUTION"],"adr":["ADR-005","ADR-008","ADR-017"],"contracts":["scaffolds/contracts/stage-contract.schema.json"],"prerequisites":["product catalog contract","source pack evidence","eligibility contract","calculation contract"],"allowed_paths":["docs/product/","adr/"],"prohibited_paths":["platform/","shared/","supabase/","legacy/"],"templates":["scaffolds/templates/feature/blocked-feature.template.md"],"files_to_generate":[],"allowed_operations":["plan","record blocked evidence"],"prohibited_operations":["invent premiums","emit binding quote","execute sale"],"validations":["validate-stage","validate-evidence"],"evidence":["scaffolds/reports/SG-012-evidence.json"],"acceptance_criteria":["Quote Preview remains non-binding and evidence-labeled."],"rollback":"No generated product files are allowed while blocked.","next_stage_allowed":[],"status":"BLOCKED_REQUIRES_PRODUCT_DEFINITION"},
-    {"id":"SG-013","name":"Manager Coaching Contract","purpose":"Define manager recommendations separately from Mick observation and human decisions.","capabilities":["CAP-MANAGER-COACHING"],"functional_requirements":["REQ-MANAGER-COACHING-ONLY"],"constitutional_authority":["CONSTITUTION_ARTICLE_IV","CONSTITUTION_ARTICLE_VI"],"boundaries":["BOUND-MANAGER-COACHING-ONLY","BOUND-NO-HUMAN-CONSEQUENCE-AUTOMATION","BOUND-HUMAN-AUTHORITY"],"adr":["ADR-015"],"contracts":["scaffolds/contracts/stage-contract.schema.json"],"prerequisites":["people-domain coaching acceptance criteria"],"allowed_paths":["docs/product/","adr/"],"prohibited_paths":["platform/","shared/","supabase/","legacy/"],"templates":["scaffolds/templates/domain/blocked-domain.template.md"],"files_to_generate":[],"allowed_operations":["plan","record blocked evidence"],"prohibited_operations":["automate consequences","score human worth"],"validations":["validate-stage","validate-boundaries"],"evidence":["scaffolds/reports/SG-013-evidence.json"],"acceptance_criteria":["Manager Coaching consumes evidence and recommends, never executes consequences."],"rollback":"No generated product files are allowed while blocked.","next_stage_allowed":[],"status":"BLOCKED_REQUIRES_ARCHITECTURAL_DECISION"},
-    {"id":"SG-014","name":"Mick Observable Behavior Contract","purpose":"Define observable behavior signals separately from Manager Coaching recommendations.","capabilities":["CAP-MICK-BEHAVIOR"],"functional_requirements":["REQ-MICK-OBSERVABLE-ONLY"],"constitutional_authority":["CONSTITUTION_ARTICLE_VI"],"boundaries":["BOUND-MICK-OBSERVABLE-BEHAVIOR","BOUND-NO-HUMAN-WORTH"],"adr":["ADR-013"],"contracts":["scaffolds/contracts/stage-contract.schema.json"],"prerequisites":["observable behavior signal taxonomy"],"allowed_paths":["docs/product/","adr/"],"prohibited_paths":["platform/","shared/","supabase/","legacy/"],"templates":["scaffolds/templates/domain/blocked-domain.template.md"],"files_to_generate":[],"allowed_operations":["plan","record blocked evidence"],"prohibited_operations":["value people","emit consequences","replace human decisions"],"validations":["validate-stage","validate-boundaries"],"evidence":["scaffolds/reports/SG-014-evidence.json"],"acceptance_criteria":["Mick emits behavior evidence only."],"rollback":"No generated product files are allowed while blocked.","next_stage_allowed":[],"status":"BLOCKED_REQUIRES_ARCHITECTURAL_DECISION"},
-    {"id":"SG-015","name":"Advisor Experience Transversal Contract","purpose":"Model Advisor Experience as a cross-cutting capability that affects multiple domains without becoming UI decoration.","capabilities":["CAP-ADVISOR-EXPERIENCE"],"functional_requirements":["REQ-ADVISOR-EXPERIENCE-TRANSVERSAL"],"constitutional_authority":["CONSTITUTION_ARTICLE_0"],"boundaries":["BOUND-ADVISOR-EXPERIENCE-ANTI-DEPENDENCE","BOUND-CAPTURE-ONCE"],"adr":["ADR-016"],"contracts":["scaffolds/contracts/stage-contract.schema.json"],"prerequisites":["cross-domain experience boundaries ratified"],"allowed_paths":["docs/product/","adr/"],"prohibited_paths":["platform/","shared/","supabase/","legacy/"],"templates":["scaffolds/templates/ui/deferred-ui.template.md"],"files_to_generate":[],"allowed_operations":["plan","record blocked evidence"],"prohibited_operations":["generate final UI","block user work"],"validations":["validate-stage","validate-boundaries"],"evidence":["scaffolds/reports/SG-015-evidence.json"],"acceptance_criteria":["Advisor Experience is transversal, non-invasive and value-first."],"rollback":"No generated product files are allowed while blocked.","next_stage_allowed":[],"status":"BLOCKED_REQUIRES_PRODUCT_DEFINITION"},
-    {"id":"SG-016","name":"Compensation And Economic Evidence Contract","purpose":"Evaluate compensation/economic outputs separately from recruitment and Advisor Experience.","capabilities":["CAP-COMPENSATION-ECONOMIC"],"functional_requirements":["REQ-ECONOMIC-EVIDENCE-RULESNAPSHOT"],"constitutional_authority":["CONSTITUTION_ARTICLE_III"],"boundaries":["BOUND-ECONOMIC-EVIDENCE","BOUND-FORECAST-NOT-FACT","BOUND-RULE-PACK-SEPARATION"],"adr":["ADR-008","ADR-017","ADR-018"],"contracts":["scaffolds/contracts/stage-contract.schema.json"],"prerequisites":["rule snapshots","source packs","period context"],"allowed_paths":["docs/product/","adr/"],"prohibited_paths":["platform/","shared/","supabase/","legacy/"],"templates":["scaffolds/templates/domain/blocked-domain.template.md"],"files_to_generate":[],"allowed_operations":["plan","record deferred evidence"],"prohibited_operations":["calculate income","invent values","mix periods"],"validations":["validate-stage","validate-evidence"],"evidence":["scaffolds/reports/SG-016-evidence.json"],"acceptance_criteria":["Economic outputs remain deferred until evidence contracts are ratified."],"rollback":"No generated product files are allowed while deferred.","next_stage_allowed":[],"status":"DEFERRED"},
-    {"id":"SG-017","name":"Recruitment And Precontract Lifecycle Contract","purpose":"Evaluate recruitment/precontract separately with human consequence protections.","capabilities":["CAP-RECRUITMENT-PRECONTRACT"],"functional_requirements":["REQ-RECRUITMENT-LIFECYCLE-RULES"],"constitutional_authority":["CONSTITUTION_ARTICLE_IV","CONSTITUTION_ARTICLE_VI"],"boundaries":["BOUND-NO-HUMAN-CONSEQUENCE-AUTOMATION","BOUND-NO-HUMAN-WORTH"],"adr":["AGENTS"],"contracts":["scaffolds/contracts/stage-contract.schema.json"],"prerequisites":["lifecycle architecture approval","owner-approved assessment limits"],"allowed_paths":["docs/product/","adr/"],"prohibited_paths":["platform/","shared/","supabase/","legacy/"],"templates":["scaffolds/templates/domain/blocked-domain.template.md"],"files_to_generate":[],"allowed_operations":["plan","record deferred evidence"],"prohibited_operations":["automate selection","score human worth"],"validations":["validate-stage","validate-boundaries"],"evidence":["scaffolds/reports/SG-017-evidence.json"],"acceptance_criteria":["Lifecycle output does not automate selection, rejection or human worth judgment."],"rollback":"No generated product files are allowed while deferred.","next_stage_allowed":[],"status":"DEFERRED"},
-    {"id":"SG-018","name":"Legacy Reintroduction Guard","purpose":"Actively block legacy routes, restored clusters and copied original Forge code from the beginning.","capabilities":["CAP-LEGACY-REINTRODUCTION-GUARD"],"functional_requirements":["REQ-LEGACY-REINTRODUCTION-GUARD"],"constitutional_authority":["CONSTITUTION_ARTICLE_V","DIRECTIVE_SECTION_4"],"boundaries":["BOUND-NO-LEGACY-REINTRODUCTION","BOUND-NO-LEGACY-CODE-COPY"],"adr":["docs/migration/FULL_REPOSITORY_CLEANUP_REPORT.md"],"contracts":["scaffolds/contracts/path-policy.schema.json"],"prerequisites":["path policy exists"],"allowed_paths":["scaffolds/reports/"],"prohibited_paths":["legacy/","temporary-governance-rewrite-pack/","app.js","index.html","src/legacy/"],"templates":["scaffolds/templates/documentation/stage-plan.template.md"],"files_to_generate":["scaffolds/reports/SG-018-evidence.json"],"allowed_operations":["plan","dry-run","apply evidence","validate absence"],"prohibited_operations":["copy original Forge code","restore removed clusters"],"validations":["validate-paths","validate-boundaries"],"evidence":["scaffolds/reports/SG-018-evidence.json"],"acceptance_criteria":["Legacy guard is active and independent from legacy evidence intake."],"rollback":"Remove only SG-018 uncommitted evidence when hashes match.","next_stage_allowed":[],"status":"READY"},
-    {"id":"SG-019","name":"Rejected Capability Guard","purpose":"Block final AI authority and generic CRM clone behavior while preserving Forge relationship and activity workflows.","capabilities":["CAP-AUTONOMOUS-AI-DECISIONING","CAP-GENERIC-CRM-CLONE"],"functional_requirements":["REQ-AI-NO-FINAL-AUTHORITY","REQ-NO-GENERIC-CRM-CLONE"],"constitutional_authority":["CONSTITUTION_ARTICLE_0","CONSTITUTION_ARTICLE_I","CONSTITUTION_ARTICLE_VI"],"boundaries":["BOUND-HUMAN-JUDGMENT","BOUND-AI-EXPLAINS-FORGE-DECIDES","BOUND-FORGE-NOT-CRM"],"adr":["ADR-003","ADR-004","ADR-020","AGENTS"],"contracts":["scaffolds/contracts/path-policy.schema.json","scaffolds/contracts/constitutional-boundary.schema.json"],"prerequisites":["product identity confirmed"],"allowed_paths":["scaffolds/reports/"],"prohibited_paths":["platform/","shared/","supabase/","legacy/"],"templates":["scaffolds/templates/documentation/stage-plan.template.md"],"files_to_generate":[],"allowed_operations":["plan","validate absence"],"prohibited_operations":["apply rejected capabilities"],"validations":["validate-paths","validate-boundaries"],"evidence":["scaffolds/reports/SG-019-evidence.json"],"acceptance_criteria":["Rejected behavior remains blocked without false positives against relationship/task/policy management."],"rollback":"No generated product files are allowed for rejected capabilities.","next_stage_allowed":[],"status":"REJECTED"},
-    {"id":"SG-020","name":"Legacy Functional Evidence Intake","purpose":"Classify owner-supplied legacy functional evidence separately from the always-active legacy guard.","capabilities":["CAP-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE"],"functional_requirements":["REQ-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE"],"constitutional_authority":["DIRECTIVE_SECTION_4"],"boundaries":["BOUND-NO-LEGACY-CODE-COPY","BOUND-NO-LEGACY-REINTRODUCTION"],"adr":["docs/migration/FULL_REPOSITORY_CLEANUP_REPORT.md"],"contracts":["scaffolds/contracts/evidence-contract.schema.json"],"prerequisites":["owner-supplied original Forge evidence"],"allowed_paths":["docs/migration/","scaffolds/reports/"],"prohibited_paths":["platform/","shared/","supabase/","legacy/","app.js","index.html"],"templates":["scaffolds/templates/migration/legacy-evidence.template.md"],"files_to_generate":[],"allowed_operations":["plan","classify evidence","record blocked evidence"],"prohibited_operations":["copy code","restore architecture","reintroduce modules"],"validations":["validate-evidence","validate-paths"],"evidence":["scaffolds/reports/SG-020-evidence.json"],"acceptance_criteria":["Intake classifies behavior only and remains blocked until owner evidence exists."],"rollback":"No generated product files are allowed while blocked.","next_stage_allowed":[],"status":"BLOCKED_REQUIRES_LEGACY_EVIDENCE"}
-  ]
+    {
+      "id": "SG-001",
+      "previous_stage_id": "SG-001",
+      "canonical_order": 1,
+      "dependency_layer": "CONSTITUTIONAL_RUNTIME_CONSTRAINTS",
+      "name": "Constitutional Runtime Constraints",
+      "status": "READY",
+      "capabilities": [
+        "CAP-GOVERNANCE-GATE",
+        "CAP-TRUTH-EVIDENCE"
+      ],
+      "functional_requirements": [
+        "REQ-ROBOCOP-GATE",
+        "REQ-TRUTH-OWNER-VALIDATION"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_0",
+        "CONSTITUTION_ARTICLE_VIII"
+      ],
+      "boundaries": [
+        "BOUND-ROBOCOP-GATE",
+        "BOUND-NO-SILENT-RATIFICATION",
+        "BOUND-EVIDENCE-OWNERSHIP"
+      ],
+      "adr": [
+        "ADR-020"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json",
+        "scaffolds/contracts/evidence-contract.schema.json"
+      ],
+      "prerequisites": [
+        "clean working tree",
+        "product spec exists"
+      ],
+      "allowed_paths": [
+        "scaffolds/",
+        "docs/rewrite/",
+        "docs/product/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "supabase/migrations/",
+        "app.js",
+        "index.html"
+      ],
+      "templates": [
+        "scaffolds/templates/documentation/stage-plan.template.md"
+      ],
+      "files_to_generate": [
+        "scaffolds/reports/SG-001-evidence.json"
+      ],
+      "allowed_operations": [
+        "plan",
+        "dry-run",
+        "apply bootstrap evidence",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "product behavior",
+        "legacy runtime",
+        "external effects"
+      ],
+      "validations": [
+        "validate-product-spec",
+        "validate-boundaries",
+        "validate-traceability",
+        "validate-stage"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-001-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Constitutional runtime constraints, governance gates and blocked-state semantics are available before any consumer stage."
+      ],
+      "rollback": "Remove only SG-001 generated evidence when hashes match.",
+      "next_stage_allowed": [
+        "SG-002",
+        "SG-018",
+        "SG-021",
+        "SG-024",
+        "SG-019"
+      ],
+      "produces": [
+        "ConstitutionalRuntimeConstraints",
+        "RobocopGateContract",
+        "BlockedStatePolicy"
+      ],
+      "consumes": [],
+      "owner_decisions": [],
+      "artifact_wave": 1,
+      "derived_depends_on_stages": []
+    },
+    {
+      "id": "SG-002",
+      "previous_stage_id": "SG-002",
+      "canonical_order": 2,
+      "dependency_layer": "EVIDENCE_CLAIM_PROVENANCE_AND_CORE_CONTRACTS",
+      "name": "Evidence, Claim, Provenance And Core Contract Skeletons",
+      "status": "READY",
+      "capabilities": [
+        "CAP-DECISION-CORE",
+        "CAP-ACTION-PLANNING",
+        "CAP-READ-ONLY-ADAPTERS",
+        "CAP-TRUTH-EVIDENCE"
+      ],
+      "functional_requirements": [
+        "REQ-DECISION-EVIDENCE-ACTION",
+        "REQ-ACTION-RECOMMENDATION-NOT-EXECUTION",
+        "REQ-READ-ONLY-NO-WRITES",
+        "REQ-TRUTH-OWNER-VALIDATION"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_III",
+        "CONSTITUTION_ARTICLE_IV",
+        "CONSTITUTION_ARTICLE_V"
+      ],
+      "boundaries": [
+        "BOUND-EVIDENCE-OWNERSHIP",
+        "BOUND-ACTION-NO-EXECUTION",
+        "BOUND-READ-ONLY",
+        "BOUND-ONE-METRIC-ONE-OWNER",
+        "BOUND-UNKNOWN-REMAINS-UNKNOWN"
+      ],
+      "adr": [
+        "ADR-001",
+        "ADR-002",
+        "ADR-003",
+        "ADR-004",
+        "ADR-020"
+      ],
+      "contracts": [
+        "scaffolds/contracts/scaffold-contract.schema.json",
+        "scaffolds/contracts/evidence-contract.schema.json"
+      ],
+      "prerequisites": [
+        "SG-001 completed",
+        "traceability complete"
+      ],
+      "allowed_paths": [
+        "platform/",
+        "shared/",
+        "scaffolds/reports/"
+      ],
+      "prohibited_paths": [
+        "supabase/migrations/",
+        "app.js",
+        "index.html",
+        "legacy/"
+      ],
+      "templates": [
+        "scaffolds/templates/module/module-contract.template.mjs",
+        "scaffolds/templates/service/read-only-service.template.mjs",
+        "scaffolds/templates/test/not-implemented.test.template.mjs"
+      ],
+      "files_to_generate": [
+        "platform/core/generated/decision-contract.mjs",
+        "platform/actions/generated/action-contract.mjs",
+        "platform/read-models/generated/read-only-adapter-contract.mjs",
+        "scaffolds/reports/SG-002-evidence.json"
+      ],
+      "allowed_operations": [
+        "plan",
+        "dry-run",
+        "apply stubs",
+        "validate",
+        "record evidence"
+      ],
+      "prohibited_operations": [
+        "business logic",
+        "AI provider calls",
+        "external effects",
+        "secrets"
+      ],
+      "validations": [
+        "validate-traceability",
+        "validate-scaffold",
+        "validate-stage",
+        "validate-paths"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-002-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Generated stubs fail with FORGE_SCAFFOLD_NOT_IMPLEMENTED.",
+        "No production behavior is implemented.",
+        "Evidence and action boundaries exist before domain consumers."
+      ],
+      "rollback": "Remove only SG-002 generated files listed in state when hashes match.",
+      "next_stage_allowed": [
+        "SG-018",
+        "SG-021",
+        "SG-024"
+      ],
+      "produces": [
+        "DecisionContractSkeleton",
+        "ActionPlanContractSkeleton",
+        "ReadOnlyAdapterContractSkeleton",
+        "EvidenceEnvelope",
+        "ClaimContract",
+        "ProvenanceModel",
+        "UnknownStatePolicy"
+      ],
+      "consumes": [
+        "ConstitutionalRuntimeConstraints",
+        "RobocopGateContract",
+        "BlockedStatePolicy"
+      ],
+      "owner_decisions": [],
+      "artifact_wave": 2,
+      "derived_depends_on_stages": [
+        "SG-001"
+      ]
+    },
+    {
+      "id": "SG-024",
+      "previous_stage_id": null,
+      "canonical_order": 3,
+      "dependency_layer": "HUMAN_AUTHORITY_AND_APPROVAL_CONTRACTS",
+      "name": "Human Authority And Approval Contracts",
+      "status": "READY",
+      "capabilities": [
+        "CAP-GOVERNANCE-GATE",
+        "CAP-ACTION-PLANNING"
+      ],
+      "functional_requirements": [
+        "REQ-ROBOCOP-GATE",
+        "REQ-ACTION-RECOMMENDATION-NOT-EXECUTION"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_0",
+        "CONSTITUTION_ARTICLE_IV",
+        "CONSTITUTION_ARTICLE_VI"
+      ],
+      "boundaries": [
+        "BOUND-HUMAN-AUTHORITY",
+        "BOUND-ACTION-NO-EXECUTION",
+        "BOUND-NO-HUMAN-CONSEQUENCE-AUTOMATION"
+      ],
+      "adr": [
+        "ADR-003",
+        "ADR-009",
+        "ADR-020"
+      ],
+      "contracts": [
+        "scaffolds/contracts/promotion-gate.schema.json",
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "SG-001 completed",
+        "SG-002 completed"
+      ],
+      "allowed_paths": [
+        "docs/architecture/",
+        "scaffolds/manifest/",
+        "scaffolds/reports/"
+      ],
+      "prohibited_paths": [
+        "supabase/migrations/",
+        "legacy/",
+        "app.js",
+        "index.html"
+      ],
+      "templates": [
+        "scaffolds/templates/documentation/stage-plan.template.md"
+      ],
+      "files_to_generate": [
+        "scaffolds/reports/SG-024-evidence.json"
+      ],
+      "allowed_operations": [
+        "plan",
+        "dry-run",
+        "apply approval contract evidence",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "execute actions",
+        "send messages",
+        "apply human consequences"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-024-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Human approval, recommendation-not-execution and exact-artifact review boundaries exist before NASH, lifecycle and manager consumers."
+      ],
+      "rollback": "Remove only SG-024 generated evidence when hashes match.",
+      "next_stage_allowed": [
+        "SG-025",
+        "SG-026",
+        "SG-003",
+        "SG-004",
+        "SG-013",
+        "SG-015",
+        "SG-029",
+        "SG-017"
+      ],
+      "produces": [
+        "HumanAuthorityContract",
+        "ApprovalContract",
+        "AllowedActionContract",
+        "HumanReviewBoundary"
+      ],
+      "consumes": [
+        "RobocopGateContract",
+        "ActionPlanContractSkeleton"
+      ],
+      "owner_decisions": [],
+      "artifact_wave": 3,
+      "derived_depends_on_stages": [
+        "SG-001",
+        "SG-002"
+      ]
+    },
+    {
+      "id": "SG-018",
+      "previous_stage_id": "SG-018",
+      "canonical_order": 4,
+      "dependency_layer": "LEGACY_CONTROL",
+      "name": "Legacy Reintroduction Guard",
+      "status": "READY",
+      "capabilities": [
+        "CAP-LEGACY-REINTRODUCTION-GUARD"
+      ],
+      "functional_requirements": [
+        "REQ-LEGACY-REINTRODUCTION-GUARD"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_V",
+        "DIRECTIVE_SECTION_4"
+      ],
+      "boundaries": [
+        "BOUND-NO-LEGACY-REINTRODUCTION",
+        "BOUND-NO-LEGACY-CODE-COPY"
+      ],
+      "adr": [
+        "ADR-020"
+      ],
+      "contracts": [
+        "scaffolds/contracts/path-policy.schema.json"
+      ],
+      "prerequisites": [
+        "SG-001 completed",
+        "path policy exists"
+      ],
+      "allowed_paths": [
+        "scaffolds/",
+        "tools/termux/rewrite/",
+        "docs/rewrite/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html"
+      ],
+      "templates": [
+        "scaffolds/templates/documentation/stage-plan.template.md"
+      ],
+      "files_to_generate": [
+        "scaffolds/reports/SG-018-evidence.json"
+      ],
+      "allowed_operations": [
+        "plan",
+        "dry-run",
+        "apply guard evidence",
+        "validate absence",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "copy legacy code",
+        "restore legacy paths",
+        "restore removed modules"
+      ],
+      "validations": [
+        "validate-paths",
+        "validate-stage"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-018-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Legacy reintroduction is guarded before any product scaffold can consume historical evidence."
+      ],
+      "rollback": "Remove only SG-018 generated evidence when hashes match.",
+      "next_stage_allowed": [
+        "SG-021",
+        "SG-019",
+        "SG-020"
+      ],
+      "produces": [
+        "LegacyReintroductionDenylist",
+        "LegacyAbsenceValidationPolicy"
+      ],
+      "consumes": [
+        "ConstitutionalRuntimeConstraints",
+        "BlockedStatePolicy",
+        "ReadOnlyAdapterContractSkeleton"
+      ],
+      "owner_decisions": [],
+      "artifact_wave": 3,
+      "derived_depends_on_stages": [
+        "SG-001",
+        "SG-002"
+      ]
+    },
+    {
+      "id": "SG-021",
+      "previous_stage_id": null,
+      "canonical_order": 5,
+      "dependency_layer": "PRODUCT_SEMANTICS_AND_DOMAIN_AUTHORITY",
+      "name": "Product Semantics And Domain Authority Decisions",
+      "status": "READY",
+      "capabilities": [
+        "CAP-GOVERNANCE-GATE",
+        "CAP-TRUTH-EVIDENCE"
+      ],
+      "functional_requirements": [
+        "REQ-ROBOCOP-GATE",
+        "REQ-TRUTH-OWNER-VALIDATION"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_0",
+        "CONSTITUTION_ARTICLE_II",
+        "CONSTITUTION_ARTICLE_III",
+        "CONSTITUTION_ARTICLE_IV"
+      ],
+      "boundaries": [
+        "BOUND-NO-SILENT-RATIFICATION",
+        "BOUND-HUMAN-AUTHORITY",
+        "BOUND-UNKNOWN-REMAINS-UNKNOWN",
+        "BOUND-ONE-METRIC-ONE-OWNER"
+      ],
+      "adr": [
+        "ADR-020"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "SG-001 completed",
+        "SG-002 completed",
+        "SG-018 completed",
+        "owner decisions packet answered"
+      ],
+      "allowed_paths": [
+        "docs/rewrite/",
+        "docs/decisions/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "platform/",
+        "shared/",
+        "supabase/",
+        "legacy/",
+        "app.js",
+        "index.html"
+      ],
+      "templates": [
+        "scaffolds/templates/documentation/stage-plan.template.md"
+      ],
+      "files_to_generate": [
+        "scaffolds/manifest/product-semantics-decision-record.json",
+        "scaffolds/reports/SG-021-evidence.json",
+        "scaffolds/manifest/operational-closure/advisor-owner-decision-set.json",
+        "scaffolds/manifest/operational-closure/minimum-safe-product-contracts.json",
+        "scaffolds/manifest/operational-closure/architecture-derived-decisions.json"
+      ],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "ratify decision artifact after owner response",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "infer owner intent",
+        "mark consumers ready"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-021-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Owner decisions required by consumer domains are recorded as compact, ratified, consumable artifacts before the first consumer stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [
+        "SG-022",
+        "SG-023",
+        "SG-020"
+      ],
+      "produces": [
+        "ProductSemanticsDecisionRecord",
+        "DomainAuthorityDecisionRecord",
+        "AdvisorOwnerDecisionSet"
+      ],
+      "consumes": [
+        "ConstitutionalRuntimeConstraints",
+        "EvidenceEnvelope",
+        "ClaimContract",
+        "ProvenanceModel",
+        "LegacyReintroductionDenylist"
+      ],
+      "owner_decisions": [
+        {
+          "id": "SG021-DER-001",
+          "status": "DERIVED",
+          "scope": [
+            "constitutional_identity_boundary"
+          ],
+          "affected_artifacts": [
+            "ProductSemanticsDecisionRecord"
+          ],
+          "blocked_consumers": [],
+          "source": [
+            "governance/constitution/CONSTITUTION_UNIFIED.md",
+            "AGENTS.md"
+          ],
+          "default_if_allowed": null,
+          "unlock_criteria": "Derived from Constitution and AGENTS identity hierarchy.",
+          "reversible": true,
+          "contract_affected": "product_semantics_decision_record",
+          "stages_blocked": []
+        },
+        {
+          "id": "SG021-DEF-001",
+          "status": "DEFAULTED",
+          "scope": [
+            "domain_authority_no_side_effects"
+          ],
+          "affected_artifacts": [
+            "DomainAuthorityDecisionRecord"
+          ],
+          "blocked_consumers": [],
+          "source": [
+            "AGENTS.md",
+            "scaffolds/manifest/rewrite-stages.json"
+          ],
+          "default_if_allowed": "unknown remains unknown; no authority granted without explicit owner ratification",
+          "unlock_criteria": "Safe reversible default recorded with no production writes.",
+          "reversible": true,
+          "contract_affected": "domain_authority_decision_record",
+          "stages_blocked": []
+        },
+        {
+          "id": "SG021-OD-001",
+          "status": "RATIFIED",
+          "scope": [
+            "advisor_identity",
+            "advisor_lifecycle",
+            "advisor_context",
+            "nash_boundary"
+          ],
+          "affected_artifacts": [
+            "AdvisorOwnerDecisionSet",
+            "CanonicalIdentityContract",
+            "AdvisorRoleModel",
+            "LifecycleFramework",
+            "ContextEnvelope",
+            "NASHBoundaryContract"
+          ],
+          "blocked_consumers": [],
+          "source": [
+            "FORGE_OPERATIONAL_CLOSURE_2026-07-22",
+            "governance/constitution/CONSTITUTION_UNIFIED.md",
+            "AGENTS.md",
+            "ADR-010",
+            "ADR-011",
+            "ADR-014"
+          ],
+          "default_if_allowed": null,
+          "unlock_criteria": "Ratified: Advisor identity is PersonIdentity + AdvisorRole; lifecycle is hybrid internal/official; context uses governed envelope; NASH suggests only and cannot execute side effects or alter official states.",
+          "reversible": true,
+          "contract_affected": "advisor_owner_decision_set",
+          "stages_blocked": [],
+          "ratified_definitions": {
+            "advisor_identity": "PersonIdentity + AdvisorRole. PersonIdentity is durable identity. AdvisorRole contains role, effective period and history. No parallel identities by domain. Ambiguous matches require human review.",
+            "advisor_lifecycle": "Hybrid model: internal operational states plus official states from authorized sources. Official states change only through official evidence or authorized human approval. NASH, Mick, Relationship, Productivity and UI cannot modify official states.",
+            "advisor_context": "Governed context envelope with owner, source, freshness, uncertainty, evidence references and purpose limitation. The envelope is not source of truth.",
+            "nash_boundary": "NASH may suggest, summarize, explain and produce candidate actions. NASH may not execute side effects, change lifecycle, produce official states, infer consent, convert inference into fact or replace human authority."
+          }
+        }
+      ],
+      "artifact_wave": 4,
+      "derived_depends_on_stages": [
+        "SG-001",
+        "SG-002",
+        "SG-018"
+      ]
+    },
+    {
+      "id": "SG-019",
+      "previous_stage_id": "SG-019",
+      "canonical_order": 6,
+      "dependency_layer": "REJECTION_GUARD",
+      "name": "Rejected Capability Guard",
+      "purpose": "Rejected Capability Guard consumes only outputs from earlier canonical layers and produces rejected_capability_denylist for downstream stages.",
+      "capabilities": [
+        "CAP-AUTONOMOUS-AI-DECISIONING",
+        "CAP-GENERIC-CRM-CLONE"
+      ],
+      "functional_requirements": [
+        "REQ-AUTONOMOUS-AI-DECISIONING-REJECTED",
+        "REQ-GENERIC-CRM-CLONE-REJECTED"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_I",
+        "CONSTITUTION_ARTICLE_IV",
+        "CONSTITUTION_ARTICLE_VI"
+      ],
+      "boundaries": [
+        "BOUND-HUMAN-JUDGMENT",
+        "BOUND-AI-EXPLAINS-FORGE-DECIDES",
+        "BOUND-FORGE-NOT-CRM"
+      ],
+      "adr": [
+        "ADR-003",
+        "ADR-004",
+        "ADR-020",
+        "AGENTS"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "product identity confirmed",
+        "SG-001 completed or ratified",
+        "SG-018 completed or ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "adr/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-019-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Rejected Capability Guard has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [],
+      "produces": [
+        "RejectedCapabilityDenylist"
+      ],
+      "consumes": [
+        "ConstitutionalRuntimeConstraints",
+        "LegacyReintroductionDenylist"
+      ],
+      "owner_decisions": [],
+      "artifact_wave": 4,
+      "derived_depends_on_stages": [
+        "SG-001",
+        "SG-018"
+      ],
+      "status": "REJECTED"
+    },
+    {
+      "id": "SG-022",
+      "previous_stage_id": null,
+      "canonical_order": 7,
+      "dependency_layer": "CANONICAL_IDENTITY_AND_ACTOR_MODEL",
+      "name": "Canonical Identity And Actor Model",
+      "status": "READY",
+      "capabilities": [
+        "CAP-TRUTH-EVIDENCE"
+      ],
+      "functional_requirements": [
+        "REQ-TRUTH-OWNER-VALIDATION"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_III",
+        "CONSTITUTION_ARTICLE_IV"
+      ],
+      "boundaries": [
+        "BOUND-EVIDENCE-OWNERSHIP",
+        "BOUND-HUMAN-AUTHORITY",
+        "BOUND-UNKNOWN-REMAINS-UNKNOWN"
+      ],
+      "adr": [
+        "ADR-020"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "SG-021 owner identity decision ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "platform/",
+        "shared/",
+        "supabase/",
+        "legacy/"
+      ],
+      "templates": [
+        "scaffolds/templates/documentation/stage-plan.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "create identity runtime",
+        "merge identities automatically"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-022-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Person, User, Advisor, Candidate, Recruit, Agent, Leader and Manager identity semantics are defined before role or relationship consumers."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [
+        "SG-023",
+        "SG-025",
+        "SG-027",
+        "SG-003",
+        "SG-015",
+        "SG-017"
+      ],
+      "produces": [
+        "CanonicalIdentityContract",
+        "ActorAuthorityContract",
+        "AdvisorRoleModel",
+        "IdentityAliasPolicy"
+      ],
+      "consumes": [
+        "ProductSemanticsDecisionRecord",
+        "DomainAuthorityDecisionRecord",
+        "AdvisorOwnerDecisionSet"
+      ],
+      "owner_decisions": [
+        {
+          "id": "SG003-OD-001",
+          "status": "RATIFIED",
+          "contract_affected": "canonical_identity_contract",
+          "stages_blocked": [],
+          "unlock_criteria": "Resolved by operational closure using Constitution, ADRs, source-of-truth and evidence-first constraints.",
+          "default_if_allowed": "Ratified by SG021-OD-001 operational closure.",
+          "reversible": true,
+          "blocked_consumers": []
+        }
+      ],
+      "artifact_wave": 5,
+      "derived_depends_on_stages": [
+        "SG-021"
+      ]
+    },
+    {
+      "id": "SG-023",
+      "previous_stage_id": null,
+      "canonical_order": 8,
+      "dependency_layer": "OWNERSHIP_AND_SOURCE_OF_TRUTH_REGISTRY",
+      "name": "Ownership And Source-Of-Truth Registry",
+      "status": "READY",
+      "capabilities": [
+        "CAP-TRUTH-EVIDENCE"
+      ],
+      "functional_requirements": [
+        "REQ-TRUTH-OWNER-VALIDATION"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_III",
+        "CONSTITUTION_ARTICLE_VII"
+      ],
+      "boundaries": [
+        "BOUND-EVIDENCE-OWNERSHIP",
+        "BOUND-ONE-METRIC-ONE-OWNER",
+        "BOUND-UNKNOWN-REMAINS-UNKNOWN"
+      ],
+      "adr": [
+        "ADR-001",
+        "ADR-002",
+        "ADR-014",
+        "ADR-020"
+      ],
+      "contracts": [
+        "scaffolds/contracts/traceability.schema.json"
+      ],
+      "prerequisites": [
+        "SG-021 owner data decision ratified",
+        "SG-022 identity model available"
+      ],
+      "allowed_paths": [
+        "docs/architecture/scaffolds/instances/source-truth/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "platform/",
+        "shared/",
+        "supabase/",
+        "legacy/"
+      ],
+      "templates": [
+        "scaffolds/templates/documentation/stage-plan.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "create metric formulas",
+        "create product behavior"
+      ],
+      "validations": [
+        "validate-traceability",
+        "validate-boundaries"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-023-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Every source truth and metric consumed by later domains has a single owner or blocks as UNKNOWN."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [
+        "SG-026",
+        "SG-027",
+        "SG-008",
+        "SG-006",
+        "SG-009",
+        "SG-010",
+        "SG-011",
+        "SG-005",
+        "SG-003",
+        "SG-014",
+        "SG-015",
+        "SG-016"
+      ],
+      "produces": [
+        "OwnershipRegistry",
+        "SourceOfTruthRegistry",
+        "MetricOwnershipRegistry",
+        "ProductivityMetricContract",
+        "ParallelTruthDenyPolicy"
+      ],
+      "consumes": [
+        "ProductSemanticsDecisionRecord",
+        "DomainAuthorityDecisionRecord",
+        "ClaimContract",
+        "ProvenanceModel"
+      ],
+      "owner_decisions": [
+        {
+          "id": "SG021-DEF-001",
+          "status": "DEFAULTED",
+          "scope": [
+            "general_metric_ownership"
+          ],
+          "affected_artifacts": [
+            "MetricOwnershipRegistry",
+            "ProductivityMetricContract"
+          ],
+          "blocked_consumers": [],
+          "source": [
+            "AGENTS.md Metric Ownership Rule"
+          ],
+          "default_if_allowed": "metric owners may be UNKNOWN until ratified; consumers must block strong claims for unknown owners",
+          "unlock_criteria": "Default unknown-owner policy recorded.",
+          "reversible": true,
+          "contract_affected": "metric_ownership_registry",
+          "stages_blocked": []
+        }
+      ],
+      "artifact_wave": 5,
+      "derived_depends_on_stages": [
+        "SG-002",
+        "SG-021"
+      ]
+    },
+    {
+      "id": "SG-020",
+      "previous_stage_id": "SG-020",
+      "canonical_order": 9,
+      "dependency_layer": "LEGACY_EVIDENCE_INTAKE",
+      "name": "Legacy Functional Evidence Intake",
+      "purpose": "Legacy Functional Evidence Intake consumes only outputs from earlier canonical layers and produces legacy_functional_evidence_classification for downstream stages.",
+      "capabilities": [
+        "CAP-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE"
+      ],
+      "functional_requirements": [
+        "REQ-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE"
+      ],
+      "constitutional_authority": [
+        "DIRECTIVE_SECTION_4"
+      ],
+      "boundaries": [
+        "BOUND-NO-LEGACY-CODE-COPY"
+      ],
+      "adr": [
+        "AGENTS"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "owner-supplied original Forge evidence",
+        "SG-018 completed or ratified",
+        "SG-021 completed or ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "adr/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-020-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Legacy Functional Evidence Intake has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [],
+      "produces": [
+        "LegacyFunctionalEvidenceClassification"
+      ],
+      "consumes": [
+        "LegacyReintroductionDenylist",
+        "ProductSemanticsDecisionRecord"
+      ],
+      "owner_decisions": [],
+      "artifact_wave": 5,
+      "derived_depends_on_stages": [
+        "SG-018",
+        "SG-021"
+      ],
+      "status": "DEFERRED",
+      "evidence_policy": {
+        "status": "OPTIONAL_FOR_FIRST_VERTICAL_SLICE",
+        "rule": "Legacy evidence is never global source of truth. It may only classify future preservation candidates and must not block V2-defined contracts.",
+        "blocked_artifacts": [
+          "LegacyFunctionalEvidenceClassification"
+        ],
+        "unblocked_consumers": "all non-legacy consumers"
+      }
+    },
+    {
+      "id": "SG-025",
+      "previous_stage_id": null,
+      "canonical_order": 10,
+      "dependency_layer": "LIFECYCLE_STATE_AND_TRANSITION_FRAMEWORK",
+      "name": "Lifecycle State And Transition Framework",
+      "status": "READY",
+      "capabilities": [
+        "CAP-TRUTH-EVIDENCE",
+        "CAP-GOVERNANCE-GATE"
+      ],
+      "functional_requirements": [
+        "REQ-TRUTH-OWNER-VALIDATION",
+        "REQ-ROBOCOP-GATE"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_III",
+        "CONSTITUTION_ARTICLE_IV"
+      ],
+      "boundaries": [
+        "BOUND-EVIDENCE-OWNERSHIP",
+        "BOUND-HUMAN-AUTHORITY",
+        "BOUND-NO-HUMAN-CONSEQUENCE-AUTOMATION",
+        "BOUND-UNKNOWN-REMAINS-UNKNOWN"
+      ],
+      "adr": [
+        "ADR-020"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json",
+        "scaffolds/contracts/evidence-contract.schema.json"
+      ],
+      "prerequisites": [
+        "SG-022 identity model ratified",
+        "SG-024 human authority contract",
+        "SG003-OD-002 answered"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "platform/",
+        "shared/",
+        "supabase/",
+        "legacy/"
+      ],
+      "templates": [
+        "scaffolds/templates/documentation/stage-plan.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "create lifecycle runtime",
+        "write production data",
+        "auto-transition people"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-025-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Lifecycle state vocabulary, transition authority, correction and receipt semantics exist before Advisor/Relationship/Workspace consumers."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [
+        "SG-026",
+        "SG-017"
+      ],
+      "produces": [
+        "LifecycleFramework",
+        "LifecycleStateModel",
+        "TransitionAuthorityPolicy",
+        "CorrectionPolicy"
+      ],
+      "consumes": [
+        "CanonicalIdentityContract",
+        "AdvisorRoleModel",
+        "HumanAuthorityContract",
+        "AdvisorOwnerDecisionSet"
+      ],
+      "owner_decisions": [
+        {
+          "id": "SG003-OD-002",
+          "status": "RATIFIED",
+          "contract_affected": "lifecycle_state_model",
+          "stages_blocked": [],
+          "unlock_criteria": "Resolved by operational closure using Constitution, ADRs, source-of-truth and evidence-first constraints.",
+          "default_if_allowed": "Ratified by SG021-OD-001 operational closure.",
+          "reversible": true,
+          "blocked_consumers": []
+        }
+      ],
+      "artifact_wave": 6,
+      "derived_depends_on_stages": [
+        "SG-024",
+        "SG-021",
+        "SG-022"
+      ]
+    },
+    {
+      "id": "SG-026",
+      "previous_stage_id": null,
+      "canonical_order": 11,
+      "dependency_layer": "DOMAIN_EVENT_AND_RECEIPT_CONTRACTS",
+      "name": "Domain Event And Receipt Contracts",
+      "status": "READY",
+      "capabilities": [
+        "CAP-TRUTH-EVIDENCE",
+        "CAP-ACTION-PLANNING"
+      ],
+      "functional_requirements": [
+        "REQ-TRUTH-OWNER-VALIDATION",
+        "REQ-ACTION-RECOMMENDATION-NOT-EXECUTION"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_III",
+        "CONSTITUTION_ARTICLE_IV",
+        "CONSTITUTION_ARTICLE_V"
+      ],
+      "boundaries": [
+        "BOUND-EVIDENCE-OWNERSHIP",
+        "BOUND-ACTION-NO-EXECUTION",
+        "BOUND-HUMAN-AUTHORITY"
+      ],
+      "adr": [
+        "ADR-003",
+        "ADR-020"
+      ],
+      "contracts": [
+        "scaffolds/contracts/evidence-contract.schema.json",
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "SG-023 source registry",
+        "SG-024 human authority",
+        "SG-025 lifecycle framework"
+      ],
+      "allowed_paths": [
+        "docs/architecture/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "platform/",
+        "shared/",
+        "supabase/",
+        "legacy/"
+      ],
+      "templates": [
+        "scaffolds/templates/documentation/stage-plan.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "emit runtime events",
+        "write production data"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-026-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Domain event names, receipt requirements and rollback checkpoints exist before domains publish or consume events."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [
+        "SG-027",
+        "SG-008",
+        "SG-009",
+        "SG-010",
+        "SG-011",
+        "SG-005",
+        "SG-003",
+        "SG-014",
+        "SG-016",
+        "SG-017"
+      ],
+      "produces": [
+        "DomainEventTaxonomy",
+        "EventReceiptContract",
+        "RollbackCheckpointContract"
+      ],
+      "consumes": [
+        "OwnershipRegistry",
+        "SourceOfTruthRegistry",
+        "HumanAuthorityContract",
+        "LifecycleFramework"
+      ],
+      "owner_decisions": [
+        {
+          "id": "SG003-OD-002",
+          "status": "RATIFIED",
+          "contract_affected": "lifecycle_event_receipts",
+          "stages_blocked": [],
+          "unlock_criteria": "Resolved by operational closure using Constitution, ADRs, source-of-truth and evidence-first constraints.",
+          "default_if_allowed": "Ratified by SG021-OD-001 operational closure.",
+          "reversible": true,
+          "blocked_consumers": []
+        }
+      ],
+      "artifact_wave": 7,
+      "derived_depends_on_stages": [
+        "SG-024",
+        "SG-023",
+        "SG-025"
+      ]
+    },
+    {
+      "id": "SG-027",
+      "previous_stage_id": null,
+      "canonical_order": 12,
+      "dependency_layer": "READ_MODEL_AND_CONTEXT_ENVELOPE_CONTRACTS",
+      "name": "Read Model And Context Envelope Contracts",
+      "status": "READY",
+      "capabilities": [
+        "CAP-READ-ONLY-ADAPTERS",
+        "CAP-TRUTH-EVIDENCE"
+      ],
+      "functional_requirements": [
+        "REQ-READ-ONLY-NO-WRITES",
+        "REQ-TRUTH-OWNER-VALIDATION"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_III",
+        "CONSTITUTION_ARTICLE_V",
+        "CONSTITUTION_ARTICLE_VI"
+      ],
+      "boundaries": [
+        "BOUND-READ-ONLY",
+        "BOUND-EVIDENCE-OWNERSHIP",
+        "BOUND-ONE-METRIC-ONE-OWNER",
+        "BOUND-NASH-NO-TRUTH"
+      ],
+      "adr": [
+        "ADR-003",
+        "ADR-010",
+        "ADR-020"
+      ],
+      "contracts": [
+        "scaffolds/contracts/scaffold-contract.schema.json",
+        "scaffolds/contracts/evidence-contract.schema.json"
+      ],
+      "prerequisites": [
+        "SG-022 identity model",
+        "SG-023 source registry",
+        "SG-026 event receipts",
+        "SG003-OD-003 answered"
+      ],
+      "allowed_paths": [
+        "docs/architecture/",
+        "scaffolds/manifest/",
+        "platform/read-models/generated/"
+      ],
+      "prohibited_paths": [
+        "supabase/migrations/",
+        "legacy/",
+        "app.js",
+        "index.html"
+      ],
+      "templates": [
+        "scaffolds/templates/service/read-only-service.template.mjs"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "write production data",
+        "call external services",
+        "infer client intent"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-paths",
+        "validate-boundaries"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-027-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Read models and context envelopes carry source owner, evidence, freshness, uncertainty, purpose limitation and no-write constraints before UI or intelligence consumers."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [
+        "SG-006",
+        "SG-005",
+        "SG-003",
+        "SG-004",
+        "SG-014",
+        "SG-013",
+        "SG-015",
+        "SG-028",
+        "SG-029"
+      ],
+      "produces": [
+        "ReadModelContract",
+        "ContextEnvelope",
+        "PurposeLimitationPolicy",
+        "ForbiddenInferenceContract",
+        "WorkspaceReadModel"
+      ],
+      "consumes": [
+        "CanonicalIdentityContract",
+        "SourceOfTruthRegistry",
+        "OwnershipRegistry",
+        "DomainEventTaxonomy",
+        "EventReceiptContract",
+        "ReadOnlyAdapterContractSkeleton",
+        "AdvisorOwnerDecisionSet"
+      ],
+      "owner_decisions": [
+        {
+          "id": "SG003-OD-003",
+          "status": "RATIFIED",
+          "contract_affected": "context_envelope_contract",
+          "stages_blocked": [],
+          "unlock_criteria": "Resolved by operational closure using Constitution, ADRs, source-of-truth and evidence-first constraints.",
+          "default_if_allowed": "Ratified by SG021-OD-001 operational closure.",
+          "reversible": true,
+          "blocked_consumers": []
+        }
+      ],
+      "artifact_wave": 8,
+      "derived_depends_on_stages": [
+        "SG-002",
+        "SG-021",
+        "SG-022",
+        "SG-023",
+        "SG-026"
+      ]
+    },
+    {
+      "id": "SG-008",
+      "previous_stage_id": "SG-008",
+      "canonical_order": 13,
+      "dependency_layer": "DOMAIN_BASE_PRODUCT_RULE_FOUNDATION",
+      "name": "Carrier Scope Contract",
+      "purpose": "Carrier Scope Contract consumes only outputs from earlier canonical layers and produces carrier_scope_contract for downstream stages.",
+      "capabilities": [
+        "CAP-CARRIER-SCOPE"
+      ],
+      "functional_requirements": [
+        "REQ-CARRIER-SCOPE-CONTRACT"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_V"
+      ],
+      "boundaries": [
+        "BOUND-RULE-PACK-SEPARATION"
+      ],
+      "adr": [
+        "ADR-005",
+        "ADR-008"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "carrier scope naming convention ratified",
+        "SG-023 completed or ratified",
+        "SG-026 completed or ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "adr/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-008-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Carrier Scope Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [
+        "SG-006",
+        "SG-009"
+      ],
+      "produces": [
+        "CarrierScopeContract"
+      ],
+      "consumes": [
+        "SourceOfTruthRegistry",
+        "DomainEventTaxonomy"
+      ],
+      "owner_decisions": [],
+      "artifact_wave": 8,
+      "derived_depends_on_stages": [
+        "SG-023",
+        "SG-026"
+      ],
+      "status": "READY"
+    },
+    {
+      "id": "SG-017",
+      "previous_stage_id": "SG-017",
+      "canonical_order": 14,
+      "dependency_layer": "DEFERRED_PEOPLE_LIFECYCLE",
+      "name": "Recruitment And Precontract Lifecycle Contract",
+      "purpose": "Recruitment And Precontract Lifecycle Contract consumes only outputs from earlier canonical layers and produces recruitment_precontract_contract for downstream stages.",
+      "capabilities": [
+        "CAP-RECRUITMENT-PRECONTRACT"
+      ],
+      "functional_requirements": [
+        "REQ-RECRUITMENT-LIFECYCLE-RULES"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_IV",
+        "CONSTITUTION_ARTICLE_VI"
+      ],
+      "boundaries": [
+        "BOUND-NO-HUMAN-CONSEQUENCE-AUTOMATION",
+        "BOUND-NO-HUMAN-WORTH"
+      ],
+      "adr": [
+        "AGENTS"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "lifecycle architecture approval; owner-approved assessment limits",
+        "SG-022 completed or ratified",
+        "SG-024 completed or ratified",
+        "SG-025 completed or ratified",
+        "SG-026 completed or ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "adr/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-017-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Recruitment And Precontract Lifecycle Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [],
+      "produces": [
+        "RecruitmentPrecontractContract"
+      ],
+      "consumes": [
+        "CanonicalIdentityContract",
+        "HumanAuthorityContract",
+        "LifecycleFramework",
+        "EventReceiptContract"
+      ],
+      "owner_decisions": [],
+      "artifact_wave": 8,
+      "derived_depends_on_stages": [
+        "SG-024",
+        "SG-022",
+        "SG-025",
+        "SG-026"
+      ],
+      "status": "DEFERRED"
+    },
+    {
+      "id": "SG-003",
+      "previous_stage_id": "SG-003",
+      "canonical_order": 15,
+      "dependency_layer": "DOMAIN_BASE_RELATIONSHIP",
+      "name": "Relationship Intelligence Contract",
+      "purpose": "Relationship Intelligence Contract consumes only outputs from earlier canonical layers and produces relationship_signal_contract, relationship_next_action_contract for downstream stages.",
+      "capabilities": [
+        "CAP-RELATIONSHIP-INTELLIGENCE"
+      ],
+      "functional_requirements": [
+        "REQ-RELATIONSHIP-NON-MANIPULATION"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_III",
+        "CONSTITUTION_ARTICLE_IV",
+        "CONSTITUTION_ARTICLE_VI"
+      ],
+      "boundaries": [
+        "BOUND-RELATIONSHIP-NON-MANIPULATION",
+        "BOUND-HUMAN-AUTHORITY",
+        "BOUND-EVIDENCE-OWNERSHIP"
+      ],
+      "adr": [
+        "ADR-011",
+        "ADR-020"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "relationship acceptance criteria and Advisor semantics ratified",
+        "SG-022 completed or ratified",
+        "SG-023 completed or ratified",
+        "SG-024 completed or ratified",
+        "SG-026 completed or ratified",
+        "SG-027 completed or ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "adr/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-003-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Relationship Intelligence Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [
+        "SG-004",
+        "SG-028"
+      ],
+      "produces": [
+        "RelationshipContract",
+        "RelationshipSignalContract",
+        "RelationshipNextActionContract"
+      ],
+      "consumes": [
+        "CanonicalIdentityContract",
+        "AdvisorRoleModel",
+        "OwnershipRegistry",
+        "SourceOfTruthRegistry",
+        "HumanAuthorityContract",
+        "DomainEventTaxonomy",
+        "EventReceiptContract",
+        "ContextEnvelope",
+        "ForbiddenInferenceContract"
+      ],
+      "owner_decisions": [
+        {
+          "id": "SG-003-DECISION",
+          "status": "RATIFIED",
+          "contract_affected": "relationship_signal_contract",
+          "stages_blocked": [],
+          "unlock_criteria": "Resolved by operational closure using Constitution, ADRs, source-of-truth and evidence-first constraints.",
+          "default_if_allowed": "Ratified by SG021-OD-001 operational closure.",
+          "reversible": true,
+          "blocked_consumers": []
+        }
+      ],
+      "artifact_wave": 9,
+      "derived_depends_on_stages": [
+        "SG-024",
+        "SG-022",
+        "SG-023",
+        "SG-026",
+        "SG-027"
+      ],
+      "status": "READY"
+    },
+    {
+      "id": "SG-005",
+      "previous_stage_id": "SG-005",
+      "canonical_order": 16,
+      "dependency_layer": "DOMAIN_BASE_OPERATIONS",
+      "name": "Policy Operations Contract",
+      "purpose": "Policy Operations Contract consumes only outputs from earlier canonical layers and produces policy_operations_contract for downstream stages.",
+      "capabilities": [
+        "CAP-POLICY-OPERATIONS"
+      ],
+      "functional_requirements": [
+        "REQ-POLICY-TRUTH-SEPARATION"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_III",
+        "CONSTITUTION_ARTICLE_V"
+      ],
+      "boundaries": [
+        "BOUND-POLICY-TRUTH",
+        "BOUND-EVIDENCE-OWNERSHIP",
+        "BOUND-CAPTURE-ONCE"
+      ],
+      "adr": [
+        "ADR-006"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "policy evidence ownership accepted",
+        "SG-023 completed or ratified",
+        "SG-026 completed or ratified",
+        "SG-027 completed or ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "adr/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-005-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Policy Operations Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [
+        "SG-028"
+      ],
+      "produces": [
+        "PolicyOperationsContract",
+        "PolicyTruthReadModel"
+      ],
+      "consumes": [
+        "SourceOfTruthRegistry",
+        "EventReceiptContract",
+        "ContextEnvelope"
+      ],
+      "owner_decisions": [
+        {
+          "id": "SG-005-DECISION",
+          "status": "DEFAULTED",
+          "contract_affected": "policy_operations_contract",
+          "stages_blocked": [],
+          "unlock_criteria": "Resolved by operational closure using Constitution, ADRs, source-of-truth and evidence-first constraints.",
+          "default_if_allowed": "Minimum safe versioned product contract: read-only, no side effects, unknown remains unknown, evidence required, future expansion via versioned source packs.",
+          "reversible": true,
+          "blocked_consumers": []
+        }
+      ],
+      "artifact_wave": 9,
+      "derived_depends_on_stages": [
+        "SG-023",
+        "SG-026",
+        "SG-027"
+      ],
+      "status": "READY"
+    },
+    {
+      "id": "SG-009",
+      "previous_stage_id": "SG-009",
+      "canonical_order": 17,
+      "dependency_layer": "DOMAIN_BASE_PRODUCT_RULE_FOUNDATION",
+      "name": "Rule Pack Contract",
+      "purpose": "Rule Pack Contract consumes only outputs from earlier canonical layers and produces rule_pack_contract, rule_snapshot_contract for downstream stages.",
+      "capabilities": [
+        "CAP-RULE-PACK-CONTRACT"
+      ],
+      "functional_requirements": [
+        "REQ-RULE-PACK-CONTRACT"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_V"
+      ],
+      "boundaries": [
+        "BOUND-RULE-PACK-SEPARATION"
+      ],
+      "adr": [
+        "ADR-008",
+        "ADR-017",
+        "ADR-018"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "carrier scope contract; rule snapshot decision",
+        "SG-008 completed or ratified",
+        "SG-023 completed or ratified",
+        "SG-026 completed or ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "adr/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-009-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Rule Pack Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [
+        "SG-010",
+        "SG-011",
+        "SG-016"
+      ],
+      "produces": [
+        "RulePackContract",
+        "RuleSnapshotContract"
+      ],
+      "consumes": [
+        "CarrierScopeContract",
+        "SourceOfTruthRegistry",
+        "EventReceiptContract"
+      ],
+      "owner_decisions": [],
+      "artifact_wave": 9,
+      "derived_depends_on_stages": [
+        "SG-023",
+        "SG-026",
+        "SG-008"
+      ],
+      "status": "READY"
+    },
+    {
+      "id": "SG-006",
+      "previous_stage_id": "SG-006",
+      "canonical_order": 18,
+      "dependency_layer": "DOMAIN_BASE_PRODUCT_RULE_FOUNDATION",
+      "name": "Product Catalog Contract",
+      "purpose": "Product Catalog Contract consumes only outputs from earlier canonical layers and produces product_catalog_contract for downstream stages.",
+      "capabilities": [
+        "CAP-PRODUCT-CATALOG"
+      ],
+      "functional_requirements": [
+        "REQ-PRODUCT-CATALOG-CONTRACT"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_III",
+        "CONSTITUTION_ARTICLE_V"
+      ],
+      "boundaries": [
+        "BOUND-PRODUCT-TRUTH",
+        "BOUND-UNKNOWN-REMAINS-UNKNOWN"
+      ],
+      "adr": [
+        "ADR-005"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "SG-001 completed",
+        "SG-008 completed or ratified",
+        "SG-023 completed or ratified",
+        "SG-027 completed or ratified"
+      ],
+      "allowed_paths": [
+        "platform/",
+        "shared/",
+        "scaffolds/reports/",
+        "docs/architecture/",
+        "docs/product/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [
+        "scaffolds/reports/SG-006-evidence.json"
+      ],
+      "allowed_operations": [
+        "plan",
+        "dry-run",
+        "apply contract evidence",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-006-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Product Catalog Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "Remove only SG-006 generated evidence when hashes match.",
+      "next_stage_allowed": [
+        "SG-007",
+        "SG-012"
+      ],
+      "produces": [
+        "ProductCatalogContract"
+      ],
+      "consumes": [
+        "CarrierScopeContract",
+        "SourceOfTruthRegistry",
+        "ContextEnvelope"
+      ],
+      "owner_decisions": [],
+      "artifact_wave": 9,
+      "derived_depends_on_stages": [
+        "SG-023",
+        "SG-027",
+        "SG-008"
+      ],
+      "status": "READY"
+    },
+    {
+      "id": "SG-014",
+      "previous_stage_id": "SG-014",
+      "canonical_order": 19,
+      "dependency_layer": "INTELLIGENCE_BOUNDARY",
+      "name": "Mick Observable Behavior Contract",
+      "purpose": "Mick Observable Behavior Contract consumes only outputs from earlier canonical layers and produces observable_behavior_signal_contract for downstream stages.",
+      "capabilities": [
+        "CAP-MICK-BEHAVIOR"
+      ],
+      "functional_requirements": [
+        "REQ-MICK-OBSERVABLE-BEHAVIOR"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_VI"
+      ],
+      "boundaries": [
+        "BOUND-MICK-OBSERVABLE-BEHAVIOR",
+        "BOUND-NO-HUMAN-WORTH"
+      ],
+      "adr": [
+        "ADR-013",
+        "ADR-014"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "observable behavior signal taxonomy",
+        "SG-023 completed or ratified",
+        "SG-026 completed or ratified",
+        "SG-027 completed or ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "adr/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-014-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Mick Observable Behavior Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [
+        "SG-013"
+      ],
+      "produces": [
+        "ObservableBehaviorSignalContract"
+      ],
+      "consumes": [
+        "MetricOwnershipRegistry",
+        "ProductivityMetricContract",
+        "SourceOfTruthRegistry",
+        "ContextEnvelope",
+        "EventReceiptContract"
+      ],
+      "owner_decisions": [],
+      "artifact_wave": 9,
+      "derived_depends_on_stages": [
+        "SG-023",
+        "SG-026",
+        "SG-027"
+      ],
+      "status": "READY"
+    },
+    {
+      "id": "SG-004",
+      "previous_stage_id": "SG-004",
+      "canonical_order": 20,
+      "dependency_layer": "INTELLIGENCE_BOUNDARY",
+      "name": "Conversation Intelligence Contract",
+      "purpose": "Conversation Intelligence Contract consumes only outputs from earlier canonical layers and produces nash_context_contract, conversation_guidance_contract, human_review_boundary for downstream stages.",
+      "capabilities": [
+        "CAP-CONVERSATION-INTELLIGENCE"
+      ],
+      "functional_requirements": [
+        "REQ-NASH-DRAFTS-NOT-TRUTH"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_VI"
+      ],
+      "boundaries": [
+        "BOUND-NASH-NO-TRUTH",
+        "BOUND-AI-EXPLAINS-FORGE-DECIDES",
+        "BOUND-ACTION-NO-EXECUTION",
+        "BOUND-HUMAN-AUTHORITY"
+      ],
+      "adr": [
+        "ADR-010",
+        "ADR-020"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "conversation output contract and context whitelist ratified",
+        "SG-024 completed or ratified",
+        "SG-027 completed or ratified",
+        "SG-003 completed or ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "adr/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-004-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Conversation Intelligence Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [
+        "SG-028"
+      ],
+      "produces": [
+        "NASHBoundaryContract",
+        "ConversationGuidanceContract",
+        "NASHContextContract"
+      ],
+      "consumes": [
+        "HumanReviewBoundary",
+        "ContextEnvelope",
+        "PurposeLimitationPolicy",
+        "ForbiddenInferenceContract",
+        "RelationshipContract"
+      ],
+      "owner_decisions": [
+        {
+          "id": "SG-004-DECISION",
+          "status": "RATIFIED",
+          "contract_affected": "nash_context_contract",
+          "stages_blocked": [],
+          "unlock_criteria": "Resolved by operational closure using Constitution, ADRs, source-of-truth and evidence-first constraints.",
+          "default_if_allowed": "Ratified by SG021-OD-001 operational closure.",
+          "reversible": true,
+          "blocked_consumers": []
+        }
+      ],
+      "artifact_wave": 10,
+      "derived_depends_on_stages": [
+        "SG-024",
+        "SG-027",
+        "SG-003"
+      ],
+      "status": "READY"
+    },
+    {
+      "id": "SG-013",
+      "previous_stage_id": "SG-013",
+      "canonical_order": 21,
+      "dependency_layer": "INTELLIGENCE_CONSUMER",
+      "name": "Manager Coaching Contract",
+      "purpose": "Manager Coaching Contract consumes only outputs from earlier canonical layers and produces manager_coaching_contract for downstream stages.",
+      "capabilities": [
+        "CAP-MANAGER-COACHING"
+      ],
+      "functional_requirements": [
+        "REQ-MANAGER-COACHING-NO-CONSEQUENCES"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_IV",
+        "CONSTITUTION_ARTICLE_VI"
+      ],
+      "boundaries": [
+        "BOUND-MANAGER-COACHING-ONLY",
+        "BOUND-NO-HUMAN-CONSEQUENCE-AUTOMATION",
+        "BOUND-HUMAN-AUTHORITY"
+      ],
+      "adr": [
+        "ADR-015"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "people-domain coaching acceptance criteria",
+        "SG-014 completed or ratified",
+        "SG-024 completed or ratified",
+        "SG-027 completed or ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "adr/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-013-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Manager Coaching Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [
+        "SG-029"
+      ],
+      "produces": [
+        "ManagerCoachingContract"
+      ],
+      "consumes": [
+        "ObservableBehaviorSignalContract",
+        "HumanAuthorityContract",
+        "ContextEnvelope"
+      ],
+      "owner_decisions": [],
+      "artifact_wave": 10,
+      "derived_depends_on_stages": [
+        "SG-024",
+        "SG-027",
+        "SG-014"
+      ],
+      "status": "READY"
+    },
+    {
+      "id": "SG-011",
+      "previous_stage_id": "SG-011",
+      "canonical_order": 22,
+      "dependency_layer": "DOMAIN_BASE_PRODUCT_RULE_FOUNDATION",
+      "name": "Calculation Contract",
+      "purpose": "Calculation Contract consumes only outputs from earlier canonical layers and produces calculation_contract, calculation_provenance_contract for downstream stages.",
+      "capabilities": [
+        "CAP-CALCULATION-CONTRACT"
+      ],
+      "functional_requirements": [
+        "REQ-CALCULATION-CONTRACT"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_III"
+      ],
+      "boundaries": [
+        "BOUND-ECONOMIC-EVIDENCE",
+        "BOUND-FORECAST-NOT-FACT",
+        "BOUND-RULE-PACK-SEPARATION"
+      ],
+      "adr": [
+        "ADR-008",
+        "ADR-017"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "rule snapshot calculation decision",
+        "SG-009 completed or ratified",
+        "SG-023 completed or ratified",
+        "SG-026 completed or ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "adr/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-011-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Calculation Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [
+        "SG-012",
+        "SG-016"
+      ],
+      "produces": [
+        "CalculationContract",
+        "CalculationProvenanceContract"
+      ],
+      "consumes": [
+        "RulePackContract",
+        "RuleSnapshotContract",
+        "SourceOfTruthRegistry",
+        "ProvenanceModel",
+        "EventReceiptContract"
+      ],
+      "owner_decisions": [],
+      "artifact_wave": 10,
+      "derived_depends_on_stages": [
+        "SG-002",
+        "SG-023",
+        "SG-026",
+        "SG-009"
+      ],
+      "status": "READY"
+    },
+    {
+      "id": "SG-007",
+      "previous_stage_id": "SG-007",
+      "canonical_order": 23,
+      "dependency_layer": "DOMAIN_BASE_PRODUCT_RULE_FOUNDATION",
+      "name": "Product Source Pack Intake",
+      "purpose": "Product Source Pack Intake consumes only outputs from earlier canonical layers and produces product_source_pack_contract for downstream stages.",
+      "capabilities": [
+        "CAP-PRODUCT-SOURCE-PACK"
+      ],
+      "functional_requirements": [
+        "REQ-PRODUCT-SOURCE-PACK-EVIDENCE"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_III",
+        "CONSTITUTION_ARTICLE_V"
+      ],
+      "boundaries": [
+        "BOUND-PRODUCT-TRUTH",
+        "BOUND-UNKNOWN-REMAINS-UNKNOWN"
+      ],
+      "adr": [
+        "ADR-005"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "owner-approved commercial documentation",
+        "SG-006 completed or ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "adr/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-007-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Product Source Pack Intake has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [
+        "SG-012"
+      ],
+      "produces": [
+        "ProductSourcePackContract"
+      ],
+      "consumes": [
+        "ProductCatalogContract"
+      ],
+      "owner_decisions": [
+        {
+          "id": "SG-007-DECISION",
+          "status": "DEFAULTED",
+          "contract_affected": "product_source_pack_contract",
+          "stages_blocked": [],
+          "unlock_criteria": "Resolved by operational closure using Constitution, ADRs, source-of-truth and evidence-first constraints.",
+          "default_if_allowed": "Minimum safe versioned product contract: read-only, no side effects, unknown remains unknown, evidence required, future expansion via versioned source packs.",
+          "reversible": true,
+          "blocked_consumers": []
+        }
+      ],
+      "artifact_wave": 10,
+      "derived_depends_on_stages": [
+        "SG-006"
+      ],
+      "status": "READY"
+    },
+    {
+      "id": "SG-010",
+      "previous_stage_id": "SG-010",
+      "canonical_order": 24,
+      "dependency_layer": "DOMAIN_BASE_PRODUCT_RULE_FOUNDATION",
+      "name": "Eligibility Contract",
+      "purpose": "Eligibility Contract consumes only outputs from earlier canonical layers and produces eligibility_contract for downstream stages.",
+      "capabilities": [
+        "CAP-ELIGIBILITY-CONTRACT"
+      ],
+      "functional_requirements": [
+        "REQ-ELIGIBILITY-CONTRACT"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_III",
+        "CONSTITUTION_ARTICLE_V"
+      ],
+      "boundaries": [
+        "BOUND-RULE-PACK-SEPARATION",
+        "BOUND-UNKNOWN-REMAINS-UNKNOWN"
+      ],
+      "adr": [
+        "ADR-008"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "rule pack contract ratified",
+        "SG-009 completed or ratified",
+        "SG-023 completed or ratified",
+        "SG-026 completed or ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "adr/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-010-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Eligibility Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [
+        "SG-012"
+      ],
+      "produces": [
+        "EligibilityContract"
+      ],
+      "consumes": [
+        "RulePackContract",
+        "SourceOfTruthRegistry",
+        "EventReceiptContract"
+      ],
+      "owner_decisions": [
+        {
+          "id": "SG-010-DECISION",
+          "status": "DEFAULTED",
+          "contract_affected": "eligibility_contract",
+          "stages_blocked": [],
+          "unlock_criteria": "Resolved by operational closure using Constitution, ADRs, source-of-truth and evidence-first constraints.",
+          "default_if_allowed": "Minimum safe versioned product contract: read-only, no side effects, unknown remains unknown, evidence required, future expansion via versioned source packs.",
+          "reversible": true,
+          "blocked_consumers": []
+        }
+      ],
+      "artifact_wave": 10,
+      "derived_depends_on_stages": [
+        "SG-023",
+        "SG-026",
+        "SG-009"
+      ],
+      "status": "READY"
+    },
+    {
+      "id": "SG-015",
+      "previous_stage_id": "SG-015",
+      "canonical_order": 25,
+      "dependency_layer": "TRANSVERSAL_EXPERIENCE",
+      "name": "Advisor Experience Transversal Contract",
+      "purpose": "Advisor Experience Transversal Contract consumes only outputs from earlier canonical layers and produces advisor_experience_contract, feature_learning_state_contract for downstream stages.",
+      "capabilities": [
+        "CAP-ADVISOR-EXPERIENCE"
+      ],
+      "functional_requirements": [
+        "REQ-ADVISOR-EXPERIENCE-TRANSVERSAL"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_0"
+      ],
+      "boundaries": [
+        "BOUND-ADVISOR-EXPERIENCE-ANTI-DEPENDENCE",
+        "BOUND-CAPTURE-ONCE"
+      ],
+      "adr": [
+        "ADR-016"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "cross-domain experience boundaries ratified",
+        "SG-022 completed or ratified",
+        "SG-023 completed or ratified",
+        "SG-024 completed or ratified",
+        "SG-027 completed or ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "adr/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-015-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Advisor Experience Transversal Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [
+        "SG-028"
+      ],
+      "produces": [
+        "AdvisorExperienceContract",
+        "FeatureLearningStateContract"
+      ],
+      "consumes": [
+        "AdvisorRoleModel",
+        "OwnershipRegistry",
+        "HumanReviewBoundary",
+        "ContextEnvelope",
+        "ConversationGuidanceContract",
+        "ObservableBehaviorSignalContract",
+        "PolicyOperationsContract"
+      ],
+      "owner_decisions": [
+        {
+          "id": "SG-015-DECISION",
+          "status": "RATIFIED",
+          "contract_affected": "advisor_experience_contract",
+          "stages_blocked": [],
+          "unlock_criteria": "Resolved by operational closure using Constitution, ADRs, source-of-truth and evidence-first constraints.",
+          "default_if_allowed": "Ratified by SG021-OD-001 operational closure.",
+          "reversible": true,
+          "blocked_consumers": []
+        }
+      ],
+      "artifact_wave": 11,
+      "derived_depends_on_stages": [
+        "SG-024",
+        "SG-022",
+        "SG-023",
+        "SG-027",
+        "SG-005",
+        "SG-014",
+        "SG-004"
+      ],
+      "status": "READY"
+    },
+    {
+      "id": "SG-012",
+      "previous_stage_id": "SG-012",
+      "canonical_order": 26,
+      "dependency_layer": "DOMAIN_CONSUMER_QUOTE",
+      "name": "Quote Preview Contract",
+      "purpose": "Quote Preview Contract consumes only outputs from earlier canonical layers and produces quote_preview_contract for downstream stages.",
+      "capabilities": [
+        "CAP-QUOTE-PREVIEW"
+      ],
+      "functional_requirements": [
+        "REQ-QUOTE-PREVIEW-NON-BINDING"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_III",
+        "CONSTITUTION_ARTICLE_V"
+      ],
+      "boundaries": [
+        "BOUND-PRODUCT-TRUTH",
+        "BOUND-FORECAST-NOT-FACT",
+        "BOUND-ACTION-NO-EXECUTION"
+      ],
+      "adr": [
+        "ADR-005",
+        "ADR-008",
+        "ADR-017"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "product catalog contract; source pack evidence; eligibility contract; calculation contract",
+        "SG-006 completed or ratified",
+        "SG-007 completed or ratified",
+        "SG-010 completed or ratified",
+        "SG-011 completed or ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "adr/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-012-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Quote Preview Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [],
+      "produces": [
+        "QuotePreviewContract"
+      ],
+      "consumes": [
+        "ProductCatalogContract",
+        "ProductSourcePackContract",
+        "EligibilityContract",
+        "CalculationContract"
+      ],
+      "owner_decisions": [
+        {
+          "id": "SG-012-DECISION",
+          "status": "DEFAULTED",
+          "contract_affected": "quote_preview_contract",
+          "stages_blocked": [],
+          "unlock_criteria": "Resolved by operational closure using Constitution, ADRs, source-of-truth and evidence-first constraints.",
+          "default_if_allowed": "Minimum safe versioned product contract: read-only, no side effects, unknown remains unknown, evidence required, future expansion via versioned source packs.",
+          "reversible": true,
+          "blocked_consumers": []
+        }
+      ],
+      "artifact_wave": 11,
+      "derived_depends_on_stages": [
+        "SG-006",
+        "SG-011",
+        "SG-007",
+        "SG-010"
+      ],
+      "status": "READY"
+    },
+    {
+      "id": "SG-016",
+      "previous_stage_id": "SG-016",
+      "canonical_order": 27,
+      "dependency_layer": "DEFERRED_ECONOMIC",
+      "name": "Compensation And Economic Evidence Contract",
+      "purpose": "Compensation And Economic Evidence Contract consumes only outputs from earlier canonical layers and produces compensation_economic_contract for downstream stages.",
+      "capabilities": [
+        "CAP-COMPENSATION-ECONOMIC"
+      ],
+      "functional_requirements": [
+        "REQ-COMPENSATION-EVIDENCE-SNAPSHOTS"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_III"
+      ],
+      "boundaries": [
+        "BOUND-ECONOMIC-EVIDENCE",
+        "BOUND-FORECAST-NOT-FACT",
+        "BOUND-RULE-PACK-SEPARATION"
+      ],
+      "adr": [
+        "ADR-008",
+        "ADR-017",
+        "ADR-018"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "rule snapshots; source packs; period context",
+        "SG-009 completed or ratified",
+        "SG-011 completed or ratified",
+        "SG-023 completed or ratified",
+        "SG-026 completed or ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "adr/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-016-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Compensation And Economic Evidence Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [],
+      "produces": [
+        "CompensationEconomicContract"
+      ],
+      "consumes": [
+        "RuleSnapshotContract",
+        "CalculationContract",
+        "SourceOfTruthRegistry",
+        "EventReceiptContract"
+      ],
+      "owner_decisions": [],
+      "artifact_wave": 11,
+      "derived_depends_on_stages": [
+        "SG-023",
+        "SG-026",
+        "SG-009",
+        "SG-011"
+      ],
+      "status": "DEFERRED"
+    },
+    {
+      "id": "SG-029",
+      "previous_stage_id": null,
+      "canonical_order": 28,
+      "dependency_layer": "WORKSPACE_SURFACE",
+      "name": "Manager Workspace Surface Contract",
+      "purpose": "Manager Workspace Surface Contract consumes only outputs from earlier canonical layers and produces manager_workspace_surface_contract for downstream stages.",
+      "capabilities": [
+        "CAP-MANAGER-COACHING"
+      ],
+      "functional_requirements": [
+        "REQ-MANAGER-COACHING-NO-CONSEQUENCES"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_IV",
+        "CONSTITUTION_ARTICLE_VI"
+      ],
+      "boundaries": [
+        "BOUND-MANAGER-COACHING-ONLY",
+        "BOUND-NO-HUMAN-CONSEQUENCE-AUTOMATION"
+      ],
+      "adr": [
+        "ADR-015"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "manager workspace contract consumes manager coaching without consequences",
+        "SG-013 completed or ratified",
+        "SG-024 completed or ratified",
+        "SG-027 completed or ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "adr/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-029-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Manager Workspace Surface Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [],
+      "produces": [
+        "ManagerWorkspaceSurfaceContract"
+      ],
+      "consumes": [
+        "ManagerCoachingContract",
+        "HumanReviewBoundary",
+        "WorkspaceReadModel"
+      ],
+      "owner_decisions": [],
+      "artifact_wave": 11,
+      "derived_depends_on_stages": [
+        "SG-024",
+        "SG-027",
+        "SG-013"
+      ],
+      "status": "READY"
+    },
+    {
+      "id": "SG-028",
+      "previous_stage_id": null,
+      "canonical_order": 29,
+      "dependency_layer": "WORKSPACE_SURFACE",
+      "name": "Advisor Workspace Surface Contract",
+      "purpose": "Advisor Workspace Surface Contract consumes only outputs from earlier canonical layers and produces advisor_workspace_surface_contract for downstream stages.",
+      "capabilities": [
+        "CAP-ADVISOR-EXPERIENCE",
+        "CAP-ACTION-PLANNING"
+      ],
+      "functional_requirements": [
+        "REQ-ADVISOR-EXPERIENCE-TRANSVERSAL",
+        "REQ-ACTION-RECOMMENDATION-NOT-EXECUTION"
+      ],
+      "constitutional_authority": [
+        "CONSTITUTION_ARTICLE_0",
+        "CONSTITUTION_ARTICLE_IV"
+      ],
+      "boundaries": [
+        "BOUND-ADVISOR-EXPERIENCE-ANTI-DEPENDENCE",
+        "BOUND-ACTION-NO-EXECUTION",
+        "BOUND-HUMAN-AUTHORITY"
+      ],
+      "adr": [
+        "ADR-003",
+        "ADR-016"
+      ],
+      "contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "prerequisites": [
+        "Advisor identity, context envelope and stable domain contracts ratified",
+        "SG-003 completed or ratified",
+        "SG-004 completed or ratified",
+        "SG-005 completed or ratified",
+        "SG-015 completed or ratified",
+        "SG-027 completed or ratified"
+      ],
+      "allowed_paths": [
+        "docs/product/",
+        "docs/architecture/",
+        "adr/",
+        "scaffolds/manifest/"
+      ],
+      "prohibited_paths": [
+        "legacy/",
+        "temporary-governance-rewrite-pack/",
+        "app.js",
+        "index.html",
+        "supabase/migrations/"
+      ],
+      "templates": [
+        "scaffolds/templates/domain/blocked-domain.template.md"
+      ],
+      "files_to_generate": [],
+      "allowed_operations": [
+        "plan",
+        "record blocked evidence",
+        "dry-run",
+        "validate"
+      ],
+      "prohibited_operations": [
+        "apply product code",
+        "copy legacy runtime",
+        "write production data",
+        "external side effects"
+      ],
+      "validations": [
+        "validate-stage",
+        "validate-boundaries",
+        "validate-traceability"
+      ],
+      "evidence": [
+        "scaffolds/reports/SG-028-evidence.json"
+      ],
+      "acceptance_criteria": [
+        "Advisor Workspace Surface Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+      ],
+      "rollback": "No generated product files are allowed while blocked.",
+      "next_stage_allowed": [],
+      "produces": [
+        "AdvisorWorkspaceSurfaceContract"
+      ],
+      "consumes": [
+        "RelationshipContract",
+        "NASHBoundaryContract",
+        "PolicyOperationsContract",
+        "AdvisorExperienceContract",
+        "ContextEnvelope",
+        "WorkspaceReadModel",
+        "AllowedActionContract"
+      ],
+      "owner_decisions": [
+        {
+          "id": "SG-028-DECISION",
+          "status": "RATIFIED",
+          "contract_affected": "advisor_workspace_surface_contract",
+          "stages_blocked": [],
+          "unlock_criteria": "Resolved by operational closure using Constitution, ADRs, source-of-truth and evidence-first constraints.",
+          "default_if_allowed": "Ratified by SG021-OD-001 operational closure.",
+          "reversible": true,
+          "blocked_consumers": []
+        }
+      ],
+      "artifact_wave": 12,
+      "derived_depends_on_stages": [
+        "SG-024",
+        "SG-027",
+        "SG-003",
+        "SG-005",
+        "SG-004",
+        "SG-015"
+      ],
+      "status": "READY"
+    }
+  ],
+  "order_source": "scaffolds/manifest/rewrite-artifact-graph.json"
 }

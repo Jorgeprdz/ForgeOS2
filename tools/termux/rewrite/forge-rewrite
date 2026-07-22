@@ -1,0 +1,24 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set -Eeuo pipefail
+
+SCRIPT_DIR="$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+runner="$SCRIPT_DIR/forge-rewrite-launch.sh"
+
+[ -f "$runner" ] || {
+  printf 'FORGE_REWRITE_ERROR RUNNER_NOT_FOUND:%s\n' "$runner" >&2
+  exit 1
+}
+[ -r "$runner" ] || {
+  printf 'FORGE_REWRITE_ERROR RUNNER_NOT_READABLE:%s\n' "$runner" >&2
+  exit 1
+}
+command -v bash >/dev/null 2>&1 || {
+  printf 'FORGE_REWRITE_ERROR BASH_NOT_AVAILABLE\n' >&2
+  exit 1
+}
+bash -n "$runner" || {
+  printf 'FORGE_REWRITE_ERROR RUNNER_SYNTAX_INVALID:%s\n' "$runner" >&2
+  exit 1
+}
+
+bash "$runner" "$@"

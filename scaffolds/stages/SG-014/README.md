@@ -1,5 +1,13 @@
-# SG-014 Mick Observable Behavior Contract
+# SG-014 - Mick Observable Behavior Contract
 
-Status: `BLOCKED_REQUIRES_ARCHITECTURAL_DECISION`
+Canonical order: 20.
 
-Mick emits observable behavior signals only. It never values people, emits consequences or replaces human decisions.
+Layer: `INTELLIGENCE_BOUNDARY`.
+
+Status: `undefined`.
+
+Depends on: `SG-023`, `SG-026`, `SG-027`.
+
+Produces: `observable_behavior_signal_contract`.
+
+This stage is part of the dependency-ordered Forge OS 2 rewrite sequence. It must be executed through Bash-based Termux tooling and must not be selected by numeric SG order.

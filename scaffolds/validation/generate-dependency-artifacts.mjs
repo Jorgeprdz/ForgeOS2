@@ -20,6 +20,7 @@ const traceByCapability = new Map(traces.map(trace => [trace.capability_id, trac
 const stageByCapability = new Map(traces.map(trace => [trace.capability_id, trace.stage]));
 
 function stageFor(module) {
+  if (module.stage_id) return module.stage_id;
   return module.capabilities.map(capability => stageByCapability.get(capability)).filter(Boolean)[0] || null;
 }
 

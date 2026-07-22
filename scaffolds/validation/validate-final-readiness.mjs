@@ -27,6 +27,9 @@ const weighted = readJson('scaffolds/reports/weighted-architectural-analysis.jso
 const contracts = readJson('scaffolds/manifest/contract-baseline.json');
 const firstWave = readJson('scaffolds/manifest/first-execution-wave.json');
 const decisions = readJson('scaffolds/manifest/owner-decision-packet.json');
+const canonicalDecisions = exists('scaffolds/manifest/canonical-owner-decisions.json')
+  ? readJson('scaffolds/manifest/canonical-owner-decisions.json')
+  : null;
 const go = readJson('scaffolds/reports/rewrite-go-no-go.json');
 const registry = readJson('scaffolds/manifest/forge-module-registry.json').modules;
 const graph = readJson('scaffolds/manifest/dependency-graph.json');
@@ -87,11 +90,16 @@ for (const id of firstWaveIds) {
   for (const dependency of module.dependencies) assert(!firstWaveIds.includes(dependency.module_id), `first wave has dependent pair ${id}/${dependency.module_id}`);
 }
 
-assert(decisions.decisions.length > 0, 'owner decision packet should record existing blockers');
+assert(Array.isArray(decisions.decisions), 'owner decision packet decisions must be an array');
 for (const decision of decisions.decisions) {
   for (const key of ['decision_id', 'module_id', 'question', 'why_required', 'available_options', 'recommended_option', 'tradeoffs', 'constitutional_constraints', 'affected_modules', 'operations_blocked', 'evidence_needed', 'default_if_unresolved']) {
     assert(key in decision, `${decision.decision_id || 'decision'} missing ${key}`);
   }
+}
+if (canonicalDecisions) {
+  assert(canonicalDecisions.summary.owner_decisions_remaining === 0, 'owner decisions remain after operational closure');
+  assert(canonicalDecisions.summary.architect_decisions_remaining === 0, 'architect decisions remain after operational closure');
+  assert(canonicalDecisions.summary.evidence_decisions_remaining === 0, 'evidence decisions remain after operational closure');
 }
 
 assert(semanticAudit.rejected_in_active_order === 0, 'rejected modules in active execution');

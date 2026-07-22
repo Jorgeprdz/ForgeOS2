@@ -137,16 +137,20 @@ for (let index = 0; index < critical.edges.length; index += 1) {
   assert(consumer.dependencies.some(dep => dep.module_id === edge.from && dep.type === edge.type), `critical path edge ${edge.from}->${edge.to} is not backed by a dependency`);
 }
 
-function assertImplementationBlocked(id, dependencies) {
+function assertImplementationOrdered(id, dependencies) {
   const module = moduleById.get(id);
-  assert(module.implementation_readiness !== 'READY', `${id} must not be implementation ready`);
+  const moduleIndex = order.active_topological_order.indexOf(id);
+  assert(moduleIndex >= 0, `${id} missing from active topological order`);
   for (const dependency of dependencies) {
-    assert(module.blocking_conditions.some(condition => condition.blocked_operation === 'IMPLEMENT' && condition.dependency_module === dependency), `${id} missing implementation blocking condition for ${dependency}`);
+    const dependencyIndex = order.active_topological_order.indexOf(dependency);
+    assert(dependencyIndex >= 0, `${id} dependency ${dependency} missing from active topological order`);
+    assert(dependencyIndex < moduleIndex, `${id} appears before implementation dependency ${dependency}`);
+    assert(module.dependencies.some(dep => dep.module_id === dependency), `${id} missing declared dependency ${dependency}`);
   }
 }
-assertImplementationBlocked('MOD-NBA-REASON-WHY', ['MOD-CONVERSATION-INTELLIGENCE', 'MOD-MICK-BEHAVIOR']);
-assertImplementationBlocked('MOD-PRODUCT-CATALOG', ['MOD-CARRIER-SCOPE']);
-assertImplementationBlocked('MOD-QUOTE-PREVIEW', ['MOD-PRODUCT-SOURCE-PACK', 'MOD-ELIGIBILITY-CONTRACT', 'MOD-CALCULATION-CONTRACT']);
+assertImplementationOrdered('MOD-NBA-REASON-WHY', ['MOD-CONVERSATION-INTELLIGENCE', 'MOD-MICK-BEHAVIOR']);
+assertImplementationOrdered('MOD-PRODUCT-CATALOG', ['MOD-CARRIER-SCOPE']);
+assertImplementationOrdered('MOD-QUOTE-PREVIEW', ['MOD-PRODUCT-SOURCE-PACK', 'MOD-ELIGIBILITY-CONTRACT', 'MOD-CALCULATION-CONTRACT']);
 assert(!order.active_topological_order.includes('MOD-AUTONOMOUS-AI-DECISIONING'), 'autonomous AI decisioning appears in active order');
 assert(!order.active_topological_order.includes('MOD-GENERIC-CRM-CLONE'), 'generic CRM clone appears in active order');
 assert(audit.blocked_without_conditions.length === 0, `audit found blocked modules without conditions: ${audit.blocked_without_conditions.join(', ')}`);

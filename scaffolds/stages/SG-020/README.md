@@ -1,5 +1,13 @@
-# SG-020 Legacy Functional Evidence Intake
+# SG-020 - Legacy Functional Evidence Intake
 
-Status: `BLOCKED_REQUIRES_LEGACY_EVIDENCE`
+Canonical order: 29.
 
-Legacy functional evidence intake classifies owner-supplied behavior only. It cannot copy code or restore architecture.
+Layer: `LEGACY_EVIDENCE_INTAKE`.
+
+Status: `undefined`.
+
+Depends on: `SG-018`, `SG-021`.
+
+Produces: `legacy_functional_evidence_classification`.
+
+This stage is part of the dependency-ordered Forge OS 2 rewrite sequence. It must be executed through Bash-based Termux tooling and must not be selected by numeric SG order.

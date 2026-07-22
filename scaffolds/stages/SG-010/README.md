@@ -1,5 +1,13 @@
-# SG-010 Eligibility Contract
+# SG-010 - Eligibility Contract
 
-Status: `BLOCKED_REQUIRES_PRODUCT_DEFINITION`
+Canonical order: 15.
 
-Eligibility is distinct from Product Catalog, Calculation and Quote Preview.
+Layer: `DOMAIN_BASE_PRODUCT_RULE_FOUNDATION`.
+
+Status: `undefined`.
+
+Depends on: `SG-009`, `SG-023`, `SG-026`.
+
+Produces: `eligibility_contract`.
+
+This stage is part of the dependency-ordered Forge OS 2 rewrite sequence. It must be executed through Bash-based Termux tooling and must not be selected by numeric SG order.

@@ -47,12 +47,14 @@ elif [ "$mode" = "--apply" ]; then
   forge_require_branch_prefix
   forge_require_clean_tree
   [ "$status" = "READY" ] || forge_die "stage $stage is not READY: $status"
+  forge_stage_dependencies_satisfied "$stage" || forge_die "stage dependencies are not satisfied: $stage"
 
   generator="$SCRIPT_DIR/generators/${stage}.sh"
   forge_validate_bash_runner "$generator"
 
-  if [ "$force" -ne 1 ] && [ -f "$FORGE_ROOT/.forge/rewrite/current-stage" ]; then
-    forge_die "another stage appears active; use resume or rollback"
+  if [ "$force" -ne 1 ]; then
+    blocking_stage="$(forge_current_stage_marker_blocks || true)"
+    [ -z "$blocking_stage" ] || forge_die "another stage appears active: $blocking_stage; use resume or rollback"
   fi
 
   mapfile -t outputs < <(node - "$stage" <<'NODE'

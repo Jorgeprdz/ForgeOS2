@@ -1,7 +1,13 @@
-# SG-001 Governed Termux Bootstrap
+# SG-001 - Constitutional Runtime Constraints
 
-Status: `READY`
+Canonical order: 1.
 
-Purpose: validate product definition, constitutional boundaries, traceability and manifests before any future rewrite stage is applied.
+Layer: `CONSTITUTIONAL_RUNTIME_CONSTRAINTS`.
 
-This stage may generate evidence only. It does not implement Forge OS 2.
+Status: `READY`.
+
+Depends on: none.
+
+Produces: `constitutional_runtime_constraints`, `robocop_gate_contract`, `blocked_state_policy`.
+
+This stage is part of the dependency-ordered Forge OS 2 rewrite sequence. It must be executed through Bash-based Termux tooling and must not be selected by numeric SG order.

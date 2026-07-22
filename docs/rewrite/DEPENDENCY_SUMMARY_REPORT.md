@@ -3,11 +3,11 @@
 Report ID: `FORGE_DEPENDENCY_SUMMARY_REPORT_002`
 
 - Modules analyzed: 37.
-- Dependencies discovered: 44.
-- Hard dependencies: 26.
+- Dependencies discovered: 82.
+- Hard dependencies: 49.
 - Soft dependencies: 0.
-- Event relationships: 156.
-- Active execution waves: 4.
-- Critical path length: 4.
+- Event relationships: 194.
+- Active execution waves: 7.
+- Critical path length: 8.
 - Rejected in active order: 0.
 - Blocked without conditions: 0.

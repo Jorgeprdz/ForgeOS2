@@ -230,8 +230,7 @@
       "node_type": "LEGACY_CONTROL",
       "parent_id": "FORGE-OS-2",
       "children": [
-        "TREE-MOD-LEGACY-REINTRODUCTION-GUARD",
-        "TREE-MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE"
+        "TREE-MOD-LEGACY-REINTRODUCTION-GUARD"
       ],
       "module_id": null,
       "surface_id": null,
@@ -252,7 +251,8 @@
       "children": [
         "TREE-MOD-COMPENSATION-ECONOMIC",
         "TREE-MOD-RECRUITMENT-PRECONTRACT",
-        "TREE-MOD-REVENUE-INTELLIGENCE"
+        "TREE-MOD-REVENUE-INTELLIGENCE",
+        "TREE-MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE"
       ],
       "module_id": null,
       "surface_id": null,
@@ -337,7 +337,7 @@
       "children": [],
       "module_id": "MOD-TRUTH-GOVERNANCE",
       "surface_id": null,
-      "stage_id": "SG-001",
+      "stage_id": "SG-002",
       "capabilities": [
         "CAP-TRUTH-EVIDENCE"
       ],
@@ -379,15 +379,15 @@
       "children": [],
       "module_id": "MOD-READONLY-ADAPTERS",
       "surface_id": "SURF-READ-ONLY-ADAPTERS",
-      "stage_id": "SG-002",
+      "stage_id": "SG-027",
       "capabilities": [
         "CAP-READ-ONLY-ADAPTERS"
       ],
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "EXISTS_REDESIGN",
       "execution_status": "ELIGIBLE",
-      "dependency_depth": 2,
-      "execution_wave": 2,
+      "dependency_depth": 4,
+      "execution_wave": 4,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_III"
       ]
@@ -400,7 +400,7 @@
       "children": [],
       "module_id": "MOD-ADVISOR-WORKSPACE",
       "surface_id": "SURF-ADVISOR-WORKSPACE",
-      "stage_id": "SG-002",
+      "stage_id": "SG-028",
       "capabilities": [
         "CAP-DECISION-CORE",
         "CAP-ACTION-PLANNING",
@@ -409,8 +409,8 @@
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
       "execution_status": "ELIGIBLE",
-      "dependency_depth": 4,
-      "execution_wave": 4,
+      "dependency_depth": 8,
+      "execution_wave": 8,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_0"
       ]
@@ -423,15 +423,15 @@
       "children": [],
       "module_id": "MOD-MANAGER-WORKSPACE",
       "surface_id": "SURF-MANAGER-WORKSPACE",
-      "stage_id": "SG-013",
+      "stage_id": "SG-029",
       "capabilities": [
         "CAP-MANAGER-COACHING"
       ],
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
-      "execution_status": "WAITING_FOR_DECISION",
-      "dependency_depth": 4,
-      "execution_wave": 4,
+      "execution_status": "ELIGIBLE",
+      "dependency_depth": 7,
+      "execution_wave": 7,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_VI"
       ]
@@ -450,9 +450,9 @@
       ],
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
-      "execution_status": "WAITING_FOR_DECISION",
-      "dependency_depth": 4,
-      "execution_wave": 4,
+      "execution_status": "ELIGIBLE",
+      "dependency_depth": 6,
+      "execution_wave": 6,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_VI"
       ]
@@ -471,9 +471,9 @@
       ],
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "EXISTS_REDESIGN",
-      "execution_status": "WAITING_FOR_DECISION",
-      "dependency_depth": 2,
-      "execution_wave": 2,
+      "execution_status": "ELIGIBLE",
+      "dependency_depth": 7,
+      "execution_wave": 7,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_VI"
       ]
@@ -492,9 +492,9 @@
       ],
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "EXISTS_REDESIGN",
-      "execution_status": "WAITING_FOR_DECISION",
-      "dependency_depth": 3,
-      "execution_wave": 3,
+      "execution_status": "ELIGIBLE",
+      "dependency_depth": 5,
+      "execution_wave": 5,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_III"
       ]
@@ -514,8 +514,8 @@
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "EXISTS_REDESIGN",
       "execution_status": "ELIGIBLE",
-      "dependency_depth": 3,
-      "execution_wave": 3,
+      "dependency_depth": 5,
+      "execution_wave": 5,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_III",
         "CONSTITUTION_ARTICLE_V"
@@ -535,9 +535,9 @@
       ],
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
-      "execution_status": "WAITING_FOR_DECISION",
-      "dependency_depth": 4,
-      "execution_wave": 4,
+      "execution_status": "ELIGIBLE",
+      "dependency_depth": 6,
+      "execution_wave": 6,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_III"
       ]
@@ -556,9 +556,9 @@
       ],
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
-      "execution_status": "WAITING_FOR_DECISION",
-      "dependency_depth": 2,
-      "execution_wave": 2,
+      "execution_status": "ELIGIBLE",
+      "dependency_depth": 4,
+      "execution_wave": 4,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_V"
       ]
@@ -577,9 +577,9 @@
       ],
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
-      "execution_status": "WAITING_FOR_DECISION",
-      "dependency_depth": 3,
-      "execution_wave": 3,
+      "execution_status": "ELIGIBLE",
+      "dependency_depth": 5,
+      "execution_wave": 5,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_V"
       ]
@@ -598,9 +598,9 @@
       ],
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
-      "execution_status": "WAITING_FOR_DECISION",
-      "dependency_depth": 4,
-      "execution_wave": 4,
+      "execution_status": "ELIGIBLE",
+      "dependency_depth": 6,
+      "execution_wave": 6,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_III"
       ]
@@ -619,9 +619,9 @@
       ],
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
-      "execution_status": "WAITING_FOR_DECISION",
-      "dependency_depth": 4,
-      "execution_wave": 4,
+      "execution_status": "ELIGIBLE",
+      "dependency_depth": 6,
+      "execution_wave": 6,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_III"
       ]
@@ -640,9 +640,9 @@
       ],
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "EXISTS_REDESIGN",
-      "execution_status": "WAITING_FOR_DECISION",
-      "dependency_depth": 5,
-      "execution_wave": 5,
+      "execution_status": "ELIGIBLE",
+      "dependency_depth": 7,
+      "execution_wave": 7,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_III",
         "CONSTITUTION_ARTICLE_V"
@@ -662,9 +662,9 @@
       ],
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
-      "execution_status": "WAITING_FOR_DECISION",
-      "dependency_depth": 2,
-      "execution_wave": 2,
+      "execution_status": "ELIGIBLE",
+      "dependency_depth": 5,
+      "execution_wave": 5,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_VI"
       ]
@@ -683,9 +683,9 @@
       ],
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
-      "execution_status": "WAITING_FOR_DECISION",
-      "dependency_depth": 3,
-      "execution_wave": 3,
+      "execution_status": "ELIGIBLE",
+      "dependency_depth": 6,
+      "execution_wave": 6,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_VI"
       ]
@@ -704,9 +704,9 @@
       ],
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
-      "execution_status": "WAITING_FOR_DECISION",
-      "dependency_depth": 5,
-      "execution_wave": 5,
+      "execution_status": "ELIGIBLE",
+      "dependency_depth": 6,
+      "execution_wave": 6,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_0"
       ]
@@ -762,7 +762,7 @@
       "children": [],
       "module_id": "MOD-HUMAN-APPROVAL-GATE",
       "surface_id": null,
-      "stage_id": "SG-001",
+      "stage_id": "SG-024",
       "capabilities": [
         "CAP-GOVERNANCE-GATE",
         "CAP-ACTION-PLANNING"
@@ -770,8 +770,8 @@
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
       "execution_status": "ELIGIBLE",
-      "dependency_depth": 3,
-      "execution_wave": 3,
+      "dependency_depth": 4,
+      "execution_wave": 4,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_0",
         "CONSTITUTION_ARTICLE_VI"
@@ -791,9 +791,9 @@
       ],
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
-      "execution_status": "WAITING_FOR_DECISION",
-      "dependency_depth": 4,
-      "execution_wave": 4,
+      "execution_status": "ELIGIBLE",
+      "dependency_depth": 8,
+      "execution_wave": 8,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_VI"
       ]
@@ -812,9 +812,9 @@
       ],
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
-      "execution_status": "WAITING_FOR_DECISION",
-      "dependency_depth": 5,
-      "execution_wave": 5,
+      "execution_status": "ELIGIBLE",
+      "dependency_depth": 9,
+      "execution_wave": 9,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_VI"
       ]
@@ -836,8 +836,8 @@
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
       "execution_status": "ELIGIBLE",
-      "dependency_depth": 3,
-      "execution_wave": 3,
+      "dependency_depth": 8,
+      "execution_wave": 8,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_0",
         "CONSTITUTION_ARTICLE_VI"
@@ -851,15 +851,15 @@
       "children": [],
       "module_id": "MOD-ADVISOR-LIFECYCLE",
       "surface_id": null,
-      "stage_id": "SG-001",
+      "stage_id": "SG-025",
       "capabilities": [
         "CAP-TRUTH-EVIDENCE"
       ],
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
       "execution_status": "ELIGIBLE",
-      "dependency_depth": 2,
-      "execution_wave": 2,
+      "dependency_depth": 5,
+      "execution_wave": 5,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_III"
       ]
@@ -872,7 +872,7 @@
       "children": [],
       "module_id": "MOD-ADVISOR-CONVERSION",
       "surface_id": null,
-      "stage_id": "SG-001",
+      "stage_id": "SG-025",
       "capabilities": [
         "CAP-TRUTH-EVIDENCE",
         "CAP-GOVERNANCE-GATE"
@@ -880,8 +880,8 @@
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
       "execution_status": "ELIGIBLE",
-      "dependency_depth": 4,
-      "execution_wave": 4,
+      "dependency_depth": 6,
+      "execution_wave": 6,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_III",
         "CONSTITUTION_ARTICLE_VI"
@@ -895,7 +895,7 @@
       "children": [],
       "module_id": "MOD-ADVISOR-ACTIVATION",
       "surface_id": null,
-      "stage_id": "SG-001",
+      "stage_id": "SG-025",
       "capabilities": [
         "CAP-TRUTH-EVIDENCE",
         "CAP-GOVERNANCE-GATE"
@@ -903,8 +903,8 @@
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
       "execution_status": "ELIGIBLE",
-      "dependency_depth": 5,
-      "execution_wave": 5,
+      "dependency_depth": 7,
+      "execution_wave": 7,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_III",
         "CONSTITUTION_ARTICLE_VI"
@@ -940,7 +940,7 @@
       "children": [],
       "module_id": "MOD-OPPORTUNITY-PIPELINE",
       "surface_id": null,
-      "stage_id": "SG-002",
+      "stage_id": "SG-027",
       "capabilities": [
         "CAP-READ-ONLY-ADAPTERS",
         "CAP-ACTION-PLANNING"
@@ -948,8 +948,8 @@
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "EXISTS_REDESIGN",
       "execution_status": "ELIGIBLE",
-      "dependency_depth": 3,
-      "execution_wave": 3,
+      "dependency_depth": 5,
+      "execution_wave": 5,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_III"
       ]
@@ -962,7 +962,7 @@
       "children": [],
       "module_id": "MOD-CLIENT-CRM-READMODEL",
       "surface_id": null,
-      "stage_id": "SG-002",
+      "stage_id": "SG-027",
       "capabilities": [
         "CAP-READ-ONLY-ADAPTERS",
         "CAP-RELATIONSHIP-INTELLIGENCE"
@@ -970,8 +970,8 @@
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "EXISTS_REDESIGN",
       "execution_status": "ELIGIBLE",
-      "dependency_depth": 3,
-      "execution_wave": 3,
+      "dependency_depth": 5,
+      "execution_wave": 5,
       "constitutional_authority": [
         "CONSTITUTION_ARTICLE_III"
       ]
@@ -1023,7 +1023,7 @@
       "id": "TREE-MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
       "name": "Legacy Functional Evidence Intake",
       "node_type": "LEGACY_CONTROL",
-      "parent_id": "TREE-LEGACY",
+      "parent_id": "TREE-DEFERRED",
       "children": [],
       "module_id": "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
       "surface_id": null,
@@ -1033,9 +1033,9 @@
       ],
       "definition_status": "CANONICALLY_DEFINED",
       "build_disposition": "BUILD_NEW",
-      "execution_status": "WAITING_FOR_EVIDENCE",
-      "dependency_depth": 4,
-      "execution_wave": 4,
+      "execution_status": "DEFERRED",
+      "dependency_depth": null,
+      "execution_wave": null,
       "constitutional_authority": [
         "DIRECTIVE_SECTION_4"
       ]

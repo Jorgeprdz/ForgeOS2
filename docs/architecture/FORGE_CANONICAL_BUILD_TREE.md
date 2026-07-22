@@ -68,13 +68,13 @@ Navigation entries are not modules. Features are represented as modules only whe
 ### Legacy Controls
 
 - `MOD-LEGACY-REINTRODUCTION-GUARD`
-- `MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE`
 
 ### Deferred Modules
 
 - `MOD-COMPENSATION-ECONOMIC`
 - `MOD-RECRUITMENT-PRECONTRACT`
 - `MOD-REVENUE-INTELLIGENCE`
+- `MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE`
 
 ### Rejected Modules
 

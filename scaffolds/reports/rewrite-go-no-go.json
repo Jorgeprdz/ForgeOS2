@@ -137,17 +137,13 @@
     },
     {
       "category": "evidence_readiness",
-      "status": "PASS_WITH_WARNINGS",
+      "status": "PASS",
       "evidence": [
         "source_commit:224144c4ab533f215d92641b68513b86c4f2cdda"
       ],
-      "failures": [
-        "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE"
-      ],
-      "warnings": [
-        "Evidence decisions remain outside the first execution wave."
-      ],
-      "required_action": "Resolve before affected module implementation.",
+      "failures": [],
+      "warnings": [],
+      "required_action": "None.",
       "blocking": false
     },
     {

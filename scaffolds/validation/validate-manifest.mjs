@@ -5,6 +5,8 @@ const name = 'validate-manifest';
 for (const file of [
   'scaffolds/manifest/rewrite-manifest.json',
   'scaffolds/manifest/rewrite-stages.json',
+  'scaffolds/manifest/canonical-rewrite-sequence.json',
+  'scaffolds/manifest/rewrite-artifact-graph.json',
   'scaffolds/manifest/scaffold-registry.json',
   'scaffolds/manifest/path-policy.json'
 ]) {

@@ -6,15 +6,15 @@ Freeze ID: `FORGE_ARCHITECTURE_FREEZE_001`
 - Source branch: `scaffold/constitution-first-termux-rewrite-20260722-091007`.
 - Source commit: `224144c4ab533f215d92641b68513b86c4f2cdda`.
 - Modules: 37.
-- Active modules: 32.
-- Deferred modules: 3.
+- Active modules: 31.
+- Deferred modules: 4.
 - Rejected modules: 2.
 - Product surfaces: 21.
 - Capabilities: 24.
-- Stages: 20.
-- Contracts: 31.
-- Dependency edges: 44.
-- Execution waves: 4.
+- Stages: 29.
+- Contracts: 33.
+- Dependency edges: 82.
+- Execution waves: 7.
 
 ## Unresolved Conflicts
 
