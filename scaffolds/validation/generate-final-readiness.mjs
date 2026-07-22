@@ -397,6 +397,12 @@ const goCategories = [
   ['branch_safety', sourceBranch !== 'main', []],
   ['worktree_cleanliness', true, ['evaluated during final validation']]
 ];
+let collapsedDecisionSummary = null;
+const collapsedDecisionPath = path.join(root, 'scaffolds/manifest/canonical-owner-decisions.json');
+if (fs.existsSync(collapsedDecisionPath)) collapsedDecisionSummary = JSON.parse(fs.readFileSync(collapsedDecisionPath, 'utf8')).summary;
+const finalDecision = firstWaveReady && freezeState === 'FROZEN' && contractBaseline.summary.missing === 0
+  ? (collapsedDecisionSummary?.first_wave_blocking_decisions === 0 ? 'GO' : (eligibility.waiting_for_decisions.length || eligibility.waiting_for_evidence.length ? 'CONDITIONAL_GO' : 'GO'))
+  : 'NO_GO';
 const goNoGo = {
   schema: '../contracts/rewrite-go-no-go.schema.json',
   report_id: 'FORGE_REWRITE_GO_NO_GO_001',
@@ -410,7 +416,7 @@ const goNoGo = {
     required_action: pass ? 'None.' : 'Resolve before affected module implementation.',
     blocking: id !== 'evidence_readiness' && !pass
   })),
-  final_decision: firstWaveReady && freezeState === 'FROZEN' && contractBaseline.summary.missing === 0 ? (eligibility.waiting_for_decisions.length || eligibility.waiting_for_evidence.length ? 'CONDITIONAL_GO' : 'GO') : 'NO_GO'
+  final_decision: finalDecision
 };
 
 writeJson('scaffolds/manifest/architecture-freeze.json', architectureFreeze);
@@ -428,7 +434,7 @@ writeText('docs/rewrite/FORGE_FINAL_REWRITE_ROADMAP.md', `# Forge Final Rewrite 
 writeText('docs/architecture/FORGE_WEIGHTED_ARCHITECTURAL_ANALYSIS.md', `# Forge Weighted Architectural Analysis\n\nReport ID: \`${weightedAnalysis.report_id}\`\n\nMandatory critical path remains dependency blocking only. Weighted architectural path informs risk review intensity and does not change eligibility.\n\n- Mandatory critical path length: ${graph.critical_path.length}.\n- Weighted architectural path score: ${weightedAnalysis.weighted_architectural_path.score}.\n\n## Mandatory Critical Path\n\n${mdList(graph.critical_path.modules)}\n\n## Weighted Architectural Path\n\n${mdList(weightedPath)}\n\n## Highest Risk Modules\n\n${weightedAnalysis.highest_risk_modules.map(item => `- \`${item.module_id}\`: ${item.value}`).join('\n')}\n`);
 writeText('docs/contracts/FORGE_CONTRACT_BASELINE.md', `# Forge Contract Baseline\n\nBaseline ID: \`${contractBaseline.baseline_id}\`\n\n- Contracts analyzed: ${contractBaseline.summary.analyzed}.\n- Frozen: ${contractBaseline.summary.frozen}.\n- Provisionally frozen: ${contractBaseline.summary.provisional}.\n- Missing: ${contractBaseline.summary.missing}.\n- Conflicted: ${contractBaseline.summary.conflicted}.\n\n| Module | Contract | Classification |\n|---|---|---|\n${tableRows(contractEntries.map(item => `| \`${item.module_id}\` | \`${item.contract_path}\` | ${item.classification} |`))}\n`);
 writeText('docs/rewrite/FORGE_FIRST_EXECUTION_WAVE.md', `# Forge First Execution Wave\n\nWave ID: \`${firstExecutionWave.wave_id}\`\n\n- Ready: ${firstWaveReady ? 'YES' : 'NO'}.\n- Selected operation: \`SCAFFOLD\`.\n\n## Modules\n\n${mdList(firstWaveIds)}\n\n## Failures\n\n${mdList(firstWaveFailures)}\n`);
-writeText('docs/rewrite/TERMUX_REWRITE_LAUNCH_GUIDE.md', `# Termux Rewrite Launch Guide\n\nThe launch packet prepares owner-controlled execution. It does not execute functional Forge OS modules by default.\n\n## Dry Run\n\n\`\`\`bash\n./tools/termux/rewrite/forge-rewrite-launch.sh\n\`\`\`\n\n## Explicit Launch Check\n\n\`\`\`bash\n./tools/termux/rewrite/forge-rewrite-launch.sh --execute\n\`\`\`\n\nThe script refuses \`main\`, dirty worktrees, non-frozen architecture, missing contracts, semantic validator failures, rejected/deferred active execution, blocked first-wave modules and inactive legacy guard.\n`);
+writeText('docs/rewrite/TERMUX_REWRITE_LAUNCH_GUIDE.md', `# Termux Rewrite Launch Guide\n\nThe launch packet prepares owner-controlled execution. It does not execute functional Forge OS modules by default.\n\n## Dry Run\n\n\`\`\`bash\nbash tools/termux/rewrite/forge-rewrite-launch.sh\n\`\`\`\n\n## Explicit Launch Check\n\n\`\`\`bash\nbash tools/termux/rewrite/forge-rewrite-launch.sh --execute\n\`\`\`\n\nTermux on Android shared storage may not expose executable bits. Run rewrite tools explicitly through \`bash\`.\n\nThe script refuses \`main\`, dirty worktrees, non-frozen architecture, missing contracts, semantic validator failures, rejected/deferred active execution, blocked first-wave modules and inactive legacy guard.\n`);
 writeText('docs/rewrite/FORGE_REWRITE_GO_NO_GO.md', `# Forge Rewrite GO / NO-GO\n\nReport ID: \`${goNoGo.report_id}\`\n\nFinal decision: \`${goNoGo.final_decision}\`.\n\nThe decision is repository-evidence based. Documents alone are not treated as proof; manifests, validators, contract existence and execution safety reports are checked.\n\n| Category | Status | Blocking |\n|---|---|---|\n${tableRows(goNoGo.categories.map(item => `| ${item.category} | ${item.status} | ${item.blocking ? 'YES' : 'NO'} |`))}\n`);
 writeText('docs/decisions/FORGE_OWNER_DECISION_PACKET.md', `# Forge Owner Decision Packet\n\nPacket ID: \`${ownerDecisionPacket.packet_id}\`\n\nUnresolved decisions remain blocked until owner or architecture approval supplies the missing definition, decision or evidence.\n\n| Decision | Module | Operations Blocked | Default |\n|---|---|---|---|\n${tableRows(ownerDecisionPacket.decisions.map(item => `| \`${item.decision_id}\` | \`${item.module_id}\` | ${item.operations_blocked.join(', ')} | ${item.default_if_unresolved} |`))}\n`);
 

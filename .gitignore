@@ -3,11 +3,6 @@ node_modules/
 # Forge local runtime and rewrite state
 .forge/
 
-.forge/rewrite/completed-stages.json
-.forge/rewrite/logs/
-.forge/rewrite/locks/
-.forge/rewrite/evidence/
-.forge/rewrite/last-validation.json
 .env
 .env.local
 .env.production
