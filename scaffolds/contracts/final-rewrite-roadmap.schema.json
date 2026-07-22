@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forge-os.local/scaffolds/contracts/final-rewrite-roadmap.schema.json",
+  "title": "Forge Final Rewrite Roadmap",
+  "type": "object",
+  "required": ["schema", "roadmap_id", "source_commit", "stage_id_rule", "eligible_now", "next_wave", "waiting_for_decision", "waiting_for_evidence", "waiting_for_dependencies", "deferred", "rejected", "completed_or_preserved", "modules"]
+}

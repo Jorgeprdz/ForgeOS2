@@ -1,0 +1,255 @@
+{
+  "schema": "../contracts/weighted-architectural-analysis.schema.json",
+  "report_id": "FORGE_WEIGHTED_ARCHITECTURAL_ANALYSIS_001",
+  "source_commit": "224144c4ab533f215d92641b68513b86c4f2cdda",
+  "mandatory_critical_path": {
+    "modules": [
+      "MOD-TRUTH-GOVERNANCE",
+      "MOD-GOVERNANCE-GATE",
+      "MOD-HUMAN-APPROVAL-GATE",
+      "MOD-ADVISOR-CONVERSION",
+      "MOD-ADVISOR-ACTIVATION"
+    ],
+    "edges": [
+      {
+        "from": "MOD-TRUTH-GOVERNANCE",
+        "to": "MOD-GOVERNANCE-GATE",
+        "dependency_edge": "MOD-GOVERNANCE-GATE->MOD-TRUTH-GOVERNANCE",
+        "type": "SECURITY"
+      },
+      {
+        "from": "MOD-GOVERNANCE-GATE",
+        "to": "MOD-HUMAN-APPROVAL-GATE",
+        "dependency_edge": "MOD-HUMAN-APPROVAL-GATE->MOD-GOVERNANCE-GATE",
+        "type": "SECURITY"
+      },
+      {
+        "from": "MOD-HUMAN-APPROVAL-GATE",
+        "to": "MOD-ADVISOR-CONVERSION",
+        "dependency_edge": "MOD-ADVISOR-CONVERSION->MOD-HUMAN-APPROVAL-GATE",
+        "type": "SECURITY"
+      },
+      {
+        "from": "MOD-ADVISOR-CONVERSION",
+        "to": "MOD-ADVISOR-ACTIVATION",
+        "dependency_edge": "MOD-ADVISOR-ACTIVATION->MOD-ADVISOR-CONVERSION",
+        "type": "HARD"
+      }
+    ],
+    "length": 4,
+    "start_module": "MOD-TRUTH-GOVERNANCE",
+    "end_module": "MOD-ADVISOR-ACTIVATION",
+    "total_weight": 4
+  },
+  "weighted_architectural_path": {
+    "modules": [
+      "MOD-TRUTH-GOVERNANCE",
+      "MOD-CARRIER-SCOPE",
+      "MOD-RULE-PACK-CONTRACT",
+      "MOD-CALCULATION-CONTRACT",
+      "MOD-QUOTE-PREVIEW"
+    ],
+    "score": 218
+  },
+  "weights": {
+    "dependency": {
+      "HARD": 10,
+      "SECURITY": 9,
+      "DATA": 8,
+      "RUNTIME": 8,
+      "VALIDATION": 7,
+      "BUILD_TIME": 6,
+      "EVENT": 5,
+      "UI": 3,
+      "TEST": 3,
+      "DOCUMENTATION": 1,
+      "SOFT": 1,
+      "OPTIONAL": 0
+    },
+    "module_risk": {
+      "BUILD_NEW": 5,
+      "EXISTS_REDESIGN": 4,
+      "PARTIALLY_IMPLEMENTED": 3,
+      "EXISTS_PRESERVE": 1,
+      "DEFER": 0,
+      "REJECT": 0
+    },
+    "evidence_risk": {
+      "OWNER_DECISION_REQUIRED": 5,
+      "ARCHITECTURAL_DECISION_REQUIRED": 5,
+      "EVIDENCE_REQUIRED": 4,
+      "EXTERNAL_INPUT_REQUIRED": 4,
+      "CONTRACT_MISSING": 3,
+      "SCHEMA_MISSING": 3,
+      "BOUNDARY_CONFLICT": 6,
+      "DEPENDENCY_NOT_READY": 2,
+      "GATE_NOT_PASSED": 2,
+      "CAPABILITY_UNRESOLVED": 3
+    }
+  },
+  "highest_fan_in_modules": [
+    {
+      "module_id": "MOD-QUOTE-PREVIEW",
+      "value": 4
+    },
+    {
+      "module_id": "MOD-ADVISOR-WORKSPACE",
+      "value": 2
+    },
+    {
+      "module_id": "MOD-COMPENSATION-ECONOMIC",
+      "value": 2
+    },
+    {
+      "module_id": "MOD-MANAGER-COACHING",
+      "value": 2
+    },
+    {
+      "module_id": "MOD-NBA-REASON-WHY",
+      "value": 2
+    },
+    {
+      "module_id": "MOD-POLICY-OPERATIONS",
+      "value": 2
+    },
+    {
+      "module_id": "MOD-RECRUITMENT-PRECONTRACT",
+      "value": 2
+    },
+    {
+      "module_id": "MOD-RELATIONSHIP-INTELLIGENCE",
+      "value": 2
+    }
+  ],
+  "highest_fan_out_modules": [
+    {
+      "module_id": "MOD-TRUTH-GOVERNANCE",
+      "value": 11
+    },
+    {
+      "module_id": "MOD-CALCULATION-CONTRACT",
+      "value": 3
+    },
+    {
+      "module_id": "MOD-GOVERNANCE-GATE",
+      "value": 3
+    },
+    {
+      "module_id": "MOD-READONLY-ADAPTERS",
+      "value": 3
+    },
+    {
+      "module_id": "MOD-RULE-PACK-CONTRACT",
+      "value": 3
+    },
+    {
+      "module_id": "MOD-ACTION-PLANNING",
+      "value": 2
+    },
+    {
+      "module_id": "MOD-CARRIER-SCOPE",
+      "value": 2
+    },
+    {
+      "module_id": "MOD-DECISION-CORE",
+      "value": 2
+    }
+  ],
+  "highest_risk_modules": [
+    {
+      "module_id": "MOD-QUOTE-PREVIEW",
+      "value": 70
+    },
+    {
+      "module_id": "MOD-MANAGER-COACHING",
+      "value": 46
+    },
+    {
+      "module_id": "MOD-RELATIONSHIP-INTELLIGENCE",
+      "value": 44
+    },
+    {
+      "module_id": "MOD-POLICY-OPERATIONS",
+      "value": 43
+    },
+    {
+      "module_id": "MOD-CALCULATION-CONTRACT",
+      "value": 37
+    },
+    {
+      "module_id": "MOD-ELIGIBILITY-CONTRACT",
+      "value": 37
+    },
+    {
+      "module_id": "MOD-MANAGER-WORKSPACE",
+      "value": 37
+    },
+    {
+      "module_id": "MOD-MESSAGE-SAFETY-VALIDATOR",
+      "value": 37
+    }
+  ],
+  "highest_unblock_value_modules": [
+    {
+      "module_id": "MOD-TRUTH-GOVERNANCE",
+      "value": 11
+    },
+    {
+      "module_id": "MOD-CALCULATION-CONTRACT",
+      "value": 3
+    },
+    {
+      "module_id": "MOD-GOVERNANCE-GATE",
+      "value": 3
+    },
+    {
+      "module_id": "MOD-READONLY-ADAPTERS",
+      "value": 3
+    },
+    {
+      "module_id": "MOD-RULE-PACK-CONTRACT",
+      "value": 3
+    },
+    {
+      "module_id": "MOD-ACTION-PLANNING",
+      "value": 2
+    },
+    {
+      "module_id": "MOD-CARRIER-SCOPE",
+      "value": 2
+    },
+    {
+      "module_id": "MOD-DECISION-CORE",
+      "value": 2
+    }
+  ],
+  "architectural_bottlenecks": [
+    "MOD-MANAGER-WORKSPACE",
+    "MOD-CARRIER-SCOPE",
+    "MOD-RULE-PACK-CONTRACT",
+    "MOD-CALCULATION-CONTRACT",
+    "MOD-MICK-BEHAVIOR",
+    "MOD-MANAGER-COACHING"
+  ],
+  "governance_bottlenecks": [
+    "MOD-ADVISOR-WORKSPACE",
+    "MOD-NBA-REASON-WHY",
+    "MOD-ADVISOR-CONVERSION",
+    "MOD-ADVISOR-ACTIVATION",
+    "MOD-TERMUX-REWRITE-TOOLS"
+  ],
+  "product_bottlenecks": [
+    "MOD-RELATIONSHIP-INTELLIGENCE",
+    "MOD-CONVERSATION-INTELLIGENCE",
+    "MOD-POLICY-OPERATIONS",
+    "MOD-PRODUCT-SOURCE-PACK",
+    "MOD-ELIGIBILITY-CONTRACT",
+    "MOD-QUOTE-PREVIEW",
+    "MOD-ADVISOR-EXPERIENCE",
+    "MOD-LLM-DRAFT-INTAKE",
+    "MOD-MESSAGE-SAFETY-VALIDATOR"
+  ],
+  "evidence_bottlenecks": [
+    "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE"
+  ]
+}
