@@ -1,0 +1,17 @@
+{
+  "stage": "SG-002",
+  "generated_at": "2026-07-22T17:51:14.115Z",
+  "operator": "termux",
+  "inputs": [
+    "docs/product/FORGE_PRODUCT_SPEC.md",
+    "scaffolds/manifest/rewrite-stages.json"
+  ],
+  "outputs": [
+    "scaffolds/reports/SG-002-evidence.json"
+  ],
+  "hashes": {},
+  "validations": [
+    "scaffold:validate"
+  ],
+  "status": "PASS"
+}
