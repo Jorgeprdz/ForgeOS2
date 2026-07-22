@@ -58,6 +58,7 @@ The cited Constitution/ADR owns each definition. This index owns navigation to t
 
 - `docs/architecture/scaffolds/CANONICAL_SOURCE_OF_TRUTH_SCAFFOLD.md`
 - `docs/architecture/scaffolds/SCAFFOLD_TRACEABILITY_MATRIX.md`
+- `docs/architecture/scaffolds/sg-002/SG002_INSTANCE_TRACEABILITY_MATRIX.md`
 - `governance/scaffolds/SCAFFOLD_INVENTORY.md`
 
 ## Related ADRs
@@ -74,7 +75,7 @@ Articles 0, II–VII and IX–X.
 
 ## Version
 
-`1.0.0` — `2026-07-21`.
+`1.1.0` — SG-002 instance registrations, `2026-07-21`.
 
 ## Traceability
 
@@ -83,3 +84,7 @@ Articles 0, II–VII and IX–X.
 - Historical difference: pre-unification candidates and undocumented owners are removed rather than inherited.
 - Justification: SG-001 forbids invented owners and requires unknown to remain unknown.
 - Evidence: exact owner statements in ADR-005–018 and exclusions in the Unified Constitution/Constitution Map.
+
+## SG-002 Registered Instances
+
+The twelve existing-owner registrations are indexed under `docs/architecture/scaffolds/instances/source-truth/`. NASH has no registration. This navigation update does not change any owner or definition.

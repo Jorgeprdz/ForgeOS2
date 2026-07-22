@@ -62,7 +62,7 @@ Articles II, VIII and IX.
 
 ## Version
 
-`1.0.0` — `2026-07-21`.
+`1.1.0` — SG-002 instances, `2026-07-21`.
 
 ## Traceability
 
@@ -71,3 +71,14 @@ Articles II, VIII and IX.
 - Historical difference: only current SG-001 artifacts are counted; historical repository contents remain evidence.
 - Justification: avoids duplicate or inherited inventory truth.
 - Evidence: filesystem allowlist and final SG-001 diff.
+
+## SG-002 Inventory Extension
+
+| Artifact family | Count | Status | Authority |
+|---|---:|---|---|
+| `docs/architecture/scaffolds/instances/domains/*.md` | 12 | Active documentary instances | SG-002 exact manifest |
+| `docs/architecture/scaffolds/instances/source-truth/*.md` | 12 | Existing-owner registrations | SG-002 exact manifest |
+| `docs/architecture/scaffolds/instances/boundaries/*.md` | 12 | Active documentary boundaries | SG-002 exact manifest |
+| `docs/architecture/scaffolds/sg-002/*.md` | 5 | SG-002 controls | SG-002 exact manifest |
+
+NASH has no Source of Truth registration. Blocked candidates and standalone Dependency/Relationship instances are absent by design.

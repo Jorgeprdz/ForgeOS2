@@ -15876,7 +15876,7 @@ Recorded: `2026-07-21`
 <!-- FORGE:SCAFFOLD_INSTANTIATION_GATE_002:START -->
 ## Scaffold Instantiation Gate 002
 
-Status: `AUTHORIZED / READY WITH CONDITIONS / NOT EXECUTED`
+Status: `PASS / DOCUMENTARY INSTANTIATION COMPLETE`
 
 Recorded: `2026-07-21`
 
@@ -15889,6 +15889,8 @@ Recorded: `2026-07-21`
 - Required: thirteen ordered sections, twenty blocking validations and exact working-tree isolation.
 - Software, runtime, rules, schemas, UI, services, tests and historical restoration remain unauthorized.
 - Canonical gate: `governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md`.
-- Next stage: `Scaffold Instantiation 002` under the exact manifest only.
-- No later phase is authorized.
+- Generated: 12 domain responsibility, 12 existing-owner Source of Truth, 12 domain-owned boundary and 5 SG-002 control documents.
+- Validation: all twenty SG-002 blocking validations and the additional manifest, owner, template, cross-link, historical, Markdown-only, zero-software-diff and isolation checks PASS.
+- Next stage: `REQUIRES_SEPARATE_AUTHORIZATION`.
+- No later documentary or software phase is authorized; `SOFTWARE_IMPLEMENTATION_AUTHORIZED=false`.
 <!-- FORGE:SCAFFOLD_INSTANTIATION_GATE_002:END -->

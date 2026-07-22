@@ -18,6 +18,11 @@ Navigation only; no independent normative or domain authority.
 - Decisions: [Scaffold Decision Matrix](../../docs/architecture/scaffolds/SCAFFOLD_DECISION_MATRIX.md)
 - Changelog: [Scaffold Changelog](../../docs/architecture/scaffolds/SCAFFOLD_CHANGELOG.md)
 - Source of Truth index: [Scaffold Source of Truth Index](../../docs/architecture/source-truth/SCAFFOLD_SOURCE_OF_TRUTH_INDEX.md)
+- SG-002 preflight: [SG-002 Preflight Report](../../docs/architecture/scaffolds/sg-002/SG002_PREFLIGHT_REPORT.md)
+- SG-002 inventory: [SG-002 Instantiation Inventory](../../docs/architecture/scaffolds/sg-002/SG002_INSTANTIATION_INVENTORY.md)
+- SG-002 blocked candidates: [SG-002 Blocked Candidate Register](../../docs/architecture/scaffolds/sg-002/SG002_BLOCKED_CANDIDATE_REGISTER.md)
+- SG-002 traceability: [SG-002 Instance Traceability Matrix](../../docs/architecture/scaffolds/sg-002/SG002_INSTANCE_TRACEABILITY_MATRIX.md)
+- SG-002 changelog: [SG-002 Changelog](../../docs/architecture/scaffolds/sg-002/SG002_CHANGELOG.md)
 
 ## Authority
 
@@ -53,7 +58,7 @@ Articles II, VIII and IX.
 
 ## Version
 
-`1.0.0` — `2026-07-21`.
+`1.1.0` — SG-002 navigation, `2026-07-21`.
 
 ## Traceability
 
