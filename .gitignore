@@ -1,4 +1,13 @@
 node_modules/
+
+# Forge Termux rewrite local state
+.forge/rewrite/state.json
+.forge/rewrite/current-stage
+.forge/rewrite/completed-stages.json
+.forge/rewrite/logs/
+.forge/rewrite/locks/
+.forge/rewrite/evidence/
+.forge/rewrite/last-validation.json
 .env
 .env.local
 .env.production
