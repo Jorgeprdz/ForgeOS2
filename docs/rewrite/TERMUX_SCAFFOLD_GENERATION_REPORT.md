@@ -34,11 +34,11 @@ This report records the constitution-first scaffold system created for future Fo
 
 - Product spec created: `docs/product/FORGE_PRODUCT_SPEC.md`
 - Traceability matrix created: `docs/product/FORGE_REQUIREMENTS_TRACEABILITY_MATRIX.md`
-- Capabilities identified: 19
-- `PRESERVE`: 5
-- `REDESIGN`: 6
-- `DEFER`: 3
-- `REJECT`: 3
+- Capabilities identified: 23
+- `PRESERVE`: 6
+- `REDESIGN`: 11
+- `DEFER`: 2
+- `REJECT`: 2
 - `REQUIRES_OWNER_DECISION`: 2
 
 ## Constitutional Boundaries
@@ -83,16 +83,27 @@ Created 11 Termux command scripts and 7 shared libraries. Scripts support root d
 
 ## Stages
 
-- Declared: 6
-- Ready: 2
-- Blocked or deferred: 4
+- Declared: 20
+- Ready: 4
+- Blocked, deferred or rejected: 16
 
 ## Blockers
 
-- SG-003 requires owner decisions and source evidence.
-- SG-004 requires people-domain architectural decision.
-- SG-005 is deferred.
-- SG-006 requires legacy evidence and product source decisions where applicable.
+- SG-003 Relationship Intelligence requires product definition.
+- SG-004 Conversation Intelligence requires product definition.
+- SG-005 Policy Operations requires product definition.
+- SG-007 Product Source Pack Intake requires owner-approved commercial documents.
+- SG-008 Carrier Scope requires architectural decision.
+- SG-009 Rule Pack Contract requires architectural decision.
+- SG-010 Eligibility Contract requires product definition.
+- SG-011 Calculation Contract requires architectural decision.
+- SG-012 Quote Preview requires product definition and source evidence.
+- SG-013 Manager Coaching requires architectural decision.
+- SG-014 Mick Observable Behavior requires architectural decision.
+- SG-015 Advisor Experience Transversal requires product definition.
+- SG-016 Compensation And Economic Evidence is deferred.
+- SG-017 Recruitment And Precontract Lifecycle is deferred.
+- SG-020 Legacy Functional Evidence Intake requires legacy evidence.
 
 ## Validations
 
@@ -142,3 +153,16 @@ Final repository validations executed:
 - Legacy removed clusters reintroduced: no.
 - Functional rewrite executed: no.
 - Main modified: no.
+
+## Model Review Refactor
+
+The conceptual model was reviewed after initial scaffold generation. The review report is `docs/rewrite/PRODUCT_MODEL_REVIEW.md`.
+
+Key changes:
+
+- Split SG-003 advisor-domain bundle into independent Relationship, Conversation and Policy stages.
+- Split Product Quote Preview into Product Catalog, Product Source Pack, Carrier Scope, Rule Pack, Eligibility, Calculation and Quote Preview capabilities/stages.
+- Split Manager Coaching from Mick Observable Behavior.
+- Modeled Advisor Experience as a transversal capability.
+- Split Legacy Reintroduction Guard from Legacy Functional Evidence Intake.
+- Reframed Generic CRM rejection to permit Forge-specific relationship, task, opportunity, policy, history, reminder and activity workflows.
