@@ -41,7 +41,9 @@
       "allowed_paths": [
         "scaffolds/",
         "docs/rewrite/",
-        "docs/product/"
+        "docs/product/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -53,6 +55,9 @@
         "scaffolds/templates/documentation/stage-plan.template.md"
       ],
       "files_to_generate": [
+        "scaffolds/artifacts/SG-001/constitutional-runtime-constraints.artifact.json",
+        "scaffolds/artifacts/SG-001/robocop-gate-contract.artifact.json",
+        "scaffolds/artifacts/SG-001/blocked-state-policy.artifact.json",
         "scaffolds/reports/SG-001-evidence.json"
       ],
       "allowed_operations": [
@@ -78,7 +83,7 @@
       "acceptance_criteria": [
         "Constitutional runtime constraints, governance gates and blocked-state semantics are available before any consumer stage."
       ],
-      "rollback": "Remove only SG-001 generated evidence when hashes match.",
+      "rollback": "Remove only SG-001 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-002",
         "SG-018",
@@ -655,7 +660,9 @@
         "docs/product/",
         "docs/architecture/",
         "adr/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -667,7 +674,10 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-019/rejected-capability-denylist.artifact.json",
+        "scaffolds/reports/SG-019-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence"
@@ -689,7 +699,7 @@
       "acceptance_criteria": [
         "Rejected Capability Guard has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-019 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [],
       "produces": [
         "RejectedCapabilityDenylist"
@@ -740,7 +750,9 @@
       "allowed_paths": [
         "docs/product/",
         "docs/architecture/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "platform/",
@@ -751,7 +763,13 @@
       "templates": [
         "scaffolds/templates/documentation/stage-plan.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-022/canonical-identity-contract.artifact.json",
+        "scaffolds/artifacts/SG-022/actor-authority-contract.artifact.json",
+        "scaffolds/artifacts/SG-022/advisor-role-model.artifact.json",
+        "scaffolds/artifacts/SG-022/identity-alias-policy.artifact.json",
+        "scaffolds/reports/SG-022-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -772,7 +790,7 @@
       "acceptance_criteria": [
         "Person, User, Advisor, Candidate, Recruit, Agent, Leader and Manager identity semantics are defined before role or relationship consumers."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-022 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-023",
         "SG-025",
@@ -846,7 +864,9 @@
       ],
       "allowed_paths": [
         "docs/architecture/scaffolds/instances/source-truth/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "platform/",
@@ -857,7 +877,14 @@
       "templates": [
         "scaffolds/templates/documentation/stage-plan.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-023/ownership-registry.artifact.json",
+        "scaffolds/artifacts/SG-023/source-of-truth-registry.artifact.json",
+        "scaffolds/artifacts/SG-023/metric-ownership-registry.artifact.json",
+        "scaffolds/artifacts/SG-023/productivity-metric-contract.artifact.json",
+        "scaffolds/artifacts/SG-023/parallel-truth-deny-policy.artifact.json",
+        "scaffolds/reports/SG-023-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -878,7 +905,7 @@
       "acceptance_criteria": [
         "Every source truth and metric consumed by later domains has a single owner or blocks as UNKNOWN."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-023 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-026",
         "SG-027",
@@ -968,7 +995,9 @@
         "docs/product/",
         "docs/architecture/",
         "adr/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -980,7 +1009,10 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-020/legacy-functional-evidence-classification.artifact.json",
+        "scaffolds/reports/SG-020-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence"
@@ -1002,7 +1034,7 @@
       "acceptance_criteria": [
         "Legacy Functional Evidence Intake has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-020 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [],
       "produces": [
         "LegacyFunctionalEvidenceClassification"
@@ -1067,7 +1099,9 @@
       "allowed_paths": [
         "docs/product/",
         "docs/architecture/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "platform/",
@@ -1078,7 +1112,13 @@
       "templates": [
         "scaffolds/templates/documentation/stage-plan.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-025/lifecycle-framework.artifact.json",
+        "scaffolds/artifacts/SG-025/lifecycle-state-model.artifact.json",
+        "scaffolds/artifacts/SG-025/transition-authority-policy.artifact.json",
+        "scaffolds/artifacts/SG-025/correction-policy.artifact.json",
+        "scaffolds/reports/SG-025-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -1100,7 +1140,7 @@
       "acceptance_criteria": [
         "Lifecycle state vocabulary, transition authority, correction and receipt semantics exist before Advisor/Relationship/Workspace consumers."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-025 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-026",
         "SG-017"
@@ -1176,7 +1216,9 @@
       ],
       "allowed_paths": [
         "docs/architecture/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "platform/",
@@ -1187,7 +1229,12 @@
       "templates": [
         "scaffolds/templates/documentation/stage-plan.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-026/domain-event-taxonomy.artifact.json",
+        "scaffolds/artifacts/SG-026/event-receipt-contract.artifact.json",
+        "scaffolds/artifacts/SG-026/rollback-checkpoint-contract.artifact.json",
+        "scaffolds/reports/SG-026-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -1208,7 +1255,7 @@
       "acceptance_criteria": [
         "Domain event names, receipt requirements and rollback checkpoints exist before domains publish or consume events."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-026 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-027",
         "SG-008",
@@ -1295,7 +1342,9 @@
       "allowed_paths": [
         "docs/architecture/",
         "scaffolds/manifest/",
-        "platform/read-models/generated/"
+        "platform/read-models/generated/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "supabase/migrations/",
@@ -1306,7 +1355,14 @@
       "templates": [
         "scaffolds/templates/service/read-only-service.template.mjs"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-027/read-model-contract.artifact.json",
+        "scaffolds/artifacts/SG-027/context-envelope.artifact.json",
+        "scaffolds/artifacts/SG-027/purpose-limitation-policy.artifact.json",
+        "scaffolds/artifacts/SG-027/forbidden-inference-contract.artifact.json",
+        "scaffolds/artifacts/SG-027/workspace-read-model.artifact.json",
+        "scaffolds/reports/SG-027-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -1329,7 +1385,7 @@
       "acceptance_criteria": [
         "Read models and context envelopes carry source owner, evidence, freshness, uncertainty, purpose limitation and no-write constraints before UI or intelligence consumers."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-027 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-006",
         "SG-005",
@@ -1413,7 +1469,9 @@
         "docs/product/",
         "docs/architecture/",
         "adr/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -1425,7 +1483,10 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-008/carrier-scope-contract.artifact.json",
+        "scaffolds/reports/SG-008-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -1449,7 +1510,7 @@
       "acceptance_criteria": [
         "Carrier Scope Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-008 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-006",
         "SG-009"
@@ -1507,7 +1568,9 @@
         "docs/product/",
         "docs/architecture/",
         "adr/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -1519,7 +1582,10 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-017/recruitment-precontract-contract.artifact.json",
+        "scaffolds/reports/SG-017-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence"
@@ -1541,7 +1607,7 @@
       "acceptance_criteria": [
         "Recruitment And Precontract Lifecycle Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-017 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [],
       "produces": [
         "RecruitmentPrecontractContract"
@@ -1604,7 +1670,9 @@
         "docs/product/",
         "docs/architecture/",
         "adr/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -1616,7 +1684,12 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-003/relationship-contract.artifact.json",
+        "scaffolds/artifacts/SG-003/relationship-signal-contract.artifact.json",
+        "scaffolds/artifacts/SG-003/relationship-next-action-contract.artifact.json",
+        "scaffolds/reports/SG-003-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -1640,7 +1713,7 @@
       "acceptance_criteria": [
         "Relationship Intelligence Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-003 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-004",
         "SG-028"
@@ -1721,7 +1794,9 @@
         "docs/product/",
         "docs/architecture/",
         "adr/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -1733,7 +1808,11 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-005/policy-operations-contract.artifact.json",
+        "scaffolds/artifacts/SG-005/policy-truth-read-model.artifact.json",
+        "scaffolds/reports/SG-005-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -1757,7 +1836,7 @@
       "acceptance_criteria": [
         "Policy Operations Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-005 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-028"
       ],
@@ -1827,7 +1906,9 @@
         "docs/product/",
         "docs/architecture/",
         "adr/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -1839,7 +1920,11 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-009/rule-pack-contract.artifact.json",
+        "scaffolds/artifacts/SG-009/rule-snapshot-contract.artifact.json",
+        "scaffolds/reports/SG-009-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -1863,7 +1948,7 @@
       "acceptance_criteria": [
         "Rule Pack Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-009 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-010",
         "SG-011",
@@ -1925,7 +2010,8 @@
         "shared/",
         "scaffolds/reports/",
         "docs/architecture/",
-        "docs/product/"
+        "docs/product/",
+        "scaffolds/artifacts/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -1938,6 +2024,7 @@
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
       "files_to_generate": [
+        "scaffolds/artifacts/SG-006/product-catalog-contract.artifact.json",
         "scaffolds/reports/SG-006-evidence.json"
       ],
       "allowed_operations": [
@@ -1963,7 +2050,7 @@
       "acceptance_criteria": [
         "Product Catalog Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "Remove only SG-006 generated evidence when hashes match.",
+      "rollback": "Remove only SG-006 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-007",
         "SG-012"
@@ -2022,7 +2109,9 @@
         "docs/product/",
         "docs/architecture/",
         "adr/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -2034,7 +2123,10 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-014/observable-behavior-signal-contract.artifact.json",
+        "scaffolds/reports/SG-014-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -2058,7 +2150,7 @@
       "acceptance_criteria": [
         "Mick Observable Behavior Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-014 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-013"
       ],
@@ -2120,7 +2212,9 @@
         "docs/product/",
         "docs/architecture/",
         "adr/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -2132,7 +2226,12 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-004/nashboundary-contract.artifact.json",
+        "scaffolds/artifacts/SG-004/conversation-guidance-contract.artifact.json",
+        "scaffolds/artifacts/SG-004/nashcontext-contract.artifact.json",
+        "scaffolds/reports/SG-004-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -2156,7 +2255,7 @@
       "acceptance_criteria": [
         "Conversation Intelligence Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-004 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-028"
       ],
@@ -2230,7 +2329,9 @@
         "docs/product/",
         "docs/architecture/",
         "adr/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -2242,7 +2343,10 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-013/manager-coaching-contract.artifact.json",
+        "scaffolds/reports/SG-013-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -2266,7 +2370,7 @@
       "acceptance_criteria": [
         "Manager Coaching Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-013 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-029"
       ],
@@ -2325,7 +2429,9 @@
         "docs/product/",
         "docs/architecture/",
         "adr/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -2337,7 +2443,11 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-011/calculation-contract.artifact.json",
+        "scaffolds/artifacts/SG-011/calculation-provenance-contract.artifact.json",
+        "scaffolds/reports/SG-011-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -2361,7 +2471,7 @@
       "acceptance_criteria": [
         "Calculation Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-011 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-012",
         "SG-016"
@@ -2422,7 +2532,9 @@
         "docs/product/",
         "docs/architecture/",
         "adr/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -2434,7 +2546,10 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-007/product-source-pack-contract.artifact.json",
+        "scaffolds/reports/SG-007-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -2458,7 +2573,7 @@
       "acceptance_criteria": [
         "Product Source Pack Intake has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-007 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-012"
       ],
@@ -2523,7 +2638,9 @@
         "docs/product/",
         "docs/architecture/",
         "adr/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -2535,7 +2652,10 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-010/eligibility-contract.artifact.json",
+        "scaffolds/reports/SG-010-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -2559,7 +2679,7 @@
       "acceptance_criteria": [
         "Eligibility Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-010 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-012"
       ],
@@ -2628,7 +2748,9 @@
         "docs/product/",
         "docs/architecture/",
         "adr/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -2640,7 +2762,11 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-015/advisor-experience-contract.artifact.json",
+        "scaffolds/artifacts/SG-015/feature-learning-state-contract.artifact.json",
+        "scaffolds/reports/SG-015-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -2664,7 +2790,7 @@
       "acceptance_criteria": [
         "Advisor Experience Transversal Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-015 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-028"
       ],
@@ -2746,7 +2872,9 @@
         "docs/product/",
         "docs/architecture/",
         "adr/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -2758,7 +2886,10 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-012/quote-preview-contract.artifact.json",
+        "scaffolds/reports/SG-012-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -2782,7 +2913,7 @@
       "acceptance_criteria": [
         "Quote Preview Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-012 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [],
       "produces": [
         "QuotePreviewContract"
@@ -2854,7 +2985,9 @@
         "docs/product/",
         "docs/architecture/",
         "adr/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -2866,7 +2999,10 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-016/compensation-economic-contract.artifact.json",
+        "scaffolds/reports/SG-016-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence"
@@ -2888,7 +3024,7 @@
       "acceptance_criteria": [
         "Compensation And Economic Evidence Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-016 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [],
       "produces": [
         "CompensationEconomicContract"
@@ -2946,7 +3082,9 @@
         "docs/product/",
         "docs/architecture/",
         "adr/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -2958,7 +3096,10 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-029/manager-workspace-surface-contract.artifact.json",
+        "scaffolds/reports/SG-029-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -2982,7 +3123,7 @@
       "acceptance_criteria": [
         "Manager Workspace Surface Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-029 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [],
       "produces": [
         "ManagerWorkspaceSurfaceContract"
@@ -3044,7 +3185,9 @@
         "docs/product/",
         "docs/architecture/",
         "adr/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/artifacts/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "legacy/",
@@ -3056,7 +3199,10 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [],
+      "files_to_generate": [
+        "scaffolds/artifacts/SG-028/advisor-workspace-surface-contract.artifact.json",
+        "scaffolds/reports/SG-028-evidence.json"
+      ],
       "allowed_operations": [
         "plan",
         "record blocked evidence",
@@ -3080,7 +3226,7 @@
       "acceptance_criteria": [
         "Advisor Workspace Surface Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
       ],
-      "rollback": "No generated product files are allowed while blocked.",
+      "rollback": "Remove only SG-028 materialized artifacts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [],
       "produces": [
         "AdvisorWorkspaceSurfaceContract"

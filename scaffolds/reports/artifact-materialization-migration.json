@@ -1,0 +1,123 @@
+{
+  "patched_stage_count": 25,
+  "patched_stages": [
+    {
+      "stage_id": "SG-001",
+      "artifact_count": 3
+    },
+    {
+      "stage_id": "SG-019",
+      "artifact_count": 1
+    },
+    {
+      "stage_id": "SG-022",
+      "artifact_count": 4
+    },
+    {
+      "stage_id": "SG-023",
+      "artifact_count": 5
+    },
+    {
+      "stage_id": "SG-020",
+      "artifact_count": 1
+    },
+    {
+      "stage_id": "SG-025",
+      "artifact_count": 4
+    },
+    {
+      "stage_id": "SG-026",
+      "artifact_count": 3
+    },
+    {
+      "stage_id": "SG-027",
+      "artifact_count": 5
+    },
+    {
+      "stage_id": "SG-008",
+      "artifact_count": 1
+    },
+    {
+      "stage_id": "SG-017",
+      "artifact_count": 1
+    },
+    {
+      "stage_id": "SG-003",
+      "artifact_count": 3
+    },
+    {
+      "stage_id": "SG-005",
+      "artifact_count": 2
+    },
+    {
+      "stage_id": "SG-009",
+      "artifact_count": 2
+    },
+    {
+      "stage_id": "SG-006",
+      "artifact_count": 1
+    },
+    {
+      "stage_id": "SG-014",
+      "artifact_count": 1
+    },
+    {
+      "stage_id": "SG-004",
+      "artifact_count": 3
+    },
+    {
+      "stage_id": "SG-013",
+      "artifact_count": 1
+    },
+    {
+      "stage_id": "SG-011",
+      "artifact_count": 2
+    },
+    {
+      "stage_id": "SG-007",
+      "artifact_count": 1
+    },
+    {
+      "stage_id": "SG-010",
+      "artifact_count": 1
+    },
+    {
+      "stage_id": "SG-015",
+      "artifact_count": 2
+    },
+    {
+      "stage_id": "SG-012",
+      "artifact_count": 1
+    },
+    {
+      "stage_id": "SG-016",
+      "artifact_count": 1
+    },
+    {
+      "stage_id": "SG-029",
+      "artifact_count": 1
+    },
+    {
+      "stage_id": "SG-028",
+      "artifact_count": 1
+    }
+  ],
+  "skipped_stages": [
+    {
+      "stage_id": "SG-002",
+      "reason": "already-mapped"
+    },
+    {
+      "stage_id": "SG-024",
+      "reason": "already-mapped"
+    },
+    {
+      "stage_id": "SG-018",
+      "reason": "already-mapped"
+    },
+    {
+      "stage_id": "SG-021",
+      "reason": "already-mapped"
+    }
+  ]
+}
