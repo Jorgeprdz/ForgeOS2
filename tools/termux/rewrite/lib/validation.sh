@@ -7,6 +7,9 @@ forge_validate_all() {
   node "$FORGE_ROOT/scaffolds/validation/validate-paths.mjs"
   node "$FORGE_ROOT/scaffolds/validation/validate-evidence.mjs"
   node "$FORGE_ROOT/scaffolds/validation/validate-stage.mjs"
+  node "$FORGE_ROOT/scaffolds/validation/validate-product-surfaces.mjs"
+  node "$FORGE_ROOT/scaffolds/validation/validate-dependency-graph.mjs"
+  node "$FORGE_ROOT/scaffolds/validation/validate-final-readiness.mjs"
 }
 
 forge_record_validation_stamp() {

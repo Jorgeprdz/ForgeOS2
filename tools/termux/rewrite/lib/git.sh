@@ -1,4 +1,8 @@
 forge_current_branch() {
+  if [ "${FORGE_REWRITE_ENABLE_BRANCH_OVERRIDE_FOR_TESTS:-0}" = "1" ] && [ -n "${FORGE_REWRITE_TEST_BRANCH_OVERRIDE:-}" ]; then
+    printf '%s\n' "$FORGE_REWRITE_TEST_BRANCH_OVERRIDE"
+    return 0
+  fi
   git branch --show-current
 }
 

@@ -13,6 +13,7 @@ EOF
 [ "$#" -eq 1 ] || { usage; exit 1; }
 stage="$1"
 forge_cd_root
+node "$FORGE_ROOT/scaffolds/validation/validate-final-readiness.mjs" >/dev/null
 forge_require_not_main
 evidence="$(forge_stage_evidence_path "$stage")"
 [ -f "$evidence" ] && rm -f "$evidence"
