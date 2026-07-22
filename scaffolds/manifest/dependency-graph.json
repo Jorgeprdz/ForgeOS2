@@ -1,0 +1,2243 @@
+{
+  "schema": "../contracts/dependency-graph.schema.json",
+  "graph_id": "FORGE_DEPENDENCY_GRAPH_001",
+  "source_artifacts": [
+    "scaffolds/manifest/forge-module-registry.json",
+    "scaffolds/manifest/forge-product-surfaces.json",
+    "scaffolds/manifest/rewrite-stages.json",
+    "scaffolds/manifest/requirements-traceability.json",
+    "scaffolds/manifest/constitutional-boundaries.json"
+  ],
+  "cycles": [],
+  "modules": [
+    {
+      "id": "MOD-DECISION-CORE",
+      "name": "Decision Core",
+      "status": "READY_FOR_VALIDATION",
+      "build_disposition": "EXISTS_PRESERVE",
+      "stage": "SG-002",
+      "required_contracts": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-DECISION-CORE"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.truth.governance.contract_ready"
+      ],
+      "required_services": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-EVIDENCE-OWNERSHIP"
+      ],
+      "adr_references": [
+        "ADR-001",
+        "ADR-002",
+        "ADR-003",
+        "ADR-004",
+        "ADR-020"
+      ],
+      "producer_modules": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "consumer_modules": [
+        "MOD-ACTION-PLANNING",
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "type": "SECURITY",
+          "direction": "MOD-DECISION-CORE->MOD-TRUTH-GOVERNANCE"
+        }
+      ],
+      "events_published": [
+        "mod.decision.core.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.truth.governance.contract_ready"
+      ],
+      "events_observed": [
+        "platform/core/decision/"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-ACTION-PLANNING",
+      "name": "Action Planning",
+      "status": "READY_FOR_VALIDATION",
+      "build_disposition": "EXISTS_PRESERVE",
+      "stage": "SG-002",
+      "required_contracts": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-ACTION-PLANNING"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.decision.core.contract_ready"
+      ],
+      "required_services": [
+        "MOD-DECISION-CORE"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-ACTION-NO-EXECUTION"
+      ],
+      "adr_references": [
+        "ADR-003",
+        "ADR-009",
+        "ADR-012"
+      ],
+      "producer_modules": [
+        "MOD-DECISION-CORE"
+      ],
+      "consumer_modules": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-RELATIONSHIP-INTELLIGENCE"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-DECISION-CORE",
+          "type": "HARD",
+          "direction": "MOD-ACTION-PLANNING->MOD-DECISION-CORE"
+        }
+      ],
+      "events_published": [
+        "mod.action.planning.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.decision.core.contract_ready"
+      ],
+      "events_observed": [
+        "platform/core/actions/"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-TRUTH-GOVERNANCE",
+      "name": "Truth Governance",
+      "status": "READY_FOR_VALIDATION",
+      "build_disposition": "EXISTS_PRESERVE",
+      "stage": "SG-001",
+      "required_contracts": [
+        "scaffolds/contracts/traceability.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-TRUTH-EVIDENCE"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/traceability.schema.json"
+      ],
+      "required_events": [],
+      "required_services": [],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-ONE-METRIC-ONE-OWNER",
+        "BOUND-UNKNOWN-REMAINS-UNKNOWN"
+      ],
+      "adr_references": [
+        "ADR-001",
+        "ADR-002",
+        "ADR-014"
+      ],
+      "producer_modules": [],
+      "consumer_modules": [
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-CARRIER-SCOPE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-DECISION-CORE",
+        "MOD-GOVERNANCE-GATE",
+        "MOD-MANAGER-COACHING",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-READONLY-ADAPTERS",
+        "MOD-RECRUITMENT-PRECONTRACT",
+        "MOD-RELATIONSHIP-INTELLIGENCE"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [],
+      "events_published": [
+        "mod.truth.governance.contract_ready"
+      ],
+      "events_consumed": [],
+      "events_observed": [
+        "platform/truth/",
+        "governance/tests/"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-GOVERNANCE-GATE",
+      "name": "Governance Gate",
+      "status": "READY_FOR_SCAFFOLD",
+      "build_disposition": "EXISTS_PRESERVE",
+      "stage": "SG-001",
+      "required_contracts": [
+        "scaffolds/contracts/promotion-gate.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-GOVERNANCE-GATE"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/promotion-gate.schema.json"
+      ],
+      "required_events": [
+        "mod.truth.governance.contract_ready"
+      ],
+      "required_services": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-ROBOCOP-GATE"
+      ],
+      "adr_references": [
+        "ROBOCOP_LOCK_001"
+      ],
+      "producer_modules": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "consumer_modules": [
+        "MOD-HUMAN-APPROVAL-GATE",
+        "MOD-LEGACY-REINTRODUCTION-GUARD",
+        "MOD-TERMUX-REWRITE-TOOLS"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "type": "SECURITY",
+          "direction": "MOD-GOVERNANCE-GATE->MOD-TRUTH-GOVERNANCE"
+        }
+      ],
+      "events_published": [
+        "mod.governance.gate.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.truth.governance.contract_ready"
+      ],
+      "events_observed": [
+        "governance/",
+        "tools/termux/rewrite/"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-READONLY-ADAPTERS",
+      "name": "Read-only Adapters",
+      "status": "READY_FOR_SCAFFOLD",
+      "build_disposition": "EXISTS_REDESIGN",
+      "stage": "SG-002",
+      "required_contracts": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-READ-ONLY-ADAPTERS"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.truth.governance.contract_ready"
+      ],
+      "required_services": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-READ-ONLY"
+      ],
+      "adr_references": [
+        "ADR-003",
+        "ADR-004"
+      ],
+      "producer_modules": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "consumer_modules": [
+        "MOD-CLIENT-CRM-READMODEL",
+        "MOD-OPPORTUNITY-PIPELINE",
+        "MOD-POLICY-OPERATIONS"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "type": "SECURITY",
+          "direction": "MOD-READONLY-ADAPTERS->MOD-TRUTH-GOVERNANCE"
+        }
+      ],
+      "events_published": [
+        "mod.readonly.adapters.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.truth.governance.contract_ready"
+      ],
+      "events_observed": [
+        "platform/adapters/"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-ADVISOR-WORKSPACE",
+      "name": "Advisor Workspace",
+      "status": "READY_FOR_SCAFFOLD",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-002",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-DECISION-CORE",
+        "CAP-ACTION-PLANNING",
+        "CAP-ADVISOR-EXPERIENCE"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.decision.core.contract_ready",
+        "mod.action.planning.contract_ready"
+      ],
+      "required_services": [
+        "MOD-DECISION-CORE",
+        "MOD-ACTION-PLANNING"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-EVIDENCE-OWNERSHIP",
+        "BOUND-ACTION-NO-EXECUTION",
+        "BOUND-ADVISOR-EXPERIENCE-ANTI-DEPENDENCE",
+        "BOUND-CAPTURE-ONCE"
+      ],
+      "adr_references": [
+        "ADR-016"
+      ],
+      "producer_modules": [
+        "MOD-DECISION-CORE",
+        "MOD-ACTION-PLANNING"
+      ],
+      "consumer_modules": [
+        "MOD-ADVISOR-EXPERIENCE"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-DECISION-CORE",
+          "type": "HARD",
+          "direction": "MOD-ADVISOR-WORKSPACE->MOD-DECISION-CORE"
+        },
+        {
+          "module_id": "MOD-ACTION-PLANNING",
+          "type": "HARD",
+          "direction": "MOD-ADVISOR-WORKSPACE->MOD-ACTION-PLANNING"
+        }
+      ],
+      "events_published": [
+        "mod.advisor.workspace.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.decision.core.contract_ready",
+        "mod.action.planning.contract_ready"
+      ],
+      "events_observed": [
+        "AGENTS.md",
+        "governance/architecture/FORGE_MASTER_BUILD_TREE.md"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-MANAGER-WORKSPACE",
+      "name": "Manager Workspace",
+      "status": "BLOCKED",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-013",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-MANAGER-COACHING"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.manager.coaching.contract_ready"
+      ],
+      "required_services": [
+        "MOD-MANAGER-COACHING"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-MANAGER-COACHING-ONLY",
+        "BOUND-NO-HUMAN-CONSEQUENCE-AUTOMATION"
+      ],
+      "adr_references": [
+        "ADR-015"
+      ],
+      "producer_modules": [
+        "MOD-MANAGER-COACHING"
+      ],
+      "consumer_modules": [],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-MANAGER-COACHING",
+          "type": "HARD",
+          "direction": "MOD-MANAGER-WORKSPACE->MOD-MANAGER-COACHING"
+        }
+      ],
+      "events_published": [
+        "mod.manager.workspace.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.manager.coaching.contract_ready"
+      ],
+      "events_observed": [
+        "docs/architecture/blueprints/FORGE_MANAGER_OS_BLUEPRINT.md"
+      ],
+      "events_forbidden": [
+        "human_consequence.applied",
+        "human_worth.scored"
+      ]
+    },
+    {
+      "id": "MOD-RELATIONSHIP-INTELLIGENCE",
+      "name": "Relationship Intelligence",
+      "status": "BLOCKED",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-003",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-RELATIONSHIP-INTELLIGENCE"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.truth.governance.contract_ready",
+        "mod.action.planning.contract_ready"
+      ],
+      "required_services": [
+        "MOD-TRUTH-GOVERNANCE",
+        "MOD-ACTION-PLANNING"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-RELATIONSHIP-NON-MANIPULATION"
+      ],
+      "adr_references": [
+        "ADR-011"
+      ],
+      "producer_modules": [
+        "MOD-TRUTH-GOVERNANCE",
+        "MOD-ACTION-PLANNING"
+      ],
+      "consumer_modules": [],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "type": "SECURITY",
+          "direction": "MOD-RELATIONSHIP-INTELLIGENCE->MOD-TRUTH-GOVERNANCE"
+        },
+        {
+          "module_id": "MOD-ACTION-PLANNING",
+          "type": "HARD",
+          "direction": "MOD-RELATIONSHIP-INTELLIGENCE->MOD-ACTION-PLANNING"
+        }
+      ],
+      "events_published": [
+        "mod.relationship.intelligence.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.truth.governance.contract_ready",
+        "mod.action.planning.contract_ready"
+      ],
+      "events_observed": [
+        "AGENTS.md"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-CONVERSATION-INTELLIGENCE",
+      "name": "Conversation Intelligence",
+      "status": "BLOCKED",
+      "build_disposition": "EXISTS_REDESIGN",
+      "stage": "SG-004",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-CONVERSATION-INTELLIGENCE"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.truth.governance.contract_ready"
+      ],
+      "required_services": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-NASH-NO-TRUTH",
+        "BOUND-AI-EXPLAINS-FORGE-DECIDES"
+      ],
+      "adr_references": [
+        "ADR-010",
+        "ADR-020"
+      ],
+      "producer_modules": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "consumer_modules": [
+        "MOD-NBA-REASON-WHY"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "type": "SECURITY",
+          "direction": "MOD-CONVERSATION-INTELLIGENCE->MOD-TRUTH-GOVERNANCE"
+        }
+      ],
+      "events_published": [
+        "mod.conversation.intelligence.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.truth.governance.contract_ready"
+      ],
+      "events_observed": [
+        "supabase/functions/nash-draft-provider/",
+        "platform/intelligence/"
+      ],
+      "events_forbidden": [
+        "message.sent",
+        "ai.final_decision"
+      ]
+    },
+    {
+      "id": "MOD-POLICY-OPERATIONS",
+      "name": "Policy Operations",
+      "status": "BLOCKED",
+      "build_disposition": "EXISTS_REDESIGN",
+      "stage": "SG-005",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-POLICY-OPERATIONS"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.truth.governance.contract_ready",
+        "mod.readonly.adapters.contract_ready"
+      ],
+      "required_services": [
+        "MOD-TRUTH-GOVERNANCE",
+        "MOD-READONLY-ADAPTERS"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-POLICY-TRUTH"
+      ],
+      "adr_references": [
+        "ADR-006"
+      ],
+      "producer_modules": [
+        "MOD-TRUTH-GOVERNANCE",
+        "MOD-READONLY-ADAPTERS"
+      ],
+      "consumer_modules": [],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "type": "SECURITY",
+          "direction": "MOD-POLICY-OPERATIONS->MOD-TRUTH-GOVERNANCE"
+        },
+        {
+          "module_id": "MOD-READONLY-ADAPTERS",
+          "type": "HARD",
+          "direction": "MOD-POLICY-OPERATIONS->MOD-READONLY-ADAPTERS"
+        }
+      ],
+      "events_published": [
+        "mod.policy.operations.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.truth.governance.contract_ready",
+        "mod.readonly.adapters.contract_ready"
+      ],
+      "events_observed": [
+        "platform/adapters/policy-read-model/"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-PRODUCT-CATALOG",
+      "name": "Product Catalog",
+      "status": "READY_FOR_SCAFFOLD",
+      "build_disposition": "EXISTS_REDESIGN",
+      "stage": "SG-006",
+      "required_contracts": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-PRODUCT-CATALOG"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.carrier.scope.contract_ready"
+      ],
+      "required_services": [
+        "MOD-CARRIER-SCOPE"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-PRODUCT-TRUTH",
+        "BOUND-UNKNOWN-REMAINS-UNKNOWN"
+      ],
+      "adr_references": [
+        "ADR-005"
+      ],
+      "producer_modules": [
+        "MOD-CARRIER-SCOPE"
+      ],
+      "consumer_modules": [
+        "MOD-PRODUCT-SOURCE-PACK",
+        "MOD-QUOTE-PREVIEW"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-CARRIER-SCOPE",
+          "type": "HARD",
+          "direction": "MOD-PRODUCT-CATALOG->MOD-CARRIER-SCOPE"
+        }
+      ],
+      "events_published": [
+        "mod.product.catalog.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.carrier.scope.contract_ready"
+      ],
+      "events_observed": [
+        "platform/adapters/product-intelligence/"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-PRODUCT-SOURCE-PACK",
+      "name": "Product Source Pack",
+      "status": "BLOCKED",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-007",
+      "required_contracts": [
+        "scaffolds/contracts/evidence-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-PRODUCT-SOURCE-PACK"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/evidence-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.product.catalog.contract_ready"
+      ],
+      "required_services": [
+        "MOD-PRODUCT-CATALOG"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-PRODUCT-TRUTH",
+        "BOUND-NO-LEGACY-CODE-COPY"
+      ],
+      "adr_references": [
+        "ADR-005"
+      ],
+      "producer_modules": [
+        "MOD-PRODUCT-CATALOG"
+      ],
+      "consumer_modules": [
+        "MOD-QUOTE-PREVIEW"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-PRODUCT-CATALOG",
+          "type": "HARD",
+          "direction": "MOD-PRODUCT-SOURCE-PACK->MOD-PRODUCT-CATALOG"
+        }
+      ],
+      "events_published": [
+        "mod.product.source.pack.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.product.catalog.contract_ready"
+      ],
+      "events_observed": [
+        "docs/product/FORGE_PRODUCT_SPEC.md"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-CARRIER-SCOPE",
+      "name": "Carrier Scope",
+      "status": "BLOCKED",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-008",
+      "required_contracts": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-CARRIER-SCOPE"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.truth.governance.contract_ready"
+      ],
+      "required_services": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-RULE-PACK-SEPARATION",
+        "BOUND-PRODUCT-TRUTH"
+      ],
+      "adr_references": [
+        "ADR-005",
+        "ADR-008"
+      ],
+      "producer_modules": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "consumer_modules": [
+        "MOD-PRODUCT-CATALOG",
+        "MOD-RULE-PACK-CONTRACT"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "type": "SECURITY",
+          "direction": "MOD-CARRIER-SCOPE->MOD-TRUTH-GOVERNANCE"
+        }
+      ],
+      "events_published": [
+        "mod.carrier.scope.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.truth.governance.contract_ready"
+      ],
+      "events_observed": [
+        "AGENTS.md"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-RULE-PACK-CONTRACT",
+      "name": "Rule Pack Contract",
+      "status": "BLOCKED",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-009",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-RULE-PACK-CONTRACT"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.carrier.scope.contract_ready"
+      ],
+      "required_services": [
+        "MOD-CARRIER-SCOPE"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-RULE-PACK-SEPARATION"
+      ],
+      "adr_references": [
+        "ADR-008",
+        "ADR-017",
+        "ADR-018"
+      ],
+      "producer_modules": [
+        "MOD-CARRIER-SCOPE"
+      ],
+      "consumer_modules": [
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-COMPENSATION-ECONOMIC",
+        "MOD-ELIGIBILITY-CONTRACT"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-CARRIER-SCOPE",
+          "type": "HARD",
+          "direction": "MOD-RULE-PACK-CONTRACT->MOD-CARRIER-SCOPE"
+        }
+      ],
+      "events_published": [
+        "mod.rule.pack.contract.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.carrier.scope.contract_ready"
+      ],
+      "events_observed": [
+        "AGENTS.md"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-ELIGIBILITY-CONTRACT",
+      "name": "Eligibility Contract",
+      "status": "BLOCKED",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-010",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-ELIGIBILITY-CONTRACT"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.rule.pack.contract.contract_ready"
+      ],
+      "required_services": [
+        "MOD-RULE-PACK-CONTRACT"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-RULE-PACK-SEPARATION",
+        "BOUND-UNKNOWN-REMAINS-UNKNOWN"
+      ],
+      "adr_references": [
+        "ADR-008"
+      ],
+      "producer_modules": [
+        "MOD-RULE-PACK-CONTRACT"
+      ],
+      "consumer_modules": [
+        "MOD-QUOTE-PREVIEW"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-RULE-PACK-CONTRACT",
+          "type": "HARD",
+          "direction": "MOD-ELIGIBILITY-CONTRACT->MOD-RULE-PACK-CONTRACT"
+        }
+      ],
+      "events_published": [
+        "mod.eligibility.contract.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.rule.pack.contract.contract_ready"
+      ],
+      "events_observed": [
+        "docs/product/FORGE_PRODUCT_SPEC.md"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-CALCULATION-CONTRACT",
+      "name": "Calculation Contract",
+      "status": "BLOCKED",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-011",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-CALCULATION-CONTRACT"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.rule.pack.contract.contract_ready"
+      ],
+      "required_services": [
+        "MOD-RULE-PACK-CONTRACT"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-ECONOMIC-EVIDENCE",
+        "BOUND-FORECAST-NOT-FACT"
+      ],
+      "adr_references": [
+        "ADR-008",
+        "ADR-017"
+      ],
+      "producer_modules": [
+        "MOD-RULE-PACK-CONTRACT"
+      ],
+      "consumer_modules": [
+        "MOD-COMPENSATION-ECONOMIC",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-REVENUE-INTELLIGENCE"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-RULE-PACK-CONTRACT",
+          "type": "HARD",
+          "direction": "MOD-CALCULATION-CONTRACT->MOD-RULE-PACK-CONTRACT"
+        }
+      ],
+      "events_published": [
+        "mod.calculation.contract.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.rule.pack.contract.contract_ready"
+      ],
+      "events_observed": [
+        "docs/product/FORGE_PRODUCT_SPEC.md"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-QUOTE-PREVIEW",
+      "name": "Quote Preview",
+      "status": "BLOCKED",
+      "build_disposition": "EXISTS_REDESIGN",
+      "stage": "SG-012",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-QUOTE-PREVIEW"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.product.catalog.contract_ready",
+        "mod.product.source.pack.contract_ready",
+        "mod.eligibility.contract.contract_ready",
+        "mod.calculation.contract.contract_ready"
+      ],
+      "required_services": [
+        "MOD-PRODUCT-CATALOG",
+        "MOD-PRODUCT-SOURCE-PACK",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-PRODUCT-TRUTH",
+        "BOUND-FORECAST-NOT-FACT"
+      ],
+      "adr_references": [
+        "ADR-005",
+        "ADR-008",
+        "ADR-017"
+      ],
+      "producer_modules": [
+        "MOD-PRODUCT-CATALOG",
+        "MOD-PRODUCT-SOURCE-PACK",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT"
+      ],
+      "consumer_modules": [],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-PRODUCT-CATALOG",
+          "type": "HARD",
+          "direction": "MOD-QUOTE-PREVIEW->MOD-PRODUCT-CATALOG"
+        },
+        {
+          "module_id": "MOD-PRODUCT-SOURCE-PACK",
+          "type": "HARD",
+          "direction": "MOD-QUOTE-PREVIEW->MOD-PRODUCT-SOURCE-PACK"
+        },
+        {
+          "module_id": "MOD-ELIGIBILITY-CONTRACT",
+          "type": "HARD",
+          "direction": "MOD-QUOTE-PREVIEW->MOD-ELIGIBILITY-CONTRACT"
+        },
+        {
+          "module_id": "MOD-CALCULATION-CONTRACT",
+          "type": "HARD",
+          "direction": "MOD-QUOTE-PREVIEW->MOD-CALCULATION-CONTRACT"
+        }
+      ],
+      "events_published": [
+        "mod.quote.preview.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.product.catalog.contract_ready",
+        "mod.product.source.pack.contract_ready",
+        "mod.eligibility.contract.contract_ready",
+        "mod.calculation.contract.contract_ready"
+      ],
+      "events_observed": [
+        "platform/adapters/quote-preview/",
+        "platform/adapters/quote-read-model/"
+      ],
+      "events_forbidden": [
+        "quote.bound",
+        "premium.invented"
+      ]
+    },
+    {
+      "id": "MOD-MICK-BEHAVIOR",
+      "name": "Mick Observable Behavior",
+      "status": "BLOCKED",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-014",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-MICK-BEHAVIOR"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.truth.governance.contract_ready"
+      ],
+      "required_services": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-MICK-OBSERVABLE-BEHAVIOR",
+        "BOUND-NO-HUMAN-WORTH"
+      ],
+      "adr_references": [
+        "ADR-013"
+      ],
+      "producer_modules": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "consumer_modules": [
+        "MOD-MANAGER-COACHING",
+        "MOD-NBA-REASON-WHY"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "type": "SECURITY",
+          "direction": "MOD-MICK-BEHAVIOR->MOD-TRUTH-GOVERNANCE"
+        }
+      ],
+      "events_published": [
+        "mod.mick.behavior.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.truth.governance.contract_ready"
+      ],
+      "events_observed": [
+        "AGENTS.md",
+        "governance/architecture/FORGE_MASTER_BUILD_TREE.md"
+      ],
+      "events_forbidden": [
+        "human_consequence.applied",
+        "human_worth.scored"
+      ]
+    },
+    {
+      "id": "MOD-MANAGER-COACHING",
+      "name": "Manager Coaching",
+      "status": "BLOCKED",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-013",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-MANAGER-COACHING"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.mick.behavior.contract_ready",
+        "mod.truth.governance.contract_ready"
+      ],
+      "required_services": [
+        "MOD-MICK-BEHAVIOR",
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-MANAGER-COACHING-ONLY",
+        "BOUND-NO-HUMAN-CONSEQUENCE-AUTOMATION"
+      ],
+      "adr_references": [
+        "ADR-015"
+      ],
+      "producer_modules": [
+        "MOD-MICK-BEHAVIOR",
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "consumer_modules": [
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-RECRUITMENT-PRECONTRACT"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-MICK-BEHAVIOR",
+          "type": "HARD",
+          "direction": "MOD-MANAGER-COACHING->MOD-MICK-BEHAVIOR"
+        },
+        {
+          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "type": "SECURITY",
+          "direction": "MOD-MANAGER-COACHING->MOD-TRUTH-GOVERNANCE"
+        }
+      ],
+      "events_published": [
+        "mod.manager.coaching.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.mick.behavior.contract_ready",
+        "mod.truth.governance.contract_ready"
+      ],
+      "events_observed": [
+        "docs/architecture/blueprints/FORGE_MANAGER_OS_BLUEPRINT.md"
+      ],
+      "events_forbidden": [
+        "human_consequence.applied",
+        "human_worth.scored"
+      ]
+    },
+    {
+      "id": "MOD-ADVISOR-EXPERIENCE",
+      "name": "Advisor Experience Transversal",
+      "status": "BLOCKED",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-015",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-ADVISOR-EXPERIENCE"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.advisor.workspace.contract_ready"
+      ],
+      "required_services": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-ADVISOR-EXPERIENCE-ANTI-DEPENDENCE",
+        "BOUND-CAPTURE-ONCE"
+      ],
+      "adr_references": [
+        "ADR-016"
+      ],
+      "producer_modules": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "consumer_modules": [],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-ADVISOR-WORKSPACE",
+          "type": "UI",
+          "direction": "MOD-ADVISOR-EXPERIENCE->MOD-ADVISOR-WORKSPACE"
+        }
+      ],
+      "events_published": [
+        "mod.advisor.experience.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.advisor.workspace.contract_ready"
+      ],
+      "events_observed": [
+        "AGENTS.md"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-COMPENSATION-ECONOMIC",
+      "name": "Compensation And Economic Evidence",
+      "status": "DEFERRED",
+      "build_disposition": "DEFER",
+      "stage": "SG-016",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-COMPENSATION-ECONOMIC"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.calculation.contract.contract_ready",
+        "mod.rule.pack.contract.contract_ready"
+      ],
+      "required_services": [
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-RULE-PACK-CONTRACT"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-ECONOMIC-EVIDENCE",
+        "BOUND-FORECAST-NOT-FACT"
+      ],
+      "adr_references": [
+        "ADR-008",
+        "ADR-017",
+        "ADR-018"
+      ],
+      "producer_modules": [
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-RULE-PACK-CONTRACT"
+      ],
+      "consumer_modules": [],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-CALCULATION-CONTRACT",
+          "type": "HARD",
+          "direction": "MOD-COMPENSATION-ECONOMIC->MOD-CALCULATION-CONTRACT"
+        },
+        {
+          "module_id": "MOD-RULE-PACK-CONTRACT",
+          "type": "HARD",
+          "direction": "MOD-COMPENSATION-ECONOMIC->MOD-RULE-PACK-CONTRACT"
+        }
+      ],
+      "events_published": [
+        "mod.compensation.economic.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.calculation.contract.contract_ready",
+        "mod.rule.pack.contract.contract_ready"
+      ],
+      "events_observed": [
+        "governance/architecture/FORGE_MASTER_BUILD_TREE.md"
+      ],
+      "events_forbidden": [
+        "payout_truth.created_without_official_evidence"
+      ]
+    },
+    {
+      "id": "MOD-RECRUITMENT-PRECONTRACT",
+      "name": "Recruitment And Precontract Lifecycle",
+      "status": "DEFERRED",
+      "build_disposition": "DEFER",
+      "stage": "SG-017",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-RECRUITMENT-PRECONTRACT"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.manager.coaching.contract_ready",
+        "mod.truth.governance.contract_ready"
+      ],
+      "required_services": [
+        "MOD-MANAGER-COACHING",
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-NO-HUMAN-CONSEQUENCE-AUTOMATION",
+        "BOUND-NO-HUMAN-WORTH"
+      ],
+      "adr_references": [
+        "AGENTS"
+      ],
+      "producer_modules": [
+        "MOD-MANAGER-COACHING",
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "consumer_modules": [],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-MANAGER-COACHING",
+          "type": "HARD",
+          "direction": "MOD-RECRUITMENT-PRECONTRACT->MOD-MANAGER-COACHING"
+        },
+        {
+          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "type": "SECURITY",
+          "direction": "MOD-RECRUITMENT-PRECONTRACT->MOD-TRUTH-GOVERNANCE"
+        }
+      ],
+      "events_published": [
+        "mod.recruitment.precontract.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.manager.coaching.contract_ready",
+        "mod.truth.governance.contract_ready"
+      ],
+      "events_observed": [
+        "governance/architecture/FORGE_MASTER_BUILD_TREE.md"
+      ],
+      "events_forbidden": [
+        "human_consequence.applied",
+        "human_worth.scored"
+      ]
+    },
+    {
+      "id": "MOD-HUMAN-APPROVAL-GATE",
+      "name": "Human Approval Gate",
+      "status": "READY_FOR_SCAFFOLD",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-001",
+      "required_contracts": [
+        "scaffolds/contracts/promotion-gate.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-GOVERNANCE-GATE",
+        "CAP-ACTION-PLANNING"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/promotion-gate.schema.json"
+      ],
+      "required_events": [
+        "mod.governance.gate.contract_ready"
+      ],
+      "required_services": [
+        "MOD-GOVERNANCE-GATE"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-ROBOCOP-GATE",
+        "BOUND-ACTION-NO-EXECUTION"
+      ],
+      "adr_references": [
+        "governance/architecture/FORGE_MASTER_BUILD_TREE.md"
+      ],
+      "producer_modules": [
+        "MOD-GOVERNANCE-GATE"
+      ],
+      "consumer_modules": [
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-LLM-DRAFT-INTAKE"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-GOVERNANCE-GATE",
+          "type": "SECURITY",
+          "direction": "MOD-HUMAN-APPROVAL-GATE->MOD-GOVERNANCE-GATE"
+        }
+      ],
+      "events_published": [
+        "mod.human.approval.gate.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.governance.gate.contract_ready"
+      ],
+      "events_observed": [
+        "governance/architecture/FORGE_MASTER_BUILD_TREE.md"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-LLM-DRAFT-INTAKE",
+      "name": "LLM Draft Intake",
+      "status": "BLOCKED",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-004",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-CONVERSATION-INTELLIGENCE"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.human.approval.gate.contract_ready"
+      ],
+      "required_services": [
+        "MOD-HUMAN-APPROVAL-GATE"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-NASH-NO-TRUTH",
+        "BOUND-AI-EXPLAINS-FORGE-DECIDES"
+      ],
+      "adr_references": [
+        "ADR-010"
+      ],
+      "producer_modules": [
+        "MOD-HUMAN-APPROVAL-GATE"
+      ],
+      "consumer_modules": [
+        "MOD-MESSAGE-SAFETY-VALIDATOR"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-HUMAN-APPROVAL-GATE",
+          "type": "SECURITY",
+          "direction": "MOD-LLM-DRAFT-INTAKE->MOD-HUMAN-APPROVAL-GATE"
+        }
+      ],
+      "events_published": [
+        "mod.llm.draft.intake.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.human.approval.gate.contract_ready"
+      ],
+      "events_observed": [
+        "governance/architecture/FORGE_MASTER_BUILD_TREE.md"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-MESSAGE-SAFETY-VALIDATOR",
+      "name": "Message Safety Validator",
+      "status": "BLOCKED",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-004",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-CONVERSATION-INTELLIGENCE"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.llm.draft.intake.contract_ready"
+      ],
+      "required_services": [
+        "MOD-LLM-DRAFT-INTAKE"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-NASH-NO-TRUTH",
+        "BOUND-AI-EXPLAINS-FORGE-DECIDES"
+      ],
+      "adr_references": [
+        "ADR-010"
+      ],
+      "producer_modules": [
+        "MOD-LLM-DRAFT-INTAKE"
+      ],
+      "consumer_modules": [],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-LLM-DRAFT-INTAKE",
+          "type": "HARD",
+          "direction": "MOD-MESSAGE-SAFETY-VALIDATOR->MOD-LLM-DRAFT-INTAKE"
+        }
+      ],
+      "events_published": [
+        "mod.message.safety.validator.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.llm.draft.intake.contract_ready"
+      ],
+      "events_observed": [
+        "governance/architecture/FORGE_MASTER_BUILD_TREE.md"
+      ],
+      "events_forbidden": [
+        "message.sent",
+        "ai.final_decision"
+      ]
+    },
+    {
+      "id": "MOD-NBA-REASON-WHY",
+      "name": "Next Best Action Reason Why",
+      "status": "READY_FOR_SCAFFOLD",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-002",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-ACTION-PLANNING",
+        "CAP-CONVERSATION-INTELLIGENCE",
+        "CAP-MICK-BEHAVIOR"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.conversation.intelligence.contract_ready",
+        "mod.mick.behavior.contract_ready"
+      ],
+      "required_services": [
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-MICK-BEHAVIOR"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-ACTION-NO-EXECUTION",
+        "BOUND-NASH-NO-TRUTH",
+        "BOUND-AI-EXPLAINS-FORGE-DECIDES",
+        "BOUND-MICK-OBSERVABLE-BEHAVIOR",
+        "BOUND-NO-HUMAN-WORTH"
+      ],
+      "adr_references": [
+        "ADR-010",
+        "ADR-013"
+      ],
+      "producer_modules": [
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-MICK-BEHAVIOR"
+      ],
+      "consumer_modules": [],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-CONVERSATION-INTELLIGENCE",
+          "type": "HARD",
+          "direction": "MOD-NBA-REASON-WHY->MOD-CONVERSATION-INTELLIGENCE"
+        },
+        {
+          "module_id": "MOD-MICK-BEHAVIOR",
+          "type": "HARD",
+          "direction": "MOD-NBA-REASON-WHY->MOD-MICK-BEHAVIOR"
+        }
+      ],
+      "events_published": [
+        "mod.nba.reason.why.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.conversation.intelligence.contract_ready",
+        "mod.mick.behavior.contract_ready"
+      ],
+      "events_observed": [
+        "governance/architecture/FORGE_MASTER_BUILD_TREE.md"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-ADVISOR-LIFECYCLE",
+      "name": "Advisor Lifecycle",
+      "status": "READY_FOR_SCAFFOLD",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-001",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-TRUTH-EVIDENCE"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.truth.governance.contract_ready"
+      ],
+      "required_services": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-ONE-METRIC-ONE-OWNER",
+        "BOUND-UNKNOWN-REMAINS-UNKNOWN"
+      ],
+      "adr_references": [
+        "governance/architecture/FORGE_MASTER_BUILD_TREE.md"
+      ],
+      "producer_modules": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "consumer_modules": [],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-TRUTH-GOVERNANCE",
+          "type": "SECURITY",
+          "direction": "MOD-ADVISOR-LIFECYCLE->MOD-TRUTH-GOVERNANCE"
+        }
+      ],
+      "events_published": [
+        "mod.advisor.lifecycle.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.truth.governance.contract_ready"
+      ],
+      "events_observed": [
+        "governance/architecture/FORGE_MASTER_BUILD_TREE.md"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-ADVISOR-CONVERSION",
+      "name": "Advisor Conversion",
+      "status": "READY_FOR_SCAFFOLD",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-001",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-TRUTH-EVIDENCE",
+        "CAP-GOVERNANCE-GATE"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.human.approval.gate.contract_ready"
+      ],
+      "required_services": [
+        "MOD-HUMAN-APPROVAL-GATE"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-ONE-METRIC-ONE-OWNER",
+        "BOUND-UNKNOWN-REMAINS-UNKNOWN",
+        "BOUND-ROBOCOP-GATE"
+      ],
+      "adr_references": [
+        "governance/architecture/FORGE_MASTER_BUILD_TREE.md"
+      ],
+      "producer_modules": [
+        "MOD-HUMAN-APPROVAL-GATE"
+      ],
+      "consumer_modules": [
+        "MOD-ADVISOR-ACTIVATION"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-HUMAN-APPROVAL-GATE",
+          "type": "SECURITY",
+          "direction": "MOD-ADVISOR-CONVERSION->MOD-HUMAN-APPROVAL-GATE"
+        }
+      ],
+      "events_published": [
+        "mod.advisor.conversion.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.human.approval.gate.contract_ready"
+      ],
+      "events_observed": [
+        "governance/architecture/FORGE_MASTER_BUILD_TREE.md"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-ADVISOR-ACTIVATION",
+      "name": "Advisor Activation",
+      "status": "READY_FOR_SCAFFOLD",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-001",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-TRUTH-EVIDENCE",
+        "CAP-GOVERNANCE-GATE"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.advisor.conversion.contract_ready"
+      ],
+      "required_services": [
+        "MOD-ADVISOR-CONVERSION"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-ONE-METRIC-ONE-OWNER",
+        "BOUND-UNKNOWN-REMAINS-UNKNOWN",
+        "BOUND-ROBOCOP-GATE"
+      ],
+      "adr_references": [
+        "governance/architecture/FORGE_MASTER_BUILD_TREE.md"
+      ],
+      "producer_modules": [
+        "MOD-ADVISOR-CONVERSION"
+      ],
+      "consumer_modules": [],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-ADVISOR-CONVERSION",
+          "type": "HARD",
+          "direction": "MOD-ADVISOR-ACTIVATION->MOD-ADVISOR-CONVERSION"
+        }
+      ],
+      "events_published": [
+        "mod.advisor.activation.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.advisor.conversion.contract_ready"
+      ],
+      "events_observed": [
+        "governance/architecture/FORGE_MASTER_BUILD_TREE.md"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-REVENUE-INTELLIGENCE",
+      "name": "Revenue Intelligence",
+      "status": "DEFERRED",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-016",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-COMPENSATION-ECONOMIC",
+        "CAP-CALCULATION-CONTRACT"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.calculation.contract.contract_ready"
+      ],
+      "required_services": [
+        "MOD-CALCULATION-CONTRACT"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-ECONOMIC-EVIDENCE",
+        "BOUND-FORECAST-NOT-FACT"
+      ],
+      "adr_references": [
+        "ADR-008",
+        "ADR-017"
+      ],
+      "producer_modules": [
+        "MOD-CALCULATION-CONTRACT"
+      ],
+      "consumer_modules": [],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-CALCULATION-CONTRACT",
+          "type": "HARD",
+          "direction": "MOD-REVENUE-INTELLIGENCE->MOD-CALCULATION-CONTRACT"
+        }
+      ],
+      "events_published": [
+        "mod.revenue.intelligence.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.calculation.contract.contract_ready"
+      ],
+      "events_observed": [
+        "governance/architecture/FORGE_MASTER_BUILD_TREE.md"
+      ],
+      "events_forbidden": [
+        "payout_truth.created_without_official_evidence"
+      ]
+    },
+    {
+      "id": "MOD-OPPORTUNITY-PIPELINE",
+      "name": "Opportunity Pipeline Read Model",
+      "status": "READY_FOR_SCAFFOLD",
+      "build_disposition": "EXISTS_REDESIGN",
+      "stage": "SG-002",
+      "required_contracts": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-READ-ONLY-ADAPTERS",
+        "CAP-ACTION-PLANNING"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.readonly.adapters.contract_ready"
+      ],
+      "required_services": [
+        "MOD-READONLY-ADAPTERS"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-READ-ONLY",
+        "BOUND-ACTION-NO-EXECUTION"
+      ],
+      "adr_references": [
+        "ADR-003"
+      ],
+      "producer_modules": [
+        "MOD-READONLY-ADAPTERS"
+      ],
+      "consumer_modules": [],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-READONLY-ADAPTERS",
+          "type": "HARD",
+          "direction": "MOD-OPPORTUNITY-PIPELINE->MOD-READONLY-ADAPTERS"
+        }
+      ],
+      "events_published": [
+        "mod.opportunity.pipeline.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.readonly.adapters.contract_ready"
+      ],
+      "events_observed": [
+        "platform/adapters/opportunity-pipeline/"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-CLIENT-CRM-READMODEL",
+      "name": "Client CRM Read Model",
+      "status": "READY_FOR_SCAFFOLD",
+      "build_disposition": "EXISTS_REDESIGN",
+      "stage": "SG-002",
+      "required_contracts": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-READ-ONLY-ADAPTERS",
+        "CAP-RELATIONSHIP-INTELLIGENCE"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.readonly.adapters.contract_ready"
+      ],
+      "required_services": [
+        "MOD-READONLY-ADAPTERS"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-READ-ONLY",
+        "BOUND-RELATIONSHIP-NON-MANIPULATION"
+      ],
+      "adr_references": [
+        "ADR-003"
+      ],
+      "producer_modules": [
+        "MOD-READONLY-ADAPTERS"
+      ],
+      "consumer_modules": [],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-READONLY-ADAPTERS",
+          "type": "HARD",
+          "direction": "MOD-CLIENT-CRM-READMODEL->MOD-READONLY-ADAPTERS"
+        }
+      ],
+      "events_published": [
+        "mod.client.crm.readmodel.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.readonly.adapters.contract_ready"
+      ],
+      "events_observed": [
+        "platform/adapters/client-crm/"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-TERMUX-REWRITE-TOOLS",
+      "name": "Termux Rewrite Tools",
+      "status": "READY_FOR_VALIDATION",
+      "build_disposition": "EXISTS_PRESERVE",
+      "stage": "SG-001",
+      "required_contracts": [
+        "scaffolds/contracts/execution-state.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-GOVERNANCE-GATE",
+        "CAP-LEGACY-REINTRODUCTION-GUARD"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/execution-state.schema.json"
+      ],
+      "required_events": [
+        "mod.governance.gate.contract_ready"
+      ],
+      "required_services": [
+        "MOD-GOVERNANCE-GATE"
+      ],
+      "required_infrastructure": [
+        "git",
+        "node",
+        "npm",
+        "bash"
+      ],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-ROBOCOP-GATE",
+        "BOUND-NO-LEGACY-REINTRODUCTION",
+        "BOUND-NO-LEGACY-CODE-COPY"
+      ],
+      "adr_references": [
+        "ROBOCOP_LOCK_001"
+      ],
+      "producer_modules": [
+        "MOD-GOVERNANCE-GATE"
+      ],
+      "consumer_modules": [],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [
+        "owner"
+      ],
+      "dependencies": [
+        {
+          "module_id": "MOD-GOVERNANCE-GATE",
+          "type": "SECURITY",
+          "direction": "MOD-TERMUX-REWRITE-TOOLS->MOD-GOVERNANCE-GATE"
+        }
+      ],
+      "events_published": [
+        "mod.termux.rewrite.tools.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.governance.gate.contract_ready"
+      ],
+      "events_observed": [
+        "tools/termux/rewrite/"
+      ],
+      "events_forbidden": []
+    },
+    {
+      "id": "MOD-LEGACY-REINTRODUCTION-GUARD",
+      "name": "Legacy Reintroduction Guard",
+      "status": "READY_FOR_VALIDATION",
+      "build_disposition": "EXISTS_PRESERVE",
+      "stage": "SG-018",
+      "required_contracts": [
+        "scaffolds/contracts/path-policy.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-LEGACY-REINTRODUCTION-GUARD"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/path-policy.schema.json"
+      ],
+      "required_events": [
+        "mod.governance.gate.contract_ready"
+      ],
+      "required_services": [
+        "MOD-GOVERNANCE-GATE"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-NO-LEGACY-REINTRODUCTION",
+        "BOUND-NO-LEGACY-CODE-COPY"
+      ],
+      "adr_references": [
+        "docs/migration/FULL_REPOSITORY_CLEANUP_REPORT.md"
+      ],
+      "producer_modules": [
+        "MOD-GOVERNANCE-GATE"
+      ],
+      "consumer_modules": [
+        "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE"
+      ],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [
+        {
+          "module_id": "MOD-GOVERNANCE-GATE",
+          "type": "SECURITY",
+          "direction": "MOD-LEGACY-REINTRODUCTION-GUARD->MOD-GOVERNANCE-GATE"
+        }
+      ],
+      "events_published": [
+        "mod.legacy.reintroduction.guard.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.governance.gate.contract_ready"
+      ],
+      "events_observed": [
+        "scaffolds/manifest/path-policy.json"
+      ],
+      "events_forbidden": [
+        "legacy_code.copied",
+        "legacy_path.restored"
+      ]
+    },
+    {
+      "id": "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
+      "name": "Legacy Functional Evidence Intake",
+      "status": "BLOCKED",
+      "build_disposition": "BUILD_NEW",
+      "stage": "SG-020",
+      "required_contracts": [
+        "scaffolds/contracts/evidence-contract.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/evidence-contract.schema.json"
+      ],
+      "required_events": [
+        "mod.legacy.reintroduction.guard.contract_ready"
+      ],
+      "required_services": [
+        "MOD-LEGACY-REINTRODUCTION-GUARD"
+      ],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-NO-LEGACY-CODE-COPY",
+        "BOUND-NO-LEGACY-REINTRODUCTION"
+      ],
+      "adr_references": [
+        "docs/migration/FULL_REPOSITORY_CLEANUP_REPORT.md"
+      ],
+      "producer_modules": [
+        "MOD-LEGACY-REINTRODUCTION-GUARD"
+      ],
+      "consumer_modules": [],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [
+        "owner"
+      ],
+      "dependencies": [
+        {
+          "module_id": "MOD-LEGACY-REINTRODUCTION-GUARD",
+          "type": "VALIDATION",
+          "direction": "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE->MOD-LEGACY-REINTRODUCTION-GUARD"
+        }
+      ],
+      "events_published": [
+        "mod.legacy.functional.evidence.intake.contract_ready"
+      ],
+      "events_consumed": [
+        "mod.legacy.reintroduction.guard.contract_ready"
+      ],
+      "events_observed": [
+        "docs/rewrite/LEGACY_EVIDENCE_POLICY.md"
+      ],
+      "events_forbidden": [
+        "legacy_code.copied",
+        "legacy_path.restored"
+      ]
+    },
+    {
+      "id": "MOD-AUTONOMOUS-AI-DECISIONING",
+      "name": "Autonomous AI Decisioning",
+      "status": "REJECTED",
+      "build_disposition": "REJECT",
+      "stage": "SG-019",
+      "required_contracts": [
+        "scaffolds/contracts/constitutional-boundary.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-AUTONOMOUS-AI-DECISIONING"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/constitutional-boundary.schema.json"
+      ],
+      "required_events": [],
+      "required_services": [],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-HUMAN-JUDGMENT",
+        "BOUND-AI-EXPLAINS-FORGE-DECIDES"
+      ],
+      "adr_references": [
+        "ADR-003",
+        "ADR-004",
+        "ADR-020"
+      ],
+      "producer_modules": [],
+      "consumer_modules": [],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [],
+      "events_published": [
+        "mod.autonomous.ai.decisioning.contract_ready"
+      ],
+      "events_consumed": [],
+      "events_observed": [
+        "AGENTS.md"
+      ],
+      "events_forbidden": [
+        "message.sent",
+        "ai.final_decision"
+      ]
+    },
+    {
+      "id": "MOD-GENERIC-CRM-CLONE",
+      "name": "Generic CRM Clone",
+      "status": "REJECTED",
+      "build_disposition": "REJECT",
+      "stage": "SG-019",
+      "required_contracts": [
+        "scaffolds/contracts/path-policy.schema.json"
+      ],
+      "required_capabilities": [
+        "CAP-GENERIC-CRM-CLONE"
+      ],
+      "required_schemas": [
+        "scaffolds/contracts/path-policy.schema.json"
+      ],
+      "required_events": [],
+      "required_services": [],
+      "required_infrastructure": [],
+      "required_storage": [],
+      "constitutional_boundaries": [
+        "BOUND-FORGE-NOT-CRM"
+      ],
+      "adr_references": [
+        "AGENTS"
+      ],
+      "producer_modules": [],
+      "consumer_modules": [],
+      "blocking_modules": [],
+      "optional_modules": [],
+      "future_modules": [],
+      "dependencies": [],
+      "events_published": [
+        "mod.generic.crm.clone.contract_ready"
+      ],
+      "events_consumed": [],
+      "events_observed": [
+        "AGENTS.md"
+      ],
+      "events_forbidden": []
+    }
+  ],
+  "event_relationships": 103
+}
