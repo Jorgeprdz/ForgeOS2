@@ -1,0 +1,27 @@
+{
+  "artifact_id": "HumanAuthorityContract",
+  "stage_id": "SG-024",
+  "version": "1.0.0",
+  "status": "ACTIVE",
+  "purpose": "Reserve decisions with human consequence, authority or accountability to an identified human actor.",
+  "rules": [
+    {
+      "id": "HA-001",
+      "requirement": "A human authority must be identified before an action with human consequence may proceed."
+    },
+    {
+      "id": "HA-002",
+      "requirement": "Automated systems may recommend, prepare or validate but may not impersonate human authority."
+    },
+    {
+      "id": "HA-003",
+      "requirement": "Absence of identified authority produces a blocked state, never implicit approval."
+    }
+  ],
+  "constitutional_authority": [
+    "CONSTITUTION_ARTICLE_0",
+    "CONSTITUTION_ARTICLE_IV",
+    "CONSTITUTION_ARTICLE_VI"
+  ],
+  "fail_closed": true
+}

@@ -1,0 +1,21 @@
+{
+  "artifact_id": "HumanReviewBoundary",
+  "stage_id": "SG-024",
+  "version": "1.0.0",
+  "status": "ACTIVE",
+  "purpose": "Require review of the exact artifact that will produce an external or human consequence.",
+  "review_requirements": {
+    "exact_artifact_required": true,
+    "artifact_hash_required": true,
+    "material_changes_invalidate_prior_review": true,
+    "reviewer_identity_required": true,
+    "decision_receipt_required": true
+  },
+  "review_outcomes": [
+    "APPROVE",
+    "REJECT",
+    "REQUEST_CHANGES"
+  ],
+  "default_outcome": "REQUEST_CHANGES",
+  "fail_closed": true
+}

@@ -1,0 +1,24 @@
+{
+  "artifact_id": "ApprovalContract",
+  "stage_id": "SG-024",
+  "version": "1.0.0",
+  "status": "ACTIVE",
+  "purpose": "Define explicit, attributable and artifact-bound human approval.",
+  "approval_requirements": {
+    "approver_identity_required": true,
+    "approval_scope_required": true,
+    "artifact_hash_required": true,
+    "timestamp_required": true,
+    "expiry_or_revocation_supported": true,
+    "implicit_approval_prohibited": true
+  },
+  "valid_states": [
+    "PENDING",
+    "APPROVED",
+    "REJECTED",
+    "REVOKED",
+    "EXPIRED"
+  ],
+  "default_state": "PENDING",
+  "fail_closed": true
+}
