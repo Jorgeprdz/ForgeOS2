@@ -1,0 +1,521 @@
+{
+  "schema": "../contracts/build-order.schema.json",
+  "build_order_id": "FORGE_BUILD_ORDER_001",
+  "generated_from": "scaffolds/manifest/dependency-graph.json",
+  "algorithm": "deterministic_topological_sort_lexicographic_tiebreak",
+  "cycles": [],
+  "critical_path_length": 5,
+  "critical_path": [
+    "MOD-ADVISOR-LIFECYCLE",
+    "MOD-CARRIER-SCOPE",
+    "MOD-CONVERSATION-INTELLIGENCE",
+    "MOD-DECISION-CORE",
+    "MOD-GOVERNANCE-GATE",
+    "MOD-MICK-BEHAVIOR",
+    "MOD-READONLY-ADAPTERS",
+    "MOD-ACTION-PLANNING",
+    "MOD-CLIENT-CRM-READMODEL",
+    "MOD-HUMAN-APPROVAL-GATE",
+    "MOD-LEGACY-REINTRODUCTION-GUARD",
+    "MOD-MANAGER-COACHING",
+    "MOD-NBA-REASON-WHY",
+    "MOD-OPPORTUNITY-PIPELINE",
+    "MOD-POLICY-OPERATIONS",
+    "MOD-PRODUCT-CATALOG",
+    "MOD-RULE-PACK-CONTRACT",
+    "MOD-TERMUX-REWRITE-TOOLS",
+    "MOD-ADVISOR-CONVERSION",
+    "MOD-ADVISOR-WORKSPACE",
+    "MOD-CALCULATION-CONTRACT",
+    "MOD-ELIGIBILITY-CONTRACT",
+    "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
+    "MOD-LLM-DRAFT-INTAKE",
+    "MOD-MANAGER-WORKSPACE",
+    "MOD-PRODUCT-SOURCE-PACK",
+    "MOD-RECRUITMENT-PRECONTRACT",
+    "MOD-RELATIONSHIP-INTELLIGENCE",
+    "MOD-ADVISOR-ACTIVATION",
+    "MOD-ADVISOR-EXPERIENCE",
+    "MOD-COMPENSATION-ECONOMIC",
+    "MOD-MESSAGE-SAFETY-VALIDATOR",
+    "MOD-QUOTE-PREVIEW",
+    "MOD-REVENUE-INTELLIGENCE"
+  ],
+  "parallel_groups": [
+    {
+      "group": 1,
+      "modules": [
+        "MOD-AUTONOMOUS-AI-DECISIONING",
+        "MOD-GENERIC-CRM-CLONE",
+        "MOD-TRUTH-GOVERNANCE"
+      ]
+    },
+    {
+      "group": 2,
+      "modules": [
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-CARRIER-SCOPE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-DECISION-CORE",
+        "MOD-GOVERNANCE-GATE",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-READONLY-ADAPTERS"
+      ]
+    },
+    {
+      "group": 3,
+      "modules": [
+        "MOD-ACTION-PLANNING",
+        "MOD-CLIENT-CRM-READMODEL",
+        "MOD-HUMAN-APPROVAL-GATE",
+        "MOD-LEGACY-REINTRODUCTION-GUARD",
+        "MOD-MANAGER-COACHING",
+        "MOD-NBA-REASON-WHY",
+        "MOD-OPPORTUNITY-PIPELINE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-PRODUCT-CATALOG",
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-TERMUX-REWRITE-TOOLS"
+      ]
+    },
+    {
+      "group": 4,
+      "modules": [
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-PRODUCT-SOURCE-PACK",
+        "MOD-RECRUITMENT-PRECONTRACT",
+        "MOD-RELATIONSHIP-INTELLIGENCE"
+      ]
+    },
+    {
+      "group": 5,
+      "modules": [
+        "MOD-ADVISOR-ACTIVATION",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-COMPENSATION-ECONOMIC",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-REVENUE-INTELLIGENCE"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "MOD-AUTONOMOUS-AI-DECISIONING",
+      "build_priority": 1,
+      "build_stage": "SG-019",
+      "parallelization_group": 1,
+      "blocking_conditions": [],
+      "promotion_gate": "REJECTED",
+      "rollback_dependency": []
+    },
+    {
+      "module_id": "MOD-GENERIC-CRM-CLONE",
+      "build_priority": 2,
+      "build_stage": "SG-019",
+      "parallelization_group": 1,
+      "blocking_conditions": [],
+      "promotion_gate": "REJECTED",
+      "rollback_dependency": []
+    },
+    {
+      "module_id": "MOD-TRUTH-GOVERNANCE",
+      "build_priority": 3,
+      "build_stage": "SG-001",
+      "parallelization_group": 1,
+      "blocking_conditions": [],
+      "promotion_gate": "validation_and_evidence_required",
+      "rollback_dependency": []
+    },
+    {
+      "module_id": "MOD-ADVISOR-LIFECYCLE",
+      "build_priority": 4,
+      "build_stage": "SG-001",
+      "parallelization_group": 2,
+      "blocking_conditions": [],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "rollback_dependency": [
+        "MOD-TRUTH-GOVERNANCE"
+      ]
+    },
+    {
+      "module_id": "MOD-CARRIER-SCOPE",
+      "build_priority": 5,
+      "build_stage": "SG-008",
+      "parallelization_group": 2,
+      "blocking_conditions": [],
+      "promotion_gate": "BLOCKED",
+      "rollback_dependency": [
+        "MOD-TRUTH-GOVERNANCE"
+      ]
+    },
+    {
+      "module_id": "MOD-CONVERSATION-INTELLIGENCE",
+      "build_priority": 6,
+      "build_stage": "SG-004",
+      "parallelization_group": 2,
+      "blocking_conditions": [],
+      "promotion_gate": "BLOCKED",
+      "rollback_dependency": [
+        "MOD-TRUTH-GOVERNANCE"
+      ]
+    },
+    {
+      "module_id": "MOD-DECISION-CORE",
+      "build_priority": 7,
+      "build_stage": "SG-002",
+      "parallelization_group": 2,
+      "blocking_conditions": [],
+      "promotion_gate": "validation_and_evidence_required",
+      "rollback_dependency": [
+        "MOD-TRUTH-GOVERNANCE"
+      ]
+    },
+    {
+      "module_id": "MOD-GOVERNANCE-GATE",
+      "build_priority": 8,
+      "build_stage": "SG-001",
+      "parallelization_group": 2,
+      "blocking_conditions": [],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "rollback_dependency": [
+        "MOD-TRUTH-GOVERNANCE"
+      ]
+    },
+    {
+      "module_id": "MOD-MICK-BEHAVIOR",
+      "build_priority": 9,
+      "build_stage": "SG-014",
+      "parallelization_group": 2,
+      "blocking_conditions": [],
+      "promotion_gate": "BLOCKED",
+      "rollback_dependency": [
+        "MOD-TRUTH-GOVERNANCE"
+      ]
+    },
+    {
+      "module_id": "MOD-READONLY-ADAPTERS",
+      "build_priority": 10,
+      "build_stage": "SG-002",
+      "parallelization_group": 2,
+      "blocking_conditions": [],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "rollback_dependency": [
+        "MOD-TRUTH-GOVERNANCE"
+      ]
+    },
+    {
+      "module_id": "MOD-ACTION-PLANNING",
+      "build_priority": 11,
+      "build_stage": "SG-002",
+      "parallelization_group": 3,
+      "blocking_conditions": [],
+      "promotion_gate": "validation_and_evidence_required",
+      "rollback_dependency": [
+        "MOD-DECISION-CORE"
+      ]
+    },
+    {
+      "module_id": "MOD-CLIENT-CRM-READMODEL",
+      "build_priority": 12,
+      "build_stage": "SG-002",
+      "parallelization_group": 3,
+      "blocking_conditions": [],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "rollback_dependency": [
+        "MOD-READONLY-ADAPTERS"
+      ]
+    },
+    {
+      "module_id": "MOD-HUMAN-APPROVAL-GATE",
+      "build_priority": 13,
+      "build_stage": "SG-001",
+      "parallelization_group": 3,
+      "blocking_conditions": [],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "rollback_dependency": [
+        "MOD-GOVERNANCE-GATE"
+      ]
+    },
+    {
+      "module_id": "MOD-LEGACY-REINTRODUCTION-GUARD",
+      "build_priority": 14,
+      "build_stage": "SG-018",
+      "parallelization_group": 3,
+      "blocking_conditions": [],
+      "promotion_gate": "validation_and_evidence_required",
+      "rollback_dependency": [
+        "MOD-GOVERNANCE-GATE"
+      ]
+    },
+    {
+      "module_id": "MOD-MANAGER-COACHING",
+      "build_priority": 15,
+      "build_stage": "SG-013",
+      "parallelization_group": 3,
+      "blocking_conditions": [],
+      "promotion_gate": "BLOCKED",
+      "rollback_dependency": [
+        "MOD-MICK-BEHAVIOR",
+        "MOD-TRUTH-GOVERNANCE"
+      ]
+    },
+    {
+      "module_id": "MOD-NBA-REASON-WHY",
+      "build_priority": 16,
+      "build_stage": "SG-002",
+      "parallelization_group": 3,
+      "blocking_conditions": [],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "rollback_dependency": [
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-MICK-BEHAVIOR"
+      ]
+    },
+    {
+      "module_id": "MOD-OPPORTUNITY-PIPELINE",
+      "build_priority": 17,
+      "build_stage": "SG-002",
+      "parallelization_group": 3,
+      "blocking_conditions": [],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "rollback_dependency": [
+        "MOD-READONLY-ADAPTERS"
+      ]
+    },
+    {
+      "module_id": "MOD-POLICY-OPERATIONS",
+      "build_priority": 18,
+      "build_stage": "SG-005",
+      "parallelization_group": 3,
+      "blocking_conditions": [],
+      "promotion_gate": "BLOCKED",
+      "rollback_dependency": [
+        "MOD-TRUTH-GOVERNANCE",
+        "MOD-READONLY-ADAPTERS"
+      ]
+    },
+    {
+      "module_id": "MOD-PRODUCT-CATALOG",
+      "build_priority": 19,
+      "build_stage": "SG-006",
+      "parallelization_group": 3,
+      "blocking_conditions": [],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "rollback_dependency": [
+        "MOD-CARRIER-SCOPE"
+      ]
+    },
+    {
+      "module_id": "MOD-RULE-PACK-CONTRACT",
+      "build_priority": 20,
+      "build_stage": "SG-009",
+      "parallelization_group": 3,
+      "blocking_conditions": [],
+      "promotion_gate": "BLOCKED",
+      "rollback_dependency": [
+        "MOD-CARRIER-SCOPE"
+      ]
+    },
+    {
+      "module_id": "MOD-TERMUX-REWRITE-TOOLS",
+      "build_priority": 21,
+      "build_stage": "SG-001",
+      "parallelization_group": 3,
+      "blocking_conditions": [],
+      "promotion_gate": "validation_and_evidence_required",
+      "rollback_dependency": [
+        "MOD-GOVERNANCE-GATE"
+      ]
+    },
+    {
+      "module_id": "MOD-ADVISOR-CONVERSION",
+      "build_priority": 22,
+      "build_stage": "SG-001",
+      "parallelization_group": 4,
+      "blocking_conditions": [],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "rollback_dependency": [
+        "MOD-HUMAN-APPROVAL-GATE"
+      ]
+    },
+    {
+      "module_id": "MOD-ADVISOR-WORKSPACE",
+      "build_priority": 23,
+      "build_stage": "SG-002",
+      "parallelization_group": 4,
+      "blocking_conditions": [],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "rollback_dependency": [
+        "MOD-DECISION-CORE",
+        "MOD-ACTION-PLANNING"
+      ]
+    },
+    {
+      "module_id": "MOD-CALCULATION-CONTRACT",
+      "build_priority": 24,
+      "build_stage": "SG-011",
+      "parallelization_group": 4,
+      "blocking_conditions": [],
+      "promotion_gate": "BLOCKED",
+      "rollback_dependency": [
+        "MOD-RULE-PACK-CONTRACT"
+      ]
+    },
+    {
+      "module_id": "MOD-ELIGIBILITY-CONTRACT",
+      "build_priority": 25,
+      "build_stage": "SG-010",
+      "parallelization_group": 4,
+      "blocking_conditions": [],
+      "promotion_gate": "BLOCKED",
+      "rollback_dependency": [
+        "MOD-RULE-PACK-CONTRACT"
+      ]
+    },
+    {
+      "module_id": "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
+      "build_priority": 26,
+      "build_stage": "SG-020",
+      "parallelization_group": 4,
+      "blocking_conditions": [],
+      "promotion_gate": "BLOCKED",
+      "rollback_dependency": [
+        "MOD-LEGACY-REINTRODUCTION-GUARD"
+      ]
+    },
+    {
+      "module_id": "MOD-LLM-DRAFT-INTAKE",
+      "build_priority": 27,
+      "build_stage": "SG-004",
+      "parallelization_group": 4,
+      "blocking_conditions": [],
+      "promotion_gate": "BLOCKED",
+      "rollback_dependency": [
+        "MOD-HUMAN-APPROVAL-GATE"
+      ]
+    },
+    {
+      "module_id": "MOD-MANAGER-WORKSPACE",
+      "build_priority": 28,
+      "build_stage": "SG-013",
+      "parallelization_group": 4,
+      "blocking_conditions": [],
+      "promotion_gate": "BLOCKED",
+      "rollback_dependency": [
+        "MOD-MANAGER-COACHING"
+      ]
+    },
+    {
+      "module_id": "MOD-PRODUCT-SOURCE-PACK",
+      "build_priority": 29,
+      "build_stage": "SG-007",
+      "parallelization_group": 4,
+      "blocking_conditions": [],
+      "promotion_gate": "BLOCKED",
+      "rollback_dependency": [
+        "MOD-PRODUCT-CATALOG"
+      ]
+    },
+    {
+      "module_id": "MOD-RECRUITMENT-PRECONTRACT",
+      "build_priority": 30,
+      "build_stage": "SG-017",
+      "parallelization_group": 4,
+      "blocking_conditions": [],
+      "promotion_gate": "DEFERRED",
+      "rollback_dependency": [
+        "MOD-MANAGER-COACHING",
+        "MOD-TRUTH-GOVERNANCE"
+      ]
+    },
+    {
+      "module_id": "MOD-RELATIONSHIP-INTELLIGENCE",
+      "build_priority": 31,
+      "build_stage": "SG-003",
+      "parallelization_group": 4,
+      "blocking_conditions": [],
+      "promotion_gate": "BLOCKED",
+      "rollback_dependency": [
+        "MOD-TRUTH-GOVERNANCE",
+        "MOD-ACTION-PLANNING"
+      ]
+    },
+    {
+      "module_id": "MOD-ADVISOR-ACTIVATION",
+      "build_priority": 32,
+      "build_stage": "SG-001",
+      "parallelization_group": 5,
+      "blocking_conditions": [],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "rollback_dependency": [
+        "MOD-ADVISOR-CONVERSION"
+      ]
+    },
+    {
+      "module_id": "MOD-ADVISOR-EXPERIENCE",
+      "build_priority": 33,
+      "build_stage": "SG-015",
+      "parallelization_group": 5,
+      "blocking_conditions": [],
+      "promotion_gate": "BLOCKED",
+      "rollback_dependency": [
+        "MOD-ADVISOR-WORKSPACE"
+      ]
+    },
+    {
+      "module_id": "MOD-COMPENSATION-ECONOMIC",
+      "build_priority": 34,
+      "build_stage": "SG-016",
+      "parallelization_group": 5,
+      "blocking_conditions": [],
+      "promotion_gate": "DEFERRED",
+      "rollback_dependency": [
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-RULE-PACK-CONTRACT"
+      ]
+    },
+    {
+      "module_id": "MOD-MESSAGE-SAFETY-VALIDATOR",
+      "build_priority": 35,
+      "build_stage": "SG-004",
+      "parallelization_group": 5,
+      "blocking_conditions": [],
+      "promotion_gate": "BLOCKED",
+      "rollback_dependency": [
+        "MOD-LLM-DRAFT-INTAKE"
+      ]
+    },
+    {
+      "module_id": "MOD-QUOTE-PREVIEW",
+      "build_priority": 36,
+      "build_stage": "SG-012",
+      "parallelization_group": 5,
+      "blocking_conditions": [],
+      "promotion_gate": "BLOCKED",
+      "rollback_dependency": [
+        "MOD-PRODUCT-CATALOG",
+        "MOD-PRODUCT-SOURCE-PACK",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT"
+      ]
+    },
+    {
+      "module_id": "MOD-REVENUE-INTELLIGENCE",
+      "build_priority": 37,
+      "build_stage": "SG-016",
+      "parallelization_group": 5,
+      "blocking_conditions": [],
+      "promotion_gate": "DEFERRED",
+      "rollback_dependency": [
+        "MOD-CALCULATION-CONTRACT"
+      ]
+    }
+  ]
+}

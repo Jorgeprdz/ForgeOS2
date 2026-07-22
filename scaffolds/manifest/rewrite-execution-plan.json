@@ -1,0 +1,717 @@
+{
+  "schema": "../contracts/rewrite-execution-plan.schema.json",
+  "execution_plan_id": "FORGE_REWRITE_EXECUTION_PLAN_001",
+  "generated_from": [
+    "scaffolds/manifest/dependency-graph.json",
+    "scaffolds/manifest/build-order.json"
+  ],
+  "modules": [
+    {
+      "current_module": "MOD-AUTONOMOUS-AI-DECISIONING",
+      "previous_module": null,
+      "next_module": "MOD-GENERIC-CRM-CLONE",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-019-evidence.json"
+      ],
+      "resume_point": "MOD-AUTONOMOUS-AI-DECISIONING",
+      "rollback_point": [],
+      "promotion_gate": "REJECTED",
+      "readiness": "REJECTED"
+    },
+    {
+      "current_module": "MOD-GENERIC-CRM-CLONE",
+      "previous_module": "MOD-AUTONOMOUS-AI-DECISIONING",
+      "next_module": "MOD-TRUTH-GOVERNANCE",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-019-evidence.json"
+      ],
+      "resume_point": "MOD-GENERIC-CRM-CLONE",
+      "rollback_point": [],
+      "promotion_gate": "REJECTED",
+      "readiness": "REJECTED"
+    },
+    {
+      "current_module": "MOD-TRUTH-GOVERNANCE",
+      "previous_module": "MOD-GENERIC-CRM-CLONE",
+      "next_module": "MOD-ADVISOR-LIFECYCLE",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-001-evidence.json"
+      ],
+      "resume_point": "MOD-TRUTH-GOVERNANCE",
+      "rollback_point": [],
+      "promotion_gate": "validation_and_evidence_required",
+      "readiness": "READY_FOR_VALIDATION"
+    },
+    {
+      "current_module": "MOD-ADVISOR-LIFECYCLE",
+      "previous_module": "MOD-TRUTH-GOVERNANCE",
+      "next_module": "MOD-CARRIER-SCOPE",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-001-evidence.json"
+      ],
+      "resume_point": "MOD-ADVISOR-LIFECYCLE",
+      "rollback_point": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "readiness": "READY_FOR_SCAFFOLD"
+    },
+    {
+      "current_module": "MOD-CARRIER-SCOPE",
+      "previous_module": "MOD-ADVISOR-LIFECYCLE",
+      "next_module": "MOD-CONVERSATION-INTELLIGENCE",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-008-evidence.json"
+      ],
+      "resume_point": "MOD-CARRIER-SCOPE",
+      "rollback_point": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "promotion_gate": "BLOCKED",
+      "readiness": "BLOCKED"
+    },
+    {
+      "current_module": "MOD-CONVERSATION-INTELLIGENCE",
+      "previous_module": "MOD-CARRIER-SCOPE",
+      "next_module": "MOD-DECISION-CORE",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-004-evidence.json"
+      ],
+      "resume_point": "MOD-CONVERSATION-INTELLIGENCE",
+      "rollback_point": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "promotion_gate": "BLOCKED",
+      "readiness": "BLOCKED"
+    },
+    {
+      "current_module": "MOD-DECISION-CORE",
+      "previous_module": "MOD-CONVERSATION-INTELLIGENCE",
+      "next_module": "MOD-GOVERNANCE-GATE",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-002-evidence.json"
+      ],
+      "resume_point": "MOD-DECISION-CORE",
+      "rollback_point": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "promotion_gate": "validation_and_evidence_required",
+      "readiness": "READY_FOR_VALIDATION"
+    },
+    {
+      "current_module": "MOD-GOVERNANCE-GATE",
+      "previous_module": "MOD-DECISION-CORE",
+      "next_module": "MOD-MICK-BEHAVIOR",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-001-evidence.json"
+      ],
+      "resume_point": "MOD-GOVERNANCE-GATE",
+      "rollback_point": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "readiness": "READY_FOR_SCAFFOLD"
+    },
+    {
+      "current_module": "MOD-MICK-BEHAVIOR",
+      "previous_module": "MOD-GOVERNANCE-GATE",
+      "next_module": "MOD-READONLY-ADAPTERS",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-014-evidence.json"
+      ],
+      "resume_point": "MOD-MICK-BEHAVIOR",
+      "rollback_point": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "promotion_gate": "BLOCKED",
+      "readiness": "BLOCKED"
+    },
+    {
+      "current_module": "MOD-READONLY-ADAPTERS",
+      "previous_module": "MOD-MICK-BEHAVIOR",
+      "next_module": "MOD-ACTION-PLANNING",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-002-evidence.json"
+      ],
+      "resume_point": "MOD-READONLY-ADAPTERS",
+      "rollback_point": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "readiness": "READY_FOR_SCAFFOLD"
+    },
+    {
+      "current_module": "MOD-ACTION-PLANNING",
+      "previous_module": "MOD-READONLY-ADAPTERS",
+      "next_module": "MOD-CLIENT-CRM-READMODEL",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-002-evidence.json"
+      ],
+      "resume_point": "MOD-ACTION-PLANNING",
+      "rollback_point": [
+        "MOD-DECISION-CORE"
+      ],
+      "promotion_gate": "validation_and_evidence_required",
+      "readiness": "READY_FOR_VALIDATION"
+    },
+    {
+      "current_module": "MOD-CLIENT-CRM-READMODEL",
+      "previous_module": "MOD-ACTION-PLANNING",
+      "next_module": "MOD-HUMAN-APPROVAL-GATE",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-002-evidence.json"
+      ],
+      "resume_point": "MOD-CLIENT-CRM-READMODEL",
+      "rollback_point": [
+        "MOD-READONLY-ADAPTERS"
+      ],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "readiness": "READY_FOR_SCAFFOLD"
+    },
+    {
+      "current_module": "MOD-HUMAN-APPROVAL-GATE",
+      "previous_module": "MOD-CLIENT-CRM-READMODEL",
+      "next_module": "MOD-LEGACY-REINTRODUCTION-GUARD",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-001-evidence.json"
+      ],
+      "resume_point": "MOD-HUMAN-APPROVAL-GATE",
+      "rollback_point": [
+        "MOD-GOVERNANCE-GATE"
+      ],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "readiness": "READY_FOR_SCAFFOLD"
+    },
+    {
+      "current_module": "MOD-LEGACY-REINTRODUCTION-GUARD",
+      "previous_module": "MOD-HUMAN-APPROVAL-GATE",
+      "next_module": "MOD-MANAGER-COACHING",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-018-evidence.json"
+      ],
+      "resume_point": "MOD-LEGACY-REINTRODUCTION-GUARD",
+      "rollback_point": [
+        "MOD-GOVERNANCE-GATE"
+      ],
+      "promotion_gate": "validation_and_evidence_required",
+      "readiness": "READY_FOR_VALIDATION"
+    },
+    {
+      "current_module": "MOD-MANAGER-COACHING",
+      "previous_module": "MOD-LEGACY-REINTRODUCTION-GUARD",
+      "next_module": "MOD-NBA-REASON-WHY",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-013-evidence.json"
+      ],
+      "resume_point": "MOD-MANAGER-COACHING",
+      "rollback_point": [
+        "MOD-MICK-BEHAVIOR",
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "promotion_gate": "BLOCKED",
+      "readiness": "BLOCKED"
+    },
+    {
+      "current_module": "MOD-NBA-REASON-WHY",
+      "previous_module": "MOD-MANAGER-COACHING",
+      "next_module": "MOD-OPPORTUNITY-PIPELINE",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-002-evidence.json"
+      ],
+      "resume_point": "MOD-NBA-REASON-WHY",
+      "rollback_point": [
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-MICK-BEHAVIOR"
+      ],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "readiness": "READY_FOR_SCAFFOLD"
+    },
+    {
+      "current_module": "MOD-OPPORTUNITY-PIPELINE",
+      "previous_module": "MOD-NBA-REASON-WHY",
+      "next_module": "MOD-POLICY-OPERATIONS",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-002-evidence.json"
+      ],
+      "resume_point": "MOD-OPPORTUNITY-PIPELINE",
+      "rollback_point": [
+        "MOD-READONLY-ADAPTERS"
+      ],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "readiness": "READY_FOR_SCAFFOLD"
+    },
+    {
+      "current_module": "MOD-POLICY-OPERATIONS",
+      "previous_module": "MOD-OPPORTUNITY-PIPELINE",
+      "next_module": "MOD-PRODUCT-CATALOG",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-005-evidence.json"
+      ],
+      "resume_point": "MOD-POLICY-OPERATIONS",
+      "rollback_point": [
+        "MOD-TRUTH-GOVERNANCE",
+        "MOD-READONLY-ADAPTERS"
+      ],
+      "promotion_gate": "BLOCKED",
+      "readiness": "BLOCKED"
+    },
+    {
+      "current_module": "MOD-PRODUCT-CATALOG",
+      "previous_module": "MOD-POLICY-OPERATIONS",
+      "next_module": "MOD-RULE-PACK-CONTRACT",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-006-evidence.json"
+      ],
+      "resume_point": "MOD-PRODUCT-CATALOG",
+      "rollback_point": [
+        "MOD-CARRIER-SCOPE"
+      ],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "readiness": "READY_FOR_SCAFFOLD"
+    },
+    {
+      "current_module": "MOD-RULE-PACK-CONTRACT",
+      "previous_module": "MOD-PRODUCT-CATALOG",
+      "next_module": "MOD-TERMUX-REWRITE-TOOLS",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-009-evidence.json"
+      ],
+      "resume_point": "MOD-RULE-PACK-CONTRACT",
+      "rollback_point": [
+        "MOD-CARRIER-SCOPE"
+      ],
+      "promotion_gate": "BLOCKED",
+      "readiness": "BLOCKED"
+    },
+    {
+      "current_module": "MOD-TERMUX-REWRITE-TOOLS",
+      "previous_module": "MOD-RULE-PACK-CONTRACT",
+      "next_module": "MOD-ADVISOR-CONVERSION",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-001-evidence.json"
+      ],
+      "resume_point": "MOD-TERMUX-REWRITE-TOOLS",
+      "rollback_point": [
+        "MOD-GOVERNANCE-GATE"
+      ],
+      "promotion_gate": "validation_and_evidence_required",
+      "readiness": "READY_FOR_VALIDATION"
+    },
+    {
+      "current_module": "MOD-ADVISOR-CONVERSION",
+      "previous_module": "MOD-TERMUX-REWRITE-TOOLS",
+      "next_module": "MOD-ADVISOR-WORKSPACE",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-001-evidence.json"
+      ],
+      "resume_point": "MOD-ADVISOR-CONVERSION",
+      "rollback_point": [
+        "MOD-HUMAN-APPROVAL-GATE"
+      ],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "readiness": "READY_FOR_SCAFFOLD"
+    },
+    {
+      "current_module": "MOD-ADVISOR-WORKSPACE",
+      "previous_module": "MOD-ADVISOR-CONVERSION",
+      "next_module": "MOD-CALCULATION-CONTRACT",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-002-evidence.json"
+      ],
+      "resume_point": "MOD-ADVISOR-WORKSPACE",
+      "rollback_point": [
+        "MOD-DECISION-CORE",
+        "MOD-ACTION-PLANNING"
+      ],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "readiness": "READY_FOR_SCAFFOLD"
+    },
+    {
+      "current_module": "MOD-CALCULATION-CONTRACT",
+      "previous_module": "MOD-ADVISOR-WORKSPACE",
+      "next_module": "MOD-ELIGIBILITY-CONTRACT",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-011-evidence.json"
+      ],
+      "resume_point": "MOD-CALCULATION-CONTRACT",
+      "rollback_point": [
+        "MOD-RULE-PACK-CONTRACT"
+      ],
+      "promotion_gate": "BLOCKED",
+      "readiness": "BLOCKED"
+    },
+    {
+      "current_module": "MOD-ELIGIBILITY-CONTRACT",
+      "previous_module": "MOD-CALCULATION-CONTRACT",
+      "next_module": "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-010-evidence.json"
+      ],
+      "resume_point": "MOD-ELIGIBILITY-CONTRACT",
+      "rollback_point": [
+        "MOD-RULE-PACK-CONTRACT"
+      ],
+      "promotion_gate": "BLOCKED",
+      "readiness": "BLOCKED"
+    },
+    {
+      "current_module": "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
+      "previous_module": "MOD-ELIGIBILITY-CONTRACT",
+      "next_module": "MOD-LLM-DRAFT-INTAKE",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-020-evidence.json"
+      ],
+      "resume_point": "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
+      "rollback_point": [
+        "MOD-LEGACY-REINTRODUCTION-GUARD"
+      ],
+      "promotion_gate": "BLOCKED",
+      "readiness": "BLOCKED"
+    },
+    {
+      "current_module": "MOD-LLM-DRAFT-INTAKE",
+      "previous_module": "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
+      "next_module": "MOD-MANAGER-WORKSPACE",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-004-evidence.json"
+      ],
+      "resume_point": "MOD-LLM-DRAFT-INTAKE",
+      "rollback_point": [
+        "MOD-HUMAN-APPROVAL-GATE"
+      ],
+      "promotion_gate": "BLOCKED",
+      "readiness": "BLOCKED"
+    },
+    {
+      "current_module": "MOD-MANAGER-WORKSPACE",
+      "previous_module": "MOD-LLM-DRAFT-INTAKE",
+      "next_module": "MOD-PRODUCT-SOURCE-PACK",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-013-evidence.json"
+      ],
+      "resume_point": "MOD-MANAGER-WORKSPACE",
+      "rollback_point": [
+        "MOD-MANAGER-COACHING"
+      ],
+      "promotion_gate": "BLOCKED",
+      "readiness": "BLOCKED"
+    },
+    {
+      "current_module": "MOD-PRODUCT-SOURCE-PACK",
+      "previous_module": "MOD-MANAGER-WORKSPACE",
+      "next_module": "MOD-RECRUITMENT-PRECONTRACT",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-007-evidence.json"
+      ],
+      "resume_point": "MOD-PRODUCT-SOURCE-PACK",
+      "rollback_point": [
+        "MOD-PRODUCT-CATALOG"
+      ],
+      "promotion_gate": "BLOCKED",
+      "readiness": "BLOCKED"
+    },
+    {
+      "current_module": "MOD-RECRUITMENT-PRECONTRACT",
+      "previous_module": "MOD-PRODUCT-SOURCE-PACK",
+      "next_module": "MOD-RELATIONSHIP-INTELLIGENCE",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-017-evidence.json"
+      ],
+      "resume_point": "MOD-RECRUITMENT-PRECONTRACT",
+      "rollback_point": [
+        "MOD-MANAGER-COACHING",
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "promotion_gate": "DEFERRED",
+      "readiness": "DEFERRED"
+    },
+    {
+      "current_module": "MOD-RELATIONSHIP-INTELLIGENCE",
+      "previous_module": "MOD-RECRUITMENT-PRECONTRACT",
+      "next_module": "MOD-ADVISOR-ACTIVATION",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-003-evidence.json"
+      ],
+      "resume_point": "MOD-RELATIONSHIP-INTELLIGENCE",
+      "rollback_point": [
+        "MOD-TRUTH-GOVERNANCE",
+        "MOD-ACTION-PLANNING"
+      ],
+      "promotion_gate": "BLOCKED",
+      "readiness": "BLOCKED"
+    },
+    {
+      "current_module": "MOD-ADVISOR-ACTIVATION",
+      "previous_module": "MOD-RELATIONSHIP-INTELLIGENCE",
+      "next_module": "MOD-ADVISOR-EXPERIENCE",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-001-evidence.json"
+      ],
+      "resume_point": "MOD-ADVISOR-ACTIVATION",
+      "rollback_point": [
+        "MOD-ADVISOR-CONVERSION"
+      ],
+      "promotion_gate": "READY_FOR_SCAFFOLD",
+      "readiness": "READY_FOR_SCAFFOLD"
+    },
+    {
+      "current_module": "MOD-ADVISOR-EXPERIENCE",
+      "previous_module": "MOD-ADVISOR-ACTIVATION",
+      "next_module": "MOD-COMPENSATION-ECONOMIC",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-015-evidence.json"
+      ],
+      "resume_point": "MOD-ADVISOR-EXPERIENCE",
+      "rollback_point": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "promotion_gate": "BLOCKED",
+      "readiness": "BLOCKED"
+    },
+    {
+      "current_module": "MOD-COMPENSATION-ECONOMIC",
+      "previous_module": "MOD-ADVISOR-EXPERIENCE",
+      "next_module": "MOD-MESSAGE-SAFETY-VALIDATOR",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-016-evidence.json"
+      ],
+      "resume_point": "MOD-COMPENSATION-ECONOMIC",
+      "rollback_point": [
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-RULE-PACK-CONTRACT"
+      ],
+      "promotion_gate": "DEFERRED",
+      "readiness": "DEFERRED"
+    },
+    {
+      "current_module": "MOD-MESSAGE-SAFETY-VALIDATOR",
+      "previous_module": "MOD-COMPENSATION-ECONOMIC",
+      "next_module": "MOD-QUOTE-PREVIEW",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-004-evidence.json"
+      ],
+      "resume_point": "MOD-MESSAGE-SAFETY-VALIDATOR",
+      "rollback_point": [
+        "MOD-LLM-DRAFT-INTAKE"
+      ],
+      "promotion_gate": "BLOCKED",
+      "readiness": "BLOCKED"
+    },
+    {
+      "current_module": "MOD-QUOTE-PREVIEW",
+      "previous_module": "MOD-MESSAGE-SAFETY-VALIDATOR",
+      "next_module": "MOD-REVENUE-INTELLIGENCE",
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-012-evidence.json"
+      ],
+      "resume_point": "MOD-QUOTE-PREVIEW",
+      "rollback_point": [
+        "MOD-PRODUCT-CATALOG",
+        "MOD-PRODUCT-SOURCE-PACK",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT"
+      ],
+      "promotion_gate": "BLOCKED",
+      "readiness": "BLOCKED"
+    },
+    {
+      "current_module": "MOD-REVENUE-INTELLIGENCE",
+      "previous_module": "MOD-QUOTE-PREVIEW",
+      "next_module": null,
+      "required_validations": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "required_evidence": [
+        "scaffolds/reports/SG-016-evidence.json"
+      ],
+      "resume_point": "MOD-REVENUE-INTELLIGENCE",
+      "rollback_point": [
+        "MOD-CALCULATION-CONTRACT"
+      ],
+      "promotion_gate": "DEFERRED",
+      "readiness": "DEFERRED"
+    }
+  ]
+}

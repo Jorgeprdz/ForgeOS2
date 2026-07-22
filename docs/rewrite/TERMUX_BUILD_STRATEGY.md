@@ -1,0 +1,67 @@
+# Termux Build Strategy
+
+Strategy ID: `FORGE_TERMUX_BUILD_STRATEGY_001`
+
+The future rewrite is dependency-driven. Termux must use `scaffolds/manifest/rewrite-execution-plan.json` and must not guess the next module.
+
+Recommended command pattern:
+
+```sh
+"./tools/termux/rewrite/forge-rewrite-plan.sh" SG-001
+"./tools/termux/rewrite/forge-rewrite-stage.sh" SG-001 --plan
+"./tools/termux/rewrite/forge-rewrite-stage.sh" SG-001 --dry-run
+```
+
+Do not execute `--apply` until the owner approves the selected module/stage.
+
+## Wave 1
+
+- `MOD-AUTONOMOUS-AI-DECISIONING`
+- `MOD-GENERIC-CRM-CLONE`
+- `MOD-TRUTH-GOVERNANCE`
+
+## Wave 2
+
+- `MOD-ADVISOR-LIFECYCLE`
+- `MOD-CARRIER-SCOPE`
+- `MOD-CONVERSATION-INTELLIGENCE`
+- `MOD-DECISION-CORE`
+- `MOD-GOVERNANCE-GATE`
+- `MOD-MICK-BEHAVIOR`
+- `MOD-READONLY-ADAPTERS`
+
+## Wave 3
+
+- `MOD-ACTION-PLANNING`
+- `MOD-CLIENT-CRM-READMODEL`
+- `MOD-HUMAN-APPROVAL-GATE`
+- `MOD-LEGACY-REINTRODUCTION-GUARD`
+- `MOD-MANAGER-COACHING`
+- `MOD-NBA-REASON-WHY`
+- `MOD-OPPORTUNITY-PIPELINE`
+- `MOD-POLICY-OPERATIONS`
+- `MOD-PRODUCT-CATALOG`
+- `MOD-RULE-PACK-CONTRACT`
+- `MOD-TERMUX-REWRITE-TOOLS`
+
+## Wave 4
+
+- `MOD-ADVISOR-CONVERSION`
+- `MOD-ADVISOR-WORKSPACE`
+- `MOD-CALCULATION-CONTRACT`
+- `MOD-ELIGIBILITY-CONTRACT`
+- `MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE`
+- `MOD-LLM-DRAFT-INTAKE`
+- `MOD-MANAGER-WORKSPACE`
+- `MOD-PRODUCT-SOURCE-PACK`
+- `MOD-RECRUITMENT-PRECONTRACT`
+- `MOD-RELATIONSHIP-INTELLIGENCE`
+
+## Wave 5
+
+- `MOD-ADVISOR-ACTIVATION`
+- `MOD-ADVISOR-EXPERIENCE`
+- `MOD-COMPENSATION-ECONOMIC`
+- `MOD-MESSAGE-SAFETY-VALIDATOR`
+- `MOD-QUOTE-PREVIEW`
+- `MOD-REVENUE-INTELLIGENCE`
