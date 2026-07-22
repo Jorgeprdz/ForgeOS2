@@ -1,0 +1,22 @@
+{
+  "stage": "SG-018",
+  "generated_at": "2026-07-22T23:01:03.339Z",
+  "operator": "termux",
+  "inputs": [
+    "docs/product/FORGE_PRODUCT_SPEC.md",
+    "scaffolds/manifest/rewrite-stages.json"
+  ],
+  "outputs": [
+    "scaffolds/policies/legacy-reintroduction-denylist.json",
+    "scaffolds/policies/legacy-absence-validation-policy.json",
+    "scaffolds/reports/SG-018-evidence.json"
+  ],
+  "hashes": {
+    "scaffolds/policies/legacy-reintroduction-denylist.json": "9703e2b3d4ee2a514708401b74f2167f299f129ea77d03bb1816950e0864a62e",
+    "scaffolds/policies/legacy-absence-validation-policy.json": "21c03dcc151bbce8fce3579c0b3bb78f055e6dbf68f5681489d2f025dccba45f"
+  },
+  "validations": [
+    "scaffold:validate"
+  ],
+  "status": "PASS"
+}
