@@ -16,6 +16,7 @@ Status: `RATIFIED / ACTIVE`
 | Specifications | `governance/specifications/` |
 | Constitutional readiness | ROBOCOP LOCK 001 as incorporated/referenced by `AGENTS.md` |
 | Scaffold Generation 001 authorization | `governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md` |
+| Scaffold Instantiation 002 authorization | `governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md` |
 
 ## Enforcement and review
 
@@ -30,3 +31,4 @@ Only the registered active version is normative. Predecessors remain immutable e
 | Gate | Scope | Status |
 |---|---|---|
 | `SG-001` | First-generation canonical documentary scaffolds and direct indexes, inventories, references, Build Tree registration and traceability matrices | `APPROVED / ACTIVE FOR SG-001 ONLY` |
+| `SG-002` | Exact-manifest documentary scaffold instantiation for demonstrated domains and existing owners | `APPROVED / READY WITH CONDITIONS / NOT EXECUTED` |

@@ -15872,3 +15872,23 @@ Recorded: `2026-07-21`
 - Next stage: `REQUIRES_SEPARATE_AUTHORIZATION`; SG-001 authorizes no populated domain scaffold or software implementation.
 - No phase after SG-001 is authorized.
 <!-- FORGE:SCAFFOLD_GENERATION_GATE_001:END -->
+
+<!-- FORGE:SCAFFOLD_INSTANTIATION_GATE_002:START -->
+## Scaffold Instantiation Gate 002
+
+Status: `AUTHORIZED / READY WITH CONDITIONS / NOT EXECUTED`
+
+Recorded: `2026-07-21`
+
+- Gate: `SG-002`.
+- Purpose: instantiate only the exact evidence-backed documentary scaffold manifest.
+- Authorized: 12 domain responsibility instances, 12 existing-owner Source of Truth instances, 12 domain-owned boundary instances and 5 SG-002 control documents.
+- NASH receives domain/boundary instances only; no Source of Truth instance.
+- Advisor Experience and Benvenù share one domain/boundary authority under ADR-016; their existing owner entries remain distinct.
+- Blocked: standalone Dependency/Relationship instances and Economic Evidence, NBA, Career, Conservation, Revenue, Andrey/HCA, Russell and SKYNET instances.
+- Required: thirteen ordered sections, twenty blocking validations and exact working-tree isolation.
+- Software, runtime, rules, schemas, UI, services, tests and historical restoration remain unauthorized.
+- Canonical gate: `governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md`.
+- Next stage: `Scaffold Instantiation 002` under the exact manifest only.
+- No later phase is authorized.
+<!-- FORGE:SCAFFOLD_INSTANTIATION_GATE_002:END -->
