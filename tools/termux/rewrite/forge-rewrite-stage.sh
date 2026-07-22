@@ -88,6 +88,36 @@ NODE
 
   [ -n "$evidence" ] || forge_die "stage declares no evidence output"
 
+  produces_count="$(
+    STAGE="$stage" MANIFEST="$FORGE_ROOT/scaffolds/manifest/rewrite-stages.json" node <<'NODE'
+const fs = require('fs');
+
+const manifestPath = process.env.MANIFEST;
+const stageId = process.env.STAGE;
+const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+const stages = Array.isArray(manifest) ? manifest : manifest.stages;
+
+const stage = stages.find(item =>
+  item.id === stageId ||
+  item.stage_id === stageId ||
+  item.stage === stageId
+);
+
+if (!stage) process.exit(2);
+process.stdout.write(String((stage.produces || []).length));
+NODE
+  )"
+
+  case "$produces_count" in
+    ''|*[!0-9]*)
+      forge_die "invalid produces count for stage: $stage"
+      ;;
+  esac
+
+  if [ "$produces_count" -gt 0 ] && [ "${#material[@]}" -eq 0 ]; then
+    forge_die "ARTIFACT_MATERIALIZATION_ERROR: stage=$stage produces=$produces_count material_files=0"
+  fi
+
   for path in "${material[@]}"; do
     [ ! -e "$path" ] || forge_die "refusing to overwrite existing output: $path"
   done
