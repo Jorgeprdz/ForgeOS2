@@ -1,17 +1,29 @@
 {
   "stage": "SG-002",
-  "generated_at": "2026-07-22T17:51:14.115Z",
+  "generated_at": "2026-07-22T18:01:27.670Z",
   "operator": "termux",
   "inputs": [
     "docs/product/FORGE_PRODUCT_SPEC.md",
     "scaffolds/manifest/rewrite-stages.json"
   ],
   "outputs": [
+    "platform/core/generated/decision-contract.mjs",
+    "platform/actions/generated/action-contract.mjs",
+    "platform/read-models/generated/read-only-adapter-contract.mjs",
     "scaffolds/reports/SG-002-evidence.json"
   ],
-  "hashes": {},
+  "hashes": {
+    "platform/core/generated/decision-contract.mjs": "4250c989b72cc908246ea6fc549d9597beae267d7b110a491529a1c52a4df157",
+    "platform/actions/generated/action-contract.mjs": "5baa1e7cbfcc55de40b45e6606b38469909e24957291c2c1b7c0d40fd458d7ce",
+    "platform/read-models/generated/read-only-adapter-contract.mjs": "2ada36ee67bf95ce3d897fbeb1aaae6ee944592690b5d04a549703f7c5b2ad4a"
+  },
   "validations": [
-    "scaffold:validate"
+    "SG-002 contract acceptance test",
+    "forge-rewrite-validate",
+    "npm test",
+    "npm run lint",
+    "npm run scaffold:validate",
+    "git diff --check"
   ],
   "status": "PASS"
 }
