@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forge-os.local/scaffolds/contracts/rewrite-execution-plan.schema.json",
+  "title": "Forge Rewrite Execution Plan",
+  "type": "object",
+  "required": ["schema", "execution_plan_id", "generated_from", "modules"]
+}

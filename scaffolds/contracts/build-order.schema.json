@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forge-os.local/scaffolds/contracts/build-order.schema.json",
+  "title": "Forge Build Order",
+  "type": "object",
+  "required": ["schema", "build_order_id", "generated_from", "algorithm", "cycles", "critical_path_length", "critical_path", "parallel_groups", "modules"]
+}

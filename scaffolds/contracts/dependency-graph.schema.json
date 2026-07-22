@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forge-os.local/scaffolds/contracts/dependency-graph.schema.json",
+  "title": "Forge Dependency Graph",
+  "type": "object",
+  "required": ["schema", "graph_id", "source_artifacts", "cycles", "modules", "event_relationships"],
+  "properties": {
+    "cycles": { "type": "array" },
+    "modules": { "type": "array" }
+  }
+}

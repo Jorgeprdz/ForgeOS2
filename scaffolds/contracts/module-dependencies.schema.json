@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forge-os.local/scaffolds/contracts/module-dependencies.schema.json",
+  "title": "Forge Module Dependencies",
+  "type": "object",
+  "required": ["schema", "dependency_model_id", "modules"]
+}
