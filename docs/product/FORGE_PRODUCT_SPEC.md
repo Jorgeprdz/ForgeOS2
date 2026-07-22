@@ -2,15 +2,20 @@
 
 Spec ID: `FORGE_PRODUCT_SPEC_001`
 
+Revision: `PRODUCT_CAPABILITY_REFACTOR_001`
+
 Status: `CANONICAL_PRODUCT_DEFINITION_FOR_REWRITE_SCAFFOLDING`
 
-Authority:
+## Authority
 
-- `governance/constitution/CONSTITUTION_UNIFIED.md`
-- `AGENTS.md`
-- `governance/FORGE_GOVERNANCE_REGISTRY.md`
-- `adr/`
-- `docs/architecture/scaffolds/`
+This specification is subordinate to:
+
+1. `governance/constitution/CONSTITUTION_UNIFIED.md`
+2. `governance/FORGE_GOVERNANCE_REGISTRY.md`
+3. `adr/`
+4. Product capability contracts and rewrite manifests.
+
+Inherited code has no normative authority. Original Forge OS evidence may classify behavior only when the owner supplies evidence; it cannot be copied or restored as implementation.
 
 ## Product Identity
 
@@ -18,35 +23,36 @@ Name: Forge OS 2.
 
 Purpose: help financial advisors and managers convert reliable commercial, relationship, policy, product and development signals into accountable next actions.
 
-Problem solved: advisors and managers have fragmented evidence, inconsistent follow-up, unclear ownership of metrics and too many non-actionable reports. Forge must turn governed information into decisions and actions without replacing human judgment.
+Problem solved: advisors and managers have fragmented evidence, inconsistent follow-up, unclear metric ownership and too many non-actionable reports. Forge turns governed information into decisions and actions without replacing human judgment.
 
-Operational vision: Forge tells an advisor what to do next, with which client or opportunity, and why. For managers, Forge identifies coaching/development actions and risks without automating human consequences.
-
-Product principles:
-
-- decision clarity first;
-- evidence before judgment;
-- unknown values remain unknown;
-- one metric has one conceptual owner;
-- forecasts are scenarios, not facts;
-- Forge Core is universal and Rule Packs interpret facts;
-- AI may explain or draft but never become source truth;
-- offline-first core behavior;
-- advisor-first and manager-aware;
-- no inherited implementation is authoritative by existence.
+Operational vision: Forge tells an advisor what to do next, with which client or opportunity, and why. For managers, Forge identifies coaching and development actions without automating consequences.
 
 Definition of success:
 
-- each active capability produces an evidence-bounded actionable output;
-- each output exposes source, owner, uncertainty and next action;
-- each future module traces to product capability, constitutional authority, ADR, contract, validation and evidence;
-- blocked or uncertain capabilities fail closed instead of being guessed.
+- each active capability has one purpose and one primary output;
+- every strong output exposes evidence, owner, uncertainty and action boundary;
+- stages can be built independently by domain;
+- blocked capabilities fail closed instead of being guessed;
+- Forge remains a Sales Operating System and Decision Intelligence System, not a generic CRM clone.
+
+## Product Principles
+
+- Decision clarity first.
+- Evidence before judgment.
+- Unknown values remain unknown.
+- One metric has one conceptual owner.
+- Forecasts are scenarios, not facts.
+- Forge Core is universal and Rule Packs interpret facts.
+- AI explains or drafts; Forge decides.
+- Core behavior must degrade safely offline.
+- Advisor-first and manager-aware.
+- Relationship, task, policy and activity management are allowed only when they serve Forge decision/action workflows.
 
 ## Users And Roles
 
 | Role | Responsibilities | Permissions | Expectations | Authority limits |
 |---|---|---|---|---|
-| Advisor | Sell responsibly, follow up, maintain client relationships, use evidence in decisions | view own operational context, receive recommendations, draft messages | clear next action, client reason, evidence and uncertainty | remains accountable human decision maker |
+| Advisor | Sell responsibly, follow up, maintain relationships, use evidence in decisions | view own operational context and receive recommendations | clear next action, client reason, evidence and uncertainty | remains accountable human decision maker |
 | Manager | Develop advisors, coach skills, watch commercial risks | consume manager-safe signals and team summaries | coaching guidance and people-development focus | no automated hiring, firing, punishment, promotion or human-worth judgment |
 | Candidate / Precontract Participant | Participate in recruitment or precontract workflows when enabled | limited lifecycle-specific capture and review | clear requirements and progress | must not be reduced to final automated potential score |
 | Project Owner | Ratify governance and staged execution | approve gates, owner decisions, merges and promotions | auditable controls and evidence | no silent authority changes |
@@ -54,351 +60,68 @@ Definition of success:
 
 ## Functional Domains
 
-Domains are derived from `AGENTS.md`, the Unified Constitution, ADRs, Build Tree, SG-002 documentary instances and current platform adapters:
-
-- Decision Intelligence / Forge Core;
-- Action Planning;
-- Truth, Evidence and Ownership;
-- Conversation Intelligence / Nash;
-- Relationship Intelligence;
-- Product Intelligence;
-- Policy and Sales Operations;
-- Quote Preview and Read Models;
-- Manager and Team Intelligence;
-- Behavior Intelligence / Mick;
-- Productivity Intelligence;
-- Forecast Intelligence;
-- Compensation and Economic Evidence;
-- Advisor Experience / Benvenu;
-- Recruitment and Precontract Intelligence;
-- Governance and Validation;
-- Termux Rewrite Execution.
+- Decision Intelligence / Forge Core.
+- Action Planning.
+- Truth, Evidence and Ownership.
+- Governance and Validation.
+- Read-only Adapters.
+- Relationship Intelligence.
+- Conversation Intelligence.
+- Policy Operations.
+- Product Catalog.
+- Product Source Packs.
+- Carrier Scope.
+- Rule Packs.
+- Eligibility.
+- Calculation.
+- Quote Preview.
+- Manager Coaching.
+- Mick Observable Behavior.
+- Advisor Experience Transversal.
+- Compensation and Economic Evidence.
+- Recruitment and Precontract Lifecycle.
+- Legacy Reintroduction Guard.
+- Legacy Functional Evidence Intake.
 
 ## Capabilities
 
-### `CAP-DECISION-CORE`
-
-Name: Decision Core.
-
-Classification: `PRESERVE`.
-
-Purpose: select evidence-bounded decision candidates and return actionable output.
-
-Users: advisor, manager, Termux operator for validation.
-
-Problem resolved: prevents Forge from becoming a passive information display.
-
-Inputs: facts, rules, policies, context envelope, evidence references.
-
-Outputs: decision result, confidence, reasoning, evidence, actions.
-
-Known rules: orchestrators consume engines; no metric duplication; unknown remains unknown.
-
-Integrations: `platform/core`, future domain engines.
-
-Risks: hidden business logic duplication, unsupported recommendations.
-
-Authority: Constitution Articles III and V; ADR-001, ADR-002, ADR-003, ADR-004, ADR-020.
-
-Acceptance: a generated module cannot expose a decision without evidence, owner, confidence and action boundary.
-
-### `CAP-ACTION-PLANNING`
-
-Name: Action Planning.
-
-Classification: `PRESERVE`.
-
-Purpose: convert approved decisions into bounded action plans.
-
-Users: advisor, manager.
-
-Problem resolved: intelligence without action.
-
-Inputs: decision result, policy result, action contract.
-
-Outputs: action plan, blocked effects, approval requirement.
-
-Authority: Constitution Articles IV and V; ADR-003, ADR-009, ADR-012.
-
-Acceptance: action output must distinguish recommendation from execution and block unauthorized real effects.
-
-### `CAP-TRUTH-EVIDENCE`
-
-Name: Truth, Evidence and Ownership.
-
-Classification: `PRESERVE`.
-
-Purpose: enforce source ownership, evidence states and one-owner metric rules.
-
-Users: all domains.
-
-Inputs: truth envelopes, source types, claim types, ownership registries.
-
-Outputs: pass/fail/block validation, owner, evidence state and risk.
-
-Authority: Constitution Article III; ADR-001, ADR-002, ADR-005, ADR-006, ADR-007, ADR-008, ADR-014, ADR-017.
-
-Acceptance: unknown, ambiguous or conflicting ownership blocks strong output.
-
-### `CAP-GOVERNANCE-GATE`
-
-Name: Constitutional Governance Gate.
-
-Classification: `PRESERVE`.
-
-Purpose: require constitutional authority, ADRs, Build Tree area, readiness and approval before protected work.
-
-Users: owner, Termux operator, Codex.
-
-Inputs: stage contract, scope, prohibited surfaces, validation expectation.
-
-Outputs: approved or blocked gate decision.
-
-Authority: Constitution Article VIII; `governance/validation/FORGE_ROBOCOP_DIRECTIVES.md`.
-
-Acceptance: missing gate fields produce `BLOCKED_BY_ROBOCOP_LOCK_001`.
-
-### `CAP-READ-ONLY-ADAPTERS`
-
-Name: Read-Only Adapters.
-
-Classification: `PRESERVE`.
-
-Purpose: expose modeled CRM, policy, quote, product and opportunity read models without writes.
-
-Users: advisor, manager, future UI.
-
-Inputs: modeled read requests.
-
-Outputs: read-model envelopes, safe empty states, blocked effects.
-
-Authority: Constitution Articles III-V; current `platform/adapters`.
-
-Acceptance: adapters must not create writes, persistence or real effects.
-
-### `CAP-RELATIONSHIP-INTELLIGENCE`
-
-Name: Relationship Intelligence.
-
-Classification: `REDESIGN`.
-
-Purpose: help advisors know who to contact, why, when and what opportunity exists.
-
-Users: advisor, manager where safe.
-
-Inputs: relationship timeline, engagement, life events, referral opportunities.
-
-Outputs: next relationship action with evidence and non-manipulation limits.
-
-Authority: Constitution Articles III, IV, VI and VII; ADR-011.
-
-Acceptance: recommendations must not manipulate, infer permission or hide uncertainty.
-
-### `CAP-CONVERSATION-INTELLIGENCE`
-
-Name: Nash Conversation Intelligence.
-
-Classification: `REDESIGN`.
-
-Purpose: help advisors know what to say, why and when.
-
-Users: advisor.
-
-Inputs: context envelope, conversation goal, objections, relationship evidence.
-
-Outputs: draft, talking points, next best question, uncertainty.
-
-Authority: Constitution Article VI; ADR-010.
-
-Acceptance: AI or Nash drafts cannot become source truth or send messages directly.
-
-### `CAP-POLICY-OPERATIONS`
-
-Name: Policy and Sales Operations.
-
-Classification: `REDESIGN`.
-
-Purpose: support policy details, timeline, renewals, follow-up, tasks, OCR and operational center.
-
-Users: advisor, operations user if later defined.
-
-Inputs: policy read models, documents, tasks, operational events.
-
-Outputs: policy action candidates and operational follow-up.
-
-Authority: Constitution Articles III and V; ADR-006.
-
-Acceptance: issued policy truth remains separate from quote, forecast or paid premium truth.
-
-### `CAP-PRODUCT-QUOTE-PREVIEW`
-
-Name: Product and Quote Preview.
-
-Classification: `REDESIGN`.
-
-Purpose: understand product/quote evidence and produce non-binding preview read models.
-
-Users: advisor.
-
-Inputs: product documentation, quote text/PDF evidence, parser outputs.
-
-Outputs: preview read model, assumptions, warnings, blocked effects.
-
-Authority: Constitution Articles III and V; ADR-005, ADR-008, ADR-017.
-
-Acceptance: previews must be labeled non-binding and cannot invent products, benefits or premiums.
-
-### `CAP-MANAGER-COACHING`
-
-Name: Manager Coaching Intelligence.
-
-Classification: `REDESIGN`.
-
-Purpose: help managers develop people through coaching signals.
-
-Users: manager.
-
-Inputs: permitted performance, behavior and relationship signals.
-
-Outputs: coaching action, skill focus, risk watch.
-
-Authority: Constitution Articles IV and VI; ADR-015.
-
-Acceptance: no automated consequences, rankings of human worth or sensitive leakage into Advisor OS.
-
-### `CAP-MICK-BEHAVIOR`
-
-Name: Mick Behavior Intelligence.
-
-Classification: `REDESIGN`.
-
-Purpose: measure observable behaviors that produce commercial outcomes.
-
-Users: advisor, manager.
-
-Inputs: activity evidence, consistency signals, coachability evidence.
-
-Outputs: behavior pattern, coaching prompt, risk or consistency signal.
-
-Authority: Constitution Article VI; ADR-013.
-
-Acceptance: must measure observable behavior, not motivation or human worth.
-
-### `CAP-ADVISOR-EXPERIENCE`
-
-Name: Advisor Experience / Benvenu.
-
-Classification: `DEFER`.
-
-Purpose: create first value, progressive discovery and contextual help without generic onboarding.
-
-Users: advisor.
-
-Inputs: advisor context, learning state, behavior evidence.
-
-Outputs: baseline snapshot, first action, contextual help state.
-
-Authority: Article 0; ADR-016.
-
-Acceptance: deferred until owner approves implementation details for non-UI and UI boundaries.
-
-### `CAP-COMPENSATION-ECONOMIC`
-
-Name: Compensation and Economic Evidence.
-
-Classification: `DEFER`.
-
-Purpose: interpret production events through rule packs and economic evidence.
-
-Users: advisor, manager.
-
-Inputs: production events, rule snapshots, period context, compensation schedules.
-
-Outputs: scenario or evidence-bounded economic output.
-
-Authority: Constitution Article III; ADR-008, ADR-017, ADR-018.
-
-Acceptance: deferred until rule-pack contracts and owner-approved data sources exist.
-
-### `CAP-RECRUITMENT-PRECONTRACT`
-
-Name: Recruitment and Precontract Intelligence.
-
-Classification: `DEFER`.
-
-Purpose: support recruitment identity, applications, assessments, interviews, cycles and readiness.
-
-Users: manager, candidate/precontract participant.
-
-Inputs: recruit identity, applications, assessments, interviews, office rules.
-
-Outputs: lifecycle stage, readiness, risk and coaching/development action.
-
-Authority: Constitution Articles IV and VI; AGENTS recruitment/precontract section.
-
-Acceptance: deferred until owner ratifies product definition, source truth and lifecycle rules.
-
-### `CAP-LEGACY-WEB-SHELL`
-
-Name: Legacy Root Web Shell.
-
-Classification: `REJECT`.
-
-Purpose: none in Forge OS 2 rewrite.
-
-Problem: removed root web/PWA shell referenced missing `app.js` and legacy assets.
-
-Authority: cleanup report and Constitution Article V.
-
-Acceptance: future scaffolds must not regenerate root `index.html`, `app.js`, service worker or legacy monolith unless separately ratified.
-
-### `CAP-AUTONOMOUS-AI-DECISIONING`
-
-Name: Autonomous AI Decisioning.
-
-Classification: `REJECT`.
-
-Purpose: explicitly prohibited.
-
-Authority: Article 0 and Article VI.
-
-Acceptance: any scaffold attempting final AI authority returns `BLOCKED_CONSTITUTIONAL_VIOLATION`.
-
-### `CAP-GENERIC-CRM`
-
-Name: Generic CRM Reconstruction.
-
-Classification: `REJECT`.
-
-Purpose: explicitly outside Forge identity.
-
-Authority: Constitution Article I and AGENTS identity.
-
-Acceptance: no scaffold may create generic CRM modules without decision/action intelligence ownership.
-
-### `CAP-LEGACY-ORIGINAL-EVIDENCE`
-
-Name: Forge OS Original Evidence Intake.
-
-Classification: `REQUIRES_OWNER_DECISION`.
-
-Purpose: classify original Forge OS evidence if supplied later.
-
-Status: `BLOCKED_REQUIRES_LEGACY_EVIDENCE`.
-
-Acceptance: no capability from the original system may be admitted without evidence, owner decision and traceability.
-
-### `CAP-PRODUCT-CATALOG-SCOPE`
-
-Name: Product Catalog Scope.
-
-Classification: `REQUIRES_OWNER_DECISION`.
-
-Purpose: determine whether product documentation, carriers and rule packs are in scope for a future stage.
-
-Status: `BLOCKED_REQUIRES_PRODUCT_DEFINITION`.
-
-Acceptance: no product database, benefits or premiums are generated before owner approval and source documents.
+The processable capability source is `scaffolds/manifest/forge-product-capabilities.json`.
+
+Current counts:
+
+- Total capabilities: 23.
+- `PRESERVE`: 6.
+- `REDESIGN`: 11.
+- `DEFER`: 2.
+- `REJECT`: 2.
+- `REQUIRES_OWNER_DECISION`: 2.
+
+Capability IDs:
+
+- `CAP-DECISION-CORE`
+- `CAP-ACTION-PLANNING`
+- `CAP-TRUTH-EVIDENCE`
+- `CAP-GOVERNANCE-GATE`
+- `CAP-READ-ONLY-ADAPTERS`
+- `CAP-RELATIONSHIP-INTELLIGENCE`
+- `CAP-CONVERSATION-INTELLIGENCE`
+- `CAP-POLICY-OPERATIONS`
+- `CAP-PRODUCT-CATALOG`
+- `CAP-PRODUCT-SOURCE-PACK`
+- `CAP-CARRIER-SCOPE`
+- `CAP-RULE-PACK-CONTRACT`
+- `CAP-ELIGIBILITY-CONTRACT`
+- `CAP-CALCULATION-CONTRACT`
+- `CAP-QUOTE-PREVIEW`
+- `CAP-MANAGER-COACHING`
+- `CAP-MICK-BEHAVIOR`
+- `CAP-ADVISOR-EXPERIENCE`
+- `CAP-COMPENSATION-ECONOMIC`
+- `CAP-RECRUITMENT-PRECONTRACT`
+- `CAP-LEGACY-REINTRODUCTION-GUARD`
+- `CAP-AUTONOMOUS-AI-DECISIONING`
+- `CAP-GENERIC-CRM-CLONE`
+- `CAP-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE`
 
 ## Critical Flows
 
@@ -406,87 +129,104 @@ Acceptance: no product database, benefits or premiums are generated before owner
 
 Actor: advisor.
 
-Preconditions: evidence exists, source owner is known, decision context is valid.
+Preconditions: relationship, policy, product or activity evidence exists and passes ownership validation.
 
 Steps:
 
-1. Capture or import evidence once.
-2. Validate truth ownership.
-3. Build decision context.
-4. Evaluate decision candidate.
-5. Produce action plan.
-6. Show evidence, uncertainty and blocked effects.
+1. Domain capability emits a bounded signal.
+2. Truth and evidence validation assigns owner, source and uncertainty.
+3. Decision Core evaluates the signal.
+4. Action Planning converts the approved decision into one next action.
+5. Human advisor accepts, rejects or defers the action.
 
-Expected result: an actionable recommendation with evidence.
+Expected result: an actionable recommendation with reason, evidence and no automated external effect.
 
-Errors: unknown owner, missing evidence, constitutional violation, action requires approval.
+Error states: missing evidence, ambiguous owner, prohibited action, unsupported product value.
 
-Recovery: collect evidence, defer, or request owner decision.
+Recovery: mark unknown, block strong output or request owner/source evidence.
 
-Acceptance: no output hides uncertainty or executes real effects.
+Acceptance: no action plan executes a real effect without later approved integration and human authority.
 
 ### Manager Coaching Signal
 
 Actor: manager.
 
-Preconditions: manager-safe evidence and coaching scope.
+Preconditions: observable behavior or business evidence exists.
 
-Steps: validate permitted signals, block sensitive leakage, produce coaching recommendation.
+Steps:
 
-Expected result: coaching action, skill focus and risk watch.
+1. Mick emits observable behavior signal only.
+2. Truth validation checks source and ownership.
+3. Manager Coaching consumes the behavior signal and other evidence.
+4. Manager Coaching recommends a coaching action.
+5. Human manager decides how to act.
 
-Errors: human-consequence automation, human-worth ranking, insufficient evidence.
+Expected result: coaching guidance, not consequence automation.
 
-Acceptance: no enforcement or employment consequence.
+Error states: human-worth inference, missing evidence, automated consequence request.
 
-### Quote Preview
+Recovery: block output and require architectural or owner decision.
+
+Acceptance: Manager Coaching and Mick remain decoupled.
+
+### Product Quote Preview
 
 Actor: advisor.
 
-Preconditions: quote evidence exists and parser is modeled.
+Preconditions: Product Catalog contract exists; source pack, carrier scope, rule pack, eligibility and calculation evidence are available when needed.
 
-Steps: parse evidence, mark preview as non-binding, validate product/economic boundaries, emit read model.
+Steps:
 
-Expected result: preview envelope with assumptions and warnings.
+1. Product Catalog defines source-required product fields.
+2. Product Source Pack intake records approved commercial evidence.
+3. Carrier Scope identifies applicable carrier/channel/period.
+4. Rule Pack interprets facts.
+5. Eligibility and Calculation contracts produce bounded results.
+6. Quote Preview emits a non-binding read model.
 
-Errors: missing source document, invented value risk, issued-policy conflict.
+Expected result: non-binding preview with source, assumptions and blocked effects.
 
-Acceptance: no binding quote or policy truth claim.
+Error states: missing source pack, missing rule snapshot, unknown premium, unsupported product.
 
-### Termux Governed Stage Execution
+Recovery: keep unknown values unknown and block strong preview claims.
 
-Actor: Termux operator.
+Acceptance: no product, premium, benefit or rule is invented.
 
-Preconditions: repo clean, branch not main, product spec and manifests valid.
+### Legacy Guard And Evidence Intake
 
-Steps: bootstrap, inspect capabilities, plan, dry-run, apply, validate, evidence, commit, push.
+Actor: owner or Termux operator.
 
-Expected result: stage-generated files only when authorized.
+Preconditions: rewrite stage planning is underway.
 
-Errors: dirty tree, blocked stage, missing traceability, overwrite risk, constitutional violation.
+Steps:
 
-Acceptance: no automatic next stage and no main promotion.
+1. Legacy Reintroduction Guard validates paths and prohibited files from the beginning.
+2. Guard blocks restored legacy clusters and copied code without needing original Forge evidence.
+3. Legacy Functional Evidence Intake remains blocked until owner-supplied evidence exists.
+4. Intake classifies behavior only as preserve, redesign, defer, reject or owner decision.
+
+Expected result: anti-legacy protection is active while evidence intake remains explicitly blocked.
+
+Acceptance: no legacy code, architecture or removed modules are copied or restored.
 
 ## Non-Functional Requirements
 
-- Security: no secrets in scaffolds, logs or evidence.
-- Privacy: personal interpretation must expose purpose limits and human review.
-- Data isolation: manager-sensitive signals must not leak into Advisor OS.
-- Auditability: every stage produces evidence and validation result.
-- Traceability: every scaffold links product capability to authority, ADR, contract, validation and evidence.
-- Resilience: Termux scripts must fail closed and support resume/rollback for uncommitted stages.
-- Portability: scripts must detect Git root and handle `/storage/emulated/0/Forge OS v2`.
-- Offline/degraded operation: core scaffolding validation must work without external providers.
-- Maintainability: generated files must be deterministic and minimal.
+- Security: no secrets in scaffolds, manifests or generated evidence.
+- Privacy: personal or client evidence must be referenced by source, not copied into scaffolds.
+- Auditability: every stage has traceability, evidence and rollback rule.
+- Resilience: scripts fail closed and preserve exit codes.
+- Portability: Termux scripts quote paths with spaces and detect repository root with Git.
+- Maintainability: capabilities and stages have single responsibility.
+- Offline/degraded operation: core contracts cannot depend on AI providers.
+- Observability: validation and evidence outputs are explicit.
 
 ## Out Of Scope
 
-- implementing Forge OS 2 functional modules;
-- final UI/screens;
-- production services or Supabase migrations;
-- automatic main promotion;
-- legacy root web shell reconstruction;
-- generic CRM implementation;
-- autonomous AI decisioning;
-- invented products, financial values, premiums, coverage or forecasts;
-- admitting Forge OS original behavior without evidence and owner decision.
+- Functional Forge OS 2 implementation.
+- Final UI screens.
+- Product, premium, benefit or compensation values without source packs.
+- Supabase production migrations.
+- Secrets or provider integrations.
+- Original Forge OS code copy.
+- Restoring removed legacy clusters.
+- Generic CRM clone behavior detached from Forge decision/action identity.
