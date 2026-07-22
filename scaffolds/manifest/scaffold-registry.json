@@ -1,0 +1,66 @@
+{
+  "schema": "../contracts/scaffold-contract.schema.json",
+  "registry_id": "FORGE_SCAFFOLD_REGISTRY_001",
+  "scaffolds": [
+    {
+      "id": "SCF-DOC-STAGE-PLAN",
+      "stage": "SG-001",
+      "capability_id": "CAP-GOVERNANCE-GATE",
+      "requirement_id": "REQ-ROBOCOP-GATE",
+      "authority": ["CONSTITUTION_ARTICLE_VIII"],
+      "boundaries": ["BOUND-ROBOCOP-GATE", "BOUND-NO-SILENT-RATIFICATION"],
+      "status": "READY",
+      "files": ["scaffolds/templates/documentation/stage-plan.template.md"]
+    },
+    {
+      "id": "SCF-MODULE-CONTRACT-STUB",
+      "stage": "SG-002",
+      "capability_id": "CAP-DECISION-CORE",
+      "requirement_id": "REQ-DECISION-EVIDENCE-ACTION",
+      "authority": ["CONSTITUTION_ARTICLE_III", "CONSTITUTION_ARTICLE_V"],
+      "boundaries": ["BOUND-EVIDENCE-OWNERSHIP", "BOUND-ACTION-NO-EXECUTION"],
+      "status": "READY",
+      "files": ["scaffolds/templates/module/module-contract.template.mjs"]
+    },
+    {
+      "id": "SCF-SERVICE-READONLY-STUB",
+      "stage": "SG-002",
+      "capability_id": "CAP-READ-ONLY-ADAPTERS",
+      "requirement_id": "REQ-READ-ONLY-NO-WRITES",
+      "authority": ["CONSTITUTION_ARTICLE_III"],
+      "boundaries": ["BOUND-READ-ONLY"],
+      "status": "READY",
+      "files": ["scaffolds/templates/service/read-only-service.template.mjs"]
+    },
+    {
+      "id": "SCF-DOMAIN-BLOCKED-REDESIGN",
+      "stage": "SG-003",
+      "capability_id": "CAP-RELATIONSHIP-INTELLIGENCE",
+      "requirement_id": "REQ-RELATIONSHIP-NON-MANIPULATION",
+      "authority": ["CONSTITUTION_ARTICLE_VI"],
+      "boundaries": ["BOUND-RELATIONSHIP-NON-MANIPULATION"],
+      "status": "BLOCKED",
+      "files": ["scaffolds/templates/domain/blocked-domain.template.md"]
+    },
+    {
+      "id": "SCF-UI-DEFERRED",
+      "stage": "SG-005",
+      "capability_id": "CAP-ADVISOR-EXPERIENCE",
+      "requirement_id": "REQ-BENVENU-FIRST-VALUE",
+      "authority": ["CONSTITUTION_ARTICLE_0"],
+      "boundaries": ["BOUND-ADVISOR-EXPERIENCE-ANTI-DEPENDENCE"],
+      "status": "DEFERRED",
+      "files": ["scaffolds/templates/ui/deferred-ui.template.md"]
+    },
+    {
+      "id": "SCF-MIGRATION-EVIDENCE",
+      "stage": "SG-006",
+      "capability_id": "CAP-LEGACY-ORIGINAL-EVIDENCE",
+      "requirement_id": "REQ-LEGACY-EVIDENCE-OWNER-DECISION",
+      "authority": ["DIRECTIVE_SECTION_4"],
+      "boundaries": ["BOUND-NO-LEGACY-CODE-COPY"],
+      "status": "BLOCKED",
+      "files": ["scaffolds/templates/migration/legacy-evidence.template.md"]
+    }
+  ]
+}
