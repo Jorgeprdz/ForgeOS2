@@ -258,7 +258,8 @@
       "allowed_paths": [
         "docs/architecture/",
         "scaffolds/manifest/",
-        "scaffolds/reports/"
+        "scaffolds/reports/",
+        "docs/architecture/contracts/"
       ],
       "prohibited_paths": [
         "supabase/migrations/",
@@ -270,12 +271,16 @@
         "scaffolds/templates/documentation/stage-plan.template.md"
       ],
       "files_to_generate": [
+        "docs/architecture/contracts/sg-024/human-authority.contract.json",
+        "docs/architecture/contracts/sg-024/approval.contract.json",
+        "docs/architecture/contracts/sg-024/allowed-action.contract.json",
+        "docs/architecture/contracts/sg-024/human-review-boundary.contract.json",
         "scaffolds/reports/SG-024-evidence.json"
       ],
       "allowed_operations": [
         "plan",
         "dry-run",
-        "apply approval contract evidence",
+        "materialize human authority and approval contracts",
         "validate"
       ],
       "prohibited_operations": [
@@ -293,7 +298,7 @@
       "acceptance_criteria": [
         "Human approval, recommendation-not-execution and exact-artifact review boundaries exist before NASH, lifecycle and manager consumers."
       ],
-      "rollback": "Remove only SG-024 generated evidence when hashes match.",
+      "rollback": "Remove only SG-024 materialized contracts and generated evidence when recorded hashes match.",
       "next_stage_allowed": [
         "SG-025",
         "SG-026",
