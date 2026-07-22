@@ -118,8 +118,20 @@ NODE
     forge_die "ARTIFACT_MATERIALIZATION_ERROR: stage=$stage produces=$produces_count material_files=0"
   fi
 
+  allow_existing_outputs="$(
+    STAGE="$stage" MANIFEST="$FORGE_ROOT/scaffolds/manifest/rewrite-stages.json" node <<'NODE'
+const fs = require('fs');
+
+const manifest = JSON.parse(fs.readFileSync(process.env.MANIFEST, 'utf8'));
+const stage = manifest.stages.find(item => item.id === process.env.STAGE);
+process.stdout.write(stage?.allow_existing_outputs === true ? '1' : '0');
+NODE
+  )"
+
   for path in "${material[@]}"; do
-    [ ! -e "$path" ] || forge_die "refusing to overwrite existing output: $path"
+    if [ -e "$path" ] && [ "$allow_existing_outputs" != "1" ]; then
+      forge_die "refusing to overwrite existing output: $path"
+    fi
   done
 
   printf '%s\n' "$stage" > "$FORGE_ROOT/.forge/rewrite/current-stage"

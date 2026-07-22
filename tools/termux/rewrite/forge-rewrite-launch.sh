@@ -91,6 +91,7 @@ const go = readJson('scaffolds/reports/rewrite-go-no-go.json');
 const freeze = readJson('scaffolds/manifest/architecture-freeze.json');
 const decisions = readJson('scaffolds/manifest/canonical-owner-decisions.json');
 const stageById = new Map(sequence.map(stage => [stage.stage_id, stage]));
+const manifestStageById = new Map(stages.map(stage => [stage.id, stage]));
 const artifactById = new Map(graph.artifacts.map(artifact => [artifact.artifact_id, artifact]));
 const producerByArtifact = new Map(graph.artifacts.map(artifact => [artifact.artifact_id, artifact.producer_stage]));
 const statePath = path.join(resolvedStateRoot, 'state.json');
@@ -106,8 +107,20 @@ function stageEvidencePath(stageId) {
   return `scaffolds/reports/${stageId}-evidence.json`;
 }
 
+function historicalCompatibilityPass(stageId) {
+  return graph.historical_compatibility.some(item => item.stage_id === stageId && item.status === 'PASS');
+}
+
+function declaredMaterialPaths(stageId) {
+  const stage = manifestStageById.get(stageId);
+  return (stage?.files_to_generate || []).filter(file => !/^scaffolds\/reports\/.+-evidence\.json$/.test(file));
+}
+
 function stageCompleted(stageId) {
-  return completedStages.has(stageId) && state.validation_status === 'PASS';
+  if (!completedStages.has(stageId) || state.validation_status !== 'PASS') return false;
+  if (historicalCompatibilityPass(stageId)) return true;
+  if (!exists(stageEvidencePath(stageId))) return false;
+  return declaredMaterialPaths(stageId).every(file => exists(file));
 }
 
 function receiptPath(artifactId) {

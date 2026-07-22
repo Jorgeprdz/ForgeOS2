@@ -469,7 +469,8 @@
       "allowed_paths": [
         "docs/rewrite/",
         "docs/decisions/",
-        "scaffolds/manifest/"
+        "scaffolds/manifest/",
+        "scaffolds/reports/"
       ],
       "prohibited_paths": [
         "platform/",
@@ -489,6 +490,7 @@
         "scaffolds/manifest/operational-closure/minimum-safe-product-contracts.json",
         "scaffolds/manifest/operational-closure/architecture-derived-decisions.json"
       ],
+      "allow_existing_outputs": true,
       "allowed_operations": [
         "plan",
         "record blocked evidence",

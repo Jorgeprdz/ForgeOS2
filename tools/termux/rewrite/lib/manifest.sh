@@ -44,6 +44,7 @@ const fs = require('fs');
 const stageId = process.argv[2];
 const sequence = JSON.parse(fs.readFileSync('scaffolds/manifest/canonical-rewrite-sequence.json', 'utf8')).sequence;
 const graph = JSON.parse(fs.readFileSync('scaffolds/manifest/rewrite-artifact-graph.json', 'utf8'));
+const manifest = JSON.parse(fs.readFileSync('scaffolds/manifest/rewrite-stages.json', 'utf8'));
 const stage = sequence.find(item => item.stage_id === stageId);
 if (!stage) {
   console.error(`STAGE_SEQUENCE_NOT_FOUND:${stageId}`);
@@ -52,14 +53,22 @@ if (!stage) {
 const statePath = '.forge/rewrite/state.json';
 const state = fs.existsSync(statePath) ? JSON.parse(fs.readFileSync(statePath, 'utf8')) : {};
 const completed = new Set(Array.isArray(state.completed_stages) ? state.completed_stages : []);
-const versionedEvidenceSatisfied = dep => fs.existsSync(`scaffolds/reports/${dep}-evidence.json`);
+const stages = new Map(manifest.stages.map(item => [item.id, item]));
+const historicalCompatibilityPass = dep => (graph.historical_compatibility || []).some(item => item.stage_id === dep && item.status === 'PASS');
+const materialPaths = dep => (stages.get(dep)?.files_to_generate || []).filter(file => !/^scaffolds\/reports\/.+-evidence\.json$/.test(file));
+const stageSatisfied = dep => {
+  if (!completed.has(dep) || state.validation_status !== 'PASS') return false;
+  if (historicalCompatibilityPass(dep)) return true;
+  if (!fs.existsSync(`scaffolds/reports/${dep}-evidence.json`)) return false;
+  return materialPaths(dep).every(file => fs.existsSync(file));
+};
 const artifactProducer = new Map(graph.artifacts.map(artifact => [artifact.artifact, artifact.producer_stage]));
 const missing = [];
 for (const artifact of stage.consumes) {
   const producer = artifactProducer.get(artifact);
   if (!producer) {
     missing.push(`${artifact}:NO_PRODUCER`);
-  } else if (!completed.has(producer) && !versionedEvidenceSatisfied(producer)) {
+  } else if (!stageSatisfied(producer)) {
     missing.push(`${artifact}:producer=${producer}`);
   }
 }
