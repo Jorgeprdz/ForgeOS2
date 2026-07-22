@@ -4,7 +4,7 @@
   "scripts": {
     "test": "node tools/run-tests.mjs",
     "lint": "node tools/validate-imports.mjs && node tools/validate-markdown-links.mjs",
-    "scaffold:validate": "node scaffolds/validation/validate-product-spec.mjs && node scaffolds/validation/validate-boundaries.mjs && node scaffolds/validation/validate-traceability.mjs && node scaffolds/validation/validate-manifest.mjs && node scaffolds/validation/validate-scaffold.mjs && node scaffolds/validation/validate-paths.mjs && node scaffolds/validation/validate-evidence.mjs && node scaffolds/validation/validate-stage.mjs && node scaffolds/validation/validate-product-surfaces.mjs && node scaffolds/validation/validate-dependency-graph.mjs",
+    "scaffold:validate": "node scaffolds/validation/validate-product-spec.mjs && node scaffolds/validation/validate-boundaries.mjs && node scaffolds/validation/validate-traceability.mjs && node scaffolds/validation/validate-manifest.mjs && node scaffolds/validation/validate-scaffold.mjs && node scaffolds/validation/validate-paths.mjs && node scaffolds/validation/validate-evidence.mjs && node scaffolds/validation/validate-stage.mjs && node scaffolds/validation/validate-product-surfaces.mjs && node scaffolds/validation/validate-dependency-graph.mjs && node scaffolds/validation/validate-final-readiness.mjs",
     "termux:rewrite:validate": "bash tools/termux/rewrite/forge-rewrite-validate.sh"
   },
   "dependencies": {
