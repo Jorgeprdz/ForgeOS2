@@ -1,0 +1,199 @@
+{
+  "schema": "../contracts/rewrite-go-no-go.schema.json",
+  "report_id": "FORGE_REWRITE_GO_NO_GO_001",
+  "source_commit": "224144c4ab533f215d92641b68513b86c4f2cdda",
+  "categories": [
+    {
+      "category": "architecture_freeze",
+      "status": "PASS",
+      "evidence": [
+        "source_commit:224144c4ab533f215d92641b68513b86c4f2cdda"
+      ],
+      "failures": [],
+      "warnings": [],
+      "required_action": "None.",
+      "blocking": false
+    },
+    {
+      "category": "product_completeness",
+      "status": "PASS",
+      "evidence": [
+        "source_commit:224144c4ab533f215d92641b68513b86c4f2cdda"
+      ],
+      "failures": [],
+      "warnings": [],
+      "required_action": "None.",
+      "blocking": false
+    },
+    {
+      "category": "module_registry_integrity",
+      "status": "PASS",
+      "evidence": [
+        "source_commit:224144c4ab533f215d92641b68513b86c4f2cdda"
+      ],
+      "failures": [],
+      "warnings": [],
+      "required_action": "None.",
+      "blocking": false
+    },
+    {
+      "category": "dependency_graph_integrity",
+      "status": "PASS",
+      "evidence": [
+        "source_commit:224144c4ab533f215d92641b68513b86c4f2cdda"
+      ],
+      "failures": [],
+      "warnings": [],
+      "required_action": "None.",
+      "blocking": false
+    },
+    {
+      "category": "critical_path_integrity",
+      "status": "PASS",
+      "evidence": [
+        "source_commit:224144c4ab533f215d92641b68513b86c4f2cdda"
+      ],
+      "failures": [],
+      "warnings": [],
+      "required_action": "None.",
+      "blocking": false
+    },
+    {
+      "category": "execution_eligibility",
+      "status": "PASS",
+      "evidence": [
+        "source_commit:224144c4ab533f215d92641b68513b86c4f2cdda"
+      ],
+      "failures": [],
+      "warnings": [],
+      "required_action": "None.",
+      "blocking": false
+    },
+    {
+      "category": "contract_baseline",
+      "status": "PASS",
+      "evidence": [
+        "source_commit:224144c4ab533f215d92641b68513b86c4f2cdda"
+      ],
+      "failures": [],
+      "warnings": [],
+      "required_action": "None.",
+      "blocking": false
+    },
+    {
+      "category": "constitutional_boundary_coverage",
+      "status": "PASS",
+      "evidence": [
+        "source_commit:224144c4ab533f215d92641b68513b86c4f2cdda"
+      ],
+      "failures": [],
+      "warnings": [],
+      "required_action": "None.",
+      "blocking": false
+    },
+    {
+      "category": "requirements_traceability",
+      "status": "PASS",
+      "evidence": [
+        "source_commit:224144c4ab533f215d92641b68513b86c4f2cdda"
+      ],
+      "failures": [],
+      "warnings": [],
+      "required_action": "None.",
+      "blocking": false
+    },
+    {
+      "category": "legacy_guard",
+      "status": "PASS",
+      "evidence": [
+        "source_commit:224144c4ab533f215d92641b68513b86c4f2cdda"
+      ],
+      "failures": [],
+      "warnings": [],
+      "required_action": "None.",
+      "blocking": false
+    },
+    {
+      "category": "Termux_tooling",
+      "status": "PASS",
+      "evidence": [
+        "source_commit:224144c4ab533f215d92641b68513b86c4f2cdda"
+      ],
+      "failures": [],
+      "warnings": [],
+      "required_action": "None.",
+      "blocking": false
+    },
+    {
+      "category": "rollback_readiness",
+      "status": "PASS",
+      "evidence": [
+        "source_commit:224144c4ab533f215d92641b68513b86c4f2cdda"
+      ],
+      "failures": [],
+      "warnings": [],
+      "required_action": "None.",
+      "blocking": false
+    },
+    {
+      "category": "evidence_readiness",
+      "status": "PASS_WITH_WARNINGS",
+      "evidence": [
+        "source_commit:224144c4ab533f215d92641b68513b86c4f2cdda"
+      ],
+      "failures": [
+        "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE"
+      ],
+      "warnings": [
+        "Evidence blockers exist outside first execution wave."
+      ],
+      "required_action": "Resolve before affected module implementation.",
+      "blocking": false
+    },
+    {
+      "category": "first_wave_readiness",
+      "status": "PASS",
+      "evidence": [
+        "source_commit:224144c4ab533f215d92641b68513b86c4f2cdda"
+      ],
+      "failures": [],
+      "warnings": [],
+      "required_action": "None.",
+      "blocking": false
+    },
+    {
+      "category": "deterministic_regeneration",
+      "status": "PASS",
+      "evidence": [
+        "source_commit:224144c4ab533f215d92641b68513b86c4f2cdda"
+      ],
+      "failures": [],
+      "warnings": [],
+      "required_action": "None.",
+      "blocking": false
+    },
+    {
+      "category": "branch_safety",
+      "status": "PASS",
+      "evidence": [
+        "source_commit:224144c4ab533f215d92641b68513b86c4f2cdda"
+      ],
+      "failures": [],
+      "warnings": [],
+      "required_action": "None.",
+      "blocking": false
+    },
+    {
+      "category": "worktree_cleanliness",
+      "status": "PASS",
+      "evidence": [
+        "source_commit:224144c4ab533f215d92641b68513b86c4f2cdda"
+      ],
+      "failures": [],
+      "warnings": [],
+      "required_action": "None.",
+      "blocking": false
+    }
+  ],
+  "final_decision": "CONDITIONAL_GO"
+}

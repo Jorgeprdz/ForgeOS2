@@ -1,0 +1,96 @@
+{
+  "schema": "../contracts/first-execution-wave.schema.json",
+  "wave_id": "FORGE_FIRST_EXECUTION_WAVE_001",
+  "source_commit": "224144c4ab533f215d92641b68513b86c4f2cdda",
+  "first_execution_wave_ready": true,
+  "selected_operation": "SCAFFOLD",
+  "failures": [],
+  "modules": [
+    {
+      "module_id": "MOD-GOVERNANCE-GATE",
+      "selected_operation": "SCAFFOLD",
+      "selection_reason": "First active eligible wave from dependency graph and execution eligibility.",
+      "dependencies_satisfied": true,
+      "contracts_satisfied": true,
+      "decisions_satisfied": true,
+      "evidence_satisfied": true,
+      "validations_required": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "expected_outputs": [
+        "stage evidence for SG-001",
+        "generated scaffold files only when explicitly applied from Termux"
+      ],
+      "forbidden_outputs": [
+        "functional product behavior",
+        "legacy code copy",
+        "main branch changes"
+      ],
+      "commit_boundary": "one commit for MOD-GOVERNANCE-GATE scaffold outputs",
+      "rollback_checkpoint": "MOD-GOVERNANCE-GATE-pre-apply",
+      "downstream_modules_unlocked": [
+        "MOD-HUMAN-APPROVAL-GATE",
+        "MOD-LEGACY-REINTRODUCTION-GUARD",
+        "MOD-TERMUX-REWRITE-TOOLS"
+      ]
+    },
+    {
+      "module_id": "MOD-READONLY-ADAPTERS",
+      "selected_operation": "SCAFFOLD",
+      "selection_reason": "First active eligible wave from dependency graph and execution eligibility.",
+      "dependencies_satisfied": true,
+      "contracts_satisfied": true,
+      "decisions_satisfied": true,
+      "evidence_satisfied": true,
+      "validations_required": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "expected_outputs": [
+        "stage evidence for SG-002",
+        "generated scaffold files only when explicitly applied from Termux"
+      ],
+      "forbidden_outputs": [
+        "functional product behavior",
+        "legacy code copy",
+        "main branch changes"
+      ],
+      "commit_boundary": "one commit for MOD-READONLY-ADAPTERS scaffold outputs",
+      "rollback_checkpoint": "MOD-READONLY-ADAPTERS-pre-apply",
+      "downstream_modules_unlocked": [
+        "MOD-CLIENT-CRM-READMODEL",
+        "MOD-OPPORTUNITY-PIPELINE",
+        "MOD-POLICY-OPERATIONS"
+      ]
+    },
+    {
+      "module_id": "MOD-ADVISOR-LIFECYCLE",
+      "selected_operation": "SCAFFOLD",
+      "selection_reason": "First active eligible wave from dependency graph and execution eligibility.",
+      "dependencies_satisfied": true,
+      "contracts_satisfied": true,
+      "decisions_satisfied": true,
+      "evidence_satisfied": true,
+      "validations_required": [
+        "npm run scaffold:validate",
+        "npm run lint",
+        "git diff --check"
+      ],
+      "expected_outputs": [
+        "stage evidence for SG-001",
+        "generated scaffold files only when explicitly applied from Termux"
+      ],
+      "forbidden_outputs": [
+        "functional product behavior",
+        "legacy code copy",
+        "main branch changes"
+      ],
+      "commit_boundary": "one commit for MOD-ADVISOR-LIFECYCLE scaffold outputs",
+      "rollback_checkpoint": "MOD-ADVISOR-LIFECYCLE-pre-apply",
+      "downstream_modules_unlocked": []
+    }
+  ]
+}

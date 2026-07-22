@@ -1,0 +1,1356 @@
+{
+  "schema": "../contracts/contract-baseline.schema.json",
+  "baseline_id": "FORGE_CONTRACT_BASELINE_001",
+  "source_commit": "224144c4ab533f215d92641b68513b86c4f2cdda",
+  "contracts": [
+    {
+      "module_id": "MOD-DECISION-CORE",
+      "required_contracts": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "contract_owner": "MOD-DECISION-CORE",
+      "contract_path": "scaffolds/contracts/scaffold-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-ACTION-PLANNING",
+        "MOD-READONLY-ADAPTERS",
+        "MOD-PRODUCT-CATALOG",
+        "MOD-CARRIER-SCOPE",
+        "MOD-OPPORTUNITY-PIPELINE",
+        "MOD-CLIENT-CRM-READMODEL"
+      ],
+      "producers": [
+        "MOD-DECISION-CORE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-ACTION-PLANNING",
+      "required_contracts": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "contract_owner": "MOD-DECISION-CORE",
+      "contract_path": "scaffolds/contracts/scaffold-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-DECISION-CORE",
+        "MOD-READONLY-ADAPTERS",
+        "MOD-PRODUCT-CATALOG",
+        "MOD-CARRIER-SCOPE",
+        "MOD-OPPORTUNITY-PIPELINE",
+        "MOD-CLIENT-CRM-READMODEL"
+      ],
+      "producers": [
+        "MOD-DECISION-CORE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-TRUTH-GOVERNANCE",
+      "required_contracts": [
+        "scaffolds/contracts/traceability.schema.json"
+      ],
+      "contract_owner": "MOD-TRUTH-GOVERNANCE",
+      "contract_path": "scaffolds/contracts/traceability.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [],
+      "producers": [
+        "MOD-TRUTH-GOVERNANCE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "FROZEN"
+    },
+    {
+      "module_id": "MOD-GOVERNANCE-GATE",
+      "required_contracts": [
+        "scaffolds/contracts/promotion-gate.schema.json"
+      ],
+      "contract_owner": "MOD-GOVERNANCE-GATE",
+      "contract_path": "scaffolds/contracts/promotion-gate.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-HUMAN-APPROVAL-GATE"
+      ],
+      "producers": [
+        "MOD-GOVERNANCE-GATE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-READONLY-ADAPTERS",
+      "required_contracts": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "contract_owner": "MOD-DECISION-CORE",
+      "contract_path": "scaffolds/contracts/scaffold-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-DECISION-CORE",
+        "MOD-ACTION-PLANNING",
+        "MOD-PRODUCT-CATALOG",
+        "MOD-CARRIER-SCOPE",
+        "MOD-OPPORTUNITY-PIPELINE",
+        "MOD-CLIENT-CRM-READMODEL"
+      ],
+      "producers": [
+        "MOD-DECISION-CORE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-ADVISOR-WORKSPACE",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "contract_owner": "MOD-ADVISOR-WORKSPACE",
+      "contract_path": "scaffolds/contracts/stage-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-MANAGER-COACHING",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-NBA-REASON-WHY",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-ADVISOR-ACTIVATION"
+      ],
+      "producers": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-MANAGER-WORKSPACE",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "contract_owner": "MOD-ADVISOR-WORKSPACE",
+      "contract_path": "scaffolds/contracts/stage-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-MANAGER-COACHING",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-NBA-REASON-WHY",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-ADVISOR-ACTIVATION"
+      ],
+      "producers": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-RELATIONSHIP-INTELLIGENCE",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "contract_owner": "MOD-ADVISOR-WORKSPACE",
+      "contract_path": "scaffolds/contracts/stage-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-MANAGER-COACHING",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-NBA-REASON-WHY",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-ADVISOR-ACTIVATION"
+      ],
+      "producers": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-CONVERSATION-INTELLIGENCE",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "contract_owner": "MOD-ADVISOR-WORKSPACE",
+      "contract_path": "scaffolds/contracts/stage-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-MANAGER-COACHING",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-NBA-REASON-WHY",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-ADVISOR-ACTIVATION"
+      ],
+      "producers": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-POLICY-OPERATIONS",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "contract_owner": "MOD-ADVISOR-WORKSPACE",
+      "contract_path": "scaffolds/contracts/stage-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-MANAGER-COACHING",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-NBA-REASON-WHY",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-ADVISOR-ACTIVATION"
+      ],
+      "producers": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-PRODUCT-CATALOG",
+      "required_contracts": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "contract_owner": "MOD-DECISION-CORE",
+      "contract_path": "scaffolds/contracts/scaffold-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-DECISION-CORE",
+        "MOD-ACTION-PLANNING",
+        "MOD-READONLY-ADAPTERS",
+        "MOD-CARRIER-SCOPE",
+        "MOD-OPPORTUNITY-PIPELINE",
+        "MOD-CLIENT-CRM-READMODEL"
+      ],
+      "producers": [
+        "MOD-DECISION-CORE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-PRODUCT-SOURCE-PACK",
+      "required_contracts": [
+        "scaffolds/contracts/evidence-contract.schema.json"
+      ],
+      "contract_owner": "MOD-PRODUCT-SOURCE-PACK",
+      "contract_path": "scaffolds/contracts/evidence-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE"
+      ],
+      "producers": [
+        "MOD-PRODUCT-SOURCE-PACK"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-CARRIER-SCOPE",
+      "required_contracts": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "contract_owner": "MOD-DECISION-CORE",
+      "contract_path": "scaffolds/contracts/scaffold-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-DECISION-CORE",
+        "MOD-ACTION-PLANNING",
+        "MOD-READONLY-ADAPTERS",
+        "MOD-PRODUCT-CATALOG",
+        "MOD-OPPORTUNITY-PIPELINE",
+        "MOD-CLIENT-CRM-READMODEL"
+      ],
+      "producers": [
+        "MOD-DECISION-CORE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-RULE-PACK-CONTRACT",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "contract_owner": "MOD-ADVISOR-WORKSPACE",
+      "contract_path": "scaffolds/contracts/stage-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-MANAGER-COACHING",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-NBA-REASON-WHY",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-ADVISOR-ACTIVATION"
+      ],
+      "producers": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-ELIGIBILITY-CONTRACT",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "contract_owner": "MOD-ADVISOR-WORKSPACE",
+      "contract_path": "scaffolds/contracts/stage-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-MANAGER-COACHING",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-NBA-REASON-WHY",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-ADVISOR-ACTIVATION"
+      ],
+      "producers": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-CALCULATION-CONTRACT",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "contract_owner": "MOD-ADVISOR-WORKSPACE",
+      "contract_path": "scaffolds/contracts/stage-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-MANAGER-COACHING",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-NBA-REASON-WHY",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-ADVISOR-ACTIVATION"
+      ],
+      "producers": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-QUOTE-PREVIEW",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "contract_owner": "MOD-ADVISOR-WORKSPACE",
+      "contract_path": "scaffolds/contracts/stage-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-MANAGER-COACHING",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-NBA-REASON-WHY",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-ADVISOR-ACTIVATION"
+      ],
+      "producers": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-MICK-BEHAVIOR",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "contract_owner": "MOD-ADVISOR-WORKSPACE",
+      "contract_path": "scaffolds/contracts/stage-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-MANAGER-COACHING",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-NBA-REASON-WHY",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-ADVISOR-ACTIVATION"
+      ],
+      "producers": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-MANAGER-COACHING",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "contract_owner": "MOD-ADVISOR-WORKSPACE",
+      "contract_path": "scaffolds/contracts/stage-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-NBA-REASON-WHY",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-ADVISOR-ACTIVATION"
+      ],
+      "producers": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-ADVISOR-EXPERIENCE",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "contract_owner": "MOD-ADVISOR-WORKSPACE",
+      "contract_path": "scaffolds/contracts/stage-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-MANAGER-COACHING",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-NBA-REASON-WHY",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-ADVISOR-ACTIVATION"
+      ],
+      "producers": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-HUMAN-APPROVAL-GATE",
+      "required_contracts": [
+        "scaffolds/contracts/promotion-gate.schema.json"
+      ],
+      "contract_owner": "MOD-GOVERNANCE-GATE",
+      "contract_path": "scaffolds/contracts/promotion-gate.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-GOVERNANCE-GATE"
+      ],
+      "producers": [
+        "MOD-GOVERNANCE-GATE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-LLM-DRAFT-INTAKE",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "contract_owner": "MOD-ADVISOR-WORKSPACE",
+      "contract_path": "scaffolds/contracts/stage-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-MANAGER-COACHING",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-NBA-REASON-WHY",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-ADVISOR-ACTIVATION"
+      ],
+      "producers": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-MESSAGE-SAFETY-VALIDATOR",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "contract_owner": "MOD-ADVISOR-WORKSPACE",
+      "contract_path": "scaffolds/contracts/stage-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-MANAGER-COACHING",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-NBA-REASON-WHY",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-ADVISOR-ACTIVATION"
+      ],
+      "producers": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-NBA-REASON-WHY",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "contract_owner": "MOD-ADVISOR-WORKSPACE",
+      "contract_path": "scaffolds/contracts/stage-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-MANAGER-COACHING",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-ADVISOR-ACTIVATION"
+      ],
+      "producers": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-ADVISOR-LIFECYCLE",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "contract_owner": "MOD-ADVISOR-WORKSPACE",
+      "contract_path": "scaffolds/contracts/stage-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-MANAGER-COACHING",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-NBA-REASON-WHY",
+        "MOD-ADVISOR-CONVERSION",
+        "MOD-ADVISOR-ACTIVATION"
+      ],
+      "producers": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-ADVISOR-CONVERSION",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "contract_owner": "MOD-ADVISOR-WORKSPACE",
+      "contract_path": "scaffolds/contracts/stage-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-MANAGER-COACHING",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-NBA-REASON-WHY",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-ADVISOR-ACTIVATION"
+      ],
+      "producers": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-ADVISOR-ACTIVATION",
+      "required_contracts": [
+        "scaffolds/contracts/stage-contract.schema.json"
+      ],
+      "contract_owner": "MOD-ADVISOR-WORKSPACE",
+      "contract_path": "scaffolds/contracts/stage-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-ADVISOR-WORKSPACE",
+        "MOD-MANAGER-WORKSPACE",
+        "MOD-RELATIONSHIP-INTELLIGENCE",
+        "MOD-CONVERSATION-INTELLIGENCE",
+        "MOD-POLICY-OPERATIONS",
+        "MOD-RULE-PACK-CONTRACT",
+        "MOD-ELIGIBILITY-CONTRACT",
+        "MOD-CALCULATION-CONTRACT",
+        "MOD-QUOTE-PREVIEW",
+        "MOD-MICK-BEHAVIOR",
+        "MOD-MANAGER-COACHING",
+        "MOD-ADVISOR-EXPERIENCE",
+        "MOD-LLM-DRAFT-INTAKE",
+        "MOD-MESSAGE-SAFETY-VALIDATOR",
+        "MOD-NBA-REASON-WHY",
+        "MOD-ADVISOR-LIFECYCLE",
+        "MOD-ADVISOR-CONVERSION"
+      ],
+      "producers": [
+        "MOD-ADVISOR-WORKSPACE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-OPPORTUNITY-PIPELINE",
+      "required_contracts": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "contract_owner": "MOD-DECISION-CORE",
+      "contract_path": "scaffolds/contracts/scaffold-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-DECISION-CORE",
+        "MOD-ACTION-PLANNING",
+        "MOD-READONLY-ADAPTERS",
+        "MOD-PRODUCT-CATALOG",
+        "MOD-CARRIER-SCOPE",
+        "MOD-CLIENT-CRM-READMODEL"
+      ],
+      "producers": [
+        "MOD-DECISION-CORE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-CLIENT-CRM-READMODEL",
+      "required_contracts": [
+        "scaffolds/contracts/scaffold-contract.schema.json"
+      ],
+      "contract_owner": "MOD-DECISION-CORE",
+      "contract_path": "scaffolds/contracts/scaffold-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-DECISION-CORE",
+        "MOD-ACTION-PLANNING",
+        "MOD-READONLY-ADAPTERS",
+        "MOD-PRODUCT-CATALOG",
+        "MOD-CARRIER-SCOPE",
+        "MOD-OPPORTUNITY-PIPELINE"
+      ],
+      "producers": [
+        "MOD-DECISION-CORE"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    },
+    {
+      "module_id": "MOD-TERMUX-REWRITE-TOOLS",
+      "required_contracts": [
+        "scaffolds/contracts/execution-state.schema.json"
+      ],
+      "contract_owner": "MOD-TERMUX-REWRITE-TOOLS",
+      "contract_path": "scaffolds/contracts/execution-state.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [],
+      "producers": [
+        "MOD-TERMUX-REWRITE-TOOLS"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "FROZEN"
+    },
+    {
+      "module_id": "MOD-LEGACY-REINTRODUCTION-GUARD",
+      "required_contracts": [
+        "scaffolds/contracts/path-policy.schema.json"
+      ],
+      "contract_owner": "MOD-LEGACY-REINTRODUCTION-GUARD",
+      "contract_path": "scaffolds/contracts/path-policy.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [],
+      "producers": [
+        "MOD-LEGACY-REINTRODUCTION-GUARD"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "FROZEN"
+    },
+    {
+      "module_id": "MOD-LEGACY-FUNCTIONAL-EVIDENCE-INTAKE",
+      "required_contracts": [
+        "scaffolds/contracts/evidence-contract.schema.json"
+      ],
+      "contract_owner": "MOD-PRODUCT-SOURCE-PACK",
+      "contract_path": "scaffolds/contracts/evidence-contract.schema.json",
+      "contract_version": "schema-baseline-001",
+      "schema_valid": true,
+      "canonical": true,
+      "implementation_required": true,
+      "required_for_operations": [
+        "SCAFFOLD",
+        "IMPLEMENT",
+        "VALIDATE",
+        "PROMOTE"
+      ],
+      "consumers": [
+        "MOD-PRODUCT-SOURCE-PACK"
+      ],
+      "producers": [
+        "MOD-PRODUCT-SOURCE-PACK"
+      ],
+      "breaking_change_policy": "Shared contracts require additive changes or a new versioned schema path.",
+      "migration_policy": "Breaking contract changes require a migration note and updated traceability before implementation.",
+      "test_requirements": [
+        "JSON parse",
+        "scaffold validator",
+        "consumer validation before promotion"
+      ],
+      "classification": "PROVISIONALLY_FROZEN"
+    }
+  ],
+  "summary": {
+    "analyzed": 32,
+    "frozen": 3,
+    "provisional": 29,
+    "missing": 0,
+    "conflicted": 0,
+    "active_modules_without_contract_baseline": []
+  }
+}
