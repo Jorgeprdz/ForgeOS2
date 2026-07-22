@@ -11,8 +11,8 @@ This report records the constitution-first scaffold system created for future Fo
 - Start SHA: `812032bee7b8b5c780e0b9d9f7c287b7d9fbe274`
 - Backup branch: `backup/main-before-termux-rewrite-scaffolds-20260722-091007`
 - Work branch: `scaffold/constitution-first-termux-rewrite-20260722-091007`
-- Final SHA: recorded in final operator output after the report commit.
-- Push: pending final validation and branch push.
+- Final SHA: recorded in final operator output after the report commit, because the report commit hash is self-referential.
+- Push: confirmed by final operator output after branch push.
 - Main changed: no.
 
 ## Sources Inspected
@@ -108,7 +108,22 @@ Executed during scaffold generation:
 - `forge-rewrite-bootstrap.sh` with dirty-tree test override.
 - `git diff --check`.
 
-Final repository validations are recorded in the final operator response.
+Final repository validations executed:
+
+- `npm test`: PASS.
+- `npm run lint`: PASS.
+- `npm run typecheck --if-present`: PASS, no script present.
+- `npm run build --if-present`: PASS, no script present.
+- `npm run scaffold:validate`: PASS.
+- `bash -n tools/termux/rewrite/*.sh tools/termux/rewrite/lib/*.sh`: PASS.
+- `--help` for all Termux rewrite scripts: PASS.
+- `forge-rewrite-stage.sh SG-001 --plan`: PASS.
+- `forge-rewrite-stage.sh SG-001 --dry-run`: PASS.
+- dirty working tree protection: PASS.
+- `forge-rewrite-bootstrap.sh` with dirty-tree test override: PASS.
+- `git diff --check`: PASS.
+- obsolete governance rewrite folder reference search: PASS.
+- secret-pattern search: PASS.
 
 ## Tests Omitted
 
