@@ -119,5 +119,36 @@
       "stage_id": "SG-021",
       "reason": "already-mapped"
     }
-  ]
+  ],
+  "non_ready_stage_reversions": [
+    {
+      "stage_id": "SG-019",
+      "status": "REJECTED",
+      "removed_material_files": [
+        "scaffolds/artifacts/SG-019/rejected-capability-denylist.artifact.json"
+      ]
+    },
+    {
+      "stage_id": "SG-020",
+      "status": "DEFERRED",
+      "removed_material_files": [
+        "scaffolds/artifacts/SG-020/legacy-functional-evidence-classification.artifact.json"
+      ]
+    },
+    {
+      "stage_id": "SG-017",
+      "status": "DEFERRED",
+      "removed_material_files": [
+        "scaffolds/artifacts/SG-017/recruitment-precontract-contract.artifact.json"
+      ]
+    },
+    {
+      "stage_id": "SG-016",
+      "status": "DEFERRED",
+      "removed_material_files": [
+        "scaffolds/artifacts/SG-016/compensation-economic-contract.artifact.json"
+      ]
+    }
+  ],
+  "materialization_rule": "Only READY stages may declare material files. BLOCKED and DEFERRED stages retain evidence-only declarations."
 }

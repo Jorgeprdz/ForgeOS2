@@ -675,7 +675,6 @@
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
       "files_to_generate": [
-        "scaffolds/artifacts/SG-019/rejected-capability-denylist.artifact.json",
         "scaffolds/reports/SG-019-evidence.json"
       ],
       "allowed_operations": [
@@ -1010,7 +1009,6 @@
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
       "files_to_generate": [
-        "scaffolds/artifacts/SG-020/legacy-functional-evidence-classification.artifact.json",
         "scaffolds/reports/SG-020-evidence.json"
       ],
       "allowed_operations": [
@@ -1583,7 +1581,6 @@
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
       "files_to_generate": [
-        "scaffolds/artifacts/SG-017/recruitment-precontract-contract.artifact.json",
         "scaffolds/reports/SG-017-evidence.json"
       ],
       "allowed_operations": [
@@ -3000,7 +2997,6 @@
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
       "files_to_generate": [
-        "scaffolds/artifacts/SG-016/compensation-economic-contract.artifact.json",
         "scaffolds/reports/SG-016-evidence.json"
       ],
       "allowed_operations": [
