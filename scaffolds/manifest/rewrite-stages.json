@@ -674,9 +674,7 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [
-        "scaffolds/reports/SG-019-evidence.json"
-      ],
+      "files_to_generate": [],
       "allowed_operations": [
         "plan",
         "record blocked evidence"
@@ -1008,9 +1006,7 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [
-        "scaffolds/reports/SG-020-evidence.json"
-      ],
+      "files_to_generate": [],
       "allowed_operations": [
         "plan",
         "record blocked evidence"
@@ -1580,9 +1576,7 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [
-        "scaffolds/reports/SG-017-evidence.json"
-      ],
+      "files_to_generate": [],
       "allowed_operations": [
         "plan",
         "record blocked evidence"
@@ -2996,9 +2990,7 @@
       "templates": [
         "scaffolds/templates/domain/blocked-domain.template.md"
       ],
-      "files_to_generate": [
-        "scaffolds/reports/SG-016-evidence.json"
-      ],
+      "files_to_generate": [],
       "allowed_operations": [
         "plan",
         "record blocked evidence"
