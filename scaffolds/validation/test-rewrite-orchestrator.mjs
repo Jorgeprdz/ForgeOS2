@@ -122,6 +122,8 @@ scenario('stage partial completion model declared', () => {
 });
 
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'forge-rewrite-state-'));
+const repoRoot = process.cwd();
+const rewriteLauncher = path.join(repoRoot, 'tools/termux/rewrite/forge-rewrite-launch.sh');
 fs.mkdirSync(path.join(tmp, 'artifact-receipts'), { recursive: true });
 fs.writeFileSync(path.join(tmp, 'state.json'), JSON.stringify({
   current_stage: 'SG-002',
@@ -130,8 +132,8 @@ fs.writeFileSync(path.join(tmp, 'state.json'), JSON.stringify({
 }, null, 2));
 
 function run(command, env = {}) {
-  return spawnSync('bash', ['tools/termux/rewrite/forge-rewrite-launch.sh', ...command], {
-    cwd: process.cwd(),
+  return spawnSync('bash', [rewriteLauncher, ...command], {
+    cwd: repoRoot,
     env: { ...process.env, FORGE_REWRITE_STATE_ROOT: tmp, ...env },
     encoding: 'utf8'
   });
