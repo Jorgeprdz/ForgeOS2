@@ -1,0 +1,11 @@
+{
+  "schema": "../contracts/owner-decision-collapse-report.schema.json",
+  "report_id": "FORGE_OWNER_DECISION_COLLAPSE_REPORT_001",
+  "source_commit": "224144c4ab533f215d92641b68513b86c4f2cdda",
+  "initial_owner_decisions": 64,
+  "automatically_resolved": 51,
+  "merged": 13,
+  "duplicates_removed": 51,
+  "obsolete_removed": 0,
+  "final_decision": "GO"
+}

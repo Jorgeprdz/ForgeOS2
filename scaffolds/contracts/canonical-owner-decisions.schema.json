@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forge-os.local/scaffolds/contracts/canonical-owner-decisions.schema.json",
+  "title": "Forge Canonical Owner Decisions",
+  "type": "object",
+  "required": ["schema", "packet_id", "source_commit", "initial_owner_decisions", "automatically_resolved", "merged", "duplicates_removed", "obsolete_removed", "decisions", "summary"]
+}
