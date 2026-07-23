@@ -188,6 +188,24 @@ const terminalStatuses = new Set([
   'MATERIALIZED', 'VALIDATED', 'MERGED'
 ]);
 
+let rewriteState = {};
+try {
+  rewriteState = JSON.parse(
+    fs.readFileSync(
+      '.forge/rewrite/state.json',
+      'utf8'
+    )
+  );
+} catch {
+  rewriteState = {};
+}
+
+const completedStages = new Set(
+  Array.isArray(rewriteState.completed_stages)
+    ? rewriteState.completed_stages
+    : []
+);
+
 const blockedStatuses = new Set([
   'BLOCKED', 'BLOCKED_REQUIRES_OWNER_DECISION',
   'BLOCKED_REQUIRES_PRODUCT_DEFINITION',
@@ -241,9 +259,15 @@ for (const stage of rawStages) {
   const runner = candidates.find(p => fs.existsSync(p)) || '';
   let disposition = 'PENDING';
 
-  if (blockedStatuses.has(status) || status.startsWith('BLOCKED')) {
+  if (
+    blockedStatuses.has(status) ||
+    status.startsWith('BLOCKED')
+  ) {
     disposition = 'BLOCKED';
-  } else if (terminalStatuses.has(status)) {
+  } else if (
+    terminalStatuses.has(status) ||
+    completedStages.has(id)
+  ) {
     disposition = 'COMPLETE';
   } else if (!runner) {
     disposition = 'NO_RUNNER';
@@ -468,7 +492,11 @@ main() {
     say "RUNNER=$runner"
     say "STATUS_BEFORE=${status:-UNKNOWN}"
 
-    run_live "GENERATOR ${id}" bash "$runner"
+    run_live "STAGE APPLY ${id}" \
+      bash \
+      tools/termux/rewrite/forge-rewrite-stage.sh \
+      "$id" \
+      --apply
 
     stage_specific_validation "$id"
     fast_validation "$id"
