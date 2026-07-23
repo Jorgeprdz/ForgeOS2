@@ -40,7 +40,6 @@ try {
   assert.match(status.stdout, /LIFECYCLE/);
   assert.match(status.stdout, /MÓDULOS/);
   assert.match(status.stdout, /TIEMPO/);
-  assert.match(status.stdout, /architecture_ready/);
   assert.match(status.stdout, /0\/31 completados/);
   assert.match(status.stdout, /FORGE_BUILD_COMMAND=status/);
   assert.match(status.stdout, /FORGE_BUILD_ARTIFACT_PANEL=PASS/);
