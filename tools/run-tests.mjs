@@ -9,6 +9,7 @@ const TEST_COMMANDS = [
     .map(file => ['node', [path.join('platform/core/tests', file)]]),
   ['node', ['governance/tests/source-ownership-registry-validation-test.js']],
   ['node', ['governance/tests/promotion-gate-test.mjs']],
+  ['node', ['scaffolds/validation/test-build-stage-colors.mjs']],
   ['node', [
     '--input-type=module',
     '-e',

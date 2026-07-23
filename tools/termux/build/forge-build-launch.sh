@@ -2,6 +2,7 @@
 set -Eeuo pipefail
 
 SCRIPT_DIR="$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+GATE="$SCRIPT_DIR/forge-build-gate.mjs"
 
 fail() {
   printf 'FORGE_BUILD_ERROR %s\n' "$*" >&2
@@ -94,6 +95,7 @@ cd "$FORGE_ROOT"
 command -v git >/dev/null 2>&1 || fail "MISSING_COMMAND:git"
 command -v node >/dev/null 2>&1 || fail "MISSING_COMMAND:node"
 command -v npm >/dev/null 2>&1 || fail "MISSING_COMMAND:npm"
+[ -f "$GATE" ] || fail "MISSING_GATE:$GATE"
 
 STATE_ROOT="${FORGE_BUILD_STATE_ROOT:-.forge/build}"
 if [[ "$STATE_ROOT" = /* ]]; then
@@ -115,6 +117,44 @@ if [ "$command_name" = "validate" ]; then
   [ -z "$argument" ] || printf 'MODULE=%s\n' "$argument"
   npm run lint
   npm run scaffold:validate
+
+  if [ -n "$argument" ]; then
+    VALIDATION_DIR="$RESOLVED_STATE_ROOT/validation"
+    VALIDATION_FILE="$VALIDATION_DIR/${argument//\//_}.json"
+    mkdir -p "$VALIDATION_DIR"
+
+    MODULE="$argument" VALIDATION_FILE="$VALIDATION_FILE" node <<'NODE'
+const fs = require('fs');
+const cp = require('child_process');
+
+const git = (args) => cp.execFileSync('git', args, {
+  encoding: 'utf8'
+}).trim();
+
+const payload = {
+  schema_version: 1,
+  module_id: process.env.MODULE,
+  status: 'PASS',
+  branch: git(['branch', '--show-current']),
+  head: git(['rev-parse', 'HEAD']),
+  generated_at: new Date().toISOString()
+};
+
+const file = process.env.VALIDATION_FILE;
+const temporary = `${file}.tmp-${process.pid}`;
+
+fs.writeFileSync(
+  temporary,
+  `${JSON.stringify(payload, null, 2)}\n`,
+  { mode: 0o600 }
+);
+
+fs.renameSync(temporary, file);
+NODE
+
+    printf 'VALIDATION_RECEIPT=%s\n' "$VALIDATION_FILE"
+  fi
+
   printf 'FORGE_BUILD_VALIDATE=PASS\n'
   exit 0
 fi
@@ -128,6 +168,27 @@ if [ "$command_name" = "test" ]; then
 fi
 
 mkdir -p "$RESOLVED_STATE_ROOT"
+
+if [ "$command_name" = "advance" ]; then
+  case "$argument" in
+    implementation_started|integration_pass)
+      [ -f "$STATE_FILE" ] || fail "STATE_FILE_MISSING:$STATE_FILE"
+
+      active_module="$(
+        STATE_FILE="$STATE_FILE" node <<'NODE'
+const fs = require('fs');
+const state = JSON.parse(
+  fs.readFileSync(process.env.STATE_FILE, 'utf8')
+);
+process.stdout.write(state.active_module || '');
+NODE
+      )"
+
+      [ -n "$active_module" ] || fail "NO_ACTIVE_MODULE"
+      node "$GATE" "$active_module" "$argument"
+      ;;
+  esac
+fi
 
 FORGE_BUILD_STATE_FILE="$STATE_FILE" node - "$command_name" "$argument" <<'NODE'
 const fs = require('fs');

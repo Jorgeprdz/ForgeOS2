@@ -140,8 +140,8 @@ case "${status:-declared}" in
     run_logged bash "$LAUNCHER" test "$active"
     run_logged bash "$LAUNCHER" advance tests_pass
     run_logged bash "$LAUNCHER" validate "$active"
-    run_logged bash "$LAUNCHER" advance integration_pass
     run_logged bash "$CLI" evidence "$active"
+    run_logged bash "$LAUNCHER" advance integration_pass
     render "$active" "integration_pass" "COMMIT" handoff
     printf 'RUN_ADVANCED_TO=integration_pass\n'
     printf 'ACTION_REQUIRED=COMMIT\n'
@@ -156,8 +156,8 @@ case "${status:-declared}" in
   tests_pass)
     render "$active" "tests_pass" "integrating" handoff
     run_logged bash "$LAUNCHER" validate "$active"
-    run_logged bash "$LAUNCHER" advance integration_pass
     run_logged bash "$CLI" evidence "$active"
+    run_logged bash "$LAUNCHER" advance integration_pass
     render "$active" "integration_pass" "COMMIT" handoff
     printf 'RUN_ADVANCED_TO=integration_pass\n'
     printf 'ACTION_REQUIRED=COMMIT\n'

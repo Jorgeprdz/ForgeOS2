@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import process from 'node:process';
+import { stageTone, stageVisual } from './forge-build-stage-colors.mjs';
 
 const raw = process.env.FORGE_BUILD_UI_STEPS || '';
 const steps = raw ? raw.split('|').filter(Boolean).map((entry) => {
@@ -28,14 +29,24 @@ const ansi = {
   bold: color ? '\x1b[1m' : '',
   dim: color ? '\x1b[2m' : '',
   forge: color ? '\x1b[38;5;45m' : '',
-  green: color ? '\x1b[38;5;82m' : '',
+  blue: color ? '\x1b[38;5;75m' : '',
+  cyan: color ? '\x1b[38;5;45m' : '',
   yellow: color ? '\x1b[38;5;220m' : '',
+  orange: color ? '\x1b[38;5;214m' : '',
+  magenta: color ? '\x1b[38;5;213m' : '',
+  green: color ? '\x1b[38;5;82m' : '',
+  brightGreen: color ? '\x1b[38;5;46m' : '',
+  brightBlue: color ? '\x1b[38;5;39m' : '',
+  brightCyan: color ? '\x1b[38;5;51m' : '',
+  success: color ? '\x1b[38;5;48m' : '',
   red: color ? '\x1b[38;5;196m' : '',
   muted: color ? '\x1b[38;5;245m' : '',
   white: color ? '\x1b[38;5;255m' : '',
 };
 
 const paint = (value, tone) => `${ansi[tone] || ''}${value}${ansi.reset}`;
+const lifecycleVisual = stageVisual(lifecycle);
+const lifecycleTone = stageTone(lifecycle);
 const stripAnsi = (value) => value.replace(/\x1B\[[0-?]*[ -/]*[@-~]/g, '');
 const crop = (value, length) => {
   const clean = stripAnsi(String(value));
@@ -65,7 +76,8 @@ const banner = [
 
 const left = [
   `${paint('MÓDULO', 'muted')}  ${paint(moduleId, 'white')}`,
-  `${paint('ESTADO', 'muted')}  ${paint(lifecycle, running ? 'forge' : 'yellow')}`,
+  `${paint('ESTADO', 'muted')}  ${paint(lifecycle, lifecycleTone)}`,
+  `${paint('STAGE', 'muted')}   ${paint(lifecycleVisual.label, lifecycleTone)}`,
   '',
   ...steps.map((step) => `${symbol(step.state)} ${step.label}`),
 ];
