@@ -1,7 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://forge-os.local/scaffolds/contracts/weighted-architectural-analysis.schema.json",
-  "title": "Forge Weighted Architectural Analysis",
-  "type": "object",
-  "required": ["schema", "report_id", "source_commit", "mandatory_critical_path", "weighted_architectural_path", "weights", "highest_fan_in_modules", "highest_fan_out_modules", "highest_risk_modules", "highest_unblock_value_modules", "architectural_bottlenecks", "governance_bottlenecks", "product_bottlenecks", "evidence_bottlenecks"]
-}

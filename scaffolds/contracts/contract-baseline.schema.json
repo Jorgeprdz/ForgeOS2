@@ -1,7 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://forge-os.local/scaffolds/contracts/contract-baseline.schema.json",
-  "title": "Forge Contract Baseline",
-  "type": "object",
-  "required": ["schema", "baseline_id", "source_commit", "contracts", "summary"]
-}

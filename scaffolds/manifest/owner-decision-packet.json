@@ -1,6 +1,0 @@
-{
-  "schema": "../contracts/owner-decision-packet.schema.json",
-  "packet_id": "FORGE_OWNER_DECISION_PACKET_001",
-  "source_commit": "224144c4ab533f215d92641b68513b86c4f2cdda",
-  "decisions": []
-}

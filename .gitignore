@@ -1,23 +1,5 @@
 node_modules/
-
-# Forge local runtime and rewrite state
-.forge/
-
-.env
-.env.local
-.env.production
-env.js
-
+.forge21/logs/
+.forge21/tmp/
 *.log
-
-cache/
-tmp/
-
-*.pdf
-*.zip
-
-forge-full-inventory.txt
-
 .DS_Store
-Thumbs.db
-.env

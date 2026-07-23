@@ -1,15 +1,15 @@
 {
-  "name": "forge-os-2",
+  "name": "forge-os-2.1",
+  "version": "2.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "test": "node tools/run-tests.mjs",
-    "lint": "node tools/validate-imports.mjs && node tools/validate-markdown-links.mjs",
-    "scaffold:validate": "node scaffolds/validation/validate-product-spec.mjs && node scaffolds/validation/validate-boundaries.mjs && node scaffolds/validation/validate-traceability.mjs && node scaffolds/validation/validate-manifest.mjs && node scaffolds/validation/validate-scaffold.mjs && node scaffolds/validation/validate-paths.mjs && node scaffolds/validation/validate-evidence.mjs && node scaffolds/validation/validate-stage.mjs && node scaffolds/validation/validate-rewrite-artifact-graph.mjs && node scaffolds/validation/validate-rewrite-sequence.mjs && node scaffolds/validation/validate-product-surfaces.mjs && node scaffolds/validation/validate-dependency-graph.mjs && node scaffolds/validation/validate-final-readiness.mjs && node scaffolds/validation/validate-owner-decision-collapse.mjs && node scaffolds/validation/test-rewrite-orchestrator.mjs && node scaffolds/validation/audit-all-sg-readiness.mjs",
-    "sg:readiness:audit": "node scaffolds/validation/audit-all-sg-readiness.mjs",
-    "termux:rewrite:validate": "bash tools/termux/rewrite/forge-rewrite-validate.sh"
+    "forge": "node forge/cli/forge.mjs",
+    "test": "node --test forge/tests/*.test.mjs modules/**/*.test.mjs",
+    "validate": "node forge/cli/forge.mjs validate",
+    "check": "npm test && node forge/cli/forge.mjs doctor && node forge/cli/forge.mjs validate"
   },
-  "dependencies": {
-    "@supabase/supabase-js": "^2.108.2",
-    "dotenv": "^17.4.2"
+  "engines": {
+    "node": ">=20"
   }
 }

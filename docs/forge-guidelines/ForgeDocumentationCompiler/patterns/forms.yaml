@@ -1,5 +1,0 @@
-title: Forms
-rules:
-  - Validación inmediata.
-  - Errores junto al campo.
-  - No bloquear escritura.
