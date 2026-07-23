@@ -40,11 +40,14 @@ try {
   assert.match(status.stdout, /FORGE_BUILD_COMMAND=status/);
   assert.match(status.stdout, /FORGE_BUILD_ARTIFACT_PANEL=PASS/);
   assert.match(status.stdout, /RUN_LOG=/);
+  assert.doesNotMatch(status.stdout, /ARCHIVO ACTUAL: .*\.forge\/build\/state\.json/);
   console.log('PASS artifact activity panel');
+  console.log('PASS state path excluded from artifact activity');
 
   const compact = run(['status'], { COLUMNS: '60' });
   assert.equal(compact.status, 0, compact.stderr);
   assert.match(compact.stdout, /▶ scaffolds\/manifest\/build-order\.json/);
+  assert.doesNotMatch(compact.stdout, /▶ .*\.forge\/build\/state\.json/);
   console.log('PASS compact artifact activity');
 
   const unsupported = run(['shell']);
@@ -52,7 +55,7 @@ try {
   assert.match(`${unsupported.stdout}\n${unsupported.stderr}`, /UNSUPPORTED_COMMAND/);
   console.log('PASS unsupported UI command rejected');
 
-  console.log('test-build-ui: PASS scenarios=4');
+  console.log('test-build-ui: PASS scenarios=5');
 } finally {
   fs.rmSync(tmp, { recursive: true, force: true });
 }
