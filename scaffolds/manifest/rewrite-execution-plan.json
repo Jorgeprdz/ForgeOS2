@@ -215,7 +215,7 @@
         "resume_point": null,
         "rollback_point": "MOD-TRUTH-GOVERNANCE-pre-apply",
         "promotion_gate_id": "MOD-TRUTH-GOVERNANCE-PROMOTION-GATE",
-        "promotion_gate_state": "NOT_EVALUATED",
+        "promotion_gate_state": "PASSED",
         "readiness": {
           "definition": "DEFINED",
           "scaffold": "READY",
