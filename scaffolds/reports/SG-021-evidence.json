@@ -1,7 +1,7 @@
 {
   "stage": "SG-021",
-  "generated_at": "2026-07-22T23:41:49.592Z",
-  "operator": "termux",
+  "generated_at": "2026-07-23T04:32:39.529Z",
+  "operator": "root",
   "inputs": [
     "docs/product/FORGE_PRODUCT_SPEC.md",
     "scaffolds/manifest/rewrite-stages.json"
