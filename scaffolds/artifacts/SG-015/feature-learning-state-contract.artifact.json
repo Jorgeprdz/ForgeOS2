@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "artifact_id": "FeatureLearningStateContract",
+  "artifact_slug": "feature-learning-state-contract",
+  "stage_id": "SG-015",
+  "stage_name": "Advisor Experience Transversal Contract",
+  "dependency_layer": "TRANSVERSAL_EXPERIENCE",
+  "artifact_wave": 11,
+  "version": "1.0.0",
+  "status": "ACTIVE",
+  "generated_by": "forge-rewrite-materializer",
+  "generated_at": "2026-07-23T00:14:01.447478+00:00",
+  "constitutional_authority": [
+    "CONSTITUTION_ARTICLE_0"
+  ],
+  "capabilities": [
+    "CAP-ADVISOR-EXPERIENCE"
+  ],
+  "functional_requirements": [
+    "REQ-ADVISOR-EXPERIENCE-TRANSVERSAL"
+  ],
+  "boundaries": [
+    "BOUND-ADVISOR-EXPERIENCE-ANTI-DEPENDENCE",
+    "BOUND-CAPTURE-ONCE"
+  ],
+  "adr": [
+    "ADR-016"
+  ],
+  "contracts": [
+    "scaffolds/contracts/stage-contract.schema.json"
+  ],
+  "consumes": [
+    "AdvisorRoleModel",
+    "OwnershipRegistry",
+    "HumanReviewBoundary",
+    "ContextEnvelope",
+    "ConversationGuidanceContract",
+    "ObservableBehaviorSignalContract",
+    "PolicyOperationsContract"
+  ],
+  "acceptance_criteria": [
+    "Advisor Experience Transversal Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+  ],
+  "allowed_operations": [
+    "plan",
+    "record blocked evidence",
+    "dry-run",
+    "validate"
+  ],
+  "prohibited_operations": [
+    "apply product code",
+    "copy legacy runtime",
+    "write production data",
+    "external side effects"
+  ],
+  "fail_closed": true,
+  "materialization": {
+    "path": "scaffolds/artifacts/SG-015/feature-learning-state-contract.artifact.json",
+    "source_manifest": "scaffolds/manifest/rewrite-stages.json",
+    "semantic_authority": "stage manifest",
+    "manual_execution_authority": false
+  }
+}

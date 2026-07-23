@@ -1,0 +1,22 @@
+{
+  "stage": "SG-015",
+  "generated_at": "2026-07-23T00:14:01.718Z",
+  "operator": "termux",
+  "inputs": [
+    "docs/product/FORGE_PRODUCT_SPEC.md",
+    "scaffolds/manifest/rewrite-stages.json"
+  ],
+  "outputs": [
+    "scaffolds/artifacts/SG-015/advisor-experience-contract.artifact.json",
+    "scaffolds/artifacts/SG-015/feature-learning-state-contract.artifact.json",
+    "scaffolds/reports/SG-015-evidence.json"
+  ],
+  "hashes": {
+    "scaffolds/artifacts/SG-015/advisor-experience-contract.artifact.json": "1dd24d3a6fe0655cffff4d927b78d4605ee43c1911fd9a29d654a0626c4fa1b5",
+    "scaffolds/artifacts/SG-015/feature-learning-state-contract.artifact.json": "03341f03e104664c52c7f67c0736f05dea562f2863c42b44f82e2d6625185f08"
+  },
+  "validations": [
+    "scaffold:validate"
+  ],
+  "status": "PASS"
+}
