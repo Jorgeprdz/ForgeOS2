@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forge-os.local/contracts/scaffolds/scaffold-apply-result.schema.json",
+  "title": "Forge OS 2.1 Controlled Scaffold Apply Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "applyId",
+    "approvalId",
+    "approvalSha256",
+    "planId",
+    "planSha256",
+    "reportId",
+    "reportSha256",
+    "scaffold",
+    "appliedAt",
+    "repositoryBeforeSha256",
+    "repositoryAfterSha256",
+    "changedPaths",
+    "outputs",
+    "gitOperations",
+    "networkOperations",
+    "providerOperations",
+    "status",
+    "errors",
+    "applyResultSha256"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "applyId": {
+      "type": "string",
+      "pattern": "^SAPPLY-[A-Z0-9-]+$"
+    },
+    "approvalId": {
+      "type": "string",
+      "pattern": "^SAPPR-[A-Z0-9-]+$"
+    },
+    "approvalSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "planId": {
+      "type": "string",
+      "pattern": "^SPLAN-[A-Z0-9-]+$"
+    },
+    "planSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "reportId": {
+      "type": "string",
+      "pattern": "^SVRPT-[A-Z0-9-]+$"
+    },
+    "reportSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "scaffold": {
+      "type": "string"
+    },
+    "appliedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "repositoryBeforeSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "repositoryAfterSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "changedPaths": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "operation",
+          "sha256",
+          "bytes",
+          "applied"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "operation": {
+            "const": "CREATE"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "applied": {
+            "const": true
+          }
+        }
+      }
+    },
+    "gitOperations": {
+      "const": false
+    },
+    "networkOperations": {
+      "const": false
+    },
+    "providerOperations": {
+      "const": false
+    },
+    "status": {
+      "const": "PASS"
+    },
+    "errors": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "applyResultSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

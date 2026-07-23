@@ -1,0 +1,17 @@
+{
+  "document_id": "PRODUCT_TRUTH_OWNERSHIP",
+  "title": "Product Truth Ownership",
+  "purpose": "Register the already-established Product Truth owner without creating new authority.",
+  "scope": "- Concept: Product Truth.\n- Owner: Product Intelligence.\n- Consumers: bounded product consumers.",
+  "responsibilities": "- Preserve provenance and effective period.\n- Prevent local duplicate truth.",
+  "authority": "- Owner-establishing authority: ADR-005.\n- Registration authority: SG-001 and SG-002.",
+  "boundaries": "- Registration only.\n- Consumers may not redefine official truth.\n- Unknown remains blocked.",
+  "dependencies": "- Product source evidence.\n- RuleSnapshot when applicable.\n- Provenance chain.",
+  "source_of_truth": "- Canonical source: approved product source pack.\n- Conceptual owner: Product Intelligence.\n- Evidence state: verified or blocked.",
+  "related_documents": "- Source of Truth index.\n- Product Intelligence responsibility.",
+  "related_adrs": "- ADR-001.\n- ADR-002.\n- ADR-005.\n- ADR-020.",
+  "constitutional_references": "- Article 0 / Ley Zero.\n- Articles II, III, V, VII and IX.",
+  "status": "`PROPOSED REGISTRATION / EXISTING OWNER ONLY`",
+  "version": "`1.0.0`",
+  "traceability": "- Template: Canonical Source of Truth Scaffold.\n- Gate: SG-002 allowlisted owner registration."
+}

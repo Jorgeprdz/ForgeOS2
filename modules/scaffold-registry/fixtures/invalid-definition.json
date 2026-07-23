@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "registryId": "FORGE_SCAFFOLD_REGISTRY_TEST",
+  "status": "PROPOSED_NOT_RATIFIED",
+  "definitions": [
+    {
+      "schemaVersion": 1,
+      "id": "SCF-DOC-ARCHITECTURE-BOUNDARY",
+      "version": "1.0.0",
+      "title": "Canonical Architecture Boundary",
+      "kind": "DOCUMENTARY",
+      "status": "AUTHORIZED",
+      "authority": {
+        "gateId": "SG-001",
+        "ratified": true,
+        "constitutionRefs": [
+          "CONSTITUTION_ARTICLE_0",
+          "CONSTITUTION_ARTICLE_III"
+        ],
+        "adrRefs": [
+          "ADR-001",
+          "ADR-020"
+        ],
+        "ownerStatus": "NOT_APPLICABLE",
+        "snapshotSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "template": {
+        "path": "docs/architecture/scaffolds/CANONICAL_ARCHITECTURE_BOUNDARY_SCAFFOLD.md",
+        "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "renderer": "FORGE_TEXT_V1"
+      },
+      "inputSchema": {
+        "path": "contracts/scaffolds/architecture-boundary-input.schema.json",
+        "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      },
+      "outputs": [
+        {
+          "id": "BOUNDARY_DOCUMENT",
+          "pathPattern": "../escape.md",
+          "mediaType": "text/markdown",
+          "operation": "CREATE_ONLY"
+        }
+      ],
+      "pathPolicy": {
+        "allowSymlinks": false,
+        "allowDelete": false,
+        "allowRename": false,
+        "overwriteDefault": "DENY"
+      },
+      "validations": [
+        "SCV-001",
+        "SCV-002",
+        "SCV-004",
+        "SCV-006",
+        "SCV-007",
+        "SCV-009",
+        "SCV-010",
+        "SCV-011",
+        "SCV-013",
+        "SCV-017",
+        "SCV-018",
+        "SCV-020",
+        "SCV-024"
+      ],
+      "dependencies": [],
+      "provenance": {
+        "activeSources": [
+          "governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md"
+        ],
+        "historicalSources": [
+          "ForgeOS legacy scaffold registry"
+        ],
+        "classification": "REDESIGN"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "SCF-DOC-ARCHITECTURE-BOUNDARY",
+      "version": "0.9.0",
+      "title": "Canonical Architecture Boundary",
+      "kind": "DOCUMENTARY",
+      "status": "DEPRECATED",
+      "authority": {
+        "gateId": "SG-001",
+        "ratified": true,
+        "constitutionRefs": [
+          "CONSTITUTION_ARTICLE_0",
+          "CONSTITUTION_ARTICLE_III"
+        ],
+        "adrRefs": [
+          "ADR-001",
+          "ADR-020"
+        ],
+        "ownerStatus": "NOT_APPLICABLE",
+        "snapshotSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "template": {
+        "path": "docs/architecture/scaffolds/CANONICAL_ARCHITECTURE_BOUNDARY_SCAFFOLD.md",
+        "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "renderer": "FORGE_TEXT_V1"
+      },
+      "inputSchema": {
+        "path": "contracts/scaffolds/architecture-boundary-input.schema.json",
+        "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      },
+      "outputs": [
+        {
+          "id": "BOUNDARY_DOCUMENT",
+          "pathPattern": "docs/architecture/scaffolds/instances/boundaries/{{document_id}}.md",
+          "mediaType": "text/markdown",
+          "operation": "CREATE_ONLY"
+        }
+      ],
+      "pathPolicy": {
+        "allowSymlinks": false,
+        "allowDelete": false,
+        "allowRename": false,
+        "overwriteDefault": "DENY"
+      },
+      "validations": [
+        "SCV-001",
+        "SCV-002",
+        "SCV-004",
+        "SCV-006",
+        "SCV-007",
+        "SCV-009",
+        "SCV-010",
+        "SCV-011",
+        "SCV-013",
+        "SCV-017",
+        "SCV-018",
+        "SCV-020",
+        "SCV-024"
+      ],
+      "dependencies": [],
+      "provenance": {
+        "activeSources": [
+          "governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md"
+        ],
+        "historicalSources": [
+          "ForgeOS legacy scaffold registry"
+        ],
+        "classification": "REDESIGN"
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "SCF-MODULE-ESM",
+      "version": "0.1.0-proposal",
+      "title": "ESM Module",
+      "kind": "MODULE",
+      "status": "BLOCKED",
+      "authority": {
+        "gateId": "SG-003",
+        "ratified": false,
+        "constitutionRefs": [
+          "CONSTITUTION_ARTICLE_0"
+        ],
+        "adrRefs": [
+          "ADR-020"
+        ],
+        "ownerStatus": "NOT_APPLICABLE",
+        "snapshotSha256": null
+      },
+      "template": {
+        "path": "templates/scaffolds/module-esm.template.mjs",
+        "sha256": null,
+        "renderer": "FORGE_TEXT_V1"
+      },
+      "inputSchema": {
+        "path": "contracts/scaffolds/module-esm-input.schema.json",
+        "sha256": null
+      },
+      "outputs": [
+        {
+          "id": "MODULE_ENTRYPOINT",
+          "pathPattern": "modules/{{module_slug}}/index.mjs",
+          "mediaType": "text/javascript",
+          "operation": "CREATE_ONLY"
+        }
+      ],
+      "pathPolicy": {
+        "allowSymlinks": false,
+        "allowDelete": false,
+        "allowRename": false,
+        "overwriteDefault": "DENY"
+      },
+      "validations": [
+        "SCV-001",
+        "SCV-002",
+        "SCV-004",
+        "SCV-006",
+        "SCV-007",
+        "SCV-009",
+        "SCV-010",
+        "SCV-011",
+        "SCV-013",
+        "SCV-017",
+        "SCV-018",
+        "SCV-020",
+        "SCV-024"
+      ],
+      "dependencies": [],
+      "provenance": {
+        "activeSources": [
+          "governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md"
+        ],
+        "historicalSources": [
+          "ForgeOS legacy scaffold registry"
+        ],
+        "classification": "REDESIGN"
+      }
+    }
+  ]
+}

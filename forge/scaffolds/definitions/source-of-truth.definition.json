@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "id": "SCF-DOC-SOURCE-OF-TRUTH",
+  "version": "1.0.0",
+  "title": "Canonical Source of Truth",
+  "kind": "DOCUMENTARY",
+  "status": "AUTHORIZED",
+  "authority": {
+    "gateId": "SG-002",
+    "ratified": true,
+    "constitutionRefs": [
+      "CONSTITUTION_ARTICLE_0",
+      "CONSTITUTION_ARTICLE_III"
+    ],
+    "adrRefs": [
+      "ADR-001",
+      "ADR-003",
+      "ADR-020"
+    ],
+    "ownerStatus": "ESTABLISHED",
+    "snapshotSha256": "fafae12e98efa5fd5f15fe2f4337f0dbdc101d2aa4437a0ff3a7a4a791400cfb"
+  },
+  "template": {
+    "path": "forge/scaffolds/templates/source-of-truth.template.md",
+    "sha256": "53c1f0626fb61b31dcc161523a356971f5907bed00cd9cef1db0bb58a71dd86d",
+    "renderer": "FORGE_TEXT_V1"
+  },
+  "inputSchema": {
+    "path": "forge/scaffolds/input-schemas/source-of-truth.schema.json",
+    "sha256": "8ee1882dceaf16debbfe84156f68724c1be94baf741c6a400d21d6576bb960ce"
+  },
+  "outputs": [
+    {
+      "id": "DOCUMENT",
+      "pathPattern": "docs/architecture/scaffolds/instances/source-truth/{{document_id}}.md",
+      "mediaType": "text/markdown",
+      "operation": "CREATE_ONLY"
+    }
+  ],
+  "pathPolicy": {
+    "allowSymlinks": false,
+    "allowDelete": false,
+    "allowRename": false,
+    "overwriteDefault": "DENY"
+  },
+  "validations": [
+    "SCV-001",
+    "SCV-002",
+    "SCV-004",
+    "SCV-006",
+    "SCV-007",
+    "SCV-009",
+    "SCV-010",
+    "SCV-011",
+    "SCV-013",
+    "SCV-017",
+    "SCV-018",
+    "SCV-020",
+    "SCV-024"
+  ],
+  "dependencies": [],
+  "provenance": {
+    "activeSources": [
+      "governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md",
+      "governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md"
+    ],
+    "historicalSources": [
+      "ForgeOS legacy Source of Truth scaffold system"
+    ],
+    "classification": "REDESIGN"
+  }
+}

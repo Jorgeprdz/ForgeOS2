@@ -1,0 +1,17 @@
+{
+  "document_id": "PRODUCT_TO_QUOTE_PREVIEW_RELATIONSHIP",
+  "title": "Product Intelligence to Quote Preview Relationship",
+  "purpose": "Describe a directed dependency without transferring product truth ownership.",
+  "scope": "- Upstream: Product Intelligence.\n- Downstream: Quote Preview.\n- Transfer: verified product read model.",
+  "responsibilities": "- Preserve source authority.\n- Keep the consumer read-only.",
+  "authority": "- Constitution Articles III, V and VII.\n- ADR-005 and ADR-020.",
+  "boundaries": "- No ownership transfer.\n- No consumer recalculation.\n- Fail closed on missing evidence.",
+  "dependencies": "- Product read-model contract.\n- Effective RuleSnapshot when applicable.",
+  "source_of_truth": "- Transferred concept owner: Product Intelligence.\n- Relationship owner: architecture governance.",
+  "related_documents": "- Product Intelligence responsibility.\n- Quote Preview contract.",
+  "related_adrs": "- ADR-001.\n- ADR-003.\n- ADR-005.\n- ADR-020.",
+  "constitutional_references": "- Article 0 / Ley Zero.\n- Articles II–VII.",
+  "status": "`REFERENCE ONLY / NO SG-002 STANDALONE INSTANCE AUTHORITY`",
+  "version": "`1.0.0`",
+  "traceability": "- Template: Canonical Dependency and Relationship Scaffold.\n- SG-002 explicitly blocks standalone instances."
+}

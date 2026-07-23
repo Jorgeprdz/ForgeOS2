@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "FORGE_CANONICAL_DOCUMENTARY_SCAFFOLDS_2_1",
+  "engineVersion": "2.1.0",
+  "authoritySnapshot": {
+    "path": "forge/scaffolds/authority-snapshot.json",
+    "sha256": "fafae12e98efa5fd5f15fe2f4337f0dbdc101d2aa4437a0ff3a7a4a791400cfb"
+  },
+  "entries": [
+    {
+      "ref": "SCF-DOC-ARCHITECTURE-BOUNDARY@1.0.0",
+      "definitionPath": "forge/scaffolds/definitions/architecture-boundary.definition.json",
+      "templatePath": "forge/scaffolds/templates/architecture-boundary.template.md",
+      "inputSchemaPath": "forge/scaffolds/input-schemas/architecture-boundary.schema.json",
+      "exampleInputPath": "forge/scaffolds/examples/architecture-boundary.example.json",
+      "canonicalSourcePath": "docs/architecture/scaffolds/CANONICAL_ARCHITECTURE_BOUNDARY_SCAFFOLD.md",
+      "instantiationStatus": "AUTHORIZED"
+    },
+    {
+      "ref": "SCF-DOC-DEPENDENCY-RELATIONSHIP@1.0.0",
+      "definitionPath": "forge/scaffolds/definitions/dependency-relationship.definition.json",
+      "templatePath": "forge/scaffolds/templates/dependency-relationship.template.md",
+      "inputSchemaPath": "forge/scaffolds/input-schemas/dependency-relationship.schema.json",
+      "exampleInputPath": "forge/scaffolds/examples/dependency-relationship.example.json",
+      "canonicalSourcePath": "docs/architecture/scaffolds/CANONICAL_DEPENDENCY_RELATIONSHIP_SCAFFOLD.md",
+      "instantiationStatus": "REFERENCE_ONLY"
+    },
+    {
+      "ref": "SCF-DOC-DOMAIN-RESPONSIBILITY@1.0.0",
+      "definitionPath": "forge/scaffolds/definitions/domain-responsibility.definition.json",
+      "templatePath": "forge/scaffolds/templates/domain-responsibility.template.md",
+      "inputSchemaPath": "forge/scaffolds/input-schemas/domain-responsibility.schema.json",
+      "exampleInputPath": "forge/scaffolds/examples/domain-responsibility.example.json",
+      "canonicalSourcePath": "docs/architecture/scaffolds/CANONICAL_DOMAIN_RESPONSIBILITY_SCAFFOLD.md",
+      "instantiationStatus": "AUTHORIZED"
+    },
+    {
+      "ref": "SCF-DOC-SOURCE-OF-TRUTH@1.0.0",
+      "definitionPath": "forge/scaffolds/definitions/source-of-truth.definition.json",
+      "templatePath": "forge/scaffolds/templates/source-of-truth.template.md",
+      "inputSchemaPath": "forge/scaffolds/input-schemas/source-of-truth.schema.json",
+      "exampleInputPath": "forge/scaffolds/examples/source-of-truth.example.json",
+      "canonicalSourcePath": "docs/architecture/scaffolds/CANONICAL_SOURCE_OF_TRUTH_SCAFFOLD.md",
+      "instantiationStatus": "AUTHORIZED"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "SCF-MODULE-ESM",
+  "version": "1.0.0",
+  "title": "ESM Module Scaffold",
+  "kind": "MODULE",
+  "status": "AUTHORIZED",
+  "authority": {
+    "gateId": "SG-003",
+    "ratified": true,
+    "constitutionRefs": [
+      "CONSTITUTION_ARTICLE_0",
+      "CONSTITUTION_ARTICLE_V"
+    ],
+    "adrRefs": [
+      "ADR-020"
+    ],
+    "ownerStatus": "NOT_APPLICABLE",
+    "snapshotSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "template": {
+    "path": "templates/scaffolds/module-esm.template.mjs",
+    "sha256": null,
+    "renderer": "FORGE_TEXT_V1"
+  },
+  "inputSchema": {
+    "path": "contracts/scaffolds/module-esm-input.schema.json",
+    "sha256": null
+  },
+  "outputs": [
+    {
+      "id": "MODULE_ENTRYPOINT",
+      "pathPattern": "modules/{{module_slug}}/index.mjs",
+      "mediaType": "text/javascript",
+      "operation": "CREATE_ONLY"
+    }
+  ],
+  "pathPolicy": {
+    "allowSymlinks": false,
+    "allowDelete": false,
+    "allowRename": false,
+    "overwriteDefault": "DENY"
+  },
+  "validations": [
+    "SCV-001",
+    "SCV-002",
+    "SCV-004",
+    "SCV-006",
+    "SCV-007",
+    "SCV-009",
+    "SCV-010",
+    "SCV-011",
+    "SCV-013",
+    "SCV-017",
+    "SCV-018",
+    "SCV-020",
+    "SCV-024"
+  ],
+  "dependencies": [],
+  "provenance": {
+    "activeSources": [
+      "governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md"
+    ],
+    "historicalSources": [
+      "ForgeOS legacy scaffold registry"
+    ],
+    "classification": "REDESIGN"
+  }
+}

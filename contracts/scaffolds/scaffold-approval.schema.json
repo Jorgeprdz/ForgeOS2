@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forge-os.local/contracts/scaffolds/scaffold-approval.schema.json",
+  "title": "Forge OS 2.1 Exact Scaffold Approval",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "approvalId",
+    "decision",
+    "actor",
+    "actorRole",
+    "approvedAt",
+    "expiresAt",
+    "planId",
+    "planSha256",
+    "reportId",
+    "reportSha256",
+    "scaffold",
+    "sourceRef",
+    "repositoryBeforeSha256",
+    "outputs",
+    "statement",
+    "approvalSha256"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "approvalId": {
+      "type": "string",
+      "pattern": "^SAPPR-[A-Z0-9-]+$"
+    },
+    "decision": {
+      "const": "APPROVE_EXACT_PLAN"
+    },
+    "actor": {
+      "type": "string",
+      "minLength": 1
+    },
+    "actorRole": {
+      "const": "PROJECT_OWNER"
+    },
+    "approvedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "planId": {
+      "type": "string",
+      "pattern": "^SPLAN-[A-Z0-9-]+$"
+    },
+    "planSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "reportId": {
+      "type": "string",
+      "pattern": "^SVRPT-[A-Z0-9-]+$"
+    },
+    "reportSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "scaffold": {
+      "type": "string",
+      "pattern": "^SCF-[A-Z0-9-]+@[0-9]+\\.[0-9]+\\.[0-9]+(?:-[A-Za-z0-9.-]+)?$"
+    },
+    "sourceRef": {
+      "type": "string",
+      "minLength": 7
+    },
+    "repositoryBeforeSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "outputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "operation",
+          "sha256",
+          "bytes"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "operation": {
+            "const": "CREATE"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "statement": {
+      "const": "I approve only the exact locked plan, report, repository snapshot, paths, hashes, and bytes recorded in this approval."
+    },
+    "approvalSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

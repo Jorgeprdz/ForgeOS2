@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "SRCPT-ARCH-BOUNDARY-001",
+  "runId": "20260723T220000Z-ARCH-BOUNDARY-001",
+  "planId": "SPLAN-ARCH-BOUNDARY-001",
+  "planSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "scaffold": "SCF-DOC-ARCHITECTURE-BOUNDARY@1.0.0",
+  "status": "PASS",
+  "startedAt": "2026-07-23T22:00:00Z",
+  "finishedAt": "2026-07-23T22:00:05Z",
+  "approval": {
+    "required": true,
+    "present": true,
+    "actor": "PROJECT_OWNER",
+    "approvedAt": "2026-07-23T22:00:01Z",
+    "planSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  },
+  "environment": {
+    "engineVersion": "2.1.0",
+    "nodeVersion": "v26.4.0",
+    "platform": "linux",
+    "sourceRef": "71198a8a0c4cbff51b189f95966d6e97a0b89d3b",
+    "workingTreeCleanBefore": true
+  },
+  "outputs": [
+    {
+      "path": "docs/architecture/scaffolds/instances/boundaries/EXAMPLE_BOUNDARY.md",
+      "operation": "CREATE",
+      "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "bytes": 1024,
+      "applied": true
+    }
+  ],
+  "validations": [
+    {
+      "id": "SCV-001",
+      "status": "PASS",
+      "evidence": [
+        "SCV-001=PASS"
+      ]
+    },
+    {
+      "id": "SCV-002",
+      "status": "PASS",
+      "evidence": [
+        "SCV-002=PASS"
+      ]
+    },
+    {
+      "id": "SCV-004",
+      "status": "PASS",
+      "evidence": [
+        "SCV-004=PASS"
+      ]
+    },
+    {
+      "id": "SCV-006",
+      "status": "PASS",
+      "evidence": [
+        "SCV-006=PASS"
+      ]
+    },
+    {
+      "id": "SCV-007",
+      "status": "PASS",
+      "evidence": [
+        "SCV-007=PASS"
+      ]
+    },
+    {
+      "id": "SCV-009",
+      "status": "PASS",
+      "evidence": [
+        "SCV-009=PASS"
+      ]
+    },
+    {
+      "id": "SCV-010",
+      "status": "PASS",
+      "evidence": [
+        "SCV-010=PASS"
+      ]
+    },
+    {
+      "id": "SCV-011",
+      "status": "PASS",
+      "evidence": [
+        "SCV-011=PASS"
+      ]
+    },
+    {
+      "id": "SCV-013",
+      "status": "PASS",
+      "evidence": [
+        "SCV-013=PASS"
+      ]
+    },
+    {
+      "id": "SCV-017",
+      "status": "PASS",
+      "evidence": [
+        "SCV-017=PASS"
+      ]
+    },
+    {
+      "id": "SCV-018",
+      "status": "PASS",
+      "evidence": [
+        "SCV-018=PASS"
+      ]
+    },
+    {
+      "id": "SCV-020",
+      "status": "PASS",
+      "evidence": [
+        "SCV-020=PASS"
+      ]
+    },
+    {
+      "id": "SCV-024",
+      "status": "PASS",
+      "evidence": [
+        "SCV-024=PASS"
+      ]
+    }
+  ],
+  "errors": [
+    "unexpected"
+  ],
+  "receiptSha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+}

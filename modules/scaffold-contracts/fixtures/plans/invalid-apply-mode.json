@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "planId": "SPLAN-ARCH-BOUNDARY-001",
+  "runId": "20260723T220000Z-ARCH-BOUNDARY-001",
+  "scaffold": "SCF-DOC-ARCHITECTURE-BOUNDARY@1.0.0",
+  "mode": "APPLY",
+  "createdAt": "2026-07-23T22:00:00Z",
+  "sourceRef": "71198a8a0c4cbff51b189f95966d6e97a0b89d3b",
+  "locks": {
+    "authoritySha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "registrySha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "definitionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "templateSha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "inputSchemaSha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+  },
+  "input": {
+    "path": ".forge21/scaffold-inputs/arch-boundary-001.json",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "plannedOutputs": [
+    {
+      "outputId": "BOUNDARY_DOCUMENT",
+      "path": "docs/architecture/scaffolds/instances/boundaries/EXAMPLE_BOUNDARY.md",
+      "operation": "CREATE",
+      "conflictState": "CLEAR_CREATE",
+      "expectedSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    }
+  ],
+  "conflicts": [],
+  "requiredValidations": [
+    "SCV-001",
+    "SCV-002",
+    "SCV-004",
+    "SCV-006",
+    "SCV-007",
+    "SCV-009",
+    "SCV-010",
+    "SCV-011",
+    "SCV-013",
+    "SCV-017",
+    "SCV-018",
+    "SCV-020",
+    "SCV-024"
+  ],
+  "approvalRequired": true,
+  "planSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+}

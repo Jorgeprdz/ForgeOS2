@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "snapshotId": "SCAFFOLD_DOCUMENTARY_AUTHORITY_2026_07_21",
+  "repository": "Jorgeprdz/ForgeOS2",
+  "targetCommit": "71198a8a0c4cbff51b189f95966d6e97a0b89d3b",
+  "sources": [
+    {
+      "gateId": "SG-001",
+      "path": "governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md",
+      "gitBlobSha": "4cf73aebe017eacf180003173a7a4c7b60ab252e",
+      "status": "RATIFIED / APPROVED / ACTIVE FOR SG-001 ONLY",
+      "documentaryImplementationAuthorized": true,
+      "softwareImplementationAuthorized": false
+    },
+    {
+      "gateId": "SG-002",
+      "path": "governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md",
+      "gitBlobSha": "b097b40b09fe18938a27f3c68d0589089c4ec3d0",
+      "status": "RATIFIED / APPROVED / ACTIVE FOR SG-002 ONLY",
+      "documentaryImplementationAuthorized": true,
+      "softwareImplementationAuthorized": false
+    }
+  ],
+  "canonicalFamilies": [
+    "ARCHITECTURE_BOUNDARY",
+    "DEPENDENCY_RELATIONSHIP",
+    "DOMAIN_RESPONSIBILITY",
+    "SOURCE_OF_TRUTH"
+  ],
+  "sg002Instantiation": {
+    "authorizedFamilies": [
+      "ARCHITECTURE_BOUNDARY",
+      "DOMAIN_RESPONSIBILITY",
+      "SOURCE_OF_TRUTH"
+    ],
+    "referenceOnlyFamilies": [
+      "DEPENDENCY_RELATIONSHIP"
+    ],
+    "reason": "SG-002 prohibits standalone Dependency/Relationship instances."
+  },
+  "thirteenSectionOrder": [
+    "Purpose",
+    "Scope",
+    "Responsibilities",
+    "Authority",
+    "Boundaries",
+    "Dependencies",
+    "Source of Truth",
+    "Related Documents",
+    "Related ADRs",
+    "Constitutional References",
+    "Status",
+    "Version",
+    "Traceability"
+  ]
+}
