@@ -1,7 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://forge-os.local/scaffolds/contracts/canonical-build-tree.schema.json",
-  "title": "Forge Canonical Build Tree",
-  "type": "object",
-  "required": ["schema", "tree_id", "source_commit", "root_id", "nodes", "validation"]
-}

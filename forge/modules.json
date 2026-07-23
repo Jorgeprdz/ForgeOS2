@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "2.1.0",
+  "modules": [
+    {
+      "id": "MOD-CARRIER-SCOPE",
+      "title": "Carrier Scope",
+      "description": "Canonical carrier-scope contract and implementation.",
+      "dependencies": [],
+      "governanceInputs": [
+        "docs/architecture/CARRIER_SCOPE_NAMING_CONVENTION.md"
+      ],
+      "entrypoint": "modules/carrier-scope/index.mjs",
+      "tests": [
+        "modules/carrier-scope/index.test.mjs"
+      ],
+      "requiredExports": [
+        "CarrierScopeError",
+        "assertCarrierScope",
+        "createCarrierScope",
+        "isCarrierScope"
+      ]
+    }
+  ]
+}

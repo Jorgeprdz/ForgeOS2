@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "2.1.0",
+  "moduleId": "MOD-CARRIER-SCOPE",
+  "validatedAt": "2026-07-23T19:52:15.328Z",
+  "pass": true,
+  "errors": [],
+  "hashes": {
+    "docs/architecture/CARRIER_SCOPE_NAMING_CONVENTION.md": "34422d8b54c480d6e8434835c5bbc543915624cd540973dcebad828908f2678d",
+    "modules/carrier-scope/index.mjs": "ddf379a507071e010d9af5fe68e18a0494b968f371850a212cc97649270a3f8d",
+    "modules/carrier-scope/index.test.mjs": "5f97ca5b6ad6caf46590351bfd01e63b842557305cbaf1009641f8c848ca2f63"
+  }
+}

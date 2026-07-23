@@ -1,7 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://forge-os.local/scaffolds/contracts/owner-decision-collapse-report.schema.json",
-  "title": "Forge Owner Decision Collapse Report",
-  "type": "object",
-  "required": ["schema", "report_id", "source_commit", "initial_owner_decisions", "automatically_resolved", "merged", "duplicates_removed", "obsolete_removed", "final_decision"]
-}

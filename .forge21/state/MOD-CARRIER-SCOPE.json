@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "2.1.0",
+  "moduleId": "MOD-CARRIER-SCOPE",
+  "state": "validated",
+  "createdAt": "2026-07-23T19:52:15.015Z",
+  "updatedAt": "2026-07-23T19:52:15.328Z",
+  "history": [
+    {
+      "state": "declared",
+      "at": "2026-07-23T19:52:15.015Z",
+      "reason": "module initialized"
+    },
+    {
+      "state": "ready",
+      "at": "2026-07-23T19:52:15.140Z",
+      "reason": "manifest and governance discovered"
+    },
+    {
+      "state": "implementation_started",
+      "at": "2026-07-23T19:52:15.141Z",
+      "reason": "implementation requested"
+    },
+    {
+      "state": "implementation_complete",
+      "at": "2026-07-23T19:52:15.185Z",
+      "reason": "forge advance"
+    },
+    {
+      "state": "tests_pass",
+      "at": "2026-07-23T19:52:15.326Z",
+      "reason": "module tests passed"
+    },
+    {
+      "state": "validated",
+      "at": "2026-07-23T19:52:15.328Z",
+      "reason": "validation receipt passed"
+    }
+  ]
+}

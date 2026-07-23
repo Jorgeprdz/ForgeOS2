@@ -1,5 +1,0 @@
-name: Forge Documentation Compiler
-version: 0.1.0
-template_dir: templates
-rules_dir: rules
-output_dir: output/docs

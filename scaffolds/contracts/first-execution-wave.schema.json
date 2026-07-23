@@ -1,7 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://forge-os.local/scaffolds/contracts/first-execution-wave.schema.json",
-  "title": "Forge First Execution Wave",
-  "type": "object",
-  "required": ["schema", "wave_id", "source_commit", "first_execution_wave_ready", "selected_operation", "failures", "modules"]
-}

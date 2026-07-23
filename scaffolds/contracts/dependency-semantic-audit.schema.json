@@ -1,7 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://forge-os.local/scaffolds/contracts/dependency-semantic-audit.schema.json",
-  "title": "Forge Dependency Semantic Audit",
-  "type": "object",
-  "required": ["schema", "audit_id", "modules_analyzed", "dependencies_discovered", "rejected_in_active_order", "deferred_in_active_order", "blocked_without_conditions", "critical_path_valid", "path_values_in_event_fields", "dynamic_next_selection"]
-}

@@ -1,6 +1,0 @@
-name: AIRecommendation
-purpose: Mostrar recomendaciones de Alfred.
-behavior:
-  - Explica el motivo.
-  - Permite descartar.
-  - Nunca ejecuta automáticamente.

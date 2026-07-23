@@ -1,6 +1,0 @@
-name: Button
-purpose: Ejecutar una acción explícita.
-variants:
-  - Primary
-  - Secondary
-  - Ghost

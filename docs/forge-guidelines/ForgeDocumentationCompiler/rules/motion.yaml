@@ -1,5 +1,0 @@
-title: Motion
-rules:
-  - Duración 120-240 ms.
-  - Toda animación comunica estado.
-  - Respetar Reduce Motion.
