@@ -30,11 +30,28 @@ function isPlainObject(value) {
 }
 
 function requireNonEmptyString(value, code) {
-  if (typeof value !== 'string' || value.trim().length === 0) {
+  if (
+    typeof value !== 'string' ||
+    value.trim().length === 0
+  ) {
     throw new ProductTruthError(code);
   }
 
   return value.trim();
+}
+
+function normalizeOptionalString(
+  value,
+  code,
+  transform = item => item
+) {
+  if (value === undefined || value === null) {
+    return null;
+  }
+
+  return transform(
+    requireNonEmptyString(value, code)
+  );
 }
 
 function normalizeStringArray(value, code) {
@@ -46,11 +63,16 @@ function normalizeStringArray(value, code) {
     requireNonEmptyString(item, `${code}_${index}`)
   );
 
-  return Object.freeze([...new Set(normalized)].sort());
+  return Object.freeze(
+    [...new Set(normalized)].sort()
+  );
 }
 
 function deepFreeze(value) {
-  if (!isPlainObject(value) && !Array.isArray(value)) {
+  if (
+    !isPlainObject(value) &&
+    !Array.isArray(value)
+  ) {
     return value;
   }
 
@@ -61,9 +83,93 @@ function deepFreeze(value) {
   return Object.freeze(value);
 }
 
+function buildProductTruthKey({
+  carrierId,
+  productId,
+  productVersion,
+  effectiveFrom,
+  country,
+  channel
+}) {
+  return [
+    'PTK1',
+    carrierId,
+    productId,
+    productVersion,
+    effectiveFrom,
+    country ?? '*',
+    channel ?? '*'
+  ]
+    .map(segment =>
+      encodeURIComponent(String(segment))
+    )
+    .join(':');
+}
+
+export function createProductTruthKey(input) {
+  if (!isPlainObject(input)) {
+    throw new ProductTruthError(
+      'PRODUCT_TRUTH_KEY_INPUT_REQUIRED'
+    );
+  }
+
+  const carrierId = requireNonEmptyString(
+    input.carrierId,
+    'CARRIER_ID_REQUIRED'
+  );
+
+  const productId = requireNonEmptyString(
+    input.productId,
+    'PRODUCT_ID_REQUIRED'
+  );
+
+  const productVersion = requireNonEmptyString(
+    input.productVersion,
+    'PRODUCT_VERSION_REQUIRED'
+  );
+
+  const effectiveFrom = requireNonEmptyString(
+    input.effectiveFrom ??
+      input.effectivePeriod?.from,
+    'EFFECTIVE_FROM_REQUIRED'
+  );
+
+  if (Number.isNaN(Date.parse(effectiveFrom))) {
+    throw new ProductTruthError(
+      'EFFECTIVE_FROM_INVALID',
+      [effectiveFrom]
+    );
+  }
+
+  const country = normalizeOptionalString(
+    input.country ??
+      input.versionContext?.country,
+    'COUNTRY_INVALID',
+    value => value.toUpperCase()
+  );
+
+  const channel = normalizeOptionalString(
+    input.channel ??
+      input.versionContext?.channel,
+    'CHANNEL_INVALID',
+    value => value.toUpperCase()
+  );
+
+  return buildProductTruthKey({
+    carrierId,
+    productId,
+    productVersion,
+    effectiveFrom,
+    country,
+    channel
+  });
+}
+
 export function createProductTruthEnvelope(input) {
   if (!isPlainObject(input)) {
-    throw new ProductTruthError('PRODUCT_TRUTH_INPUT_REQUIRED');
+    throw new ProductTruthError(
+      'PRODUCT_TRUTH_INPUT_REQUIRED'
+    );
   }
 
   const productId = requireNonEmptyString(
@@ -79,6 +185,16 @@ export function createProductTruthEnvelope(input) {
   const productName = requireNonEmptyString(
     input.productName,
     'PRODUCT_NAME_REQUIRED'
+  );
+
+  const productVersion = requireNonEmptyString(
+    input.productVersion,
+    'PRODUCT_VERSION_REQUIRED'
+  );
+
+  const productFamily = requireNonEmptyString(
+    input.productFamily,
+    'PRODUCT_FAMILY_REQUIRED'
   );
 
   const evidenceState = requireNonEmptyString(
@@ -107,7 +223,10 @@ export function createProductTruthEnvelope(input) {
 
   let effectiveTo = null;
 
-  if (input.effectiveTo !== undefined && input.effectiveTo !== null) {
+  if (
+    input.effectiveTo !== undefined &&
+    input.effectiveTo !== null
+  ) {
     effectiveTo = requireNonEmptyString(
       input.effectiveTo,
       'EFFECTIVE_TO_INVALID'
@@ -120,12 +239,38 @@ export function createProductTruthEnvelope(input) {
       );
     }
 
-    if (Date.parse(effectiveTo) <= Date.parse(effectiveFrom)) {
+    if (
+      Date.parse(effectiveTo) <=
+      Date.parse(effectiveFrom)
+    ) {
       throw new ProductTruthError(
         'EFFECTIVE_PERIOD_INVALID'
       );
     }
   }
+
+  const rulePackId = normalizeOptionalString(
+    input.rulePackId,
+    'RULE_PACK_ID_INVALID'
+  );
+
+  const currency = normalizeOptionalString(
+    input.currency,
+    'CURRENCY_INVALID',
+    value => value.toUpperCase()
+  );
+
+  const country = normalizeOptionalString(
+    input.country,
+    'COUNTRY_INVALID',
+    value => value.toUpperCase()
+  );
+
+  const channel = normalizeOptionalString(
+    input.channel,
+    'CHANNEL_INVALID',
+    value => value.toUpperCase()
+  );
 
   const sourceIds = normalizeStringArray(
     input.sourceIds,
@@ -160,7 +305,10 @@ export function createProductTruthEnvelope(input) {
 
   if (
     evidenceState === 'VERIFIED' &&
-    (unknownFields.length > 0 || conflicts.length > 0)
+    (
+      unknownFields.length > 0 ||
+      conflicts.length > 0
+    )
   ) {
     throw new ProductTruthError(
       'VERIFIED_STATE_HAS_UNRESOLVED_GAPS'
@@ -180,17 +328,35 @@ export function createProductTruthEnvelope(input) {
     !NON_ACTIONABLE_STATES.has(evidenceState) &&
     conflicts.length === 0;
 
+  const truthKey = buildProductTruthKey({
+    carrierId,
+    productId,
+    productVersion,
+    effectiveFrom,
+    country,
+    channel
+  });
+
   return deepFreeze({
-    schemaVersion: 1,
+    schemaVersion: 2,
     kind: 'PRODUCT_TRUTH_ENVELOPE',
+    truthKey,
     productId,
     carrierId,
     productName,
+    productVersion,
+    productFamily,
     evidenceState,
     actionable,
     effectivePeriod: {
       from: effectiveFrom,
       to: effectiveTo
+    },
+    versionContext: {
+      rulePackId,
+      currency,
+      country,
+      channel
     },
     sourceIds,
     facts,
@@ -199,7 +365,9 @@ export function createProductTruthEnvelope(input) {
     boundaries: {
       owner: 'PRODUCT_INTELLIGENCE',
       consumerMayRecalculate: false,
+      consumerMayChangeVersion: false,
       aiMayCreateFacts: false,
+      historicalTruthMayBeRewritten: false,
       humanDecisionRequired: true
     }
   });
@@ -210,9 +378,19 @@ export function assertProductTruthEnvelope(value) {
     productId: value?.productId,
     carrierId: value?.carrierId,
     productName: value?.productName,
+    productVersion: value?.productVersion,
+    productFamily: value?.productFamily,
     evidenceState: value?.evidenceState,
     effectiveFrom: value?.effectivePeriod?.from,
     effectiveTo: value?.effectivePeriod?.to,
+    rulePackId:
+      value?.versionContext?.rulePackId,
+    currency:
+      value?.versionContext?.currency,
+    country:
+      value?.versionContext?.country,
+    channel:
+      value?.versionContext?.channel,
     sourceIds: value?.sourceIds,
     facts: value?.facts,
     unknownFields: value?.unknownFields,
@@ -220,8 +398,10 @@ export function assertProductTruthEnvelope(value) {
   });
 
   if (
-    value?.schemaVersion !== 1 ||
-    value?.kind !== 'PRODUCT_TRUTH_ENVELOPE' ||
+    value?.schemaVersion !== 2 ||
+    value?.kind !==
+      'PRODUCT_TRUTH_ENVELOPE' ||
+    value?.truthKey !== recreated.truthKey ||
     value?.actionable !== recreated.actionable
   ) {
     throw new ProductTruthError(

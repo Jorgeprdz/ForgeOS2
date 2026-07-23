@@ -291,7 +291,7 @@
     {
       "id": "MOD-PRODUCT-INTELLIGENCE",
       "title": "Product Intelligence",
-      "description": "Deterministic Product Truth envelope with evidence, conflict, effective-period and actionability boundaries.",
+      "description": "Version-aware deterministic Product Truth envelope with evidence, conflict, effective-period and actionability boundaries.",
       "dependencies": [],
       "governanceInputs": [
         "governance/constitution/CONSTITUTION_UNIFIED.md",
@@ -309,6 +309,7 @@
         "ProductTruthError",
         "assertProductTruthEnvelope",
         "createProductTruthEnvelope",
+        "createProductTruthKey",
         "isProductTruthActionable"
       ]
     }
