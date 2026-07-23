@@ -174,11 +174,14 @@ run_repairs() {
   repairs="$(job_field "$job" repairs)"
   [[ -n "$repairs" ]] || return 1
   header "SAFE REPAIR $job ATTEMPT $attempt"
-  while IFS= read -r command; do
+  local -a repair_commands=()
+  mapfile -t repair_commands <<< "$repairs"
+
+  for command in "${repair_commands[@]}"; do
     [[ -z "$command" ]] && continue
     printf 'REPAIR_COMMAND=%s\n' "$command"
     bash -lc "$command" </dev/null
-  done <<< "$repairs"
+  done
 }
 
 run_job() {
@@ -201,12 +204,17 @@ run_job() {
     attempt=$((attempt + 1))
     printf 'ATTEMPT=%s\n' "$attempt"
 
+    local -a job_commands=()
+    mapfile -t job_commands < <(job_field "$job" commands)
+
+    status=0
     set +e
-    while IFS= read -r command; do
+    for command in "${job_commands[@]}"; do
       [[ -z "$command" ]] && continue
-      run_shell "JOB COMMAND $job" "$command" || { status=$?; break; }
-      status=0
-    done < <(job_field "$job" commands)
+      run_shell "JOB COMMAND $job" "$command"
+      status=$?
+      [[ "$status" -eq 0 ]] || break
+    done
     set -e
 
     if [[ "${status:-0}" -eq 0 ]]; then
@@ -226,14 +234,17 @@ run_job() {
     }
   done
 
-  while IFS= read -r verify; do
+  local -a job_verifications=()
+  mapfile -t job_verifications < <(job_field "$job" verify)
+
+  for verify in "${job_verifications[@]}"; do
     [[ -z "$verify" ]] && continue
     if ! run_shell "JOB VERIFY $job" "$verify"; then
       rollback_job
       write_state "FAILED" "$job" "VERIFY_FAILED"
       die "JOB_VERIFY_FAILED_$job"
     fi
-  done < <(job_field "$job" verify)
+  done
 
   if [[ -z "$(git status --porcelain --untracked-files=all -- ':!.forge/overnight')" ]]; then
     printf 'JOB_RESULT=PASS_NO_CHANGES\n'
