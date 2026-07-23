@@ -134,7 +134,13 @@ fs.writeFileSync(path.join(tmp, 'state.json'), JSON.stringify({
 function run(command, env = {}) {
   return spawnSync('bash', [rewriteLauncher, ...command], {
     cwd: repoRoot,
-    env: { ...process.env, FORGE_REWRITE_STATE_ROOT: tmp, ...env },
+    env: {
+      ...process.env,
+      FORGE_REWRITE_STATE_ROOT: tmp,
+      FORGE_REWRITE_ENABLE_BRANCH_OVERRIDE_FOR_TESTS: '1',
+      FORGE_REWRITE_TEST_BRANCH_OVERRIDE: 'rewrite/test-fixture',
+      ...env
+    },
     encoding: 'utf8'
   });
 }
