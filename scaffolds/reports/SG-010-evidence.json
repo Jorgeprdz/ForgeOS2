@@ -1,0 +1,20 @@
+{
+  "stage": "SG-010",
+  "generated_at": "2026-07-23T00:07:17.738Z",
+  "operator": "termux",
+  "inputs": [
+    "docs/product/FORGE_PRODUCT_SPEC.md",
+    "scaffolds/manifest/rewrite-stages.json"
+  ],
+  "outputs": [
+    "scaffolds/artifacts/SG-010/eligibility-contract.artifact.json",
+    "scaffolds/reports/SG-010-evidence.json"
+  ],
+  "hashes": {
+    "scaffolds/artifacts/SG-010/eligibility-contract.artifact.json": "a94978a75ae44adc1b0de8f2ef8715a513b712f27a2b22f543900ff27a7c2255"
+  },
+  "validations": [
+    "scaffold:validate"
+  ],
+  "status": "PASS"
+}
