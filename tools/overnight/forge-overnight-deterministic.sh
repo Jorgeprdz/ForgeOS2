@@ -93,7 +93,7 @@ run_shell() {
   CURRENT_STEP="$label"
   header "$label"
   printf 'COMMAND=%s\n' "$command"
-  bash -lc "$command"
+  bash -lc "$command" </dev/null
   printf '%s=PASS\n' "$(printf '%s' "$label" | tr '[:lower:] -' '[:upper:]__')"
 }
 
@@ -177,7 +177,7 @@ run_repairs() {
   while IFS= read -r command; do
     [[ -z "$command" ]] && continue
     printf 'REPAIR_COMMAND=%s\n' "$command"
-    bash -lc "$command"
+    bash -lc "$command" </dev/null
   done <<< "$repairs"
 }
 
