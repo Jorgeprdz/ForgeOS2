@@ -176,10 +176,74 @@ const produces = Array.isArray(stageManifest.produces)
   ? stageManifest.produces
   : [];
 
-if (produces.length !== material.length) {
-  throw new Error(
-    `RECEIPT_MAPPING_MISMATCH stage=${stage} ` +
-    `produces=${produces.length} material=${material.length}`
+const declaredMapping =
+  stageManifest.artifact_materialization &&
+  typeof stageManifest.artifact_materialization === 'object'
+    ? stageManifest.artifact_materialization
+    : null;
+
+const normalize = value =>
+  String(value).replace(/\\/g, '/').replace(/^\.?\//, '');
+
+const resolveMaterialPath = declaredPath => {
+  const expected = normalize(declaredPath);
+  const matches = material.filter(candidate => {
+    const normalizedCandidate = normalize(candidate);
+    return normalizedCandidate === expected ||
+      normalizedCandidate.endsWith(`/${expected}`);
+  });
+
+  if (matches.length !== 1) {
+    throw new Error(
+      `RECEIPT_MATERIAL_PATH_RESOLUTION_ERROR stage=${stage} ` +
+      `declared=${declaredPath} matches=${matches.length}`
+    );
+  }
+
+  return matches[0];
+};
+
+let artifactPaths;
+
+if (declaredMapping) {
+  const missingMappings = produces.filter(
+    artifactId =>
+      typeof declaredMapping[artifactId] !== 'string' ||
+      declaredMapping[artifactId].length === 0
+  );
+
+  const undeclaredArtifacts = Object.keys(declaredMapping).filter(
+    artifactId => !produces.includes(artifactId)
+  );
+
+  if (missingMappings.length || undeclaredArtifacts.length) {
+    throw new Error(
+      `RECEIPT_EXPLICIT_MAPPING_INVALID stage=${stage} ` +
+      `missing=${missingMappings.join(',') || 'none'} ` +
+      `undeclared=${undeclaredArtifacts.join(',') || 'none'}`
+    );
+  }
+
+  artifactPaths = new Map(
+    produces.map(artifactId => [
+      artifactId,
+      resolveMaterialPath(declaredMapping[artifactId])
+    ])
+  );
+} else {
+  if (produces.length !== material.length) {
+    throw new Error(
+      `RECEIPT_MAPPING_MISMATCH stage=${stage} ` +
+      `produces=${produces.length} material=${material.length} ` +
+      `remediation=declare_artifact_materialization`
+    );
+  }
+
+  artifactPaths = new Map(
+    produces.map((artifactId, index) => [
+      artifactId,
+      material[index]
+    ])
   );
 }
 
@@ -188,7 +252,7 @@ fs.mkdirSync(receiptRoot, {recursive: true});
 
 for (let index = 0; index < produces.length; index += 1) {
   const artifactId = produces[index];
-  const materializedPath = material[index];
+  const materializedPath = artifactPaths.get(artifactId);
 
   const receipt = {
     artifact_id: artifactId,

@@ -622,7 +622,12 @@
         "SG-001",
         "SG-002",
         "SG-018"
-      ]
+      ],
+      "artifact_materialization": {
+        "ProductSemanticsDecisionRecord": "scaffolds/manifest/product-semantics-decision-record.json",
+        "DomainAuthorityDecisionRecord": "scaffolds/manifest/product-semantics-decision-record.json",
+        "AdvisorOwnerDecisionSet": "scaffolds/manifest/operational-closure/advisor-owner-decision-set.json"
+      }
     },
     {
       "id": "SG-019",
