@@ -19,6 +19,7 @@ Status: `RATIFIED / ACTIVE`
 | AI interpretation addendum | `governance/validation/FORGE_ROBOCOP_AI_INTERPRETATION_ADDENDUM.md` |
 | Scaffold Generation 001 authorization | `governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md` |
 | Scaffold Instantiation 002 authorization | `governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md` |
+| Scaffold Software 003 authorization | `governance/constitutional/SCAFFOLD_SOFTWARE_GATE_003.md` |
 
 ## Enforcement and review
 
@@ -34,3 +35,4 @@ Only the registered active version is normative. Predecessors remain immutable e
 |---|---|---|
 | `SG-001` | First-generation canonical documentary scaffolds and direct indexes, inventories, references, Build Tree registration and traceability matrices | `APPROVED / ACTIVE FOR SG-001 ONLY` |
 | `SG-002` | Exact-manifest documentary scaffold instantiation for demonstrated domains and existing owners | `APPROVED / READY WITH CONDITIONS / NOT EXECUTED` |
+| `SG-003` | Exact nine-module Forge OS 2.1 scaffold software installation on `feature/scaffold-system-2.1`; runtime remains create-only and performs no Git, network, provider, merge or deployment operations | `APPROVED / READY WITH CONDITIONS / SOFTWARE INSTALLATION ONLY` |
