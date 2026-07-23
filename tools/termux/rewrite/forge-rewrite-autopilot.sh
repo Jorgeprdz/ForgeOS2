@@ -1,196 +1,246 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/usr/bin/env bash
 set -Eeuo pipefail
 
-SCRIPT_DIR="$(
-  CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd
-)"
-ROOT="$(
-  CDPATH= cd -- "$SCRIPT_DIR/../../.." && pwd
-)"
+FORGE_ROOT="${FORGE_ROOT:-/mnt/sdcard/Forge OS v2}"
+EXPORT_ROOT="${EXPORT_ROOT:-/mnt/sdcard/ForgeGemini}"
+SESSION_NAME="${SESSION_NAME:-forge-autopilot}"
 
-cd "$ROOT"
+cd "$FORGE_ROOT"
 
-MAX_STAGES="${FORGE_AUTOPILOT_MAX_STAGES:-100}"
-REMOTE="${FORGE_AUTOPILOT_REMOTE:-origin}"
-PUSH_ENABLED="${FORGE_AUTOPILOT_PUSH:-1}"
-STOP_FILE=".forge/rewrite/AUTOPILOT_STOP"
-RUN_ID="$(date -u +%Y%m%dT%H%M%SZ)"
-LOG_DIR=".forge/rewrite/logs"
-RUN_LOG="$LOG_DIR/autopilot-${RUN_ID}.log"
+mkdir -p "$EXPORT_ROOT"
 
-mkdir -p "$LOG_DIR"
+timestamp="$(date '+%Y%m%d-%H%M%S')"
+log_file="$EXPORT_ROOT/forge-rewrite-autopilot-${timestamp}.log"
+status_file="$EXPORT_ROOT/forge-rewrite-autopilot-status.txt"
+iteration=0
 
-exec > >(tee -a "$RUN_LOG") 2>&1
-
-fail() {
-  printf 'AUTOPILOT_RESULT=FAIL\n'
-  printf 'AUTOPILOT_ERROR=%s\n' "$1"
-  printf 'AUTOPILOT_LOG=%s\n' "$RUN_LOG"
-  exit 1
+log() {
+  printf '%s\n' "$*" | tee -a "$log_file"
 }
 
-stop_cleanly() {
-  printf 'AUTOPILOT_RESULT=STOPPED\n'
-  printf 'AUTOPILOT_REASON=%s\n' "$1"
-  printf 'AUTOPILOT_STAGES_APPLIED=%s\n' "$completed"
-  printf 'AUTOPILOT_LOG=%s\n' "$RUN_LOG"
-  exit 0
+write_status() {
+  {
+    printf 'UPDATED_AT=%s\n' "$(date --iso-8601=seconds)"
+    printf 'STATUS=%s\n' "$1"
+    printf 'BRANCH=%s\n' "$(git branch --show-current)"
+    printf 'HEAD=%s\n' "$(git rev-parse --short HEAD)"
+    printf 'ITERATION=%s\n' "$iteration"
+    printf 'LOG=%s\n' "$log_file"
+    [[ $# -ge 2 ]] && printf 'DETAIL=%s\n' "$2"
+  } > "$status_file"
 }
 
-branch="$(git branch --show-current)"
+stop_with_error() {
+  local reason="$1"
+  local code="${2:-1}"
 
-case "$branch" in
-  rewrite/*|scaffold/constitution-first-termux-rewrite-*)
-    ;;
-  *)
-    fail "INVALID_BRANCH:${branch}"
-    ;;
-esac
+  log ""
+  log "AUTOPILOT_RESULT=STOPPED"
+  log "STOP_REASON=$reason"
+  log "EXIT_CODE=$code"
+  log "SESSION_REMAINS_OPEN=YES"
 
-if [ -n "$(git status --porcelain)" ]; then
-  fail "DIRTY_WORKTREE_BEFORE_START"
+  write_status "STOPPED" "$reason"
+  return "$code"
+}
+
+trap 'rc=$?; log "AUTOPILOT_UNEXPECTED_ERROR code=$rc line=$LINENO"; write_status "CRASHED" "code=$rc line=$LINENO"' ERR
+
+log "=== FORGE REWRITE OVERNIGHT AUTOPILOT ==="
+log "STARTED_AT=$(date --iso-8601=seconds)"
+log "FORGE_ROOT=$FORGE_ROOT"
+log "BRANCH=$(git branch --show-current)"
+log "HEAD=$(git rev-parse --short HEAD)"
+log "LOG=$log_file"
+
+write_status "STARTING" "initial validation"
+
+if [[ -n "$(git status --porcelain)" ]]; then
+  git status --short | tee -a "$log_file"
+  stop_with_error "DIRTY_WORKTREE_BEFORE_START" 10
+  exit $?
 fi
 
-case "$MAX_STAGES" in
-  ''|*[!0-9]*)
-    fail "INVALID_MAX_STAGES:${MAX_STAGES}"
-    ;;
-esac
+log ""
+log "=== INITIAL ORCHESTRATOR VALIDATION ==="
 
-if [ "$MAX_STAGES" -lt 1 ]; then
-  fail "MAX_STAGES_MUST_BE_POSITIVE"
+set +e
+bash tools/termux/rewrite/forge-rewrite-launch.sh validate \
+  2>&1 | tee -a "$log_file"
+validate_rc="${PIPESTATUS[0]}"
+set -e
+
+log "INITIAL_VALIDATE_EXIT_CODE=$validate_rc"
+
+if [[ "$validate_rc" -ne 0 ]]; then
+  stop_with_error "INITIAL_VALIDATION_FAILED" "$validate_rc"
+  exit $?
 fi
 
-printf 'AUTOPILOT_RUN_ID=%s\n' "$RUN_ID"
-printf 'AUTOPILOT_BRANCH=%s\n' "$branch"
-printf 'AUTOPILOT_REMOTE=%s\n' "$REMOTE"
-printf 'AUTOPILOT_PUSH_ENABLED=%s\n' "$PUSH_ENABLED"
-printf 'AUTOPILOT_MAX_STAGES=%s\n' "$MAX_STAGES"
+while true; do
+  iteration=$((iteration + 1))
+  iteration_output="$(mktemp)"
+  branch="$(git branch --show-current)"
 
-bash "$SCRIPT_DIR/forge-rewrite-launch.sh" validate
+  log ""
+  log "=================================================="
+  log "AUTOPILOT_ITERATION=$iteration"
+  log "ITERATION_STARTED_AT=$(date --iso-8601=seconds)"
+  log "BRANCH=$branch"
+  log "HEAD=$(git rev-parse --short HEAD)"
+  log "=================================================="
 
-completed=0
+  write_status "RUNNING" "iteration=$iteration"
 
-while [ "$completed" -lt "$MAX_STAGES" ]; do
-  if [ -f "$STOP_FILE" ]; then
-    stop_cleanly "OWNER_STOP_FILE_PRESENT"
+  if [[ -n "$(git status --porcelain)" ]]; then
+    git status --short | tee -a "$log_file"
+    rm -f "$iteration_output"
+    stop_with_error \
+      "DIRTY_WORKTREE_BEFORE_ITERATION iteration=$iteration" \
+      11
+    exit $?
   fi
 
-  printf '\n=== AUTOPILOT ITERATION %s ===\n' "$((completed + 1))"
+  set +e
+  bash tools/termux/rewrite/forge-rewrite-launch.sh run \
+    2>&1 | tee "$iteration_output" | tee -a "$log_file"
+  run_rc="${PIPESTATUS[0]}"
+  set -e
 
-  next_output="$(
-    bash "$SCRIPT_DIR/forge-rewrite-launch.sh" next 2>&1
-  )" || {
-    printf '%s\n' "$next_output"
-    stop_cleanly "NEXT_STAGE_SELECTION_FAILED"
-  }
+  log ""
+  log "RUN_EXIT_CODE=$run_rc"
 
-  printf '%s\n' "$next_output"
+  if grep -q '^FORGE_REWRITE_RUN=COMPLETE$' "$iteration_output"; then
+    rm -f "$iteration_output"
 
-  stage="$(
-    printf '%s\n' "$next_output" |
-      sed -n 's/^NEXT_STAGE=//p' |
-      tail -n 1
-  )"
+    log ""
+    log "=== FINAL VALIDATION ==="
 
-  if [ -z "$stage" ] || [ "$stage" = "none" ]; then
-    stop_cleanly "NO_NEXT_STAGE"
-  fi
+    set +e
+    bash tools/termux/rewrite/forge-rewrite-launch.sh validate \
+      2>&1 | tee -a "$log_file"
+    final_validate_rc="${PIPESTATUS[0]}"
+    set -e
 
-  case "$stage" in
-    SG-[0-9][0-9][0-9])
-      ;;
-    *)
-      fail "INVALID_NEXT_STAGE:${stage}"
-      ;;
-  esac
+    log "FINAL_VALIDATE_EXIT_CODE=$final_validate_rc"
 
-  printf 'AUTOPILOT_SELECTED_STAGE=%s\n' "$stage"
-
-  explain_output="$(
-    bash "$SCRIPT_DIR/forge-rewrite-launch.sh" explain "$stage" 2>&1
-  )" || {
-    printf '%s\n' "$explain_output"
-    stop_cleanly "EXPLAIN_FAILED:${stage}"
-  }
-
-  printf '%s\n' "$explain_output"
-
-  status="$(
-    printf '%s\n' "$explain_output" |
-      sed -n 's/^STATUS=//p' |
-      tail -n 1
-  )"
-
-  if [ "$status" != "READY" ]; then
-    stop_cleanly "STAGE_NOT_READY:${stage}:${status:-UNKNOWN}"
-  fi
-
-  printf '\n=== PLAN %s ===\n' "$stage"
-  bash "$SCRIPT_DIR/forge-rewrite-stage.sh" \
-    "$stage" \
-    --plan
-
-  printf '\n=== APPLY %s ===\n' "$stage"
-
-  if ! bash "$SCRIPT_DIR/forge-rewrite-stage.sh" \
-    "$stage" \
-    --apply
-  then
-    printf 'AUTOPILOT_STAGE=%s\n' "$stage"
-    stop_cleanly "STAGE_APPLY_FAILED:${stage}"
-  fi
-
-  printf '\n=== VALIDATE %s ===\n' "$stage"
-
-  if ! bash "$SCRIPT_DIR/forge-rewrite-launch.sh" validate; then
-    stop_cleanly "POST_STAGE_VALIDATION_FAILED:${stage}"
-  fi
-
-  if [ -z "$(git status --porcelain)" ]; then
-    stop_cleanly "STAGE_PRODUCED_NO_GIT_CHANGES:${stage}"
-  fi
-
-  printf '\n=== COMMIT %s ===\n' "$stage"
-
-  git add -A
-  git diff --cached --check
-
-  commit_message="feat(rewrite): apply ${stage}"
-
-  if ! git commit -m "$commit_message"; then
-    stop_cleanly "COMMIT_FAILED:${stage}"
-  fi
-
-  commit_sha="$(git rev-parse HEAD)"
-
-  printf 'AUTOPILOT_COMMIT_STAGE=%s\n' "$stage"
-  printf 'AUTOPILOT_COMMIT_SHA=%s\n' "$commit_sha"
-
-  if [ "$PUSH_ENABLED" = "1" ]; then
-    printf '\n=== PUSH %s ===\n' "$stage"
-
-    if ! git push "$REMOTE" "$branch"; then
-      fail "PUSH_FAILED:${stage}:${commit_sha}"
+    if [[ "$final_validate_rc" -ne 0 ]]; then
+      stop_with_error \
+        "FINAL_VALIDATION_FAILED" \
+        "$final_validate_rc"
+      exit $?
     fi
 
-    printf 'AUTOPILOT_PUSH=PASS stage=%s commit=%s\n' \
-      "$stage" \
-      "$commit_sha"
-  else
-    printf 'AUTOPILOT_PUSH=SKIPPED stage=%s\n' "$stage"
+    log ""
+    log "AUTOPILOT_RESULT=COMPLETE"
+    log "COMPLETED_AT=$(date --iso-8601=seconds)"
+    log "ITERATIONS=$iteration"
+    log "FINAL_HEAD=$(git rev-parse --short HEAD)"
+    log "FINAL_BRANCH=$(git branch --show-current)"
+    log "SESSION_REMAINS_OPEN=YES"
+
+    write_status "COMPLETE" "iterations=$iteration"
+    break
   fi
 
-  completed=$((completed + 1))
+  if [[ "$run_rc" -ne 0 ]]; then
+    failure_stage="$(
+      sed -n 's/^RUN_STAGE=//p' "$iteration_output" |
+      tail -n 1
+    )"
 
-  if [ -n "$(git status --porcelain)" ]; then
-    fail "DIRTY_WORKTREE_AFTER_STAGE:${stage}"
+    rm -f "$iteration_output"
+
+    stop_with_error \
+      "STAGE_RUN_FAILED stage=${failure_stage:-unknown}" \
+      "$run_rc"
+    exit $?
   fi
 
-  printf 'AUTOPILOT_STAGE_RESULT=PASS stage=%s\n' "$stage"
+  if ! grep -q \
+    '^FORGE_REWRITE_RUN=STOPPED_AT_COMMIT_BOUNDARY stage=' \
+    "$iteration_output"
+  then
+    rm -f "$iteration_output"
+
+    stop_with_error \
+      "UNKNOWN_RUN_TERMINATION iteration=$iteration" \
+      12
+    exit $?
+  fi
+
+  stage="$(
+    sed -n \
+      's/^FORGE_REWRITE_RUN=STOPPED_AT_COMMIT_BOUNDARY stage=//p' \
+      "$iteration_output" |
+    tail -n 1
+  )"
+
+  rm -f "$iteration_output"
+
+  if [[ -z "$stage" ]]; then
+    stop_with_error "COMMIT_BOUNDARY_WITHOUT_STAGE" 13
+    exit $?
+  fi
+
+  log ""
+  log "=== COMMIT BOUNDARY ==="
+  log "COMPLETED_STAGE=$stage"
+
+  if [[ -z "$(git status --porcelain)" ]]; then
+    stop_with_error \
+      "NO_CHANGES_AT_COMMIT_BOUNDARY stage=$stage" \
+      14
+    exit $?
+  fi
+
+  git status --short | tee -a "$log_file"
+  git diff --stat | tee -a "$log_file"
+
+  git add -A
+
+  set +e
+  git commit -m "feat(rewrite): materialize ${stage}" \
+    2>&1 | tee -a "$log_file"
+  commit_rc="${PIPESTATUS[0]}"
+  set -e
+
+  log "COMMIT_EXIT_CODE=$commit_rc"
+
+  if [[ "$commit_rc" -ne 0 ]]; then
+    stop_with_error \
+      "COMMIT_FAILED stage=$stage" \
+      "$commit_rc"
+    exit $?
+  fi
+
+  set +e
+  git push origin "$branch" \
+    2>&1 | tee -a "$log_file"
+  push_rc="${PIPESTATUS[0]}"
+  set -e
+
+  log "PUSH_EXIT_CODE=$push_rc"
+
+  if [[ "$push_rc" -ne 0 ]]; then
+    stop_with_error \
+      "PUSH_FAILED stage=$stage branch=$branch" \
+      "$push_rc"
+    exit $?
+  fi
+
+  if [[ -n "$(git status --porcelain)" ]]; then
+    git status --short | tee -a "$log_file"
+
+    stop_with_error \
+      "DIRTY_WORKTREE_AFTER_PUSH stage=$stage" \
+      15
+    exit $?
+  fi
+
+  log "STAGE_COMMIT_PUSH=PASS stage=$stage"
+  log "NEW_HEAD=$(git rev-parse --short HEAD)"
+  write_status "STAGE_PUSHED" "stage=$stage"
+
+  sleep 2
 done
-
-printf '\nAUTOPILOT_RESULT=PASS\n'
-printf 'AUTOPILOT_REASON=MAX_STAGES_REACHED\n'
-printf 'AUTOPILOT_STAGES_APPLIED=%s\n' "$completed"
-printf 'AUTOPILOT_LOG=%s\n' "$RUN_LOG"
