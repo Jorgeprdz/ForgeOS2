@@ -8,6 +8,7 @@ const TEST_COMMANDS = [
     .sort()
     .map(file => ['node', [path.join('platform/core/tests', file)]]),
   ['node', ['governance/tests/source-ownership-registry-validation-test.js']],
+  ['node', ['governance/tests/promotion-gate-test.mjs']],
   ['node', [
     '--input-type=module',
     '-e',
