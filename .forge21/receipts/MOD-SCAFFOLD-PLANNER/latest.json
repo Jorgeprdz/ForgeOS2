@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "2.1.0",
+  "moduleId": "MOD-SCAFFOLD-PLANNER",
+  "validatedAt": "2026-07-23T23:30:37.130Z",
+  "pass": true,
+  "errors": [],
+  "hashes": {
+    "governance/constitution/CONSTITUTION_UNIFIED.md": "5ee6adcce425aa41cac0a798d88ba6ecb576180c4e5cb88cf70312ceb992468e",
+    "governance/FORGE_GOVERNANCE_REGISTRY.md": "a7b0ae4d4865b1237d2370029ff384668c15304a897b9b0aff68bb884be53b03",
+    "governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md": "65f456db0690502b1f9463f0ca44e2707338e90bee8875274e19978a7e632042",
+    "governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md": "3922c6c6cca370d70449cc1135aa53540339759cbaabc91072e887158cd7b614",
+    "governance/constitutional/SCAFFOLD_SOFTWARE_GATE_003.md": "880fb95e4812e422e713c319bae8491c2abf3e66cd46d1fe2c82ba050d0eb788",
+    "modules/scaffold-planner/index.mjs": "e68420fb0c54a75de3eeec46cd19bdadfee2a06d22673683d7f2feb1d60ee9a4",
+    "modules/scaffold-planner/index.test.mjs": "89cb48ea4b08ed675b65cc00c8a2bd0da9e0a365074c4ea343c9177782c3753c"
+  }
+}

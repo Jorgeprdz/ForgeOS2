@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "2.1.0",
+  "moduleId": "MOD-SCAFFOLD-RECEIPTS",
+  "state": "validated",
+  "createdAt": "2026-07-23T23:30:42.624Z",
+  "updatedAt": "2026-07-23T23:30:45.228Z",
+  "history": [
+    {
+      "state": "declared",
+      "at": "2026-07-23T23:30:42.624Z",
+      "reason": "module initialized"
+    },
+    {
+      "state": "ready",
+      "at": "2026-07-23T23:30:42.927Z",
+      "reason": "forge advance"
+    },
+    {
+      "state": "implementation_started",
+      "at": "2026-07-23T23:30:43.214Z",
+      "reason": "forge advance"
+    },
+    {
+      "state": "implementation_complete",
+      "at": "2026-07-23T23:30:43.498Z",
+      "reason": "forge advance"
+    },
+    {
+      "state": "tests_pass",
+      "at": "2026-07-23T23:30:45.071Z",
+      "reason": "module tests passed"
+    },
+    {
+      "state": "validated",
+      "at": "2026-07-23T23:30:45.228Z",
+      "reason": "validation receipt passed"
+    }
+  ]
+}

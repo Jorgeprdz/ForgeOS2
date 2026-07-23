@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "2.1.0",
+  "moduleId": "MOD-SCAFFOLD-REGISTRY",
+  "validatedAt": "2026-07-23T23:30:35.170Z",
+  "pass": true,
+  "errors": [],
+  "hashes": {
+    "governance/constitution/CONSTITUTION_UNIFIED.md": "5ee6adcce425aa41cac0a798d88ba6ecb576180c4e5cb88cf70312ceb992468e",
+    "governance/FORGE_GOVERNANCE_REGISTRY.md": "a7b0ae4d4865b1237d2370029ff384668c15304a897b9b0aff68bb884be53b03",
+    "governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md": "65f456db0690502b1f9463f0ca44e2707338e90bee8875274e19978a7e632042",
+    "governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md": "3922c6c6cca370d70449cc1135aa53540339759cbaabc91072e887158cd7b614",
+    "governance/constitutional/SCAFFOLD_SOFTWARE_GATE_003.md": "880fb95e4812e422e713c319bae8491c2abf3e66cd46d1fe2c82ba050d0eb788",
+    "modules/scaffold-registry/index.mjs": "e4c84a2a61878534e9bd7b52fc91433f058320259e8191ee4adff6f6c3e50789",
+    "modules/scaffold-registry/index.test.mjs": "4ff0df1b8608e32925f60c118984425b505ea1c2afea74da888f3904251c0671"
+  }
+}

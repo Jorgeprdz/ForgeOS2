@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "2.1.0",
+  "moduleId": "MOD-SCAFFOLD-CLI",
+  "validatedAt": "2026-07-23T23:30:51.306Z",
+  "pass": true,
+  "errors": [],
+  "hashes": {
+    "governance/constitution/CONSTITUTION_UNIFIED.md": "5ee6adcce425aa41cac0a798d88ba6ecb576180c4e5cb88cf70312ceb992468e",
+    "governance/FORGE_GOVERNANCE_REGISTRY.md": "a7b0ae4d4865b1237d2370029ff384668c15304a897b9b0aff68bb884be53b03",
+    "governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md": "65f456db0690502b1f9463f0ca44e2707338e90bee8875274e19978a7e632042",
+    "governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md": "3922c6c6cca370d70449cc1135aa53540339759cbaabc91072e887158cd7b614",
+    "governance/constitutional/SCAFFOLD_SOFTWARE_GATE_003.md": "880fb95e4812e422e713c319bae8491c2abf3e66cd46d1fe2c82ba050d0eb788",
+    "modules/scaffold-cli/main.mjs": "8508c2f2e98e0282a4e1f1205ac2fbf8a65a1bae31e4536686b76ffc918bed05",
+    "modules/scaffold-cli/index.test.mjs": "2263400f0ed582ba65516c2f83fde9602e17a61d4c0e478776a3fc8540d2d052"
+  }
+}
