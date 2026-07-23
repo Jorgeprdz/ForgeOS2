@@ -1,0 +1,20 @@
+{
+  "stage": "SG-012",
+  "generated_at": "2026-07-23T00:16:10.926Z",
+  "operator": "termux",
+  "inputs": [
+    "docs/product/FORGE_PRODUCT_SPEC.md",
+    "scaffolds/manifest/rewrite-stages.json"
+  ],
+  "outputs": [
+    "scaffolds/artifacts/SG-012/quote-preview-contract.artifact.json",
+    "scaffolds/reports/SG-012-evidence.json"
+  ],
+  "hashes": {
+    "scaffolds/artifacts/SG-012/quote-preview-contract.artifact.json": "9285ec42494431066efa8d0a87b9e7b392a59b73ceb84cae22fd4d25696211c4"
+  },
+  "validations": [
+    "scaffold:validate"
+  ],
+  "status": "PASS"
+}
