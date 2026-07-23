@@ -16,6 +16,7 @@ function run(args, extraEnv = {}) {
     env: {
       ...process.env,
       COLUMNS: '100',
+      FORGE_BUILD_NO_ANSI: '1',
       FORGE_BUILD_STATE_ROOT: tmp,
       FORGE_BUILD_ENABLE_BRANCH_OVERRIDE_FOR_TESTS: '1',
       FORGE_BUILD_TEST_BRANCH_OVERRIDE: 'build/test-fixture',
@@ -35,20 +36,26 @@ try {
 
   const status = run(['status']);
   assert.equal(status.status, 0, status.stderr);
-  assert.match(status.stdout, /PROCESANDO ARTEFACTOS/);
-  assert.match(status.stdout, /scaffolds\/manifest\/build-order\.json/);
+  assert.match(status.stdout, /FORGE BUILD · PROCESANDO ARTEFACTOS/);
+  assert.match(status.stdout, /LIFECYCLE/);
+  assert.match(status.stdout, /MÓDULOS/);
+  assert.match(status.stdout, /TIEMPO/);
+  assert.match(status.stdout, /architecture_ready/);
+  assert.match(status.stdout, /0\/31 completados/);
   assert.match(status.stdout, /FORGE_BUILD_COMMAND=status/);
   assert.match(status.stdout, /FORGE_BUILD_ARTIFACT_PANEL=PASS/);
+  assert.match(status.stdout, /FORGE_BUILD_UI_EXIT_CODE=0/);
   assert.match(status.stdout, /RUN_LOG=/);
   assert.doesNotMatch(status.stdout, /ARCHIVO ACTUAL: .*\.forge\/build\/state\.json/);
-  console.log('PASS artifact activity panel');
+  console.log('PASS live dashboard metadata');
   console.log('PASS state path excluded from artifact activity');
 
   const compact = run(['status'], { COLUMNS: '60' });
   assert.equal(compact.status, 0, compact.stderr);
+  assert.match(compact.stdout, /FORGE \[/);
   assert.match(compact.stdout, /▶ scaffolds\/manifest\/build-order\.json/);
   assert.doesNotMatch(compact.stdout, /▶ .*\.forge\/build\/state\.json/);
-  console.log('PASS compact artifact activity');
+  console.log('PASS compact dashboard');
 
   const unsupported = run(['shell']);
   assert.notEqual(unsupported.status, 0);
