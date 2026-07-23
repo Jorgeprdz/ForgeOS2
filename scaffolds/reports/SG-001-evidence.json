@@ -1,15 +1,22 @@
 {
   "stage": "SG-001",
-  "generated_at": "2026-07-22T17:48:00.655Z",
-  "operator": "termux",
+  "generated_at": "2026-07-23T03:34:38.391Z",
+  "operator": "root",
   "inputs": [
     "docs/product/FORGE_PRODUCT_SPEC.md",
     "scaffolds/manifest/rewrite-stages.json"
   ],
   "outputs": [
+    "scaffolds/artifacts/SG-001/constitutional-runtime-constraints.artifact.json",
+    "scaffolds/artifacts/SG-001/robocop-gate-contract.artifact.json",
+    "scaffolds/artifacts/SG-001/blocked-state-policy.artifact.json",
     "scaffolds/reports/SG-001-evidence.json"
   ],
-  "hashes": {},
+  "hashes": {
+    "scaffolds/artifacts/SG-001/constitutional-runtime-constraints.artifact.json": "9ee086171cac30034f2a48ab83b92a8ba522dfb677e7a802e47bd404e459703c",
+    "scaffolds/artifacts/SG-001/robocop-gate-contract.artifact.json": "2cdea19d13119c48bee37ccb0817fe26185fdc8e4323bb5e296a5de1aebc33a0",
+    "scaffolds/artifacts/SG-001/blocked-state-policy.artifact.json": "329b171d4cf545f204924da9935874851960944033be0e21f443f6dad5b44829"
+  },
   "validations": [
     "scaffold:validate"
   ],
