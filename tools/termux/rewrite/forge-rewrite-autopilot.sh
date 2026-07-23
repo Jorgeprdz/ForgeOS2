@@ -117,17 +117,86 @@ while true; do
       tail -n 1
     )"
 
+    marker="$FORGE_ROOT/.forge/rewrite/current-stage"
+
     log ""
     log "ACTIVE_STAGE_DETECTED=${active_stage:-unknown}"
-    log "AUTOPILOT_ACTION=RESUME"
+    log "AUTOPILOT_ACTION=VERIFY_STALE_MARKER"
+
+    set +e
+    resume_output="$(
+      bash tools/termux/rewrite/forge-rewrite-launch.sh resume 2>&1
+    )"
+    resume_rc=$?
+    set -e
+
+    printf '%s\n' "$resume_output" |
+      tee -a "$iteration_output" |
+      tee -a "$log_file"
+
+    resume_state="$(
+      printf '%s\n' "$resume_output" |
+      sed -n 's/^RESUME_STATE=//p' |
+      tail -n 1
+    )"
+
+    resume_next="$(
+      printf '%s\n' "$resume_output" |
+      sed -n 's/^RESUME_NEXT_STAGE=//p' |
+      tail -n 1
+    )"
+
+    marker_stage=""
+    if [[ -f "$marker" ]]; then
+      marker_stage="$(tr -d '\r\n' < "$marker")"
+    fi
+
+    log "RESUME_EXIT_CODE=$resume_rc"
+    log "RESUME_STATE=${resume_state:-unknown}"
+    log "RESUME_NEXT_STAGE=${resume_next:-unknown}"
+    log "MARKER_STAGE=${marker_stage:-none}"
+
+    if [[ "$resume_rc" -ne 0 ]]; then
+      stop_autopilot \
+        "STALE_MARKER_VERIFICATION_FAILED stage=${active_stage:-unknown}" \
+        21
+    fi
+
+    if [[ "$resume_state" != "SAFE_READ_ONLY" ]]; then
+      stop_autopilot \
+        "STALE_MARKER_STATE_UNSAFE state=${resume_state:-unknown}" \
+        22
+    fi
+
+    if [[ -z "$active_stage" ]] ||
+       [[ "$marker_stage" != "$active_stage" ]] ||
+       [[ "$resume_next" != "$active_stage" ]]
+    then
+      stop_autopilot \
+        "STALE_MARKER_MISMATCH active=${active_stage:-unknown} marker=${marker_stage:-none} next=${resume_next:-unknown}" \
+        23
+    fi
+
+    if [[ -n "$(git status --porcelain --untracked-files=all)" ]]; then
+      stop_autopilot \
+        "STALE_MARKER_RECOVERY_REFUSED_DIRTY_TREE stage=$active_stage" \
+        24
+    fi
+
+    rm -f -- "$marker"
+
+    log "STALE_STAGE_MARKER_REMOVED=$active_stage"
+    log "AUTOPILOT_ACTION=RETRY_RUN"
 
     : > "$iteration_output"
 
-    bash tools/termux/rewrite/forge-rewrite-launch.sh resume \
+    set +e
+    bash tools/termux/rewrite/forge-rewrite-launch.sh run \
       2>&1 | tee "$iteration_output" | tee -a "$log_file"
     run_rc="${PIPESTATUS[0]}"
+    set -e
 
-    log "RESUME_EXIT_CODE=$run_rc"
+    log "RETRY_RUN_EXIT_CODE=$run_rc"
   fi
 
   set -e
