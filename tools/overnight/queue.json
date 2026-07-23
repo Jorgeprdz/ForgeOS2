@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "description": "Forge OS deterministic overnight queue. Replace or append jobs only with commands that are already fully specified and safe.",
+  "jobs": [
+    {
+      "id": "baseline-repository-health",
+      "title": "Confirm repository tests, lint and scaffold integrity",
+      "status": "READY",
+      "depends_on": [],
+      "commands": [
+        "npm test",
+        "npm run lint",
+        "npm run scaffold:validate"
+      ],
+      "verify": [
+        "git diff --check"
+      ],
+      "repairs": [],
+      "retry_limit": 0,
+      "commit_message": "chore(overnight): confirm repository health"
+    }
+  ]
+}
