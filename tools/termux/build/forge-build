@@ -1,0 +1,125 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set -Eeuo pipefail
+
+SCRIPT_DIR="$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+LAUNCHER="$SCRIPT_DIR/forge-build-launch.sh"
+RUNNER="$SCRIPT_DIR/forge-build-run.sh"
+
+fail() { printf 'FORGE_BUILD_SYSTEM_ERROR %s\n' "$*" >&2; exit 1; }
+repo_root() { git rev-parse --show-toplevel 2>/dev/null || fail "NOT_IN_GIT_REPOSITORY"; }
+usage() {
+  cat <<'EOF'
+Usage:
+  bash tools/termux/build/forge-build <command> [argument]
+
+System commands:
+  doctor | dashboard | graph [module] | history [limit] | evidence [module]
+  run [module]
+
+Lifecycle commands:
+  status | next | inspect | resume | validate | test
+  start | advance | complete | restart
+EOF
+}
+
+[ -f "$LAUNCHER" ] || fail "MISSING_LAUNCHER:$LAUNCHER"
+COMMAND="${1:-status}"
+ARGUMENT="${2:-}"
+ROOT="$(repo_root)"
+cd "$ROOT"
+
+STATE_ROOT="${FORGE_BUILD_STATE_ROOT:-.forge/build}"
+[[ "$STATE_ROOT" = /* ]] && RESOLVED_STATE_ROOT="$STATE_ROOT" || RESOLVED_STATE_ROOT="$ROOT/$STATE_ROOT"
+STATE_FILE="$RESOLVED_STATE_ROOT/state.json"
+EVIDENCE_DIR="$RESOLVED_STATE_ROOT/evidence"
+
+case "$COMMAND" in
+  -h|--help|help) usage ;;
+  status|next|inspect|resume|validate|test|start|advance|complete|restart)
+    exec bash "$LAUNCHER" "$COMMAND" "$ARGUMENT"
+    ;;
+  run)
+    [ -f "$RUNNER" ] || fail "MISSING_RUNNER:$RUNNER"
+    exec bash "$RUNNER" "$ARGUMENT"
+    ;;
+  doctor)
+    printf 'FORGE_BUILD_SYSTEM_COMMAND=doctor\n'
+    failures=0
+    for command in git node npm; do
+      if command -v "$command" >/dev/null 2>&1; then
+        printf 'CHECK_%s=PASS\n' "${command^^}"
+      else
+        printf 'CHECK_%s=FAIL\n' "${command^^}"
+        failures=$((failures + 1))
+      fi
+    done
+    for spec in \
+      'BUILD_ORDER:scaffolds/manifest/build-order.json' \
+      'DEPENDENCY_GRAPH:scaffolds/manifest/dependency-graph.json' \
+      'BUILD_ENGINE:tools/termux/build/forge-build-launch.sh' \
+      'BUILD_RUNNER:tools/termux/build/forge-build-run.sh'; do
+      label="${spec%%:*}"; file="${spec#*:}"
+      if [ -f "$file" ]; then printf 'CHECK_%s=PASS\n' "$label"; else printf 'CHECK_%s=FAIL:%s\n' "$label" "$file"; failures=$((failures + 1)); fi
+    done
+    branch="$(git branch --show-current)"
+    printf 'BRANCH=%s\n' "${branch:-detached}"
+    [ -n "$branch" ] && printf 'CHECK_BRANCH=PASS\n' || { printf 'CHECK_BRANCH=FAIL\n'; failures=$((failures + 1)); }
+    [ -z "$(git status --porcelain)" ] && printf 'CHECK_WORKTREE=PASS\n' || printf 'CHECK_WORKTREE=WARN_DIRTY\n'
+    if bash -n "$LAUNCHER" && bash -n "$RUNNER" && bash -n "$0"; then printf 'CHECK_SHELL_SYNTAX=PASS\n'; else printf 'CHECK_SHELL_SYNTAX=FAIL\n'; failures=$((failures + 1)); fi
+    [ "$failures" -eq 0 ] || { printf 'FORGE_BUILD_DOCTOR=FAIL:%s\n' "$failures"; exit 1; }
+    printf 'FORGE_BUILD_DOCTOR=PASS\n'
+    ;;
+  dashboard)
+    printf 'FORGE_BUILD_SYSTEM_COMMAND=dashboard\n'
+    FORGE_BUILD_STATE_FILE="$STATE_FILE" node <<'NODE'
+const fs=require('fs'),path=require('path');
+const order=JSON.parse(fs.readFileSync(path.join(process.cwd(),'scaffolds/manifest/build-order.json'),'utf8')).active_topological_order||[];
+const file=process.env.FORGE_BUILD_STATE_FILE;
+const state=fs.existsSync(file)?JSON.parse(fs.readFileSync(file,'utf8')):{active_module:null,modules:{},history:[]};
+const modules=state.modules||{};
+const complete=order.filter(id=>modules[id]?.completed===true||modules[id]?.status==='merged').length;
+const percent=order.length?Math.floor(complete/order.length*100):0;
+const filled=Math.round(percent/100*24);
+const current=state.active_module||'none';
+console.log(`PROGRESS=${'█'.repeat(filled)}${'░'.repeat(24-filled)}`);
+console.log(`COMPLETED=${complete}/${order.length}`);
+console.log(`PERCENT=${percent}`);
+console.log(`CURRENT_MODULE=${current}`);
+console.log(`CURRENT_STATE=${current==='none'?'none':(modules[current]?.status||'declared')}`);
+console.log(`HISTORY_EVENTS=${Array.isArray(state.history)?state.history.length:0}`);
+NODE
+    ;;
+  graph)
+    printf 'FORGE_BUILD_SYSTEM_COMMAND=graph\n'
+    MODULE="$ARGUMENT" node <<'NODE'
+const fs=require('fs'),path=require('path');
+const order=JSON.parse(fs.readFileSync(path.join(process.cwd(),'scaffolds/manifest/build-order.json'),'utf8'));
+const graph=JSON.parse(fs.readFileSync(path.join(process.cwd(),'scaffolds/manifest/dependency-graph.json'),'utf8'));
+const records=Array.isArray(order.modules)?order.modules:[];
+const id=process.env.MODULE||'';
+const deps=r=>['dependencies','depends_on','hard_dependencies','required_modules'].find(k=>Array.isArray(r?.[k]))?r[['dependencies','depends_on','hard_dependencies','required_modules'].find(k=>Array.isArray(r?.[k]))]:[];
+if(id){const record=records.find(x=>x.module_id===id);if(!record){console.error(`FORGE_BUILD_SYSTEM_ERROR MODULE_NOT_FOUND:${id}`);process.exit(1);}console.log(`MODULE=${id}`);console.log(`DEPENDENCIES=${deps(record).join(',')||'none'}`);console.log(`RECORD=${JSON.stringify(record)}`);}else{console.log(`ACTIVE_MODULES=${(order.active_topological_order||[]).length}`);console.log(`GRAPH_KEYS=${Object.keys(graph).join(',')}`);console.log(`MODULE_RECORDS=${records.length}`);}
+NODE
+    ;;
+  history)
+    LIMIT="${ARGUMENT:-20}"
+    [[ "$LIMIT" =~ ^[0-9]+$ ]] || fail "INVALID_HISTORY_LIMIT:$LIMIT"
+    printf 'FORGE_BUILD_SYSTEM_COMMAND=history\n'
+    FORGE_BUILD_STATE_FILE="$STATE_FILE" LIMIT="$LIMIT" node <<'NODE'
+const fs=require('fs');const file=process.env.FORGE_BUILD_STATE_FILE;const limit=Number(process.env.LIMIT||20);const state=fs.existsSync(file)?JSON.parse(fs.readFileSync(file,'utf8')):{history:[]};const events=Array.isArray(state.history)?state.history.slice(-limit):[];console.log(`EVENT_COUNT=${events.length}`);for(const e of events)console.log(`${e.at||'unknown'} ${e.event||'unknown'} ${e.module_id||'none'} ${e.from||''}${e.to?`->${e.to}`:''}`.trim());
+NODE
+    ;;
+  evidence)
+    mkdir -p "$EVIDENCE_DIR"
+    module="$ARGUMENT"
+    if [ -z "$module" ] && [ -f "$STATE_FILE" ]; then module="$(node -e "const s=require(process.argv[1]);process.stdout.write(s.active_module||'')" "$STATE_FILE")"; fi
+    [ -n "$module" ] || fail "MODULE_REQUIRED"
+    receipt="$EVIDENCE_DIR/${module//\//_}.json"; tmp="$receipt.tmp-$$"
+    MODULE="$module" STATE_FILE="$STATE_FILE" node >"$tmp" <<'NODE'
+const fs=require('fs'),cp=require('child_process');const id=process.env.MODULE,file=process.env.STATE_FILE;const state=fs.existsSync(file)?JSON.parse(fs.readFileSync(file,'utf8')):{modules:{}};const item=state.modules?.[id]||{status:'declared',completed:false};const git=a=>cp.execFileSync('git',a,{encoding:'utf8'}).trim();process.stdout.write(JSON.stringify({schema_version:1,module_id:id,lifecycle_status:item.status||'declared',completed:item.completed===true,branch:git(['branch','--show-current']),head:git(['rev-parse','HEAD']),worktree_clean:git(['status','--porcelain'])==='',generated_at:new Date().toISOString()},null,2)+'\n');
+NODE
+    mv "$tmp" "$receipt"; chmod 600 "$receipt"
+    printf 'FORGE_BUILD_SYSTEM_COMMAND=evidence\nMODULE=%s\nEVIDENCE_FILE=%s\nFORGE_BUILD_EVIDENCE=PASS\n' "$module" "$receipt"
+    ;;
+  *) fail "UNSUPPORTED_COMMAND:$COMMAND" ;;
+esac
