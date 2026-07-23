@@ -329,6 +329,16 @@ function prerequisiteIsResolved(prerequisite) {
   const referencedStages = prerequisite.match(/SG-\d{3}/g) || [];
   if (referencedStages.length > 0) return referencedStages.every(stageIsResolved);
   const normalized = prerequisite.trim().toLowerCase();
+
+  const ratifiedDecisionMatches = rewriteStages.some(stage =>
+    (stage.owner_decisions || []).some(decision =>
+      String(decision.status || '').toUpperCase() === 'RATIFIED'
+      && String(decision.unlock_criteria || '').trim().toLowerCase() === normalized
+    )
+  );
+
+  if (ratifiedDecisionMatches) return true;
+
   if (normalized === 'clean working tree') {
     return process.env.FORGE_BUILD_ALLOW_DIRTY_FOR_TESTS === '1'
       || require('child_process').spawnSync('git', ['status', '--porcelain'], { cwd: root, encoding: 'utf8' }).stdout.trim() === '';

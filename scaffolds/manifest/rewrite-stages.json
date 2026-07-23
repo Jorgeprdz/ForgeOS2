@@ -1498,7 +1498,8 @@
         "plan",
         "record blocked evidence",
         "dry-run",
-        "validate"
+        "validate",
+        "materialize contract"
       ],
       "prohibited_operations": [
         "apply product code",
@@ -1529,7 +1530,41 @@
         "SourceOfTruthRegistry",
         "DomainEventTaxonomy"
       ],
-      "owner_decisions": [],
+      "owner_decisions": [
+        {
+          "id": "SG008-ADR-001",
+          "status": "RATIFIED",
+          "scope": [
+            "carrier_scope_naming_convention",
+            "carrier_scope_identity",
+            "carrier_scope_fail_closed_boundary"
+          ],
+          "affected_artifacts": [
+            "CarrierScopeContract"
+          ],
+          "blocked_consumers": [],
+          "source": [
+            "docs/architecture/CARRIER_SCOPE_NAMING_CONVENTION.md",
+            "adr/ADR-005 — Product Truth Boundary.txt",
+            "adr/ADR-008 — Economic Evidence Boundary.txt",
+            "docs/product/FORGE_PRODUCT_SPEC.md",
+            "scaffolds/manifest/product-semantics-decision-record.json"
+          ],
+          "default_if_allowed": null,
+          "unlock_criteria": "carrier scope naming convention ratified",
+          "reversible": true,
+          "contract_affected": "carrier_scope_contract",
+          "stages_blocked": [],
+          "ratified_definitions": {
+            "carrier": "Evidenced carrier or institutional product owner.",
+            "channel": "Evidenced distribution or commercial channel.",
+            "effective_period": "Bounded period during which applicability is valid.",
+            "source_snapshot": "Traceable product or rule source snapshot.",
+            "canonical_identity": "carrier + channel + effective_period + source_snapshot",
+            "unknown_behavior": "Missing, stale, conflicting or unsupported dimensions block strong applicability claims."
+          }
+        }
+      ],
       "artifact_wave": 8,
       "derived_depends_on_stages": [
         "SG-023",

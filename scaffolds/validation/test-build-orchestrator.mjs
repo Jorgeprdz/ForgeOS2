@@ -51,10 +51,10 @@ try {
   assert.equal(carrier.status, 0, carrier.stderr);
   assert.match(carrier.stdout, /IMPLEMENT_ELIGIBLE=NO/);
   assert.match(carrier.stdout, /DEPENDENCIES=SG-023,SG-026/);
-  assert.match(carrier.stdout, /UNRESOLVED_PREREQUISITES=carrier scope naming convention ratified \| SG-023 completed or ratified \| SG-026 completed or ratified/);
-  assert.match(carrier.stdout, /ALLOWED_OPERATIONS=plan,record blocked evidence,dry-run,validate/);
+  assert.match(carrier.stdout, /UNRESOLVED_PREREQUISITES=SG-023 completed or ratified \\| SG-026 completed or ratified/);
+  assert.match(carrier.stdout, /ALLOWED_OPERATIONS=plan,record blocked evidence,dry-run,validate,materialize contract/);
   assert.match(carrier.stdout, /PROHIBITED_OPERATIONS=apply product code,copy legacy runtime,write production data,external side effects/);
-  assert.match(carrier.stdout, /BLOCKERS=.*IMPLEMENT_OPERATION_NOT_ALLOWED/);
+  assert.doesNotMatch(carrier.stdout, /IMPLEMENT_OPERATION_NOT_ALLOWED/);
   assert.match(carrier.stdout, /BLOCKERS=.*STAGE_DEPENDENCY_PENDING:SG-023/);
   assert.match(carrier.stdout, /BLOCKERS=.*STAGE_DEPENDENCY_PENDING:SG-026/);
   pass('carrier scope semantic blockers from canonical stage manifest');
@@ -69,7 +69,7 @@ try {
   assert.equal(carrierStatus.status, 0, carrierStatus.stderr);
   assert.match(carrierStatus.stdout, /IMPLEMENT_ELIGIBLE=NO/);
   assert.match(carrierStatus.stdout, /DEPENDENCIES=SG-023,SG-026/);
-  assert.match(carrierStatus.stdout, /BLOCKERS=.*PREREQUISITE_UNRESOLVED:carrier scope naming convention ratified/);
+  assert.doesNotMatch(carrierStatus.stdout, /PREREQUISITE_UNRESOLVED:carrier scope naming convention ratified/);
   pass('status exposes active carrier semantic blockers');
 
   fs.writeFileSync(path.join(tmp, 'state.json'), JSON.stringify({
