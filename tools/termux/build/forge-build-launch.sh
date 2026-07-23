@@ -139,6 +139,9 @@ const root = process.cwd();
 const stateFile = process.env.FORGE_BUILD_STATE_FILE;
 const buildOrderPath = path.join(root, 'scaffolds/manifest/build-order.json');
 const dependencyGraphPath = path.join(root, 'scaffolds/manifest/dependency-graph.json');
+const rewriteStagesPath = path.join(root, 'scaffolds/manifest/rewrite-stages.json');
+const rewriteStateRoot = process.env.FORGE_REWRITE_STATE_ROOT || path.join(root, '.forge/rewrite');
+const rewriteStateFile = path.join(rewriteStateRoot, 'state.json');
 
 function die(message, code = 1) {
   console.error(`FORGE_BUILD_ERROR ${message}`);
@@ -193,6 +196,10 @@ const lifecycle = [
 
 const buildOrder = readJson(buildOrderPath);
 const dependencyGraph = fs.existsSync(dependencyGraphPath) ? readJson(dependencyGraphPath) : {};
+const rewriteStages = fs.existsSync(rewriteStagesPath) ? readJson(rewriteStagesPath).stages || [] : [];
+const rewriteStageById = new Map(rewriteStages.map(item => [item.id, item]));
+const rewriteState = fs.existsSync(rewriteStateFile) ? readJson(rewriteStateFile) : {};
+const completedStages = new Set(Array.isArray(rewriteState.completed_stages) ? rewriteState.completed_stages : []);
 const activeOrder = Array.isArray(buildOrder.active_topological_order)
   ? buildOrder.active_topological_order
   : [];
@@ -231,6 +238,71 @@ function dependenciesOf(id) {
     .filter(Boolean);
 }
 
+function stageForModule(id) {
+  const stageId = moduleById.get(id)?.stage_id;
+  return stageId ? rewriteStageById.get(stageId) || null : null;
+}
+
+function stageIsResolved(stageId) {
+  if (completedStages.has(stageId) && rewriteState.validation_status === 'PASS') return true;
+  const status = String(rewriteStageById.get(stageId)?.status || '').toUpperCase();
+  return status === 'COMPLETED' || status === 'RATIFIED';
+}
+
+function stageDependenciesOf(id) {
+  const stage = stageForModule(id);
+  return Array.isArray(stage?.derived_depends_on_stages) ? stage.derived_depends_on_stages : [];
+}
+
+function allDependenciesOf(id) {
+  return [...new Set([...dependenciesOf(id), ...stageDependenciesOf(id)])];
+}
+
+function stageAllowsImplementation(id) {
+  const stage = stageForModule(id);
+  if (!stage) return true;
+  return (stage.allowed_operations || []).some(operation => /\b(?:apply|implement|materialize)\b/i.test(operation));
+}
+
+function prerequisiteIsResolved(prerequisite) {
+  const referencedStages = prerequisite.match(/SG-\d{3}/g) || [];
+  if (referencedStages.length > 0) return referencedStages.every(stageIsResolved);
+  const normalized = prerequisite.trim().toLowerCase();
+  if (normalized === 'clean working tree') {
+    return process.env.FORGE_BUILD_ALLOW_DIRTY_FOR_TESTS === '1'
+      || require('child_process').spawnSync('git', ['status', '--porcelain'], { cwd: root, encoding: 'utf8' }).stdout.trim() === '';
+  }
+  if (normalized === 'product spec exists') {
+    return fs.existsSync(path.join(root, 'docs/product/FORGE_PRODUCT_SPEC.md'));
+  }
+  return false;
+}
+
+function unresolvedPrerequisitesOf(id) {
+  const stage = stageForModule(id);
+  if (!stage) return [];
+  return (stage.prerequisites || []).filter(prerequisite => !prerequisiteIsResolved(prerequisite));
+}
+
+function semanticBlockers(id) {
+  const stage = stageForModule(id);
+  if (!stage || isComplete(id)) return [];
+  const result = [];
+  if (!stageAllowsImplementation(id)) result.push('IMPLEMENT_OPERATION_NOT_ALLOWED');
+  for (const dependency of stageDependenciesOf(id)) {
+    if (!stageIsResolved(dependency)) result.push(`STAGE_DEPENDENCY_PENDING:${dependency}`);
+  }
+  for (const prerequisite of unresolvedPrerequisitesOf(id)) {
+    result.push(`PREREQUISITE_UNRESOLVED:${prerequisite}`);
+  }
+  return result;
+}
+
+function implementationEligible(id) {
+  if (isComplete(id)) return implementable.has(id);
+  return implementable.has(id) && stageAllowsImplementation(id) && semanticBlockers(id).length === 0;
+}
+
 function blockers(id) {
   const result = [];
   if (rejected.has(id)) result.push('REJECTED');
@@ -239,7 +311,19 @@ function blockers(id) {
   for (const dependency of dependenciesOf(id)) {
     if (activeSet.has(dependency) && !isComplete(dependency)) result.push(`DEPENDENCY_PENDING:${dependency}`);
   }
+  result.push(...semanticBlockers(id));
   return [...new Set(result)];
+}
+
+function printSemanticStatus(id) {
+  const stage = stageForModule(id);
+  console.log(`IMPLEMENT_ELIGIBLE=${implementationEligible(id) ? 'YES' : 'NO'}`);
+  console.log(`DEPENDENCIES=${allDependenciesOf(id).join(',') || 'none'}`);
+  console.log(`PREREQUISITES=${stage?.prerequisites?.join(' | ') || 'none'}`);
+  console.log(`UNRESOLVED_PREREQUISITES=${unresolvedPrerequisitesOf(id).join(' | ') || 'none'}`);
+  console.log(`ALLOWED_OPERATIONS=${stage?.allowed_operations?.join(',') || 'none'}`);
+  console.log(`PROHIBITED_OPERATIONS=${stage?.prohibited_operations?.join(',') || 'none'}`);
+  console.log(`BLOCKERS=${blockers(id).join(',') || 'none'}`);
 }
 
 function nextModule() {
@@ -267,6 +351,7 @@ printBase();
 
 if (command === 'status') {
   console.log(`NEXT_MODULE=${nextModule() || 'none'}`);
+  if (state.active_module) printSemanticStatus(state.active_module);
   for (const id of activeOrder) {
     const item = moduleState(id);
     if (item.status !== 'declared' || item.completed) {
@@ -283,15 +368,12 @@ if (command === 'status') {
 } else if (command === 'inspect') {
   const id = requireKnownModule(argument);
   const item = moduleState(id);
-  const pending = blockers(id);
   console.log(`MODULE=${id}`);
   console.log(`STATUS=${item.status}`);
   console.log(`COMPLETED=${item.completed ? 'YES' : 'NO'}`);
   console.log(`ACTIVE=${activeSet.has(id) ? 'YES' : 'NO'}`);
-  console.log(`IMPLEMENT_ELIGIBLE=${implementable.has(id) ? 'YES' : 'NO'}`);
   console.log(`TOPOLOGICAL_INDEX=${activeOrder.indexOf(id)}`);
-  console.log(`DEPENDENCIES=${dependenciesOf(id).join(',') || 'none'}`);
-  console.log(`BLOCKERS=${pending.join(',') || 'none'}`);
+  printSemanticStatus(id);
 } else if (command === 'resume') {
   const active = state.active_module;
   console.log(`RESUME_MODULE=${active || nextModule() || 'none'}`);
