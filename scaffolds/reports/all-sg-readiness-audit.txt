@@ -2,11 +2,11 @@ FORGE ALL SG READINESS AUDIT
 STAGES=29
 ISSUES=0
 WARNINGS=0
-NOTES=25
+NOTES=24
 RUNNER_POLICY=Termux/Android shared storage may not preserve executable bits. Runners are valid when regular, readable and bash -n passes; runtime invokes bash <runner>.
 
 SG-001 order=1 wave=1 status=READY produces=3 material=3 evidence=YES runner=YES bash_runnable=YES executable_bit_required=NO
-SG-002 order=2 wave=2 status=READY produces=7 material=3 evidence=YES runner=YES bash_runnable=YES executable_bit_required=NO
+SG-002 order=2 wave=2 status=READY produces=7 material=7 evidence=YES runner=YES bash_runnable=YES executable_bit_required=NO
 SG-024 order=3 wave=3 status=READY produces=4 material=4 evidence=YES runner=YES bash_runnable=YES executable_bit_required=NO
 SG-018 order=4 wave=3 status=READY produces=2 material=2 evidence=YES runner=YES bash_runnable=YES executable_bit_required=NO
 SG-021 order=5 wave=4 status=READY produces=3 material=4 evidence=YES runner=YES bash_runnable=YES executable_bit_required=NO
@@ -38,7 +38,6 @@ SG-028 order=29 wave=12 status=READY produces=1 material=1 evidence=YES runner=Y
 NOTES
 NOTE stage=SG-001 code=SELF_PREVIOUS_STAGE_METADATA_ONLY detail=ignored for runtime; artifact DAG derives order from produces/consumes
 NOTE stage=SG-002 code=SELF_PREVIOUS_STAGE_METADATA_ONLY detail=ignored for runtime; artifact DAG derives order from produces/consumes
-NOTE stage=SG-002 code=PRODUCES_FILE_COUNT_NOT_ONE_TO_ONE detail=produces=7 material_files=3
 NOTE stage=SG-021 code=PRODUCES_FILE_COUNT_NOT_ONE_TO_ONE detail=produces=3 material_files=4
 NOTE stage=SG-019 code=SELF_PREVIOUS_STAGE_METADATA_ONLY detail=ignored for runtime; artifact DAG derives order from produces/consumes
 NOTE stage=SG-019 code=PRODUCES_FILE_COUNT_NOT_ONE_TO_ONE detail=produces=1 material_files=0

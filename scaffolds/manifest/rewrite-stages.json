@@ -150,7 +150,8 @@
       "allowed_paths": [
         "platform/",
         "shared/",
-        "scaffolds/reports/"
+        "scaffolds/reports/",
+        "scaffolds/artifacts/SG-002/"
       ],
       "prohibited_paths": [
         "supabase/migrations/",

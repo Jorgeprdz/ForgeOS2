@@ -5,7 +5,7 @@
   "stage_count": 29,
   "issue_count": 0,
   "warning_count": 0,
-  "note_count": 25,
+  "note_count": 24,
   "stages": [
     {
       "stage_id": "SG-001",
@@ -33,7 +33,7 @@
       "status": "READY",
       "produces_count": 7,
       "consumes_count": 3,
-      "material_file_count": 3,
+      "material_file_count": 7,
       "evidence_declared": true,
       "runner_required": true,
       "runner_path": "tools/termux/rewrite/generators/SG-002.sh",
@@ -571,11 +571,6 @@
       "stage_id": "SG-002",
       "code": "SELF_PREVIOUS_STAGE_METADATA_ONLY",
       "detail": "ignored for runtime; artifact DAG derives order from produces/consumes"
-    },
-    {
-      "stage_id": "SG-002",
-      "code": "PRODUCES_FILE_COUNT_NOT_ONE_TO_ONE",
-      "detail": "produces=7 material_files=3"
     },
     {
       "stage_id": "SG-021",
