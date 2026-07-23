@@ -105,6 +105,31 @@ while true; do
   bash tools/termux/rewrite/forge-rewrite-launch.sh run \
     2>&1 | tee "$iteration_output" | tee -a "$log_file"
   run_rc="${PIPESTATUS[0]}"
+
+  if [[ "$run_rc" -ne 0 ]] && \
+     grep -q 'another stage appears active: .*; use resume or rollback' \
+       "$iteration_output"
+  then
+    active_stage="$(
+      sed -n \
+        's/.*another stage appears active: \([^;]*\); use resume or rollback.*/\1/p' \
+        "$iteration_output" |
+      tail -n 1
+    )"
+
+    log ""
+    log "ACTIVE_STAGE_DETECTED=${active_stage:-unknown}"
+    log "AUTOPILOT_ACTION=RESUME"
+
+    : > "$iteration_output"
+
+    bash tools/termux/rewrite/forge-rewrite-launch.sh resume \
+      2>&1 | tee "$iteration_output" | tee -a "$log_file"
+    run_rc="${PIPESTATUS[0]}"
+
+    log "RESUME_EXIT_CODE=$run_rc"
+  fi
+
   set -e
 
   log ""
