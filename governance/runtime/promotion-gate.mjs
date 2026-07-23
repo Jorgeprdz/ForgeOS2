@@ -1,62 +1,124 @@
 import fs from 'node:fs';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 export const PROMOTION_GATE_ID = 'MOD-GOVERNANCE-GATE-PROMOTION-GATE';
 export const ROBOCOP_LOCK_ID = 'ROBOCOP_LOCK_001';
 
-const REQUIRED_FIELDS = [
-  'stage',
-  'branch',
-  'main_allowed',
-  'validations_passed',
-  'evidence_present',
-  'authorized_paths_only'
-];
+export const PROMOTION_GATE_SCHEMA_URL = new URL(
+  '../../scaffolds/contracts/promotion-gate.schema.json',
+  import.meta.url
+);
 
-function isBoolean(value) {
-  return typeof value === 'boolean';
+export const PROMOTION_GATE_SCHEMA_PATH = fileURLToPath(
+  PROMOTION_GATE_SCHEMA_URL
+);
+
+const PROMOTION_GATE_SCHEMA = Object.freeze(
+  JSON.parse(fs.readFileSync(PROMOTION_GATE_SCHEMA_URL, 'utf8'))
+);
+
+function blocked(input, violations) {
+  return {
+    gate_id: PROMOTION_GATE_ID,
+    stage:
+      input &&
+      typeof input === 'object' &&
+      !Array.isArray(input) &&
+      typeof input.stage === 'string'
+        ? input.stage
+        : null,
+    branch:
+      input &&
+      typeof input === 'object' &&
+      !Array.isArray(input) &&
+      typeof input.branch === 'string'
+        ? input.branch
+        : null,
+    decision: 'BLOCKED',
+    reason: ROBOCOP_LOCK_ID,
+    violations
+  };
 }
 
-export function evaluatePromotionGate(input) {
+function validateSchemaValue(field, value, definition) {
   const violations = [];
 
-  if (!input || typeof input !== 'object' || Array.isArray(input)) {
-    return {
-      gate_id: PROMOTION_GATE_ID,
-      decision: 'BLOCKED',
-      reason: ROBOCOP_LOCK_ID,
-      violations: ['INVALID_GATE_PAYLOAD']
-    };
+  if (definition.type === 'string') {
+    if (typeof value !== 'string') {
+      violations.push(`INVALID_TYPE:${field}:string`);
+      return violations;
+    }
+
+    if (
+      Number.isInteger(definition.minLength) &&
+      value.length < definition.minLength
+    ) {
+      violations.push(`STRING_TOO_SHORT:${field}`);
+    }
+
+    if (
+      typeof definition.pattern === 'string' &&
+      !new RegExp(definition.pattern).test(value)
+    ) {
+      violations.push(`PATTERN_MISMATCH:${field}`);
+    }
   }
 
-  for (const field of REQUIRED_FIELDS) {
-    if (!(field in input)) {
+  if (definition.type === 'boolean' && typeof value !== 'boolean') {
+    violations.push(`INVALID_TYPE:${field}:boolean`);
+  }
+
+  return violations;
+}
+
+export function validatePromotionGateContract(input) {
+  if (!input || typeof input !== 'object' || Array.isArray(input)) {
+    return ['INVALID_GATE_PAYLOAD'];
+  }
+
+  const violations = [];
+  const properties = PROMOTION_GATE_SCHEMA.properties ?? {};
+  const required = PROMOTION_GATE_SCHEMA.required ?? [];
+
+  for (const field of required) {
+    if (!Object.hasOwn(input, field)) {
       violations.push(`MISSING_FIELD:${field}`);
     }
   }
 
-  if (
-    'stage' in input &&
-    (typeof input.stage !== 'string' || !/^SG-[0-9]{3}$/.test(input.stage))
-  ) {
-    violations.push('INVALID_STAGE');
+  if (PROMOTION_GATE_SCHEMA.additionalProperties === false) {
+    for (const field of Object.keys(input).sort()) {
+      if (!Object.hasOwn(properties, field)) {
+        violations.push(`UNKNOWN_FIELD:${field}`);
+      }
+    }
+  }
+
+  for (const [field, definition] of Object.entries(properties)) {
+    if (!Object.hasOwn(input, field)) {
+      continue;
+    }
+
+    violations.push(
+      ...validateSchemaValue(field, input[field], definition)
+    );
+  }
+
+  return violations;
+}
+
+export function evaluatePromotionGate(input) {
+  const violations = validatePromotionGateContract(input);
+
+  if (!input || typeof input !== 'object' || Array.isArray(input)) {
+    return blocked(input, violations);
   }
 
   if (
-    'branch' in input &&
-    (typeof input.branch !== 'string' || input.branch.trim() === '')
+    typeof input.branch === 'string' &&
+    input.branch.trim().length === 0
   ) {
     violations.push('INVALID_BRANCH');
-  }
-
-  for (const field of [
-    'main_allowed',
-    'validations_passed',
-    'evidence_present',
-    'authorized_paths_only'
-  ]) {
-    if (field in input && !isBoolean(input[field])) {
-      violations.push(`INVALID_BOOLEAN:${field}`);
-    }
   }
 
   if (input.branch === 'main' && input.main_allowed !== true) {
@@ -76,14 +138,7 @@ export function evaluatePromotionGate(input) {
   }
 
   if (violations.length > 0) {
-    return {
-      gate_id: PROMOTION_GATE_ID,
-      stage: input.stage ?? null,
-      branch: input.branch ?? null,
-      decision: 'BLOCKED',
-      reason: ROBOCOP_LOCK_ID,
-      violations
-    };
+    return blocked(input, violations);
   }
 
   return {
@@ -96,46 +151,49 @@ export function evaluatePromotionGate(input) {
   };
 }
 
+function fileViolation(error) {
+  if (error?.code === 'ENOENT') {
+    return 'GATE_FILE_NOT_FOUND';
+  }
+
+  if (error instanceof SyntaxError) {
+    return 'INVALID_GATE_JSON';
+  }
+
+  return `RUNTIME_ERROR:${error?.message ?? 'UNKNOWN_ERROR'}`;
+}
+
 export function evaluatePromotionGateFile(filePath) {
-  const payload = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  return evaluatePromotionGate(payload);
+  try {
+    const payload = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    return evaluatePromotionGate(payload);
+  } catch (error) {
+    return blocked(null, [fileViolation(error)]);
+  }
 }
 
 function runCli() {
   const filePath = process.argv[2];
 
   if (!filePath) {
-    console.error('Usage: node governance/runtime/promotion-gate.mjs <gate.json>');
-    process.exit(64);
+    console.error(
+      'Usage: node governance/runtime/promotion-gate.mjs <gate.json>'
+    );
+    process.exitCode = 64;
+    return;
   }
 
-  try {
-    const result = evaluatePromotionGateFile(filePath);
-    console.log(JSON.stringify(result, null, 2));
+  const result = evaluatePromotionGateFile(filePath);
+  console.log(JSON.stringify(result, null, 2));
 
-    if (result.decision !== 'PASS') {
-      process.exit(2);
-    }
-  } catch (error) {
-    console.error(
-      JSON.stringify(
-        {
-          gate_id: PROMOTION_GATE_ID,
-          decision: 'BLOCKED',
-          reason: ROBOCOP_LOCK_ID,
-          violations: [`RUNTIME_ERROR:${error.message}`]
-        },
-        null,
-        2
-      )
-    );
-    process.exit(1);
+  if (result.decision !== 'PASS') {
+    process.exitCode = 2;
   }
 }
 
 if (
   process.argv[1] &&
-  import.meta.url === new URL(`file://${process.argv[1]}`).href
+  import.meta.url === pathToFileURL(process.argv[1]).href
 ) {
   runCli();
 }
