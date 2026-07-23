@@ -603,7 +603,7 @@
       ],
       "blocking_conditions": [],
       "promotion_gate_id": "MOD-GOVERNANCE-GATE-PROMOTION-GATE",
-      "promotion_gate_state": "PASS",
+      "promotion_gate_state": "PASSED",
       "promotion_requirements": [
         "contracts_valid",
         "evidence_present",

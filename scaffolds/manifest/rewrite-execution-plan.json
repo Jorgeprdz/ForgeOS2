@@ -335,7 +335,7 @@
         "resume_point": "MOD-GOVERNANCE-GATE",
         "rollback_point": "MOD-GOVERNANCE-GATE-pre-apply",
         "promotion_gate_id": "MOD-GOVERNANCE-GATE-PROMOTION-GATE",
-        "promotion_gate_state": "PASS",
+        "promotion_gate_state": "PASSED",
         "readiness": {
           "definition": "DEFINED",
           "scaffold": "READY",
