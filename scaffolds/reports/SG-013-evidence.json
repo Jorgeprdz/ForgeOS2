@@ -1,0 +1,20 @@
+{
+  "stage": "SG-013",
+  "generated_at": "2026-07-23T00:11:35.450Z",
+  "operator": "termux",
+  "inputs": [
+    "docs/product/FORGE_PRODUCT_SPEC.md",
+    "scaffolds/manifest/rewrite-stages.json"
+  ],
+  "outputs": [
+    "scaffolds/artifacts/SG-013/manager-coaching-contract.artifact.json",
+    "scaffolds/reports/SG-013-evidence.json"
+  ],
+  "hashes": {
+    "scaffolds/artifacts/SG-013/manager-coaching-contract.artifact.json": "17833d1ed0ac191f4a4c792475a2f9db32d2852c6df92fdf45530dc3e8901e4a"
+  },
+  "validations": [
+    "scaffold:validate"
+  ],
+  "status": "PASS"
+}
