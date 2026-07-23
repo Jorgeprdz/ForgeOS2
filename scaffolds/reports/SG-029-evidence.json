@@ -1,0 +1,20 @@
+{
+  "stage": "SG-029",
+  "generated_at": "2026-07-23T00:16:57.379Z",
+  "operator": "termux",
+  "inputs": [
+    "docs/product/FORGE_PRODUCT_SPEC.md",
+    "scaffolds/manifest/rewrite-stages.json"
+  ],
+  "outputs": [
+    "scaffolds/artifacts/SG-029/manager-workspace-surface-contract.artifact.json",
+    "scaffolds/reports/SG-029-evidence.json"
+  ],
+  "hashes": {
+    "scaffolds/artifacts/SG-029/manager-workspace-surface-contract.artifact.json": "2e554af6b5f3e7b785ef20f4ca60219e9eccdb90f71b518c6b7dc6baa5b9e94b"
+  },
+  "validations": [
+    "scaffold:validate"
+  ],
+  "status": "PASS"
+}
