@@ -287,6 +287,30 @@
         "governance/constitutional/SCAFFOLD_SOFTWARE_GATE_003.md"
       ],
       "installationGate": "SG-003_REQUIRED"
+    },
+    {
+      "id": "MOD-PRODUCT-INTELLIGENCE",
+      "title": "Product Intelligence",
+      "description": "Deterministic Product Truth envelope with evidence, conflict, effective-period and actionability boundaries.",
+      "dependencies": [],
+      "governanceInputs": [
+        "governance/constitution/CONSTITUTION_UNIFIED.md",
+        "adr/ADR-005 — Product Truth Boundary.txt",
+        "docs/architecture/scaffolds/instances/domains/PRODUCT_INTELLIGENCE_DOMAIN_RESPONSIBILITY.md",
+        "docs/architecture/scaffolds/instances/boundaries/PRODUCT_TRUTH_BOUNDARY.md",
+        "docs/architecture/scaffolds/instances/source-truth/PRODUCT_TRUTH_OWNERSHIP.md"
+      ],
+      "entrypoint": "modules/product-intelligence/index.mjs",
+      "tests": [
+        "modules/product-intelligence/index.test.mjs"
+      ],
+      "requiredExports": [
+        "EVIDENCE_STATES",
+        "ProductTruthError",
+        "assertProductTruthEnvelope",
+        "createProductTruthEnvelope",
+        "isProductTruthActionable"
+      ]
     }
   ]
 }
