@@ -12,7 +12,7 @@ Processable source: `scaffolds/manifest/forge-product-surfaces.json`.
 |---|---|---|---|---|
 | Advisor Workspace | WORKSPACE | Advisor | `MOD-ADVISOR-WORKSPACE` | NOT_IMPLEMENTED |
 | Manager Workspace | WORKSPACE | Manager | `MOD-MANAGER-WORKSPACE` | NOT_IMPLEMENTED |
-| Governance System | SYSTEM | Governance | `MOD-GOVERNANCE-GATE` | PARTIALLY_IMPLEMENTED |
+| Governance System | SYSTEM | Governance | `MOD-GOVERNANCE-GATE` | IMPLEMENTED |
 | Termux Rewrite System | SYSTEM | System | `MOD-TERMUX-REWRITE-TOOLS` | IMPLEMENTED |
 | Relationship Intelligence | DOMAIN | Relationships | `MOD-RELATIONSHIP-INTELLIGENCE` | NOT_IMPLEMENTED |
 | Conversation Intelligence | DOMAIN | Conversations | `MOD-CONVERSATION-INTELLIGENCE` | PARTIALLY_IMPLEMENTED |

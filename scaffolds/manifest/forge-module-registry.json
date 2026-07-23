@@ -144,7 +144,7 @@
         "tools/termux/rewrite/"
       ],
       "definition_status": "CANONICALLY_DEFINED",
-      "implementation_status": "PARTIALLY_IMPLEMENTED",
+      "implementation_status": "IMPLEMENTED",
       "disposition": "EXISTS_PRESERVE",
       "acceptance_criteria": [
         "Missing gate fields block protected work."

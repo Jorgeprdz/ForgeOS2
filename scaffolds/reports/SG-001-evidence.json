@@ -1,6 +1,6 @@
 {
   "stage": "SG-001",
-  "generated_at": "2026-07-23T03:34:38.391Z",
+  "generated_at": "2026-07-23T16:28:22.575Z",
   "operator": "root",
   "inputs": [
     "docs/product/FORGE_PRODUCT_SPEC.md",
@@ -10,15 +10,51 @@
     "scaffolds/artifacts/SG-001/constitutional-runtime-constraints.artifact.json",
     "scaffolds/artifacts/SG-001/robocop-gate-contract.artifact.json",
     "scaffolds/artifacts/SG-001/blocked-state-policy.artifact.json",
-    "scaffolds/reports/SG-001-evidence.json"
+    "scaffolds/reports/SG-001-evidence.json",
+    "governance/runtime/promotion-gate.mjs",
+    "governance/tests/promotion-gate-test.mjs",
+    "tools/termux/build/forge-build-gate.mjs",
+    "tools/termux/build/forge-build-stage-colors.mjs",
+    "tools/termux/build/forge-build-launch.sh",
+    "tools/termux/build/forge-build-run.sh",
+    "tools/termux/build/forge-build-ui.mjs",
+    "scaffolds/validation/test-build-stage-colors.mjs",
+    "scaffolds/validation/test-build-runner.mjs"
   ],
   "hashes": {
     "scaffolds/artifacts/SG-001/constitutional-runtime-constraints.artifact.json": "9ee086171cac30034f2a48ab83b92a8ba522dfb677e7a802e47bd404e459703c",
     "scaffolds/artifacts/SG-001/robocop-gate-contract.artifact.json": "2cdea19d13119c48bee37ccb0817fe26185fdc8e4323bb5e296a5de1aebc33a0",
-    "scaffolds/artifacts/SG-001/blocked-state-policy.artifact.json": "329b171d4cf545f204924da9935874851960944033be0e21f443f6dad5b44829"
+    "scaffolds/artifacts/SG-001/blocked-state-policy.artifact.json": "329b171d4cf545f204924da9935874851960944033be0e21f443f6dad5b44829",
+    "governance/runtime/promotion-gate.mjs": "ac5d85f3d4746d9c9334d96a857a7ed03da591a7c7d0b8511b136bef876152b1",
+    "governance/tests/promotion-gate-test.mjs": "7bebf57f1649e0f00016176d6269a327c48330b66be0aa29f79f106f4960b3c3",
+    "tools/termux/build/forge-build-gate.mjs": "43ef89cc3e3712159c7cb86b6744bae109df31197e31df26ca8b2b812a5bbcbc",
+    "tools/termux/build/forge-build-stage-colors.mjs": "1155646ab05ec8b9786d08a8d826b62518d8c353fc80a9093993bf52aabeba4e",
+    "tools/termux/build/forge-build-launch.sh": "81bcd659f4b099382c3ab075b25748234ece3c526aef3fbde53d7cd1ba906874",
+    "tools/termux/build/forge-build-run.sh": "e885d19c321046781781eb24ff403a36608d3e264c95ac3c4e17833ce9939399",
+    "tools/termux/build/forge-build-ui.mjs": "204db4df945ec6fb24c7e5c676a2f59ad7a09f9d2f30faf6c5f0540489d493cd",
+    "scaffolds/validation/test-build-stage-colors.mjs": "7be9e4f1087166f285d954a1d9c79d81e2e633dc1ce098e431bee64b80e7a0ad",
+    "scaffolds/validation/test-build-runner.mjs": "9f1068940762d272155182f44e617f439af5c99591fdc260b17e141d63b4f471"
   },
   "validations": [
-    "scaffold:validate"
+    "scaffold:validate",
+    "promotion-gate-test",
+    "test-build-stage-colors",
+    "test-build-runner",
+    "test-build-orchestrator",
+    "repository:test",
+    "lint"
   ],
-  "status": "PASS"
+  "status": "PASS",
+  "implementation_status": "IMPLEMENTED",
+  "promotion_gate_state": "PASS",
+  "promotion_gate_id": "MOD-GOVERNANCE-GATE-PROMOTION-GATE",
+  "runtime_enforcement": {
+    "protected_transitions": [
+      "contracts_ready->implementation_started",
+      "tests_pass->integration_pass"
+    ],
+    "blocked_transition_mutates_state": false,
+    "stage_colors_centralized": true,
+    "no_color_supported": true
+  }
 }
