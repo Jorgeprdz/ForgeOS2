@@ -315,11 +315,28 @@ if (command === 'validate') {
   console.log(`DRY_RUN_OUTPUTS=${next?.produces.join(',') || 'none'}`);
   console.log('DRY_RUN_MUTATION=NO');
 } else if (command === 'run') {
-  const next = selectableStages()[0];
+  const ready = selectableStages();
+  const next = ready[0];
+
   if (!next) {
-    console.error('FORGE_REWRITE_LAUNCH_REFUSED GRAPH_ERROR:no_dependency_eligible_ready_stage');
+    const pendingReadyStages = sequence.filter(
+      stage => stage.status === 'READY' && !stageCompleted(stage.stage_id)
+    );
+
+    if (pendingReadyStages.length === 0) {
+      console.log('REWRITE_EXECUTABLE_SCOPE=COMPLETE');
+      console.log('READY_PENDING=0');
+      console.log('RUN_STAGE=none');
+      console.log('LAUNCH_RESULT=NO_READY_STAGES_REMAINING');
+      process.exit(0);
+    }
+
+    console.error(
+      `FORGE_REWRITE_LAUNCH_REFUSED GRAPH_ERROR:no_dependency_eligible_ready_stage:pending_ready=${pendingReadyStages.map(stage => stage.stage_id).join(',')}`
+    );
     process.exit(2);
   }
+
   console.log(`RUN_STAGE=${next.stage_id}`);
 }
 NODE
@@ -328,10 +345,19 @@ NODE
 printf '%s\n' "$report"
 
 if [ "$command_name" = "run" ]; then
+  launch_result="$(printf '%s\n' "$report" | sed -n 's/^LAUNCH_RESULT=//p' | sed -n '1p')"
+
+  if [ "$launch_result" = "NO_READY_STAGES_REMAINING" ]; then
+    printf 'FORGE_REWRITE_RUN=COMPLETE\n'
+    exit 0
+  fi
+
   execute_stage="$(printf '%s\n' "$report" | sed -n 's/^RUN_STAGE=//p' | sed -n '1p')"
   [ -n "$execute_stage" ] || forge_die "GRAPH_ERROR:no executable stage selected"
+
   runner="$FORGE_ROOT/tools/termux/rewrite/forge-rewrite-stage.sh"
   forge_validate_bash_runner "$runner"
   bash "$runner" "$execute_stage" --apply
+
   printf 'FORGE_REWRITE_RUN=STOPPED_AT_COMMIT_BOUNDARY stage=%s\n' "$execute_stage"
 fi
