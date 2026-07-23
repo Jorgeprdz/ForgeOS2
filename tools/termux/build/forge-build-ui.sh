@@ -83,15 +83,6 @@ print_panel() {
   printf '└─────────────────────────────────────────────────────────────────────┘\n\n'
 }
 
-extract_artifact() {
-  local line="$1"
-  local match
-  match="$(printf '%s\n' "$line" | grep -Eo '([[:alnum:]_.@+-]+/)+[[:alnum:]_.@+ -]+\.(json|mjs|js|sh|md|txt|sql|ts|tsx|jsx|yaml|yml)' | head -1 || true)"
-  if [ -n "$match" ] && [ -e "$match" ]; then
-    printf '%s\n' "$match"
-  fi
-}
-
 initial_artifact="${artifact_candidates[0]}"
 print_panel "$initial_artifact"
 
@@ -107,7 +98,7 @@ bash "$LAUNCHER" "$command_name" "$argument" 2>&1 | awk -v compact="$compact" '
   {
     print
     line = $0
-    if (match(line, /([[:alnum:]_.@+-]+\/)+[[:alnum:]_.@+ -]+\.(json|mjs|js|sh|md|txt|sql|ts|tsx|jsx|yaml|yml)/)) {
+    if (match(line, /(scaffolds|tools|docs|governance|adr|platform)\/([[:alnum:]_.@+ -]+\/)*[[:alnum:]_.@+ -]+\.(json|mjs|js|sh|md|txt|sql|ts|tsx|jsx|yaml|yml)/)) {
       path = substr(line, RSTART, RLENGTH)
       if (path != last) {
         if (compact == 1) {
