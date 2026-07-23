@@ -133,9 +133,11 @@ mkdir -p "$run_log_dir"
 run_log="$run_log_dir/run.log"
 : > "$run_log"
 
-fifo="$run_log_dir/.ui-output-$$.fifo"
+tmp_root="${TMPDIR:-${PREFIX:-/data/data/com.termux/files/usr}/tmp}"
+mkdir -p "$tmp_root" || { fail "TMPDIR_UNAVAILABLE:$tmp_root"; exit 1; }
+fifo="$tmp_root/forge-build-ui-$$.fifo"
 rm -f "$fifo"
-mkfifo "$fifo"
+mkfifo "$fifo" || { fail "FIFO_CREATE_FAILED:$fifo"; exit 1; }
 cleanup() { rm -f "$fifo"; }
 trap cleanup EXIT INT TERM
 
