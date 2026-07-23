@@ -1,0 +1,47 @@
+name: Forge 2.1 Remote Bootstrap
+
+on:
+  issues:
+    types:
+      - opened
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: forge-2.1-remote-bootstrap
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    if: >-
+      github.event.issue.title == 'FORGE_2_1_BOOTSTRAP' &&
+      github.event.issue.user.login == 'Jorgeprdz'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: rewrite/forge-2.1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run clean Forge OS 2.1 rebuild
+        env:
+          FORGE_SOURCE_REF: origin/main
+        run: |
+          cp tools/bootstrap-forge-2.1.sh /tmp/bootstrap-forge-2.1.sh
+          bash /tmp/bootstrap-forge-2.1.sh
+
+      - name: Close trigger issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          gh issue close "$ISSUE_NUMBER" \
+            --comment "Forge OS 2.1 was rebuilt and pushed to rewrite/forge-2.1."
