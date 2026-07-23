@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "artifact_id": "ObservableBehaviorSignalContract",
+  "artifact_slug": "observable-behavior-signal-contract",
+  "stage_id": "SG-014",
+  "stage_name": "Mick Observable Behavior Contract",
+  "dependency_layer": "INTELLIGENCE_BOUNDARY",
+  "artifact_wave": 9,
+  "version": "1.0.0",
+  "status": "ACTIVE",
+  "generated_by": "forge-rewrite-materializer",
+  "generated_at": "2026-07-23T00:03:41.847152+00:00",
+  "constitutional_authority": [
+    "CONSTITUTION_ARTICLE_VI"
+  ],
+  "capabilities": [
+    "CAP-MICK-BEHAVIOR"
+  ],
+  "functional_requirements": [
+    "REQ-MICK-OBSERVABLE-BEHAVIOR"
+  ],
+  "boundaries": [
+    "BOUND-MICK-OBSERVABLE-BEHAVIOR",
+    "BOUND-NO-HUMAN-WORTH"
+  ],
+  "adr": [
+    "ADR-013",
+    "ADR-014"
+  ],
+  "contracts": [
+    "scaffolds/contracts/stage-contract.schema.json"
+  ],
+  "consumes": [
+    "MetricOwnershipRegistry",
+    "ProductivityMetricContract",
+    "SourceOfTruthRegistry",
+    "ContextEnvelope",
+    "EventReceiptContract"
+  ],
+  "acceptance_criteria": [
+    "Mick Observable Behavior Contract has explicit upstream dependencies, outputs, acceptance criteria and no consumer depends on a future stage."
+  ],
+  "allowed_operations": [
+    "plan",
+    "record blocked evidence",
+    "dry-run",
+    "validate"
+  ],
+  "prohibited_operations": [
+    "apply product code",
+    "copy legacy runtime",
+    "write production data",
+    "external side effects"
+  ],
+  "fail_closed": true,
+  "materialization": {
+    "path": "scaffolds/artifacts/SG-014/observable-behavior-signal-contract.artifact.json",
+    "source_manifest": "scaffolds/manifest/rewrite-stages.json",
+    "semantic_authority": "stage manifest",
+    "manual_execution_authority": false
+  }
+}
