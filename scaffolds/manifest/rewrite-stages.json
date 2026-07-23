@@ -167,6 +167,10 @@
         "platform/core/generated/decision-contract.mjs",
         "platform/actions/generated/action-contract.mjs",
         "platform/read-models/generated/read-only-adapter-contract.mjs",
+        "scaffolds/artifacts/SG-002/evidence-envelope.artifact.json",
+        "scaffolds/artifacts/SG-002/claim-contract.artifact.json",
+        "scaffolds/artifacts/SG-002/provenance-model.artifact.json",
+        "scaffolds/artifacts/SG-002/unknown-state-policy.artifact.json",
         "scaffolds/reports/SG-002-evidence.json"
       ],
       "allowed_operations": [
@@ -220,7 +224,8 @@
       "artifact_wave": 2,
       "derived_depends_on_stages": [
         "SG-001"
-      ]
+      ],
+      "allow_existing_outputs": true
     },
     {
       "id": "SG-024",
