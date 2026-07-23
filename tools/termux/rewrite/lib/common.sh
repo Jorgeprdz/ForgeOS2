@@ -49,7 +49,12 @@ forge_now() {
 }
 
 forge_ensure_state_dirs() {
-  mkdir -p "$FORGE_ROOT/.forge/rewrite/logs" "$FORGE_ROOT/.forge/rewrite/locks" "$FORGE_ROOT/.forge/rewrite/evidence" "$FORGE_ROOT/scaffolds/reports"
+  mkdir -p \
+    "$FORGE_ROOT/.forge/rewrite/logs" \
+    "$FORGE_ROOT/.forge/rewrite/locks" \
+    "$FORGE_ROOT/.forge/rewrite/evidence" \
+    "$FORGE_ROOT/.forge/rewrite/artifact-receipts" \
+    "$FORGE_ROOT/scaffolds/reports"
 }
 
 forge_log() {

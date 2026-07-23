@@ -157,6 +157,60 @@ evidence.outputs = outputs;
 evidence.hashes = Object.fromEntries(material.map(p => [p, sha256(p)]));
 evidence.status = 'PASS';
 fs.writeFileSync(evidencePath, JSON.stringify(evidence, null, 2) + '\n');
+
+const manifest = JSON.parse(
+  fs.readFileSync('scaffolds/manifest/rewrite-stages.json', 'utf8')
+);
+const stages = Array.isArray(manifest) ? manifest : manifest.stages;
+const stageManifest = stages.find(item =>
+  item.id === stage ||
+  item.stage_id === stage ||
+  item.stage === stage
+);
+
+if (!stageManifest) {
+  throw new Error(`RECEIPT_STAGE_NOT_FOUND stage=${stage}`);
+}
+
+const produces = Array.isArray(stageManifest.produces)
+  ? stageManifest.produces
+  : [];
+
+if (produces.length !== material.length) {
+  throw new Error(
+    `RECEIPT_MAPPING_MISMATCH stage=${stage} ` +
+    `produces=${produces.length} material=${material.length}`
+  );
+}
+
+const receiptRoot = '.forge/rewrite/artifact-receipts';
+fs.mkdirSync(receiptRoot, {recursive: true});
+
+for (let index = 0; index < produces.length; index += 1) {
+  const artifactId = produces[index];
+  const materializedPath = material[index];
+
+  const receipt = {
+    artifact_id: artifactId,
+    producer_stage: stage,
+    materialized_path: materializedPath,
+    sha256: sha256(materializedPath),
+    evidence_path: evidencePath,
+    validation_status: 'PASS',
+    validated_at: evidence.generated_at
+  };
+
+  const receiptPath = `${receiptRoot}/${artifactId}.json`;
+  const temporaryPath =
+    `${receiptPath}.tmp-${process.pid}-${index}`;
+
+  fs.writeFileSync(
+    temporaryPath,
+    JSON.stringify(receipt, null, 2) + '\n'
+  );
+  fs.renameSync(temporaryPath, receiptPath);
+}
+
 const statePath = '.forge/rewrite/state.json';
 const state = fs.existsSync(statePath) ? JSON.parse(fs.readFileSync(statePath, 'utf8')) : {completed_stages: [], applied_files: [], validation_status: 'NONE'};
 state.current_stage = stage;
