@@ -2,16 +2,52 @@
 set -Eeuo pipefail
 umask 077
 
+SOURCE="${BASH_SOURCE[0]}"
+
+while [ -L "$SOURCE" ]; do
+  SOURCE_DIR="$(
+    CDPATH= cd -- "$(dirname -- "$SOURCE")" &&
+    pwd -P
+  )"
+
+  LINK_TARGET="$(readlink "$SOURCE")"
+
+  case "$LINK_TARGET" in
+    /*)
+      SOURCE="$LINK_TARGET"
+      ;;
+    *)
+      SOURCE="$SOURCE_DIR/$LINK_TARGET"
+      ;;
+  esac
+done
+
 ROOT="$(
-  CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." \
-    && pwd -P
+  CDPATH= cd -- "$(dirname -- "$SOURCE")/.." &&
+  pwd -P
 )"
 
 LEGACY_ROOT="${FORGE_LEGACY_REPO:-$HOME/.cache/forge-legacy-source/ForgeOS}"
 CATALOG="$ROOT/forge/compatibility/legacy-compatibility-catalog-reviewed.json"
+ENGINE="$ROOT/forge/compatibility/legacy-resurrection-reviewed.mjs"
+
+test -f "$ENGINE" || {
+  printf 'FORGE_ORIGINAL_REVIEWED_ERROR=ENGINE_NOT_FOUND:%s\n' "$ENGINE" >&2
+  exit 1
+}
+
+test -f "$CATALOG" || {
+  printf 'FORGE_ORIGINAL_REVIEWED_ERROR=CATALOG_NOT_FOUND:%s\n' "$CATALOG" >&2
+  exit 1
+}
+
+test -d "$LEGACY_ROOT/.git" || {
+  printf 'FORGE_ORIGINAL_REVIEWED_ERROR=LEGACY_REPO_NOT_FOUND:%s\n' "$LEGACY_ROOT" >&2
+  exit 1
+}
 
 exec node \
-  "$ROOT/forge/compatibility/legacy-resurrection-reviewed.mjs" \
+  "$ENGINE" \
   --catalog "$CATALOG" \
   --legacy-root "$LEGACY_ROOT" \
   "$@"
