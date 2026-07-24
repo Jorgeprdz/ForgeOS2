@@ -1,0 +1,347 @@
+{
+  "schemaVersion": 1,
+  "kind": "FORGE_CAPABILITY_IDENTITY_REVIEW_WAVE",
+  "waveId": "WAVE-009",
+  "generatedAt": "2026-07-24T06:04:25.882Z",
+  "source": {
+    "legacyHead": "e4441e794abaaf983472591e7c80ae545b0b3f67",
+    "groupingReportHash": "47019e7100208db576f47f1d026235516dac59837c131d2f193268cb575c0bc0"
+  },
+  "safety": {
+    "identityLockIsNotParity": true,
+    "highRiskAutoLock": false,
+    "businessAutoLock": false,
+    "incompleteTestAutoLock": false,
+    "rewritesRules": false,
+    "retiresLegacy": false
+  },
+  "counts": {
+    "reviewedGroups": 5,
+    "lockedIdentities": 0,
+    "humanReviewRequired": 5,
+    "splitRequired": 0,
+    "mergeRejected": 0
+  },
+  "reviews": [
+    {
+      "groupId": "CAP2-MANAGER_TEAM-COACHING",
+      "proposedName": "coaching",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": -24,
+      "memberCount": 6,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-DNA_COACHING",
+        "CAP-MANAGER_TEAM-MANAGER_ADVISOR_COACHING",
+        "CAP-MANAGER_TEAM-MANAGER_COACHING",
+        "CAP-MANAGER_TEAM-MANAGER_COACHING_BOUNDARY",
+        "CAP-MANAGER_TEAM-MANAGER_COACHING_INTELLIGENCE",
+        "CAP-MANAGER_TEAM-MANAGER_TEAM_COACHING"
+      ],
+      "codeFiles": [
+        "manager-os/coaching-intelligence/manager-advisor-coaching-engine.js",
+        "manager-os/coaching-intelligence/manager-coaching-boundary-contract.js",
+        "manager-os/coaching-intelligence/manager-coaching-intelligence-engine.js",
+        "manager-os/coaching-intelligence/manager-team-coaching-engine.js",
+        "manager-os/coaching/dna-coaching-engine.js",
+        "manager-os/coaching/manager-coaching-engine.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "evidence": {
+        "memberCount": 6,
+        "mergeEdgeCount": 15,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 24,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Legacy tests were absent, failed, timed out, deferred or were not independently runnable.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-HISTORICAL",
+      "proposedName": "historical",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": -24,
+      "memberCount": 6,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-MANAGER_ADVISOR_HISTORICAL_ANALYTICS",
+        "CAP-MANAGER_TEAM-MANAGER_HISTORICAL_ANALYTICS",
+        "CAP-MANAGER_TEAM-MANAGER_HISTORICAL_ANALYTICS_BOUNDARY",
+        "CAP-MANAGER_TEAM-MANAGER_HISTORICAL_QUERY_PLAN",
+        "CAP-MANAGER_TEAM-MANAGER_HISTORICAL_ROLLUP",
+        "CAP-MANAGER_TEAM-MANAGER_HISTORICAL_STORAGE_BOUNDARY"
+      ],
+      "codeFiles": [
+        "manager-os/historical-analytics/manager-advisor-historical-analytics-engine.js",
+        "manager-os/historical-analytics/manager-historical-analytics-boundary-contract.js",
+        "manager-os/historical-analytics/manager-historical-analytics-engine.js",
+        "manager-os/historical-analytics/storage/manager-historical-query-plan-contract.js",
+        "manager-os/historical-analytics/storage/manager-historical-rollup-contract.js",
+        "manager-os/historical-analytics/storage/manager-historical-storage-boundary-contract.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "evidence": {
+        "memberCount": 6,
+        "mergeEdgeCount": 15,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 28,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Legacy tests were absent, failed, timed out, deferred or were not independently runnable.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-MANAGER_ADVISOR_METRICS",
+      "proposedName": "manager-advisor-metrics",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": -24,
+      "memberCount": 6,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-ADVISOR_MANAGER_SNAPSHOT",
+        "CAP-MANAGER_TEAM-MANAGER_ADVISOR_METRICS",
+        "CAP-MANAGER_TEAM-MANAGER_ADVISOR_SIGNAL_CONSUMER",
+        "CAP-MANAGER_TEAM-MANAGER_ADVISOR_TRACKING_BOUNDARY",
+        "CAP-MANAGER_TEAM-MANAGER_METRICS_BOUNDARY",
+        "CAP-MANAGER_TEAM-MANAGER_METRICS_INTELLIGENCE"
+      ],
+      "codeFiles": [
+        "manager-os/advisor-signals/manager-advisor-signal-consumer-contract.js",
+        "manager-os/advisor-snapshots/advisor-manager-snapshot-engine.js",
+        "manager-os/advisor-tracking/manager-advisor-tracking-boundary-engine.js",
+        "manager-os/metrics/manager-advisor-metrics-engine.js",
+        "manager-os/metrics/manager-metrics-boundary-contract.js",
+        "manager-os/metrics/manager-metrics-intelligence-engine.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "evidence": {
+        "memberCount": 6,
+        "mergeEdgeCount": 6,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 24,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Legacy tests were absent, failed, timed out, deferred or were not independently runnable.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-DASHBOARD",
+      "proposedName": "dashboard",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": -32,
+      "memberCount": 8,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-MANAGER_ADVISOR_DASHBOARD",
+        "CAP-MANAGER_TEAM-MANAGER_DASHBOARD_BOUNDARY",
+        "CAP-MANAGER_TEAM-MANAGER_DASHBOARD_INTELLIGENCE",
+        "CAP-MANAGER_TEAM-MANAGER_TEAM_DASHBOARD",
+        "CAP-MANAGER_TEAM-TEAM_ACTIVITY",
+        "CAP-MANAGER_TEAM-TEAM_DASHBOARD",
+        "CAP-MANAGER_TEAM-TEAM_MOMENTUM",
+        "CAP-MANAGER_TEAM-TEAM_STRUCTURE"
+      ],
+      "codeFiles": [
+        "manager-os/dashboard-intelligence/manager-advisor-dashboard-engine.js",
+        "manager-os/dashboard-intelligence/manager-dashboard-boundary-contract.js",
+        "manager-os/dashboard-intelligence/manager-dashboard-intelligence-engine.js",
+        "manager-os/dashboard-intelligence/manager-team-dashboard-engine.js",
+        "manager-os/team-intelligence/activity/team-activity-engine.js",
+        "manager-os/team-intelligence/dashboard/team-dashboard-engine.js",
+        "manager-os/team-intelligence/momentum/team-momentum-engine.js",
+        "manager-os/team-intelligence/structure/team-structure-engine.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "evidence": {
+        "memberCount": 8,
+        "mergeEdgeCount": 16,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 24,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Legacy tests were absent, failed, timed out, deferred or were not independently runnable.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-CRM_CLIENT-CLOSE_STRATEGY",
+      "proposedName": "close-strategy",
+      "domain": "crm-client",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": -44,
+      "memberCount": 11,
+      "memberCapabilityIds": [
+        "CAP-CRM_CLIENT-APPOINTMENT_CALENDAR",
+        "CAP-CRM_CLIENT-APPOINTMENT_OPPORTUNITY",
+        "CAP-CRM_CLIENT-CLOSE_PROMPT_BUILDER",
+        "CAP-CRM_CLIENT-CLOSE_READINESS",
+        "CAP-CRM_CLIENT-CLOSE_STRATEGY",
+        "CAP-CRM_CLIENT-PROSPECT_ENTITY",
+        "CAP-CRM_CLIENT-PROSPECT_NEXT_ACTION",
+        "CAP-CRM_CLIENT-PROSPECT_PIPELINE",
+        "CAP-CRM_CLIENT-PROSPECT_PROFILE",
+        "CAP-CRM_CLIENT-PROSPECT_SCORE",
+        "CAP-CRM_CLIENT-PROSPECT_SEGMENT_PERFORMANCE"
+      ],
+      "codeFiles": [
+        "advisor-os/prospecting/appointment-calendar-engine.js",
+        "advisor-os/prospecting/appointment-opportunity-engine.js",
+        "advisor-os/prospecting/close-prompt-builder.js",
+        "advisor-os/prospecting/close-readiness-engine.js",
+        "advisor-os/prospecting/close-strategy-engine.js",
+        "advisor-os/prospecting/prospect-next-action-engine.js",
+        "advisor-os/prospecting/prospect-pipeline-engine.js",
+        "advisor-os/prospecting/prospect-profile-engine.js",
+        "advisor-os/prospecting/prospect-score-engine.js",
+        "advisor-os/prospecting/prospect-segment-performance-engine.js",
+        "advisor-os/prospecting/prospect.entity.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "TRUTH_OR_ELIGIBILITY"
+        ]
+      },
+      "evidence": {
+        "memberCount": 11,
+        "mergeEdgeCount": 25,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 11,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "crm-client"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "ELIGIBILITY_OR_GATE_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    }
+  ],
+  "parity": {
+    "verifiedCapabilities": 0
+  },
+  "reportHash": "abf1c9a9b43d5474bf9f6f465392f7509212fc7ab84bdd50581f5233a96f5322"
+}
