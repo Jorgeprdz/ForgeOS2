@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+umask 077
+
+ROOT="$(
+  CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." \
+    && pwd -P
+)"
+
+LEGACY_ROOT="${FORGE_LEGACY_REPO:-$HOME/.cache/forge-legacy-source/ForgeOS}"
+CATALOG="$ROOT/forge/compatibility/legacy-compatibility-catalog-reviewed.json"
+
+exec node \
+  "$ROOT/forge/compatibility/legacy-resurrection-reviewed.mjs" \
+  --catalog "$CATALOG" \
+  --legacy-root "$LEGACY_ROOT" \
+  "$@"
