@@ -1,0 +1,1428 @@
+{
+  "schemaVersion": 1,
+  "kind": "FORGE_CAPABILITY_IDENTITY_REVIEW_WAVE",
+  "waveId": "WAVE-001",
+  "generatedAt": "2026-07-24T06:02:18.351Z",
+  "source": {
+    "legacyHead": "e4441e794abaaf983472591e7c80ae545b0b3f67",
+    "groupingReportHash": "47019e7100208db576f47f1d026235516dac59837c131d2f193268cb575c0bc0"
+  },
+  "safety": {
+    "identityLockIsNotParity": true,
+    "highRiskAutoLock": false,
+    "businessAutoLock": false,
+    "incompleteTestAutoLock": false,
+    "rewritesRules": false,
+    "retiresLegacy": false
+  },
+  "counts": {
+    "reviewedGroups": 8,
+    "lockedIdentities": 0,
+    "humanReviewRequired": 3,
+    "splitRequired": 5,
+    "mergeRejected": 0
+  },
+  "reviews": [
+    {
+      "groupId": "CAP2-COMPENSATION-PARTNER_RULE",
+      "proposedName": "partner-rule",
+      "domain": "compensation",
+      "kind": "BUSINESS",
+      "migrationPriority": 875,
+      "memberCount": 39,
+      "memberCapabilityIds": [
+        "CAP-COMPENSATION-ADVISOR_ECONOMIC_OUTPUT",
+        "CAP-COMPENSATION-ADVISOR_ECONOMIC_OUTPUT_PERIOD",
+        "CAP-COMPENSATION-PARTNER_2026_RULE_PACK",
+        "CAP-COMPENSATION-PARTNER_ACTIVITY_BONUS",
+        "CAP-COMPENSATION-PARTNER_ALTA_PARTNER_BONUS",
+        "CAP-COMPENSATION-PARTNER_ANNUAL_PRODUCTIVITY_BONUS",
+        "CAP-COMPENSATION-PARTNER_CALCULATION_TO_PAYOUT",
+        "CAP-COMPENSATION-PARTNER_COMPENSATION_CONCEPT_REGISTRY",
+        "CAP-COMPENSATION-PARTNER_COMPENSATION_INPUT",
+        "CAP-COMPENSATION-PARTNER_COMPENSATION_STATEMENT_MATCH",
+        "CAP-COMPENSATION-PARTNER_FIXED_SUPPORT",
+        "CAP-COMPENSATION-PARTNER_MONTHLY_CASHFLOW_PROJECTION",
+        "CAP-COMPENSATION-PARTNER_MONTHLY_INCOME_CANDIDATE",
+        "CAP-COMPENSATION-PARTNER_OFFICIAL_EVIDENCE",
+        "CAP-COMPENSATION-PARTNER_OFFICIAL_EVIDENCE_STATUS",
+        "CAP-COMPENSATION-PARTNER_OWNERSHIP_SOURCE_TRUTH",
+        "CAP-COMPENSATION-PARTNER_PARTIAL_BONUS",
+        "CAP-COMPENSATION-PARTNER_PARTIAL_BONUS_CONTRACTS",
+        "CAP-COMPENSATION-PARTNER_PAYMENT_CADENCE",
+        "CAP-COMPENSATION-PARTNER_PAYMENT_DISTRIBUTION_RULE_PACK",
+        "CAP-COMPENSATION-PARTNER_PAYOUT_TRUTH",
+        "CAP-COMPENSATION-PARTNER_PAYOUT_TRUTH_RESULT",
+        "CAP-COMPENSATION-PARTNER_PRODUCTION_BONUS",
+        "CAP-COMPENSATION-PARTNER_PRODUCTIVITY_BASE",
+        "CAP-COMPENSATION-PARTNER_PRODUCTIVITY_MULTIPLIER",
+        "CAP-COMPENSATION-PARTNER_QUARTERLY_BONUS",
+        "CAP-COMPENSATION-PARTNER_RULE",
+        "CAP-COMPENSATION-PARTNER_RULE_PACK",
+        "CAP-COMPENSATION-PARTNER_SAFE_CALCULATION_RESULT",
+        "CAP-COMPENSATION-PARTNER_SPREADSHEET_MONTHLY_FACT",
+        "CAP-COMPENSATION-PARTNER_SUPPORT_REQUIREMENT",
+        "CAP-COMPENSATION-PARTNER_SUPPORT_REQUIREMENT_BY_CAREER_MONTH",
+        "CAP-COMPENSATION-PARTNER_TRANSITION_BONUS",
+        "CAP-COMPENSATION-QUALIFIED_ADVISOR_ECONOMIC_STATUS",
+        "CAP-COMPENSATION-RULE_PACK_READINESS",
+        "CAP-COMPENSATION-SMNYL_PARTNER_COMPENSATION_2026_PAYMENT_DISTRIBUTION_RULE_PACK",
+        "CAP-COMPENSATION-SMNYL_PARTNER_COMPENSATION_2026_RULES_CANONICAL_DRAFT",
+        "CAP-COMPENSATION-SMNYL_PARTNER_COMPENSATION_2026_RULES_OFFICIAL_V1",
+        "CAP-COMPENSATION-TEAM_ECONOMIC_OUTPUT"
+      ],
+      "codeFiles": [
+        "compensation/partner-manager/advisor-economic-output-period.js",
+        "compensation/partner-manager/advisor-economic-output.js",
+        "compensation/partner-manager/partner-2026-rule-pack-loader.js",
+        "compensation/partner-manager/partner-2026-rule-pack-validator.js",
+        "compensation/partner-manager/partner-activity-bonus-calculator.js",
+        "compensation/partner-manager/partner-activity-bonus-contract.js",
+        "compensation/partner-manager/partner-alta-partner-bonus-calculator.js",
+        "compensation/partner-manager/partner-alta-partner-bonus-contract.js",
+        "compensation/partner-manager/partner-alta-partner-bonus-orchestrator.js",
+        "compensation/partner-manager/partner-annual-productivity-bonus-calculator.js",
+        "compensation/partner-manager/partner-annual-productivity-bonus-contract.js",
+        "compensation/partner-manager/partner-annual-productivity-bonus-orchestrator.js",
+        "compensation/partner-manager/partner-calculation-to-payout-mapper.js",
+        "compensation/partner-manager/partner-compensation-concept-registry.js",
+        "compensation/partner-manager/partner-compensation-input-gate.js",
+        "compensation/partner-manager/partner-compensation-statement-match.js",
+        "compensation/partner-manager/partner-fixed-support-calculator.js",
+        "compensation/partner-manager/partner-fixed-support-contract.js",
+        "compensation/partner-manager/partner-fixed-support-orchestrator.js",
+        "compensation/partner-manager/partner-monthly-cashflow-projection-engine.js",
+        "compensation/partner-manager/partner-monthly-income-candidate-orchestrator.js",
+        "compensation/partner-manager/partner-official-evidence-status.js",
+        "compensation/partner-manager/partner-official-evidence.js",
+        "compensation/partner-manager/partner-ownership-source-truth-gate.js",
+        "compensation/partner-manager/partner-partial-bonus-calculation-gate.js",
+        "compensation/partner-manager/partner-partial-bonus-contracts.js",
+        "compensation/partner-manager/partner-payment-cadence-engine.js",
+        "compensation/partner-manager/partner-payment-distribution-rule-pack-validator.js",
+        "compensation/partner-manager/partner-payout-truth-gate.js",
+        "compensation/partner-manager/partner-payout-truth-result.js",
+        "compensation/partner-manager/partner-production-bonus-calculator.js",
+        "compensation/partner-manager/partner-production-bonus-contract.js",
+        "compensation/partner-manager/partner-productivity-base-calculator.js",
+        "compensation/partner-manager/partner-productivity-base-contract.js",
+        "compensation/partner-manager/partner-productivity-multiplier-calculator.js",
+        "compensation/partner-manager/partner-productivity-multiplier-contract.js",
+        "compensation/partner-manager/partner-quarterly-bonus-calculator.js",
+        "compensation/partner-manager/partner-safe-calculation-result.js",
+        "compensation/partner-manager/partner-spreadsheet-monthly-fact-adapter.js",
+        "compensation/partner-manager/partner-support-requirement-by-career-month.js",
+        "compensation/partner-manager/partner-support-requirement-gate.js",
+        "compensation/partner-manager/partner-transition-bonus-calculator.js",
+        "compensation/partner-manager/partner-transition-bonus-contract.js",
+        "compensation/partner-manager/partner-transition-bonus-orchestrator.js",
+        "compensation/partner-manager/qualified-advisor-economic-status.js",
+        "compensation/partner-manager/rule-engine/partner-rule-pack-loader.js",
+        "compensation/partner-manager/rule-engine/partner-rule-pack-validator.js",
+        "compensation/partner-manager/rule-engine/partner-rule-resolver.js",
+        "compensation/partner-manager/rule-pack-readiness.js",
+        "compensation/partner-manager/team-economic-output.js"
+      ],
+      "testFiles": [
+        "tests/partner-activity-bonus-calculator-test.js",
+        "tests/partner-activity-bonus-contract-test.js",
+        "tests/partner-alta-partner-bonus-calculator-test.js",
+        "tests/partner-alta-partner-bonus-contract-test.js",
+        "tests/partner-alta-partner-bonus-orchestrator-test.js",
+        "tests/partner-annual-productivity-bonus-calculator-test.js",
+        "tests/partner-annual-productivity-bonus-contract-test.js",
+        "tests/partner-annual-productivity-bonus-orchestrator-test.js",
+        "tests/partner-calculation-to-payout-mapper-test.js",
+        "tests/partner-compensation-concept-registry-test.js",
+        "tests/partner-compensation-input-gate-test.js",
+        "tests/partner-compensation-statement-match-test.js",
+        "tests/partner-monthly-cashflow-projection-engine-test.js",
+        "tests/partner-partial-bonus-calculation-gate-test.js",
+        "tests/partner-partial-bonus-contracts-test.js",
+        "tests/partner-payment-cadence-engine-test.js",
+        "tests/partner-payout-truth-gate-test.js",
+        "tests/partner-payout-truth-result-test.js",
+        "tests/partner-production-bonus-calculator-test.js",
+        "tests/partner-production-bonus-contract-test.js",
+        "tests/partner-quarterly-bonus-calculator-test.js",
+        "tests/partner-transition-bonus-calculator-test.js",
+        "tests/partner-transition-bonus-contract-test.js",
+        "tests/partner-transition-bonus-orchestrator-test.js"
+      ],
+      "selectedTests": [
+        "tests/partner-activity-bonus-calculator-test.js",
+        "tests/partner-activity-bonus-contract-test.js",
+        "tests/partner-alta-partner-bonus-calculator-test.js",
+        "tests/partner-alta-partner-bonus-contract-test.js",
+        "tests/partner-alta-partner-bonus-orchestrator-test.js"
+      ],
+      "omittedTestCount": 19,
+      "ruleArtifacts": [
+        "compensation/partner-manager/rule-data/smnyl_partner_compensation_2026_rules_canonical_draft.json",
+        "compensation/partner-manager/rule-data/smnyl_partner_compensation_2026_rules_official_v1.json",
+        "compensation/partner-manager/rule-packs/smnyl-partner-compensation-2026-payment-distribution.rule-pack.json"
+      ],
+      "riskTags": [
+        "EXTERNAL_BOUNDARY",
+        "FINANCIAL_TRUTH",
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY",
+          "EXTERNAL_BOUNDARY",
+          "FINANCIAL_OR_PAYMENT",
+          "RISK_TAG:EXTERNAL_BOUNDARY",
+          "RISK_TAG:FINANCIAL_TRUTH",
+          "RISK_TAG:TRUTH_CRITICAL",
+          "TRUTH_OR_ELIGIBILITY"
+        ]
+      },
+      "evidence": {
+        "memberCount": 39,
+        "mergeEdgeCount": 112,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 31,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "MULTIPLE_DIRECT_IMPORT_EDGES",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY",
+          "FINANCIAL_TRUTH",
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "LARGE_CLUSTER_REQUIRES_REVIEW"
+        ],
+        "memberDomains": [
+          "compensation"
+        ]
+      },
+      "tests": [
+        {
+          "file": "tests/partner-activity-bonus-calculator-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, EXTERNAL_BOUNDARY, FINANCIAL_OR_PAYMENT, RISK_TAG:EXTERNAL_BOUNDARY, RISK_TAG:FINANCIAL_TRUTH, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY"
+        },
+        {
+          "file": "tests/partner-activity-bonus-contract-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, EXTERNAL_BOUNDARY, FINANCIAL_OR_PAYMENT, RISK_TAG:EXTERNAL_BOUNDARY, RISK_TAG:FINANCIAL_TRUTH, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY"
+        },
+        {
+          "file": "tests/partner-alta-partner-bonus-calculator-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, EXTERNAL_BOUNDARY, FINANCIAL_OR_PAYMENT, RISK_TAG:EXTERNAL_BOUNDARY, RISK_TAG:FINANCIAL_TRUTH, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY"
+        },
+        {
+          "file": "tests/partner-alta-partner-bonus-contract-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, EXTERNAL_BOUNDARY, FINANCIAL_OR_PAYMENT, RISK_TAG:EXTERNAL_BOUNDARY, RISK_TAG:FINANCIAL_TRUTH, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY"
+        },
+        {
+          "file": "tests/partner-alta-partner-bonus-orchestrator-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, EXTERNAL_BOUNDARY, FINANCIAL_OR_PAYMENT, RISK_TAG:EXTERNAL_BOUNDARY, RISK_TAG:FINANCIAL_TRUTH, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY"
+        }
+      ],
+      "scenarioSeeds": [
+        "ELIGIBILITY_OR_GATE_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "PARTIAL_OR_PROVISIONAL_STATE",
+        "PAYMENT_EVIDENCE_BOUNDARY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "SPLIT_REQUIRED",
+      "dispositionReason": "The proposed component is too broad or crosses source domains.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-QUOTING-QUOTE_PREVIEW",
+      "proposedName": "quote-preview",
+      "domain": "quoting",
+      "kind": "BUSINESS",
+      "migrationPriority": 535,
+      "memberCount": 24,
+      "memberCapabilityIds": [
+        "CAP-QUOTING-QUOTE_PREVIEW_CONFIRMATION_POPUP_HOST",
+        "CAP-QUOTING-QUOTE_PREVIEW_CONTROLLED_BROWSER_CONFIRMATION_PERSISTENCE",
+        "CAP-QUOTING-QUOTE_PREVIEW_CONTROLLED_BROWSER_CONFIRMATION_UI_SURFACE_BINDING",
+        "CAP-QUOTING-QUOTE_PREVIEW_CONTROLLED_BROWSER_CONFIRMATION_UI_WIRING",
+        "CAP-QUOTING-QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_EXECUTION_READINESS_REVIEW_MATRIX_ADAPTER_080B",
+        "CAP-QUOTING-QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_PROVENANCE_REGISTRY_ADAPTER_079B",
+        "CAP-QUOTING-QUOTE_PREVIEW_PDF_ENGINE_CANONICAL_TEST_EVIDENCE_REGISTRY_ADAPTER_078B",
+        "CAP-QUOTING-QUOTE_PREVIEW_PDF_ENGINE_DETERMINISTIC_INPUT_SOURCE_TRACE_REGISTRY_ADAPTER_084B",
+        "CAP-QUOTING-QUOTE_PREVIEW_PDF_ENGINE_EXISTING_SURFACES_CANONICAL_MAPPING_ADAPTER_077B",
+        "CAP-QUOTING-QUOTE_PREVIEW_PDF_ENGINE_EXPECTED_VALUE_SOURCE_TRACE_REGISTRY_ADAPTER_082B",
+        "CAP-QUOTING-QUOTE_PREVIEW_PDF_ENGINE_PARSER_OWNERSHIP_REGISTRY_ADAPTER_083B",
+        "CAP-QUOTING-QUOTE_PREVIEW_PDF_ENGINE_PREVIEW_VS_QUOTE_TRUTH_BOUNDARY_REGISTRY_ADAPTER_085B",
+        "CAP-QUOTING-QUOTE_PREVIEW_PDF_ENGINE_REAL_PDF_FILE_HASH_PROVENANCE_REGISTRY_ADAPTER_081B",
+        "CAP-QUOTING-QUOTE_PREVIEW_PDF_ENGINE_REPO_PROMOTION_ADAPTER_076B",
+        "CAP-QUOTING-QUOTE_PREVIEW_PDF_FLOW_POPUP_INVOCATION",
+        "CAP-QUOTING-QUOTE_PREVIEW_PDF_RESULT",
+        "CAP-QUOTING-QUOTE_PREVIEW_PDF_RESULT_CANONICAL_BRIDGE",
+        "CAP-QUOTING-QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE",
+        "CAP-QUOTING-QUOTE_PREVIEW_PDF_RESULT_PERSISTENCE_COORDINATOR",
+        "CAP-QUOTING-QUOTE_PREVIEW_SAFE_COPY_BADGE_SYSTEM_REGISTRY_ADAPTER_090B",
+        "CAP-QUOTING-QUOTE_PREVIEW_SAFE_SCREEN_COMPOSITION_REGISTRY_ADAPTER_088B",
+        "CAP-QUOTING-QUOTE_PREVIEW_SAFE_UX_COMPONENT_CONTRACT_REGISTRY_ADAPTER_087B",
+        "CAP-QUOTING-QUOTE_PREVIEW_SAFE_UX_STATE_MODEL_REGISTRY_ADAPTER_086B",
+        "CAP-QUOTING-QUOTE_PREVIEW_SAFE_VISUAL_LAYOUT_SPEC_REGISTRY_ADAPTER_089B"
+      ],
+      "codeFiles": [
+        "platform/adapters/quote-preview/quote-preview-controlled-browser-confirmation-persistence-adapter.js",
+        "platform/adapters/quote-preview/quote-preview-controlled-browser-confirmation-ui-surface-binding.js",
+        "platform/adapters/quote-preview/quote-preview-controlled-browser-confirmation-ui-wiring.js",
+        "platform/adapters/quote-preview/quote-preview-pdf-engine-canonical-execution-readiness-review-matrix-adapter-080b.js",
+        "platform/adapters/quote-preview/quote-preview-pdf-engine-canonical-test-evidence-provenance-registry-adapter-079b.js",
+        "platform/adapters/quote-preview/quote-preview-pdf-engine-canonical-test-evidence-registry-adapter-078b.js",
+        "platform/adapters/quote-preview/quote-preview-pdf-engine-deterministic-input-source-trace-registry-adapter-084b.js",
+        "platform/adapters/quote-preview/quote-preview-pdf-engine-existing-surfaces-canonical-mapping-adapter-077b.js",
+        "platform/adapters/quote-preview/quote-preview-pdf-engine-expected-value-source-trace-registry-adapter-082b.js",
+        "platform/adapters/quote-preview/quote-preview-pdf-engine-parser-ownership-registry-adapter-083b.js",
+        "platform/adapters/quote-preview/quote-preview-pdf-engine-preview-vs-quote-truth-boundary-registry-adapter-085b.js",
+        "platform/adapters/quote-preview/quote-preview-pdf-engine-real-pdf-file-hash-provenance-registry-adapter-081b.js",
+        "platform/adapters/quote-preview/quote-preview-pdf-engine-repo-promotion-adapter-076b.js",
+        "platform/adapters/quote-preview/quote-preview-pdf-result-canonical-bridge.js",
+        "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-contract.js",
+        "platform/adapters/quote-preview/quote-preview-pdf-result-persistence-coordinator.js",
+        "platform/adapters/quote-preview/quote-preview-safe-copy-badge-system-registry-adapter-090b.js",
+        "platform/adapters/quote-preview/quote-preview-safe-screen-composition-registry-adapter-088b.js",
+        "platform/adapters/quote-preview/quote-preview-safe-ux-component-contract-registry-adapter-087b.js",
+        "platform/adapters/quote-preview/quote-preview-safe-ux-state-model-registry-adapter-086b.js",
+        "platform/adapters/quote-preview/quote-preview-safe-visual-layout-spec-registry-adapter-089b.js",
+        "platform/runtime/quote-preview/quote-preview-pdf-result-store.js",
+        "platform/ui/quote-preview/quote-preview-confirmation-popup-host.js",
+        "platform/ui/quote-preview/quote-preview-pdf-flow-popup-invocation.js"
+      ],
+      "testFiles": [
+        "platform/adapters/quote-preview/quote-preview-controlled-browser-confirmation-persistence-adapter.test.js",
+        "platform/adapters/quote-preview/quote-preview-controlled-browser-confirmation-ui-surface-binding.test.js",
+        "platform/adapters/quote-preview/quote-preview-controlled-browser-confirmation-ui-wiring.test.js",
+        "platform/adapters/quote-preview/quote-preview-pdf-result-canonical-bridge.test.js",
+        "platform/ui/quote-preview/quote-preview-confirmation-popup-host.test.js",
+        "platform/ui/quote-preview/quote-preview-pdf-flow-popup-invocation.test.js",
+        "tests/quote-preview-pdf-engine-canonical-execution-readiness-review-matrix-adapter-080b-test.js",
+        "tests/quote-preview-pdf-engine-canonical-test-evidence-provenance-registry-adapter-079b-test.js",
+        "tests/quote-preview-pdf-engine-canonical-test-evidence-registry-adapter-078b-test.js",
+        "tests/quote-preview-pdf-engine-deterministic-input-source-trace-registry-adapter-084b-test.js",
+        "tests/quote-preview-pdf-engine-existing-surfaces-canonical-mapping-adapter-077b-test.js",
+        "tests/quote-preview-pdf-engine-expected-value-source-trace-registry-adapter-082b-test.js",
+        "tests/quote-preview-pdf-engine-parser-ownership-registry-adapter-083b-test.js",
+        "tests/quote-preview-pdf-engine-preview-vs-quote-truth-boundary-registry-adapter-085b-test.js",
+        "tests/quote-preview-pdf-engine-real-pdf-file-hash-provenance-registry-adapter-081b-test.js",
+        "tests/quote-preview-pdf-engine-repo-promotion-adapter-076b-test.js",
+        "tests/quote-preview-safe-copy-badge-system-registry-adapter-090b-test.js",
+        "tests/quote-preview-safe-screen-composition-registry-adapter-088b-test.js",
+        "tests/quote-preview-safe-ux-component-contract-registry-adapter-087b-test.js",
+        "tests/quote-preview-safe-ux-state-model-registry-adapter-086b-test.js",
+        "tests/quote-preview-safe-visual-layout-spec-registry-adapter-089b-test.js"
+      ],
+      "selectedTests": [
+        "platform/adapters/quote-preview/quote-preview-controlled-browser-confirmation-persistence-adapter.test.js",
+        "platform/adapters/quote-preview/quote-preview-controlled-browser-confirmation-ui-surface-binding.test.js",
+        "platform/adapters/quote-preview/quote-preview-controlled-browser-confirmation-ui-wiring.test.js",
+        "platform/adapters/quote-preview/quote-preview-pdf-result-canonical-bridge.test.js",
+        "platform/ui/quote-preview/quote-preview-confirmation-popup-host.test.js"
+      ],
+      "omittedTestCount": 16,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "EXTERNAL_BOUNDARY",
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY",
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY",
+          "RISK_TAG:TRUTH_CRITICAL",
+          "TRUTH_OR_ELIGIBILITY",
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "evidence": {
+        "memberCount": 24,
+        "mergeEdgeCount": 215,
+        "minimumMergeScore": 15,
+        "maximumMergeScore": 28,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY",
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "LARGE_CLUSTER_REQUIRES_REVIEW"
+        ],
+        "memberDomains": [
+          "quoting"
+        ]
+      },
+      "tests": [
+        {
+          "file": "platform/adapters/quote-preview/quote-preview-controlled-browser-confirmation-persistence-adapter.test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, EXTERNAL_BOUNDARY, RISK_TAG:EXTERNAL_BOUNDARY, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY, USER_ENTRYPOINT"
+        },
+        {
+          "file": "platform/adapters/quote-preview/quote-preview-controlled-browser-confirmation-ui-surface-binding.test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, EXTERNAL_BOUNDARY, RISK_TAG:EXTERNAL_BOUNDARY, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY, USER_ENTRYPOINT"
+        },
+        {
+          "file": "platform/adapters/quote-preview/quote-preview-controlled-browser-confirmation-ui-wiring.test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, EXTERNAL_BOUNDARY, RISK_TAG:EXTERNAL_BOUNDARY, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY, USER_ENTRYPOINT"
+        },
+        {
+          "file": "platform/adapters/quote-preview/quote-preview-pdf-result-canonical-bridge.test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, EXTERNAL_BOUNDARY, RISK_TAG:EXTERNAL_BOUNDARY, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY, USER_ENTRYPOINT"
+        },
+        {
+          "file": "platform/ui/quote-preview/quote-preview-confirmation-popup-host.test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, EXTERNAL_BOUNDARY, RISK_TAG:EXTERNAL_BOUNDARY, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY, USER_ENTRYPOINT"
+        }
+      ],
+      "scenarioSeeds": [
+        "ELIGIBILITY_OR_GATE_FAILURE",
+        "EXTERNAL_CONTRACT_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "SPLIT_REQUIRED",
+      "dispositionReason": "The proposed component is too broad or crosses source domains.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-QUOTING-APP",
+      "proposedName": "app",
+      "domain": "quoting",
+      "kind": "BUSINESS",
+      "migrationPriority": 367,
+      "memberCount": 31,
+      "memberCapabilityIds": [
+        "CAP-QUOTING-ACCEPTED_QUOTE",
+        "CAP-QUOTING-ACCEPTED_QUOTE_BRIDGE",
+        "CAP-QUOTING-ACCEPTED_QUOTE_REVIEW_SNAPSHOT",
+        "CAP-QUOTING-APP",
+        "CAP-QUOTING-BENEFIT_SUMMARY_LAYOUT",
+        "CAP-QUOTING-BENEFIT_SUMMARY_RENDERER",
+        "CAP-QUOTING-CLIENT_RECOMMENDATION_RATIONALE_BOUNDARY",
+        "CAP-QUOTING-IMAGINA_SER_PRODUCT_DASHBOARD",
+        "CAP-QUOTING-ORVI_PRODUCT_DASHBOARD",
+        "CAP-QUOTING-ORVI_STATIC_PREVIEW",
+        "CAP-QUOTING-PDFJS_4_10_38",
+        "CAP-QUOTING-PDFJS_WORKER_4_10_38",
+        "CAP-QUOTING-PDF_BROWSER",
+        "CAP-QUOTING-PRODUCT_DASHBOARD_TEMPLATE",
+        "CAP-QUOTING-QUOTE_BENEFIT_SUMMARY",
+        "CAP-QUOTING-QUOTE_CALCULATORS",
+        "CAP-QUOTING-QUOTE_INTAKE",
+        "CAP-QUOTING-QUOTE_INTAKE_UI_SIMPLIFICATION_R16J1C1",
+        "CAP-QUOTING-QUOTE_PREVIEW_BUNDLE",
+        "CAP-QUOTING-SALES_PRESENTATION_BROWSER_CONTEXT",
+        "CAP-QUOTING-SALES_PRESENTATION_EDITABLE_PREVIEW",
+        "CAP-QUOTING-SALES_PRESENTATION_EXPORT",
+        "CAP-QUOTING-SALES_PRESENTATION_HUMAN_APPROVAL",
+        "CAP-QUOTING-SALES_PRESENTATION_PROMPT_BUILDER",
+        "CAP-QUOTING-SALES_PRESENTATION_REVIEW",
+        "CAP-QUOTING-SALES_PRESENTATION_REVIEW_PACKET_BUILDER",
+        "CAP-QUOTING-SALES_PRESENTATION_SLIDE_PLAN_GENERATOR",
+        "CAP-QUOTING-SEGUBECA_PRODUCT_DASHBOARD",
+        "CAP-QUOTING-SEGUBECA_SOLUCIONLINE",
+        "CAP-QUOTING-SOLUCIONLINE_RETIREMENT",
+        "CAP-QUOTING-UDI_MXN"
+      ],
+      "codeFiles": [
+        "docs/quote-preview-live/app.js",
+        "docs/quote-preview-live/forge-quote-benefit-summary.js",
+        "docs/quote-preview-live/forge-quote-calculators.mjs",
+        "docs/quote-preview-live/forge-quote-preview-bundle.js",
+        "docs/quote-preview-live/quote-benefit-summary-engine.js",
+        "docs/static-preview/quote-preview-live/forge-accepted-quote-adapter.js",
+        "docs/static-preview/quote-preview-live/forge-accepted-quote-bridge.js",
+        "docs/static-preview/quote-preview-live/forge-accepted-quote-review-snapshot.js",
+        "docs/static-preview/quote-preview-live/forge-benefit-summary-layout.js",
+        "docs/static-preview/quote-preview-live/forge-benefit-summary-renderer.js",
+        "docs/static-preview/quote-preview-live/forge-client-recommendation-rationale-boundary.js",
+        "docs/static-preview/quote-preview-live/forge-imagina-ser-product-dashboard-adapter.js",
+        "docs/static-preview/quote-preview-live/forge-orvi-product-dashboard-adapter.js",
+        "docs/static-preview/quote-preview-live/forge-orvi-static-preview-runtime.js",
+        "docs/static-preview/quote-preview-live/forge-pdf-browser-parser.js",
+        "docs/static-preview/quote-preview-live/forge-pdfjs-4.10.38.js",
+        "docs/static-preview/quote-preview-live/forge-pdfjs-worker-4.10.38.js",
+        "docs/static-preview/quote-preview-live/forge-product-dashboard-template.js",
+        "docs/static-preview/quote-preview-live/forge-quote-benefit-summary.js",
+        "docs/static-preview/quote-preview-live/forge-quote-calculators.js",
+        "docs/static-preview/quote-preview-live/forge-quote-calculators.mjs",
+        "docs/static-preview/quote-preview-live/forge-quote-intake-state.js",
+        "docs/static-preview/quote-preview-live/forge-quote-intake-ui-simplification-r16j1c1.js",
+        "docs/static-preview/quote-preview-live/forge-quote-preview-bundle.js",
+        "docs/static-preview/quote-preview-live/forge-sales-presentation-browser-context-adapter.js",
+        "docs/static-preview/quote-preview-live/forge-sales-presentation-editable-preview.js",
+        "docs/static-preview/quote-preview-live/forge-sales-presentation-export-adapter.js",
+        "docs/static-preview/quote-preview-live/forge-sales-presentation-human-approval-gate.js",
+        "docs/static-preview/quote-preview-live/forge-sales-presentation-prompt-builder.js",
+        "docs/static-preview/quote-preview-live/forge-sales-presentation-review-packet-builder.js",
+        "docs/static-preview/quote-preview-live/forge-sales-presentation-review-state-store.js",
+        "docs/static-preview/quote-preview-live/forge-sales-presentation-slide-plan-generator.js",
+        "docs/static-preview/quote-preview-live/forge-segubeca-product-dashboard-adapter.js",
+        "docs/static-preview/quote-preview-live/forge-segubeca-solucionline-parser.js",
+        "docs/static-preview/quote-preview-live/forge-solucionline-retirement-parser.js",
+        "docs/static-preview/quote-preview-live/forge-udi-mxn-runtime.js",
+        "docs/static-preview/quote-preview-live/quote-benefit-summary-engine.js",
+        "quote-benefit-summary-engine.js"
+      ],
+      "testFiles": [
+        "tests/quote-benefit-summary-engine-test.mjs"
+      ],
+      "selectedTests": [
+        "tests/quote-benefit-summary-engine-test.mjs"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "EXTERNAL_BOUNDARY",
+        "TRUTH_CRITICAL",
+        "USER_ENTRYPOINT"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY",
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY",
+          "RISK_TAG:TRUTH_CRITICAL",
+          "RISK_TAG:USER_ENTRYPOINT",
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "evidence": {
+        "memberCount": 31,
+        "mergeEdgeCount": 328,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 22,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY",
+          "TRUTH_CRITICAL",
+          "USER_ENTRYPOINT"
+        ],
+        "reviewReasons": [
+          "LARGE_CLUSTER_REQUIRES_REVIEW"
+        ],
+        "memberDomains": [
+          "quoting"
+        ]
+      },
+      "tests": [
+        {
+          "file": "tests/quote-benefit-summary-engine-test.mjs",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, EXTERNAL_BOUNDARY, RISK_TAG:EXTERNAL_BOUNDARY, RISK_TAG:TRUTH_CRITICAL, RISK_TAG:USER_ENTRYPOINT, USER_ENTRYPOINT"
+        }
+      ],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "SPLIT_REQUIRED",
+      "dispositionReason": "The proposed component is too broad or crosses source domains.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-RECRUITMENT-RECRUITMENT",
+      "proposedName": "recruitment",
+      "domain": "recruitment",
+      "kind": "BUSINESS",
+      "migrationPriority": 365,
+      "memberCount": 27,
+      "memberCapabilityIds": [
+        "CAP-RECRUITMENT-CANDIDATE_ASSESSMENT",
+        "CAP-RECRUITMENT-CANDIDATE_ASSESSMENT_MASTER",
+        "CAP-RECRUITMENT-CANDIDATE_COACHABILITY",
+        "CAP-RECRUITMENT-CANDIDATE_COACHABILITY_MASTER",
+        "CAP-RECRUITMENT-CANDIDATE_EVIDENCE_PROVENANCE",
+        "CAP-RECRUITMENT-CANDIDATE_EVIDENCE_PROVENANCE_MASTER",
+        "CAP-RECRUITMENT-CANDIDATE_HARD_FACTORS",
+        "CAP-RECRUITMENT-CANDIDATE_HARD_FACTORS_MASTER",
+        "CAP-RECRUITMENT-CANDIDATE_MANAGER_SNAPSHOT",
+        "CAP-RECRUITMENT-CANDIDATE_MANAGER_SNAPSHOT_ENGINE_MASTER",
+        "CAP-RECRUITMENT-CANDIDATE_MARKET_QUALITY",
+        "CAP-RECRUITMENT-CANDIDATE_MARKET_QUALITY_MASTER",
+        "CAP-RECRUITMENT-CANDIDATE_VITAL_FACTORS",
+        "CAP-RECRUITMENT-CANDIDATE_VITAL_FACTORS_MASTER",
+        "CAP-RECRUITMENT-INTERVIEW_EVIDENCE",
+        "CAP-RECRUITMENT-INTERVIEW_FLOW",
+        "CAP-RECRUITMENT-INTERVIEW_FLOW_ENGINE_MASTER",
+        "CAP-RECRUITMENT-MANAGER_RECRUITMENT_EVENT_CAPTURE",
+        "CAP-RECRUITMENT-MANAGER_RECRUITMENT_EVENT_CAPTURE_CONTRACT_MASTER",
+        "CAP-RECRUITMENT-MANAGER_RECRUITMENT_METRICS",
+        "CAP-RECRUITMENT-RECRUITMENT",
+        "CAP-RECRUITMENT-RECRUITMENT_PIPELINE",
+        "CAP-RECRUITMENT-RECRUITMENT_PIPELINE_ENGINE_MASTER",
+        "CAP-RECRUITMENT-RECRUITMENT_RDA_PREREQUISITE_BOUNDARY",
+        "CAP-RECRUITMENT-RECRUITMENT_RDA_PREREQUISITE_BOUNDARY_MASTER",
+        "CAP-RECRUITMENT-RECRUITMENT_TO_PRECONTRACT",
+        "CAP-RECRUITMENT-RECRUITMENT_TO_PRECONTRACT_GATE_MASTER"
+      ],
+      "codeFiles": [
+        "manager-os/metrics/manager-recruitment-metrics-engine.js",
+        "manager-os/recruitment/candidate-intelligence/candidate-assessment-engine.js",
+        "manager-os/recruitment/candidate-intelligence/candidate-coachability-engine.js",
+        "manager-os/recruitment/candidate-intelligence/candidate-evidence-provenance-engine.js",
+        "manager-os/recruitment/candidate-intelligence/candidate-hard-factors-engine.js",
+        "manager-os/recruitment/candidate-intelligence/candidate-market-quality-engine.js",
+        "manager-os/recruitment/candidate-intelligence/candidate-vital-factors-engine.js",
+        "manager-os/recruitment/events/manager-recruitment-event-capture-contract.js",
+        "manager-os/recruitment/interview-flow/interview-flow-engine.js",
+        "manager-os/recruitment/pipeline/recruitment-pipeline-engine.js",
+        "manager-os/recruitment/precontract-gate/recruitment-to-precontract-gate.js",
+        "manager-os/recruitment/rda-boundary/recruitment-rda-prerequisite-boundary.js",
+        "manager-os/recruitment/snapshots/candidate-manager-snapshot-engine.js"
+      ],
+      "testFiles": [
+        "manager-os/recruitment/tests/candidate-assessment-master-test.js",
+        "manager-os/recruitment/tests/candidate-coachability-master-test.js",
+        "manager-os/recruitment/tests/candidate-evidence-provenance-master-test.js",
+        "manager-os/recruitment/tests/candidate-hard-factors-master-test.js",
+        "manager-os/recruitment/tests/candidate-manager-snapshot-engine-master-test.js",
+        "manager-os/recruitment/tests/candidate-market-quality-master-test.js",
+        "manager-os/recruitment/tests/candidate-vital-factors-master-test.js",
+        "manager-os/recruitment/tests/interview-evidence-fixture-test.js",
+        "manager-os/recruitment/tests/interview-flow-engine-master-test.js",
+        "manager-os/recruitment/tests/manager-recruitment-event-capture-contract-master-test.js",
+        "manager-os/recruitment/tests/recruitment-fixture-validation-test.js",
+        "manager-os/recruitment/tests/recruitment-pipeline-engine-master-test.js",
+        "manager-os/recruitment/tests/recruitment-rda-prerequisite-boundary-master-test.js",
+        "manager-os/recruitment/tests/recruitment-to-precontract-gate-master-test.js"
+      ],
+      "selectedTests": [
+        "manager-os/recruitment/tests/candidate-assessment-master-test.js",
+        "manager-os/recruitment/tests/candidate-coachability-master-test.js",
+        "manager-os/recruitment/tests/candidate-evidence-provenance-master-test.js",
+        "manager-os/recruitment/tests/candidate-hard-factors-master-test.js",
+        "manager-os/recruitment/tests/candidate-manager-snapshot-engine-master-test.js"
+      ],
+      "omittedTestCount": 9,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY",
+          "RISK_TAG:TRUTH_CRITICAL",
+          "TRUTH_OR_ELIGIBILITY",
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "evidence": {
+        "memberCount": 27,
+        "mergeEdgeCount": 139,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 25,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "LARGE_CLUSTER_REQUIRES_REVIEW"
+        ],
+        "memberDomains": [
+          "recruitment"
+        ]
+      },
+      "tests": [
+        {
+          "file": "manager-os/recruitment/tests/candidate-assessment-master-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY, USER_ENTRYPOINT"
+        },
+        {
+          "file": "manager-os/recruitment/tests/candidate-coachability-master-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY, USER_ENTRYPOINT"
+        },
+        {
+          "file": "manager-os/recruitment/tests/candidate-evidence-provenance-master-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY, USER_ENTRYPOINT"
+        },
+        {
+          "file": "manager-os/recruitment/tests/candidate-hard-factors-master-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY, USER_ENTRYPOINT"
+        },
+        {
+          "file": "manager-os/recruitment/tests/candidate-manager-snapshot-engine-master-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY, USER_ENTRYPOINT"
+        }
+      ],
+      "scenarioSeeds": [
+        "ELIGIBILITY_OR_GATE_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "SPLIT_REQUIRED",
+      "dispositionReason": "The proposed component is too broad or crosses source domains.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-COMPENSATION-NEW_PROFESSIONAL_BONUS",
+      "proposedName": "new-professional-bonus",
+      "domain": "compensation",
+      "kind": "BUSINESS",
+      "migrationPriority": 228,
+      "memberCount": 10,
+      "memberCapabilityIds": [
+        "CAP-COMPENSATION-NEW_PROFESSIONAL_CONNECTION_BONUS",
+        "CAP-COMPENSATION-NEW_PROFESSIONAL_DEVELOPMENT_BONUS",
+        "CAP-COMPENSATION-NEW_PROFESSIONAL_GMMI_INITIAL_PREMIUM_BONUS",
+        "CAP-COMPENSATION-NEW_PROFESSIONAL_GMMI_INITIAL_PREMIUM_GROWTH_ANNUAL_BONUS",
+        "CAP-COMPENSATION-NEW_PROFESSIONAL_GMMI_RENEWAL_PREMIUM_BONUS",
+        "CAP-COMPENSATION-NEW_PROFESSIONAL_LIFE_BONUS_TOTAL",
+        "CAP-COMPENSATION-NEW_PROFESSIONAL_LIFE_INITIAL_BONUS",
+        "CAP-COMPENSATION-NEW_PROFESSIONAL_LIFE_RENEWAL_BONUS",
+        "CAP-COMPENSATION-NEW_PROFESSIONAL_RULE_PACK",
+        "CAP-COMPENSATION-SMNYL_NEW_PROFESSIONAL_2026_RULE_PACK"
+      ],
+      "codeFiles": [
+        "compensation/new-professional/new-professional-connection-bonus-engine.js",
+        "compensation/new-professional/new-professional-development-bonus-engine.js",
+        "compensation/new-professional/new-professional-gmmi-initial-premium-bonus-engine.js",
+        "compensation/new-professional/new-professional-gmmi-initial-premium-growth-annual-bonus-engine.js",
+        "compensation/new-professional/new-professional-gmmi-renewal-premium-bonus-engine.js",
+        "compensation/new-professional/new-professional-life-bonus-total-orchestrator.js",
+        "compensation/new-professional/new-professional-life-initial-bonus-engine.js",
+        "compensation/new-professional/new-professional-life-renewal-bonus-engine.js",
+        "compensation/new-professional/new-professional-rule-pack-loader.js",
+        "compensation/new-professional/new-professional-rule-pack-validator.js"
+      ],
+      "testFiles": [
+        "tests/new-professional-connection-bonus-engine-test.js",
+        "tests/new-professional-development-bonus-engine-test.js",
+        "tests/new-professional-gmmi-initial-premium-bonus-engine-test.js",
+        "tests/new-professional-gmmi-initial-premium-growth-annual-bonus-engine-test.js",
+        "tests/new-professional-gmmi-renewal-premium-bonus-engine-test.js",
+        "tests/new-professional-life-bonus-total-orchestrator-test.js",
+        "tests/new-professional-life-initial-bonus-engine-test.js",
+        "tests/new-professional-life-renewal-bonus-engine-test.js"
+      ],
+      "selectedTests": [
+        "tests/new-professional-connection-bonus-engine-test.js",
+        "tests/new-professional-development-bonus-engine-test.js",
+        "tests/new-professional-gmmi-initial-premium-bonus-engine-test.js",
+        "tests/new-professional-gmmi-initial-premium-growth-annual-bonus-engine-test.js",
+        "tests/new-professional-gmmi-renewal-premium-bonus-engine-test.js"
+      ],
+      "omittedTestCount": 3,
+      "ruleArtifacts": [
+        "compensation/new-professional/rule-data/smnyl-new-professional-2026.rule-pack.json"
+      ],
+      "riskTags": [
+        "FINANCIAL_TRUTH"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY",
+          "FINANCIAL_OR_PAYMENT",
+          "RISK_TAG:FINANCIAL_TRUTH"
+        ]
+      },
+      "evidence": {
+        "memberCount": 10,
+        "mergeEdgeCount": 37,
+        "minimumMergeScore": 15,
+        "maximumMergeScore": 27,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "FINANCIAL_TRUTH"
+        ],
+        "reviewReasons": [],
+        "memberDomains": [
+          "compensation"
+        ]
+      },
+      "tests": [
+        {
+          "file": "tests/new-professional-connection-bonus-engine-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, FINANCIAL_OR_PAYMENT, RISK_TAG:FINANCIAL_TRUTH"
+        },
+        {
+          "file": "tests/new-professional-development-bonus-engine-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, FINANCIAL_OR_PAYMENT, RISK_TAG:FINANCIAL_TRUTH"
+        },
+        {
+          "file": "tests/new-professional-gmmi-initial-premium-bonus-engine-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, FINANCIAL_OR_PAYMENT, RISK_TAG:FINANCIAL_TRUTH"
+        },
+        {
+          "file": "tests/new-professional-gmmi-initial-premium-growth-annual-bonus-engine-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, FINANCIAL_OR_PAYMENT, RISK_TAG:FINANCIAL_TRUTH"
+        },
+        {
+          "file": "tests/new-professional-gmmi-renewal-premium-bonus-engine-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, FINANCIAL_OR_PAYMENT, RISK_TAG:FINANCIAL_TRUTH"
+        }
+      ],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "PARTIAL_OR_PROVISIONAL_STATE",
+        "PAYMENT_EVIDENCE_BOUNDARY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-COMPENSATION-DEVELOPMENT",
+      "proposedName": "development",
+      "domain": "compensation",
+      "kind": "BUSINESS",
+      "migrationPriority": 169,
+      "memberCount": 9,
+      "memberCapabilityIds": [
+        "CAP-COMPENSATION-ADVISOR_DEVELOPMENT_CONNECTION_BONUS",
+        "CAP-COMPENSATION-ADVISOR_DEVELOPMENT_COUNTING_WEIGHTING",
+        "CAP-COMPENSATION-ADVISOR_DEVELOPMENT_DEVELOPMENT_BONUS",
+        "CAP-COMPENSATION-ADVISOR_DEVELOPMENT_MONTHLY_INCOME_CANDIDATE",
+        "CAP-COMPENSATION-ADVISOR_DEVELOPMENT_RULE_PACK",
+        "CAP-COMPENSATION-ADVISOR_DEVELOPMENT_TRAINING_ALLOWANCE",
+        "CAP-COMPENSATION-ADVISOR_RELATIONSHIP_ATTRIBUTION",
+        "CAP-COMPENSATION-ADVISOR_RELATIONSHIP_BONUS_READINESS",
+        "CAP-COMPENSATION-SMNYL_ADVISOR_DEVELOPMENT_2026_RULE_PACK"
+      ],
+      "codeFiles": [
+        "compensation/advisor-development/advisor-development-connection-bonus-engine.js",
+        "compensation/advisor-development/advisor-development-counting-weighting-engine.js",
+        "compensation/advisor-development/advisor-development-development-bonus-engine.js",
+        "compensation/advisor-development/advisor-development-monthly-income-candidate-orchestrator.js",
+        "compensation/advisor-development/advisor-development-rule-pack-loader.js",
+        "compensation/advisor-development/advisor-development-rule-pack-validator.js",
+        "compensation/advisor-development/advisor-development-training-allowance-engine.js",
+        "compensation/advisor-development/advisor-relationship-attribution-evaluator.js",
+        "compensation/advisor-development/advisor-relationship-bonus-readiness-gate.js"
+      ],
+      "testFiles": [
+        "tests/advisor-development-connection-bonus-engine-test.js",
+        "tests/advisor-development-development-bonus-engine-test.js",
+        "tests/advisor-relationship-bonus-readiness-gate-test.js"
+      ],
+      "selectedTests": [
+        "tests/advisor-development-connection-bonus-engine-test.js",
+        "tests/advisor-development-development-bonus-engine-test.js",
+        "tests/advisor-relationship-bonus-readiness-gate-test.js"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [
+        "compensation/advisor-development/rule-data/smnyl-advisor-development-2026.rule-pack.json"
+      ],
+      "riskTags": [
+        "FINANCIAL_TRUTH"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY",
+          "FINANCIAL_OR_PAYMENT",
+          "RISK_TAG:FINANCIAL_TRUTH",
+          "TRUTH_OR_ELIGIBILITY"
+        ]
+      },
+      "evidence": {
+        "memberCount": 9,
+        "mergeEdgeCount": 20,
+        "minimumMergeScore": 12,
+        "maximumMergeScore": 27,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "FINANCIAL_TRUTH"
+        ],
+        "reviewReasons": [],
+        "memberDomains": [
+          "compensation"
+        ]
+      },
+      "tests": [
+        {
+          "file": "tests/advisor-development-connection-bonus-engine-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, FINANCIAL_OR_PAYMENT, RISK_TAG:FINANCIAL_TRUTH, TRUTH_OR_ELIGIBILITY"
+        },
+        {
+          "file": "tests/advisor-development-development-bonus-engine-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, FINANCIAL_OR_PAYMENT, RISK_TAG:FINANCIAL_TRUTH, TRUTH_OR_ELIGIBILITY"
+        },
+        {
+          "file": "tests/advisor-relationship-bonus-readiness-gate-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, FINANCIAL_OR_PAYMENT, RISK_TAG:FINANCIAL_TRUTH, TRUTH_OR_ELIGIBILITY"
+        }
+      ],
+      "scenarioSeeds": [
+        "ELIGIBILITY_OR_GATE_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "PARTIAL_OR_PROVISIONAL_STATE",
+        "PAYMENT_EVIDENCE_BOUNDARY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-COMPENSATION-EVIDENCE_PACKET_PAYMENT",
+      "proposedName": "evidence-packet-payment",
+      "domain": "compensation",
+      "kind": "BUSINESS",
+      "migrationPriority": 94,
+      "memberCount": 3,
+      "memberCapabilityIds": [
+        "CAP-COMPENSATION-COMMISSION_STATEMENT_EVIDENCE_PACKET",
+        "CAP-COMPENSATION-PAYMENT_EVENT",
+        "CAP-COMPENSATION-PAYMENT_EVIDENCE_PACKET"
+      ],
+      "codeFiles": [
+        "policy-operations/evidence/commission-statement-evidence-packet.js",
+        "policy-operations/evidence/payment-evidence-packet.js",
+        "policy-operations/payment-event-engine.js"
+      ],
+      "testFiles": [
+        "tests/commission-statement-evidence-packet-test.js",
+        "tests/payment-event-engine-test.js",
+        "tests/payment-evidence-packet-test.js"
+      ],
+      "selectedTests": [
+        "tests/commission-statement-evidence-packet-test.js",
+        "tests/payment-event-engine-test.js",
+        "tests/payment-evidence-packet-test.js"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "FINANCIAL_TRUTH",
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY",
+          "FINANCIAL_OR_PAYMENT",
+          "RISK_TAG:FINANCIAL_TRUTH",
+          "RISK_TAG:TRUTH_CRITICAL",
+          "TRUTH_OR_ELIGIBILITY"
+        ]
+      },
+      "evidence": {
+        "memberCount": 3,
+        "mergeEdgeCount": 3,
+        "minimumMergeScore": 14,
+        "maximumMergeScore": 20,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "FINANCIAL_TRUTH",
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "FINANCIAL_TRUTH_WITHOUT_RULE_ARTIFACT"
+        ],
+        "memberDomains": [
+          "compensation"
+        ]
+      },
+      "tests": [
+        {
+          "file": "tests/commission-statement-evidence-packet-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, FINANCIAL_OR_PAYMENT, RISK_TAG:FINANCIAL_TRUTH, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY"
+        },
+        {
+          "file": "tests/payment-event-engine-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, FINANCIAL_OR_PAYMENT, RISK_TAG:FINANCIAL_TRUTH, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY"
+        },
+        {
+          "file": "tests/payment-evidence-packet-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, FINANCIAL_OR_PAYMENT, RISK_TAG:FINANCIAL_TRUTH, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY"
+        }
+      ],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "PARTIAL_OR_PROVISIONAL_STATE",
+        "PAYMENT_EVIDENCE_BOUNDARY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-POLICY_OPERATIONS-CSV",
+      "proposedName": "csv",
+      "domain": "policy-operations",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 92,
+      "memberCount": 62,
+      "memberCapabilityIds": [
+        "CAP-POLICY_OPERATIONS-APPROVAL_POLICY",
+        "CAP-POLICY_OPERATIONS-CSV",
+        "CAP-POLICY_OPERATIONS-DRAG_DROP_POLICY_ZONE",
+        "CAP-POLICY_OPERATIONS-EVIDENCE_CONFIRMATION_TASK",
+        "CAP-POLICY_OPERATIONS-EVIDENCE_EXTRACTION_CANDIDATE",
+        "CAP-POLICY_OPERATIONS-EVIDENCE_INBOX_ITEM",
+        "CAP-POLICY_OPERATIONS-EVIDENCE_INBOX_ROUTER",
+        "CAP-POLICY_OPERATIONS-EVIDENCE_INBOX_SCOPE",
+        "CAP-POLICY_OPERATIONS-EVIDENCE_PROCESSING_STATUS",
+        "CAP-POLICY_OPERATIONS-EVIDENCE_SOURCE",
+        "CAP-POLICY_OPERATIONS-IMPORT_PROGRESS",
+        "CAP-POLICY_OPERATIONS-MASS_IMPORT",
+        "CAP-POLICY_OPERATIONS-MASS_IMPORT_PREVIEW",
+        "CAP-POLICY_OPERATIONS-OCR_RESULT_CACHE",
+        "CAP-POLICY_OPERATIONS-POLICY",
+        "CAP-POLICY_OPERATIONS-POLICY_ADVISOR_CONFIRMATION",
+        "CAP-POLICY_OPERATIONS-POLICY_AI",
+        "CAP-POLICY_OPERATIONS-POLICY_AI_INSIGHTS",
+        "CAP-POLICY_OPERATIONS-POLICY_AUTO_APPROVAL",
+        "CAP-POLICY_OPERATIONS-POLICY_AUTO_SAVE",
+        "CAP-POLICY_OPERATIONS-POLICY_BATCH_PROCESSING",
+        "CAP-POLICY_OPERATIONS-POLICY_CONTEXT",
+        "CAP-POLICY_OPERATIONS-POLICY_CORE",
+        "CAP-POLICY_OPERATIONS-POLICY_DETAIL",
+        "CAP-POLICY_OPERATIONS-POLICY_DETAIL_ALERT",
+        "CAP-POLICY_OPERATIONS-POLICY_DETAIL_VIEW",
+        "CAP-POLICY_OPERATIONS-POLICY_DOCUMENT",
+        "CAP-POLICY_OPERATIONS-POLICY_DOCUMENT_CLASSIFIER",
+        "CAP-POLICY_OPERATIONS-POLICY_DUPLICATE",
+        "CAP-POLICY_OPERATIONS-POLICY_EVIDENCE_PACKET",
+        "CAP-POLICY_OPERATIONS-POLICY_FILTER",
+        "CAP-POLICY_OPERATIONS-POLICY_FINANCIAL_SUMMARY",
+        "CAP-POLICY_OPERATIONS-POLICY_HUMAN_REVIEW",
+        "CAP-POLICY_OPERATIONS-POLICY_IMPORT",
+        "CAP-POLICY_OPERATIONS-POLICY_IMPORT_DASHBOARD",
+        "CAP-POLICY_OPERATIONS-POLICY_IMPORT_ERRORS",
+        "CAP-POLICY_OPERATIONS-POLICY_IMPORT_METRICS",
+        "CAP-POLICY_OPERATIONS-POLICY_IMPORT_QUEUE",
+        "CAP-POLICY_OPERATIONS-POLICY_IMPORT_SUMMARY",
+        "CAP-POLICY_OPERATIONS-POLICY_INDEXING",
+        "CAP-POLICY_OPERATIONS-POLICY_INGESTION",
+        "CAP-POLICY_OPERATIONS-POLICY_LAST_CONTACT",
+        "CAP-POLICY_OPERATIONS-POLICY_LIVE",
+        "CAP-POLICY_OPERATIONS-POLICY_METADATA",
+        "CAP-POLICY_OPERATIONS-POLICY_NORMALIZATION",
+        "CAP-POLICY_OPERATIONS-POLICY_OCR",
+        "CAP-POLICY_OPERATIONS-POLICY_OPERATIONAL_CENTER",
+        "CAP-POLICY_OPERATIONS-POLICY_QUICK_ACTIONS",
+        "CAP-POLICY_OPERATIONS-POLICY_RELATIONSHIP_SCORE",
+        "CAP-POLICY_OPERATIONS-POLICY_RESULT",
+        "CAP-POLICY_OPERATIONS-POLICY_REVIEW_PRIORITY",
+        "CAP-POLICY_OPERATIONS-POLICY_REVIEW_UI",
+        "CAP-POLICY_OPERATIONS-POLICY_RISK",
+        "CAP-POLICY_OPERATIONS-POLICY_SEARCH",
+        "CAP-POLICY_OPERATIONS-POLICY_SIDE_BY_SIDE",
+        "CAP-POLICY_OPERATIONS-POLICY_SMART_SORT",
+        "CAP-POLICY_OPERATIONS-POLICY_STAGING_CACHE",
+        "CAP-POLICY_OPERATIONS-POLICY_STAGING_STATUS",
+        "CAP-POLICY_OPERATIONS-POLICY_STATUS",
+        "CAP-POLICY_OPERATIONS-POLICY_STORAGE",
+        "CAP-POLICY_OPERATIONS-POLICY_SUMMARY",
+        "CAP-POLICY_OPERATIONS-POLICY_WORKSPACE"
+      ],
+      "codeFiles": [
+        "platform/core/policy/ApprovalPolicy.js",
+        "platform/core/policy/Policy.js",
+        "platform/core/policy/PolicyEngine.js",
+        "platform/core/policy/PolicyResult.js",
+        "policy-operations/evidence-inbox/evidence-confirmation-task.js",
+        "policy-operations/evidence-inbox/evidence-extraction-candidate.js",
+        "policy-operations/evidence-inbox/evidence-inbox-item.js",
+        "policy-operations/evidence-inbox/evidence-inbox-router-contract.js",
+        "policy-operations/evidence-inbox/evidence-inbox-scope-gate.js",
+        "policy-operations/evidence-inbox/evidence-processing-status.js",
+        "policy-operations/evidence-inbox/evidence-source.js",
+        "policy-operations/evidence/csv-parser-engine.js",
+        "policy-operations/evidence/import-progress-engine.js",
+        "policy-operations/evidence/mass-import-preview-engine.js",
+        "policy-operations/evidence/mass-import-validation-engine.js",
+        "policy-operations/evidence/ocr-result-cache.js",
+        "policy-operations/evidence/policy-ai-parser.js",
+        "policy-operations/evidence/policy-batch-processing-engine.js",
+        "policy-operations/evidence/policy-document-classifier.js",
+        "policy-operations/evidence/policy-document-engine.js",
+        "policy-operations/evidence/policy-evidence-packet.js",
+        "policy-operations/evidence/policy-human-review-engine.js",
+        "policy-operations/evidence/policy-import-dashboard-engine.js",
+        "policy-operations/evidence/policy-import-engine.js",
+        "policy-operations/evidence/policy-import-errors-engine.js",
+        "policy-operations/evidence/policy-import-metrics-engine.js",
+        "policy-operations/evidence/policy-import-queue.js",
+        "policy-operations/evidence/policy-import-summary.js",
+        "policy-operations/evidence/policy-ingestion-orchestrator.js",
+        "policy-operations/evidence/policy-ocr-engine.js",
+        "policy-operations/evidence/policy-schema-validator-engine.js",
+        "policy-operations/evidence/policy-staging-cache.js",
+        "policy-operations/evidence/policy-staging-status-engine.js",
+        "policy-operations/policy-advisor-confirmation-gate.js",
+        "policy-operations/policy-detail/drag-drop-policy-zone.js",
+        "policy-operations/policy-detail/policy-ai-insights-engine.js",
+        "policy-operations/policy-detail/policy-auto-approval-engine.js",
+        "policy-operations/policy-detail/policy-auto-save-engine.js",
+        "policy-operations/policy-detail/policy-context-engine.js",
+        "policy-operations/policy-detail/policy-core-engine.js",
+        "policy-operations/policy-detail/policy-detail-alert-engine.js",
+        "policy-operations/policy-detail/policy-detail-engine.js",
+        "policy-operations/policy-detail/policy-detail-view-model.js",
+        "policy-operations/policy-detail/policy-duplicate-engine.js",
+        "policy-operations/policy-detail/policy-filter-engine.js",
+        "policy-operations/policy-detail/policy-financial-summary-engine.js",
+        "policy-operations/policy-detail/policy-indexing-engine.js",
+        "policy-operations/policy-detail/policy-last-contact-engine.js",
+        "policy-operations/policy-detail/policy-live-state-engine.js",
+        "policy-operations/policy-detail/policy-metadata-engine.js",
+        "policy-operations/policy-detail/policy-normalization-engine.js",
+        "policy-operations/policy-detail/policy-operational-center-engine.js",
+        "policy-operations/policy-detail/policy-quick-actions-engine.js",
+        "policy-operations/policy-detail/policy-relationship-score-engine.js",
+        "policy-operations/policy-detail/policy-review-priority-engine.js",
+        "policy-operations/policy-detail/policy-review-ui-engine.js",
+        "policy-operations/policy-detail/policy-risk-engine.js",
+        "policy-operations/policy-detail/policy-search-engine.js",
+        "policy-operations/policy-detail/policy-side-by-side-engine.js",
+        "policy-operations/policy-detail/policy-smart-sort-engine.js",
+        "policy-operations/policy-detail/policy-status-engine.js",
+        "policy-operations/policy-detail/policy-storage-engine.js",
+        "policy-operations/policy-detail/policy-summary-engine.js",
+        "policy-operations/policy-detail/policy-validation-engine.js",
+        "policy-operations/policy-detail/policy-workspace-engine.js"
+      ],
+      "testFiles": [
+        "tests/policy-advisor-confirmation-gate-test.js",
+        "tests/policy-evidence-packet-test.js"
+      ],
+      "selectedTests": [
+        "tests/policy-advisor-confirmation-gate-test.js",
+        "tests/policy-evidence-packet-test.js"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL",
+          "TRUTH_OR_ELIGIBILITY",
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "evidence": {
+        "memberCount": 62,
+        "mergeEdgeCount": 559,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 24,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "LARGE_CLUSTER_REQUIRES_REVIEW"
+        ],
+        "memberDomains": [
+          "policy-operations"
+        ]
+      },
+      "tests": [
+        {
+          "file": "tests/policy-advisor-confirmation-gate-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY, USER_ENTRYPOINT"
+        },
+        {
+          "file": "tests/policy-evidence-packet-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY, USER_ENTRYPOINT"
+        }
+      ],
+      "scenarioSeeds": [
+        "CONFLICT_OR_DUPLICATE_STATE",
+        "ELIGIBILITY_OR_GATE_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "SPLIT_REQUIRED",
+      "dispositionReason": "The proposed component is too broad or crosses source domains.",
+      "identityLocked": false,
+      "parityVerified": false
+    }
+  ],
+  "parity": {
+    "verifiedCapabilities": 0
+  },
+  "reportHash": "1a7b99ac429757a9c265345c601d576df805497040c4fb13178b903f0efdcded"
+}

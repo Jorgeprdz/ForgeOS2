@@ -7,7 +7,7 @@
     "v2BaselineHead": "dcc48b98d12d2c15d75847e0898ac33f6a46b8a9"
   },
   "createdAt": "2026-07-24T06:01:54.128Z",
-  "updatedAt": "2026-07-24T06:01:54.128Z",
+  "updatedAt": "2026-07-24T06:02:18.348Z",
   "safety": {
     "identityLockIsNotParity": true,
     "automaticHighRiskLock": false,
@@ -16,17 +16,554 @@
     "automaticRewrite": false,
     "automaticRetirement": false
   },
-  "reviewedGroupIds": [],
+  "reviewedGroupIds": [
+    "CAP2-COMPENSATION-DEVELOPMENT",
+    "CAP2-COMPENSATION-EVIDENCE_PACKET_PAYMENT",
+    "CAP2-COMPENSATION-NEW_PROFESSIONAL_BONUS",
+    "CAP2-COMPENSATION-PARTNER_RULE",
+    "CAP2-POLICY_OPERATIONS-CSV",
+    "CAP2-QUOTING-APP",
+    "CAP2-QUOTING-QUOTE_PREVIEW",
+    "CAP2-RECRUITMENT-RECRUITMENT"
+  ],
   "lockedIdentities": [],
-  "humanReviewRequired": [],
-  "splitRequired": [],
+  "humanReviewRequired": [
+    {
+      "groupId": "CAP2-COMPENSATION-NEW_PROFESSIONAL_BONUS",
+      "capabilityId": null,
+      "name": "new-professional-bonus",
+      "domain": "compensation",
+      "kind": "BUSINESS",
+      "memberCount": 10,
+      "riskTags": [
+        "FINANCIAL_TRUTH"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY",
+          "FINANCIAL_OR_PAYMENT",
+          "RISK_TAG:FINANCIAL_TRUTH"
+        ]
+      },
+      "omittedTestCount": 3,
+      "evidence": {
+        "memberCount": 10,
+        "mergeEdgeCount": 37,
+        "minimumMergeScore": 15,
+        "maximumMergeScore": 27,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "FINANCIAL_TRUTH"
+        ],
+        "reviewReasons": [],
+        "memberDomains": [
+          "compensation"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "PARTIAL_OR_PROVISIONAL_STATE",
+        "PAYMENT_EVIDENCE_BOUNDARY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 5,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-COMPENSATION-DEVELOPMENT",
+      "capabilityId": null,
+      "name": "development",
+      "domain": "compensation",
+      "kind": "BUSINESS",
+      "memberCount": 9,
+      "riskTags": [
+        "FINANCIAL_TRUTH"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY",
+          "FINANCIAL_OR_PAYMENT",
+          "RISK_TAG:FINANCIAL_TRUTH",
+          "TRUTH_OR_ELIGIBILITY"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 9,
+        "mergeEdgeCount": 20,
+        "minimumMergeScore": 12,
+        "maximumMergeScore": 27,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "FINANCIAL_TRUTH"
+        ],
+        "reviewReasons": [],
+        "memberDomains": [
+          "compensation"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "ELIGIBILITY_OR_GATE_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "PARTIAL_OR_PROVISIONAL_STATE",
+        "PAYMENT_EVIDENCE_BOUNDARY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 3,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-COMPENSATION-EVIDENCE_PACKET_PAYMENT",
+      "capabilityId": null,
+      "name": "evidence-packet-payment",
+      "domain": "compensation",
+      "kind": "BUSINESS",
+      "memberCount": 3,
+      "riskTags": [
+        "FINANCIAL_TRUTH",
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY",
+          "FINANCIAL_OR_PAYMENT",
+          "RISK_TAG:FINANCIAL_TRUTH",
+          "RISK_TAG:TRUTH_CRITICAL",
+          "TRUTH_OR_ELIGIBILITY"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 3,
+        "mergeEdgeCount": 3,
+        "minimumMergeScore": 14,
+        "maximumMergeScore": 20,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "FINANCIAL_TRUTH",
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "FINANCIAL_TRUTH_WITHOUT_RULE_ARTIFACT"
+        ],
+        "memberDomains": [
+          "compensation"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "PARTIAL_OR_PROVISIONAL_STATE",
+        "PAYMENT_EVIDENCE_BOUNDARY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 3,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    }
+  ],
+  "splitRequired": [
+    {
+      "groupId": "CAP2-COMPENSATION-PARTNER_RULE",
+      "capabilityId": null,
+      "name": "partner-rule",
+      "domain": "compensation",
+      "kind": "BUSINESS",
+      "memberCount": 39,
+      "riskTags": [
+        "EXTERNAL_BOUNDARY",
+        "FINANCIAL_TRUTH",
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY",
+          "EXTERNAL_BOUNDARY",
+          "FINANCIAL_OR_PAYMENT",
+          "RISK_TAG:EXTERNAL_BOUNDARY",
+          "RISK_TAG:FINANCIAL_TRUTH",
+          "RISK_TAG:TRUTH_CRITICAL",
+          "TRUTH_OR_ELIGIBILITY"
+        ]
+      },
+      "omittedTestCount": 19,
+      "evidence": {
+        "memberCount": 39,
+        "mergeEdgeCount": 112,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 31,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "MULTIPLE_DIRECT_IMPORT_EDGES",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY",
+          "FINANCIAL_TRUTH",
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "LARGE_CLUSTER_REQUIRES_REVIEW"
+        ],
+        "memberDomains": [
+          "compensation"
+        ]
+      },
+      "disposition": "SPLIT_REQUIRED",
+      "reason": "The proposed component is too broad or crosses source domains.",
+      "scenarioSeeds": [
+        "ELIGIBILITY_OR_GATE_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "PARTIAL_OR_PROVISIONAL_STATE",
+        "PAYMENT_EVIDENCE_BOUNDARY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 5,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-QUOTING-QUOTE_PREVIEW",
+      "capabilityId": null,
+      "name": "quote-preview",
+      "domain": "quoting",
+      "kind": "BUSINESS",
+      "memberCount": 24,
+      "riskTags": [
+        "EXTERNAL_BOUNDARY",
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY",
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY",
+          "RISK_TAG:TRUTH_CRITICAL",
+          "TRUTH_OR_ELIGIBILITY",
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "omittedTestCount": 16,
+      "evidence": {
+        "memberCount": 24,
+        "mergeEdgeCount": 215,
+        "minimumMergeScore": 15,
+        "maximumMergeScore": 28,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY",
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "LARGE_CLUSTER_REQUIRES_REVIEW"
+        ],
+        "memberDomains": [
+          "quoting"
+        ]
+      },
+      "disposition": "SPLIT_REQUIRED",
+      "reason": "The proposed component is too broad or crosses source domains.",
+      "scenarioSeeds": [
+        "ELIGIBILITY_OR_GATE_FAILURE",
+        "EXTERNAL_CONTRACT_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 5,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-QUOTING-APP",
+      "capabilityId": null,
+      "name": "app",
+      "domain": "quoting",
+      "kind": "BUSINESS",
+      "memberCount": 31,
+      "riskTags": [
+        "EXTERNAL_BOUNDARY",
+        "TRUTH_CRITICAL",
+        "USER_ENTRYPOINT"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY",
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY",
+          "RISK_TAG:TRUTH_CRITICAL",
+          "RISK_TAG:USER_ENTRYPOINT",
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 31,
+        "mergeEdgeCount": 328,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 22,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY",
+          "TRUTH_CRITICAL",
+          "USER_ENTRYPOINT"
+        ],
+        "reviewReasons": [
+          "LARGE_CLUSTER_REQUIRES_REVIEW"
+        ],
+        "memberDomains": [
+          "quoting"
+        ]
+      },
+      "disposition": "SPLIT_REQUIRED",
+      "reason": "The proposed component is too broad or crosses source domains.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 1,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-RECRUITMENT-RECRUITMENT",
+      "capabilityId": null,
+      "name": "recruitment",
+      "domain": "recruitment",
+      "kind": "BUSINESS",
+      "memberCount": 27,
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY",
+          "RISK_TAG:TRUTH_CRITICAL",
+          "TRUTH_OR_ELIGIBILITY",
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "omittedTestCount": 9,
+      "evidence": {
+        "memberCount": 27,
+        "mergeEdgeCount": 139,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 25,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "LARGE_CLUSTER_REQUIRES_REVIEW"
+        ],
+        "memberDomains": [
+          "recruitment"
+        ]
+      },
+      "disposition": "SPLIT_REQUIRED",
+      "reason": "The proposed component is too broad or crosses source domains.",
+      "scenarioSeeds": [
+        "ELIGIBILITY_OR_GATE_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 5,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-POLICY_OPERATIONS-CSV",
+      "capabilityId": null,
+      "name": "csv",
+      "domain": "policy-operations",
+      "kind": "UNCLASSIFIED",
+      "memberCount": 62,
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL",
+          "TRUTH_OR_ELIGIBILITY",
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 62,
+        "mergeEdgeCount": 559,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 24,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "LARGE_CLUSTER_REQUIRES_REVIEW"
+        ],
+        "memberDomains": [
+          "policy-operations"
+        ]
+      },
+      "disposition": "SPLIT_REQUIRED",
+      "reason": "The proposed component is too broad or crosses source domains.",
+      "scenarioSeeds": [
+        "CONFLICT_OR_DUPLICATE_STATE",
+        "ELIGIBILITY_OR_GATE_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 2,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    }
+  ],
   "mergeRejected": [],
-  "waves": [],
+  "waves": [
+    {
+      "waveId": "WAVE-001",
+      "reportHash": "1a7b99ac429757a9c265345c601d576df805497040c4fb13178b903f0efdcded",
+      "reviewedGroups": 8,
+      "lockedIdentities": 0,
+      "humanReviewRequired": 3,
+      "splitRequired": 5,
+      "mergeRejected": 0
+    }
+  ],
   "totals": {
-    "reviewedGroups": 0,
+    "reviewedGroups": 8,
     "lockedIdentities": 0,
-    "humanReviewRequired": 0,
-    "splitRequired": 0,
+    "humanReviewRequired": 3,
+    "splitRequired": 5,
     "mergeRejected": 0,
     "testPass": 0,
     "testFail": 0,
@@ -34,7 +571,7 @@
     "testMissing": 0,
     "testUnrunnable": 0,
     "testDeferred": 0,
-    "testSkippedSafety": 0
+    "testSkippedSafety": 29
   },
   "parity": {
     "verifiedCapabilities": 0,
