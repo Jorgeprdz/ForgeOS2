@@ -1,0 +1,616 @@
+{
+  "schemaVersion": 1,
+  "kind": "FORGE_CAPABILITY_IDENTITY_REVIEW_WAVE",
+  "waveId": "WAVE-006",
+  "generatedAt": "2026-07-24T06:03:39.110Z",
+  "source": {
+    "legacyHead": "e4441e794abaaf983472591e7c80ae545b0b3f67",
+    "groupingReportHash": "47019e7100208db576f47f1d026235516dac59837c131d2f193268cb575c0bc0"
+  },
+  "safety": {
+    "identityLockIsNotParity": true,
+    "highRiskAutoLock": false,
+    "businessAutoLock": false,
+    "incompleteTestAutoLock": false,
+    "rewritesRules": false,
+    "retiresLegacy": false
+  },
+  "counts": {
+    "reviewedGroups": 8,
+    "lockedIdentities": 0,
+    "humanReviewRequired": 7,
+    "splitRequired": 1,
+    "mergeRejected": 0
+  },
+  "reviews": [
+    {
+      "groupId": "CAP2-POLICY_OPERATIONS-RENEWAL",
+      "proposedName": "renewal",
+      "domain": "policy-operations",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 8,
+      "memberCount": 3,
+      "memberCapabilityIds": [
+        "CAP-POLICY_OPERATIONS-POLICY_RENEWAL",
+        "CAP-POLICY_OPERATIONS-POLICY_RENEWAL_STATUS",
+        "CAP-POLICY_OPERATIONS-RENEWAL_INTELLIGENCE"
+      ],
+      "codeFiles": [
+        "policy-operations/renewals/policy-renewal-engine.js",
+        "policy-operations/renewals/policy-renewal-status-engine.js",
+        "policy-operations/renewals/renewal-intelligence-engine.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL"
+        ]
+      },
+      "evidence": {
+        "memberCount": 3,
+        "mergeEdgeCount": 3,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 18,
+        "reasons": [
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "policy-operations"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-PRODUCT_INTELLIGENCE-VIDA_MUJER",
+      "proposedName": "vida-mujer",
+      "domain": "product-intelligence",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 8,
+      "memberCount": 3,
+      "memberCapabilityIds": [
+        "CAP-PRODUCT_INTELLIGENCE-VIDA_MUJER_CLIENT_EXPLANATION_REPORT",
+        "CAP-PRODUCT_INTELLIGENCE-VIDA_MUJER_PDF_INTAKE_REPORT",
+        "CAP-PRODUCT_INTELLIGENCE-VIDA_MUJER_SURVIVAL_SCHEDULE"
+      ],
+      "codeFiles": [
+        "product-intelligence/knowledge/vida-mujer-client-explanation-report.js",
+        "product-intelligence/knowledge/vida-mujer-pdf-intake-report.js",
+        "product-intelligence/knowledge/vida-mujer-survival-schedule-engine.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL"
+        ]
+      },
+      "evidence": {
+        "memberCount": 3,
+        "mergeEdgeCount": 3,
+        "minimumMergeScore": 18,
+        "maximumMergeScore": 18,
+        "reasons": [
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "product-intelligence"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-BOUNDARY",
+      "proposedName": "boundary",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 7,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-PROVIDER_CONNECTOR_BOUNDARY",
+        "CAP-MANAGER_TEAM-PROVIDER_RUNTIME_BOUNDARY"
+      ],
+      "codeFiles": [
+        "manager-os/provider-connector/provider-connector-boundary-contract.js",
+        "manager-os/provider-runtime/provider-runtime-boundary-contract.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "EXTERNAL_BOUNDARY"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY"
+        ]
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 15,
+        "maximumMergeScore": 15,
+        "reasons": [
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "EXTERNAL_CONTRACT_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-BOUNDARY_TRUTH",
+      "proposedName": "boundary-truth",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 7,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-CANONICAL_TRUTH_REGISTRY_BOUNDARY",
+        "CAP-MANAGER_TEAM-TRUTH_PROMOTION_BOUNDARY"
+      ],
+      "codeFiles": [
+        "manager-os/canonical-truth-registry/canonical-truth-registry-boundary-contract.js",
+        "manager-os/truth-promotion/truth-promotion-boundary-contract.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL"
+        ]
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 11,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-POLICY_OPERATIONS-CARTERA_UTILS",
+      "proposedName": "cartera-utils",
+      "domain": "policy-operations",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 7,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-POLICY_OPERATIONS-CARTERA_UTILS",
+        "CAP-POLICY_OPERATIONS-POLICY_CLIENT_SUMMARY"
+      ],
+      "codeFiles": [
+        "policy-operations/client-records/cartera-utils.js",
+        "policy-operations/client-records/policy-client-summary-engine.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL"
+        ]
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 11,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "policy-operations"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-PRODUCT_INTELLIGENCE-ENTITY_QUOTATION",
+      "proposedName": "entity-quotation",
+      "domain": "product-intelligence",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 7,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-PRODUCT_INTELLIGENCE-QUOTATION_EXTRACTION_RESULT_ENTITY",
+        "CAP-PRODUCT_INTELLIGENCE-QUOTATION_INPUT_ENTITY"
+      ],
+      "codeFiles": [
+        "product-intelligence/quotes/quotation-extraction-result.entity.js",
+        "product-intelligence/quotes/quotation-input.entity.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL"
+        ]
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 11,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "product-intelligence"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-GOVERNANCE-SALES_PRESENTATION",
+      "proposedName": "sales-presentation",
+      "domain": "governance",
+      "kind": "INFRASTRUCTURE",
+      "migrationPriority": 6,
+      "memberCount": 6,
+      "memberCapabilityIds": [
+        "CAP-GOVERNANCE-SALES_PRESENTATION_EDITABLE_PREVIEW",
+        "CAP-GOVERNANCE-SALES_PRESENTATION_HUMAN_APPROVAL",
+        "CAP-GOVERNANCE-SALES_PRESENTATION_PROMPT_BUILDER",
+        "CAP-GOVERNANCE-SALES_PRESENTATION_REVIEW",
+        "CAP-GOVERNANCE-SALES_PRESENTATION_REVIEW_PACKET_BUILDER",
+        "CAP-GOVERNANCE-SALES_PRESENTATION_SLIDE_PLAN_GENERATOR"
+      ],
+      "codeFiles": [
+        "docs/static-preview/advisor-presentation-runtime/forge-sales-presentation-editable-preview.js",
+        "docs/static-preview/advisor-presentation-runtime/forge-sales-presentation-human-approval-gate.js",
+        "docs/static-preview/advisor-presentation-runtime/forge-sales-presentation-prompt-builder.js",
+        "docs/static-preview/advisor-presentation-runtime/forge-sales-presentation-review-packet-builder.js",
+        "docs/static-preview/advisor-presentation-runtime/forge-sales-presentation-review-state-store.js",
+        "docs/static-preview/advisor-presentation-runtime/forge-sales-presentation-slide-plan-generator.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "evidence": {
+        "memberCount": 6,
+        "mergeEdgeCount": 15,
+        "minimumMergeScore": 18,
+        "maximumMergeScore": 22,
+        "reasons": [
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "governance"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-INTAKE",
+      "proposedName": "intake",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 6,
+      "memberCount": 24,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-ENGAGEMENT_MANAGER_CONTEXT_INTAKE",
+        "CAP-MANAGER_TEAM-ENGAGEMENT_MANAGER_CONTEXT_INTAKE_BOUNDARY",
+        "CAP-MANAGER_TEAM-ENGAGEMENT_MANAGER_CONTEXT_INTAKE_BOUNDARY_CONTRACT_MASTER",
+        "CAP-MANAGER_TEAM-ENGAGEMENT_MANAGER_CONTEXT_INTAKE_ORCHESTRATOR_MASTER",
+        "CAP-MANAGER_TEAM-ENGAGEMENT_MANAGER_DIGNITY_GUARDRAIL_INTAKE",
+        "CAP-MANAGER_TEAM-ENGAGEMENT_MANAGER_DIGNITY_GUARDRAIL_INTAKE_MASTER",
+        "CAP-MANAGER_TEAM-ENGAGEMENT_MANAGER_PRIVATE_MOTIVATION_PACKET_INTAKE",
+        "CAP-MANAGER_TEAM-ENGAGEMENT_MANAGER_PRIVATE_MOTIVATION_PACKET_INTAKE_MASTER",
+        "CAP-MANAGER_TEAM-MICK_MANAGER_BEHAVIOR_REVIEW_PACKET_INTAKE",
+        "CAP-MANAGER_TEAM-MICK_MANAGER_BEHAVIOR_REVIEW_PACKET_INTAKE_MASTER",
+        "CAP-MANAGER_TEAM-MICK_MANAGER_CONTEXT_INTAKE",
+        "CAP-MANAGER_TEAM-MICK_MANAGER_CONTEXT_INTAKE_BOUNDARY",
+        "CAP-MANAGER_TEAM-MICK_MANAGER_CONTEXT_INTAKE_BOUNDARY_CONTRACT_MASTER",
+        "CAP-MANAGER_TEAM-MICK_MANAGER_CONTEXT_INTAKE_ORCHESTRATOR_MASTER",
+        "CAP-MANAGER_TEAM-MICK_MANAGER_NO_SURVEILLANCE_GUARDRAIL_INTAKE",
+        "CAP-MANAGER_TEAM-MICK_MANAGER_NO_SURVEILLANCE_GUARDRAIL_INTAKE_MASTER",
+        "CAP-MANAGER_TEAM-NASH_MANAGER_CONTEXT_INTAKE",
+        "CAP-MANAGER_TEAM-NASH_MANAGER_CONTEXT_INTAKE_BOUNDARY",
+        "CAP-MANAGER_TEAM-NASH_MANAGER_CONTEXT_INTAKE_BOUNDARY_CONTRACT_MASTER",
+        "CAP-MANAGER_TEAM-NASH_MANAGER_CONTEXT_INTAKE_ORCHESTRATOR_MASTER",
+        "CAP-MANAGER_TEAM-NASH_MANAGER_CONVERSATION_PREP_PACKET_INTAKE",
+        "CAP-MANAGER_TEAM-NASH_MANAGER_CONVERSATION_PREP_PACKET_INTAKE_MASTER",
+        "CAP-MANAGER_TEAM-NASH_MANAGER_SAFE_LANGUAGE_GUARDRAIL_INTAKE",
+        "CAP-MANAGER_TEAM-NASH_MANAGER_SAFE_LANGUAGE_GUARDRAIL_INTAKE_MASTER"
+      ],
+      "codeFiles": [
+        "engagement/context-intake/engagement-manager-context-intake-boundary-contract.js",
+        "engagement/context-intake/engagement-manager-context-intake-orchestrator.js",
+        "engagement/context-intake/engagement-manager-dignity-guardrail-intake.js",
+        "engagement/context-intake/engagement-manager-private-motivation-packet-intake.js",
+        "mick/context-intake/mick-manager-behavior-review-packet-intake.js",
+        "mick/context-intake/mick-manager-context-intake-boundary-contract.js",
+        "mick/context-intake/mick-manager-context-intake-orchestrator.js",
+        "mick/context-intake/mick-manager-no-surveillance-guardrail-intake.js",
+        "nash/context-intake/nash-manager-context-intake-boundary-contract.js",
+        "nash/context-intake/nash-manager-context-intake-orchestrator.js",
+        "nash/context-intake/nash-manager-conversation-prep-packet-intake.js",
+        "nash/context-intake/nash-manager-safe-language-guardrail-intake.js"
+      ],
+      "testFiles": [
+        "engagement/tests/engagement-manager-context-intake-boundary-contract-master-test.js",
+        "engagement/tests/engagement-manager-context-intake-orchestrator-master-test.js",
+        "engagement/tests/engagement-manager-dignity-guardrail-intake-master-test.js",
+        "engagement/tests/engagement-manager-private-motivation-packet-intake-master-test.js",
+        "mick/tests/mick-manager-behavior-review-packet-intake-master-test.js",
+        "mick/tests/mick-manager-context-intake-boundary-contract-master-test.js",
+        "mick/tests/mick-manager-context-intake-orchestrator-master-test.js",
+        "mick/tests/mick-manager-no-surveillance-guardrail-intake-master-test.js",
+        "nash/tests/nash-manager-context-intake-boundary-contract-master-test.js",
+        "nash/tests/nash-manager-context-intake-orchestrator-master-test.js",
+        "nash/tests/nash-manager-conversation-prep-packet-intake-master-test.js",
+        "nash/tests/nash-manager-safe-language-guardrail-intake-master-test.js"
+      ],
+      "selectedTests": [
+        "engagement/tests/engagement-manager-context-intake-boundary-contract-master-test.js",
+        "engagement/tests/engagement-manager-context-intake-orchestrator-master-test.js",
+        "engagement/tests/engagement-manager-dignity-guardrail-intake-master-test.js",
+        "engagement/tests/engagement-manager-private-motivation-packet-intake-master-test.js",
+        "mick/tests/mick-manager-behavior-review-packet-intake-master-test.js"
+      ],
+      "omittedTestCount": 7,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "evidence": {
+        "memberCount": 24,
+        "mergeEdgeCount": 96,
+        "minimumMergeScore": 10,
+        "maximumMergeScore": 28,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [
+          "LARGE_CLUSTER_REQUIRES_REVIEW"
+        ],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [
+        {
+          "file": "engagement/tests/engagement-manager-context-intake-boundary-contract-master-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: USER_ENTRYPOINT"
+        },
+        {
+          "file": "engagement/tests/engagement-manager-context-intake-orchestrator-master-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: USER_ENTRYPOINT"
+        },
+        {
+          "file": "engagement/tests/engagement-manager-dignity-guardrail-intake-master-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: USER_ENTRYPOINT"
+        },
+        {
+          "file": "engagement/tests/engagement-manager-private-motivation-packet-intake-master-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: USER_ENTRYPOINT"
+        },
+        {
+          "file": "mick/tests/mick-manager-behavior-review-packet-intake-master-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: USER_ENTRYPOINT"
+        }
+      ],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "SPLIT_REQUIRED",
+      "dispositionReason": "The proposed component is too broad or crosses source domains.",
+      "identityLocked": false,
+      "parityVerified": false
+    }
+  ],
+  "parity": {
+    "verifiedCapabilities": 0
+  },
+  "reportHash": "646ef94e266ae8b8767813c7d131045ed5c6d92572d838f254f6c13313e849bd"
+}

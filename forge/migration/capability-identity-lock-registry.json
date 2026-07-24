@@ -7,7 +7,7 @@
     "v2BaselineHead": "dcc48b98d12d2c15d75847e0898ac33f6a46b8a9"
   },
   "createdAt": "2026-07-24T06:01:54.128Z",
-  "updatedAt": "2026-07-24T06:03:23.081Z",
+  "updatedAt": "2026-07-24T06:03:39.108Z",
   "safety": {
     "identityLockIsNotParity": true,
     "automaticHighRiskLock": false,
@@ -24,6 +24,7 @@
     "CAP2-COMPENSATION-PARTNER_RULE",
     "CAP2-CRM_CLIENT-067G17B_PROSPECT",
     "CAP2-GOVERNANCE-APP",
+    "CAP2-GOVERNANCE-SALES_PRESENTATION",
     "CAP2-GOVERNANCE-SAMPLE_DATA",
     "CAP2-INTEGRATIONS-BASE",
     "CAP2-INTEGRATIONS-CARRIER_REVENUE",
@@ -33,21 +34,28 @@
     "CAP2-INTEGRATIONS-OPPORTUNITY_PIPELINE_READ",
     "CAP2-INTEGRATIONS-SALES_PRESENTATION",
     "CAP2-MANAGER_TEAM-ANALYTICS_HISTORICAL_MASTER",
+    "CAP2-MANAGER_TEAM-BOUNDARY",
     "CAP2-MANAGER_TEAM-BOUNDARY_MASTER",
+    "CAP2-MANAGER_TEAM-BOUNDARY_TRUTH",
     "CAP2-MANAGER_TEAM-COACHING_MASTER",
     "CAP2-MANAGER_TEAM-DASHBOARD_MASTER",
     "CAP2-MANAGER_TEAM-FORECAST_MASTER",
+    "CAP2-MANAGER_TEAM-INTAKE",
     "CAP2-MANAGER_TEAM-MASTER_PLAN_REVIEW",
     "CAP2-PERSISTENCE-SUPABASE_RLS",
+    "CAP2-POLICY_OPERATIONS-CARTERA_UTILS",
     "CAP2-POLICY_OPERATIONS-CSV",
+    "CAP2-POLICY_OPERATIONS-RENEWAL",
     "CAP2-POLICY_OPERATIONS-TASK",
     "CAP2-POLICY_OPERATIONS-TIMELINE",
+    "CAP2-PRODUCT_INTELLIGENCE-ENTITY_QUOTATION",
     "CAP2-PRODUCT_INTELLIGENCE-EVENT_BENEFIT",
     "CAP2-PRODUCT_INTELLIGENCE-GMM_QUOTE",
     "CAP2-PRODUCT_INTELLIGENCE-INTELLIGENCE_PREVIEW",
     "CAP2-PRODUCT_INTELLIGENCE-ORVI",
     "CAP2-PRODUCT_INTELLIGENCE-PROJECTION",
     "CAP2-PRODUCT_INTELLIGENCE-SHARED_AVE",
+    "CAP2-PRODUCT_INTELLIGENCE-VIDA_MUJER",
     "CAP2-QUOTING-APP",
     "CAP2-QUOTING-GMM_SMNYL",
     "CAP2-QUOTING-GMM_SPRINT_SMOKE",
@@ -1796,6 +1804,378 @@
         "unrunnable": 0
       },
       "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-POLICY_OPERATIONS-RENEWAL",
+      "capabilityId": null,
+      "name": "renewal",
+      "domain": "policy-operations",
+      "kind": "UNCLASSIFIED",
+      "memberCount": 3,
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 3,
+        "mergeEdgeCount": 3,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 18,
+        "reasons": [
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "policy-operations"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 0,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-PRODUCT_INTELLIGENCE-VIDA_MUJER",
+      "capabilityId": null,
+      "name": "vida-mujer",
+      "domain": "product-intelligence",
+      "kind": "UNCLASSIFIED",
+      "memberCount": 3,
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 3,
+        "mergeEdgeCount": 3,
+        "minimumMergeScore": 18,
+        "maximumMergeScore": 18,
+        "reasons": [
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "product-intelligence"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 0,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-BOUNDARY",
+      "capabilityId": null,
+      "name": "boundary",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "memberCount": 2,
+      "riskTags": [
+        "EXTERNAL_BOUNDARY"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 15,
+        "maximumMergeScore": 15,
+        "reasons": [
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "EXTERNAL_CONTRACT_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 0,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-BOUNDARY_TRUTH",
+      "capabilityId": null,
+      "name": "boundary-truth",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "memberCount": 2,
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 11,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 0,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-POLICY_OPERATIONS-CARTERA_UTILS",
+      "capabilityId": null,
+      "name": "cartera-utils",
+      "domain": "policy-operations",
+      "kind": "UNCLASSIFIED",
+      "memberCount": 2,
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 11,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "policy-operations"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 0,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-PRODUCT_INTELLIGENCE-ENTITY_QUOTATION",
+      "capabilityId": null,
+      "name": "entity-quotation",
+      "domain": "product-intelligence",
+      "kind": "UNCLASSIFIED",
+      "memberCount": 2,
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 11,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "product-intelligence"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 0,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-GOVERNANCE-SALES_PRESENTATION",
+      "capabilityId": null,
+      "name": "sales-presentation",
+      "domain": "governance",
+      "kind": "INFRASTRUCTURE",
+      "memberCount": 6,
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 6,
+        "mergeEdgeCount": 15,
+        "minimumMergeScore": 18,
+        "maximumMergeScore": 22,
+        "reasons": [
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "governance"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 0,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
     }
   ],
   "splitRequired": [
@@ -2297,6 +2677,60 @@
         "unrunnable": 0
       },
       "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-INTAKE",
+      "capabilityId": null,
+      "name": "intake",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "memberCount": 24,
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "omittedTestCount": 7,
+      "evidence": {
+        "memberCount": 24,
+        "mergeEdgeCount": 96,
+        "minimumMergeScore": 10,
+        "maximumMergeScore": 28,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [
+          "LARGE_CLUSTER_REQUIRES_REVIEW"
+        ],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "disposition": "SPLIT_REQUIRED",
+      "reason": "The proposed component is too broad or crosses source domains.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 5,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
     }
   ],
   "mergeRejected": [],
@@ -2345,13 +2779,22 @@
       "humanReviewRequired": 8,
       "splitRequired": 0,
       "mergeRejected": 0
+    },
+    {
+      "waveId": "WAVE-006",
+      "reportHash": "646ef94e266ae8b8767813c7d131045ed5c6d92572d838f254f6c13313e849bd",
+      "reviewedGroups": 8,
+      "lockedIdentities": 0,
+      "humanReviewRequired": 7,
+      "splitRequired": 1,
+      "mergeRejected": 0
     }
   ],
   "totals": {
-    "reviewedGroups": 40,
+    "reviewedGroups": 48,
     "lockedIdentities": 0,
-    "humanReviewRequired": 32,
-    "splitRequired": 8,
+    "humanReviewRequired": 39,
+    "splitRequired": 9,
     "mergeRejected": 0,
     "testPass": 8,
     "testFail": 0,
@@ -2359,7 +2802,7 @@
     "testMissing": 0,
     "testUnrunnable": 0,
     "testDeferred": 0,
-    "testSkippedSafety": 64
+    "testSkippedSafety": 69
   },
   "parity": {
     "verifiedCapabilities": 0,
