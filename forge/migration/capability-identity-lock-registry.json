@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "kind": "FORGE_CAPABILITY_IDENTITY_LOCK_REGISTRY",
+  "source": {
+    "groupingReportHash": "47019e7100208db576f47f1d026235516dac59837c131d2f193268cb575c0bc0",
+    "legacyHead": "e4441e794abaaf983472591e7c80ae545b0b3f67",
+    "v2BaselineHead": "dcc48b98d12d2c15d75847e0898ac33f6a46b8a9"
+  },
+  "createdAt": "2026-07-24T06:01:54.128Z",
+  "updatedAt": "2026-07-24T06:01:54.128Z",
+  "safety": {
+    "identityLockIsNotParity": true,
+    "automaticHighRiskLock": false,
+    "automaticBusinessLock": false,
+    "automaticIncompleteTestLock": false,
+    "automaticRewrite": false,
+    "automaticRetirement": false
+  },
+  "reviewedGroupIds": [],
+  "lockedIdentities": [],
+  "humanReviewRequired": [],
+  "splitRequired": [],
+  "mergeRejected": [],
+  "waves": [],
+  "totals": {
+    "reviewedGroups": 0,
+    "lockedIdentities": 0,
+    "humanReviewRequired": 0,
+    "splitRequired": 0,
+    "mergeRejected": 0,
+    "testPass": 0,
+    "testFail": 0,
+    "testTimeout": 0,
+    "testMissing": 0,
+    "testUnrunnable": 0,
+    "testDeferred": 0,
+    "testSkippedSafety": 0
+  },
+  "parity": {
+    "verifiedCapabilities": 0,
+    "verifiedPercentage": null
+  }
+}
