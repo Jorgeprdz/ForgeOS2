@@ -1,0 +1,908 @@
+{
+  "schemaVersion": 1,
+  "kind": "FORGE_CAPABILITY_IDENTITY_REVIEW_WAVE",
+  "waveId": "WAVE-002",
+  "generatedAt": "2026-07-24T06:02:33.599Z",
+  "source": {
+    "legacyHead": "e4441e794abaaf983472591e7c80ae545b0b3f67",
+    "groupingReportHash": "47019e7100208db576f47f1d026235516dac59837c131d2f193268cb575c0bc0"
+  },
+  "safety": {
+    "identityLockIsNotParity": true,
+    "highRiskAutoLock": false,
+    "businessAutoLock": false,
+    "incompleteTestAutoLock": false,
+    "rewritesRules": false,
+    "retiresLegacy": false
+  },
+  "counts": {
+    "reviewedGroups": 8,
+    "lockedIdentities": 0,
+    "humanReviewRequired": 7,
+    "splitRequired": 1,
+    "mergeRejected": 0
+  },
+  "reviews": [
+    {
+      "groupId": "CAP2-PRODUCT_INTELLIGENCE-EVENT_BENEFIT",
+      "proposedName": "event-benefit",
+      "domain": "product-intelligence",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 82,
+      "memberCount": 33,
+      "memberCapabilityIds": [
+        "CAP-PRODUCT_INTELLIGENCE-ACCIDENT_INTELLIGENCE",
+        "CAP-PRODUCT_INTELLIGENCE-ACCIDENT_SMOKE",
+        "CAP-PRODUCT_INTELLIGENCE-CATASTROPHIC_ILLNESS",
+        "CAP-PRODUCT_INTELLIGENCE-CATASTROPHIC_ILLNESS_SMOKE",
+        "CAP-PRODUCT_INTELLIGENCE-COVERAGE_EVALUATION_FOUNDATION",
+        "CAP-PRODUCT_INTELLIGENCE-COVERAGE_FOUNDATION_SMOKE",
+        "CAP-PRODUCT_INTELLIGENCE-COVERAGE_INTELLIGENCE",
+        "CAP-PRODUCT_INTELLIGENCE-COVERAGE_ORCHESTRATOR_SMOKE",
+        "CAP-PRODUCT_INTELLIGENCE-EVENT_BENEFIT",
+        "CAP-PRODUCT_INTELLIGENCE-EVENT_CLASSIFICATION",
+        "CAP-PRODUCT_INTELLIGENCE-EVENT_CLASSIFICATION_SMOKE",
+        "CAP-PRODUCT_INTELLIGENCE-EVIDENCE_COLLECTION",
+        "CAP-PRODUCT_INTELLIGENCE-EVIDENCE_COLLECTION_SMOKE",
+        "CAP-PRODUCT_INTELLIGENCE-FALSE_CONFIDENCE_PROTECTION",
+        "CAP-PRODUCT_INTELLIGENCE-FALSE_CONFIDENCE_SMOKE",
+        "CAP-PRODUCT_INTELLIGENCE-HOSPITALIZATION_INTELLIGENCE",
+        "CAP-PRODUCT_INTELLIGENCE-HOSPITALIZATION_SMOKE",
+        "CAP-PRODUCT_INTELLIGENCE-HUMAN_REVIEW_ROUTING",
+        "CAP-PRODUCT_INTELLIGENCE-HUMAN_REVIEW_ROUTING_SMOKE",
+        "CAP-PRODUCT_INTELLIGENCE-MATERNITY_INTELLIGENCE",
+        "CAP-PRODUCT_INTELLIGENCE-MATERNITY_SMOKE",
+        "CAP-PRODUCT_INTELLIGENCE-MULTI_LABEL_EVENT",
+        "CAP-PRODUCT_INTELLIGENCE-MULTI_LABEL_EVENT_SMOKE",
+        "CAP-PRODUCT_INTELLIGENCE-OPTIONAL_COVERAGE_INTELLIGENCE",
+        "CAP-PRODUCT_INTELLIGENCE-OPTIONAL_COVERAGE_SMOKE",
+        "CAP-PRODUCT_INTELLIGENCE-SURGERY_INTELLIGENCE",
+        "CAP-PRODUCT_INTELLIGENCE-SURGERY_SMOKE",
+        "CAP-PRODUCT_INTELLIGENCE-TERRITORIALITY_INTELLIGENCE",
+        "CAP-PRODUCT_INTELLIGENCE-TERRITORIALITY_SMOKE",
+        "CAP-PRODUCT_INTELLIGENCE-VIDA_MUJER_COVERAGE_STATUS",
+        "CAP-PRODUCT_INTELLIGENCE-VIDA_MUJER_COVERAGE_STATUS_REPORT",
+        "CAP-PRODUCT_INTELLIGENCE-VIDA_MUJER_EVENT_BENEFITS_REPORT",
+        "CAP-PRODUCT_INTELLIGENCE-VIDA_MUJER_PROTECTED_DISEASES_REPORT"
+      ],
+      "codeFiles": [
+        "product-intelligence/coverage/coverage-intelligence-orchestrator.js",
+        "product-intelligence/coverage/event-benefit-engine.js",
+        "product-intelligence/coverage/medical-events/accident-intelligence-engine.js",
+        "product-intelligence/coverage/medical-events/catastrophic-illness-engine.js",
+        "product-intelligence/coverage/medical-events/coverage-evaluation-foundation-engine.js",
+        "product-intelligence/coverage/medical-events/event-classification-engine.js",
+        "product-intelligence/coverage/medical-events/evidence-collection-engine.js",
+        "product-intelligence/coverage/medical-events/false-confidence-protection-engine.js",
+        "product-intelligence/coverage/medical-events/hospitalization-intelligence-engine.js",
+        "product-intelligence/coverage/medical-events/human-review-routing-engine.js",
+        "product-intelligence/coverage/medical-events/maternity-intelligence-engine.js",
+        "product-intelligence/coverage/medical-events/multi-label-event-engine.js",
+        "product-intelligence/coverage/medical-events/optional-coverage-intelligence-engine.js",
+        "product-intelligence/coverage/medical-events/surgery-intelligence-engine.js",
+        "product-intelligence/coverage/medical-events/territoriality-intelligence-engine.js",
+        "product-intelligence/coverage/vida-mujer-coverage-status-engine.js",
+        "product-intelligence/coverage/vida-mujer-coverage-status-report.js",
+        "product-intelligence/coverage/vida-mujer-event-benefits-report.js",
+        "product-intelligence/coverage/vida-mujer-protected-diseases-report.js"
+      ],
+      "testFiles": [
+        "product-intelligence/coverage/tests/accident-smoke-test.js",
+        "product-intelligence/coverage/tests/catastrophic-illness-smoke-test.js",
+        "product-intelligence/coverage/tests/coverage-foundation-smoke-test.js",
+        "product-intelligence/coverage/tests/coverage-orchestrator-smoke-test.js",
+        "product-intelligence/coverage/tests/event-classification-smoke-test.js",
+        "product-intelligence/coverage/tests/evidence-collection-smoke-test.js",
+        "product-intelligence/coverage/tests/false-confidence-smoke-test.js",
+        "product-intelligence/coverage/tests/hospitalization-smoke-test.js",
+        "product-intelligence/coverage/tests/human-review-routing-smoke-test.js",
+        "product-intelligence/coverage/tests/maternity-smoke-test.js",
+        "product-intelligence/coverage/tests/multi-label-event-smoke-test.js",
+        "product-intelligence/coverage/tests/optional-coverage-smoke-test.js",
+        "product-intelligence/coverage/tests/surgery-smoke-test.js",
+        "product-intelligence/coverage/tests/territoriality-smoke-test.js"
+      ],
+      "selectedTests": [
+        "product-intelligence/coverage/tests/accident-smoke-test.js",
+        "product-intelligence/coverage/tests/catastrophic-illness-smoke-test.js",
+        "product-intelligence/coverage/tests/coverage-foundation-smoke-test.js",
+        "product-intelligence/coverage/tests/coverage-orchestrator-smoke-test.js",
+        "product-intelligence/coverage/tests/event-classification-smoke-test.js"
+      ],
+      "omittedTestCount": 9,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL",
+          "TRUTH_OR_ELIGIBILITY",
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "evidence": {
+        "memberCount": 33,
+        "mergeEdgeCount": 207,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 28,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "LARGE_CLUSTER_REQUIRES_REVIEW"
+        ],
+        "memberDomains": [
+          "product-intelligence"
+        ]
+      },
+      "tests": [
+        {
+          "file": "product-intelligence/coverage/tests/accident-smoke-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY, USER_ENTRYPOINT"
+        },
+        {
+          "file": "product-intelligence/coverage/tests/catastrophic-illness-smoke-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY, USER_ENTRYPOINT"
+        },
+        {
+          "file": "product-intelligence/coverage/tests/coverage-foundation-smoke-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY, USER_ENTRYPOINT"
+        },
+        {
+          "file": "product-intelligence/coverage/tests/coverage-orchestrator-smoke-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY, USER_ENTRYPOINT"
+        },
+        {
+          "file": "product-intelligence/coverage/tests/event-classification-smoke-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY, USER_ENTRYPOINT"
+        }
+      ],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "SPLIT_REQUIRED",
+      "dispositionReason": "The proposed component is too broad or crosses source domains.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-RECRUITMENT-OFFICE_RULES",
+      "proposedName": "office-rules",
+      "domain": "recruitment",
+      "kind": "BUSINESS",
+      "migrationPriority": 66,
+      "memberCount": 3,
+      "memberCapabilityIds": [
+        "CAP-RECRUITMENT-OFFICE_RULES_CONFIG_LIGHT",
+        "CAP-RECRUITMENT-OFFICE_RULES_CONFIG_STANDARD",
+        "CAP-RECRUITMENT-OFFICE_RULES_CONFIG_STRICT"
+      ],
+      "codeFiles": [],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [
+        "fixtures/recruitment/office-rules-config-light.json",
+        "fixtures/recruitment/office-rules-config-standard.json",
+        "fixtures/recruitment/office-rules-config-strict.json"
+      ],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY"
+        ]
+      },
+      "evidence": {
+        "memberCount": 3,
+        "mergeEdgeCount": 3,
+        "minimumMergeScore": 16,
+        "maximumMergeScore": 16,
+        "reasons": [
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "recruitment"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-PRODUCT_INTELLIGENCE-INTELLIGENCE_PREVIEW",
+      "proposedName": "intelligence-preview",
+      "domain": "product-intelligence",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 55,
+      "memberCount": 3,
+      "memberCapabilityIds": [
+        "CAP-PRODUCT_INTELLIGENCE-PRODUCT_INTELLIGENCE_READ_MODEL_ADAPTER_073D",
+        "CAP-PRODUCT_INTELLIGENCE-QUOTE_PREVIEW_PDF_PRODUCT_INTELLIGENCE_INTEGRATION_ADAPTER_075B",
+        "CAP-PRODUCT_INTELLIGENCE-QUOTE_PREVIEW_PRODUCT_INTELLIGENCE_BINDING_ADAPTER_074B"
+      ],
+      "codeFiles": [
+        "platform/adapters/product-intelligence/product-intelligence-read-model-adapter-073d.js",
+        "platform/adapters/quote-preview/quote-preview-pdf-product-intelligence-integration-adapter-075b.js",
+        "platform/adapters/quote-preview/quote-preview-product-intelligence-binding-adapter-074b.js"
+      ],
+      "testFiles": [
+        "tests/product-intelligence-read-model-adapter-073d-test.js",
+        "tests/quote-preview-pdf-product-intelligence-integration-adapter-075b-test.js",
+        "tests/quote-preview-product-intelligence-binding-adapter-074b-test.js"
+      ],
+      "selectedTests": [
+        "tests/product-intelligence-read-model-adapter-073d-test.js",
+        "tests/quote-preview-pdf-product-intelligence-integration-adapter-075b-test.js",
+        "tests/quote-preview-product-intelligence-binding-adapter-074b-test.js"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "EXTERNAL_BOUNDARY",
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY",
+          "RISK_TAG:TRUTH_CRITICAL",
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "evidence": {
+        "memberCount": 3,
+        "mergeEdgeCount": 2,
+        "minimumMergeScore": 14,
+        "maximumMergeScore": 27,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY",
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [],
+        "memberDomains": [
+          "product-intelligence"
+        ]
+      },
+      "tests": [
+        {
+          "file": "tests/product-intelligence-read-model-adapter-073d-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: EXTERNAL_BOUNDARY, RISK_TAG:EXTERNAL_BOUNDARY, RISK_TAG:TRUTH_CRITICAL, USER_ENTRYPOINT"
+        },
+        {
+          "file": "tests/quote-preview-pdf-product-intelligence-integration-adapter-075b-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: EXTERNAL_BOUNDARY, RISK_TAG:EXTERNAL_BOUNDARY, RISK_TAG:TRUTH_CRITICAL, USER_ENTRYPOINT"
+        },
+        {
+          "file": "tests/quote-preview-product-intelligence-binding-adapter-074b-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: EXTERNAL_BOUNDARY, RISK_TAG:EXTERNAL_BOUNDARY, RISK_TAG:TRUTH_CRITICAL, USER_ENTRYPOINT"
+        }
+      ],
+      "scenarioSeeds": [
+        "EXTERNAL_CONTRACT_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-PRODUCT_INTELLIGENCE-ORVI",
+      "proposedName": "orvi",
+      "domain": "product-intelligence",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 52,
+      "memberCount": 9,
+      "memberCapabilityIds": [
+        "CAP-PRODUCT_INTELLIGENCE-ORVI_DASHBOARD_ORCHESTRATION_READINESS",
+        "CAP-PRODUCT_INTELLIGENCE-ORVI_DASHBOARD_VIEW",
+        "CAP-PRODUCT_INTELLIGENCE-ORVI_GUARANTEED_VALUE_CHECKPOINT_ANALYTICS",
+        "CAP-PRODUCT_INTELLIGENCE-ORVI_MXN_EQUIVALENCE",
+        "CAP-PRODUCT_INTELLIGENCE-ORVI_MXN_PROJECTION_AUTHORITY",
+        "CAP-PRODUCT_INTELLIGENCE-ORVI_PDF",
+        "CAP-PRODUCT_INTELLIGENCE-ORVI_PDF_TO_PRODUCT_INTELLIGENCE",
+        "CAP-PRODUCT_INTELLIGENCE-ORVI_PRODUCT_INTELLIGENCE",
+        "CAP-PRODUCT_INTELLIGENCE-ORVI_SOLUCIONLINE_PDF_TEXT"
+      ],
+      "codeFiles": [
+        "docs/static-preview/quote-preview-live/orvi-product-intelligence/analytics/orvi-guaranteed-value-checkpoint-analytics.js",
+        "docs/static-preview/quote-preview-live/orvi-product-intelligence/currency/orvi-mxn-equivalence-adapter.js",
+        "docs/static-preview/quote-preview-live/orvi-product-intelligence/currency/orvi-mxn-projection-authority.js",
+        "docs/static-preview/quote-preview-live/orvi-product-intelligence/knowledge/orvi-product-intelligence.js",
+        "docs/static-preview/quote-preview-live/orvi-product-intelligence/quotes/orvi-pdf-parser-contract.js",
+        "docs/static-preview/quote-preview-live/orvi-product-intelligence/quotes/orvi-pdf-to-product-intelligence.js",
+        "docs/static-preview/quote-preview-live/orvi-product-intelligence/quotes/orvi-solucionline-pdf-text-parser.js",
+        "docs/static-preview/quote-preview-live/orvi-product-intelligence/runtime/orvi-dashboard-orchestration-readiness.js",
+        "docs/static-preview/quote-preview-live/orvi-product-intelligence/views/orvi-dashboard-view-model.js",
+        "product-intelligence/analytics/orvi-guaranteed-value-checkpoint-analytics.js",
+        "product-intelligence/currency/orvi-mxn-equivalence-adapter.js",
+        "product-intelligence/currency/orvi-mxn-projection-authority.js",
+        "product-intelligence/knowledge/orvi-product-intelligence.js",
+        "product-intelligence/quotes/orvi-pdf-parser-contract.js",
+        "product-intelligence/quotes/orvi-pdf-to-product-intelligence.js",
+        "product-intelligence/quotes/orvi-solucionline-pdf-text-parser.js",
+        "product-intelligence/runtime/orvi-dashboard-orchestration-readiness.js",
+        "product-intelligence/views/orvi-dashboard-view-model.js"
+      ],
+      "testFiles": [
+        "tests/orvi-pdf-to-product-intelligence-test.mjs"
+      ],
+      "selectedTests": [
+        "tests/orvi-pdf-to-product-intelligence-test.mjs"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "EXTERNAL_BOUNDARY",
+        "SECURITY_BOUNDARY",
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY",
+          "RISK_TAG:SECURITY_BOUNDARY",
+          "RISK_TAG:TRUTH_CRITICAL",
+          "SECURITY_OR_IDENTITY",
+          "TRUTH_OR_ELIGIBILITY",
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "evidence": {
+        "memberCount": 9,
+        "mergeEdgeCount": 31,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 32,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "MULTIPLE_DIRECT_IMPORT_EDGES",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY",
+          "SECURITY_BOUNDARY",
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [],
+        "memberDomains": [
+          "product-intelligence"
+        ]
+      },
+      "tests": [
+        {
+          "file": "tests/orvi-pdf-to-product-intelligence-test.mjs",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: EXTERNAL_BOUNDARY, RISK_TAG:EXTERNAL_BOUNDARY, RISK_TAG:SECURITY_BOUNDARY, RISK_TAG:TRUTH_CRITICAL, SECURITY_OR_IDENTITY, TRUTH_OR_ELIGIBILITY, USER_ENTRYPOINT"
+        }
+      ],
+      "scenarioSeeds": [
+        "ELIGIBILITY_OR_GATE_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-QUOTING-GMM_SPRINT_SMOKE",
+      "proposedName": "gmm-sprint-smoke",
+      "domain": "quoting",
+      "kind": "BUSINESS",
+      "migrationPriority": 51,
+      "memberCount": 3,
+      "memberCapabilityIds": [
+        "CAP-QUOTING-GMM_SPRINT_2_SMOKE",
+        "CAP-QUOTING-GMM_SPRINT_3_SMOKE",
+        "CAP-QUOTING-GMM_SPRINT_4_SMOKE"
+      ],
+      "codeFiles": [],
+      "testFiles": [
+        "forge-gmm-sprint-2-smoke-test.js",
+        "forge-gmm-sprint-3-smoke-test.js",
+        "forge-gmm-sprint-4-smoke-test.js"
+      ],
+      "selectedTests": [
+        "forge-gmm-sprint-2-smoke-test.js",
+        "forge-gmm-sprint-3-smoke-test.js",
+        "forge-gmm-sprint-4-smoke-test.js"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY"
+        ]
+      },
+      "evidence": {
+        "memberCount": 3,
+        "mergeEdgeCount": 3,
+        "minimumMergeScore": 20,
+        "maximumMergeScore": 20,
+        "reasons": [
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "quoting"
+        ]
+      },
+      "tests": [
+        {
+          "file": "forge-gmm-sprint-2-smoke-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY"
+        },
+        {
+          "file": "forge-gmm-sprint-3-smoke-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY"
+        },
+        {
+          "file": "forge-gmm-sprint-4-smoke-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY"
+        }
+      ],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-INTEGRATIONS-CARRIER_REVENUE",
+      "proposedName": "carrier-revenue",
+      "domain": "integrations",
+      "kind": "INFRASTRUCTURE",
+      "migrationPriority": 50,
+      "memberCount": 3,
+      "memberCapabilityIds": [
+        "CAP-INTEGRATIONS-CARRIER_REVENUE",
+        "CAP-INTEGRATIONS-NOT_MODELED_CARRIER",
+        "CAP-INTEGRATIONS-SMNYL_REVENUE"
+      ],
+      "codeFiles": [
+        "revenue/adapters/not-modeled-carrier-adapter.js",
+        "revenue/adapters/smnyl-revenue-adapter.js",
+        "revenue/carrier-revenue-adapter-contract.js"
+      ],
+      "testFiles": [
+        "tests/carrier-revenue-adapter-contract-test.js",
+        "tests/not-modeled-carrier-adapter-test.js",
+        "tests/smnyl-revenue-adapter-test.js"
+      ],
+      "selectedTests": [
+        "tests/carrier-revenue-adapter-contract-test.js",
+        "tests/not-modeled-carrier-adapter-test.js",
+        "tests/smnyl-revenue-adapter-test.js"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "EXTERNAL_BOUNDARY"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY"
+        ]
+      },
+      "evidence": {
+        "memberCount": 3,
+        "mergeEdgeCount": 2,
+        "minimumMergeScore": 9,
+        "maximumMergeScore": 15,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY"
+        ],
+        "reviewReasons": [],
+        "memberDomains": [
+          "integrations"
+        ]
+      },
+      "tests": [
+        {
+          "file": "tests/carrier-revenue-adapter-contract-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: EXTERNAL_BOUNDARY, RISK_TAG:EXTERNAL_BOUNDARY"
+        },
+        {
+          "file": "tests/not-modeled-carrier-adapter-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: EXTERNAL_BOUNDARY, RISK_TAG:EXTERNAL_BOUNDARY"
+        },
+        {
+          "file": "tests/smnyl-revenue-adapter-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: EXTERNAL_BOUNDARY, RISK_TAG:EXTERNAL_BOUNDARY"
+        }
+      ],
+      "scenarioSeeds": [
+        "EXTERNAL_CONTRACT_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-QUOTING-QUOTE_ACTION_CONTRACT_071B",
+      "proposedName": "quote-action-contract-071b",
+      "domain": "quoting",
+      "kind": "BUSINESS",
+      "migrationPriority": 46,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-QUOTING-QUOTE_ACTION_CONTRACT_071B",
+        "CAP-QUOTING-QUOTE_APPROVAL_GATE_INTEGRATION_072B"
+      ],
+      "codeFiles": [
+        "platform/action-contracts/quote-action-contract-071b.js",
+        "platform/action-contracts/quote-approval-gate-integration-072b.js"
+      ],
+      "testFiles": [
+        "tests/quote-action-contract-071b-test.js",
+        "tests/quote-approval-gate-integration-072b-test.js"
+      ],
+      "selectedTests": [
+        "tests/quote-action-contract-071b-test.js",
+        "tests/quote-approval-gate-integration-072b-test.js"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "EXTERNAL_BOUNDARY"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY",
+          "RISK_TAG:EXTERNAL_BOUNDARY"
+        ]
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 20,
+        "maximumMergeScore": 20,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY"
+        ],
+        "reviewReasons": [],
+        "memberDomains": [
+          "quoting"
+        ]
+      },
+      "tests": [
+        {
+          "file": "tests/quote-action-contract-071b-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, RISK_TAG:EXTERNAL_BOUNDARY"
+        },
+        {
+          "file": "tests/quote-approval-gate-integration-072b-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: BUSINESS_CAPABILITY, RISK_TAG:EXTERNAL_BOUNDARY"
+        }
+      ],
+      "scenarioSeeds": [
+        "ELIGIBILITY_OR_GATE_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-TOOLING-PARTNER_RULE_PACK",
+      "proposedName": "partner-rule-pack",
+      "domain": "tooling",
+      "kind": "INFRASTRUCTURE",
+      "migrationPriority": 45,
+      "memberCount": 3,
+      "memberCapabilityIds": [
+        "CAP-TOOLING-PARTNER_2026_RULE_PACK",
+        "CAP-TOOLING-PARTNER_RULE_PACK",
+        "CAP-TOOLING-PARTNER_RULE_PACK_READINESS"
+      ],
+      "codeFiles": [],
+      "testFiles": [
+        "tests/partner-2026-rule-pack-loader-test.js",
+        "tests/partner-2026-rule-pack-validator-test.js",
+        "tests/partner-rule-pack-loader-test.js",
+        "tests/partner-rule-pack-readiness-test.js",
+        "tests/partner-rule-pack-validator-test.js"
+      ],
+      "selectedTests": [
+        "tests/partner-2026-rule-pack-loader-test.js",
+        "tests/partner-2026-rule-pack-validator-test.js",
+        "tests/partner-rule-pack-loader-test.js",
+        "tests/partner-rule-pack-readiness-test.js",
+        "tests/partner-rule-pack-validator-test.js"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "TRUTH_OR_ELIGIBILITY"
+        ]
+      },
+      "evidence": {
+        "memberCount": 3,
+        "mergeEdgeCount": 3,
+        "minimumMergeScore": 20,
+        "maximumMergeScore": 20,
+        "reasons": [
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "tooling"
+        ]
+      },
+      "tests": [
+        {
+          "file": "tests/partner-2026-rule-pack-loader-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: TRUTH_OR_ELIGIBILITY"
+        },
+        {
+          "file": "tests/partner-2026-rule-pack-validator-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: TRUTH_OR_ELIGIBILITY"
+        },
+        {
+          "file": "tests/partner-rule-pack-loader-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: TRUTH_OR_ELIGIBILITY"
+        },
+        {
+          "file": "tests/partner-rule-pack-readiness-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: TRUTH_OR_ELIGIBILITY"
+        },
+        {
+          "file": "tests/partner-rule-pack-validator-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: TRUTH_OR_ELIGIBILITY"
+        }
+      ],
+      "scenarioSeeds": [
+        "ELIGIBILITY_OR_GATE_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    }
+  ],
+  "parity": {
+    "verifiedCapabilities": 0
+  },
+  "reportHash": "d08e683df06f7e0ca7186e5c10068de20e58768838f7aeb4dfa1d1a27f90e1e1"
+}
