@@ -298,7 +298,8 @@
         "adr/ADR-005 — Product Truth Boundary.txt",
         "docs/architecture/scaffolds/instances/domains/PRODUCT_INTELLIGENCE_DOMAIN_RESPONSIBILITY.md",
         "docs/architecture/scaffolds/instances/boundaries/PRODUCT_TRUTH_BOUNDARY.md",
-        "docs/architecture/scaffolds/instances/source-truth/PRODUCT_TRUTH_OWNERSHIP.md"
+        "docs/architecture/scaffolds/instances/source-truth/PRODUCT_TRUTH_OWNERSHIP.md",
+        "governance/constitutional/PRODUCT_INTELLIGENCE_SOFTWARE_AUTHORITY_001.md"
       ],
       "entrypoint": "modules/product-intelligence/index.mjs",
       "tests": [
@@ -306,11 +307,15 @@
       ],
       "requiredExports": [
         "EVIDENCE_STATES",
+        "PRODUCT_EVIDENCE_AUTHORITY_LEVELS",
+        "PRODUCT_EVIDENCE_TYPES",
         "ProductTruthError",
         "assertProductTruthEnvelope",
+        "createProductEvidenceRecord",
         "createProductTruthEnvelope",
         "createProductTruthKey",
-        "isProductTruthActionable"
+        "isProductTruthActionable",
+        "resolveProductEvidence"
       ]
     }
   ]

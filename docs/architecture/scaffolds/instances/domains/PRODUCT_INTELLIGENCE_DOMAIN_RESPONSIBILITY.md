@@ -21,8 +21,8 @@ ADR-001–005 and ADR-020.
 ## Constitutional References
 Article 0 / Ley Zero; Articles II–VII and IX.
 ## Status
-`ACTIVE / SG-002 DOCUMENTARY INSTANCE / NO SOFTWARE AUTHORITY`
+`ACTIVE / SG-002 DOCUMENTARY AUTHORITY / PI-SA-001 SOFTWARE AUTHORITY`
 ## Version
-`1.0.0` — `2026-07-21`.
+`1.1.0` — `2026-07-24`.
 ## Traceability
-Origin: Articles III/V/VII and ADR-005. Historical preservation: the original Unified Build Tree's Product Intelligence domain grouping. Difference: current authority and evidence replace historical directory/status inference. Justification/evidence: ADR-005 proves the owner and boundary; ADR-020 forbids implementation inference. Implementation boundary: documentation only; no runtime, rules, product records or UI.
+Origin: Articles III/V/VII and ADR-005. Historical preservation: the original Unified Build Tree's Product Intelligence domain grouping. Difference: current authority and evidence replace historical directory/status inference. Justification/evidence: ADR-005 proves the owner and boundary; ADR-020 forbids implementation inference. Implementation boundary: PI-SA-001 authorizes only the deterministic Product Truth and Product Evidence runtime in `modules/product-intelligence/`; no product records, business rules, policy state, suitability, recommendation, compensation, execution or UI authority.
