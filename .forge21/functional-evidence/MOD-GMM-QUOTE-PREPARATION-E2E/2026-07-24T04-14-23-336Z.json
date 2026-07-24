@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "MOD-GMM-QUOTE-PREPARATION-E2E",
+  "area": "productE2E",
+  "result": "PASS",
+  "recordedAt": "2026-07-24T04:14:23.306Z",
+  "sourceCommit": "6f1ac8d0498a8e4540466757d74692ae1d6e7d12",
+  "checks": {
+    "realUserEntrypoint": true,
+    "multiStepScenario": true,
+    "crossesRuntimeAndAdapter": true,
+    "noHiddenManualSteps": true,
+    "visibleOutcome": true,
+    "failureRecovery": true,
+    "humanGateWhenRequired": true,
+    "traceableRun": true,
+    "freshArtifacts": true
+  },
+  "commands": [
+    {
+      "command": "node --test modules/gmm-quote-preparation-e2e/index.test.mjs",
+      "label": "FUNCTIONAL_TEST:MOD-GMM-QUOTE-PREPARATION-E2E",
+      "status": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "modules/gmm-quote-preparation-e2e/index.mjs",
+      "sha256": "ab823e0312b675527a319da3eba1c8a7dc18fe85e64542703ef87cf12af9daa8"
+    },
+    {
+      "path": "modules/gmm-quote-preparation-e2e/index.test.mjs",
+      "sha256": "de408390ee57943396218e67f3b4d6d12f3c83b6ce8afce92071a33fd497b279"
+    },
+    {
+      "path": "modules/gmm-quote-preparation-e2e/cli.mjs",
+      "sha256": "1617221ecb80f7a9636c3b57e12e923082714230a649cc17f164c0641fe952ea"
+    },
+    {
+      "path": "modules/gmm-quote-preparation-e2e/fixtures/gmm-quote-preparation-request-v1.json",
+      "sha256": "0c89c2fec00e44d22c77cf91a5daae49bebfb6121b0cfe62c9f2a720a8d9b210"
+    },
+    {
+      "path": "modules/gmm-quote-evidence-adapter/fixtures/gmm-quote-contract-v1.json",
+      "sha256": "15752030d0070fe1eb06f1c21fc0d7f3e2e575dde8585da190b45f5d536c7787"
+    },
+    {
+      "path": "tools/forge-gmm-quote-flow",
+      "sha256": "26dfe701fbc511b45018717eab7324923faee835593ed918c7c570f5d44b3a8f"
+    }
+  ],
+  "environment": {
+    "kind": "local-real",
+    "entrypoint": "tools/forge-gmm-quote-flow",
+    "runtime": "node"
+  },
+  "scenario": {
+    "id": "SCENARIO-GMM-QUOTE-PREPARATION-001",
+    "actions": [
+      "operator-submits-versioned-workflow-request",
+      "carrier-scope-evaluates-applicability",
+      "adapter-ingests-faithful-external-quote",
+      "product-intelligence-resolves-evidence",
+      "workflow-exposes-human-review-decision"
+    ],
+    "manualSteps": []
+  }
+}
