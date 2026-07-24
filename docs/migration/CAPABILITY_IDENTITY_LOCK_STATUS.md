@@ -3,11 +3,11 @@
 - Grouping hash: `47019e7100208db576f47f1d026235516dac59837c131d2f193268cb575c0bc0`
 - Candidate groups: 1228
 - Multi-member candidates: 69
-- Reviewed groups: 48
+- Reviewed groups: 56
 - Locked low-risk identities: 0
-- Human review required: 39
+- Human review required: 47
 - Split required: 9
-- Legacy tests passed: 8
+- Legacy tests passed: 11
 - Legacy tests failed: 0
 - Legacy tests timed out: 0
 - Legacy tests missing/unrunnable: 0

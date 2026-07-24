@@ -1,0 +1,527 @@
+{
+  "schemaVersion": 1,
+  "kind": "FORGE_CAPABILITY_IDENTITY_REVIEW_WAVE",
+  "waveId": "WAVE-007",
+  "generatedAt": "2026-07-24T06:03:55.185Z",
+  "source": {
+    "legacyHead": "e4441e794abaaf983472591e7c80ae545b0b3f67",
+    "groupingReportHash": "47019e7100208db576f47f1d026235516dac59837c131d2f193268cb575c0bc0"
+  },
+  "safety": {
+    "identityLockIsNotParity": true,
+    "highRiskAutoLock": false,
+    "businessAutoLock": false,
+    "incompleteTestAutoLock": false,
+    "rewritesRules": false,
+    "retiresLegacy": false
+  },
+  "counts": {
+    "reviewedGroups": 8,
+    "lockedIdentities": 0,
+    "humanReviewRequired": 8,
+    "splitRequired": 0,
+    "mergeRejected": 0
+  },
+  "reviews": [
+    {
+      "groupId": "CAP2-MANAGER_TEAM-MANAGER_RDA",
+      "proposedName": "manager-rda",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 2,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-MANAGER_RDA_ATTRIBUTION_TRUTH",
+        "CAP-MANAGER_TEAM-MANAGER_RDA_CONSUMER"
+      ],
+      "codeFiles": [
+        "manager-os/rda-attribution/manager-rda-attribution-truth-engine.js",
+        "manager-os/rda-attribution/manager-rda-consumer-contract.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL"
+        ]
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 18,
+        "maximumMergeScore": 18,
+        "reasons": [
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-TOOLING-HARNESS_REPO",
+      "proposedName": "harness-repo",
+      "domain": "tooling",
+      "kind": "INFRASTRUCTURE",
+      "migrationPriority": 2,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-TOOLING-REPO_DOC_MIGRATION_HARNESS",
+        "CAP-TOOLING-TEST_REPO_MIGRATION_HARNESS"
+      ],
+      "codeFiles": [
+        "scripts/repo-doc-migration-harness.js",
+        "scripts/test-repo-migration-harness.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 12,
+        "maximumMergeScore": 12,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "tooling"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Legacy tests were absent, failed, timed out, deferred or were not independently runnable.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-CRM_CLIENT-CONTEXT_NASH_PROSPECT_INTAKE",
+      "proposedName": "context-nash-prospect-intake",
+      "domain": "crm-client",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 0,
+      "memberCount": 6,
+      "memberCapabilityIds": [
+        "CAP-CRM_CLIENT-NASH_PROSPECT_CONTEXT_INTAKE",
+        "CAP-CRM_CLIENT-NASH_PROSPECT_CONTEXT_INTAKE_BOUNDARY",
+        "CAP-CRM_CLIENT-NASH_PROSPECT_CONTEXT_INTAKE_BOUNDARY_CONTRACT_MASTER",
+        "CAP-CRM_CLIENT-NASH_PROSPECT_CONTEXT_INTAKE_MASTER",
+        "CAP-CRM_CLIENT-NASH_UNIVERSAL_PROSPECT_CONTEXT_CONSUMER",
+        "CAP-CRM_CLIENT-NASH_UNIVERSAL_PROSPECT_CONTEXT_CONSUMER_MASTER"
+      ],
+      "codeFiles": [
+        "nash/context-intake/nash-prospect-context-intake-boundary-contract.js",
+        "nash/context-intake/nash-prospect-context-intake.js",
+        "nash/context-intake/nash-universal-prospect-context-consumer.js"
+      ],
+      "testFiles": [
+        "nash/tests/nash-prospect-context-intake-boundary-contract-master-test.js",
+        "nash/tests/nash-prospect-context-intake-master-test.js",
+        "nash/tests/nash-universal-prospect-context-consumer-master-test.js"
+      ],
+      "selectedTests": [
+        "nash/tests/nash-prospect-context-intake-boundary-contract-master-test.js",
+        "nash/tests/nash-prospect-context-intake-master-test.js",
+        "nash/tests/nash-universal-prospect-context-consumer-master-test.js"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "evidence": {
+        "memberCount": 6,
+        "mergeEdgeCount": 15,
+        "minimumMergeScore": 9,
+        "maximumMergeScore": 28,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "crm-client"
+        ]
+      },
+      "tests": [
+        {
+          "file": "nash/tests/nash-prospect-context-intake-boundary-contract-master-test.js",
+          "status": "PASS",
+          "command": "node nash/tests/nash-prospect-context-intake-boundary-contract-master-test.js",
+          "exitCode": 0,
+          "signal": null,
+          "durationMs": 145,
+          "outputSha256": "5b1677bb7ccff8ca0227bf089bb7ecbab3d81a21125d3e958aec65e3d9925201",
+          "outputBytes": 1033,
+          "outputPreview": "PASS accepts valid minimal governed context PASS accepts rich context with every governed reference family PASS missing required fields remains invalid and explicit PASS UNKNOWN remains UNKNOWN PASS stale evidence is blocked and never becomes a fact PASS missing evidence is blocked PASS unknown freshness remains unknown and cannot become trusted fact PASS structured values cannot smuggle unclassified nested context PASS invalid source owner is blocked PASS evidence references expose only governed lineage metadata PASS missing or stale packet freshness cannot be accepted PASS unsupported and se"
+        },
+        {
+          "file": "nash/tests/nash-prospect-context-intake-master-test.js",
+          "status": "PASS",
+          "command": "node nash/tests/nash-prospect-context-intake-master-test.js",
+          "exitCode": 0,
+          "signal": null,
+          "durationMs": 142,
+          "outputSha256": "cb3884965ff5a750c2b124a90c6db679f1b777a23da8f49394c2eddd975143fa",
+          "outputBytes": 90,
+          "outputPreview": "PASS NFAST-02 governed prospect context intake has no runtime execution or side effects"
+        },
+        {
+          "file": "nash/tests/nash-universal-prospect-context-consumer-master-test.js",
+          "status": "PASS",
+          "command": "node nash/tests/nash-universal-prospect-context-consumer-master-test.js",
+          "exitCode": 0,
+          "signal": null,
+          "durationMs": 167,
+          "outputSha256": "dd9f3b8073138ddc93944554d5a670d53883210d50153aef1c939fd350ed54f3",
+          "outputBytes": 100,
+          "outputPreview": "PASS NFAST-03 universal projections produce NFAST-02 SUCCESS, INVALID_CONTEXT and BLOCKED_CONTEXT"
+        }
+      ],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Merge evidence is below the autonomous identity-lock threshold.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-CRM_CLIENT-PROSPECT",
+      "proposedName": "prospect",
+      "domain": "crm-client",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": -6,
+      "memberCount": 9,
+      "memberCapabilityIds": [
+        "CAP-CRM_CLIENT-PIPELINE_UNIVERSAL_PROSPECT_CONTEXT",
+        "CAP-CRM_CLIENT-PRODUCTIVE_PROSPECT",
+        "CAP-CRM_CLIENT-PRODUCTIVE_PROSPECT_BOOTSTRAP",
+        "CAP-CRM_CLIENT-PRODUCTIVE_PROSPECT_UI",
+        "CAP-CRM_CLIENT-PROSPECT",
+        "CAP-CRM_CLIENT-PROSPECT_DETAIL",
+        "CAP-CRM_CLIENT-PROSPECT_DUPLICATE_REVIEW",
+        "CAP-CRM_CLIENT-PROSPECT_IDENTITY",
+        "CAP-CRM_CLIENT-UNIVERSAL_GOVERNED_PROSPECT_CONTEXT"
+      ],
+      "codeFiles": [
+        "advisor-os/sales-pipeline/productive-prospect-bootstrap.js",
+        "advisor-os/sales-pipeline/productive-prospect-service.js",
+        "advisor-os/sales-pipeline/productive-prospect-ui.js",
+        "advisor-os/sales-pipeline/prospect-context/pipeline-universal-prospect-context-adapter.js",
+        "advisor-os/sales-pipeline/prospect-context/universal-governed-prospect-context-contract.js",
+        "advisor-os/sales-pipeline/prospect-detail.js",
+        "advisor-os/sales-pipeline/prospect-duplicate-review.js",
+        "advisor-os/sales-pipeline/prospect-identity-contract.js",
+        "advisor-os/sales-pipeline/prospect-repository.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "EXTERNAL_BOUNDARY",
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY",
+          "RISK_TAG:TRUTH_CRITICAL",
+          "SECURITY_OR_IDENTITY",
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "evidence": {
+        "memberCount": 9,
+        "mergeEdgeCount": 36,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 18,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY",
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "crm-client"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "CONFLICT_OR_DUPLICATE_STATE",
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-ANALYTICS_PLANNING-DASHBOARD_EXECUTIVE",
+      "proposedName": "dashboard-executive",
+      "domain": "analytics-planning",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": -8,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-ANALYTICS_PLANNING-ADVISOR_SALES_NBA_CONSUMER",
+        "CAP-ANALYTICS_PLANNING-DASHBOARD_EXECUTIVE"
+      ],
+      "codeFiles": [
+        "advisor-os/dashboard/advisor-sales-nba-consumer.js",
+        "advisor-os/dashboard/dashboard-executive.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 11,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "analytics-planning"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Legacy tests were absent, failed, timed out, deferred or were not independently runnable.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-ANALYTICS_PLANNING-SMNYL",
+      "proposedName": "smnyl",
+      "domain": "analytics-planning",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": -8,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-ANALYTICS_PLANNING-SMNYL_EXECUTIVE_DASHBOARD",
+        "CAP-ANALYTICS_PLANNING-SMNYL_FORECAST"
+      ],
+      "codeFiles": [
+        "rule-packs/smnyl/smnyl-executive-dashboard-engine.js",
+        "rule-packs/smnyl/smnyl-forecast-engine.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 17,
+        "maximumMergeScore": 17,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "analytics-planning"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Legacy tests were absent, failed, timed out, deferred or were not independently runnable.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-BOUNDARY_EXECUTION_GATE",
+      "proposedName": "boundary-execution-gate",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": -8,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-CONNECTOR_EXECUTION_GATE_BOUNDARY",
+        "CAP-MANAGER_TEAM-SEND_EXECUTION_GATE_BOUNDARY"
+      ],
+      "codeFiles": [
+        "manager-os/connector-execution/connector-execution-gate-boundary-contract.js",
+        "manager-os/send-execution/send-execution-gate-boundary-contract.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY"
+        ]
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 15,
+        "maximumMergeScore": 15,
+        "reasons": [
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "ELIGIBILITY_OR_GATE_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-BOUNDARY_UI",
+      "proposedName": "boundary-ui",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": -8,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-UI_READ_MODEL_BOUNDARY",
+        "CAP-MANAGER_TEAM-UI_RENDERING_BOUNDARY"
+      ],
+      "codeFiles": [
+        "manager-os/ui-read-model/ui-read-model-boundary-contract.js",
+        "manager-os/ui-rendering/ui-rendering-boundary-contract.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 11,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Legacy tests were absent, failed, timed out, deferred or were not independently runnable.",
+      "identityLocked": false,
+      "parityVerified": false
+    }
+  ],
+  "parity": {
+    "verifiedCapabilities": 0
+  },
+  "reportHash": "0c28aa941286f8fb68b90ceafff2bbd86d95fd92a3a3793f912cac7d6998ad63"
+}
