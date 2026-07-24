@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "kind": "GMM_QUOTE_CONTRACT_FIXTURE",
+  "contractVersion": "1.0.0",
+  "sourceSnapshot": {
+    "quoteId": "GMM-QUOTE-2026-0001",
+    "sourceSystem": "SMNYL_QUOTE_EXPORT",
+    "sourceId": "SMNYL-QUOTE-GMM-2026-0001",
+    "sourceType": "QUOTE_ILLUSTRATION",
+    "carrierId": "SMNYL",
+    "carrierScope": {
+      "carrier": "smnyl",
+      "market": "mexico",
+      "productLine": "gastos-medicos-mayores"
+    },
+    "productId": "SMNYL-GMM-001",
+    "productVersion": "2026.1",
+    "generatedAt": "2026-07-15T12:00:00Z",
+    "effectiveFrom": "2026-07-01T00:00:00Z",
+    "effectiveTo": "2027-07-01T00:00:00Z",
+    "country": "MX",
+    "channel": "ADVISOR",
+    "currency": "MXN"
+  },
+  "claims": [
+    {
+      "claimPath": "coverage.annualSumInsured",
+      "claimValue": {
+        "amount": 50000000,
+        "currency": "MXN"
+      },
+      "sourcePage": 1
+    },
+    {
+      "claimPath": "costSharing.deductible",
+      "claimValue": {
+        "amount": 25000,
+        "currency": "MXN"
+      },
+      "sourcePage": 2
+    },
+    {
+      "claimPath": "costSharing.coinsurancePercentage",
+      "claimValue": 10,
+      "sourcePage": 2
+    }
+  ]
+}

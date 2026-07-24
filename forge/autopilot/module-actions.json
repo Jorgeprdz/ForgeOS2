@@ -28,6 +28,39 @@
         ".forge21/functional-evidence/MOD-PRODUCT-INTELLIGENCE"
       ],
       "commitMessage": "feat(product-intelligence): materialize functional product truth runtime"
+    },
+    "MOD-GMM-QUOTE-EVIDENCE-ADAPTER": {
+      "implementationCommand": "bash forge/autopilot/actions/materialize-gmm-quote-evidence-adapter.sh",
+      "functionalTestCommand": "node --test modules/gmm-quote-evidence-adapter/index.test.mjs",
+      "consumerTestPaths": [
+        "modules/gmm-quote-evidence-adapter/index.test.mjs"
+      ],
+      "changedPaths": [
+        "modules/gmm-quote-evidence-adapter",
+        ".forge21/receipts/MOD-GMM-QUOTE-EVIDENCE-ADAPTER",
+        ".forge21/functional-evidence/MOD-GMM-QUOTE-EVIDENCE-ADAPTER"
+      ],
+      "commitMessage": "feat(integrations): materialize GMM quote evidence adapter",
+      "evidence": {
+        "checks": {
+          "realOrFaithfulExternalBoundary": true,
+          "successPath": true,
+          "externalFailurePath": true,
+          "canonicalMapping": true,
+          "idempotencyOrDuplicateHandling": true,
+          "secretSafety": true,
+          "consumerBoundary": true
+        },
+        "artifactPaths": [
+          "modules/gmm-quote-evidence-adapter/index.mjs",
+          "modules/gmm-quote-evidence-adapter/index.test.mjs",
+          "modules/gmm-quote-evidence-adapter/fixtures/gmm-quote-contract-v1.json"
+        ],
+        "environment": {
+          "kind": "faithful-contract-fixture",
+          "contractArtifact": "modules/gmm-quote-evidence-adapter/fixtures/gmm-quote-contract-v1.json"
+        }
+      }
     }
   }
 }

@@ -138,6 +138,39 @@ test('Carrier Scope has an explicit governed implementation action', () => {
   );
 });
 
+test('GMM Quote Evidence Adapter declares faithful external evidence', () => {
+  const actions = JSON.parse(fs.readFileSync(actionsPath, 'utf8'));
+  const action = actions.modules['MOD-GMM-QUOTE-EVIDENCE-ADAPTER'];
+
+  assert.ok(action);
+  assert.equal(
+    action.implementationCommand,
+    'bash forge/autopilot/actions/materialize-gmm-quote-evidence-adapter.sh'
+  );
+  assert.equal(
+    action.functionalTestCommand,
+    'node --test modules/gmm-quote-evidence-adapter/index.test.mjs'
+  );
+  assert.equal(
+    action.evidence.environment.kind,
+    'faithful-contract-fixture'
+  );
+  assert.equal(
+    action.evidence.environment.contractArtifact,
+    'modules/gmm-quote-evidence-adapter/fixtures/gmm-quote-contract-v1.json'
+  );
+  assert.deepEqual(
+    Object.entries(action.evidence.checks)
+      .filter(([, value]) => value !== true),
+    []
+  );
+  assert.ok(
+    action.evidence.artifactPaths.includes(
+      'modules/gmm-quote-evidence-adapter/fixtures/gmm-quote-contract-v1.json'
+    )
+  );
+});
+
 test('Product Intelligence has an explicit governed implementation action', () => {
   const actions = JSON.parse(fs.readFileSync(actionsPath, 'utf8'));
   const action = actions.modules['MOD-PRODUCT-INTELLIGENCE'];

@@ -319,6 +319,36 @@
         "isProductTruthActionable",
         "resolveProductEvidence"
       ]
+    },
+    {
+      "id": "MOD-GMM-QUOTE-EVIDENCE-ADAPTER",
+      "title": "GMM Quote Evidence Adapter",
+      "description": "Faithful external quote-contract adapter that maps GMM quote payloads to deterministic Product Evidence records without upgrading source authority.",
+      "dependencies": [
+        "MOD-CARRIER-SCOPE",
+        "MOD-PRODUCT-INTELLIGENCE"
+      ],
+      "governanceInputs": [
+        "governance/constitution/CONSTITUTION_UNIFIED.md",
+        "adr/ADR-005 — Product Truth Boundary.txt",
+        "docs/architecture/CARRIER_SCOPE_NAMING_CONVENTION.md",
+        "docs/architecture/scaffolds/instances/domains/PRODUCT_INTELLIGENCE_DOMAIN_RESPONSIBILITY.md",
+        "docs/architecture/scaffolds/instances/boundaries/PRODUCT_TRUTH_BOUNDARY.md",
+        "docs/architecture/scaffolds/instances/source-truth/PRODUCT_TRUTH_OWNERSHIP.md",
+        "governance/constitutional/PRODUCT_INTELLIGENCE_SOFTWARE_AUTHORITY_001.md"
+      ],
+      "entrypoint": "modules/gmm-quote-evidence-adapter/index.mjs",
+      "tests": [
+        "modules/gmm-quote-evidence-adapter/index.test.mjs"
+      ],
+      "requiredExports": [
+        "GMM_QUOTE_CONTRACT_VERSION",
+        "GmmQuoteEvidenceAdapterError",
+        "assertGmmQuoteEvidenceBatch",
+        "canonicalizeGmmQuoteFixture",
+        "createGmmQuoteFixtureFingerprint",
+        "ingestGmmQuoteEvidence"
+      ]
     }
   ]
 }
