@@ -2,16 +2,18 @@
   "schemaVersion": 1,
   "modules": {
     "MOD-CARRIER-SCOPE": {
-      "implementationCommand": null,
-      "functionalTestCommand": null,
-      "consumerTestPaths": [],
+      "implementationCommand": "bash forge/autopilot/actions/materialize-carrier-scope-runtime.sh",
+      "functionalTestCommand": "node --test modules/carrier-scope/carrier-applicability-consumer.test.mjs",
+      "consumerTestPaths": [
+        "modules/carrier-scope/carrier-applicability-consumer.test.mjs"
+      ],
       "changedPaths": [
         "forge/modules.json",
         "modules/carrier-scope",
         ".forge21/receipts/MOD-CARRIER-SCOPE",
         ".forge21/functional-evidence/MOD-CARRIER-SCOPE"
       ],
-      "commitMessage": "feat(carrier-scope): materialize functional carrier scope"
+      "commitMessage": "feat(carrier-scope): materialize functional carrier applicability runtime"
     },
     "MOD-PRODUCT-INTELLIGENCE": {
       "implementationCommand": "bash forge/autopilot/actions/materialize-product-intelligence-runtime.sh",

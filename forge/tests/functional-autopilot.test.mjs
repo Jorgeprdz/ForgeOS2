@@ -38,18 +38,56 @@ test('audits structural and functional progress separately', () => {
   assert.match(result.stdout, /GLOBAL_STRUCTURAL=/);
   assert.match(result.stdout, /GLOBAL_FUNCTIONAL_REAL=/);
   assert.match(result.stdout, /FALSE_GREEN_COUNT=/);
-  assert.match(result.stdout, /NEXT_MODULE=MOD-CARRIER-SCOPE/);
+  assert.match(
+    result.stdout,
+    /NEXT_TYPE=(MODULE|DECLARE_MODULE|NONE)/
+  );
+  assert.match(result.stdout, /NEXT_REASON=/);
   assert.equal(
     fs.existsSync(path.join(root, '.forge21', 'autopilot', 'reports', 'latest.json')),
     true
   );
 });
 
-test('recommendation advances to the next incomplete runtime module', () => {
+test('recommendation emits a coherent governed next action', () => {
   const result = run('recommend');
   assert.equal(result.status, 0, combined(result));
-  assert.match(result.stdout, /NEXT_AREA=runtime/);
-  assert.match(result.stdout, /NEXT_MODULE=MOD-CARRIER-SCOPE/);
+
+  const type =
+    result.stdout.match(
+      /NEXT_TYPE=(MODULE|DECLARE_MODULE|NONE)/
+    )?.[1];
+
+  assert.ok(type);
+
+  if (type === 'MODULE') {
+    assert.doesNotMatch(
+      result.stdout,
+      /NEXT_MODULE=NONE/
+    );
+    assert.match(
+      result.stdout,
+      /NEXT_AREA=(runtime|integrations|productE2E)/
+    );
+  } else if (type === 'DECLARE_MODULE') {
+    assert.match(
+      result.stdout,
+      /NEXT_MODULE=NONE/
+    );
+    assert.match(
+      result.stdout,
+      /NEXT_AREA=(runtime|integrations|productE2E)/
+    );
+  } else {
+    assert.match(
+      result.stdout,
+      /NEXT_MODULE=NONE/
+    );
+    assert.match(
+      result.stdout,
+      /NEXT_AREA=NONE/
+    );
+  }
 });
 
 test('unknown commands fail closed with a stable error code', () => {
@@ -77,13 +115,22 @@ test('policy weights are complete and sum to one', () => {
   ]);
 });
 
-test('unconfigured runtime actions fail closed', () => {
+test('Carrier Scope has an explicit governed implementation action', () => {
   const actions = JSON.parse(fs.readFileSync(actionsPath, 'utf8'));
   const action = actions.modules['MOD-CARRIER-SCOPE'];
+
   assert.ok(action);
-  assert.equal(action.implementationCommand, null);
-  assert.equal(action.functionalTestCommand, null);
-  assert.deepEqual(action.consumerTestPaths, []);
+  assert.equal(
+    action.implementationCommand,
+    'bash forge/autopilot/actions/materialize-carrier-scope-runtime.sh'
+  );
+  assert.equal(
+    action.functionalTestCommand,
+    'node --test modules/carrier-scope/carrier-applicability-consumer.test.mjs'
+  );
+  assert.deepEqual(action.consumerTestPaths, [
+    'modules/carrier-scope/carrier-applicability-consumer.test.mjs'
+  ]);
   assert.ok(
     action.changedPaths.includes(
       '.forge21/functional-evidence/MOD-CARRIER-SCOPE'
