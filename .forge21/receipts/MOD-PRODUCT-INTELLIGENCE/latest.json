@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "2.1.0",
+  "moduleId": "MOD-PRODUCT-INTELLIGENCE",
+  "validatedAt": "2026-07-23T23:52:09.685Z",
+  "pass": true,
+  "errors": [],
+  "hashes": {
+    "governance/constitution/CONSTITUTION_UNIFIED.md": "5ee6adcce425aa41cac0a798d88ba6ecb576180c4e5cb88cf70312ceb992468e",
+    "adr/ADR-005 — Product Truth Boundary.txt": "107b192d2077f5e21237b4791a1e95a546bae496b4811f4139c185ab858416cd",
+    "docs/architecture/scaffolds/instances/domains/PRODUCT_INTELLIGENCE_DOMAIN_RESPONSIBILITY.md": "6febdcfb3801b55f4b4f1f04317f4355e49ab7ef8f9682a4d6a1f0424718a870",
+    "docs/architecture/scaffolds/instances/boundaries/PRODUCT_TRUTH_BOUNDARY.md": "c63a23d19b8bf4c0c47558b42cefee9879625a3cb128ef5a435f274336f6bebc",
+    "docs/architecture/scaffolds/instances/source-truth/PRODUCT_TRUTH_OWNERSHIP.md": "3fc5ecc4b1bc8712fd41d3351e0424112409b4ecd1ce9b411c668194789d19f5",
+    "modules/product-intelligence/index.mjs": "a8c9659fdd4c8244411f7ffe5f16fd9a669e5bfcd176d125b9baa1f468be996c",
+    "modules/product-intelligence/index.test.mjs": "50e0954645ef001a9837e014e275b54adbfcfd35b59afe65736df7b96fd2c339"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "scaffold": "SCF-DOC-ARCHITECTURE-BOUNDARY@1.0.0",
+  "issuedAt": "2026-07-23T22:00:00Z",
+  "authoritySha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "definitionSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "templateSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "inputSchemaSha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "dependencyLocks": [],
+  "allowedOutputPatterns": [
+    "../../escape"
+  ],
+  "lockSha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+}

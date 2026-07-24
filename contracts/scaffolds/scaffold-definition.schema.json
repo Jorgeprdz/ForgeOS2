@@ -1,0 +1,274 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://forge-os.local/contracts/scaffolds/scaffold-definition.schema.json",
+  "title": "Forge OS 2.1 Scaffold Definition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "version",
+    "title",
+    "kind",
+    "status",
+    "authority",
+    "template",
+    "inputSchema",
+    "outputs",
+    "pathPolicy",
+    "validations",
+    "dependencies",
+    "provenance"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^SCF-[A-Z0-9][A-Z0-9-]*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:-[A-Za-z0-9.-]+)?$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 160
+    },
+    "kind": {
+      "enum": [
+        "DOCUMENTARY",
+        "MODULE",
+        "SERVICE",
+        "TEST",
+        "MIGRATION",
+        "UI",
+        "DATABASE"
+      ]
+    },
+    "status": {
+      "enum": [
+        "REFERENCE_ONLY",
+        "PROPOSED",
+        "AUTHORIZED",
+        "BLOCKED",
+        "DEPRECATED"
+      ]
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gateId",
+        "ratified",
+        "constitutionRefs",
+        "adrRefs",
+        "ownerStatus",
+        "snapshotSha256"
+      ],
+      "properties": {
+        "gateId": {
+          "type": "string",
+          "pattern": "^SG-[0-9]{3}$"
+        },
+        "ratified": {
+          "type": "boolean"
+        },
+        "constitutionRefs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "adrRefs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^ADR-[0-9]{3}[A-Z]?$"
+          }
+        },
+        "ownerStatus": {
+          "enum": [
+            "ESTABLISHED",
+            "UNKNOWN_BLOCKED",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "snapshotSha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "template": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256",
+        "renderer"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)(?!.*[\\u0000-\\u001F]).+$"
+        },
+        "sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "renderer": {
+          "const": "FORGE_TEXT_V1"
+        }
+      }
+    },
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)(?!.*[\\u0000-\\u001F]).+$"
+        },
+        "sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "pathPattern",
+          "mediaType",
+          "operation"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9_]*$"
+          },
+          "pathPattern": {
+            "type": "string",
+            "minLength": 1
+          },
+          "mediaType": {
+            "enum": [
+              "text/markdown",
+              "application/json",
+              "text/javascript",
+              "text/typescript",
+              "text/plain"
+            ]
+          },
+          "operation": {
+            "enum": [
+              "CREATE_ONLY",
+              "MODIFY_EXACT"
+            ]
+          }
+        }
+      }
+    },
+    "pathPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "allowSymlinks",
+        "allowDelete",
+        "allowRename",
+        "overwriteDefault"
+      ],
+      "properties": {
+        "allowSymlinks": {
+          "const": false
+        },
+        "allowDelete": {
+          "const": false
+        },
+        "allowRename": {
+          "const": false
+        },
+        "overwriteDefault": {
+          "const": "DENY"
+        }
+      }
+    },
+    "validations": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^SCV-[0-9]{3}$"
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^SCF-[A-Z0-9][A-Z0-9-]*@[0-9]+\\.[0-9]+\\.[0-9]+(?:-[A-Za-z0-9.-]+)?$"
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "activeSources",
+        "historicalSources",
+        "classification"
+      ],
+      "properties": {
+        "activeSources": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "historicalSources": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "classification": {
+          "enum": [
+            "KEEP",
+            "REDESIGN",
+            "NEW"
+          ]
+        }
+      }
+    }
+  }
+}

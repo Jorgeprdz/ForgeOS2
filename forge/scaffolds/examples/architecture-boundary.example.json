@@ -1,0 +1,17 @@
+{
+  "document_id": "CLIENT_TRUTH_BOUNDARY",
+  "title": "Client Truth Boundary",
+  "purpose": "Protect client truth from local redefinition or unsupported inference.",
+  "scope": "- In scope: verified client facts and evidence state.\n- Out of scope: forecasts presented as facts.",
+  "responsibilities": "- Preserve provenance.\n- Fail closed when authority or evidence is missing.",
+  "authority": "- Constitution: Article 0 and Article III.\n- ADR authority: ADR-001 and ADR-003.",
+  "boundaries": "- Permitted: consume verified truth.\n- Prohibited: invent or recalculate official truth.",
+  "dependencies": "- Upstream: evidence owners.\n- Downstream: bounded consumers.",
+  "source_of_truth": "- Conceptual owner: established by active authority.\n- Canonical source: verified evidence envelope.",
+  "related_documents": "- Governance Registry.\n- Active Source of Truth index.",
+  "related_adrs": "- ADR-001.\n- ADR-003.\n- ADR-020.",
+  "constitutional_references": "- Article 0 / Ley Zero.\n- Articles II, III, V and IX.",
+  "status": "`PROPOSED INSTANCE / REVIEW REQUIRED`",
+  "version": "`1.0.0`",
+  "traceability": "- Template: Canonical Architecture Boundary Scaffold.\n- Gate: SG-002 exact allowlist required."
+}

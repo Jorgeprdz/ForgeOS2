@@ -1,0 +1,17 @@
+{
+  "document_id": "PRODUCT_INTELLIGENCE_DOMAIN_RESPONSIBILITY",
+  "title": "Product Intelligence Domain Responsibility",
+  "purpose": "Document the established Product Intelligence responsibility without inventing ownership.",
+  "scope": "- Owns: product interpretation.\n- Consumes: verified source packs.\n- Build Tree: Product Intelligence.",
+  "responsibilities": "- Maintain product interpretation.\n- Expose bounded read models.\n- Preserve source provenance.",
+  "authority": "- ADR-005 establishes the bounded domain.\n- ADR-020 controls architecture baseline.",
+  "boundaries": "- Does not own policy truth.\n- May not execute human decisions.\n- May not invent product recommendations.",
+  "dependencies": "- Product source packs.\n- Rule and effective-period context.\n- Evidence envelopes.",
+  "source_of_truth": "- Domain owner: Product Intelligence.\n- Canonical definition source: ADR-005.",
+  "related_documents": "- Product catalog contract.\n- Product source-pack contract.\n- Master Build Tree.",
+  "related_adrs": "- ADR-001.\n- ADR-003.\n- ADR-005.\n- ADR-020.",
+  "constitutional_references": "- Article 0 / Ley Zero.\n- Articles I, III–VII.",
+  "status": "`PROPOSED INSTANCE / OWNER EVIDENCE REQUIRED`",
+  "version": "`1.0.0`",
+  "traceability": "- Template: Canonical Domain Responsibility Scaffold.\n- Gate: SG-002 allowlisted domain instance."
+}

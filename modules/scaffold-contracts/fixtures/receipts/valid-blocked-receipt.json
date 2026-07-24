@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "SRCPT-ARCH-BOUNDARY-001",
+  "runId": "20260723T220000Z-ARCH-BOUNDARY-001",
+  "planId": "SPLAN-ARCH-BOUNDARY-001",
+  "planSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "scaffold": "SCF-DOC-ARCHITECTURE-BOUNDARY@1.0.0",
+  "status": "BLOCKED",
+  "startedAt": "2026-07-23T22:00:00Z",
+  "finishedAt": "2026-07-23T22:00:05Z",
+  "approval": {
+    "required": true,
+    "present": false,
+    "actor": null,
+    "approvedAt": null,
+    "planSha256": null
+  },
+  "environment": {
+    "engineVersion": "2.1.0",
+    "nodeVersion": "v26.4.0",
+    "platform": "linux",
+    "sourceRef": "71198a8a0c4cbff51b189f95966d6e97a0b89d3b",
+    "workingTreeCleanBefore": true
+  },
+  "outputs": [],
+  "validations": [
+    {
+      "id": "SCV-002",
+      "status": "FAIL",
+      "evidence": [
+        "SG-003_NOT_RATIFIED"
+      ]
+    }
+  ],
+  "errors": [
+    "SOFTWARE_GATE_NOT_RATIFIED"
+  ],
+  "receiptSha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+}

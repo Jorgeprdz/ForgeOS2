@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Domain Responsibility Scaffold Input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "document_id",
+    "title",
+    "purpose",
+    "scope",
+    "responsibilities",
+    "authority",
+    "boundaries",
+    "dependencies",
+    "source_of_truth",
+    "related_documents",
+    "related_adrs",
+    "constitutional_references",
+    "status",
+    "version",
+    "traceability"
+  ],
+  "properties": {
+    "document_id": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "minLength": 3,
+      "maxLength": 120
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20000
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20000
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20000
+    },
+    "responsibilities": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20000
+    },
+    "authority": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20000
+    },
+    "boundaries": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20000
+    },
+    "dependencies": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20000
+    },
+    "source_of_truth": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20000
+    },
+    "related_documents": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20000
+    },
+    "related_adrs": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20000
+    },
+    "constitutional_references": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20000
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20000
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20000
+    },
+    "traceability": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20000
+    }
+  }
+}

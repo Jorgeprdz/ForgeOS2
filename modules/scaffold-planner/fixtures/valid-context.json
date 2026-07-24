@@ -1,0 +1,24 @@
+{
+  "scaffoldReference": "SCF-DOC-ARCHITECTURE-BOUNDARY@1.0.0",
+  "input": {
+    "path": ".forge21/scaffold-inputs/client-truth-boundary.json",
+    "data": {
+      "document_id": "CLIENT_TRUTH_BOUNDARY"
+    },
+    "sha256": "03e0b5d52d8bfd426558cc5b369ea1705d9a2460c7a5661ec59d7d92aaaabde8",
+    "schemaSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "validation": {
+      "pass": true,
+      "errors": []
+    }
+  },
+  "authoritySnapshot": {
+    "gateId": "SG-001",
+    "ratified": true,
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "sourceRef": "71198a8a0c4cbff51b189f95966d6e97a0b89d3b",
+  "runId": "20260723T230000Z-CLIENT-TRUTH-BOUNDARY",
+  "planId": "SPLAN-CLIENT-TRUTH-BOUNDARY",
+  "createdAt": "2026-07-23T23:00:00Z"
+}

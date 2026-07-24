@@ -20,6 +20,298 @@
         "createCarrierScope",
         "isCarrierScope"
       ]
+    },
+    {
+      "id": "MOD-SCAFFOLD-CONTRACTS",
+      "title": "Scaffold Contracts",
+      "description": "Fail-closed definition, plan, lock and receipt contracts.",
+      "dependencies": [],
+      "entrypoint": "modules/scaffold-contracts/index.mjs",
+      "tests": [
+        "modules/scaffold-contracts/index.test.mjs"
+      ],
+      "requiredExports": [
+        "ContractValidationError",
+        "assertScaffoldDefinition",
+        "assertScaffoldExecutionPlan",
+        "assertScaffoldLock",
+        "assertScaffoldReceipt",
+        "canonicalJson",
+        "isSafeRepositoryPath",
+        "sha256Canonical",
+        "validateScaffoldDefinition",
+        "validateScaffoldExecutionPlan",
+        "validateScaffoldLock",
+        "validateScaffoldReceipt"
+      ],
+      "governanceInputs": [
+        "governance/constitution/CONSTITUTION_UNIFIED.md",
+        "governance/FORGE_GOVERNANCE_REGISTRY.md",
+        "governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md",
+        "governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md",
+        "governance/constitutional/SCAFFOLD_SOFTWARE_GATE_003.md"
+      ],
+      "installationGate": "SG-003_REQUIRED"
+    },
+    {
+      "id": "MOD-SCAFFOLD-REGISTRY",
+      "title": "Scaffold Registry",
+      "description": "Exact versioned scaffold registry.",
+      "dependencies": [
+        "MOD-SCAFFOLD-CONTRACTS"
+      ],
+      "entrypoint": "modules/scaffold-registry/index.mjs",
+      "tests": [
+        "modules/scaffold-registry/index.test.mjs"
+      ],
+      "requiredExports": [
+        "ScaffoldRegistryError",
+        "assertScaffoldRegistry",
+        "createScaffoldRegistry",
+        "hashScaffoldRegistry",
+        "parseExactScaffoldReference",
+        "scaffoldRef",
+        "validateScaffoldRegistry"
+      ],
+      "governanceInputs": [
+        "governance/constitution/CONSTITUTION_UNIFIED.md",
+        "governance/FORGE_GOVERNANCE_REGISTRY.md",
+        "governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md",
+        "governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md",
+        "governance/constitutional/SCAFFOLD_SOFTWARE_GATE_003.md"
+      ],
+      "installationGate": "SG-003_REQUIRED"
+    },
+    {
+      "id": "MOD-SCAFFOLD-PLANNER",
+      "title": "Scaffold Planner",
+      "description": "Deterministic dry-run planner.",
+      "dependencies": [
+        "MOD-SCAFFOLD-CONTRACTS",
+        "MOD-SCAFFOLD-REGISTRY"
+      ],
+      "entrypoint": "modules/scaffold-planner/index.mjs",
+      "tests": [
+        "modules/scaffold-planner/index.test.mjs"
+      ],
+      "requiredExports": [
+        "ScaffoldPlanError",
+        "buildScaffoldPlan",
+        "hashScaffoldPlan",
+        "renderPathPattern",
+        "verifyScaffoldPlanHash"
+      ],
+      "governanceInputs": [
+        "governance/constitution/CONSTITUTION_UNIFIED.md",
+        "governance/FORGE_GOVERNANCE_REGISTRY.md",
+        "governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md",
+        "governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md",
+        "governance/constitutional/SCAFFOLD_SOFTWARE_GATE_003.md"
+      ],
+      "installationGate": "SG-003_REQUIRED"
+    },
+    {
+      "id": "MOD-SCAFFOLD-RENDERER",
+      "title": "Scaffold Renderer",
+      "description": "Deterministic rendering and isolated staging.",
+      "dependencies": [
+        "MOD-SCAFFOLD-CONTRACTS",
+        "MOD-SCAFFOLD-REGISTRY",
+        "MOD-SCAFFOLD-PLANNER"
+      ],
+      "entrypoint": "modules/scaffold-renderer/index.mjs",
+      "tests": [
+        "modules/scaffold-renderer/index.test.mjs"
+      ],
+      "requiredExports": [
+        "ScaffoldRenderError",
+        "extractTemplateTokens",
+        "normalizeText",
+        "renderScaffoldInMemory",
+        "renderTextTemplate",
+        "sha256NormalizedText",
+        "stageRenderedScaffold",
+        "verifyStagedScaffold"
+      ],
+      "governanceInputs": [
+        "governance/constitution/CONSTITUTION_UNIFIED.md",
+        "governance/FORGE_GOVERNANCE_REGISTRY.md",
+        "governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md",
+        "governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md",
+        "governance/constitutional/SCAFFOLD_SOFTWARE_GATE_003.md"
+      ],
+      "installationGate": "SG-003_REQUIRED"
+    },
+    {
+      "id": "MOD-SCAFFOLD-VALIDATOR",
+      "title": "Scaffold Validator",
+      "description": "Pre-apply rendered and staged bundle validation.",
+      "dependencies": [
+        "MOD-SCAFFOLD-CONTRACTS",
+        "MOD-SCAFFOLD-REGISTRY",
+        "MOD-SCAFFOLD-PLANNER",
+        "MOD-SCAFFOLD-RENDERER"
+      ],
+      "entrypoint": "modules/scaffold-validator/index.mjs",
+      "tests": [
+        "modules/scaffold-validator/index.test.mjs"
+      ],
+      "requiredExports": [
+        "ScaffoldValidationError",
+        "assertValidationReportPass",
+        "hashStagingDirectory",
+        "validateRenderedScaffoldBundle",
+        "verifyValidationReportHash"
+      ],
+      "governanceInputs": [
+        "governance/constitution/CONSTITUTION_UNIFIED.md",
+        "governance/FORGE_GOVERNANCE_REGISTRY.md",
+        "governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md",
+        "governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md",
+        "governance/constitutional/SCAFFOLD_SOFTWARE_GATE_003.md"
+      ],
+      "installationGate": "SG-003_REQUIRED"
+    },
+    {
+      "id": "MOD-SCAFFOLD-RECEIPTS",
+      "title": "Scaffold Receipts",
+      "description": "Pre-apply receipt construction and isolated evidence.",
+      "dependencies": [
+        "MOD-SCAFFOLD-CONTRACTS",
+        "MOD-SCAFFOLD-VALIDATOR"
+      ],
+      "entrypoint": "modules/scaffold-receipts/index.mjs",
+      "tests": [
+        "modules/scaffold-receipts/index.test.mjs"
+      ],
+      "requiredExports": [
+        "ScaffoldReceiptError",
+        "createPreApplyReceipt",
+        "verifyPreApplyReceipt",
+        "verifyReceiptHash",
+        "writeReceiptEvidence"
+      ],
+      "governanceInputs": [
+        "governance/constitution/CONSTITUTION_UNIFIED.md",
+        "governance/FORGE_GOVERNANCE_REGISTRY.md",
+        "governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md",
+        "governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md",
+        "governance/constitutional/SCAFFOLD_SOFTWARE_GATE_003.md"
+      ],
+      "installationGate": "SG-003_REQUIRED"
+    },
+    {
+      "id": "MOD-SCAFFOLD-APPLIER",
+      "title": "Scaffold Applier",
+      "description": "Exact approval, transactional create-only apply and final receipt.",
+      "dependencies": [
+        "MOD-SCAFFOLD-CONTRACTS",
+        "MOD-SCAFFOLD-PLANNER",
+        "MOD-SCAFFOLD-RENDERER",
+        "MOD-SCAFFOLD-VALIDATOR",
+        "MOD-SCAFFOLD-RECEIPTS"
+      ],
+      "entrypoint": "modules/scaffold-applier/index.mjs",
+      "tests": [
+        "modules/scaffold-applier/index.test.mjs"
+      ],
+      "requiredExports": [
+        "ScaffoldApplyError",
+        "applyApprovedScaffold",
+        "createApprovalRecord",
+        "createFinalReceipt",
+        "snapshotRepositoryTree",
+        "verifyAppliedScaffold",
+        "verifyApprovalRecord",
+        "verifyFinalReceipt"
+      ],
+      "governanceInputs": [
+        "governance/constitution/CONSTITUTION_UNIFIED.md",
+        "governance/FORGE_GOVERNANCE_REGISTRY.md",
+        "governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md",
+        "governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md",
+        "governance/constitutional/SCAFFOLD_SOFTWARE_GATE_003.md"
+      ],
+      "installationGate": "SG-003_REQUIRED"
+    },
+    {
+      "id": "MOD-SCAFFOLD-CLI",
+      "title": "Scaffold CLI",
+      "description": "Strict operator interface for snapshot, approval, apply and receipt verification.",
+      "dependencies": [
+        "MOD-SCAFFOLD-APPLIER"
+      ],
+      "entrypoint": "modules/scaffold-cli/main.mjs",
+      "tests": [
+        "modules/scaffold-cli/index.test.mjs"
+      ],
+      "requiredExports": [
+        "runCli"
+      ],
+      "governanceInputs": [
+        "governance/constitution/CONSTITUTION_UNIFIED.md",
+        "governance/FORGE_GOVERNANCE_REGISTRY.md",
+        "governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md",
+        "governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md",
+        "governance/constitutional/SCAFFOLD_SOFTWARE_GATE_003.md"
+      ],
+      "installationGate": "SG-003_REQUIRED"
+    },
+    {
+      "id": "MOD-SCAFFOLD-CATALOG",
+      "title": "Canonical Scaffold Catalog",
+      "description": "Four canonical documentary scaffold families and authority-bound assets.",
+      "dependencies": [
+        "MOD-SCAFFOLD-CONTRACTS",
+        "MOD-SCAFFOLD-REGISTRY",
+        "MOD-SCAFFOLD-RENDERER"
+      ],
+      "entrypoint": "modules/scaffold-catalog/index.mjs",
+      "tests": [
+        "modules/scaffold-catalog/index.test.mjs"
+      ],
+      "requiredExports": [
+        "ScaffoldCatalogError",
+        "assertCanonicalCatalog",
+        "catalogSummary",
+        "createCanonicalInputEnvelope",
+        "loadCanonicalCatalog",
+        "validateCanonicalCatalog",
+        "validateCanonicalInput"
+      ],
+      "governanceInputs": [
+        "governance/constitution/CONSTITUTION_UNIFIED.md",
+        "governance/FORGE_GOVERNANCE_REGISTRY.md",
+        "governance/constitutional/SCAFFOLD_GENERATION_GATE_001.md",
+        "governance/constitutional/SCAFFOLD_INSTANTIATION_GATE_002.md",
+        "governance/constitutional/SCAFFOLD_SOFTWARE_GATE_003.md"
+      ],
+      "installationGate": "SG-003_REQUIRED"
+    },
+    {
+      "id": "MOD-PRODUCT-INTELLIGENCE",
+      "title": "Product Intelligence",
+      "description": "Version-aware deterministic Product Truth envelope with evidence, conflict, effective-period and actionability boundaries.",
+      "dependencies": [],
+      "governanceInputs": [
+        "governance/constitution/CONSTITUTION_UNIFIED.md",
+        "adr/ADR-005 — Product Truth Boundary.txt",
+        "docs/architecture/scaffolds/instances/domains/PRODUCT_INTELLIGENCE_DOMAIN_RESPONSIBILITY.md",
+        "docs/architecture/scaffolds/instances/boundaries/PRODUCT_TRUTH_BOUNDARY.md",
+        "docs/architecture/scaffolds/instances/source-truth/PRODUCT_TRUTH_OWNERSHIP.md"
+      ],
+      "entrypoint": "modules/product-intelligence/index.mjs",
+      "tests": [
+        "modules/product-intelligence/index.test.mjs"
+      ],
+      "requiredExports": [
+        "EVIDENCE_STATES",
+        "ProductTruthError",
+        "assertProductTruthEnvelope",
+        "createProductTruthEnvelope",
+        "createProductTruthKey",
+        "isProductTruthActionable"
+      ]
     }
   ]
 }

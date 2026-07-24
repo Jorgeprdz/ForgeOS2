@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "2.1.0",
+  "moduleId": "MOD-SCAFFOLD-APPLIER",
+  "state": "validated",
+  "createdAt": "2026-07-23T23:30:45.550Z",
+  "updatedAt": "2026-07-23T23:30:48.961Z",
+  "history": [
+    {
+      "state": "declared",
+      "at": "2026-07-23T23:30:45.550Z",
+      "reason": "module initialized"
+    },
+    {
+      "state": "ready",
+      "at": "2026-07-23T23:30:45.827Z",
+      "reason": "forge advance"
+    },
+    {
+      "state": "implementation_started",
+      "at": "2026-07-23T23:30:46.112Z",
+      "reason": "forge advance"
+    },
+    {
+      "state": "implementation_complete",
+      "at": "2026-07-23T23:30:46.391Z",
+      "reason": "forge advance"
+    },
+    {
+      "state": "tests_pass",
+      "at": "2026-07-23T23:30:48.779Z",
+      "reason": "module tests passed"
+    },
+    {
+      "state": "validated",
+      "at": "2026-07-23T23:30:48.961Z",
+      "reason": "validation receipt passed"
+    }
+  ]
+}
