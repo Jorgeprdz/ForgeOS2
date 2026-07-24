@@ -38,18 +38,18 @@ test('audits structural and functional progress separately', () => {
   assert.match(result.stdout, /GLOBAL_STRUCTURAL=/);
   assert.match(result.stdout, /GLOBAL_FUNCTIONAL_REAL=/);
   assert.match(result.stdout, /FALSE_GREEN_COUNT=/);
-  assert.match(result.stdout, /NEXT_MODULE=MOD-PRODUCT-INTELLIGENCE/);
+  assert.match(result.stdout, /NEXT_MODULE=MOD-CARRIER-SCOPE/);
   assert.equal(
     fs.existsSync(path.join(root, '.forge21', 'autopilot', 'reports', 'latest.json')),
     true
   );
 });
 
-test('recommendation follows functional priority rather than alphabetic order', () => {
+test('recommendation advances to the next incomplete runtime module', () => {
   const result = run('recommend');
   assert.equal(result.status, 0, combined(result));
   assert.match(result.stdout, /NEXT_AREA=runtime/);
-  assert.match(result.stdout, /NEXT_MODULE=MOD-PRODUCT-INTELLIGENCE/);
+  assert.match(result.stdout, /NEXT_MODULE=MOD-CARRIER-SCOPE/);
 });
 
 test('unknown commands fail closed with a stable error code', () => {

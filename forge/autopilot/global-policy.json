@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "campaignPriority": [
+    "runtime",
+    "integrations",
+    "productE2E",
+    "scaffolds",
+    "architecture"
+  ],
+  "requiredCapabilityAreas": [
+    "runtime",
+    "integrations",
+    "productE2E"
+  ],
+  "protectedBranches": [
+    "main",
+    "master"
+  ],
+  "defaultMaxModules": 25,
+  "defaultMaxMinutes": 240,
+  "blockedExitCode": 2,
+  "limitExitCode": 3,
+  "actionEvidenceChecks": {
+    "integrations": [
+      "realOrFaithfulExternalBoundary",
+      "successPath",
+      "externalFailurePath",
+      "canonicalMapping",
+      "idempotencyOrDuplicateHandling",
+      "secretSafety",
+      "consumerBoundary"
+    ],
+    "productE2E": [
+      "realUserEntrypoint",
+      "multiStepScenario",
+      "crossesRuntimeAndAdapter",
+      "noHiddenManualSteps",
+      "visibleOutcome",
+      "failureRecovery",
+      "humanGateWhenRequired",
+      "traceableRun"
+    ]
+  }
+}
