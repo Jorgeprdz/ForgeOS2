@@ -1,0 +1,643 @@
+{
+  "schemaVersion": 1,
+  "kind": "FORGE_CAPABILITY_IDENTITY_REVIEW_WAVE",
+  "waveId": "WAVE-005",
+  "generatedAt": "2026-07-24T06:03:23.087Z",
+  "source": {
+    "legacyHead": "e4441e794abaaf983472591e7c80ae545b0b3f67",
+    "groupingReportHash": "47019e7100208db576f47f1d026235516dac59837c131d2f193268cb575c0bc0"
+  },
+  "safety": {
+    "identityLockIsNotParity": true,
+    "highRiskAutoLock": false,
+    "businessAutoLock": false,
+    "incompleteTestAutoLock": false,
+    "rewritesRules": false,
+    "retiresLegacy": false
+  },
+  "counts": {
+    "reviewedGroups": 8,
+    "lockedIdentities": 0,
+    "humanReviewRequired": 8,
+    "splitRequired": 0,
+    "mergeRejected": 0
+  },
+  "reviews": [
+    {
+      "groupId": "CAP2-POLICY_OPERATIONS-TIMELINE",
+      "proposedName": "timeline",
+      "domain": "policy-operations",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 13,
+      "memberCount": 7,
+      "memberCapabilityIds": [
+        "CAP-POLICY_OPERATIONS-POLICY_ACTIVITY",
+        "CAP-POLICY_OPERATIONS-POLICY_TIMELINE",
+        "CAP-POLICY_OPERATIONS-POLICY_TIMELINE_EVENT_FACTORY",
+        "CAP-POLICY_OPERATIONS-POLICY_TIMELINE_GROUP",
+        "CAP-POLICY_OPERATIONS-POLICY_TIMELINE_QUERY",
+        "CAP-POLICY_OPERATIONS-POLICY_TIMELINE_TYPES",
+        "CAP-POLICY_OPERATIONS-POLICY_TIMELINE_VIEW"
+      ],
+      "codeFiles": [
+        "policy-operations/policy-timeline/policy-activity-engine.js",
+        "policy-operations/policy-timeline/policy-timeline-engine.js",
+        "policy-operations/policy-timeline/policy-timeline-event.factory.js",
+        "policy-operations/policy-timeline/policy-timeline-group-engine.js",
+        "policy-operations/policy-timeline/policy-timeline-query-engine.js",
+        "policy-operations/policy-timeline/policy-timeline-view-model.js",
+        "policy-operations/policy-timeline/policy-timeline.repository.js",
+        "policy-operations/policy-timeline/policy-timeline.types.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL",
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "evidence": {
+        "memberCount": 7,
+        "mergeEdgeCount": 21,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 18,
+        "reasons": [
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "policy-operations"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-PRODUCT_INTELLIGENCE-PROJECTION",
+      "proposedName": "projection",
+      "domain": "product-intelligence",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 12,
+      "memberCount": 7,
+      "memberCapabilityIds": [
+        "CAP-PRODUCT_INTELLIGENCE-FINANCIAL_PYRAMID",
+        "CAP-PRODUCT_INTELLIGENCE-FINANCIAL_PYRAMID_PRIORITY",
+        "CAP-PRODUCT_INTELLIGENCE-FINANCIAL_PYRAMID_STORY",
+        "CAP-PRODUCT_INTELLIGENCE-FINANCIAL_RISK_SCORE",
+        "CAP-PRODUCT_INTELLIGENCE-LIFE_EXPECTANCY_PROJECTION",
+        "CAP-PRODUCT_INTELLIGENCE-PROJECTION",
+        "CAP-PRODUCT_INTELLIGENCE-PROJECTION_MILESTONE"
+      ],
+      "codeFiles": [
+        "product-intelligence/projections/financial-pyramid-engine.js",
+        "product-intelligence/projections/financial-pyramid-priority-engine.js",
+        "product-intelligence/projections/financial-pyramid-story-engine.js",
+        "product-intelligence/projections/financial-risk-score-engine.js",
+        "product-intelligence/projections/life-expectancy-projection-engine.js",
+        "product-intelligence/projections/projection-engine.js",
+        "product-intelligence/projections/projection-milestone-engine.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL"
+        ]
+      },
+      "evidence": {
+        "memberCount": 7,
+        "mergeEdgeCount": 10,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 18,
+        "reasons": [
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "product-intelligence"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-ANALYTICS_HISTORICAL_MASTER",
+      "proposedName": "analytics-historical-master",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 8,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-MANAGER_ADVISOR_HISTORICAL_ANALYTICS_ENGINE_MASTER",
+        "CAP-MANAGER_TEAM-MANAGER_HISTORICAL_ANALYTICS_ENGINE_MASTER"
+      ],
+      "codeFiles": [],
+      "testFiles": [
+        "manager-os/tests/manager-advisor-historical-analytics-engine-master-test.js",
+        "manager-os/tests/manager-historical-analytics-engine-master-test.js"
+      ],
+      "selectedTests": [
+        "manager-os/tests/manager-advisor-historical-analytics-engine-master-test.js",
+        "manager-os/tests/manager-historical-analytics-engine-master-test.js"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 18,
+        "maximumMergeScore": 18,
+        "reasons": [
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [
+        {
+          "file": "manager-os/tests/manager-advisor-historical-analytics-engine-master-test.js",
+          "status": "PASS",
+          "command": "node manager-os/tests/manager-advisor-historical-analytics-engine-master-test.js",
+          "exitCode": 0,
+          "signal": null,
+          "durationMs": 325,
+          "outputSha256": "f0ccbc163d03a1a17e8c96b9b7d32c5dbb099e230f3f695dad56da663aa8e72e",
+          "outputBytes": 874,
+          "outputPreview": "FORGE MANAGER ADVISOR HISTORICAL ANALYTICS ENGINE MASTER TEST v1.0 PASS Activity prospecting followup referral trends are context only PASS Missing activity does not become zero activity PASS Missing pipeline does not become low pipeline PASS Explicit zero-like values are warnings and limitations only PASS Production trend does not create revenue truth PASS Qualification trend does not create promotion truth PASS Advisor status trend does not create Advisor Lifecycle truth PASS Support coaching trend does not create punishment truth PASS Team patterns do not create ranking leaderboard or HR tr"
+        },
+        {
+          "file": "manager-os/tests/manager-historical-analytics-engine-master-test.js",
+          "status": "PASS",
+          "command": "node manager-os/tests/manager-historical-analytics-engine-master-test.js",
+          "exitCode": 0,
+          "signal": null,
+          "durationMs": 329,
+          "outputSha256": "9b2292cce26e9dc2536e0c6bb1bc44d670cc4cb0ad8bdbdfbcad82a115b1f8f9",
+          "outputBytes": 578,
+          "outputPreview": "FORGE MANAGER HISTORICAL ANALYTICS ENGINE MASTER TEST v1.0 PASS Combines recruitment and advisor historical analytics PASS Uses protected metrics snapshots context only PASS Does not mutate inputs PASS Merges and dedupes evidence source and sourceOwners PASS Propagates warnings limitations missing unknown stale defaultZero risks PASS Blocks forbidden uses PASS Allows context uses PASS Creates no downstream truth PASS No direct Advisor OS import PASS No legacy Manager OS import PASS No compensation revenue lifecycle product imports Resumen: Total: 11 Pass: 11 Fail: 0"
+        }
+      ],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Only resolved low-risk infrastructure identities may be auto-locked unattended.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-BOUNDARY_MASTER",
+      "proposedName": "boundary-master",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 8,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-PROVIDER_CONNECTOR_BOUNDARY_CONTRACT_MASTER",
+        "CAP-MANAGER_TEAM-PROVIDER_RUNTIME_BOUNDARY_CONTRACT_MASTER"
+      ],
+      "codeFiles": [],
+      "testFiles": [
+        "manager-os/tests/provider-connector-boundary-contract-master-test.js",
+        "manager-os/tests/provider-runtime-boundary-contract-master-test.js"
+      ],
+      "selectedTests": [
+        "manager-os/tests/provider-connector-boundary-contract-master-test.js",
+        "manager-os/tests/provider-runtime-boundary-contract-master-test.js"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY"
+        ]
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 25,
+        "maximumMergeScore": 25,
+        "reasons": [
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [
+        {
+          "file": "manager-os/tests/provider-connector-boundary-contract-master-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: EXTERNAL_BOUNDARY"
+        },
+        {
+          "file": "manager-os/tests/provider-runtime-boundary-contract-master-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: EXTERNAL_BOUNDARY"
+        }
+      ],
+      "scenarioSeeds": [
+        "EXTERNAL_CONTRACT_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-COACHING_MASTER",
+      "proposedName": "coaching-master",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 8,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-MANAGER_ADVISOR_COACHING_ENGINE_MASTER",
+        "CAP-MANAGER_TEAM-MANAGER_TEAM_COACHING_ENGINE_MASTER"
+      ],
+      "codeFiles": [],
+      "testFiles": [
+        "manager-os/tests/manager-advisor-coaching-engine-master-test.js",
+        "manager-os/tests/manager-team-coaching-engine-master-test.js"
+      ],
+      "selectedTests": [
+        "manager-os/tests/manager-advisor-coaching-engine-master-test.js",
+        "manager-os/tests/manager-team-coaching-engine-master-test.js"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 14,
+        "maximumMergeScore": 14,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [
+        {
+          "file": "manager-os/tests/manager-advisor-coaching-engine-master-test.js",
+          "status": "PASS",
+          "command": "node manager-os/tests/manager-advisor-coaching-engine-master-test.js",
+          "exitCode": 0,
+          "signal": null,
+          "durationMs": 174,
+          "outputSha256": "8411d1ead54edec669c685a9981c344fd1acf4080e4bda7ccc765153cbb37ae9",
+          "outputBytes": 874,
+          "outputPreview": "FORGE MANAGER ADVISOR COACHING ENGINE MASTER TEST v1.0 PASS Follow-up consistency coaching is conversation context only PASS Prospecting referral coaching is context only PASS Appointment rhythm coaching is context only PASS Pipeline review is context only PASS Production coaching does not create revenue truth PASS Qualification coaching does not create promotion or lifecycle truth PASS Support coaching need does not create punishment truth PASS Activity gap does not create termination truth PASS Missing activity does not become zero activity PASS Stale evidence propagates PASS Forbidden uses "
+        },
+        {
+          "file": "manager-os/tests/manager-team-coaching-engine-master-test.js",
+          "status": "PASS",
+          "command": "node manager-os/tests/manager-team-coaching-engine-master-test.js",
+          "exitCode": 0,
+          "signal": null,
+          "durationMs": 189,
+          "outputSha256": "6eb3fb155823436352b0b5ee1b11d8c6ef30726072a2f0d9ef068e9ee8b776b3",
+          "outputBytes": 668,
+          "outputPreview": "FORGE MANAGER TEAM COACHING ENGINE MASTER TEST v1.0 PASS Team pattern coaching is context only PASS Team capacity support is context only and not HR truth PASS Team activity rhythm coaching is context only PASS Team forecast review is not promotion punishment or termination truth PASS Team evidence quality coaching is context only PASS Team coaching does not create ranking or leaderboard truth PASS Missing team context is UNKNOWN, not zero PASS Stale evidence propagates PASS Forbidden uses are blocked PASS Allowed uses are allowed PASS Inputs are not mutated PASS All truth write and automated "
+        }
+      ],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Only resolved low-risk infrastructure identities may be auto-locked unattended.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-DASHBOARD_MASTER",
+      "proposedName": "dashboard-master",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 8,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-MANAGER_ADVISOR_DASHBOARD_ENGINE_MASTER",
+        "CAP-MANAGER_TEAM-MANAGER_TEAM_DASHBOARD_ENGINE_MASTER"
+      ],
+      "codeFiles": [],
+      "testFiles": [
+        "manager-os/tests/manager-advisor-dashboard-engine-master-test.js",
+        "manager-os/tests/manager-team-dashboard-engine-master-test.js"
+      ],
+      "selectedTests": [
+        "manager-os/tests/manager-advisor-dashboard-engine-master-test.js",
+        "manager-os/tests/manager-team-dashboard-engine-master-test.js"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 14,
+        "maximumMergeScore": 14,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [
+        {
+          "file": "manager-os/tests/manager-advisor-dashboard-engine-master-test.js",
+          "status": "PASS",
+          "command": "node manager-os/tests/manager-advisor-dashboard-engine-master-test.js",
+          "exitCode": 0,
+          "signal": null,
+          "durationMs": 232,
+          "outputSha256": "1eddfdb1846814d335f141f40c330cea1e0457b1b5b12d4965f9df83d9005c85",
+          "outputBytes": 818,
+          "outputPreview": "FORGE MANAGER ADVISOR DASHBOARD ENGINE MASTER TEST v1.0 PASS Advisor activity card is context only PASS Followup prospecting referral card is context only PASS Appointment and pipeline cards are context only PASS Missing activity does not become zero activity PASS Missing pipeline does not become low pipeline PASS Production card does not create revenue truth PASS Qualification card does not create promotion or lifecycle truth PASS Support coaching card does not create punishment truth PASS Forecast scenario summary is context only PASS Missing stale evidence propagates PASS Forbidden uses are"
+        },
+        {
+          "file": "manager-os/tests/manager-team-dashboard-engine-master-test.js",
+          "status": "PASS",
+          "command": "node manager-os/tests/manager-team-dashboard-engine-master-test.js",
+          "exitCode": 0,
+          "signal": null,
+          "durationMs": 201,
+          "outputSha256": "2bc45b525ce0d503d33e48a2cd44111f883078cd8c8a4a4668ed894cc3fef7a6",
+          "outputBytes": 629,
+          "outputPreview": "FORGE MANAGER TEAM DASHBOARD ENGINE MASTER TEST v1.0 PASS Team pattern card is context only PASS Team capacity card is context only PASS Team pipeline and activity cards are context only PASS Team card does not create ranking truth PASS Team card does not create performance leaderboard truth PASS Team dashboard does not create promotion punishment termination truth PASS Missing team context is UNKNOWN, not zero PASS Missing stale evidence propagates PASS Forbidden uses are blocked PASS Allowed uses are allowed PASS Inputs are not mutated PASS All truth and write flags remain false Resumen: Tot"
+        }
+      ],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Only resolved low-risk infrastructure identities may be auto-locked unattended.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-FORECAST_MASTER",
+      "proposedName": "forecast-master",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 8,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-MANAGER_ADVISOR_FORECAST_ENGINE_MASTER",
+        "CAP-MANAGER_TEAM-MANAGER_TEAM_FORECAST_ENGINE_MASTER"
+      ],
+      "codeFiles": [],
+      "testFiles": [
+        "manager-os/tests/manager-advisor-forecast-engine-master-test.js",
+        "manager-os/tests/manager-team-forecast-engine-master-test.js"
+      ],
+      "selectedTests": [
+        "manager-os/tests/manager-advisor-forecast-engine-master-test.js",
+        "manager-os/tests/manager-team-forecast-engine-master-test.js"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 14,
+        "maximumMergeScore": 14,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [
+        {
+          "file": "manager-os/tests/manager-advisor-forecast-engine-master-test.js",
+          "status": "PASS",
+          "command": "node manager-os/tests/manager-advisor-forecast-engine-master-test.js",
+          "exitCode": 0,
+          "signal": null,
+          "durationMs": 277,
+          "outputSha256": "d6850ccb6481d4376be6f3ca37e7384aca22983d03da6a96a857079e1c10d176",
+          "outputBytes": 929,
+          "outputPreview": "FORGE MANAGER ADVISOR FORECAST ENGINE MASTER TEST v1.0 PASS Builds conservative baseline stretch scenarios PASS Activity prospecting followup referral forecasts are context only PASS Appointment and pipeline forecasts are context only PASS Missing activity does not become zero activity PASS Missing pipeline does not become low pipeline PASS Production forecast does not create revenue truth PASS Qualification forecast does not create promotion truth PASS Advisor status qualification forecast does not create Advisor Lifecycle truth PASS Support coaching forecast does not create punishment truth "
+        },
+        {
+          "file": "manager-os/tests/manager-team-forecast-engine-master-test.js",
+          "status": "PASS",
+          "command": "node manager-os/tests/manager-team-forecast-engine-master-test.js",
+          "exitCode": 0,
+          "signal": null,
+          "durationMs": 253,
+          "outputSha256": "53fbe3edc7daae9f5d6e7619665cd4560b8d61b013e201e625f9c6986bf185d4",
+          "outputBytes": 636,
+          "outputPreview": "FORGE MANAGER TEAM FORECAST ENGINE MASTER TEST v1.0 PASS Builds conservative baseline stretch scenarios PASS Team pattern forecast is context only PASS Team capacity forecast is context only PASS Team forecast does not create ranking truth PASS Team forecast does not create performance leaderboard truth PASS Team forecast does not create promotion punishment termination truth PASS Missing team context is UNKNOWN, not zero PASS Missing stale evidence propagates PASS Forbidden uses are blocked PASS Allowed uses are allowed PASS Inputs are not mutated PASS All truth write flags remain false Resum"
+        }
+      ],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Only resolved low-risk infrastructure identities may be auto-locked unattended.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-MASTER_PLAN_REVIEW",
+      "proposedName": "master-plan-review",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 8,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-MANAGER_ADVISOR_REVIEW_PLAN_ENGINE_MASTER",
+        "CAP-MANAGER_TEAM-MANAGER_TEAM_REVIEW_PLAN_ENGINE_MASTER"
+      ],
+      "codeFiles": [],
+      "testFiles": [
+        "manager-os/tests/manager-advisor-review-plan-engine-master-test.js",
+        "manager-os/tests/manager-team-review-plan-engine-master-test.js"
+      ],
+      "selectedTests": [
+        "manager-os/tests/manager-advisor-review-plan-engine-master-test.js",
+        "manager-os/tests/manager-team-review-plan-engine-master-test.js"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 14,
+        "maximumMergeScore": 14,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [
+        {
+          "file": "manager-os/tests/manager-advisor-review-plan-engine-master-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: USER_ENTRYPOINT"
+        },
+        {
+          "file": "manager-os/tests/manager-team-review-plan-engine-master-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: USER_ENTRYPOINT"
+        }
+      ],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    }
+  ],
+  "parity": {
+    "verifiedCapabilities": 0
+  },
+  "reportHash": "97b2fb98e5f771d80dbbc5ba6963c9925378b0ae69dc6879848cfd92fb565a0e"
+}

@@ -7,7 +7,7 @@
     "v2BaselineHead": "dcc48b98d12d2c15d75847e0898ac33f6a46b8a9"
   },
   "createdAt": "2026-07-24T06:01:54.128Z",
-  "updatedAt": "2026-07-24T06:03:04.003Z",
+  "updatedAt": "2026-07-24T06:03:23.081Z",
   "safety": {
     "identityLockIsNotParity": true,
     "automaticHighRiskLock": false,
@@ -32,13 +32,21 @@
     "CAP2-INTEGRATIONS-NASH_PROVIDER_REQUEST",
     "CAP2-INTEGRATIONS-OPPORTUNITY_PIPELINE_READ",
     "CAP2-INTEGRATIONS-SALES_PRESENTATION",
+    "CAP2-MANAGER_TEAM-ANALYTICS_HISTORICAL_MASTER",
+    "CAP2-MANAGER_TEAM-BOUNDARY_MASTER",
+    "CAP2-MANAGER_TEAM-COACHING_MASTER",
+    "CAP2-MANAGER_TEAM-DASHBOARD_MASTER",
+    "CAP2-MANAGER_TEAM-FORECAST_MASTER",
+    "CAP2-MANAGER_TEAM-MASTER_PLAN_REVIEW",
     "CAP2-PERSISTENCE-SUPABASE_RLS",
     "CAP2-POLICY_OPERATIONS-CSV",
     "CAP2-POLICY_OPERATIONS-TASK",
+    "CAP2-POLICY_OPERATIONS-TIMELINE",
     "CAP2-PRODUCT_INTELLIGENCE-EVENT_BENEFIT",
     "CAP2-PRODUCT_INTELLIGENCE-GMM_QUOTE",
     "CAP2-PRODUCT_INTELLIGENCE-INTELLIGENCE_PREVIEW",
     "CAP2-PRODUCT_INTELLIGENCE-ORVI",
+    "CAP2-PRODUCT_INTELLIGENCE-PROJECTION",
     "CAP2-PRODUCT_INTELLIGENCE-SHARED_AVE",
     "CAP2-QUOTING-APP",
     "CAP2-QUOTING-GMM_SMNYL",
@@ -1393,6 +1401,401 @@
         "unrunnable": 0
       },
       "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-POLICY_OPERATIONS-TIMELINE",
+      "capabilityId": null,
+      "name": "timeline",
+      "domain": "policy-operations",
+      "kind": "UNCLASSIFIED",
+      "memberCount": 7,
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL",
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 7,
+        "mergeEdgeCount": 21,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 18,
+        "reasons": [
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "policy-operations"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 0,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-PRODUCT_INTELLIGENCE-PROJECTION",
+      "capabilityId": null,
+      "name": "projection",
+      "domain": "product-intelligence",
+      "kind": "UNCLASSIFIED",
+      "memberCount": 7,
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 7,
+        "mergeEdgeCount": 10,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 18,
+        "reasons": [
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "product-intelligence"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 0,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-ANALYTICS_HISTORICAL_MASTER",
+      "capabilityId": null,
+      "name": "analytics-historical-master",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "memberCount": 2,
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 18,
+        "maximumMergeScore": 18,
+        "reasons": [
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Only resolved low-risk infrastructure identities may be auto-locked unattended.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 2,
+        "pass": 2,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-BOUNDARY_MASTER",
+      "capabilityId": null,
+      "name": "boundary-master",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "memberCount": 2,
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 25,
+        "maximumMergeScore": 25,
+        "reasons": [
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "EXTERNAL_CONTRACT_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 2,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-COACHING_MASTER",
+      "capabilityId": null,
+      "name": "coaching-master",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "memberCount": 2,
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 14,
+        "maximumMergeScore": 14,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Only resolved low-risk infrastructure identities may be auto-locked unattended.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 2,
+        "pass": 2,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-DASHBOARD_MASTER",
+      "capabilityId": null,
+      "name": "dashboard-master",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "memberCount": 2,
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 14,
+        "maximumMergeScore": 14,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Only resolved low-risk infrastructure identities may be auto-locked unattended.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 2,
+        "pass": 2,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-FORECAST_MASTER",
+      "capabilityId": null,
+      "name": "forecast-master",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "memberCount": 2,
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 14,
+        "maximumMergeScore": 14,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Only resolved low-risk infrastructure identities may be auto-locked unattended.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 2,
+        "pass": 2,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-MASTER_PLAN_REVIEW",
+      "capabilityId": null,
+      "name": "master-plan-review",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "memberCount": 2,
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 14,
+        "maximumMergeScore": 14,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 2,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
     }
   ],
   "splitRequired": [
@@ -1933,21 +2336,30 @@
       "humanReviewRequired": 8,
       "splitRequired": 0,
       "mergeRejected": 0
+    },
+    {
+      "waveId": "WAVE-005",
+      "reportHash": "97b2fb98e5f771d80dbbc5ba6963c9925378b0ae69dc6879848cfd92fb565a0e",
+      "reviewedGroups": 8,
+      "lockedIdentities": 0,
+      "humanReviewRequired": 8,
+      "splitRequired": 0,
+      "mergeRejected": 0
     }
   ],
   "totals": {
-    "reviewedGroups": 32,
+    "reviewedGroups": 40,
     "lockedIdentities": 0,
-    "humanReviewRequired": 24,
+    "humanReviewRequired": 32,
     "splitRequired": 8,
     "mergeRejected": 0,
-    "testPass": 0,
+    "testPass": 8,
     "testFail": 0,
     "testTimeout": 0,
     "testMissing": 0,
     "testUnrunnable": 0,
     "testDeferred": 0,
-    "testSkippedSafety": 60
+    "testSkippedSafety": 64
   },
   "parity": {
     "verifiedCapabilities": 0,
