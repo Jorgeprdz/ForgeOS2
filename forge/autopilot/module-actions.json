@@ -14,9 +14,11 @@
       "commitMessage": "feat(carrier-scope): materialize functional carrier scope"
     },
     "MOD-PRODUCT-INTELLIGENCE": {
-      "implementationCommand": null,
-      "functionalTestCommand": null,
-      "consumerTestPaths": [],
+      "implementationCommand": "bash forge/autopilot/actions/materialize-product-intelligence-runtime.sh",
+      "functionalTestCommand": "node --test modules/product-intelligence/quote-preparation-consumer.test.mjs",
+      "consumerTestPaths": [
+        "modules/product-intelligence/quote-preparation-consumer.test.mjs"
+      ],
       "changedPaths": [
         "forge/modules.json",
         "modules/product-intelligence",

@@ -77,16 +77,40 @@ test('policy weights are complete and sum to one', () => {
   ]);
 });
 
-test('runtime actions fail closed until real implementation hooks exist', () => {
+test('unconfigured runtime actions fail closed', () => {
   const actions = JSON.parse(fs.readFileSync(actionsPath, 'utf8'));
-  for (const moduleId of ['MOD-CARRIER-SCOPE', 'MOD-PRODUCT-INTELLIGENCE']) {
-    const action = actions.modules[moduleId];
-    assert.ok(action);
-    assert.equal(action.implementationCommand, null);
-    assert.equal(action.functionalTestCommand, null);
-    assert.deepEqual(action.consumerTestPaths, []);
-    assert.ok(action.changedPaths.includes(`.forge21/functional-evidence/${moduleId}`));
-  }
+  const action = actions.modules['MOD-CARRIER-SCOPE'];
+  assert.ok(action);
+  assert.equal(action.implementationCommand, null);
+  assert.equal(action.functionalTestCommand, null);
+  assert.deepEqual(action.consumerTestPaths, []);
+  assert.ok(
+    action.changedPaths.includes(
+      '.forge21/functional-evidence/MOD-CARRIER-SCOPE'
+    )
+  );
+});
+
+test('Product Intelligence has an explicit governed implementation action', () => {
+  const actions = JSON.parse(fs.readFileSync(actionsPath, 'utf8'));
+  const action = actions.modules['MOD-PRODUCT-INTELLIGENCE'];
+  assert.ok(action);
+  assert.equal(
+    action.implementationCommand,
+    'bash forge/autopilot/actions/materialize-product-intelligence-runtime.sh'
+  );
+  assert.equal(
+    action.functionalTestCommand,
+    'node --test modules/product-intelligence/quote-preparation-consumer.test.mjs'
+  );
+  assert.deepEqual(action.consumerTestPaths, [
+    'modules/product-intelligence/quote-preparation-consumer.test.mjs'
+  ]);
+  assert.ok(
+    action.changedPaths.includes(
+      '.forge21/functional-evidence/MOD-PRODUCT-INTELLIGENCE'
+    )
+  );
 });
 
 test('git and command subprocesses are insulated from Android FUSE cwd', () => {
