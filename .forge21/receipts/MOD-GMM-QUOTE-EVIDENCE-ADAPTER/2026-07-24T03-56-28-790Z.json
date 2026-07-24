@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "2.1.0",
+  "moduleId": "MOD-GMM-QUOTE-EVIDENCE-ADAPTER",
+  "validatedAt": "2026-07-24T03:56:28.790Z",
+  "pass": true,
+  "errors": [],
+  "hashes": {
+    "governance/constitution/CONSTITUTION_UNIFIED.md": "5ee6adcce425aa41cac0a798d88ba6ecb576180c4e5cb88cf70312ceb992468e",
+    "adr/ADR-005 — Product Truth Boundary.txt": "107b192d2077f5e21237b4791a1e95a546bae496b4811f4139c185ab858416cd",
+    "docs/architecture/CARRIER_SCOPE_NAMING_CONVENTION.md": "34422d8b54c480d6e8434835c5bbc543915624cd540973dcebad828908f2678d",
+    "docs/architecture/scaffolds/instances/domains/PRODUCT_INTELLIGENCE_DOMAIN_RESPONSIBILITY.md": "35f9b314ecb777010d63d66e945f0195be389fc62e23ca6be2040e51984aad21",
+    "docs/architecture/scaffolds/instances/boundaries/PRODUCT_TRUTH_BOUNDARY.md": "c63a23d19b8bf4c0c47558b42cefee9879625a3cb128ef5a435f274336f6bebc",
+    "docs/architecture/scaffolds/instances/source-truth/PRODUCT_TRUTH_OWNERSHIP.md": "3fc5ecc4b1bc8712fd41d3351e0424112409b4ecd1ce9b411c668194789d19f5",
+    "governance/constitutional/PRODUCT_INTELLIGENCE_SOFTWARE_AUTHORITY_001.md": "7f3968a59db51cb79f66ecfb86547fa11e38f8f121b4e4cc0063782df16e5dc1",
+    "modules/gmm-quote-evidence-adapter/index.mjs": "0494510099f130e4a3b158dad364a08aa820b42ae6d016ac6b567d11396ec2a9",
+    "modules/gmm-quote-evidence-adapter/index.test.mjs": "00bcc5cff90bc1a8f504e74f8d06f770497111471c38a4f41d6f8967e69c6039"
+  }
+}
