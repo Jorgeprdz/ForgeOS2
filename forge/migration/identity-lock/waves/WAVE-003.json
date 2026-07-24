@@ -1,0 +1,734 @@
+{
+  "schemaVersion": 1,
+  "kind": "FORGE_CAPABILITY_IDENTITY_REVIEW_WAVE",
+  "waveId": "WAVE-003",
+  "generatedAt": "2026-07-24T06:02:49.264Z",
+  "source": {
+    "legacyHead": "e4441e794abaaf983472591e7c80ae545b0b3f67",
+    "groupingReportHash": "47019e7100208db576f47f1d026235516dac59837c131d2f193268cb575c0bc0"
+  },
+  "safety": {
+    "identityLockIsNotParity": true,
+    "highRiskAutoLock": false,
+    "businessAutoLock": false,
+    "incompleteTestAutoLock": false,
+    "rewritesRules": false,
+    "retiresLegacy": false
+  },
+  "counts": {
+    "reviewedGroups": 8,
+    "lockedIdentities": 0,
+    "humanReviewRequired": 6,
+    "splitRequired": 2,
+    "mergeRejected": 0
+  },
+  "reviews": [
+    {
+      "groupId": "CAP2-INTEGRATIONS-NASH_PROVIDER_REQUEST",
+      "proposedName": "nash-provider-request",
+      "domain": "integrations",
+      "kind": "INFRASTRUCTURE",
+      "migrationPriority": 35,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-INTEGRATIONS-NASH_PROVIDER_REQUEST",
+        "CAP-INTEGRATIONS-OPTIONAL_AI_DRAFT_PROVIDER_BOUNDARY"
+      ],
+      "codeFiles": [
+        "nash/conversation-brief/nash-provider-request-contract.js",
+        "nash/optional-ai-draft-provider-boundary.js"
+      ],
+      "testFiles": [
+        "nash/tests/nash-provider-request-contract-test.js",
+        "nash/tests/optional-ai-draft-provider-boundary-test.js"
+      ],
+      "selectedTests": [
+        "nash/tests/nash-provider-request-contract-test.js",
+        "nash/tests/optional-ai-draft-provider-boundary-test.js"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "EXTERNAL_BOUNDARY"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY"
+        ]
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 9,
+        "maximumMergeScore": 9,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY"
+        ],
+        "reviewReasons": [],
+        "memberDomains": [
+          "integrations"
+        ]
+      },
+      "tests": [
+        {
+          "file": "nash/tests/nash-provider-request-contract-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: EXTERNAL_BOUNDARY, RISK_TAG:EXTERNAL_BOUNDARY"
+        },
+        {
+          "file": "nash/tests/optional-ai-draft-provider-boundary-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: EXTERNAL_BOUNDARY, RISK_TAG:EXTERNAL_BOUNDARY"
+        }
+      ],
+      "scenarioSeeds": [
+        "EXTERNAL_CONTRACT_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-GOVERNANCE-SAMPLE_DATA",
+      "proposedName": "sample-data",
+      "domain": "governance",
+      "kind": "INFRASTRUCTURE",
+      "migrationPriority": 32,
+      "memberCount": 32,
+      "memberCapabilityIds": [
+        "CAP-GOVERNANCE-ALFRED_DESKTOP_COMMAND_WORKSPACE_056Y",
+        "CAP-GOVERNANCE-ALFRED_ORB_UI_REMOVAL_R16J1A",
+        "CAP-GOVERNANCE-ALFRED_RESPONSIVE_UI",
+        "CAP-GOVERNANCE-ALFRED_SMART_WIDGET_STABLE_056T",
+        "CAP-GOVERNANCE-ALFRED_SMART_WIDGET_STATIC_056U",
+        "CAP-GOVERNANCE-ALFRED_UX92_COHESION_POLISH",
+        "CAP-GOVERNANCE-ALFRED_UX94_SMART_WIDGET_EDITORIAL",
+        "CAP-GOVERNANCE-ALFRED_UX99_HARD_MOUNT",
+        "CAP-GOVERNANCE-ALIVE_HOME_NAV_BRIDGE_R16C5K",
+        "CAP-GOVERNANCE-ALIVE_MOBILE_NAV_R16C5J",
+        "CAP-GOVERNANCE-ALIVE_PIPELINE_VIEW_067G16A",
+        "CAP-GOVERNANCE-ALIVE_PUBLIC_CONFIG_067G17A1",
+        "CAP-GOVERNANCE-ALIVE_RUNTIME_LAZY_LOADER_R16J1C1",
+        "CAP-GOVERNANCE-ALIVE_SAAS_ROUTER_R16C5L",
+        "CAP-GOVERNANCE-COMMAND_BAR_ORB",
+        "CAP-GOVERNANCE-DESKTOP_COMMAND_WORKSPACE_UPGRADE_058E",
+        "CAP-GOVERNANCE-GENESIS_BETA_LOOP_CARDS",
+        "CAP-GOVERNANCE-GENESIS_BETA_LOOP_CARD_DATA",
+        "CAP-GOVERNANCE-MOBILE_PATTERN_057D",
+        "CAP-GOVERNANCE-MOBILE_TEMPLATE",
+        "CAP-GOVERNANCE-MOBILE_TOP_NAV_CENTER_057G",
+        "CAP-GOVERNANCE-MOBILE_VISUAL_POLISH_057F",
+        "CAP-GOVERNANCE-MOBILE_VISUAL_REPAIR_057E",
+        "CAP-GOVERNANCE-MOBILE_WIDGET_GRID_057J",
+        "CAP-GOVERNANCE-MOBILE_WIDGET_GRID_DEDUP_057M",
+        "CAP-GOVERNANCE-MOBILE_WIDGET_GRID_POLISH_057L",
+        "CAP-GOVERNANCE-NUEVA_COTIZACION_UI_CLEANUP_R16J1",
+        "CAP-GOVERNANCE-PUBLIC_PREVIEW_INTERACTION_VISUAL_REPAIR_060M",
+        "CAP-GOVERNANCE-SALES_PRESENTATION_ENTRYPOINT_R16J0",
+        "CAP-GOVERNANCE-SAMPLE_DATA",
+        "CAP-GOVERNANCE-SMART_WIDGET_STACK",
+        "CAP-GOVERNANCE-SMART_WIDGET_STACK_DATA"
+      ],
+      "codeFiles": [
+        "docs/static-preview/forge-alive/alfred-desktop-command-workspace-056y.js",
+        "docs/static-preview/forge-alive/alfred-responsive-ui.js",
+        "docs/static-preview/forge-alive/alfred-smart-widget-stable-056t.js",
+        "docs/static-preview/forge-alive/alfred-smart-widget-static-056u.js",
+        "docs/static-preview/forge-alive/alfred-ux92-cohesion-polish.js",
+        "docs/static-preview/forge-alive/alfred-ux94-smart-widget-editorial.js",
+        "docs/static-preview/forge-alive/alfred-ux99-hard-mount.js",
+        "docs/static-preview/forge-alive/command-bar-orb.js",
+        "docs/static-preview/forge-alive/desktop/forge-desktop-command-workspace-upgrade-058e.js",
+        "docs/static-preview/forge-alive/desktop/forge-public-preview-interaction-visual-repair-060m.js",
+        "docs/static-preview/forge-alive/forge-alfred-orb-ui-removal-r16j1a.js",
+        "docs/static-preview/forge-alive/forge-alive-home-nav-bridge-r16c5k.js",
+        "docs/static-preview/forge-alive/forge-alive-mobile-nav-r16c5j.js",
+        "docs/static-preview/forge-alive/forge-alive-pipeline-view-067g16a.js",
+        "docs/static-preview/forge-alive/forge-alive-public-config-067g17a1.js",
+        "docs/static-preview/forge-alive/forge-alive-runtime-lazy-loader-r16j1c1.js",
+        "docs/static-preview/forge-alive/forge-alive-saas-router-r16c5l.js",
+        "docs/static-preview/forge-alive/forge-mobile-pattern-057d.js",
+        "docs/static-preview/forge-alive/forge-mobile-top-nav-center-057g.js",
+        "docs/static-preview/forge-alive/forge-mobile-visual-polish-057f.js",
+        "docs/static-preview/forge-alive/forge-mobile-visual-repair-057e.js",
+        "docs/static-preview/forge-alive/forge-mobile-widget-grid-057j.js",
+        "docs/static-preview/forge-alive/forge-mobile-widget-grid-dedup-057m.js",
+        "docs/static-preview/forge-alive/forge-mobile-widget-grid-polish-057l.js",
+        "docs/static-preview/forge-alive/forge-nueva-cotizacion-ui-cleanup-r16j1.js",
+        "docs/static-preview/forge-alive/forge-sales-presentation-entrypoint-r16j0.js",
+        "docs/static-preview/forge-alive/genesis-beta-loop-card-data.js",
+        "docs/static-preview/forge-alive/genesis-beta-loop-cards.js",
+        "docs/static-preview/forge-alive/sample-data.js",
+        "docs/static-preview/forge-alive/smart-widget-stack-data.js",
+        "docs/static-preview/forge-alive/smart-widget-stack.js",
+        "docs/static-preview/templates/forge-mobile/forge-mobile-template.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "evidence": {
+        "memberCount": 32,
+        "mergeEdgeCount": 98,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 22,
+        "reasons": [
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [
+          "LARGE_CLUSTER_REQUIRES_REVIEW"
+        ],
+        "memberDomains": [
+          "governance"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "SPLIT_REQUIRED",
+      "dispositionReason": "The proposed component is too broad or crosses source domains.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-QUOTING-GMM_SMNYL",
+      "proposedName": "gmm-smnyl",
+      "domain": "quoting",
+      "kind": "BUSINESS",
+      "migrationPriority": 28,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-QUOTING-SMNYL_COMISIONES_GMM",
+        "CAP-QUOTING-SMNYL_PRODUCTOS_GMM"
+      ],
+      "codeFiles": [
+        "rule-packs/smnyl/smnyl-comisiones-gmm.js",
+        "rule-packs/smnyl/smnyl-productos-gmm.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY",
+          "RISK_TAG:TRUTH_CRITICAL"
+        ]
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 11,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "quoting"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-INTEGRATIONS-OPPORTUNITY_PIPELINE_READ",
+      "proposedName": "opportunity-pipeline-read",
+      "domain": "integrations",
+      "kind": "INFRASTRUCTURE",
+      "migrationPriority": 26,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-INTEGRATIONS-OPPORTUNITY_PIPELINE_READ_MODEL_NORMALIZER_067D",
+        "CAP-INTEGRATIONS-OPPORTUNITY_PIPELINE_READ_ONLY_ADAPTER_066B"
+      ],
+      "codeFiles": [
+        "platform/adapters/opportunity-pipeline/opportunity-pipeline-read-model-normalizer-067d.js",
+        "platform/adapters/opportunity-pipeline/opportunity-pipeline-read-only-adapter-066b.js"
+      ],
+      "testFiles": [
+        "tests/opportunity-pipeline-read-only-adapter-066b-test.js"
+      ],
+      "selectedTests": [
+        "tests/opportunity-pipeline-read-only-adapter-066b-test.js"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "EXTERNAL_BOUNDARY"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY"
+        ]
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 21,
+        "maximumMergeScore": 21,
+        "reasons": [
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY"
+        ],
+        "reviewReasons": [],
+        "memberDomains": [
+          "integrations"
+        ]
+      },
+      "tests": [
+        {
+          "file": "tests/opportunity-pipeline-read-only-adapter-066b-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: EXTERNAL_BOUNDARY, RISK_TAG:EXTERNAL_BOUNDARY"
+        }
+      ],
+      "scenarioSeeds": [
+        "EXTERNAL_CONTRACT_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-INTEGRATIONS-DRY_READ_RUN",
+      "proposedName": "dry-read-run",
+      "domain": "integrations",
+      "kind": "INFRASTRUCTURE",
+      "migrationPriority": 23,
+      "memberCount": 3,
+      "memberCapabilityIds": [
+        "CAP-INTEGRATIONS-LOCAL_READ_MODEL_SOURCE_ADAPTER_060I",
+        "CAP-INTEGRATIONS-REPORT_READ_MODEL_DRY_RUN_ADAPTER_060D",
+        "CAP-INTEGRATIONS-STATIC_ENGINE_ADAPTER_DRY_RUN_059E"
+      ],
+      "codeFiles": [
+        "docs/static-preview/forge-alive/shared/forge-local-read-model-source-adapter-060i.js",
+        "docs/static-preview/forge-alive/shared/forge-report-read-model-dry-run-adapter-060d.js",
+        "docs/static-preview/forge-alive/shared/forge-static-engine-adapter-dry-run-059e.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "EXTERNAL_BOUNDARY"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY",
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "evidence": {
+        "memberCount": 3,
+        "mergeEdgeCount": 2,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 11,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "integrations"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "EXTERNAL_CONTRACT_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-PRODUCT_INTELLIGENCE-SHARED_AVE",
+      "proposedName": "shared-ave",
+      "domain": "product-intelligence",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 23,
+      "memberCount": 18,
+      "memberCapabilityIds": [
+        "CAP-PRODUCT_INTELLIGENCE-DISCOVERY_PRODUCT_ALIGNMENT",
+        "CAP-PRODUCT_INTELLIGENCE-IMAGINA_SER_CONTRIBUTION",
+        "CAP-PRODUCT_INTELLIGENCE-IMAGINA_SER_HUMAN_LANGUAGE",
+        "CAP-PRODUCT_INTELLIGENCE-PRODUCT",
+        "CAP-PRODUCT_INTELLIGENCE-SHARED_AVE_CONFIDENCE",
+        "CAP-PRODUCT_INTELLIGENCE-SHARED_AVE_CONFIDENCE_REPORT",
+        "CAP-PRODUCT_INTELLIGENCE-SHARED_AVE_DEATH_BENEFIT",
+        "CAP-PRODUCT_INTELLIGENCE-SHARED_AVE_DEATH_BENEFIT_REPORT",
+        "CAP-PRODUCT_INTELLIGENCE-SHARED_AVE_ELIGIBILITY",
+        "CAP-PRODUCT_INTELLIGENCE-SHARED_AVE_GROWTH",
+        "CAP-PRODUCT_INTELLIGENCE-SHARED_AVE_GROWTH_REPORT",
+        "CAP-PRODUCT_INTELLIGENCE-SHARED_AVE_PORTFOLIO",
+        "CAP-PRODUCT_INTELLIGENCE-SHARED_AVE_PORTFOLIO_REPORT",
+        "CAP-PRODUCT_INTELLIGENCE-SHARED_AVE_RESCUE",
+        "CAP-PRODUCT_INTELLIGENCE-SHARED_AVE_RESCUE_REPORT",
+        "CAP-PRODUCT_INTELLIGENCE-SHARED_AVE_TYPE_INFERENCE",
+        "CAP-PRODUCT_INTELLIGENCE-SHARED_AVE_TYPE_INFERENCE_REPORT",
+        "CAP-PRODUCT_INTELLIGENCE-SHARED_EDUCATION_COST"
+      ],
+      "codeFiles": [
+        "product-intelligence/knowledge/ave/shared-ave-confidence-engine.js",
+        "product-intelligence/knowledge/ave/shared-ave-confidence-report.js",
+        "product-intelligence/knowledge/ave/shared-ave-death-benefit-engine.js",
+        "product-intelligence/knowledge/ave/shared-ave-death-benefit-report.js",
+        "product-intelligence/knowledge/ave/shared-ave-eligibility-engine.js",
+        "product-intelligence/knowledge/ave/shared-ave-growth-engine.js",
+        "product-intelligence/knowledge/ave/shared-ave-growth-report.js",
+        "product-intelligence/knowledge/ave/shared-ave-portfolio-engine.js",
+        "product-intelligence/knowledge/ave/shared-ave-portfolio-report.js",
+        "product-intelligence/knowledge/ave/shared-ave-rescue-engine.js",
+        "product-intelligence/knowledge/ave/shared-ave-rescue-report.js",
+        "product-intelligence/knowledge/ave/shared-ave-type-inference-engine.js",
+        "product-intelligence/knowledge/ave/shared-ave-type-inference-report.js",
+        "product-intelligence/knowledge/discovery-product-alignment-engine.js",
+        "product-intelligence/knowledge/imagina-ser-contribution-engine.js",
+        "product-intelligence/knowledge/imagina-ser-human-language-engine.js",
+        "product-intelligence/knowledge/product-schema-engine.js",
+        "product-intelligence/knowledge/shared-education-cost-engine.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL",
+          "TRUTH_OR_ELIGIBILITY"
+        ]
+      },
+      "evidence": {
+        "memberCount": 18,
+        "mergeEdgeCount": 92,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 28,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "product-intelligence"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "ELIGIBILITY_OR_GATE_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "SPLIT_REQUIRED",
+      "dispositionReason": "The proposed component is too broad or crosses source domains.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-ADVISOR_DEVELOPMENT-ADVISOR_STAGE",
+      "proposedName": "advisor-stage",
+      "domain": "advisor-development",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": 19,
+      "memberCount": 9,
+      "memberCapabilityIds": [
+        "CAP-ADVISOR_DEVELOPMENT-ADVISOR_CAREER_CLOCK",
+        "CAP-ADVISOR_DEVELOPMENT-ADVISOR_LIFECYCLE_CAREER_CHAIN",
+        "CAP-ADVISOR_DEVELOPMENT-ADVISOR_LIFECYCLE_EVIDENCE",
+        "CAP-ADVISOR_DEVELOPMENT-ADVISOR_LIFECYCLE_RDA_REFERENCE_CONSUMER",
+        "CAP-ADVISOR_DEVELOPMENT-ADVISOR_LIFECYCLE_STATUS",
+        "CAP-ADVISOR_DEVELOPMENT-ADVISOR_STAGE",
+        "CAP-ADVISOR_DEVELOPMENT-LIFECYCLE_TO_REVENUE",
+        "CAP-ADVISOR_DEVELOPMENT-PRECONTRACT_ECONOMIC_STATUS",
+        "CAP-ADVISOR_DEVELOPMENT-PRECONTRACT_REVENUE_CLASSIFIER"
+      ],
+      "codeFiles": [
+        "advisor-lifecycle/advisor-career-clock.js",
+        "advisor-lifecycle/advisor-lifecycle-career-chain-contract.js",
+        "advisor-lifecycle/advisor-lifecycle-evidence.js",
+        "advisor-lifecycle/advisor-lifecycle-rda-reference-consumer.js",
+        "advisor-lifecycle/advisor-lifecycle-status.js",
+        "advisor-lifecycle/advisor-stage-gate.js",
+        "advisor-lifecycle/lifecycle-to-revenue-mapper.js",
+        "advisor-lifecycle/precontract-economic-status.js",
+        "advisor-lifecycle/precontract-revenue-classifier.js"
+      ],
+      "testFiles": [
+        "tests/advisor-career-clock-test.js",
+        "tests/advisor-lifecycle-career-chain-contract-test.js",
+        "tests/advisor-lifecycle-evidence-test.js",
+        "tests/advisor-lifecycle-rda-reference-consumer-test.js",
+        "tests/advisor-lifecycle-status-test.js"
+      ],
+      "selectedTests": [
+        "tests/advisor-career-clock-test.js",
+        "tests/advisor-lifecycle-career-chain-contract-test.js",
+        "tests/advisor-lifecycle-evidence-test.js",
+        "tests/advisor-lifecycle-rda-reference-consumer-test.js",
+        "tests/advisor-lifecycle-status-test.js"
+      ],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "FINANCIAL_OR_PAYMENT",
+          "RISK_TAG:TRUTH_CRITICAL",
+          "TRUTH_OR_ELIGIBILITY"
+        ]
+      },
+      "evidence": {
+        "memberCount": 9,
+        "mergeEdgeCount": 14,
+        "minimumMergeScore": 14,
+        "maximumMergeScore": 17,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [],
+        "memberDomains": [
+          "advisor-development"
+        ]
+      },
+      "tests": [
+        {
+          "file": "tests/advisor-career-clock-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: FINANCIAL_OR_PAYMENT, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY"
+        },
+        {
+          "file": "tests/advisor-lifecycle-career-chain-contract-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: FINANCIAL_OR_PAYMENT, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY"
+        },
+        {
+          "file": "tests/advisor-lifecycle-evidence-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: FINANCIAL_OR_PAYMENT, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY"
+        },
+        {
+          "file": "tests/advisor-lifecycle-rda-reference-consumer-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: FINANCIAL_OR_PAYMENT, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY"
+        },
+        {
+          "file": "tests/advisor-lifecycle-status-test.js",
+          "status": "SKIPPED_SAFETY",
+          "command": null,
+          "exitCode": null,
+          "signal": null,
+          "durationMs": 0,
+          "outputSha256": null,
+          "outputBytes": 0,
+          "outputPreview": "Test execution skipped for unattended safety: FINANCIAL_OR_PAYMENT, RISK_TAG:TRUTH_CRITICAL, TRUTH_OR_ELIGIBILITY"
+        }
+      ],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-INTEGRATIONS-INDEX",
+      "proposedName": "index",
+      "domain": "integrations",
+      "kind": "INFRASTRUCTURE",
+      "migrationPriority": 19,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-INTEGRATIONS-GEMINI",
+        "CAP-INTEGRATIONS-INDEX"
+      ],
+      "codeFiles": [
+        "supabase/functions/nash-draft-provider/gemini-provider.mjs",
+        "supabase/functions/nash-draft-provider/index.ts"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "EXTERNAL_BOUNDARY"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY"
+        ]
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 17,
+        "maximumMergeScore": 17,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "integrations"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "EXTERNAL_CONTRACT_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    }
+  ],
+  "parity": {
+    "verifiedCapabilities": 0
+  },
+  "reportHash": "0c701f15fdb0ba283088fe41d538fd7c96abc382ead68cf7774f8b11cb2cfde7"
+}

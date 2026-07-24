@@ -7,7 +7,7 @@
     "v2BaselineHead": "dcc48b98d12d2c15d75847e0898ac33f6a46b8a9"
   },
   "createdAt": "2026-07-24T06:01:54.128Z",
-  "updatedAt": "2026-07-24T06:02:33.597Z",
+  "updatedAt": "2026-07-24T06:02:49.261Z",
   "safety": {
     "identityLockIsNotParity": true,
     "automaticHighRiskLock": false,
@@ -17,16 +17,24 @@
     "automaticRetirement": false
   },
   "reviewedGroupIds": [
+    "CAP2-ADVISOR_DEVELOPMENT-ADVISOR_STAGE",
     "CAP2-COMPENSATION-DEVELOPMENT",
     "CAP2-COMPENSATION-EVIDENCE_PACKET_PAYMENT",
     "CAP2-COMPENSATION-NEW_PROFESSIONAL_BONUS",
     "CAP2-COMPENSATION-PARTNER_RULE",
+    "CAP2-GOVERNANCE-SAMPLE_DATA",
     "CAP2-INTEGRATIONS-CARRIER_REVENUE",
+    "CAP2-INTEGRATIONS-DRY_READ_RUN",
+    "CAP2-INTEGRATIONS-INDEX",
+    "CAP2-INTEGRATIONS-NASH_PROVIDER_REQUEST",
+    "CAP2-INTEGRATIONS-OPPORTUNITY_PIPELINE_READ",
     "CAP2-POLICY_OPERATIONS-CSV",
     "CAP2-PRODUCT_INTELLIGENCE-EVENT_BENEFIT",
     "CAP2-PRODUCT_INTELLIGENCE-INTELLIGENCE_PREVIEW",
     "CAP2-PRODUCT_INTELLIGENCE-ORVI",
+    "CAP2-PRODUCT_INTELLIGENCE-SHARED_AVE",
     "CAP2-QUOTING-APP",
+    "CAP2-QUOTING-GMM_SMNYL",
     "CAP2-QUOTING-GMM_SPRINT_SMOKE",
     "CAP2-QUOTING-QUOTE_ACTION_CONTRACT_071B",
     "CAP2-QUOTING-QUOTE_PREVIEW",
@@ -609,6 +617,339 @@
         "unrunnable": 0
       },
       "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-INTEGRATIONS-NASH_PROVIDER_REQUEST",
+      "capabilityId": null,
+      "name": "nash-provider-request",
+      "domain": "integrations",
+      "kind": "INFRASTRUCTURE",
+      "memberCount": 2,
+      "riskTags": [
+        "EXTERNAL_BOUNDARY"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 9,
+        "maximumMergeScore": 9,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY"
+        ],
+        "reviewReasons": [],
+        "memberDomains": [
+          "integrations"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "EXTERNAL_CONTRACT_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 2,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-QUOTING-GMM_SMNYL",
+      "capabilityId": null,
+      "name": "gmm-smnyl",
+      "domain": "quoting",
+      "kind": "BUSINESS",
+      "memberCount": 2,
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "BUSINESS_CAPABILITY",
+          "RISK_TAG:TRUTH_CRITICAL"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 11,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "quoting"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 0,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-INTEGRATIONS-OPPORTUNITY_PIPELINE_READ",
+      "capabilityId": null,
+      "name": "opportunity-pipeline-read",
+      "domain": "integrations",
+      "kind": "INFRASTRUCTURE",
+      "memberCount": 2,
+      "riskTags": [
+        "EXTERNAL_BOUNDARY"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 21,
+        "maximumMergeScore": 21,
+        "reasons": [
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY"
+        ],
+        "reviewReasons": [],
+        "memberDomains": [
+          "integrations"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "EXTERNAL_CONTRACT_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 1,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-INTEGRATIONS-DRY_READ_RUN",
+      "capabilityId": null,
+      "name": "dry-read-run",
+      "domain": "integrations",
+      "kind": "INFRASTRUCTURE",
+      "memberCount": 3,
+      "riskTags": [
+        "EXTERNAL_BOUNDARY"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY",
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 3,
+        "mergeEdgeCount": 2,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 11,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "integrations"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "EXTERNAL_CONTRACT_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 0,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-ADVISOR_DEVELOPMENT-ADVISOR_STAGE",
+      "capabilityId": null,
+      "name": "advisor-stage",
+      "domain": "advisor-development",
+      "kind": "UNCLASSIFIED",
+      "memberCount": 9,
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "FINANCIAL_OR_PAYMENT",
+          "RISK_TAG:TRUTH_CRITICAL",
+          "TRUTH_OR_ELIGIBILITY"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 9,
+        "mergeEdgeCount": 14,
+        "minimumMergeScore": 14,
+        "maximumMergeScore": 17,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY",
+          "TEST_OR_RULE_AFFINITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [],
+        "memberDomains": [
+          "advisor-development"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "LEGACY_BASELINE_RECOVERY",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 5,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-INTEGRATIONS-INDEX",
+      "capabilityId": null,
+      "name": "index",
+      "domain": "integrations",
+      "kind": "INFRASTRUCTURE",
+      "memberCount": 2,
+      "riskTags": [
+        "EXTERNAL_BOUNDARY"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 17,
+        "maximumMergeScore": 17,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "integrations"
+        ]
+      },
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "reason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "scenarioSeeds": [
+        "EXTERNAL_CONTRACT_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 0,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
     }
   ],
   "splitRequired": [
@@ -1001,6 +1342,115 @@
         "unrunnable": 0
       },
       "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-GOVERNANCE-SAMPLE_DATA",
+      "capabilityId": null,
+      "name": "sample-data",
+      "domain": "governance",
+      "kind": "INFRASTRUCTURE",
+      "memberCount": 32,
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 32,
+        "mergeEdgeCount": 98,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 22,
+        "reasons": [
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [
+          "LARGE_CLUSTER_REQUIRES_REVIEW"
+        ],
+        "memberDomains": [
+          "governance"
+        ]
+      },
+      "disposition": "SPLIT_REQUIRED",
+      "reason": "The proposed component is too broad or crosses source domains.",
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 0,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-PRODUCT_INTELLIGENCE-SHARED_AVE",
+      "capabilityId": null,
+      "name": "shared-ave",
+      "domain": "product-intelligence",
+      "kind": "UNCLASSIFIED",
+      "memberCount": 18,
+      "riskTags": [
+        "TRUTH_CRITICAL"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:TRUTH_CRITICAL",
+          "TRUTH_OR_ELIGIBILITY"
+        ]
+      },
+      "omittedTestCount": 0,
+      "evidence": {
+        "memberCount": 18,
+        "mergeEdgeCount": 92,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 28,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "TRUTH_CRITICAL"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "product-intelligence"
+        ]
+      },
+      "disposition": "SPLIT_REQUIRED",
+      "reason": "The proposed component is too broad or crosses source domains.",
+      "scenarioSeeds": [
+        "ELIGIBILITY_OR_GATE_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "legacyTestSummary": {
+        "total": 0,
+        "pass": 0,
+        "fail": 0,
+        "timeout": 0,
+        "missing": 0,
+        "unrunnable": 0
+      },
+      "parityVerified": false
     }
   ],
   "mergeRejected": [],
@@ -1022,13 +1472,22 @@
       "humanReviewRequired": 7,
       "splitRequired": 1,
       "mergeRejected": 0
+    },
+    {
+      "waveId": "WAVE-003",
+      "reportHash": "0c701f15fdb0ba283088fe41d538fd7c96abc382ead68cf7774f8b11cb2cfde7",
+      "reviewedGroups": 8,
+      "lockedIdentities": 0,
+      "humanReviewRequired": 6,
+      "splitRequired": 2,
+      "mergeRejected": 0
     }
   ],
   "totals": {
-    "reviewedGroups": 16,
+    "reviewedGroups": 24,
     "lockedIdentities": 0,
-    "humanReviewRequired": 10,
-    "splitRequired": 6,
+    "humanReviewRequired": 16,
+    "splitRequired": 8,
     "mergeRejected": 0,
     "testPass": 0,
     "testFail": 0,
@@ -1036,7 +1495,7 @@
     "testMissing": 0,
     "testUnrunnable": 0,
     "testDeferred": 0,
-    "testSkippedSafety": 51
+    "testSkippedSafety": 59
   },
   "parity": {
     "verifiedCapabilities": 0,
