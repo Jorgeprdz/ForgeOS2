@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "MOD-CARRIER-SCOPE",
+  "area": "runtime",
+  "result": "PASS",
+  "recordedAt": "2026-07-24T03:25:53.301Z",
+  "sourceCommit": "19d0b4b7507484bfe31391ea79c676603623558f",
+  "checks": {
+    "nonTrivialDomainFlow": true,
+    "domainOutcome": true,
+    "negativePath": true,
+    "criticalPathNoMock": true,
+    "consumerBoundary": true,
+    "freshArtifacts": true
+  },
+  "commands": [
+    {
+      "command": "node --test modules/carrier-scope/carrier-applicability-consumer.test.mjs",
+      "label": "FUNCTIONAL_TEST:MOD-CARRIER-SCOPE",
+      "status": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "modules/carrier-scope/index.mjs",
+      "sha256": "ddf379a507071e010d9af5fe68e18a0494b968f371850a212cc97649270a3f8d"
+    },
+    {
+      "path": "modules/carrier-scope/index.test.mjs",
+      "sha256": "5f97ca5b6ad6caf46590351bfd01e63b842557305cbaf1009641f8c848ca2f63"
+    },
+    {
+      "path": "modules/carrier-scope/carrier-applicability-consumer.test.mjs",
+      "sha256": "a3eefd7f0168996dde80c3c22dead2528e7c2e2450b9b7312a22d27d951844af"
+    }
+  ],
+  "environment": {
+    "kind": "local-real",
+    "runtime": "node v26.4.0",
+    "platform": "linux-arm64"
+  },
+  "scenario": null
+}

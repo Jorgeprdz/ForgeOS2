@@ -5,14 +5,15 @@
     {
       "id": "MOD-CARRIER-SCOPE",
       "title": "Carrier Scope",
-      "description": "Canonical carrier-scope contract and implementation.",
+      "description": "Canonical carrier scope runtime with governed applicability decisions for carrier, market and product-line quote routing.",
       "dependencies": [],
       "governanceInputs": [
         "docs/architecture/CARRIER_SCOPE_NAMING_CONVENTION.md"
       ],
       "entrypoint": "modules/carrier-scope/index.mjs",
       "tests": [
-        "modules/carrier-scope/index.test.mjs"
+        "modules/carrier-scope/index.test.mjs",
+        "modules/carrier-scope/carrier-applicability-consumer.test.mjs"
       ],
       "requiredExports": [
         "CarrierScopeError",
