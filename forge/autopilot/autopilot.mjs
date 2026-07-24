@@ -256,11 +256,71 @@ function manifestDiagnostics(manifest) {
 
 function registeredAuthorityPaths(registry) {
   const paths = new Set();
-  for (const match of registry.matchAll(/`([^`]+)`/g)) {
-    const value = match[1].trim();
-    if (value.includes('/') || /\.(md|txt|json)$/i.test(value)) paths.add(value.replace(/\/$/, ''));
+  const lines = registry.split(/\r?\n/u);
+  let insideNormativeSources = false;
+
+  for (const line of lines) {
+    if (/^##\s+Normative sources\s*$/iu.test(line.trim())) {
+      insideNormativeSources = true;
+      continue;
+    }
+
+    if (
+      insideNormativeSources
+      && /^##\s+/u.test(line.trim())
+    ) {
+      break;
+    }
+
+    if (
+      !insideNormativeSources
+      || !line.trim().startsWith('|')
+    ) {
+      continue;
+    }
+
+    const cells = line
+      .split('|')
+      .slice(1, -1)
+      .map(cell => cell.trim());
+
+    if (cells.length < 2) continue;
+
+    const normalizedCells = cells.map(
+      cell => cell.replace(/\s+/gu, '')
+    );
+
+    if (
+      normalizedCells.every(
+        cell => /^:?-+:?$/u.test(cell)
+      )
+    ) {
+      continue;
+    }
+
+    const sourceCell = cells[1];
+
+    for (
+      const match of sourceCell.matchAll(
+        /`([^`]+)`/gu
+      )
+    ) {
+      const value = match[1].trim();
+
+      if (
+        value.includes('/')
+        || /\.(md|txt|json)$/iu.test(value)
+      ) {
+        paths.add(
+          value.replace(/\/$/u, '')
+        );
+      }
+    }
   }
-  return [...paths].filter(value => !value.includes('*'));
+
+  return [...paths]
+    .filter(value => !value.includes('*'))
+    .sort();
 }
 
 function architectureEvaluation(inputs) {

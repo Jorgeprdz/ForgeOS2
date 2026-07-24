@@ -90,6 +90,47 @@ test('recommendation emits a coherent governed next action', () => {
   }
 });
 
+test('architecture authority discovery ignores statuses and execution-gate metadata', () => {
+  const result = run('audit');
+
+  assert.equal(
+    result.status,
+    0,
+    combined(result)
+  );
+
+  const report = JSON.parse(
+    fs.readFileSync(
+      path.join(
+        root,
+        '.forge21',
+        'autopilot',
+        'reports',
+        'latest.json'
+      ),
+      'utf8'
+    )
+  );
+
+  const authorityCheck =
+    report.architecture.checks.find(
+      check => check.id === 'A1-05'
+    );
+
+  assert.ok(authorityCheck);
+  assert.equal(
+    authorityCheck.pass,
+    true,
+    JSON.stringify(
+      report.architecture.missingAuthority
+    )
+  );
+  assert.deepEqual(
+    report.architecture.missingAuthority,
+    []
+  );
+});
+
 test('unknown commands fail closed with a stable error code', () => {
   const result = run('definitely-not-a-command');
   assert.notEqual(result.status, 0);
