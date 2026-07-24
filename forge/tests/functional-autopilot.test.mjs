@@ -138,6 +138,43 @@ test('Carrier Scope has an explicit governed implementation action', () => {
   );
 });
 
+test('GMM Quote Preparation E2E declares a complete governed user journey', () => {
+  const actions = JSON.parse(fs.readFileSync(actionsPath, 'utf8'));
+  const action = actions.modules['MOD-GMM-QUOTE-PREPARATION-E2E'];
+
+  assert.ok(action);
+  assert.equal(
+    action.implementationCommand,
+    'bash forge/autopilot/actions/materialize-gmm-quote-preparation-e2e.sh'
+  );
+  assert.equal(
+    action.functionalTestCommand,
+    'node --test modules/gmm-quote-preparation-e2e/index.test.mjs'
+  );
+  assert.equal(
+    action.evidence.environment.entrypoint,
+    'tools/forge-gmm-quote-flow'
+  );
+  assert.equal(
+    action.evidence.scenario.actions.length >= 3,
+    true
+  );
+  assert.deepEqual(
+    action.evidence.scenario.manualSteps,
+    []
+  );
+  assert.deepEqual(
+    Object.entries(action.evidence.checks)
+      .filter(([, value]) => value !== true),
+    []
+  );
+  assert.ok(
+    action.evidence.artifactPaths.includes(
+      'tools/forge-gmm-quote-flow'
+    )
+  );
+});
+
 test('GMM Quote Evidence Adapter declares faithful external evidence', () => {
   const actions = JSON.parse(fs.readFileSync(actionsPath, 'utf8'));
   const action = actions.modules['MOD-GMM-QUOTE-EVIDENCE-ADAPTER'];

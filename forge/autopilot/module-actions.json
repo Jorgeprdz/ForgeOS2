@@ -61,6 +61,54 @@
           "contractArtifact": "modules/gmm-quote-evidence-adapter/fixtures/gmm-quote-contract-v1.json"
         }
       }
+    },
+    "MOD-GMM-QUOTE-PREPARATION-E2E": {
+      "implementationCommand": "bash forge/autopilot/actions/materialize-gmm-quote-preparation-e2e.sh",
+      "functionalTestCommand": "node --test modules/gmm-quote-preparation-e2e/index.test.mjs",
+      "consumerTestPaths": [],
+      "changedPaths": [
+        "modules/gmm-quote-preparation-e2e",
+        "tools/forge-gmm-quote-flow",
+        ".forge21/receipts/MOD-GMM-QUOTE-PREPARATION-E2E",
+        ".forge21/functional-evidence/MOD-GMM-QUOTE-PREPARATION-E2E"
+      ],
+      "commitMessage": "feat(product-e2e): materialize GMM quote preparation journey",
+      "evidence": {
+        "checks": {
+          "realUserEntrypoint": true,
+          "multiStepScenario": true,
+          "crossesRuntimeAndAdapter": true,
+          "noHiddenManualSteps": true,
+          "visibleOutcome": true,
+          "failureRecovery": true,
+          "humanGateWhenRequired": true,
+          "traceableRun": true
+        },
+        "artifactPaths": [
+          "modules/gmm-quote-preparation-e2e/index.mjs",
+          "modules/gmm-quote-preparation-e2e/cli.mjs",
+          "modules/gmm-quote-preparation-e2e/index.test.mjs",
+          "modules/gmm-quote-preparation-e2e/fixtures/gmm-quote-preparation-request-v1.json",
+          "modules/gmm-quote-evidence-adapter/fixtures/gmm-quote-contract-v1.json",
+          "tools/forge-gmm-quote-flow"
+        ],
+        "environment": {
+          "kind": "local-real",
+          "entrypoint": "tools/forge-gmm-quote-flow",
+          "runtime": "node"
+        },
+        "scenario": {
+          "id": "SCENARIO-GMM-QUOTE-PREPARATION-001",
+          "actions": [
+            "operator-submits-versioned-workflow-request",
+            "carrier-scope-evaluates-applicability",
+            "adapter-ingests-faithful-external-quote",
+            "product-intelligence-resolves-evidence",
+            "workflow-exposes-human-review-decision"
+          ],
+          "manualSteps": []
+        }
+      }
     }
   }
 }

@@ -349,6 +349,34 @@
         "createGmmQuoteFixtureFingerprint",
         "ingestGmmQuoteEvidence"
       ]
+    },
+    {
+      "id": "MOD-GMM-QUOTE-PREPARATION-E2E",
+      "title": "GMM Quote Preparation E2E",
+      "description": "Executable user journey from Carrier Scope through faithful GMM quote ingestion and Product Truth to a visible human-review decision.",
+      "dependencies": [
+        "MOD-CARRIER-SCOPE",
+        "MOD-GMM-QUOTE-EVIDENCE-ADAPTER",
+        "MOD-PRODUCT-INTELLIGENCE"
+      ],
+      "governanceInputs": [
+        "governance/constitution/CONSTITUTION_UNIFIED.md",
+        "adr/ADR-005 — Product Truth Boundary.txt",
+        "docs/architecture/CARRIER_SCOPE_NAMING_CONVENTION.md",
+        "docs/architecture/scaffolds/instances/domains/PRODUCT_INTELLIGENCE_DOMAIN_RESPONSIBILITY.md",
+        "docs/architecture/scaffolds/instances/boundaries/PRODUCT_TRUTH_BOUNDARY.md",
+        "docs/architecture/scaffolds/instances/source-truth/PRODUCT_TRUTH_OWNERSHIP.md",
+        "governance/constitutional/PRODUCT_INTELLIGENCE_SOFTWARE_AUTHORITY_001.md"
+      ],
+      "entrypoint": "modules/gmm-quote-preparation-e2e/index.mjs",
+      "tests": [
+        "modules/gmm-quote-preparation-e2e/index.test.mjs"
+      ],
+      "requiredExports": [
+        "GmmQuotePreparationE2EError",
+        "assertGmmQuotePreparationResult",
+        "runGmmQuotePreparationWorkflow"
+      ]
     }
   ]
 }

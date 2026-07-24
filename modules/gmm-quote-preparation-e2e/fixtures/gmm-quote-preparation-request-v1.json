@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "kind": "GMM_QUOTE_PREPARATION_E2E_REQUEST",
+  "workflowId": "GMM-QUOTE-PREP-2026-0001",
+  "requestScope": {
+    "carrier": "smnyl",
+    "market": "mexico",
+    "productLine": "gastos-medicos-mayores"
+  },
+  "supportedScopes": [
+    {
+      "carrier": "smnyl",
+      "market": "mexico",
+      "productLine": "gastos-medicos-mayores"
+    }
+  ],
+  "quoteFixturePath": "../../gmm-quote-evidence-adapter/fixtures/gmm-quote-contract-v1.json",
+  "product": {
+    "productName": "Seguro de Gastos Médicos Mayores",
+    "productFamily": "HEALTH",
+    "effectiveAt": "2026-08-01T00:00:00Z",
+    "productEffectiveFrom": "2026-07-01T00:00:00Z",
+    "productEffectiveTo": "2027-07-01T00:00:00Z",
+    "rulePackId": "RP-SMNYL-GMM-2026-1",
+    "currency": "MXN"
+  },
+  "requestedClaims": [
+    "coverage.annualSumInsured",
+    "costSharing.coinsurancePercentage",
+    "costSharing.deductible"
+  ],
+  "officialEvidence": [
+    {
+      "evidenceId": "SMNYL-GMM-CG-2026:ANNUAL-SUM-INSURED",
+      "sourceId": "SMNYL-GMM-GENERAL-CONDITIONS-2026-1",
+      "sourceType": "GENERAL_CONDITIONS",
+      "carrierId": "SMNYL",
+      "productId": "SMNYL-GMM-001",
+      "productVersion": "2026.1",
+      "claimPath": "coverage.annualSumInsured",
+      "claimValue": {
+        "amount": 50000000,
+        "currency": "MXN"
+      },
+      "effectiveFrom": "2026-07-01T00:00:00Z",
+      "effectiveTo": "2027-07-01T00:00:00Z",
+      "country": "MX",
+      "channel": "ADVISOR"
+    },
+    {
+      "evidenceId": "SMNYL-GMM-CG-2026:COINSURANCE",
+      "sourceId": "SMNYL-GMM-GENERAL-CONDITIONS-2026-1",
+      "sourceType": "GENERAL_CONDITIONS",
+      "carrierId": "SMNYL",
+      "productId": "SMNYL-GMM-001",
+      "productVersion": "2026.1",
+      "claimPath": "costSharing.coinsurancePercentage",
+      "claimValue": 10,
+      "effectiveFrom": "2026-07-01T00:00:00Z",
+      "effectiveTo": "2027-07-01T00:00:00Z",
+      "country": "MX",
+      "channel": "ADVISOR"
+    },
+    {
+      "evidenceId": "SMNYL-GMM-CG-2026:DEDUCTIBLE",
+      "sourceId": "SMNYL-GMM-GENERAL-CONDITIONS-2026-1",
+      "sourceType": "GENERAL_CONDITIONS",
+      "carrierId": "SMNYL",
+      "productId": "SMNYL-GMM-001",
+      "productVersion": "2026.1",
+      "claimPath": "costSharing.deductible",
+      "claimValue": {
+        "amount": 25000,
+        "currency": "MXN"
+      },
+      "effectiveFrom": "2026-07-01T00:00:00Z",
+      "effectiveTo": "2027-07-01T00:00:00Z",
+      "country": "MX",
+      "channel": "ADVISOR"
+    }
+  ]
+}
