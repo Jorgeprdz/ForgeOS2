@@ -3,16 +3,16 @@
 - Grouping hash: `47019e7100208db576f47f1d026235516dac59837c131d2f193268cb575c0bc0`
 - Candidate groups: 1228
 - Multi-member candidates: 69
-- Reviewed groups: 24
+- Reviewed groups: 32
 - Locked low-risk identities: 0
-- Human review required: 16
+- Human review required: 24
 - Split required: 8
 - Legacy tests passed: 0
 - Legacy tests failed: 0
 - Legacy tests timed out: 0
 - Legacy tests missing/unrunnable: 0
 - Legacy tests deferred by deadline: 0
-- Legacy tests skipped for unattended safety: 59
+- Legacy tests skipped for unattended safety: 60
 - Verified parity capabilities: 0
 
 ## Safety
