@@ -1,0 +1,513 @@
+{
+  "schemaVersion": 1,
+  "kind": "FORGE_CAPABILITY_IDENTITY_REVIEW_WAVE",
+  "waveId": "WAVE-008",
+  "generatedAt": "2026-07-24T06:04:09.898Z",
+  "source": {
+    "legacyHead": "e4441e794abaaf983472591e7c80ae545b0b3f67",
+    "groupingReportHash": "47019e7100208db576f47f1d026235516dac59837c131d2f193268cb575c0bc0"
+  },
+  "safety": {
+    "identityLockIsNotParity": true,
+    "highRiskAutoLock": false,
+    "businessAutoLock": false,
+    "incompleteTestAutoLock": false,
+    "rewritesRules": false,
+    "retiresLegacy": false
+  },
+  "counts": {
+    "reviewedGroups": 8,
+    "lockedIdentities": 0,
+    "humanReviewRequired": 8,
+    "splitRequired": 0,
+    "mergeRejected": 0
+  },
+  "reviews": [
+    {
+      "groupId": "CAP2-MANAGER_TEAM-NBA",
+      "proposedName": "nba",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": -8,
+      "memberCount": 2,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-NASH_MICK_NBA_RECONNECTION",
+        "CAP-MANAGER_TEAM-NBA_REASON_WHY_BOUNDARY"
+      ],
+      "codeFiles": [
+        "manager-os/nba/nash-mick-nba-reconnection-engine.js",
+        "manager-os/nba/nba-reason-why-boundary-contract.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "evidence": {
+        "memberCount": 2,
+        "mergeEdgeCount": 1,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 11,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_SHARED_LINEAGE"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Legacy tests were absent, failed, timed out, deferred or were not independently runnable.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-CRM_CLIENT-SHELL_UI",
+      "proposedName": "shell-ui",
+      "domain": "crm-client",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": -12,
+      "memberCount": 3,
+      "memberCapabilityIds": [
+        "CAP-CRM_CLIENT-CHAT_SHELL",
+        "CAP-CRM_CLIENT-UI_LISTENERS",
+        "CAP-CRM_CLIENT-UI_SHELL"
+      ],
+      "codeFiles": [
+        "legacy/crmaddlife/chat-shell.js",
+        "legacy/crmaddlife/ui-listeners.js",
+        "legacy/crmaddlife/ui-shell.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "evidence": {
+        "memberCount": 3,
+        "mergeEdgeCount": 2,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 11,
+        "reasons": [
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "crm-client"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Legacy tests were absent, failed, timed out, deferred or were not independently runnable.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-BETA_GENESIS_LOOP",
+      "proposedName": "beta-genesis-loop",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": -12,
+      "memberCount": 6,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-GENESIS_BETA_LOOP_ADDITIONAL_SCENARIOS",
+        "CAP-MANAGER_TEAM-GENESIS_BETA_LOOP_HUMAN_REVIEW_PACKET",
+        "CAP-MANAGER_TEAM-GENESIS_BETA_LOOP_ORCHESTRATOR_BOUNDARY",
+        "CAP-MANAGER_TEAM-GENESIS_BETA_LOOP_REAL_ADAPTER_WIRING",
+        "CAP-MANAGER_TEAM-GENESIS_BETA_LOOP_UI_READ",
+        "CAP-MANAGER_TEAM-JORGE_MARIA_FOLLOWUP_15_DAYS"
+      ],
+      "codeFiles": [
+        "manager-os/genesis-beta-loop/fixtures/genesis-beta-loop-additional-scenarios.fixture.js",
+        "manager-os/genesis-beta-loop/fixtures/jorge-maria-followup-15-days.fixture.js",
+        "manager-os/genesis-beta-loop/genesis-beta-loop-human-review-packet.js",
+        "manager-os/genesis-beta-loop/genesis-beta-loop-orchestrator-boundary-contract.js",
+        "manager-os/genesis-beta-loop/genesis-beta-loop-real-adapter-wiring.js",
+        "manager-os/genesis-beta-loop/genesis-beta-loop-ui-read-model.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "EXTERNAL_BOUNDARY"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY",
+          "RISK_TAG:EXTERNAL_BOUNDARY",
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "evidence": {
+        "memberCount": 6,
+        "mergeEdgeCount": 11,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 24,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "EXTERNAL_CONTRACT_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-FORECAST",
+      "proposedName": "forecast",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": -16,
+      "memberCount": 4,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-MANAGER_ADVISOR_FORECAST",
+        "CAP-MANAGER_TEAM-MANAGER_FORECAST_BOUNDARY",
+        "CAP-MANAGER_TEAM-MANAGER_FORECAST_INTELLIGENCE",
+        "CAP-MANAGER_TEAM-MANAGER_TEAM_FORECAST"
+      ],
+      "codeFiles": [
+        "manager-os/forecast/manager-advisor-forecast-engine.js",
+        "manager-os/forecast/manager-forecast-boundary-contract.js",
+        "manager-os/forecast/manager-forecast-intelligence-engine.js",
+        "manager-os/forecast/manager-team-forecast-engine.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "evidence": {
+        "memberCount": 4,
+        "mergeEdgeCount": 6,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 24,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Legacy tests were absent, failed, timed out, deferred or were not independently runnable.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-MESSAGE",
+      "proposedName": "message",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": -16,
+      "memberCount": 4,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-LLM_DRAFT_INTAKE_BOUNDARY",
+        "CAP-MANAGER_TEAM-MANAGER_MESSAGE_PROMPT_BUILDER",
+        "CAP-MANAGER_TEAM-MANAGER_MESSAGE_PROMPT_BUILDER_BOUNDARY",
+        "CAP-MANAGER_TEAM-MESSAGE_SAFETY"
+      ],
+      "codeFiles": [
+        "manager-os/message-generation/llm-draft-intake-boundary-contract.js",
+        "manager-os/message-generation/manager-message-prompt-builder-boundary-contract.js",
+        "manager-os/message-generation/manager-message-prompt-builder.js",
+        "manager-os/message-generation/message-safety-validator.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": false,
+        "reasons": []
+      },
+      "evidence": {
+        "memberCount": 4,
+        "mergeEdgeCount": 4,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 28,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Legacy tests were absent, failed, timed out, deferred or were not independently runnable.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-PLAN_REVIEW",
+      "proposedName": "plan-review",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": -16,
+      "memberCount": 4,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-MANAGER_ADVISOR_REVIEW_PLAN",
+        "CAP-MANAGER_TEAM-MANAGER_REVIEW_PLAN_BOUNDARY",
+        "CAP-MANAGER_TEAM-MANAGER_REVIEW_PLAN_INTELLIGENCE",
+        "CAP-MANAGER_TEAM-MANAGER_TEAM_REVIEW_PLAN"
+      ],
+      "codeFiles": [
+        "manager-os/review-plan-intelligence/manager-advisor-review-plan-engine.js",
+        "manager-os/review-plan-intelligence/manager-review-plan-boundary-contract.js",
+        "manager-os/review-plan-intelligence/manager-review-plan-intelligence-engine.js",
+        "manager-os/review-plan-intelligence/manager-team-review-plan-engine.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "evidence": {
+        "memberCount": 4,
+        "mergeEdgeCount": 6,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 24,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-ALFRED_ACTION_PACKET_REVIEW_PREVIEW",
+      "proposedName": "alfred-action-packet-review-preview",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": -22,
+      "memberCount": 8,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-ALFRED_REVIEW_ACTION_PACKET_READ",
+        "CAP-MANAGER_TEAM-ALFRED_REVIEW_ACTION_PACKET_STATIC_PREVIEW_BINDING",
+        "CAP-MANAGER_TEAM-ALFRED_REVIEW_ACTION_PACKET_STATIC_PREVIEW_DOM_RENDERER",
+        "CAP-MANAGER_TEAM-ALFRED_REVIEW_ACTION_PACKET_STATIC_PREVIEW_DOM_SURFACE_BINDING",
+        "CAP-MANAGER_TEAM-ALFRED_REVIEW_ACTION_PACKET_STATIC_PREVIEW_SURFACE_BINDING",
+        "CAP-MANAGER_TEAM-ALFRED_REVIEW_ACTION_PACKET_UI_VIEW",
+        "CAP-MANAGER_TEAM-ALFRED_STATIC_PREVIEW_DOM_RENDERER",
+        "CAP-MANAGER_TEAM-ALFRED_UNIVERSAL_COMMAND_MEMORY_READ"
+      ],
+      "codeFiles": [
+        "manager-os/alfred-review-action-packet-read-model.js",
+        "manager-os/alfred-review-action-packet-static-preview-binding.js",
+        "manager-os/alfred-review-action-packet-static-preview-dom-renderer.js",
+        "manager-os/alfred-review-action-packet-static-preview-dom-surface-binding.js",
+        "manager-os/alfred-review-action-packet-static-preview-surface-binding.js",
+        "manager-os/alfred-review-action-packet-ui-view-model.js",
+        "manager-os/alfred-static-preview-dom-renderer-integration.js",
+        "manager-os/alfred-universal-command-memory-read-model.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [
+        "EXTERNAL_BOUNDARY"
+      ],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "RISK_TAG:EXTERNAL_BOUNDARY",
+          "USER_ENTRYPOINT"
+        ]
+      },
+      "evidence": {
+        "memberCount": 8,
+        "mergeEdgeCount": 7,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 28,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [
+          "EXTERNAL_BOUNDARY"
+        ],
+        "reviewReasons": [
+          "HIGH_RISK_WITHOUT_LEGACY_TESTS"
+        ],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    },
+    {
+      "groupId": "CAP2-MANAGER_TEAM-BRIDGE_CONTEXT",
+      "proposedName": "bridge-context",
+      "domain": "manager-team",
+      "kind": "UNCLASSIFIED",
+      "migrationPriority": -22,
+      "memberCount": 6,
+      "memberCapabilityIds": [
+        "CAP-MANAGER_TEAM-EXTERNAL_DISPATCH_BOUNDARY",
+        "CAP-MANAGER_TEAM-MANAGER_ENGAGEMENT_CONTEXT_BRIDGE",
+        "CAP-MANAGER_TEAM-MANAGER_EXTERNAL_CONTEXT_BRIDGE",
+        "CAP-MANAGER_TEAM-MANAGER_EXTERNAL_CONTEXT_BRIDGE_BOUNDARY",
+        "CAP-MANAGER_TEAM-MANAGER_MICK_BEHAVIOR_CONTEXT_BRIDGE",
+        "CAP-MANAGER_TEAM-MANAGER_NASH_CONVERSATION_CONTEXT_BRIDGE"
+      ],
+      "codeFiles": [
+        "manager-os/external-context-bridge/manager-engagement-context-bridge.js",
+        "manager-os/external-context-bridge/manager-external-context-bridge-boundary-contract.js",
+        "manager-os/external-context-bridge/manager-external-context-bridge-orchestrator.js",
+        "manager-os/external-context-bridge/manager-mick-behavior-context-bridge.js",
+        "manager-os/external-context-bridge/manager-nash-conversation-context-bridge.js",
+        "manager-os/external-dispatch/external-dispatch-boundary-contract.js"
+      ],
+      "testFiles": [],
+      "selectedTests": [],
+      "omittedTestCount": 0,
+      "ruleArtifacts": [],
+      "riskTags": [],
+      "riskClassification": {
+        "highRisk": true,
+        "reasons": [
+          "EXTERNAL_BOUNDARY"
+        ]
+      },
+      "evidence": {
+        "memberCount": 6,
+        "mergeEdgeCount": 11,
+        "minimumMergeScore": 11,
+        "maximumMergeScore": 28,
+        "reasons": [
+          "DIRECT_IMPORT_WITH_FUNCTIONAL_OVERLAP",
+          "HIGH_KEY_SIMILARITY",
+          "SAME_DOMAIN_FUNCTIONAL_PREFIX",
+          "SAME_DOMAIN_SHARED_LINEAGE",
+          "SAME_DOMAIN_STRONG_TOKEN_SIMILARITY"
+        ],
+        "riskTags": [],
+        "reviewReasons": [],
+        "memberDomains": [
+          "manager-team"
+        ]
+      },
+      "tests": [],
+      "scenarioSeeds": [
+        "EXTERNAL_CONTRACT_FAILURE",
+        "INVALID_OR_MISSING_INPUT",
+        "SUCCESS_PATH",
+        "VISIBLE_RESULT_OR_BLOCK"
+      ],
+      "disposition": "HUMAN_REVIEW_REQUIRED",
+      "dispositionReason": "Business or high-risk identity cannot be auto-locked during an unattended marathon.",
+      "identityLocked": false,
+      "parityVerified": false
+    }
+  ],
+  "parity": {
+    "verifiedCapabilities": 0
+  },
+  "reportHash": "c9be54fdf28c2ad57edff8740a8cac4ce6338ab288c63dd888caddff029293d8"
+}
