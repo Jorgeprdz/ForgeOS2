@@ -291,7 +291,7 @@
     {
       "id": "MOD-PRODUCT-INTELLIGENCE",
       "title": "Product Intelligence",
-      "description": "Version-aware deterministic Product Truth envelope with evidence, conflict, effective-period and actionability boundaries.",
+      "description": "Version-aware Product Truth runtime with evidence hierarchy, conflict and stale handling, plus a governed quote-preparation consumer decision.",
       "dependencies": [],
       "governanceInputs": [
         "governance/constitution/CONSTITUTION_UNIFIED.md",
@@ -303,7 +303,8 @@
       ],
       "entrypoint": "modules/product-intelligence/index.mjs",
       "tests": [
-        "modules/product-intelligence/index.test.mjs"
+        "modules/product-intelligence/index.test.mjs",
+        "modules/product-intelligence/quote-preparation-consumer.test.mjs"
       ],
       "requiredExports": [
         "EVIDENCE_STATES",

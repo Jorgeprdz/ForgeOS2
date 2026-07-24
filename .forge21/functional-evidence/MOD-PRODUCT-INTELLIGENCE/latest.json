@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "MOD-PRODUCT-INTELLIGENCE",
+  "area": "runtime",
+  "result": "PASS",
+  "recordedAt": "2026-07-24T02:59:50.654Z",
+  "sourceCommit": "8e3cc3ff675e3a1c85537b36437c380e53466c29",
+  "checks": {
+    "nonTrivialDomainFlow": true,
+    "domainOutcome": true,
+    "negativePath": true,
+    "criticalPathNoMock": true,
+    "consumerBoundary": true,
+    "freshArtifacts": true
+  },
+  "commands": [
+    {
+      "command": "node --test modules/product-intelligence/quote-preparation-consumer.test.mjs",
+      "label": "FUNCTIONAL_TEST:MOD-PRODUCT-INTELLIGENCE",
+      "status": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "modules/product-intelligence/index.mjs",
+      "sha256": "240a3f144863771b40ea54790242cdf4129feb50bc2b272ba0d550c7a2b00ebf"
+    },
+    {
+      "path": "modules/product-intelligence/index.test.mjs",
+      "sha256": "4a8b4f42012b914291ba5de8c538c30702e3663f9217a939519e5c6d094272cd"
+    },
+    {
+      "path": "modules/product-intelligence/quote-preparation-consumer.test.mjs",
+      "sha256": "87f4465c687e73375ce91ce55178981774cbbc48bfad0c3080abf7cc92382bfa"
+    }
+  ],
+  "environment": {
+    "kind": "local-real",
+    "runtime": "node v26.4.0",
+    "platform": "linux-arm64"
+  },
+  "scenario": null
+}
