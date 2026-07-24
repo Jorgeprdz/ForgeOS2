@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "weights": {
+    "architecture": 0.10,
+    "scaffolds": 0.15,
+    "runtime": 0.35,
+    "integrations": 0.25,
+    "productE2E": 0.15
+  },
+  "priorityOrder": [
+    "runtime",
+    "integrations",
+    "productE2E",
+    "scaffolds",
+    "architecture"
+  ],
+  "areaLabels": {
+    "architecture": "Constitución, ADR y arquitectura base",
+    "scaffolds": "Motor de scaffolds y validación",
+    "runtime": "Runtime real de dominios",
+    "integrations": "Integraciones, datos y adaptadores",
+    "productE2E": "Producto utilizable de punta a punta"
+  },
+  "classification": {
+    "scaffoldIdPrefix": "MOD-SCAFFOLD-",
+    "integrationTokens": [
+      "ADAPTER",
+      "INTEGRATION",
+      "PROVIDER",
+      "CLIENT",
+      "REPOSITORY",
+      "DATABASE",
+      "STORAGE",
+      "SUPABASE",
+      "GITHUB",
+      "GMAIL",
+      "CALENDAR",
+      "CRM",
+      "HTTP"
+    ],
+    "productTokens": [
+      "E2E",
+      "PRODUCT-FLOW",
+      "USER-FLOW",
+      "JOURNEY",
+      "APP-SHELL",
+      "WORKBENCH",
+      "UI-FLOW"
+    ]
+  },
+  "moduleOverrides": {
+    "MOD-CARRIER-SCOPE": {
+      "area": "runtime",
+      "priority": 90,
+      "profile": "carrier-scope",
+      "requiredOutcomeSignals": [
+        "eligible",
+        "ineligible",
+        "supported",
+        "unsupported",
+        "applies",
+        "reject"
+      ],
+      "requiredConsumerSignals": [
+        "carrier-scope",
+        "product-intelligence",
+        "workflow",
+        "decision"
+      ]
+    },
+    "MOD-PRODUCT-INTELLIGENCE": {
+      "area": "runtime",
+      "priority": 100,
+      "profile": "product-intelligence",
+      "requiredOutcomeSignals": [
+        "actionable",
+        "conflict",
+        "effective",
+        "stale",
+        "unknown",
+        "source"
+      ],
+      "requiredConsumerSignals": [
+        "recommendation",
+        "quote",
+        "workflow",
+        "decision",
+        "consumer"
+      ]
+    }
+  },
+  "requiredEvidenceChecks": {
+    "runtime": [
+      "nonTrivialDomainFlow",
+      "domainOutcome",
+      "negativePath",
+      "criticalPathNoMock",
+      "consumerBoundary",
+      "freshArtifacts"
+    ],
+    "integrations": [
+      "realOrFaithfulExternalBoundary",
+      "successPath",
+      "externalFailurePath",
+      "canonicalMapping",
+      "idempotencyOrDuplicateHandling",
+      "secretSafety",
+      "consumerBoundary",
+      "freshArtifacts"
+    ],
+    "productE2E": [
+      "realUserEntrypoint",
+      "multiStepScenario",
+      "crossesRuntimeAndAdapter",
+      "noHiddenManualSteps",
+      "visibleOutcome",
+      "failureRecovery",
+      "humanGateWhenRequired",
+      "traceableRun",
+      "freshArtifacts"
+    ]
+  },
+  "forbiddenChangedPathPatterns": [
+    "(^|/)\\.env($|\\.)",
+    "(^|/)secrets?(/|$)",
+    "(^|/)credentials?(/|$)",
+    "(^|/)node_modules(/|$)",
+    "(^|/)\\.git(/|$)",
+    "\\.(pem|key|p12|pfx)$"
+  ]
+}

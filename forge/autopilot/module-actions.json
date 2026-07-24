@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "modules": {
+    "MOD-CARRIER-SCOPE": {
+      "implementationCommand": null,
+      "functionalTestCommand": null,
+      "consumerTestPaths": [],
+      "changedPaths": [
+        "forge/modules.json",
+        "modules/carrier-scope",
+        ".forge21/receipts/MOD-CARRIER-SCOPE",
+        ".forge21/functional-evidence/MOD-CARRIER-SCOPE"
+      ],
+      "commitMessage": "feat(carrier-scope): materialize functional carrier scope"
+    },
+    "MOD-PRODUCT-INTELLIGENCE": {
+      "implementationCommand": null,
+      "functionalTestCommand": null,
+      "consumerTestPaths": [],
+      "changedPaths": [
+        "forge/modules.json",
+        "modules/product-intelligence",
+        ".forge21/receipts/MOD-PRODUCT-INTELLIGENCE",
+        ".forge21/functional-evidence/MOD-PRODUCT-INTELLIGENCE"
+      ],
+      "commitMessage": "feat(product-intelligence): materialize functional product truth runtime"
+    }
+  }
+}

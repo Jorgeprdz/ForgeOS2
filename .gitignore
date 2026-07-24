@@ -3,3 +3,5 @@ node_modules/
 .forge21/tmp/
 *.log
 .DS_Store
+
+.forge21/autopilot/
